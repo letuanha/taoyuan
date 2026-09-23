@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli'
 
 const config: CapacitorConfig = {
   appId: 'com.games.wenzi.taoyuan',
-  appName: '桃源乡',
+  appName: 'Đào Nguyên Hương',
   webDir: 'docs'
 }
 
