@@ -14,7 +14,7 @@
     <div class="border border-accent/20 rounded-xs p-3 mb-4">
       <div class="flex items-center justify-between mb-1">
         <span class="text-sm text-accent">{{ homeStore.farmhouseName }}</span>
-        <span class="text-xs text-muted">cấp {{ homeStore.farmhouseLevel }}</span>
+        <span class="text-xs text-muted">等级 {{ homeStore.farmhouseLevel }}</span>
       </div>
       <p class="text-xs text-muted mb-2">{{ currentBenefit }}</p>
       <div
@@ -22,8 +22,8 @@
         class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
         @click="showUpgradeModal = true"
       >
-        <span class="text-xs">Nâng cấp thành「{{ homeStore.nextUpgrade.name }}」</span>
-        <span class="text-xs text-accent whitespace-nowrap">{{ homeStore.nextUpgrade.cost }}văn</span>
+        <span class="text-xs">升级为「{{ homeStore.nextUpgrade.name }}」</span>
+        <span class="text-xs text-accent whitespace-nowrap">{{ homeStore.nextUpgrade.cost }}文</span>
       </div>
     </div>
 
@@ -71,13 +71,13 @@
 
       <!-- 提议通知 -->
       <div v-if="npcStore.childProposalPending" class="border border-accent/30 rounded-xs p-2 mb-2">
-        <p class="text-xs text-accent mb-1.5">Bạn đờicólờinghĩ và bạnnói……</p>
+        <p class="text-xs text-accent mb-1.5">配偶有话想和你说……</p>
         <Button class="w-full justify-center" @click="showChildProposalDialog">Trả lời</Button>
       </div>
 
       <!-- 孕期面板 -->
       <div v-if="npcStore.pregnancy" class="border border-success/20 rounded-xs p-2 mb-2">
-        <p class="text-xs text-success mb-2">mang thaikỳ · {{ PREGNANCY_STAGE_LABELS[npcStore.pregnancy.stage] }}</p>
+        <p class="text-xs text-success mb-2">孕期 · {{ PREGNANCY_STAGE_LABELS[npcStore.pregnancy.stage] }}</p>
         <!-- 阶段进度条 -->
         <div class="flex items-center space-x-1 mb-1.5">
           <span class="text-[10px] text-muted w-8 shrink-0">Tiến độ</span>
@@ -134,19 +134,19 @@
         </div>
         <!-- 医疗方案（待产期） -->
         <div v-if="npcStore.pregnancy.stage === 'ready'" class="border border-accent/20 rounded-xs p-2 mt-2">
-          <p class="text-[10px] text-accent mb-1.5">Chọn phương lượtc đỡ sinh</p>
+          <p class="text-[10px] text-accent mb-1.5">Chọn phương thức đỡ sinh</p>
           <div v-if="!npcStore.pregnancy.medicalPlan" class="flex flex-col space-y-1">
             <Button class="py-0.5 px-1 text-[10px] w-full justify-center" @click="handleChooseMedical('normal')">
-              phổ thônggiaotiếpsinh（1000văn · 80%an toàntoàn bộ）
+              普通接生（1000文 · 80%安全）
             </Button>
             <Button class="py-0.5 px-1 text-[10px] w-full justify-center" @click="handleChooseMedical('advanced')">
-              caocấptiếpsinh（5000văn · 95%an toàntoàn bộ）
+              高级接生（5000文 · 95%安全）
             </Button>
             <Button class="py-0.5 px-1 text-[10px] w-full justify-center text-accent" @click="handleChooseMedical('luxury')">
-              sang trọnghoa lệtiếpsinh（15000văn · 100%an toàntoàn bộ）
+              豪华接生（15000文 · 100%安全）
             </Button>
           </div>
-          <p v-else class="text-[10px] text-success">đã chọn ：{{ MEDICAL_LABELS[npcStore.pregnancy.medicalPlan] }}</p>
+          <p v-else class="text-[10px] text-success">已选择：{{ MEDICAL_LABELS[npcStore.pregnancy.medicalPlan] }}</p>
         </div>
       </div>
 
@@ -164,8 +164,8 @@
           <div class="flex items-center justify-between mb-1">
             <span class="text-xs text-accent">
               {{ child.name }}
-              <span v-if="child.birthQuality === 'healthy'" class="text-[10px] text-success ml-0.5">[khỏekhỏe mạnh]</span>
-              <span v-else-if="child.birthQuality === 'premature'" class="text-[10px] text-muted/60 ml-0.5">[sớmsản]</span>
+              <span v-if="child.birthQuality === 'healthy'" class="text-[10px] text-success ml-0.5">[健康]</span>
+              <span v-else-if="child.birthQuality === 'premature'" class="text-[10px] text-muted/60 ml-0.5">[早产]</span>
             </span>
             <div class="flex items-center space-x-1">
               <Button
@@ -174,11 +174,11 @@
                 :icon="Heart"
                 @click="handleInteractChild(child.id)"
               >
-                tươngtác
+                互动
               </Button>
-              <span v-else-if="child.stage !== 'baby'" class="text-xs text-muted">đã tươngtác</span>
-              <span v-else class="text-xs text-muted">cònquánhỏ</span>
-              <Button class="py-0 px-1 text-danger" @click="releaseConfirmChildId = child.id">tặngđi</Button>
+              <span v-else-if="child.stage !== 'baby'" class="text-xs text-muted">已互动</span>
+              <span v-else class="text-xs text-muted">还太小</span>
+              <Button class="py-0 px-1 text-danger" @click="releaseConfirmChildId = child.id">送走</Button>
             </div>
           </div>
           <p class="text-[10px] text-muted mb-0.5">{{ CHILD_STAGE_NAMES[child.stage] }} · {{ child.daysOld }}ngày</p>
@@ -196,7 +196,7 @@
       </div>
       <!-- 送走子女确认 -->
       <div v-if="releaseConfirmChildId !== null" class="mt-2 game-panel border-danger/40">
-        <p class="text-xs text-danger mb-2">Xác nhận gửi {{ getChildName(releaseConfirmChildId) }} đến nhà họ hàng phương xa? (Phí 10000 văn)</p>
+        <p class="text-xs text-danger mb-2">确定将{{ getChildName(releaseConfirmChildId) }}送往远方亲戚家吗？（花费10000文）</p>
         <div class="grid grid-cols-2 gap-2">
           <Button class="text-danger" @click="handleReleaseChild">Xác nhận</Button>
           <Button @click="releaseConfirmChildId = null">Hủy</Button>
@@ -209,13 +209,13 @@
       <div class="flex items-center justify-between mb-2">
         <p class="text-sm text-accent">
           <Hammer :size="14" class="inline" />
-          Người làm thuê
+          雇工
         </p>
         <Button v-if="currentHelpers.length < 2" class="py-0 px-1.5" :icon="UserPlus" :icon-size="12" @click="showHireModal = true">
-          tuyểnmộ
+          招募
         </Button>
       </div>
-      <p class="text-xs text-muted mb-2">Thuê dân làng có hảo cảm ≥4 tim để giúp chăm sóc nông trại, trả lương mỗi ngày.</p>
+      <p class="text-xs text-muted mb-2">雇佣好感度≥4心的村民帮忙打理农场，每日支付工资。</p>
 
       <!-- 当前雇工 -->
       <div v-if="currentHelpers.length > 0" class="flex flex-col space-y-1 mb-2">
@@ -229,14 +229,14 @@
             <span class="text-xs text-muted ml-1">{{ npcStore.HELPER_TASK_NAMES[h.task] }}</span>
           </div>
           <div class="flex items-center space-x-1.5">
-            <span class="text-[10px] text-muted">{{ h.dailyWage }}văn/ngày</span>
+            <span class="text-[10px] text-muted">{{ h.dailyWage }}文/ngày</span>
             <Button class="py-0 px-1 btn-danger" :icon="X" :icon-size="10" @click="dismissConfirmNpcId = h.npcId" />
           </div>
         </div>
       </div>
       <div v-if="currentHelpers.length === 0" class="flex flex-col items-center justify-center py-6 text-muted">
         <Hammer :size="32" class="mb-2" />
-        <p class="text-xs">tạmchưa thuêthuê</p>
+        <p class="text-xs">暂未雇佣</p>
       </div>
     </div>
 
@@ -245,7 +245,7 @@
       <div class="flex items-center justify-between mb-2">
         <p class="text-sm text-accent">
           <Wine :size="14" class="inline" />
-          rượuhầm·Lv.{{ homeStore.cellarLevel }}
+          酒窖·Lv.{{ homeStore.cellarLevel }}
           <span class="text-[10px] text-muted ml-1">（{{ homeStore.cellarSlots.length }}/{{ homeStore.cellarMaxSlots }}）</span>
         </p>
         <Button v-if="homeStore.nextCellarUpgrade" class="py-0 px-1" @click="showCellarUpgradeModal = true">
@@ -258,15 +258,15 @@
           <div class="flex items-center justify-between mb-1">
             <div class="flex items-center space-x-1">
               <span class="text-xs text-accent">{{ getItemName(slot.itemId) }}</span>
-              <span v-if="slot.upgradeCount >= 16" class="text-[10px] text-success">Trầnủ{{ Math.floor(slot.upgradeCount / 16) }}năm</span>
+              <span v-if="slot.upgradeCount >= 16" class="text-[10px] text-success">陈酿{{ Math.floor(slot.upgradeCount / 16) }}năm</span>
             </div>
             <Button class="py-0 px-1" @click="removeAgingConfirmIdx = idx">Lấy ra</Button>
           </div>
           <div class="flex items-center justify-between mb-0.5">
-            <span class="text-[10px] text-muted">đã tănggiá trị+{{ slot.addedValue }}văn（nângtăng{{ slot.upgradeCount }}lần）</span>
+            <span class="text-[10px] text-muted">已增值+{{ slot.addedValue }}文（提升{{ slot.upgradeCount }}次）</span>
           </div>
           <div class="flex items-center space-x-1">
-            <span class="text-[10px] text-muted w-6">tuầnkỳ</span>
+            <span class="text-[10px] text-muted w-6">周期</span>
             <div class="flex-1 h-1.5 bg-bg rounded-xs border border-accent/10">
               <div
                 class="h-full rounded-xs bg-accent transition-all"
@@ -281,7 +281,7 @@
       </div>
       <div v-if="homeStore.cellarSlots.length === 0" class="flex flex-col items-center justify-center py-6 text-muted mb-3">
         <Wine :size="32" class="mb-2" />
-        <p class="text-xs">rượuhầmléplépnhưcũng</p>
+        <p class="text-xs">酒窖空空如也</p>
       </div>
 
       <!-- 放入新酒 -->
@@ -290,7 +290,7 @@
         v-if="homeStore.cellarSlots.length < homeStore.cellarMaxSlots && ageableInInventory.length > 0"
         @click="showAgingModal = true"
       >
-        đặtvàoTrầnủ
+        放入陈酿
       </Button>
     </div>
 
@@ -306,17 +306,17 @@
             <X :size="14" />
           </button>
 
-          <p class="text-sm text-accent mb-2">Nâng cấpnôngchuồng</p>
+          <p class="text-sm text-accent mb-2">升级农舍</p>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-xs">Nâng cấp thành「{{ homeStore.nextUpgrade.name }}」</p>
+            <p class="text-xs">升级为「{{ homeStore.nextUpgrade.name }}」</p>
             <p class="text-xs text-muted mt-0.5">
               {{ homeStore.nextUpgrade.description }}
             </p>
           </div>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2 space-y-1">
-            <p class="text-xs text-muted mb-1">Nguyên liệu cần thiết</p>
+            <p class="text-xs text-muted mb-1">所需材料</p>
             <div v-for="mat in homeStore.nextUpgrade.materialCost" :key="mat.itemId" class="flex items-center justify-between">
               <span class="text-xs text-muted">{{ getItemName(mat.itemId) }}</span>
               <span class="text-xs" :class="getCombinedItemCount(mat.itemId) >= mat.quantity ? '' : 'text-danger'">
@@ -324,9 +324,9 @@
               </span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Tiền đồng</span>
+              <span class="text-xs text-muted">铜钱</span>
               <span class="text-xs" :class="playerStore.money >= homeStore.nextUpgrade.cost ? '' : 'text-danger'">
-                {{ homeStore.nextUpgrade.cost }}văn
+                {{ homeStore.nextUpgrade.cost }}文
               </span>
             </div>
           </div>
@@ -354,7 +354,7 @@
       >
         <div class="game-panel max-w-xs w-full">
           <div class="flex items-center justify-between mb-2">
-            <p class="text-sm text-accent">đặt vàoTrầnủ</p>
+            <p class="text-sm text-accent">放入陈酿</p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="showAgingModal = false" />
           </div>
           <div class="flex flex-col space-y-1">
@@ -392,7 +392,7 @@
       >
         <div class="game-panel max-w-sm w-full">
           <div class="flex items-center justify-between mb-2">
-            <p class="text-sm text-accent">tặngquàcho{{ spouseDef?.name }}</p>
+            <p class="text-sm text-accent">送礼给{{ spouseDef?.name }}</p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="showSpouseGiftModal = false" />
           </div>
           <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
@@ -417,7 +417,7 @@
               <span class="text-xs text-muted">&times;{{ item.quantity }}</span>
             </div>
           </div>
-          <div v-if="spouseGiftableItems.length === 0" class="py-4 text-center text-xs text-muted">Túi đồtrongkhông cócó thể tặngtặng của Vật phẩm</div>
+          <div v-if="spouseGiftableItems.length === 0" class="py-4 text-center text-xs text-muted">背包中没有可赠送的物品</div>
         </div>
       </div>
     </Transition>
@@ -427,12 +427,12 @@
       <div v-if="showHireModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4" @click.self="closeHireModal">
         <div class="game-panel max-w-sm w-full">
           <div class="flex items-center justify-between mb-2">
-            <p class="text-sm text-accent">Tuyển người làm thuê</p>
+            <p class="text-sm text-accent">招募雇工</p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="closeHireModal" />
           </div>
 
           <!-- 任务选择 -->
-          <p class="text-xs text-muted mb-1">Chọn nhiệm vụ</p>
+          <p class="text-xs text-muted mb-1">选择任务</p>
           <div class="grid grid-cols-3 gap-1 mb-2">
             <button
               v-for="(label, key) in npcStore.HELPER_TASK_NAMES"
@@ -449,20 +449,20 @@
             <p class="text-[10px] text-muted leading-relaxed">
               {{ npcStore.HELPER_TASK_DESCRIPTIONS[selectedHireTask] }}
             </p>
-            <p class="text-[10px] text-muted/60 mt-1">Người làm thuê sẽ tự động làm việc vào sáng hôm sau, kết quả được ghi vào nhật ký ngày.</p>
+            <p class="text-[10px] text-muted/60 mt-1">雇工在次日清晨自动干活，结果会写进当ngày日志。</p>
           </div>
-          <p class="text-xs text-muted mb-2">ngàylương：{{ npcStore.HELPER_WAGES[selectedHireTask] }}văn</p>
+          <p class="text-xs text-muted mb-2">日薪：{{ npcStore.HELPER_WAGES[selectedHireTask] }}文</p>
 
           <!-- 确认雇佣 -->
           <div v-if="hireConfirmNpc" class="border border-accent/30 rounded-xs p-3 mb-2">
             <p class="text-xs text-accent mb-2">
-              xácđịnhthuêthuê
+              确定雇佣
               <span class="text-text">{{ hireConfirmNpc.name }}</span>
-              mangtrách nhiệm
+              负责
               <span class="text-text">{{ npcStore.HELPER_TASK_NAMES[selectedHireTask] }}</span>
-              sao？
+              吗？
             </p>
-            <p class="text-[10px] text-muted mb-2">ngàylương：{{ npcStore.HELPER_WAGES[selectedHireTask] }}văn</p>
+            <p class="text-[10px] text-muted mb-2">日薪：{{ npcStore.HELPER_WAGES[selectedHireTask] }}文</p>
             <div class="flex space-x-2">
               <Button class="py-0.5 px-2 text-xs" @click="handleHire(hireConfirmNpcId!)">Xác nhận</Button>
               <Button class="py-0.5 px-2 text-xs" @click="hireConfirmNpcId = null">Hủy</Button>
@@ -480,12 +480,12 @@
               <span class="text-xs">{{ npc.name }}</span>
               <span class="text-[10px] text-muted">
                 <Heart :size="10" class="inline" />
-                {{ Math.floor(npc.friendship / 250) }}tâm
+                {{ Math.floor(npc.friendship / 250) }}心
               </span>
             </div>
           </div>
           <p v-if="!hireConfirmNpc && hireableNpcs.length === 0" class="text-xs text-muted text-center py-3">
-            Không có dân làng phù hợp để thuê (cần hảo cảm ≥4 tim và không phải bạn đời/tri kỷ)
+            没有可雇佣的村民（需好感≥4心，且非伴侣/知己）
           </p>
         </div>
       </div>
@@ -499,11 +499,11 @@
         @click.self="dismissConfirmNpcId = null"
       >
         <div class="game-panel max-w-xs w-full text-center">
-          <p class="text-sm text-danger mb-3">Xác nhận sa thải {{ getNpcById(dismissConfirmNpcId)?.name }}?</p>
-          <p class="text-xs text-muted mb-4">giảithuêsaucần muốn lạimớituyểnmộ。</p>
+          <p class="text-sm text-danger mb-3">确定解雇{{ getNpcById(dismissConfirmNpcId)?.name }}吗？</p>
+          <p class="text-xs text-muted mb-4">解雇后需要重新招募。</p>
           <div class="flex space-x-3 justify-center">
             <Button @click="dismissConfirmNpcId = null">Hủy</Button>
-            <Button class="btn-danger" @click="handleDismiss(dismissConfirmNpcId!)">xác nhận giảithuê</Button>
+            <Button class="btn-danger" @click="handleDismiss(dismissConfirmNpcId!)">确认解雇</Button>
           </div>
         </div>
       </div>
@@ -517,20 +517,20 @@
         @click.self="removeAgingConfirmIdx = null"
       >
         <div class="game-panel max-w-xs w-full text-center">
-          <p class="text-sm text-accent mb-3">Xác nhận lấy {{ getItemName(removeAgingConfirmSlot.itemId) }} ra?</p>
+          <p class="text-sm text-accent mb-3">确定Lấy ra{{ getItemName(removeAgingConfirmSlot.itemId) }}吗？</p>
           <p class="text-xs text-muted mb-2">
-            đãtănggiá trị+{{ removeAgingConfirmSlot.addedValue }}văn（nângtăng{{ removeAgingConfirmSlot.upgradeCount }}lần）
+            已增值+{{ removeAgingConfirmSlot.addedValue }}文（提升{{ removeAgingConfirmSlot.upgradeCount }}次）
           </p>
           <p v-if="removeAgingConfirmSlot.upgradeCount >= 16" class="text-xs text-success mb-2">
-            Đã ủ thành {{ Math.floor(removeAgingConfirmSlot.upgradeCount / 16) }} năm, lấy ra sẽ mở sáng mục bộ sưu tập!
+            已成为陈酿{{ Math.floor(removeAgingConfirmSlot.upgradeCount / 16) }}năm，Lấy ra将点亮图鉴！
           </p>
           <p v-if="removeAgingConfirmSlot.addedValue > 0" class="text-xs text-accent mb-4">
-            Lấy rathờisẽnhậnđược{{ removeAgingConfirmSlot.addedValue }}văntănggiá trịđồngtiền。
+            Lấy ra时将获得{{ removeAgingConfirmSlot.addedValue }}文增值铜钱。
           </p>
-          <p v-else class="text-xs text-muted mb-4">vẫnchưa tănggiá trị，đầy7ngàycó thể nângtănggiágiá trị。</p>
+          <p v-else class="text-xs text-muted mb-4">尚未增值，满7ngày可提升价值。</p>
           <div class="flex space-x-3 justify-center">
             <Button @click="removeAgingConfirmIdx = null">Hủy</Button>
-            <Button @click="handleRemoveAging(removeAgingConfirmIdx!)">xác nhận Lấy ra</Button>
+            <Button @click="handleRemoveAging(removeAgingConfirmIdx!)">确认Lấy ra</Button>
           </div>
         </div>
       </div>
@@ -548,17 +548,17 @@
             <X :size="14" />
           </button>
 
-          <p class="text-sm text-accent mb-2">Nâng cấprượuhầm</p>
+          <p class="text-sm text-accent mb-2">升级酒窖</p>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-xs">Nâng cấp thành「{{ homeStore.nextCellarUpgrade.name }}」</p>
+            <p class="text-xs">升级为「{{ homeStore.nextCellarUpgrade.name }}」</p>
             <p class="text-xs text-muted mt-0.5">
-              mỗilầntănggiá trị{{ homeStore.nextCellarUpgrade.valuePerCycle }}văn，nhấtlớndung lượnglượng{{ homeStore.nextCellarUpgrade.maxSlots }}cái
+              每次增值{{ homeStore.nextCellarUpgrade.valuePerCycle }}文，最大容量{{ homeStore.nextCellarUpgrade.maxSlots }}个
             </p>
           </div>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2 space-y-1">
-            <p class="text-xs text-muted mb-1">Nguyên liệu cần thiết</p>
+            <p class="text-xs text-muted mb-1">所需材料</p>
             <div v-for="mat in homeStore.nextCellarUpgrade.materialCost" :key="mat.itemId" class="flex items-center justify-between">
               <span class="text-xs text-muted">{{ getItemName(mat.itemId) }}</span>
               <span class="text-xs" :class="getCombinedItemCount(mat.itemId) >= mat.quantity ? '' : 'text-danger'">
@@ -566,9 +566,9 @@
               </span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Tiền đồng</span>
+              <span class="text-xs text-muted">铜钱</span>
               <span class="text-xs" :class="playerStore.money >= homeStore.nextCellarUpgrade.cost ? '' : 'text-danger'">
-                {{ homeStore.nextCellarUpgrade.cost }}văn
+                {{ homeStore.nextCellarUpgrade.cost }}文
               </span>
             </div>
           </div>
@@ -659,7 +659,7 @@
     dismissConfirmNpcId.value = null
   }
 
-  // === phốingẫu nhiêntươngtác ===
+  // === 配偶互动 ===
 
   const spouseState = computed(() => npcStore.getSpouse())
   const spouseDef = computed(() => (spouseState.value ? getNpcById(spouseState.value.npcId) : null))
@@ -818,7 +818,7 @@
     return npcStore.children.find(c => c.id === childId)?.name ?? 'Con'
   }
 
-  // === thao táclàmnơiquản lý ===
+  // === 操作处理 ===
 
   const handleUpgradeFromModal = () => {
     const upgrade = homeStore.nextUpgrade
@@ -875,14 +875,14 @@
     } else {
       addLog('Không thể đặt vào hầm rượu (đã đầy hoặc vật phẩm không thể ủ).')
     }
-    // rượuhầmđầyhoặckhôngcòncòn可Trầnủvậtphẩmthờiquan hệđóngđạncửa sổ
+    // 酒窖满或无剩余可陈酿物品时关闭弹窗
     if (homeStore.cellarSlots.length >= homeStore.cellarMaxSlots || ageableInInventory.value.length === 0) {
       showAgingModal.value = false
     }
   }
 
   const handleRemoveAging = (index: number) => {
-    // lấyratrướctrướcghilụccòncònngàysố
+    // 取出前先记录剩余天数
     const slotBeforeRemove = homeStore.cellarSlots[index]
     const remainingDays = slotBeforeRemove?.daysAging ?? 0
     const result = homeStore.removeAging(index)
@@ -895,7 +895,7 @@
         msg += `(Ủ ${totalDays} ngày, tăng giá +${result.addedValue} văn)`
       }
       addLog(msg + '。')
-      // đầy1nămđiểmsángbộ sưu tậpgiám
+      // 满1年点亮图鉴
       if (result.upgradeCount >= 16) {
         const achievementStore = useAchievementStore()
         achievementStore.discoverItem('aged_' + result.itemId)

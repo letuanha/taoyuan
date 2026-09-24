@@ -126,19 +126,19 @@ export const getUpgradeCost = (type: ToolType, currentTier: ToolTier): ToolUpgra
 
 /** 工具中文名 */
 export const TOOL_NAMES: Record<ToolType, string> = {
-  wateringCan: 'Bình tưới',
-  hoe: 'Cuốc',
-  pickaxe: 'Cuốc chim',
-  fishingRod: 'Cần câu',
-  scythe: 'Liềm',
-  axe: 'Rìu',
-  pan: 'Mâm đãi vàng'
+  wateringCan: '水壶',
+  hoe: '锄头',
+  pickaxe: '镐',
+  fishingRod: '鱼竿',
+  scythe: '镰刀',
+  axe: '斧头',
+  pan: '淘金盘'
 }
 
 /** 工具等级中文名 */
 export const TIER_NAMES: Record<ToolTier, string> = {
-  basic: 'Ban đầu',
-  iron: 'Sắt',
-  steel: 'Thép tinh luyện',
-  iridium: 'Iridi'
+  basic: '初始',
+  iron: '铁制',
+  steel: '精钢',
+  iridium: '铱金'
 }

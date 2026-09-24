@@ -4,7 +4,7 @@ import type { WildTreeDef } from '@/types'
 export const WILD_TREE_DEFS: WildTreeDef[] = [
   {
     type: 'pine',
-    name: 'Cây thông',
+    name: '松树',
     seedItemId: 'pine_cone',
     growthDays: 21,
     tapProduct: 'pine_resin',
@@ -13,7 +13,7 @@ export const WILD_TREE_DEFS: WildTreeDef[] = [
   },
   {
     type: 'camphor',
-    name: 'Cây long não',
+    name: '樟树',
     seedItemId: 'camphor_seed',
     growthDays: 28,
     tapProduct: 'camphor_oil',
@@ -22,7 +22,7 @@ export const WILD_TREE_DEFS: WildTreeDef[] = [
   },
   {
     type: 'mulberry',
-    name: 'Cây dâu',
+    name: '桑树',
     seedItemId: 'mulberry',
     growthDays: 14,
     tapProduct: 'silk',

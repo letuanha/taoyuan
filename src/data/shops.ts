@@ -103,19 +103,19 @@ export const isShopAvailable = (shop: ShopDef, day: number, hour: number, weathe
 export const getShopClosedReason = (shop: ShopDef, day: number, hour: number, weather: Weather, season: Season): string => {
   const weekday = getWeekday(day)
   if (shop.closedSeasons.length > 0 && shop.closedSeasons.includes(season)) {
-    return 'Mùa này tạm nghỉ'
+    return '本季休业'
   }
   if (shop.closedWeathers.length > 0 && shop.closedWeathers.includes(weather)) {
-    return 'Nghỉ do thời tiết'
+    return '天气原因休息'
   }
   if (shop.closedDays.includes(weekday)) {
-    return 'Hôm nay nghỉ'
+    return '今日休息'
   }
   if (hour < shop.openHour) {
-    return `Mở cửa lúc ${shop.openHour} giờ`
+    return `${shop.openHour}点开门`
   }
   if (hour >= shop.closeHour) {
-    return 'Đã đóng cửa'
+    return '已打烊'
   }
   return ''
 }

@@ -136,7 +136,7 @@ export const buildChatterPool = (npcId: string, ctx: ChatterContext): string[] =
     if (close) pool.push(...close, ...close)
   }
 
-  // 情境层：所有人共用，提供"Hôm nay thật khác"的感觉
+  // 情境层：所有人共用，提供"今天不一样"的感觉
   pool.push(...SEASON_CHATTER[ctx.season])
   const weatherLines = WEATHER_CHATTER[ctx.weather]
   if (weatherLines) pool.push(...weatherLines)

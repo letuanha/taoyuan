@@ -38,11 +38,11 @@ const SUPPLY_THRESHOLDS: Record<MarketCategory, { low: number; mid: number; high
 }
 
 export const TREND_NAMES: Record<MarketTrend, string> = {
-  boom: 'Tăng mạnh',
-  rising: 'Tăng',
-  stable: 'Ổn định',
-  falling: 'Giảm',
-  crash: 'Giảm mạnh'
+  boom: '大涨',
+  rising: '上涨',
+  stable: '平稳',
+  falling: '下跌',
+  crash: '暴跌'
 }
 
 export const TREND_COLORS: Record<MarketTrend, string> = {
@@ -54,7 +54,7 @@ export const TREND_COLORS: Record<MarketTrend, string> = {
 }
 
 export const MARKET_CATEGORY_NAMES: Record<MarketCategory, string> = {
-  crop: 'Nông sản',
+  crop: '农产品',
   fish: 'Cá',
   animal_product: 'Sản phẩm chăn nuôi',
   processed: 'Đồ chế biến',

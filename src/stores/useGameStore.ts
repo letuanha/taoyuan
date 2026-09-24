@@ -39,7 +39,7 @@ export const WEATHER_NAMES: Record<Weather, string> = {
   stormy: 'Mưa giông',
   snowy: 'Tuyết',
   windy: 'Gió lớn',
-  green_rain: 'Mưa xanh'
+  green_rain: '绿雨'
 }
 
 /** 固定天气日 */
@@ -140,7 +140,7 @@ export const useGameStore = defineStore('game', () => {
       return {
         ok: true,
         passedOut: true,
-        message: 'Đã 2 giờ sáng, bạn không thể trụ nổi và gục xuống…'
+        message: '已经凌晨2点了，你撑不住倒下了……'
       }
     }
 
@@ -201,7 +201,7 @@ export const useGameStore = defineStore('game', () => {
     const targetName = getLocationGroupName(targetGroup)
     currentLocationGroup.value = targetGroup
 
-    const travelMsg = cost > 0 ? `Đi đến ${targetName}, mất ${Math.round(cost * 60)} phút trên đường và tiêu hao ${staminaCost} thể lực.` : ''
+    const travelMsg = cost > 0 ? `前往${targetName}，路上花了${Math.round(cost * 60)}分钟，消耗${staminaCost}点体力。` : ''
     return {
       ok: true,
       timeCost: cost,

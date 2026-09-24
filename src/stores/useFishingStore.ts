@@ -162,46 +162,46 @@ export const useFishingStore = defineStore('fishing', () => {
   /** 装备鱼饵（仅标记类型，不从背包取出） */
   const equipBait = (type: BaitType): { success: boolean; message: string } => {
     const def = getBaitById(type)
-    if (!def) return { success: false, message: 'Mồi câu không hợp lệ.' }
-    if (inventoryStore.getItemCount(type) <= 0) return { success: false, message: 'Trong túi không có loại mồi này.' }
+    if (!def) return { success: false, message: '无效的鱼饵。' }
+    if (inventoryStore.getItemCount(type) <= 0) return { success: false, message: '背包中没有该鱼饵。' }
     equippedBait.value = type
-    return { success: true, message: `Đã trang bị ${def.name}.` }
+    return { success: true, message: `装备了${def.name}。` }
   }
 
   /** 卸下鱼饵 */
   const unequipBait = (): string => {
-    if (!equippedBait.value) return 'Chưa trang bị mồi câu.'
+    if (!equippedBait.value) return '没有装备鱼饵。'
     const def = getBaitById(equippedBait.value)
     equippedBait.value = null
-    return `Đã tháo ${def?.name ?? 'mồi câu'}.`
+    return `卸下了${def?.name ?? '鱼饵'}。`
   }
 
   /** 装备浮漂 */
   const equipTackle = (type: TackleType): { success: boolean; message: string } => {
     const def = getTackleById(type)
-    if (!def) return { success: false, message: 'Phao câu không hợp lệ.' }
+    if (!def) return { success: false, message: '无效的浮漂。' }
     const rodTier = inventoryStore.getTool('fishingRod')?.tier ?? 'basic'
-    if (rodTier === 'basic') return { success: false, message: 'Cần cần câu sắt hoặc tốt hơn mới có thể trang bị phao.' }
-    if (!inventoryStore.removeItem(type, 1)) return { success: false, message: 'Trong túi không có phao này.' }
+    if (rodTier === 'basic') return { success: false, message: '需要铁制或更好的鱼竿才能装备浮漂。' }
+    if (!inventoryStore.removeItem(type, 1)) return { success: false, message: '背包中没有该浮漂。' }
     if (equippedTackle.value) unequipTackle()
     equippedTackle.value = type
     tackleDurability.value = def.maxDurability
     return {
       success: true,
-      message: `Đã trang bị ${def.name}. (Độ bền: ${def.maxDurability})`
+      message: `装备了${def.name}。(耐久: ${def.maxDurability})`
     }
   }
 
   /** 卸下浮漂 */
   const unequipTackle = (): string => {
-    if (!equippedTackle.value) return 'Chưa trang bị phao.'
+    if (!equippedTackle.value) return '没有装备浮漂。'
     const def = getTackleById(equippedTackle.value)
     if (tackleDurability.value > 0) {
       inventoryStore.addItem(equippedTackle.value, 1)
     }
     equippedTackle.value = null
     tackleDurability.value = 0
-    return `Đã tháo ${def?.name ?? 'phao'}.`
+    return `卸下了${def?.name ?? '浮漂'}。`
   }
 
   /** 开始钓鱼 */
@@ -228,7 +228,7 @@ export const useFishingStore = defineStore('fishing', () => {
       )
     )
     if (!playerStore.consumeStamina(staminaCost)) {
-      return { success: false, message: 'Không đủ thể lực, không thể câu cá.' }
+      return { success: false, message: '体力不足，无法钓鱼。' }
     }
 
     // 确定鱼池：magic_bait 忽略季节但仍限地点
@@ -240,7 +240,7 @@ export const useFishingStore = defineStore('fishing', () => {
 
     if (fishPool.length === 0) {
       playerStore.restoreStamina(staminaCost)
-      return { success: false, message: 'Mùa và thời tiết hiện tại không có cá để câu.' }
+      return { success: false, message: '当前季节和天气没有可钓的鱼。' }
     }
 
     // 消耗鱼饵（从背包扣除1个，用完才取消装备）
@@ -273,7 +273,7 @@ export const useFishingStore = defineStore('fishing', () => {
       return {
         success: true,
         junk: true,
-        message: `Câu được ${junkName}……(-${staminaCost} thể lực)`
+        message: `钓上了${junkName}……(-${staminaCost}体力)`
       }
     }
 
@@ -283,7 +283,7 @@ export const useFishingStore = defineStore('fishing', () => {
     lastTreasure.value = null
     lastPerfect.value = false
 
-    let msg = `Quăng cần xuống nước……cảm giác ${fish.name} đang ở gần! (-${staminaCost} thể lực)`
+    let msg = `抛竿入水……感觉有${fish.name}在附近！(-${staminaCost}体力)`
     if (activeBaitDef.value) msg += ` [${activeBaitDef.value.name}]`
     if (activeTackleDef.value) msg += ` [${activeTackleDef.value.name}]`
     return { success: true, message: msg }
@@ -459,7 +459,7 @@ export const useFishingStore = defineStore('fishing', () => {
       const fish = currentFish.value
       endFishing()
       return {
-        message: `Cá đã chạy mất……${fish.name} thoát rồi!`,
+        message: `鱼跑掉了……${fish.name}逃脱了！`,
         fishName: fish.name,
         fishId: fish.id,
         difficulty: fish.difficulty,
@@ -551,15 +551,15 @@ export const useFishingStore = defineStore('fishing', () => {
     const perfectMult = rating === 'perfect' ? 2 : 1
     skillStore.addExp('fishing', Math.floor(expGain * riverlandBonus * perfectMult))
 
-    const ratingTag = rating === 'perfect' ? ' [Hoàn hảo!]' : ''
+    const ratingTag = rating === 'perfect' ? ' [完美!]' : ''
     let message = ''
     if (!added) {
-      message = `Câu được ${currentFish.value.name}, nhưng túi đã đầy nên cá bị mất!`
+      message = `钓上了${currentFish.value.name}，但背包已满，鱼丢失了！`
     } else {
       message =
         catchQty > 1
-          ? `Câu thành công ${catchQty} con ${currentFish.value.name}! ${ratingTag}`
-          : `Câu thành công ${currentFish.value.name}! ${ratingTag}`
+          ? `成功钓上了${catchQty}条${currentFish.value.name}！${ratingTag}`
+          : `成功钓上了${currentFish.value.name}！${ratingTag}`
     }
 
     // 宝箱
@@ -568,9 +568,9 @@ export const useFishingStore = defineStore('fishing', () => {
       lastTreasure.value = treasure
       const treasureNames = treasure.items.map(t => `${t.name}×${t.quantity}`).join('、')
       if (treasure.money > 0) {
-        message += ` Rương báu: ${treasureNames}${treasureNames ? '、' : ''}${treasure.money} văn!`
+        message += ` 宝箱：${treasureNames}${treasureNames ? '、' : ''}${treasure.money}文！`
       } else {
-        message += ` Rương báu: ${treasureNames}!`
+        message += ` 宝箱：${treasureNames}！`
       }
     }
 
@@ -644,35 +644,35 @@ export const useFishingStore = defineStore('fishing', () => {
   /** 放置蟹笼 */
   const placeCrabPot = (location: FishingLocation): { success: boolean; message: string } => {
     if (crabPots.value.length >= MAX_CRAB_POTS) {
-      return { success: false, message: `Lồng cua đã đạt giới hạn (${MAX_CRAB_POTS}).` }
+      return { success: false, message: `蟹笼已达上限 (${MAX_CRAB_POTS})。` }
     }
     const atLocation = crabPots.value.filter(p => p.location === location).length
     if (atLocation >= MAX_CRAB_POTS_PER_LOCATION) {
       return {
         success: false,
-        message: `Địa điểm này đã đạt giới hạn lồng cua (${MAX_CRAB_POTS_PER_LOCATION}).`
+        message: `该地点蟹笼已达上限 (${MAX_CRAB_POTS_PER_LOCATION})。`
       }
     }
     if (!inventoryStore.removeItem('crab_pot', 1)) {
-      return { success: false, message: 'Trong túi không có lồng cua.' }
+      return { success: false, message: '背包中没有蟹笼。' }
     }
     crabPots.value.push({ location, hasBait: false })
-    return { success: true, message: 'Đã đặt lồng cua.' }
+    return { success: true, message: '蟹笼已放置。' }
   }
 
   /** 回收蟹笼 */
   const removeCrabPot = (location: FishingLocation): { success: boolean; message: string } => {
     const idx = crabPots.value.findIndex(p => p.location === location)
-    if (idx === -1) return { success: false, message: 'Địa điểm này không có lồng cua.' }
+    if (idx === -1) return { success: false, message: '该地点没有蟹笼。' }
     crabPots.value.splice(idx, 1)
     inventoryStore.addItem('crab_pot', 1)
-    return { success: true, message: 'Đã thu hồi lồng cua.' }
+    return { success: true, message: '蟹笼已回收。' }
   }
 
   /** 给蟹笼装饵 (指定地点的所有蟹笼) */
   const baitCrabPots = (location: FishingLocation): { success: boolean; message: string } => {
     const pots = crabPots.value.filter(p => p.location === location && !p.hasBait)
-    if (pots.length === 0) return { success: false, message: 'Tất cả lồng cua tại địa điểm này đã có mồi.' }
+    if (pots.length === 0) return { success: false, message: '该地点蟹笼都已有饵料。' }
     let baited = 0
     for (const pot of pots) {
       if (inventoryStore.removeItem('standard_bait', 1)) {
@@ -682,8 +682,8 @@ export const useFishingStore = defineStore('fishing', () => {
         break
       }
     }
-    if (baited === 0) return { success: false, message: 'Hết mồi câu.' }
-    return { success: true, message: `Đã đặt mồi cho ${baited} lồng cua.` }
+    if (baited === 0) return { success: false, message: '没有鱼饵了。' }
+    return { success: true, message: `装饵${baited}个蟹笼。` }
   }
 
   /** 全局装饵（雇工自动调用，不限地点） */

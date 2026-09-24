@@ -11,7 +11,7 @@
             <button v-if="allowLoad" class="btn flex-1 !justify-between text-xs" @click="$emit('load', info.slot)">
               <span class="inline-flex items-center space-x-1">
                 <FolderOpen :size="12" />
-                <span>Lưu game {{ info.slot + 1 }}</span>
+                <span>存档 {{ info.slot + 1 }}</span>
               </span>
               <span class="text-muted text-xs">
                 {{ info.playerName ?? 'Chưa đặt tên' }} · thứ{{ info.year }}năm
@@ -22,7 +22,7 @@
             <div v-else class="btn flex-1 !justify-between text-xs cursor-default">
               <span class="inline-flex items-center space-x-1">
                 <FolderOpen :size="12" />
-                <span>Lưu game {{ info.slot + 1 }}</span>
+                <span>存档 {{ info.slot + 1 }}</span>
               </span>
               <span class="text-muted text-xs">
                 {{ info.playerName ?? 'Chưa đặt tên' }} · thứ{{ info.year }}năm
@@ -82,7 +82,7 @@
             </div>
           </div>
           <div v-else class="flex space-x-1 w-full">
-            <div class="text-xs text-muted border border-accent/10 rounded-xs px-3 py-2 flex-1">Lưu game {{ info.slot + 1 }} — lép</div>
+            <div class="text-xs text-muted border border-accent/10 rounded-xs px-3 py-2 flex-1">存档 {{ info.slot + 1 }} — 空</div>
             <Button
               v-if="webdavReady"
               :icon="CloudDownload"
@@ -91,7 +91,7 @@
               :disabled="downloading"
               @click="handleDownload(info.slot)"
             >
-              <span class="text-xs">{{ downloading ? 'Đang tải xuống...' : 'Đám mây' }}</span>
+              <span class="text-xs">{{ downloading ? 'Đang tải xuống...' : '云端' }}</span>
             </Button>
           </div>
         </div>
@@ -111,7 +111,7 @@
           @click.self="deleteTargetSlot = null"
         >
           <div class="game-panel w-full max-w-xs mx-4 text-center">
-            <p class="text-danger text-sm mb-3">Xác nhận xóa ô lưu {{ deleteTargetSlot + 1 }}?</p>
+            <p class="text-danger text-sm mb-3">确定删除存档 {{ deleteTargetSlot + 1 }}？</p>
             <p class="text-xs text-muted mb-4">Thao tác này không thể hoàn tác.</p>
             <div class="flex space-x-3 justify-center">
               <Button @click="deleteTargetSlot = null">Hủy</Button>
@@ -191,7 +191,7 @@
       } else if (saveStore.importSave(emptySlot.slot, content)) {
         refreshSlots()
         emit('change')
-        showFloat(`Đã nhập vào ô lưu ${emptySlot.slot + 1}.`, 'success')
+        showFloat(`已导入到存档 ${emptySlot.slot + 1}。`, 'success')
       } else {
         showFloat('Tệp lưu không hợp lệ hoặc đã hỏng.', 'danger')
       }

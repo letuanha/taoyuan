@@ -2,7 +2,7 @@
   <div>
     <h3 class="text-accent text-sm mb-3">
       <Building :size="14" class="inline" />
-      thiếtbón
+      设施
     </h3>
 
     <!-- 山洞 -->
@@ -12,24 +12,24 @@
         {{ homeStore.caveUnlocked && homeStore.caveChoice !== 'none' ? homeStore.caveName : 'Hang động' }}
       </p>
       <div v-if="!homeStore.caveUnlocked">
-        <p class="text-xs text-muted">Hang núi chưa mở. (Sẽ tự động mở khi tổng thu nhập tích lũy đạt một mức nhất định.)</p>
+        <p class="text-xs text-muted">山洞尚未开放。（累计收入达到一定额度后自动开放）</p>
       </div>
       <div v-else-if="homeStore.caveChoice === 'none'">
-        <p class="text-xs text-muted mb-2">Chọn công dụng của hang (đã chọn thì không thể thay đổi):</p>
+        <p class="text-xs text-muted mb-2">选择山洞用途（选定后不可更改）：</p>
         <div class="flex flex-col space-y-1">
           <div
             class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
             @click="handleChooseCave('mushroom')"
           >
-            <span class="text-xs">Hang nấm</span>
-            <span class="text-xs text-muted">mỗingày60%kháisuấtsảnnấmnấm</span>
+            <span class="text-xs">蘑菇洞</span>
+            <span class="text-xs text-muted">每ngày60%概率产蘑菇</span>
           </div>
           <div
             class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
             @click="handleChooseCave('fruit_bat')"
           >
-            <span class="text-xs">Hang dơi</span>
-            <span class="text-xs text-muted">mỗingày50%kháisuấtsảnnướcquả</span>
+            <span class="text-xs">蝙蝠洞</span>
+            <span class="text-xs text-muted">每ngày50%概率产水果</span>
           </div>
         </div>
       </div>
@@ -43,25 +43,25 @@
             <span class="text-[10px] text-accent">{{ homeStore.caveName }}（Lv.{{ homeStore.caveLevel }}）</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-[10px] text-muted">Số ngày hoạt động</span>
+            <span class="text-[10px] text-muted">运作ngày数</span>
             <span class="text-[10px]">{{ homeStore.caveDaysActive }}ngày</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-[10px] text-muted">sảnraChất lượng</span>
+            <span class="text-[10px] text-muted">产出品质</span>
             <span class="text-[10px]" :class="caveQualityClass">{{ caveQualityLabel }}</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-[10px] text-muted">sảnrakháisuất</span>
+            <span class="text-[10px] text-muted">产出概率</span>
             <span class="text-[10px]">{{ caveChanceText }}</span>
           </div>
           <div v-if="currentCaveDef && currentCaveDef.doubleChance > 0" class="flex items-center justify-between">
-            <span class="text-[10px] text-muted">đôilầnkháisuất</span>
+            <span class="text-[10px] text-muted">双倍概率</span>
             <span class="text-[10px]">{{ Math.round(currentCaveDef.doubleChance * 100) }}%</span>
           </div>
         </div>
         <!-- 山洞升级 -->
         <div v-if="homeStore.nextCaveUpgrade" class="border border-accent/10 rounded-xs p-2">
-          <p class="text-[10px] text-muted mb-1">Nâng cấpđến {{ homeStore.nextCaveUpgrade.name }}</p>
+          <p class="text-[10px] text-muted mb-1">升级至 {{ homeStore.nextCaveUpgrade.name }}</p>
           <div class="space-y-0.5 mb-1.5">
             <div v-for="mat in homeStore.nextCaveUpgrade.materialCost" :key="mat.itemId" class="flex items-center justify-between">
               <span class="text-[10px] text-muted">{{ getItemName(mat.itemId) }}</span>
@@ -70,9 +70,9 @@
               </span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-[10px] text-muted">Tiền đồng</span>
+              <span class="text-[10px] text-muted">铜钱</span>
               <span class="text-[10px]" :class="playerStore.money >= homeStore.nextCaveUpgrade.cost ? '' : 'text-danger'">
-                {{ homeStore.nextCaveUpgrade.cost }}văn
+                {{ homeStore.nextCaveUpgrade.cost }}文
               </span>
             </div>
           </div>
@@ -84,10 +84,10 @@
             :icon-size="12"
             @click="handleUpgradeCave"
           >
-            tăngcấpnúihang
+            升级山洞
           </Button>
         </div>
-        <div v-else class="text-[10px] text-muted">núihangđã tăngđếnnhấtcaocấp。</div>
+        <div v-else class="text-[10px] text-muted">山洞已升至最高等级。</div>
       </div>
     </div>
 
@@ -95,20 +95,20 @@
     <div class="border border-accent/20 rounded-xs p-3 mb-4">
       <p class="text-sm text-accent mb-2">
         <Leaf :size="14" class="inline" />
-        ấmphòng
+        温室
       </p>
       <div v-if="!homeStore.greenhouseUnlocked">
-        <p class="text-xs text-muted mb-2">Sau khi mở khóa nhà kính có thể trồng cây ở mọi mùa, cây sẽ tự động được tưới.</p>
+        <p class="text-xs text-muted mb-2">解锁温室后可在任何mùa节种植作物，作物自动浇水。</p>
         <div
           class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
           @click="showGreenhouseModal = true"
         >
-          <span class="text-xs">Mở khóa nhà kính</span>
-          <span class="text-xs text-accent whitespace-nowrap">{{ GREENHOUSE_UNLOCK_COST }}văn</span>
+          <span class="text-xs">解锁温室</span>
+          <span class="text-xs text-accent whitespace-nowrap">{{ GREENHOUSE_UNLOCK_COST }}文</span>
         </div>
       </div>
       <div v-else>
-        <p class="text-xs text-success">Nhà kínhđã mởđặt。có thể đangNông trạimặtbảngtrongchuyểnđổiđếnNhà kínhtiếnhànhtrồng。</p>
+        <p class="text-xs text-success">温室已开放。可在农场面板中切换至温室进行种植。</p>
       </div>
     </div>
 
@@ -117,22 +117,22 @@
       <div class="flex items-center justify-between mb-2">
         <p class="text-sm text-accent">
           <Warehouse :size="14" class="inline" />
-          khokho
+          仓库
         </p>
         <span v-if="warehouseStore.unlocked" class="text-xs text-muted">
-          rươngcon {{ warehouseStore.craftedChestCount }}/{{ warehouseStore.maxChests }}
+          箱子 {{ warehouseStore.craftedChestCount }}/{{ warehouseStore.maxChests }}
         </span>
       </div>
 
       <!-- 未解锁 -->
       <div v-if="!warehouseStore.unlocked">
-        <p class="text-xs text-muted mb-2">Sau khi mở khóa sẽ có kho tổng được phân loại, có thể cất đồ trực tiếp; ngoài ra có thể chế tạo thêm rương để quản lý chi tiết.</p>
+        <p class="text-xs text-muted mb-2">解锁后即获得一座按类归档的总仓，可直接存放物品；另可额外打造箱子细分管理。</p>
         <div
           class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
           @click="showWarehouseUnlockModal = true"
         >
-          <span class="text-xs">Mở khóa kho</span>
-          <span class="text-xs text-accent whitespace-nowrap">{{ warehouseStore.UNLOCK_COST }}văn</span>
+          <span class="text-xs">解锁仓库</span>
+          <span class="text-xs text-accent whitespace-nowrap">{{ warehouseStore.UNLOCK_COST }}文</span>
         </div>
       </div>
 
@@ -143,19 +143,19 @@
           <div class="flex items-center justify-between mb-1.5">
             <div class="flex items-center space-x-1.5">
               <Warehouse :size="12" class="text-accent" />
-              <span class="text-xs text-accent">Kho tổng</span>
+              <span class="text-xs text-accent">总仓</span>
               <span class="text-[10px] text-muted">{{ warehouseStore.mainChest.items.length }}/{{ warehouseStore.mainChestCapacity }}</span>
             </div>
             <div class="flex items-center space-x-1">
               <Button class="py-0 px-1.5 text-[10px]" :icon="ArrowDownToLine" :icon-size="10" @click="handleStowToMain(false)">
-                bổ sunghàngvàokho
+                补货入仓
               </Button>
-              <Button class="py-0 px-1.5 text-[10px]" :icon="ArrowDown" :icon-size="10" @click="handleStowToMain(true)">Cất tất cả vào kho</Button>
-              <Button class="py-0 px-1.5 text-[10px]" @click="openChestId = warehouseStore.mainChest.id">Mở</Button>
+              <Button class="py-0 px-1.5 text-[10px]" :icon="ArrowDown" :icon-size="10" @click="handleStowToMain(true)">全部入仓</Button>
+              <Button class="py-0 px-1.5 text-[10px]" @click="openChestId = warehouseStore.mainChest.id">打开</Button>
             </div>
           </div>
           <p class="text-[10px] text-muted/60 mb-1.5">
-            「Bổ sung vào kho」 thu các vật phẩm cùng loại đã có trong kho tổng; 「Cất tất cả vào kho」 chuyển mọi vật phẩm có thể lưu từ túi vào kho (trừ hạt giống và vật phẩm giới hạn).
+            「补货入仓」只收总仓里已有的同类物品；「全部入仓」收走背包里所有可存物品（种子与限定品除外）。
           </p>
           <!-- 按类别分区概览 -->
           <div v-if="mainChestGroups.length > 0" class="flex flex-wrap">
@@ -168,7 +168,7 @@
               <span class="text-text">{{ g.items.length }}</span>
             </span>
           </div>
-          <p v-else class="text-[10px] text-muted/50">Kho tổngcònlàlép của ，điểm「Cất tất cả vào kho」đemTúi đồtrong của đôngtâythutiếnđến。</p>
+          <p v-else class="text-[10px] text-muted/50">总仓还是空的，点「全部入仓」把背包里的东西收进来。</p>
         </div>
 
         <!-- 自造箱子列表（不含总仓） -->
@@ -242,7 +242,7 @@
             </template>
           </div>
         </div>
-        <p v-else class="text-[10px] text-muted/50 mb-2 px-0.5">Hiện chưa cần thêm rương. Kho tổng đã đủ cho nhu cầu thường ngày; nếu muốn quản lý chi tiết theo mục đích thì có thể xây thêm.</p>
+        <p v-else class="text-[10px] text-muted/50 mb-2 px-0.5">暂无额外箱子。总仓已够日常使用；想按用途细分再造。</p>
 
         <!-- 添加箱子：进阶细分用，总仓不占名额 -->
         <Button
@@ -252,7 +252,7 @@
           :icon-size="12"
           @click="showAddChestModal = true"
         >
-          Thêm rương (có thể quản lý chi tiết và chọn phân loại)
+          添加箱子（细分管理，可选）
         </Button>
       </template>
     </div>
@@ -269,14 +269,14 @@
             <X :size="14" />
           </button>
 
-          <p class="text-sm text-accent mb-2">Mở khóa nhà kính</p>
+          <p class="text-sm text-accent mb-2">解锁温室</p>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-xs text-muted">Sau khi mở khóa có thể trồng cây ở mọi mùa, cây sẽ tự động được tưới.</p>
+            <p class="text-xs text-muted">解锁后可在任何mùa节种植作物，作物自动浇水。</p>
           </div>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2 space-y-1">
-            <p class="text-xs text-muted mb-1">Nguyên liệu cần thiết</p>
+            <p class="text-xs text-muted mb-1">所需材料</p>
             <div v-for="mat in GREENHOUSE_MATERIAL_COST" :key="mat.itemId" class="flex items-center justify-between">
               <span class="text-xs text-muted">{{ getItemName(mat.itemId) }}</span>
               <span class="text-xs" :class="getCombinedItemCount(mat.itemId) >= mat.quantity ? '' : 'text-danger'">
@@ -284,9 +284,9 @@
               </span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Tiền đồng</span>
+              <span class="text-xs text-muted">铜钱</span>
               <span class="text-xs" :class="playerStore.money >= GREENHOUSE_UNLOCK_COST ? '' : 'text-danger'">
-                {{ GREENHOUSE_UNLOCK_COST }}văn
+                {{ GREENHOUSE_UNLOCK_COST }}文
               </span>
             </div>
           </div>
@@ -299,7 +299,7 @@
             :icon-size="12"
             @click="handleUnlockFromModal"
           >
-            giảikhóa
+            解锁
           </Button>
         </div>
       </div>
@@ -317,10 +317,10 @@
             <X :size="14" />
           </button>
 
-          <p class="text-sm text-accent mb-2">Mở khóa kho</p>
+          <p class="text-sm text-accent mb-2">解锁仓库</p>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-xs text-muted">Sau khi mở khóa có thể đặt rương để phân loại vật phẩm; ban đầu có thể đặt 3 rương và nâng cấp tại cửa hàng.</p>
+            <p class="text-xs text-muted">解锁后可放置箱子分类存放物品，初始可放3个箱子，可在商店升级。</p>
           </div>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2 space-y-1">
@@ -331,9 +331,9 @@
               </span>
             </div>
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Tiền đồng</span>
+              <span class="text-xs text-muted">铜钱</span>
               <span class="text-xs" :class="playerStore.money >= warehouseStore.UNLOCK_COST ? '' : 'text-danger'">
-                {{ warehouseStore.UNLOCK_COST }}văn
+                {{ warehouseStore.UNLOCK_COST }}文
               </span>
             </div>
           </div>
@@ -346,7 +346,7 @@
             :icon-size="12"
             @click="handleUnlockWarehouse"
           >
-            giảikhóa
+            解锁
           </Button>
         </div>
       </div>
@@ -409,8 +409,8 @@
           </div>
           <div v-else class="flex flex-col items-center justify-center py-6 mb-2">
             <Warehouse :size="36" class="text-accent/20 mb-2" />
-            <p class="text-xs text-muted">Rương đang trống</p>
-            <p class="text-[10px] text-muted/50 mt-0.5">Nhấn 「Cất vật phẩm」 bên dưới để thêm</p>
+            <p class="text-xs text-muted">箱子是空的</p>
+            <p class="text-[10px] text-muted/50 mt-0.5">点击下方「Cất vào物品」添加</p>
           </div>
 
           <!-- 一键整理 -->
@@ -421,7 +421,7 @@
             :icon-size="12"
             @click="warehouseStore.sortChest(openChestId!)"
           >
-            chỉnhquản lý
+            整理
           </Button>
           <!-- 一键存入重复物品 -->
           <Button
@@ -431,11 +431,11 @@
             :icon-size="12"
             @click="handleDepositDuplicates"
           >
-            Cất nhanh đồ trùngvậtphẩm
+            Cất nhanh đồ trùng物品
           </Button>
           <!-- 存入按钮 -->
           <Button v-if="depositableItems.length > 0" class="w-full" :icon="ArrowDown" :icon-size="12" @click="showChestDepositModal = true">
-            Cất vàovậtphẩm
+            Cất vào物品
           </Button>
         </div>
       </div>
@@ -450,7 +450,7 @@
       >
         <div class="game-panel max-w-sm w-full">
           <div class="flex items-center justify-between mb-2">
-            <p class="text-sm text-accent">Cất vật phẩm</p>
+            <p class="text-sm text-accent">Cất vào物品</p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="showChestDepositModal = false" />
           </div>
           <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
@@ -491,7 +491,7 @@
           </p>
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <div class="flex items-center space-x-1">
                 <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="chestQty <= 1" @click="addChestQty(-1)">-</Button>
                 <input
@@ -508,9 +508,9 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="chestQty <= 1" @click="setChestQty(1)">Ít nhất</Button>
+              <Button class="flex-1 justify-center" :disabled="chestQty <= 1" @click="setChestQty(1)">最少</Button>
               <Button class="flex-1 justify-center" :disabled="chestQty >= chestQtyModal.max" @click="setChestQty(chestQtyModal!.max)">
-                nhấtnhiều
+                最多
               </Button>
             </div>
           </div>
@@ -530,18 +530,18 @@
       >
         <div class="game-panel max-w-xs w-full">
           <div class="flex items-center justify-between mb-2">
-            <p class="text-sm text-accent">tháotháoxác nhận </p>
+            <p class="text-sm text-accent">拆卸确认</p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="dismantleChestId = null" />
           </div>
           <template v-if="dismantleChestInfo">
             <p class="text-xs mb-2">
-              xácđịnhmuốntháotháo「{{ dismantleChestInfo.label }}」sao？
+              确定要拆卸「{{ dismantleChestInfo.label }}」吗？
               <span v-if="dismantleChestInfo.itemCount > 0" class="text-danger">
-                rươngtrong{{ dismantleChestInfo.itemCount }}ôvậtphẩmsẽtrả lạicònlưnggói。
+                箱内{{ dismantleChestInfo.itemCount }}格物品将返还背包。
               </span>
             </p>
             <div class="border border-accent/10 rounded-xs p-2 mb-3">
-              <p class="text-[10px] text-muted mb-1">Hoàn trả nguyên liệu (50%)</p>
+              <p class="text-[10px] text-muted mb-1">返还材料（50%）</p>
               <div class="flex flex-wrap gap-x-3 gap-y-0.5">
                 <span v-for="mat in dismantleChestInfo.refund" :key="mat.itemId" class="text-[10px] text-success">
                   {{ getItemName(mat.itemId) }} ×{{ mat.quantity }}
@@ -551,7 +551,7 @@
             </div>
             <div class="flex space-x-3 justify-center">
               <Button @click="dismantleChestId = null">Hủy</Button>
-              <Button class="btn-danger" :icon="Trash2" :icon-size="12" @click="confirmDismantle">tháotháo</Button>
+              <Button class="btn-danger" :icon="Trash2" :icon-size="12" @click="confirmDismantle">拆卸</Button>
             </div>
           </template>
         </div>
@@ -577,21 +577,21 @@
           </div>
           <div class="border border-accent/10 rounded-xs p-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <span class="text-xs">×{{ chestItemDetail.quantity }}</span>
             </div>
             <div v-if="chestItemDetail.quality !== 'normal'" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Chất lượng</span>
+              <span class="text-xs text-muted">品质</span>
               <span class="text-xs" :class="qualityTextClass(chestItemDetail.quality)">{{ QUALITY_LABEL[chestItemDetail.quality] }}</span>
             </div>
             <div v-if="chestItemDef.sellPrice" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ chestItemDef.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ chestItemDef.sellPrice }}文</span>
             </div>
             <div v-if="chestItemDef.staminaRestore" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Hồi phục</span>
               <span class="text-xs text-success">
-                +{{ chestItemDef.staminaRestore }}thểlực
+                +{{ chestItemDef.staminaRestore }}体力
                 <template v-if="chestItemDef.healthRestore">/ +{{ chestItemDef.healthRestore }}HP</template>
               </span>
             </div>
@@ -609,7 +609,7 @@
       >
         <div class="game-panel max-w-sm w-full">
           <div class="flex items-center justify-between mb-2">
-            <p class="text-sm text-accent">Chế tạorương</p>
+            <p class="text-sm text-accent">制作箱子</p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="showAddChestModal = false" />
           </div>
           <div class="flex flex-col space-y-1.5">
@@ -619,7 +619,7 @@
                   <span class="text-xs font-bold" :class="tier === 'void' ? 'text-quality-supreme' : 'text-accent'">
                     {{ CHEST_DEFS[tier].name }}
                   </span>
-                  <span class="text-[10px] text-muted">{{ CHEST_DEFS[tier].capacity }}ô</span>
+                  <span class="text-[10px] text-muted">{{ CHEST_DEFS[tier].capacity }}格</span>
                 </div>
                 <Button
                   class="py-0 px-1.5"
@@ -627,7 +627,7 @@
                   :disabled="!canCraftChest(tier)"
                   @click="handleCraftChest(tier)"
                 >
-                  chếlàm
+                  制作
                 </Button>
               </div>
               <p class="text-[10px] text-muted mb-1">
@@ -644,7 +644,7 @@
                   {{ getCombinedItemCount(mat.itemId) }}/{{ mat.quantity }}
                 </span>
                 <span class="text-[10px]" :class="playerStore.money >= CHEST_DEFS[tier].craftMoney ? 'text-muted' : 'text-danger'">
-                  {{ CHEST_DEFS[tier].craftMoney }}văn
+                  {{ CHEST_DEFS[tier].craftMoney }}文
                 </span>
               </div>
             </div>
@@ -705,7 +705,7 @@
     return getItemById(itemId)?.name ?? itemId
   }
 
-  // === núihang ===
+  // === 山洞 ===
 
   const handleChooseCave = (choice: 'mushroom' | 'fruit_bat') => {
     if (homeStore.chooseCave(choice)) {
@@ -743,7 +743,7 @@
     }
   }
 
-  // === ấmphòng ===
+  // === 温室 ===
 
   const canUnlockGreenhouse = computed(() => {
     if (playerStore.money < GREENHOUSE_UNLOCK_COST) return false
@@ -759,7 +759,7 @@
     }
   }
 
-  // === khokho ===
+  // === 仓库 ===
 
   const canUnlockWarehouse = computed(() => {
     if (playerStore.money < warehouseStore.UNLOCK_COST) return false
@@ -781,9 +781,9 @@
     addLog(`Kho đã mở khóa! Kho tổng đã sẵn sàng, có thể cất vật phẩm trực tiếp. (-${warehouseStore.UNLOCK_COST} văn)`)
   }
 
-  // === rươngconquản lýquản lý ===
+  // === 箱子管理 ===
 
-  /** rươngconđạocông cụthông tintinđạncửa sổ */
+  /** 箱子道具信息弹窗 */
   const chestItemDetail = ref<{
     itemId: string
     quality: Quality
@@ -819,15 +819,15 @@
     return warehouseStore.getChest(openChestId.value) ?? null
   })
 
-  /** chơinhàtựxây的rươngcon（khôngbao gồmtổngkho，tổngkhođơnđộc lậptriển lãmhiển thị） */
+  /** 玩家自造的箱子（不含总仓，总仓单独展示） */
   const craftedChests = computed(() => warehouseStore.chests.filter(c => c.tier !== 'main'))
 
-  /** tổngkho的nhấnloàiđiểmkhukháixem */
+  /** 总仓的按类分区概览 */
   const mainChestGroups = computed(() => warehouseStore.getMainChestGroups())
 
   /**
-   * đánhmở的rươngconnhấnloàikhácđiểmnhóm。
-   * tổngkhođiểmkhutriển lãmhiển thị；phổ thônggiaorươngcontrở về成đơnnhómbìnhquán，tổngdùngcùngmộtđoạnmô hìnhbảng。
+   * 打开的箱子按类别分组。
+   * 总仓分区展示；普通箱子归成单组平铺，共用同一段模板。
    */
   const openChestGroups = computed(() => {
     const chest = currentOpenChest.value
@@ -836,7 +836,7 @@
     return [{ category: 'all', name: '', items: chest.items }]
   })
 
-  /** mộtphímthunhậnđếntổngkho */
+  /** 一键收纳到总仓 */
   const handleStowToMain = (all: boolean) => {
     const { kinds, total } = warehouseStore.stowToMain(all)
     if (total > 0) {
@@ -848,7 +848,7 @@
     }
   }
 
-  /** lưnggóitrong可lưuvàorươngcon的vậtphẩm（xếpxóagiốngconvàkhóađịnhvậtphẩm） */
+  /** 背包中可存入箱子的物品（排除种子和锁定物品） */
   const depositableItems = computed(() =>
     inventoryStore.items.filter(i => {
       if (i.locked) return false
@@ -857,7 +857,7 @@
     })
   )
 
-  /** lưnggóitrong可mộtphímlưuvào的lạihồivậtphẩm（rươngcontrongđãcóvàchưakhóađịnh、không phảigiốngcon） */
+  /** 背包中可一键存入的重复物品（箱子中已有且未锁定、非种子） */
   const duplicateDepositItems = computed(() => {
     if (!currentOpenChest.value) return []
     const chestItemIds = new Set(currentOpenChest.value.items.map(i => i.itemId))
@@ -869,7 +869,7 @@
     })
   })
 
-  /** chếlàmrươngcon */
+  /** 制作箱子 */
   const canCraftChest = (tier: ChestTier): boolean => {
     if (warehouseStore.chests.length >= warehouseStore.maxChests) return false
     return processingStore.canCraft(CHEST_DEFS[tier].craftCost, CHEST_DEFS[tier].craftMoney)
@@ -888,7 +888,7 @@
     }
   }
 
-  /** tháotháorươngconxácxác nhận */
+  /** 拆卸箱子确认 */
   const dismantleChestId = ref<string | null>(null)
 
   const dismantleChestInfo = computed(() => {
@@ -921,25 +921,25 @@
     if (!chest) return
     const info = dismantleChestInfo.value
     if (!info) return
-    // rươngtrongvậtphẩmtrả lạicònlưnggói
+    // 箱内物品返还背包
     for (const item of [...chest.items]) {
       inventoryStore.addItem(item.itemId, item.quantity, item.quality)
     }
     chest.items.length = 0
-    // tháoxóarươngcon
+    // 拆除箱子
     const name = chest.label
     warehouseStore.removeChest(chestId)
-    // trả lạicòn50%nguyên liệuliệu
+    // 返还50%材料
     for (const mat of info.refund) {
       inventoryStore.addItem(mat.itemId, mat.quantity)
     }
     const refundText = info.refund.map(m => `${getItemName(m.itemId)}×${m.quantity}`).join('、')
-    addLog(`Đã tháo ${name}. ${refundText ? `Đã hoàn trả: ${refundText}.` : ''}`)
+    addLog(`Đã tháo ${name}. ${refundText ? :}`返还了${refundText}。` : ''}`)
     dismantleChestId.value = null
     if (openChestId.value === chestId) openChestId.value = null
   }
 
-  /** lạimệnhtênrươngcon */
+  /** 重命名箱子 */
   const startRenameChest = (chestId: string, currentLabel: string) => {
     renamingChestId.value = chestId
     renameInput.value = currentLabel
@@ -952,7 +952,7 @@
     renamingChestId.value = null
   }
 
-  /** hư khôngléprươnggócmàu */
+  /** 虚空箱角色 */
   const handleSetVoidRole = (chestId: string, role: VoidChestRole) => {
     warehouseStore.setVoidRole(chestId, role)
     const chest = warehouseStore.getChest(chestId)
@@ -962,7 +962,7 @@
     else addLog(`${chest.label} được đặt làm rương thành phẩm, sản phẩm xưởng sẽ tự động cho vào đây.`)
   }
 
-  // === rươngconsốlượngchọnchọn ===
+  // === 箱子数量选择 ===
   interface ChestQtyModalData {
     mode: 'withdraw' | 'deposit'
     chestId: string
@@ -1021,7 +1021,7 @@
     chestQtyModal.value = null
   }
 
-  /** mộtphímlưuvàolạihồivậtphẩm */
+  /** 一键存入重复物品 */
   const handleDepositDuplicates = () => {
     if (!openChestId.value) return
     const chestId = openChestId.value

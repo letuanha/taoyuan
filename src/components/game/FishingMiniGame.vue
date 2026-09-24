@@ -2,7 +2,7 @@
   <div>
     <p class="text-xs text-accent mb-2">
       <Fish :size="14" class="inline" />
-      thậtthờicâucá — {{ fishName }}
+      实时钓鱼 — {{ fishName }}
     </p>
 
     <div class="flex space-x-2 items-end justify-center">
@@ -58,10 +58,10 @@
         @touchend="stopHold"
       >
         <ArrowUp :size="14" />
-        <span>Nhấn giữ để thu dây</span>
+        <span>长按收线</span>
       </button>
     </div>
-    <p class="text-xs text-muted text-center mt-1">Giữ phím cách hoặc phím ↑ cũng có thể thu dây</p>
+    <p class="text-xs text-muted text-center mt-1">按住空格键或↑键也可收线</p>
   </div>
 </template>
 

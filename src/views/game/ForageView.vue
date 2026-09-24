@@ -3,35 +3,35 @@
     <VillagerPresence spot="forage" />
     <h3 class="text-accent text-sm mb-3">
       <TreePine :size="14" class="inline" />
-      trerừngthu háithập
+      竹林采集
     </h3>
 
     <!-- 采集操作 -->
     <div class="border border-accent/20 rounded-xs p-3 mb-4">
       <div class="flex items-center justify-between mb-2">
         <p class="text-sm text-accent">Thu thập</p>
-        <span class="text-xs text-muted">tiêuhao {{ forageCost }} thể lực · {{ forageTimeLabel }}</span>
+        <span class="text-xs text-muted">消耗 {{ forageCost }} 体力 · {{ forageTimeLabel }}</span>
       </div>
-      <p class="text-xs text-muted mb-2">Dùng rìu để tìm kiếm nhiều loại tài nguyên trong rừng tre.</p>
+      <p class="text-xs text-muted mb-2">使用斧头在竹林中搜寻各类物资。</p>
       <div
         class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
         @click="handleForage"
       >
         <span class="text-xs">Thu thập một lần</span>
-        <span class="text-xs text-muted">{{ playerStore.stamina }}/{{ playerStore.maxStamina }} thể lực</span>
+        <span class="text-xs text-muted">{{ playerStore.stamina }}/{{ playerStore.maxStamina }} 体力</span>
       </div>
       <!-- 天气/加成提示 -->
       <div class="flex flex-wrap space-x-3 mt-2">
         <span v-if="weatherMod !== 1" class="text-[10px]" :class="weatherMod > 1 ? 'text-success' : 'text-danger'">
           {{ weatherModLabel }}
         </span>
-        <span v-if="hasHerbalistPerk" class="text-[10px] text-success">thuốcsư：kháisuất+20%</span>
+        <span v-if="hasHerbalistPerk" class="text-[10px] text-success">药师：概率+20%</span>
         <span v-if="hasLumberjackPerk" class="text-[10px] text-success">
           {{ foragingSkill.perk10 === 'forester' ? 'Tiều phu: chắc chắn nhận gỗ' : 'Người đốn củi: thêm 25% gỗ' }}
         </span>
-        <span v-if="foragingSkill.perk10 === 'tracker'" class="text-[10px] text-success">theodấungười：số tiềnngoài+1Vật phẩm</span>
-        <span v-if="cookingLuckBuff > 0" class="text-[10px] text-success">món ănvậnkhí+{{ cookingLuckBuff }}%</span>
-        <span v-if="isForestFarm" class="text-[10px] text-success">rừngrừngNông trại：kinh nghiệm×1.25</span>
+        <span v-if="foragingSkill.perk10 === 'tracker'" class="text-[10px] text-success">追踪者：额外+1物品</span>
+        <span v-if="cookingLuckBuff > 0" class="text-[10px] text-success">料理运气+{{ cookingLuckBuff }}%</span>
+        <span v-if="isForestFarm" class="text-[10px] text-success">森林农场：经验×1.25</span>
       </div>
     </div>
 
@@ -88,15 +88,15 @@
               <span class="text-xs">{{ CATEGORY_NAMES[selectedResultDef.category] ?? selectedResultDef.category }}</span>
             </div>
             <div v-if="selectedResult.quality && selectedResult.quality !== 'normal'" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Chất lượng</span>
+              <span class="text-xs text-muted">品质</span>
               <span class="text-xs" :class="QUALITY_COLORS[selectedResult.quality]">{{ QUALITY_NAMES[selectedResult.quality] }}</span>
             </div>
             <div v-if="selectedResultDef.sellPrice > 0" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ selectedResultDef.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ selectedResultDef.sellPrice }}文</span>
             </div>
             <div v-if="selectedResultDef.edible" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">ĂnHiệu quả</span>
+              <span class="text-xs text-muted">食用效果</span>
               <span class="text-xs text-success">
                 {{ selectedResultDef.staminaRestore ? `Thể lực +${selectedResultDef.staminaRestore}` : '' }}
                 {{ selectedResultDef.healthRestore ? `HP+${selectedResultDef.healthRestore}` : '' }}
@@ -125,7 +125,7 @@
         >
           <div>
             <span class="text-xs">{{ item.name }}</span>
-            <span class="text-[10px] text-muted ml-2">+{{ item.expReward }}kinh nghiệm</span>
+            <span class="text-[10px] text-muted ml-2">+{{ item.expReward }}经验</span>
           </div>
           <span class="text-xs text-muted">{{ Math.round(item.chance * 100) }}%</span>
         </div>
@@ -136,28 +136,28 @@
     <Transition name="panel-fade">
       <div v-if="encounter && encounter.type === 'friendly'" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full">
-          <p class="text-sm text-accent mb-2">gặpđếnđã{{ encounter.animal.name }}！</p>
-          <p class="text-xs text-muted mb-3">mộtcon{{ encounter.animal.name }}rahiệnđangtrerừngtrong，xemlênđếnrấtấmthuận。</p>
+          <p class="text-sm text-accent mb-2">遇到了{{ encounter.animal.name }}！</p>
+          <p class="text-xs text-muted mb-3">一只{{ encounter.animal.name }}出现在竹林中，看起来很温顺。</p>
           <div class="flex flex-col space-y-1.5">
             <div
               class="flex items-center justify-between border border-success/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-success/5"
               @click="handleFriendlyCollect"
             >
-              <span class="text-xs text-success">thuthậpsảnvật</span>
-              <span class="text-[10px] text-muted">+{{ encounter.animal.collectExp }}thu háithậpkinh nghiệm</span>
+              <span class="text-xs text-success">收集产物</span>
+              <span class="text-[10px] text-muted">+{{ encounter.animal.collectExp }}采集经验</span>
             </div>
             <div
               class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
               @click="handleFriendlyChase"
             >
-              <span class="text-xs">Xua đuổi</span>
-              <span class="text-[10px] text-muted">+{{ encounter.animal.chaseExp }}thu háithậpkinh nghiệm</span>
+              <span class="text-xs">驱赶</span>
+              <span class="text-[10px] text-muted">+{{ encounter.animal.chaseExp }}采集经验</span>
             </div>
             <div
               class="flex items-center justify-between border border-accent/10 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
               @click="encounter = null"
             >
-              <span class="text-xs text-muted">rời</span>
+              <span class="text-xs text-muted">离开</span>
             </div>
           </div>
         </div>
@@ -168,7 +168,7 @@
     <Transition name="panel-fade">
       <div v-if="inForestCombat && forestCombatMonster" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full">
-          <p class="text-sm text-danger mb-2">gặpgặp{{ forestCombatMonster.name }}！</p>
+          <p class="text-sm text-danger mb-2">遭遇{{ forestCombatMonster.name }}！</p>
 
           <!-- 玩家 vs 野兽 -->
           <div class="grid grid-cols-[1fr_auto_1fr] mb-3 items-center" style="column-gap: 6px">
@@ -213,9 +213,9 @@
             >
               <span class="text-xs">
                 <Swords :size="12" class="inline" />
-                tấn côngđánh
+                攻击
               </span>
-              <span class="text-[10px] text-muted">{{ forestWeaponAttack }}Tấn cônglực</span>
+              <span class="text-[10px] text-muted">{{ forestWeaponAttack }}攻击力</span>
             </div>
             <div
               class="flex flex-col items-center border border-accent/20 rounded-xs py-1.5"
@@ -224,9 +224,9 @@
             >
               <span class="text-xs">
                 <Shield :size="12" class="inline" />
-                phòngngự
+                防御
               </span>
-              <span class="text-[10px] text-muted">Giảm sát thương</span>
+              <span class="text-[10px] text-muted">减免伤害</span>
             </div>
             <div
               class="flex flex-col items-center border border-danger/20 rounded-xs py-1.5 cursor-pointer hover:bg-danger/5"
@@ -235,7 +235,7 @@
             >
               <span class="text-xs text-danger">
                 <MoveRight :size="12" class="inline" />
-                chạy trốnchạy
+                逃跑
               </span>
             </div>
           </div>
@@ -355,7 +355,7 @@
     Math.max(1, Math.floor(5 * inventoryStore.getToolStaminaMultiplier('axe') * (1 - skillStore.getStaminaReduction('foraging'))))
   )
 
-  /** thu háithậphaothời（nhỏthời），chịu工công cụvàkỹ thuậtnănggiảmmiễn */
+  /** 采集耗时（小时），受工具和技能减免 */
   const forageTime = computed(() => {
     const baseMin = ACTION_TIME_COSTS.forage * 60
     const toolTier = inventoryStore.getTool('axe')?.tier ?? 'basic'
@@ -438,7 +438,7 @@
         const itemDef = getItemById(item.itemId)
         const name = itemDef?.name ?? item.itemId
         gathered.push({
-          label: `Nhận được ${finalQty > 1 ? `${name}×${finalQty}` : name}`,
+          label: `获得了${finalQty > 1 ? `${name}×${finalQty}` : name}`,
           itemId: item.itemId,
           quantity: finalQty,
           quality
@@ -471,7 +471,7 @@
       })
     }
 
-    // tiênduyênnănglực：thánghoa lệ（yue_tu_3）thu háithập8%kháisuấtnhậnđượcthángcỏ
+    // 仙缘能力：月华（yue_tu_3）采集8%概率获得月草
     if (moonHerbChance && Math.random() < 0.08) {
       inventoryStore.addItem('moon_herb', 1)
       achievementStore.discoverItem('moon_herb')
@@ -503,7 +503,7 @@
       return
     }
 
-    // tácvậtgặpgặpphánđịnh
+    // 动物遭遇判定
     if (Math.random() < FOREST_ENCOUNTER_CHANCE) {
       const enc = rollForestEncounter(gameStore.season)
       if (enc) {
@@ -521,7 +521,7 @@
 
   const encounter = ref<{ type: 'friendly'; animal: FriendlyAnimalDef } | { type: 'hostile'; monster: MonsterDef } | null>(null)
 
-  // --- ấmvàtácvật ---
+  // --- 温和动物 ---
 
   const handleFriendlyCollect = () => {
     if (!encounter.value || encounter.value.type !== 'friendly') return
@@ -567,7 +567,7 @@
     encounter.value = null
   }
 
-  // --- hoang dãthúchiếnđấu ---
+  // --- 野兽战斗 ---
 
   const miningStore = useMiningStore()
   const inForestCombat = ref(false)
@@ -601,7 +601,7 @@
     forestCombatRound.value++
     const monster = forestCombatMonster.value
 
-    // chạy trốnchạy —— trerừng100%成công
+    // 逃跑 —— 竹林100%成功
     if (action === 'flee') {
       forestCombatLog.value.push('Bạn quay người bỏ chạy!')
       addLog(`Gặp ${monster.name} trong rừng trúc, bạn chọn bỏ chạy.`)
@@ -609,7 +609,7 @@
       return
     }
 
-    // phòngngự
+    // 防御
     if (action === 'defend') {
       const tankReduction = skillStore.getSkill('combat').perk10 === 'tank' ? 0.7 : 0.6
       const cookingDefBuff = cookingStore.activeBuff?.type === 'defense' ? cookingStore.activeBuff.value / 100 : 0
@@ -704,7 +704,7 @@
     const monster = forestCombatMonster.value!
     forestCombatLog.value.push(`Bạn đánh bại ${monster.name}!`)
 
-    // rơirơivật
+    // 掉落物
     const drops: string[] = []
     const dropRateBonus = miningStore.guildBonusDropRate
     for (const drop of monster.drops) {
@@ -725,7 +725,7 @@
     if (leveledUp) msg += ` Kỹ năng chiến đấu tăng lên cấp ${newLevel}!`
     addLog(msg)
 
-    // kéo dàitrễquan hệđóngđểchơinhàxemđếnkếtquả
+    // 延迟关闭让玩家看到结果
     forestCombatAnimLock.value = true
     setTimeout(() => {
       endForestCombat(false)
@@ -736,14 +736,14 @@
     const monster = forestCombatMonster.value!
     forestCombatLog.value.push(`Bạn bị ${monster.name} đánh bại…`)
 
-    // phạtphạt：tổn thấtmấtvàngtiền
+    // 惩罚：损失金钱
     const moneyLoss = Math.min(Math.floor(playerStore.money * FOREST_DEFEAT_MONEY_PENALTY_RATE), FOREST_DEFEAT_MONEY_PENALTY_CAP)
     if (moneyLoss > 0) playerStore.spendMoney(moneyLoss)
 
-    // thanhlépbảnlầnthu háithậpkếtquả
+    // 清空本次采集结果
     lastResults.value = [{ label: `Bị ${monster.name} đánh bại, vật thu thập rơi tung tóe…`, quantity: 0 }]
 
-    // HPhồi phụchồi50%
+    // HP恢复50%
     playerStore.restoreHealth(Math.floor(playerStore.getMaxHp() * 0.5))
 
     let msg = `Bị ${monster.name} đánh bại trong rừng trúc…`

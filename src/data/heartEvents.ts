@@ -1074,7 +1074,7 @@ export const HEART_EVENTS: HeartEventDef[] = [
         text: 'Vân Phi nhận ra ánh nhìn của bạn, giọng nói bỗng trầm xuống: "Đó là nương của ta. Khi sinh ra ta vì khó sinh nên đã qua đời. Cha ta đổ lỗi cho ta, năm lên sáu đã ném ta vào sâu trong núi." Sắc mặt hắn chẳng hề dao động, tựa như đang kể chuyện của một người khác vậy, "Từ lúc đó trở đi, rừng núi chính là nhà của ta, chim thú chính là bạn đồng hành của ta. Còn tốt hơn cả loài người —— chí ít thì chúng không bao giờ vứt bỏ ngươi." Hắn liếc nhìn bạn một cái, rồi rất nhanh rời mắt đi, "... Ngươi là một ngoại lệ."'
       },
       {
-        text: 'Hắn lật mặt bức tranh úp vào tường, giọng cứng nhắc: "…Năm ngoái hắn nhờ Bác Trần nhắn rằng sân nhà đã sửa xong, bảo ta về xem. Ta không đi." Hắn liếc bạn một cái rồi nhanh chóng dời mắt, "Nếu một ngày nào đó ngươi đi ngang căn nhà ngói ở đầu phía đông làng… thôi, không có gì."'
+        text: '他把画像翻了个面靠在墙上，语气硬邦邦的："……去年他托陈伯带话，说院子修好了，让我回去看看。我没去。"他瞥了你一眼，很快移开视线，"你要是哪天路过村东头那间瓦房……算了，没什么。"'
       }
     ]
   },

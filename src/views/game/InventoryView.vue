@@ -8,7 +8,7 @@
       </div>
       <span class="text-xs text-muted">
         {{ inventoryStore.items.length }}/{{ inventoryStore.capacity }}
-        <span v-if="inventoryStore.tempItems.length > 0" class="text-danger">+{{ inventoryStore.tempItems.length }}trànra</span>
+        <span v-if="inventoryStore.tempItems.length > 0" class="text-danger">+{{ inventoryStore.tempItems.length }}溢出</span>
       </span>
     </div>
 
@@ -16,7 +16,7 @@
     <div class="flex space-x-1 mb-3">
       <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'items' }" @click="tab = 'items'">Vật phẩm</Button>
       <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'seeds' }" @click="tab = 'seeds'">
-        giốngcon{{ inventoryStore.seedItems.length > 0 ? `(${inventoryStore.seedItems.length})` : '' }}
+        种子{{ inventoryStore.seedItems.length > 0 ? `(${inventoryStore.seedItems.length})` : '' }}
       </Button>
       <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'tools' }" @click="tab = 'tools'">Trang bị</Button>
       <Button
@@ -27,14 +27,14 @@
         }"
         @click="tab = 'temp'"
       >
-        tạmthời{{ inventoryStore.tempItems.length > 0 ? `(${inventoryStore.tempItems.length})` : '' }}
+        临时{{ inventoryStore.tempItems.length > 0 ? `(${inventoryStore.tempItems.length})` : '' }}
       </Button>
     </div>
 
     <!-- 背包扩容引导：格子紧张时直接告诉玩家去哪儿升级 -->
     <p v-if="tab === 'items' && showCapacityHint" class="text-[10px] text-accent/70 mb-2">
-      Túi đồ sắp đầy. Có thể vào 「Khu thương mại Đào Nguyên → Vạn Vật Quán」 để dùng tiền đồng mở rộng sức chứa (hiện tại
-      {{ inventoryStore.capacity }} ô，nhấtnhiều 60 ô）。
+      背包快满了。可在「桃源商圈 → 万物铺」花铜钱扩容（当前
+      {{ inventoryStore.capacity }} 格，最多 60 格）。
     </p>
 
     <!-- 种子袋页：种子独立存放，不占背包格 -->
@@ -187,7 +187,7 @@
               {{ getWeaponDisplayName(weapon.defId, weapon.enchantmentId) }}
             </span>
             <span v-if="idx === inventoryStore.equippedWeaponIndex" class="text-xs text-accent">Đang trang bị</span>
-            <span v-else class="text-xs text-muted">{{ getWeaponSellPrice(weapon.defId, weapon.enchantmentId) }}văn</span>
+            <span v-else class="text-xs text-muted">{{ getWeaponSellPrice(weapon.defId, weapon.enchantmentId) }}文</span>
           </div>
         </div>
       </div>
@@ -230,7 +230,7 @@
             </div>
           </div>
         </div>
-        <p v-else class="text-xs text-muted/40 text-center py-2">Chưa có mũ</p>
+        <p v-else class="text-xs text-muted/40 text-center py-2">暂无帽子</p>
       </div>
 
       <!-- 鞋子 -->
@@ -271,7 +271,7 @@
             </div>
           </div>
         </div>
-        <p v-else class="text-xs text-muted/40 text-center py-2">Chưa có giày</p>
+        <p v-else class="text-xs text-muted/40 text-center py-2">暂无鞋子</p>
       </div>
 
       <!-- 戒指 -->
@@ -281,13 +281,13 @@
           <!-- 槽位 -->
           <div class="flex space-x-1 mb-1">
             <div class="flex-1 border border-accent/10 rounded-xs px-2 py-1 text-center">
-              <p class="text-[10px] text-muted">Ô 1</p>
+              <p class="text-[10px] text-muted">槽位1</p>
               <p class="text-xs" :class="equippedRing1Name ? 'text-accent' : 'text-muted/40'">
                 {{ equippedRing1Name ?? 'Trống' }}
               </p>
             </div>
             <div class="flex-1 border border-accent/10 rounded-xs px-2 py-1 text-center">
-              <p class="text-[10px] text-muted">Ô 2</p>
+              <p class="text-[10px] text-muted">槽位2</p>
               <p class="text-xs" :class="equippedRing2Name ? 'text-accent' : 'text-muted/40'">
                 {{ equippedRing2Name ?? 'Trống' }}
               </p>
@@ -323,7 +323,7 @@
                   :disabled="isRingBlockedForSlot(idx, 0)"
                   @click.stop="handleToggleRingSlot(idx, 0)"
                 >
-                  ô1
+                  槽1
                 </Button>
                 <Button
                   class="py-0 px-1.5"
@@ -337,25 +337,25 @@
                   :disabled="isRingBlockedForSlot(idx, 1)"
                   @click.stop="handleToggleRingSlot(idx, 1)"
                 >
-                  ô2
+                  槽2
                 </Button>
               </div>
             </div>
           </div>
         </div>
-        <p v-else class="text-xs text-muted/40 text-center py-2">Chưa có nhẫn</p>
+        <p v-else class="text-xs text-muted/40 text-center py-2">暂无戒指</p>
       </div>
 
       <!-- 套装效果 -->
       <div v-if="inventoryStore.activeSets.length > 0" class="border border-accent/20 rounded-xs p-2 mt-3">
-        <p class="text-xs text-muted mb-1">Hiệu ứng bộ</p>
+        <p class="text-xs text-muted mb-1">套装效果</p>
         <div v-for="set in inventoryStore.activeSets" :key="set.id" class="border border-accent/10 rounded-xs p-2 mb-1.5 last:mb-0">
           <div class="flex items-center justify-between mb-1">
             <span class="text-xs text-accent">{{ set.name }}</span>
             <span class="text-xs text-muted">{{ set.equippedCount }}/3</span>
           </div>
           <div v-for="bonus in set.bonuses" :key="bonus.count" class="text-[10px]" :class="bonus.active ? 'text-success' : 'text-muted/40'">
-            ({{ bonus.count }}món) {{ bonus.description }}
+            ({{ bonus.count }}件) {{ bonus.description }}
           </div>
         </div>
       </div>
@@ -372,7 +372,7 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="showPresetModal = false">
             <X :size="14" />
           </button>
-          <p class="text-sm text-accent mb-2">Phương án trang bị</p>
+          <p class="text-sm text-accent mb-2">装备方案</p>
           <div v-if="inventoryStore.equipmentPresets.length > 0" class="flex flex-col space-y-1.5 mb-3 max-h-60 overflow-y-auto">
             <div
               v-for="preset in inventoryStore.equipmentPresets"
@@ -392,7 +392,7 @@
                 <template v-else>
                   <span class="text-xs text-accent truncate">{{ preset.name }}</span>
                 </template>
-                <span v-if="activePresetId === preset.id" class="text-[10px] text-success shrink-0 ml-1">Đang sử dụng</span>
+                <span v-if="activePresetId === preset.id" class="text-[10px] text-success shrink-0 ml-1">使用中</span>
               </div>
               <div class="flex space-x-1">
                 <Button
@@ -400,10 +400,10 @@
                   :disabled="activePresetId === preset.id"
                   @click="handleApplyPreset(preset.id)"
                 >
-                  khiếndùng
+                  使用
                 </Button>
                 <Button class="py-0 px-1.5 flex-1 justify-center" @click="handleSaveToPreset(preset.id)">Lưu</Button>
-                <Button class="py-0 px-1.5" @click="startRename(preset)">Đổi tên</Button>
+                <Button class="py-0 px-1.5" @click="startRename(preset)">改名</Button>
                 <Button class="py-0 px-1.5 text-danger" :disabled="activePresetId === preset.id" @click="handleDeletePreset(preset.id)">
                   Xóa
                 </Button>
@@ -412,11 +412,11 @@
           </div>
           <div v-else class="flex flex-col items-center justify-center py-6 mb-3">
             <BookMarked :size="24" class="text-muted/30" />
-            <p class="text-xs text-muted mt-1">Chưa có phương án</p>
-            <p class="text-[10px] text-muted/60 mt-0.5">tạoxâyphươngánsaucó thể nhanhtốcchuyểnđổiTrang bịphốiđặt</p>
+            <p class="text-xs text-muted mt-1">暂无方案</p>
+            <p class="text-[10px] text-muted/60 mt-0.5">创建方案后可快速切换装备配置</p>
           </div>
           <Button class="w-full justify-center" :disabled="inventoryStore.equipmentPresets.length >= 5" @click="handleCreatePreset">
-            mớixâyphươngán
+            新建方案
           </Button>
         </div>
       </div>
@@ -433,8 +433,8 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="showFilterModal = false">
             <X :size="14" />
           </button>
-          <p class="text-sm text-accent mb-2">Lọc vật phẩm</p>
-          <p class="text-[10px] text-muted mb-2">Chọn loại muốn hiển thị, bỏ chọn để hiển thị tất cả</p>
+          <p class="text-sm text-accent mb-2">物品筛选</p>
+          <p class="text-[10px] text-muted mb-2">选择要显示的分类，不选则显示全部</p>
           <div class="grid grid-cols-3 gap-1.5 mb-3">
             <div
               v-for="cat in FILTER_CATEGORIES"
@@ -447,7 +447,7 @@
             </div>
           </div>
           <div class="flex space-x-1.5">
-            <Button class="flex-1 justify-center" @click="handleClearFilter">Hiển thị tất cả</Button>
+            <Button class="flex-1 justify-center" @click="handleClearFilter">全部显示</Button>
             <Button class="flex-1 justify-center !bg-accent !text-bg" @click="handleSaveFilter">Lưu</Button>
           </div>
         </div>
@@ -475,7 +475,7 @@
             }"
           >
             {{ activeTempItemDef?.name }}
-            <span class="text-xs text-danger ml-1">（Tạm thời）</span>
+            <span class="text-xs text-danger ml-1">（临时）</span>
           </p>
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <p class="text-xs text-muted">
@@ -484,11 +484,11 @@
           </div>
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <span class="text-xs">×{{ activeTempItem.quantity }}</span>
             </div>
             <div v-if="activeTempItem.quality !== 'normal'" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Chất lượng</span>
+              <span class="text-xs text-muted">品质</span>
               <span
                 class="text-xs"
                 :class="{
@@ -510,9 +510,9 @@
               :disabled="inventoryStore.isFull"
               @click="handleMoveFromTemp"
             >
-              đặtvàolưnggói
+              放入背包
             </Button>
-            <Button class="w-full justify-center text-danger border-danger/40" @click="handleDiscardTemp">Vứt bỏ</Button>
+            <Button class="w-full justify-center text-danger border-danger/40" @click="handleDiscardTemp">丢弃</Button>
           </div>
         </div>
       </div>
@@ -544,11 +544,11 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <span class="text-xs">×{{ activeItem.quantity }}</span>
             </div>
             <div v-if="activeItem.quality !== 'normal'" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Chất lượng</span>
+              <span class="text-xs text-muted">品质</span>
               <span
                 class="text-xs"
                 :class="{
@@ -562,17 +562,17 @@
             </div>
             <div v-if="activeItemDef?.sellPrice" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ activeItemDef.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ activeItemDef.sellPrice }}文</span>
             </div>
             <div v-if="activeItemDef?.staminaRestore" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Hồi phục</span>
               <span class="text-xs text-success">
-                +{{ activeItemDef.staminaRestore }}thểlực
+                +{{ activeItemDef.staminaRestore }}体力
                 <template v-if="activeItemDef.healthRestore">/ +{{ activeItemDef.healthRestore }}HP</template>
               </span>
             </div>
             <div v-if="activeItemBuff" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">tăngích</span>
+              <span class="text-xs text-muted">增益</span>
               <span class="text-xs text-accent">{{ activeItemBuff.description }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
@@ -588,7 +588,7 @@
               :icon-size="12"
               @click="inventoryStore.toggleLock(activeItem.itemId, activeItem.quality)"
             >
-              {{ activeItem.locked ? 'Mở khóa' : 'Khóa' }}
+              {{ activeItem.locked ? '解锁' : '锁定' }}
             </Button>
             <Button
               v-if="isEdible(activeItem.itemId)"
@@ -597,7 +597,7 @@
               :icon-size="12"
               @click="handleEat(activeItem.itemId, activeItem.quality)"
             >
-              ăndùng
+              食用
             </Button>
             <Button
               v-if="isUsable(activeItem.itemId)"
@@ -606,10 +606,10 @@
               :icon-size="12"
               @click="handleUse(activeItem.itemId, activeItem.quality)"
             >
-              khiếndùng
+              使用
             </Button>
             <!-- 丢弃：限定物品不提供丢弃入口，直接说明原因 -->
-            <p v-if="isProtectedItem(activeItem.itemId)" class="text-[10px] text-accent/70 text-center">Vật phẩm giới hạn, không thể bán hoặc vứt bỏ</p>
+            <p v-if="isProtectedItem(activeItem.itemId)" class="text-[10px] text-accent/70 text-center">限定物品，无法出售或丢弃</p>
             <template v-else-if="!activeItem.locked">
               <div v-if="discardMode" class="flex items-center space-x-1">
                 <input
@@ -619,7 +619,7 @@
                   :max="activeItem.quantity"
                   class="flex-1 bg-bg border border-accent/20 rounded-xs px-1.5 py-0.5 text-xs text-text w-12 text-center"
                 />
-                <Button class="flex-1 justify-center !bg-danger !text-text" @click="confirmDiscard">Xác nhận vứt bỏ</Button>
+                <Button class="flex-1 justify-center !bg-danger !text-text" @click="confirmDiscard">确认丢弃</Button>
                 <Button class="flex-1 justify-center" @click="cancelDiscard">Hủy</Button>
               </div>
               <Button
@@ -629,7 +629,7 @@
                 :icon-size="12"
                 @click="enterDiscardMode"
               >
-                mấtbỏ
+                丢弃
               </Button>
             </template>
           </div>
@@ -671,7 +671,7 @@
             </div>
             <div class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ activeWeaponPrice }}văn</span>
+              <span class="text-xs text-accent">{{ activeWeaponPrice }}文</span>
             </div>
           </div>
           <div class="flex flex-col space-y-1.5">
@@ -683,10 +683,10 @@
               class="w-full justify-center text-danger border-danger/40"
               @click="handleSellWeapon"
             >
-              bánra · {{ activeWeaponPrice }}văn
+              卖出 · {{ activeWeaponPrice }}文
             </Button>
             <p v-if="activeWeaponIdx === inventoryStore.equippedWeaponIndex" class="text-[10px] text-muted text-center">
-              khitrướctrang bịbịtrong，vui lòngtrướcchuyểnđổiđóanh ấyvũdụng cụlạibánra
+              当前装备中，请先切换其他武器再卖出
             </p>
           </div>
         </div>
@@ -715,7 +715,7 @@
             </div>
             <div class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ activeRingDef.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ activeRingDef.sellPrice }}文</span>
             </div>
           </div>
           <div class="flex flex-col space-y-1.5">
@@ -726,7 +726,7 @@
                 :disabled="activeRingIdx !== null && isRingBlockedForSlot(activeRingIdx, 0)"
                 @click="handleEquipRingFromPopup(0)"
               >
-                {{ inventoryStore.equippedRingSlot1 === activeRingIdx ? 'Tháo khỏi ô 1' : 'Trang bị ô 1' }}
+                {{ inventoryStore.equippedRingSlot1 === activeRingIdx ? '卸下槽1' : '装备槽1' }}
               </Button>
               <Button
                 class="flex-1 justify-center"
@@ -734,11 +734,11 @@
                 :disabled="activeRingIdx !== null && isRingBlockedForSlot(activeRingIdx, 1)"
                 @click="handleEquipRingFromPopup(1)"
               >
-                {{ inventoryStore.equippedRingSlot2 === activeRingIdx ? 'Tháo khỏi ô 2' : 'Trang bị ô 2' }}
+                {{ inventoryStore.equippedRingSlot2 === activeRingIdx ? '卸下槽2' : '装备槽2' }}
               </Button>
             </div>
             <Button class="w-full justify-center text-danger border-danger/40" @click="handleSellRing">
-              bánra · {{ activeRingDef.sellPrice }}văn
+              卖出 · {{ activeRingDef.sellPrice }}文
             </Button>
           </div>
         </div>
@@ -767,7 +767,7 @@
             </div>
             <div class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ activeHatDef.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ activeHatDef.sellPrice }}文</span>
             </div>
           </div>
           <div class="flex flex-col space-y-1.5">
@@ -775,7 +775,7 @@
               {{ inventoryStore.equippedHatIndex === activeHatIdx ? 'Tháo ra' : 'Trang bị' }}
             </Button>
             <Button class="w-full justify-center text-danger border-danger/40" @click="handleSellHat">
-              bánra · {{ activeHatDef.sellPrice }}văn
+              卖出 · {{ activeHatDef.sellPrice }}文
             </Button>
           </div>
         </div>
@@ -804,7 +804,7 @@
             </div>
             <div class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ activeShoeDef.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ activeShoeDef.sellPrice }}文</span>
             </div>
           </div>
           <div class="flex flex-col space-y-1.5">
@@ -812,7 +812,7 @@
               {{ inventoryStore.equippedShoeIndex === activeShoeIdx ? 'Tháo ra' : 'Trang bị' }}
             </Button>
             <Button class="w-full justify-center text-danger border-danger/40" @click="handleSellShoe">
-              bánra · {{ activeShoeDef.sellPrice }}văn
+              卖出 · {{ activeShoeDef.sellPrice }}文
             </Button>
           </div>
         </div>
@@ -864,11 +864,11 @@
   const cookingStore = useCookingStore()
   const settingsStore = useSettingsStore()
 
-  // === trangthẻ ===
+  // === 页签 ===
 
   const tab = ref<'items' | 'seeds' | 'tools' | 'temp'>('items')
 
-  /** còncònôcon ≤5 vàcònkhôngđầycấpthời，nânghiển thịđinàotrẻmở rộngdung lượng */
+  /** 剩余格子 ≤5 且还没满级时，提示去哪儿扩容 */
   const showCapacityHint = computed(() => {
     if (inventoryStore.capacity >= 60) return false
     return inventoryStore.capacity - inventoryStore.items.length <= 5
@@ -960,7 +960,7 @@
     tempFilter.value = new Set()
   }
 
-  // === trang bịbịphươngán ===
+  // === 装备方案 ===
 
   const showPresetModal = ref(false)
   const renamingPresetId = ref<string | null>(null)
@@ -991,7 +991,7 @@
   const handleSaveToPreset = (id: string) => {
     if (renamingPresetId.value) confirmRename(renamingPresetId.value)
     inventoryStore.saveCurrentToPreset(id)
-    addLog('Đã lưu trang bị hiện tại vào phương án.')
+    addLog('已保存当前装备到方案。')
   }
 
   const handleApplyPreset = (id: string) => {
@@ -1005,7 +1005,7 @@
     inventoryStore.deleteEquipmentPreset(id)
   }
 
-  // === nhẫnchỉhỗ trợgiúp ===
+  // === 戒指辅助 ===
 
   const equippedRing1Name = computed(() => {
     const idx = inventoryStore.equippedRingSlot1
@@ -1025,7 +1025,7 @@
     return inventoryStore.equippedRingSlot1 === idx || inventoryStore.equippedRingSlot2 === idx
   }
 
-  /** kiểm trakiểm tranhẫnchỉlàkhôngvìcùngdefIdxungđột ngộtbịkhácmộtôvị trícảndừng */
+  /** 检查戒指是否因同defId冲突被另一槽位阻止 */
   const isRingBlockedForSlot = (ringIdx: number, slot: 0 | 1): boolean => {
     const otherSlotIdx = slot === 0 ? inventoryStore.equippedRingSlot2 : inventoryStore.equippedRingSlot1
     if (otherSlotIdx < 0 || otherSlotIdx === ringIdx) return false
@@ -1033,7 +1033,7 @@
     return inventoryStore.ownedRings[ringIdx]?.defId === inventoryStore.ownedRings[otherSlotIdx]?.defId
   }
 
-  /** chuyểnđổinhẫnchỉôvị trí（điểmđánhcaosángnhấnnút → tháo下；điểmđánhkhông phảicaosángnhấnnút → trang bịbị/đổivị trí） */
+  /** 切换戒指槽位（点击高亮按钮 → 卸下；点击非高亮按钮 → 装备/换位） */
   const handleToggleRingSlot = (ringIdx: number, slot: 0 | 1) => {
     const slotRef = slot === 0 ? inventoryStore.equippedRingSlot1 : inventoryStore.equippedRingSlot2
     if (slotRef === ringIdx) {
@@ -1044,7 +1044,7 @@
     }
   }
 
-  // === nhẫnchỉhiệuquảhiểnhiển thị ===
+  // === 戒指效果显示 ===
 
   const RING_EFFECT_NAMES: Record<RingEffectType, string> = {
     attack_bonus: 'Công kích',
@@ -1098,7 +1098,7 @@
     return `${eff.value}`
   }
 
-  // === vũdụng cụđạncửa sổ ===
+  // === 武器弹窗 ===
 
   const activeWeaponIdx = ref<number | null>(null)
 
@@ -1143,7 +1143,7 @@
     activeWeaponIdx.value = null
   }
 
-  // === nhẫnchỉđạncửa sổ ===
+  // === 戒指弹窗 ===
 
   const activeRingIdx = ref<number | null>(null)
 
@@ -1172,7 +1172,7 @@
     activeRingIdx.value = null
   }
 
-  // === mũconhỗ trợgiúp ===
+  // === 帽子辅助 ===
 
   const equippedHatName = computed(() => {
     const idx = inventoryStore.equippedHatIndex
@@ -1189,7 +1189,7 @@
     }
   }
 
-  // === mũconđạncửa sổ ===
+  // === 帽子弹窗 ===
 
   const activeHatIdx = ref<number | null>(null)
 
@@ -1212,7 +1212,7 @@
     activeHatIdx.value = null
   }
 
-  // === giàyconhỗ trợgiúp ===
+  // === 鞋子辅助 ===
 
   const equippedShoeName = computed(() => {
     const idx = inventoryStore.equippedShoeIndex
@@ -1229,7 +1229,7 @@
     }
   }
 
-  // === giàyconđạncửa sổ ===
+  // === 鞋子弹窗 ===
 
   const activeShoeIdx = ref<number | null>(null)
 
@@ -1252,7 +1252,7 @@
     activeShoeIdx.value = null
   }
 
-  // === tạmthờilưnggói ===
+  // === 临时背包 ===
 
   const activeTempIdx = ref<number | null>(null)
 
@@ -1270,20 +1270,20 @@
     if (activeTempIdx.value === null) return
     const success = inventoryStore.moveFromTemp(activeTempIdx.value)
     if (success) {
-      addLog('Đã chuyển vật phẩm vào túi.')
+      addLog('物品已转移到背包。')
       activeTempIdx.value = null
     } else {
-      addLog('Túi không đủ chỗ, một số vật phẩm vẫn ở túi tạm.')
+      addLog('背包空间不足，部分物品仍在临时背包中。')
     }
   }
 
   const handleMoveAllFromTemp = () => {
     const moved = inventoryStore.moveAllFromTemp()
     if (moved > 0) {
-      addLog(`Đã chuyển ${moved} vật phẩm từ túi tạm vào túi.`)
+      addLog(`已将${moved}项物品从临时背包转移到背包。`)
     }
     if (inventoryStore.tempItems.length > 0) {
-      addLog('Một số vật phẩm vẫn ở túi tạm do thiếu chỗ.')
+      addLog('部分物品因空间不足仍在临时背包中。')
     }
   }
 
@@ -1292,15 +1292,15 @@
     const item = inventoryStore.tempItems[activeTempIdx.value]
     const name = getItemById(item?.itemId ?? '')?.name ?? ''
     inventoryStore.discardTempItem(activeTempIdx.value)
-    addLog(`Đã vứt ${name}.`)
+    addLog(`丢弃了${name}。`)
     activeTempIdx.value = null
   }
 
-  // === vậtphẩmđạncửa sổ ===
+  // === 物品弹窗 ===
 
   const activeItemKey = ref<string | null>(null)
 
-  /** đanglưnggóihoặcgiốngcontúitrongkiểm tratìmchỉđịnhvậtphẩmkho（giốngconlưuđanggiốngcontúitrong） */
+  /** 在背包或种子袋中查找指定物品栈（种子存在种子袋里） */
   const findSlot = (itemId: string | undefined, quality: string | undefined) => {
     if (!itemId) return undefined
     const pool = inventoryStore.isSeedItem(itemId) ? inventoryStore.seedItems : inventoryStore.items
@@ -1318,7 +1318,7 @@
     return getItemById(activeItem.value.itemId) ?? null
   })
 
-  /** nấunấuphẩm的buffmô tảmô tả */
+  /** 烹饪品的buff描述 */
   const activeItemBuff = computed(() => {
     if (!activeItem.value) return null
     const itemId = activeItem.value.itemId
@@ -1338,20 +1338,20 @@
     const staminaFull = playerStore.stamina >= playerStore.maxStamina
     const hpFull = playerStore.hp >= playerStore.getMaxHp()
     if (staminaFull && hpFull) {
-      addLog('Thể lực và HP đều đầy, không cần ăn.')
+      addLog('体力和生命值都已满，不需要食用。')
       return
     }
 
-    // nấunấuphẩmđi cookingStore.eat()，dùngđúngxácnêndùngbuff、bếpphòngthêm成đợi
+    // 烹饪品走 cookingStore.eat()，以正确应用buff、厨房加成等
     if (itemId.startsWith('food_')) {
-      const recipeId = itemId.slice(5) // đirơi 'food_' trướctrang trí
+      const recipeId = itemId.slice(5) // 去掉 'food_' 前缀
       const result = cookingStore.eat(recipeId, quality)
       if (result.success) {
         addLog(result.message)
       } else {
         addLog(result.message)
       }
-      // vậtphẩmtiêuhaohoànthìquan hệđóngđạncửa sổ
+      // 物品消耗完则关闭弹窗
       if (!findSlot(itemId, quality)) {
         activeItemKey.value = null
       }
@@ -1359,11 +1359,11 @@
     }
 
     if (!inventoryStore.removeItem(itemId, 1, quality)) return
-    // luyệnvàngsưchuyêntinh：ănvậthồi phụchồi+50%
+    // 炼金师专精：食物恢复+50%
     const alchemistBonus = skillStore.getSkill('foraging').perk10 === 'alchemist' ? 1.5 : 1.0
     const staminaRestore = Math.floor(def.staminaRestore * alchemistBonus)
     playerStore.restoreStamina(staminaRestore)
-    let msg = `Đã ăn ${def.name}, hồi ${staminaRestore} thể lực`
+    let msg = `食用了${def.name}，恢复${staminaRestore}体力`
     if (def.healthRestore) {
       const healthRestore = Math.floor(def.healthRestore * alchemistBonus)
       playerStore.restoreHealth(healthRestore)
@@ -1371,13 +1371,13 @@
     }
     msg += '。'
     addLog(msg)
-    // vậtphẩmtiêuhaohoànthìquan hệđóngđạncửa sổ
+    // 物品消耗完则关闭弹窗
     if (!findSlot(itemId, quality)) {
       activeItemKey.value = null
     }
   }
 
-  /** 可khiếndùng的đặcđặc biệtvậtphẩm */
+  /** 可使用的特殊物品 */
   const USABLE_ITEMS = new Set(['stamina_fruit', ...TOTEM_IDS])
 
   const isUsable = (itemId: string): boolean => {
@@ -1389,24 +1389,24 @@
     if (totem) {
       if (!inventoryStore.removeItem(itemId, 1, quality)) return
       gameStore.setTomorrowWeather(totem.weather)
-      addLog(`Bạn đã dùng ${totem.name}, thời tiết ngày mai sẽ chuyển thành 「${WEATHER_NAMES[totem.weather]}」.`)
+      addLog(`你使用了${totem.name}，明天的天气将变为「${WEATHER_NAMES[totem.weather]}」。`)
     }
     if (itemId === 'stamina_fruit') {
       if (playerStore.staminaCapLevel >= 4) {
-        addLog('Giới hạn thể lực đã tối đa, không thể dùng Đào Tiên nữa.')
+        addLog('体力上限已达到最高，无法再使用仙桃。')
         return
       }
       if (!inventoryStore.removeItem(itemId, 1, quality)) return
       playerStore.upgradeMaxStamina()
-      addLog(`Đã ăn Đào Tiên, giới hạn thể lực vĩnh viễn tăng lên ${playerStore.maxStamina}!`)
+      addLog(`食用了仙桃，体力上限永久提升至${playerStore.maxStamina}！`)
     }
-    // vậtphẩmtiêuhaohoànthìquan hệđóngđạncửa sổ
+    // 物品消耗完则关闭弹窗
     if (!findSlot(itemId, quality)) {
       activeItemKey.value = null
     }
   }
 
-  // === mấtbỏvậtphẩm ===
+  // === 丢弃物品 ===
 
   const discardMode = ref(false)
   const discardQty = ref(1)
@@ -1415,26 +1415,26 @@
     discardMode.value = false
   })
 
-  /** tiếnvàomấtbỏmô hìnhkiểu */
+  /** 进入丢弃模式 */
   const enterDiscardMode = () => {
     discardMode.value = true
     discardQty.value = 1
   }
 
-  /** xácxác nhậnmấtbỏ */
+  /** 确认丢弃 */
   const confirmDiscard = () => {
     if (!activeItem.value) return
     const { itemId, quality } = activeItem.value
     const name = activeItemDef.value?.name ?? ''
     if (isProtectedItem(itemId)) {
-      addLog(`${name} là vật phẩm giới hạn, không thể vứt bỏ.`)
+      addLog(`${name}是限定物品，不能丢弃。`)
       discardMode.value = false
       return
     }
     const qty = Math.min(discardQty.value, activeItem.value.quantity)
     if (qty <= 0) return
     if (!inventoryStore.removeItem(itemId, qty, quality)) return
-    addLog(`Đã vứt ${name}×${qty}.`)
+    addLog(`丢弃了${name}×${qty}。`)
     discardMode.value = false
     // 物品消耗完则关闭弹窗
     if (!findSlot(itemId, quality)) {

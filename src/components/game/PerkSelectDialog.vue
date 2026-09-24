@@ -2,8 +2,8 @@
   <!-- z-[80]：必须盖过矿洞探索(z-50)、战斗(z-60)、道具(z-70)弹窗，否则矿洞里升级时点不到 -->
   <div class="fixed inset-0 bg-black/60 flex items-center justify-center z-[80]">
     <div class="game-panel max-w-md w-full">
-      <h3 class="text-accent text-sm mb-2">{{ SKILL_NAMES[skillType] }} đạt cấp {{ level }}!</h3>
-      <p class="text-xs text-muted mb-4">Chọn một hướng chuyên môn:</p>
+      <h3 class="text-accent text-sm mb-2">{{ SKILL_NAMES[skillType] }} 达到{{ level }}级！</h3>
+      <p class="text-xs text-muted mb-4">选择一个专精方向：</p>
 
       <div class="flex flex-col space-y-3">
         <button
@@ -77,7 +77,7 @@
     ]
   }
 
-  /** Lv10 chuyêntinhnhấn Lv5 điểmchiđiểmnhóm */
+  /** Lv10 专精按 Lv5 分支分组 */
   const PERK10_BRANCHES: Record<SkillType, Record<string, PerkOption[]>> = {
     farming: {
       harvester: [
@@ -141,7 +141,7 @@
 
   const options = computed<PerkOption[]>(() => {
     if (props.level === 5) return PERK5_OPTIONS[props.skillType]
-    // Lv10：căntheo Lv5 chọnchọn的chuyêntinhxácđịnhđiểmchi
+    // Lv10：根据 Lv5 选择的专精确定分支
     const perk5 = skillStore.getSkill(props.skillType).perk5
     if (perk5) {
       const branches = PERK10_BRANCHES[props.skillType]

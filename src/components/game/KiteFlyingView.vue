@@ -2,27 +2,27 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <Wind :size="14" />
-      <span>Hội thả diều mùa thu</span>
+      <span>秋风筝会</span>
     </h3>
 
     <!-- 准备 -->
     <div v-if="phase === 'ready'">
       <p class="text-xs text-muted mb-3">
-        Thả diều trong gió thu! Gió liên tục thổi diều sang hai bên, nhấn 「Kéo trái」 hoặc 「Kéo phải」 để đưa diều về giữa. Giữ diều trong vùng xanh để liên tục ghi điểm, cố gắng trong 25 giây!
+        秋风中放飞风筝！风会不断把风筝吹向两侧，点「拉左」或「拉右」把风筝拉回中间。保持风筝在绿色区域内可以持续得分，坚持25秒！
       </p>
-      <Button class="w-full" @click="startGame">Thả diều!</Button>
+      <Button class="w-full" @click="startGame">放风筝！</Button>
     </div>
 
     <!-- 游戏中 -->
     <div v-else-if="phase === 'playing'">
       <div class="flex items-center justify-between mb-2">
         <p class="text-xs text-muted">
-          còncòn：
+          剩余：
           <span class="text-accent">{{ timeLeft }}</span>
-          giây
+          秒
         </p>
         <p class="text-xs text-muted">
-          đượcđiểm：
+          得分：
           <span class="text-accent">{{ score }}</span>
         </p>
       </div>
@@ -30,7 +30,7 @@
       <!-- 风向提示 -->
       <div class="text-center mb-2">
         <p class="text-xs" :class="windDirection > 0 ? 'text-success' : 'text-danger'">
-          {{ windDirection > 0 ? '→ Gió Đông →' : '← Gió Tây ←' }}
+          {{ windDirection > 0 ? '→ 东风 →' : '← 西风 ←' }}
           {{ windLabel }}
         </p>
       </div>
@@ -50,30 +50,30 @@
         </div>
         <!-- 区域标签 -->
         <div class="absolute bottom-0 w-full flex text-center" style="font-size: 9px">
-          <span class="flex-32 text-danger/40">Nguy hiểm</span>
-          <span class="flex-36 text-success/40">An toàn</span>
-          <span class="flex-32 text-danger/40">Nguy hiểm</span>
+          <span class="flex-32 text-danger/40">危险</span>
+          <span class="flex-36 text-success/40">安全</span>
+          <span class="flex-32 text-danger/40">危险</span>
         </div>
       </div>
 
       <!-- 控制按钮 -->
       <div class="flex space-x-2">
-        <Button class="flex-1 py-2" :icon="ArrowLeft" @click="pullLeft">Kéo trái</Button>
+        <Button class="flex-1 py-2" :icon="ArrowLeft" @click="pullLeft">拉左</Button>
         <Button class="flex-1 py-2" @click="pullRight">
-          kéophải
+          拉右
           <ArrowRight :size="14" />
         </Button>
       </div>
 
       <!-- 连续稳定加分提示 -->
       <div v-if="combo >= 3" class="text-center mt-2">
-        <p class="text-xs text-accent combo-pulse">Bay ổn định ×{{ combo }}</p>
+        <p class="text-xs text-accent combo-pulse">稳定飞行 ×{{ combo }}</p>
       </div>
     </div>
 
     <!-- 结果 -->
     <div v-else>
-      <p class="text-xs text-muted mb-2">Hội thả diều kết thúc!</p>
+      <p class="text-xs text-muted mb-2">风筝会结束！</p>
 
       <div class="border border-accent/20 p-2 mb-3 text-center">
         <p
@@ -84,20 +84,20 @@
             'text-muted': score < 120
           }"
         >
-          {{ score >= 200 ? 'Bậc thầy điều khiển gió! Diều vững như bàn thạch!' : score >= 120 ? 'Kỹ thuật khá tốt, diều bay rất cao.' : 'Gió mạnh quá, lần sau cố gắng tiếp nhé.' }}
+          {{ score >= 200 ? '御风高手！风筝稳如泰山！' : score >= 120 ? '不错的技巧，风筝飞得很高。' : '风太大了，下次再接再厉。' }}
         </p>
-        <p class="text-xs text-muted mb-1">Chuỗi bay ổn định dài nhất: {{ maxCombo }} lần</p>
+        <p class="text-xs text-muted mb-1">最长连续稳定：{{ maxCombo }} 次</p>
         <p class="text-xs mb-1">
-          tổngđiểm：
+          总分：
           <span class="text-accent">{{ score }}</span>
         </p>
         <p class="text-xs">
-          thưởngvàng：
+          奖金：
           <span class="text-accent">{{ prize }}</span>
           xu
         </p>
       </div>
-      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
+      <Button class="w-full" @click="handleClaim">领取奖励</Button>
     </div>
   </div>
 </template>
@@ -124,19 +124,19 @@
 
   const phase = ref<Phase>('ready')
   const score = ref(0)
-  const kitePosition = ref(50) // 0-100, 50=trongtâm
+  const kitePosition = ref(50) // 0-100, 50=中心
   const timeLeft = ref(25)
-  const windDirection = ref(1) // 1=phải, -1=trái
+  const windDirection = ref(1) // 1=右, -1=左
   const windStrength = ref(1)
   const combo = ref(0)
   const maxCombo = ref(0)
   const windLabel = ref('Gió nhẹ')
 
-  /** giódiềutốcđộ（đơnvị trí：%/giây），đúng=hướngphải，mang=hướngtrái */
+  /** 风筝速度（单位：%/秒），正=向右，负=向左 */
   let kiteVelocity = 0
   let rafId: number | null = null
   let lastFrameTime = 0
-  let scoreTick = 0 // tích lũytínhan toàntoàn bộkhuthờigian（giây），mỗi0.5giâyđượcđiểm
+  let scoreTick = 0 // 累计安全区时间（秒），每0.5秒得分
   let countdownTimer: ReturnType<typeof setInterval> | null = null
   let windChangeTimer: ReturnType<typeof setTimeout> | null = null
 
@@ -149,18 +149,18 @@
     return 50
   })
 
-  /** requestAnimationFrame chínhtheovòng */
+  /** requestAnimationFrame 主循环 */
   const gameLoop = (timestamp: number) => {
     if (phase.value !== 'playing') return
 
     const dt = lastFrameTime === 0 ? 0.016 : Math.min((timestamp - lastFrameTime) / 1000, 0.05)
     lastFrameTime = timestamp
 
-    // giólựclàmlàgiữtiếp tụcthêmtốcđộ（đơnvị trí：%/giây²）
+    // 风力作为持续加速度（单位：%/秒²）
     const windAccel = windDirection.value * windStrength.value * 22
     kiteVelocity += windAccel * dt
 
-    // theomáytrậngió：đột ngộtnhiên的số tiềnngoàixunglượng，đểgiódiềukhódùngdự kiếnkiểm tra
+    // 随机阵风：突然的额外冲量，让风筝难以预测
     if (Math.random() < dt * 1.5) {
       const gustForce = (Math.random() - 0.4) * windStrength.value * 18
       kiteVelocity += gustForce
@@ -180,7 +180,7 @@
       kiteVelocity = -Math.abs(kiteVelocity) * 0.3
     }
 
-    // đangan toàntoàn bộkhutrongđượcđiểm
+    // 在安全区内得分
     if (inSafeZone.value) {
       combo.value++
       if (combo.value > maxCombo.value) maxCombo.value = combo.value
@@ -213,10 +213,10 @@
     lastFrameTime = 0
     phase.value = 'playing'
 
-    // mởtác RAF chínhtheovòng
+    // 启动 RAF 主循环
     rafId = requestAnimationFrame(gameLoop)
 
-    // gụctínhthời
+    // 倒计时
     countdownTimer = setInterval(() => {
       timeLeft.value--
       if (timeLeft.value <= 3 && timeLeft.value > 0) sfxCountdownFinal()
@@ -235,7 +235,7 @@
     windChangeTimer = setTimeout(() => {
       if (phase.value !== 'playing') return
 
-      // 可năngđổiphươnghướng（saukỳhơntần suấtphồnđổihướng）
+      // 可能换方向（后期更频繁换向）
       const elapsed = 25 - timeLeft.value
       const flipChance = 0.35 + elapsed * 0.01
       if (Math.random() < flipChance) {
@@ -249,21 +249,21 @@
       windStrength.value = minStrength + Math.random() * (maxStrength - minStrength)
 
       if (windStrength.value < 2) windLabel.value = 'Gió nhẹ'
-      else if (windStrength.value < 3.5) windLabel.value = 'Gió nhẹ'
-      else windLabel.value = 'Gió mạnh'
+      else if (windStrength.value < 3.5) windLabel.value = '清风'
+      else windLabel.value = '强风'
 
       scheduleWindChange()
     }, delay) as unknown as ReturnType<typeof setTimeout>
   }
 
-  /** kéotrái：bónthêmmộtcáihướngtrái的xunglượng */
+  /** 拉左：施加一个向左的冲量 */
   const pullLeft = () => {
     if (phase.value !== 'playing') return
     sfxKitePull()
     kiteVelocity -= 42
   }
 
-  /** kéophải：bónthêmmộtcáihướngphải的xunglượng */
+  /** 拉右：施加一个向右的冲量 */
   const pullRight = () => {
     if (phase.value !== 'playing') return
     sfxKitePull()
@@ -279,7 +279,7 @@
     windChangeTimer = null
     phase.value = 'finished'
 
-    // kếttínhâm thanhhiệu
+    // 结算音效
     if (score.value >= 200) sfxRankFirst()
     else if (score.value >= 120) sfxRankSecond()
     else sfxRankThird()

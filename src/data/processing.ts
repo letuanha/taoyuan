@@ -2042,7 +2042,7 @@ export const CRAB_POT_CRAFT = {
 export const LIGHTNING_ROD = {
   id: 'lightning_rod',
   name: 'Cột thu lôi',
-  description: 'Đặt trong nông trại; khi có giông bão, hấp thụ sét để bảo vệ cây trồng và tạo ra pin.',
+  description: '放置在农场，雷暴时吸收闪电保护作物，产出电池组。',
   craftCost: [
     { itemId: 'iron_ore', quantity: 5 },
     { itemId: 'copper_ore', quantity: 3 },
@@ -2066,8 +2066,8 @@ export const SCARECROW = {
 
 export const AUTO_PETTER = {
   id: 'auto_petter',
-  name: 'Máy vuốt ve tự động',
-  description: 'Sau khi lắp vào chuồng gia súc, mỗi ngày máy sẽ tự động vuốt ve tất cả động vật. Cần chuồng lớn (cấp 2).',
+  name: '自动抚摸机',
+  description: '安装到畜舍后，每天自动抚摸所有动物。需要大型畜舍（2级）。',
   craftCost: [
     { itemId: 'gold_bar', quantity: 10 },
     { itemId: 'iron_bar', quantity: 20 },

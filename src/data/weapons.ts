@@ -63,9 +63,9 @@ export const rollRandomEnchantment = (): string | null => {
 
 /** 武器类型中文名 */
 export const WEAPON_TYPE_NAMES: Record<WeaponType, string> = {
-  sword: 'Kiếm',
-  dagger: 'Dao găm',
-  club: 'Búa'
+  sword: '剑',
+  dagger: '匕首',
+  club: '锤'
 }
 
 /** 所有武器定义 */
@@ -503,7 +503,7 @@ export const getWeaponDisplayName = (defId: string, enchantmentId: string | null
   if (!enchantmentId) return weapon.name
   const enchant = ENCHANTMENTS[enchantmentId]
   if (!enchant) return weapon.name
-  return `${weapon.name} của ${enchant.name}`
+  return `${enchant.name}的${weapon.name}`
 }
 
 /** 宝箱掉落武器（按矿洞区域） */

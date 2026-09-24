@@ -74,8 +74,8 @@ export const TABS: {
     icon: Home,
     getIcon: () => (useNpcStore().getSpouse() ? Heart : Home)
   },
-  { key: 'home', label: 'Công trình', icon: Building },
-  { key: 'breeding', label: 'Nhân giống', icon: FlaskConical },
+  { key: 'home', label: 'Nhà chính', icon: Building },
+  { key: 'breeding', label: 'Lai giống', icon: FlaskConical },
   { key: 'fishpond', label: 'Ao cá', icon: Waves },
   { key: 'village', label: 'Làng Đào Nguyên', icon: Users },
   { key: 'shop', label: 'Khu thương mại', icon: Store },
@@ -90,9 +90,9 @@ export const TABS: {
   { key: 'skills', label: 'Kỹ năng', icon: Star },
   { key: 'achievement', label: 'Bộ sưu tập', icon: BookOpen },
   { key: 'wallet', label: 'Túi tiền', icon: Wallet },
-  { key: 'quest', label: 'Bảng thông báo', icon: ScrollText },
+  { key: 'quest', label: 'Bảng nhiệm vụ', icon: ScrollText },
   { key: 'museum', label: 'Bảo tàng', icon: Landmark },
-  { key: 'guild', label: 'Công hội', icon: Swords },
+  { key: 'guild', label: 'Bang hội', icon: Swords },
   { key: 'hanhai', label: 'Hãn Hải', icon: Tent }
 ]
 

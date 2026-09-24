@@ -2,21 +2,21 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <Sparkles :size="14" />
-      <span>Hội pháo hoa cuối năm</span>
+      <span>năm末烟花会</span>
     </h3>
 
     <!-- 准备 -->
     <div v-if="phase === 'ready'">
-      <p class="text-xs text-muted mb-3">Hãy nhớ thứ tự pháo hoa nở rồi nhấn theo thứ tự để tái hiện! Có 5 vòng, mỗi vòng thêm một vị trí, thử thách trí nhớ của bạn!</p>
-      <Button class="w-full" @click="startGame">Bắt đầu hội pháo hoa!</Button>
+      <p class="text-xs text-muted mb-3">记住烟花绽放的顺序，然后按顺序点击复现！共5轮，每轮多一个位置，考验你的记忆力！</p>
+      <Button class="w-full" @click="startGame">开始烟花会！</Button>
     </div>
 
     <!-- 游戏中 -->
     <div v-else-if="phase !== 'finished'">
       <div class="flex items-center justify-between mb-2">
-        <p class="text-xs text-muted">lượt {{ round + 1 }} / 5 vòng</p>
+        <p class="text-xs text-muted">thứ {{ round + 1 }} / 5 轮</p>
         <p class="text-xs text-muted">
-          đượcđiểm：
+          得分：
           <span class="text-accent">{{ score }}</span>
           xu
         </p>
@@ -92,7 +92,7 @@
 
     <!-- 最终结果 -->
     <div v-else>
-      <p class="text-xs text-muted mb-2">Hội pháo hoa kết thúc!</p>
+      <p class="text-xs text-muted mb-2">烟花会结束！</p>
 
       <!-- 轮数进度点（最终状态） -->
       <div class="flex justify-center space-x-1.5 mb-3">
@@ -101,18 +101,18 @@
 
       <div class="border border-accent/20 p-3 mb-3 text-center">
         <p class="text-xs mb-1">
-          giaoquavòngsố：
+          通过轮数：
           <span class="text-success">{{ completedRounds }}</span>
-          / 5 vòng
+          / 5 轮
         </p>
         <p class="text-xs">
-          tổngthưởngvàng：
+          总奖金：
           <span class="text-accent">{{ score }}</span>
           xu
-          <span v-if="completedRounds === 5" class="text-accent finish-flash">(Hoàn thành hết +200 văn!)</span>
+          <span v-if="completedRounds === 5" class="text-accent finish-flash">（全通+200文！）</span>
         </p>
       </div>
-      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
+      <Button class="w-full" @click="handleClaim">领取奖励</Button>
     </div>
   </div>
 </template>
@@ -146,9 +146,9 @@
   const activeFirework = ref(-1)
   const correctFlash = ref(-1)
   const wrongFlash = ref(-1)
-  /** ghilụcmỗivònggiaoqua/mấtbại: true=giaoqua, false=mấtbại, null=chưađến */
+  /** 记录每轮通过/失败: true=通过, false=失败, null=未到 */
   const roundResults = ref<(boolean | null)[]>([null, null, null, null, null])
-  /** vềnhớtầngđoạngụctínhthời */
+  /** 回忆阶段倒计时 */
   const recallTimeLeft = ref(0)
   const recallTimeLimit = ref(0)
 
@@ -161,13 +161,13 @@
   const phaseText = computed(() => {
     switch (phase.value) {
       case 'watching':
-        return 'Hãy ghi nhớ thứ tự pháo hoa...'
+        return '看好烟花顺序...'
       case 'repeating':
-        return 'Nhấn theo đúng thứ tự!'
+        return '按顺序点击！'
       case 'round_success':
-        return 'Nhớ đúng! +150 văn'
+        return '记忆正确！+150文'
       case 'round_fail':
-        return 'Nhớ sai rồi...'
+        return '记错了...'
       default:
         return ''
     }
@@ -199,16 +199,16 @@
   }
 
   const startRound = () => {
-    const seqLength = round.value + 2 // thứ1vòng2cái，thứ5vòng6cái
+    const seqLength = round.value + 2 // 第1轮2个，第5轮6个
     sequence.value = generateSequence(seqLength)
     playerInput.value = []
     phase.value = 'watching'
 
-    // triển lãmhiển thịgiancáchtheovònglầnthêmnhanh: thứ1vòng500ms → thứ5vòng350ms
+    // 展示间隔随轮次加快: 第1轮500ms → 第5轮350ms
     const showDelay = Math.max(350, 500 - round.value * 40)
     const flashDuration = Math.max(350, 500 - round.value * 40)
 
-    // triển lãmhiển thịthứ tựdanh sách
+    // 展示序列
     let idx = 0
     const showNext = () => {
       if (idx < sequence.value.length) {
@@ -221,9 +221,9 @@
           showTimeout = setTimeout(showNext, showDelay * 0.5)
         }, flashDuration)
       } else {
-        // triển lãmhiển thịhoànxong，tiếnvàochơinhàthuavào，mởbắt đầugụctínhthời
+        // 展示完毕，进入玩家输入，开始倒计时
         phase.value = 'repeating'
-        // vềnhớthờigian: cơ bảnnền tảng5giây + mỗicáivị tríđặt1.5giây，theovònglầnlượcgiảm
+        // 回忆时间: 基础5秒 + 每个位置1.5秒，随轮次略减
         const timePerSlot = Math.max(1.0, 1.5 - round.value * 0.1)
         recallTimeLimit.value = Math.ceil(5 + seqLength * timePerSlot)
         recallTimeLeft.value = recallTimeLimit.value
@@ -255,7 +255,7 @@
     const expected = sequence.value[expectedIdx]
 
     if (idx === expected) {
-      // đúngxác
+      // 正确
       sfxFireworkBoom()
       playerInput.value.push(idx)
       correctFlash.value = idx
@@ -266,7 +266,7 @@
       }, 300)
 
       if (playerInput.value.length === sequence.value.length) {
-        // bảnvòngTất cảđúngxác
+        // 本轮全部正确
         if (recallTimer) clearInterval(recallTimer)
         recallTimer = null
         completedRounds.value++
@@ -278,7 +278,7 @@
         phaseTimeout = setTimeout(() => {
           round.value++
           if (round.value >= 5) {
-            score.value += 200 // toàn bộgiaothưởngkhuyến khích
+            score.value += 200 // 全通奖励
             sfxRankFirst()
             phase.value = 'finished'
           } else {
@@ -287,7 +287,7 @@
         }, 1000)
       }
     } else {
-      // saisai
+      // 错误
       sfxMiniFail()
       wrongFlash.value = idx
       setTimeout(() => {
@@ -360,7 +360,7 @@
     }
   }
 
-  /* tảnbắnhạtcon */
+  /* 散射粒子 */
   .particle {
     position: absolute;
     opacity: 0;

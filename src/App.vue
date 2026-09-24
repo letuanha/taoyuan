@@ -36,7 +36,7 @@
       document.body.classList.add('select-none')
     }
 
-    // Capacitor Android trả lạivềphímchặncắt
+    // Capacitor Android 返回键拦截
     if (Capacitor.isNativePlatform()) {
       CapApp.addListener('backButton', () => {
         if (showExitConfirm.value) {

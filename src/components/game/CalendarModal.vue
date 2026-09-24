@@ -8,8 +8,8 @@
 
         <p class="text-sm text-accent mb-2">
           <Calendar :size="14" class="inline" />
-          thờilịch
-          <span class="text-[10px] text-muted ml-1">lượt{{ gameStore.year }}năm</span>
+          时历
+          <span class="text-[10px] text-muted ml-1">thứ{{ gameStore.year }}năm</span>
         </p>
 
         <!-- 季节切换 -->
@@ -55,11 +55,11 @@
         <div class="flex items-center space-x-3 mt-1.5">
           <span class="text-[10px] text-muted flex items-center space-x-0.5">
             <span class="w-1.5 h-1.5 rounded-full bg-danger inline-block" />
-            <span>Lễ hội</span>
+            <span>节日</span>
           </span>
           <span class="text-[10px] text-muted flex items-center space-x-0.5">
             <span class="w-1.5 h-1.5 rounded-full bg-success inline-block" />
-            <span>Sinh nhật</span>
+            <span>生日</span>
           </span>
         </div>
 
@@ -69,15 +69,15 @@
           class="border border-accent/10 rounded-xs p-2 mt-2"
         >
           <p class="text-[10px] text-accent mb-1">
-            {{ SEASON_NAMES[calendarSeason] }}{{ selectedCalendarDay }}ngày
-            <span v-if="selectedDayEntry.isToday" class="text-danger ml-1">(Hôm nay)</span>
+            {{ SEASON_NAMES[calendarSeason] }}{{ selectedCalendarDay }}日
+            <span v-if="selectedDayEntry.isToday" class="text-danger ml-1">(今ngày)</span>
           </p>
           <div v-for="f in selectedDayEntry.festivals" :key="f.name" class="mb-0.5">
             <span class="text-[10px] text-danger">{{ f.name }}</span>
             <span class="text-[10px] text-muted ml-1">{{ f.description }}</span>
           </div>
           <div v-for="b in selectedDayEntry.birthdays" :key="b.npcName">
-            <span class="text-[10px] text-success">Sinh nhật của {{ b.npcName }}</span>
+            <span class="text-[10px] text-success">{{ b.npcName }}的生日</span>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@
   const calendarSeason = ref<Season>(gameStore.season)
   const selectedCalendarDay = ref<number | null>(null)
 
-  // mỗilầnđánhmởđềuvềđếnkhitrướcmùalễ，miễnđượclênlầnlậtđếnđôngngày下lầncòndừngđangđótrẻ
+  // 每次打开都回到当前季节，免得上次翻到冬天下次还停在那儿
   watch(
     () => props.open,
     isOpen => {

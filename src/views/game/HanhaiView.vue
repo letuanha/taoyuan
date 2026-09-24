@@ -13,12 +13,12 @@
     <div v-if="!hanhaiStore.unlocked" class="flex flex-col items-center justify-center py-10 space-y-3">
       <Tent :size="48" class="text-accent/30" />
       <p class="text-sm text-muted">Tuyến thương mại chưa mở khóa</p>
-      <p class="text-xs text-muted/60 text-center max-w-60">cần muốn đánhbạiMỏlượt120tầngBOSSvàchitrả{{ HANHAI_UNLOCK_COST }}vănsửađườngphí</p>
+      <p class="text-xs text-muted/60 text-center max-w-60">需要击败矿洞thứ120tầngBOSS并支付{{ HANHAI_UNLOCK_COST }}文修路费</p>
       <Button v-if="bossDefeated" :class="canUnlock ? '!bg-accent !text-bg' : 'opacity-50'" :disabled="!canUnlock" @click="handleUnlock">
-        mởgiaothương mạiđường ({{ HANHAI_UNLOCK_COST }}văn)
+        开通商路 ({{ HANHAI_UNLOCK_COST }}文)
       </Button>
-      <p v-if="bossDefeated && !canUnlock" class="text-xs text-danger">Tiềnkhôngđủ（cần muốn {{ HANHAI_UNLOCK_COST }}văn）</p>
-      <p v-if="!bossDefeated" class="text-xs text-danger">Cần đánh bại BOSS tầng 120 của mỏ trước</p>
+      <p v-if="bossDefeated && !canUnlock" class="text-xs text-danger">金钱不足（需要{{ HANHAI_UNLOCK_COST }}文）</p>
+      <p v-if="!bossDefeated" class="text-xs text-danger">需先击败矿洞thứ120tầngBOSS</p>
     </div>
 
     <!-- 已解锁 -->
@@ -52,13 +52,13 @@
               <p class="text-xs text-muted truncate">{{ item.description }}</p>
             </div>
             <div class="flex flex-col items-end ml-2 shrink-0">
-              <span class="text-xs text-accent">{{ item.price }}văn</span>
+              <span class="text-xs text-accent">{{ item.price }}文</span>
               <span
                 v-if="item.weeklyLimit"
                 class="text-[10px]"
                 :class="hanhaiStore.getWeeklyRemaining(item.itemId) > 0 ? 'text-muted' : 'text-danger'"
               >
-                giới hạnmua {{ hanhaiStore.getWeeklyRemaining(item.itemId) }}/{{ item.weeklyLimit }}
+                限购 {{ hanhaiStore.getWeeklyRemaining(item.itemId) }}/{{ item.weeklyLimit }}
               </span>
             </div>
           </div>
@@ -75,20 +75,20 @@
               <p class="text-xs text-muted truncate">{{ item.description }}</p>
             </div>
             <div class="flex flex-col items-end ml-2 shrink-0">
-              <span class="text-xs text-accent">{{ item.price }}văn</span>
+              <span class="text-xs text-accent">{{ item.price }}文</span>
               <span
                 v-if="item.weeklyLimit"
                 class="text-[10px]"
                 :class="hanhaiStore.getWeeklyRemaining(item.itemId) > 0 ? 'text-muted' : 'text-danger'"
               >
-                giới hạnmua {{ hanhaiStore.getWeeklyRemaining(item.itemId) }}/{{ item.weeklyLimit }}
+                限购 {{ hanhaiStore.getWeeklyRemaining(item.itemId) }}/{{ item.weeklyLimit }}
               </span>
             </div>
           </div>
         </div>
         <!-- 藏宝图寻宝 -->
         <Button v-if="treasureMapCount > 0" :icon="Map" :icon-size="12" class="w-full justify-center mt-2" @click="handleUseTreasureMap">
-          khiếndùnggiấubáubộ sưu tậpkiếmbáu（{{ treasureMapCount }}lá）
+          使用藏宝图寻宝（{{ treasureMapCount }}张）
         </Button>
       </template>
 
@@ -119,11 +119,11 @@
           <div v-for="(slot, idx) in hanhaiStore.tradeSlots" :key="idx" class="border border-accent/10 rounded-xs px-2 py-1.5 mb-1">
             <div class="flex items-center justify-between">
               <span class="text-xs">{{ getItemName(slot.itemId) }}×{{ slot.quantity }}</span>
-              <span class="text-xs text-muted">{{ slot.daysRemaining }}ngàysaubánra</span>
+              <span class="text-xs text-muted">{{ slot.daysRemaining }}ngày后售出</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
               <span class="text-[10px] text-muted">{{ qualityLabel(slot.quality) }}</span>
-              <span class="text-[10px] text-accent">+{{ slot.pointsReward }}tíchđiểm</span>
+              <span class="text-[10px] text-accent">+{{ slot.pointsReward }}积分</span>
             </div>
           </div>
           <!-- 上架按钮 -->
@@ -140,25 +140,25 @@
         <div v-if="hanhaiStore.nextTradeShopUpgrade" class="border border-accent/20 rounded-xs p-2 mb-3">
           <p class="text-xs text-accent mb-1">Nâng cấp cửa hàng</p>
           <p class="text-xs text-muted mb-1">
-            Cấp tiếp theo: {{ hanhaiStore.nextTradeShopUpgrade.name }} ({{ hanhaiStore.nextTradeShopUpgrade.maxSlots }} ô · {{
+            下一级：{{ hanhaiStore.nextTradeShopUpgrade.name }}（槽位{{ hanhaiStore.nextTradeShopUpgrade.maxSlots }}·{{
               hanhaiStore.nextTradeShopUpgrade.sellDays
             }}ngày）
           </p>
           <p class="text-xs text-muted mb-1">
-            phídùng：{{ hanhaiStore.nextTradeShopUpgrade.cost }}văn
+            费用：{{ hanhaiStore.nextTradeShopUpgrade.cost }}文
             <template v-for="mat in hanhaiStore.nextTradeShopUpgrade.materialCost" :key="mat.itemId">
               + {{ getItemName(mat.itemId) }}×{{ mat.quantity }}
             </template>
           </p>
           <Button class="w-full justify-center" @click="handleUpgradeTrade">Nâng cấp</Button>
         </div>
-        <div v-else class="text-xs text-muted text-center mb-3">cửa hàngquánđã đầycấp</div>
+        <div v-else class="text-xs text-muted text-center mb-3">店铺已满级</div>
 
         <!-- 积分兑换商店 -->
         <div class="mb-2">
           <p class="text-xs text-accent mb-1 flex items-center space-x-1">
             <Gift :size="12" />
-            <span>tíchđiểmđổiđổi</span>
+            <span>积分兑换</span>
           </p>
           <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
             <div
@@ -174,14 +174,14 @@
                 </p>
               </div>
               <div class="flex flex-col items-end ml-2 shrink-0">
-                <span class="text-xs text-accent">{{ exItem.pointsCost }}tíchđiểm</span>
-                <span v-if="exItem.weeklyLimit" class="text-[10px] text-muted">tuầngiới hạn{{ getExchangeWeeklyRemaining(exItem) }}</span>
+                <span class="text-xs text-accent">{{ exItem.pointsCost }}积分</span>
+                <span v-if="exItem.weeklyLimit" class="text-[10px] text-muted">周限{{ getExchangeWeeklyRemaining(exItem) }}</span>
                 <span
                   v-if="exItem.totalLimit"
                   class="text-[10px]"
                   :class="getExchangeTotalRemaining(exItem) > 0 ? 'text-muted' : 'text-danger'"
                 >
-                  {{ getExchangeTotalRemaining(exItem) > 0 ? 'Có thể đổi' : 'Đã đổi' }}
+                  {{ getExchangeTotalRemaining(exItem) > 0 ? '可兑换' : '已兑换' }}
                 </span>
               </div>
             </div>
@@ -193,7 +193,7 @@
       <template v-if="activeTab === 'casino'">
         <div class="border border-accent/20 rounded-xs p-2 mb-3">
           <div class="flex items-center justify-between">
-            <span class="text-xs text-muted">hôm nayngàycòn cònlầnsố</span>
+            <span class="text-xs text-muted">今日剩余次数</span>
             <span class="text-xs" :class="hanhaiStore.canBet ? 'text-accent' : 'text-danger'">
               {{ hanhaiStore.betsRemaining }}/{{ MAX_DAILY_BETS }}
             </span>
@@ -203,8 +203,8 @@
         <!-- 次数用完 -->
         <div v-if="!hanhaiStore.canBet" class="flex flex-col items-center justify-center py-8 space-y-3">
           <Dices :size="48" class="text-accent/30" />
-          <p class="text-sm text-muted">Hôm nay đã dùng hết số lượt cờ bạc</p>
-          <p class="text-xs text-muted/60">ngày maingàylạiđếngặpgặpvậnkhínhé</p>
+          <p class="text-sm text-muted">今日赌博次数已用完</p>
+          <p class="text-xs text-muted/60">明ngày再来碰碰运气吧</p>
         </div>
 
         <div v-else class="flex flex-col space-y-2">
@@ -212,9 +212,9 @@
           <div class="border border-accent/20 rounded-xs p-2">
             <p class="text-xs text-accent mb-2 flex items-center space-x-1">
               <CircleDot :size="12" />
-              <span>Vòng quay may mắn</span>
+              <span>幸运轮盘</span>
             </p>
-            <p class="text-xs text-muted mb-2">chọn némcượcvàngsố tiền，xoaytácvòngmâmthắnglấylầnsốphần thưởng</p>
+            <p class="text-xs text-muted mb-2">选择投注金额，转动轮盘赢取倍数奖励</p>
             <div class="flex space-x-1">
               <Button
                 v-for="tier in ROULETTE_BET_TIERS"
@@ -223,7 +223,7 @@
                 :disabled="playerStore.money < tier"
                 @click="handleRoulette(tier)"
               >
-                {{ tier }}văn
+                {{ tier }}文
               </Button>
             </div>
           </div>
@@ -232,15 +232,15 @@
           <div class="border border-accent/20 rounded-xs p-2">
             <p class="text-xs text-accent mb-2 flex items-center space-x-1">
               <Dices :size="12" />
-              <span>Đoán lớn nhỏ bằng xúc xắc</span>
+              <span>骰子猜大小</span>
             </p>
-            <p class="text-xs text-muted mb-2">némcược{{ DICE_BET_AMOUNT }}văn，đoánđúnglớnnhỏthắng2lần</p>
+            <p class="text-xs text-muted mb-2">投注{{ DICE_BET_AMOUNT }}文，猜对大小赢2倍</p>
             <div class="flex space-x-1">
               <Button class="flex-1 justify-center" :disabled="playerStore.money < DICE_BET_AMOUNT" @click="handleDice(false)">
-                đoánnhỏ (2-6)
+                猜小 (2-6)
               </Button>
               <Button class="flex-1 justify-center" :disabled="playerStore.money < DICE_BET_AMOUNT" @click="handleDice(true)">
-                đoánlớn (7-12)
+                猜大 (7-12)
               </Button>
             </div>
           </div>
@@ -249,9 +249,9 @@
           <div class="border border-accent/20 rounded-xs p-2">
             <p class="text-xs text-accent mb-2 flex items-center space-x-1">
               <Trophy :size="12" />
-              <span>Đoán cốc</span>
+              <span>猜杯</span>
             </p>
-            <p class="text-xs text-muted mb-2">némcược{{ CUP_BET_AMOUNT }}văn，3chọn1đoántrongthắng{{ CUP_WIN_MULTIPLIER }}lần</p>
+            <p class="text-xs text-muted mb-2">投注{{ CUP_BET_AMOUNT }}文，3选1猜中赢{{ CUP_WIN_MULTIPLIER }}倍</p>
             <div class="flex space-x-1">
               <Button
                 v-for="i in 3"
@@ -260,7 +260,7 @@
                 :disabled="playerStore.money < CUP_BET_AMOUNT"
                 @click="handleCup(i - 1)"
               >
-                thứ{{ i }}cốc
+                thứ{{ i }}杯
               </Button>
             </div>
           </div>
@@ -269,9 +269,9 @@
           <div class="border border-accent/20 rounded-xs p-2">
             <p class="text-xs text-accent mb-2 flex items-center space-x-1">
               <Bug :size="12" />
-              <span>Đấu dế</span>
+              <span>斗蛐蛐</span>
             </p>
-            <p class="text-xs text-muted mb-2">némcược{{ CRICKET_BET_AMOUNT }}văn，chọndếdếlêntrậnđúngchiến，thắng{{ CRICKET_WIN_MULTIPLIER }}lần</p>
+            <p class="text-xs text-muted mb-2">投注{{ CRICKET_BET_AMOUNT }}文，选蛐蛐上场对战，赢{{ CRICKET_WIN_MULTIPLIER }}倍</p>
             <div class="flex space-x-1">
               <Button
                 v-for="c in CRICKETS"
@@ -289,9 +289,9 @@
           <div class="border border-accent/20 rounded-xs p-2">
             <p class="text-xs text-accent mb-2 flex items-center space-x-1">
               <Gem :size="12" />
-              <span>Lật bài tìm kho báu</span>
+              <span>翻牌寻宝</span>
             </p>
-            <p class="text-xs text-muted mb-2">némcược{{ CARD_BET_AMOUNT }}văn，{{ CARD_TOTAL }}lábàitrong{{ CARD_TREASURE_COUNT }}lácóbáu</p>
+            <p class="text-xs text-muted mb-2">投注{{ CARD_BET_AMOUNT }}文，{{ CARD_TOTAL }}张牌中{{ CARD_TREASURE_COUNT }}张有宝</p>
             <div class="flex space-x-1">
               <Button
                 v-for="i in CARD_TOTAL"
@@ -309,9 +309,9 @@
           <div class="border border-accent/20 rounded-xs p-2">
             <p class="text-xs text-accent mb-2 flex items-center space-x-1">
               <Spade :size="12" />
-              <span>HãnHảipokerkhắc</span>
+              <span>瀚海扑克</span>
             </p>
-            <p class="text-xs text-muted mb-2">chọn trậnlầnvàotrận，vàotrậnphítứcchipsố，mỗivánphínướcchochia bàiquan</p>
+            <p class="text-xs text-muted mb-2">选择场次入场，入场费即筹码，每局抽水给荷官</p>
             <div class="flex flex-col space-y-1">
               <div
                 v-for="t in TEXAS_TIERS"
@@ -320,10 +320,10 @@
               >
                 <div class="flex-1 min-w-0">
                   <p class="text-xs">{{ t.name }}</p>
-                  <p class="text-xs text-muted">vàotrận{{ t.entryFee }}văn + phínước{{ t.rake }}văn · mùcược{{ t.blind }} · {{ t.rounds }}ván</p>
+                  <p class="text-xs text-muted">入场{{ t.entryFee }}文 + 抽水{{ t.rake }}文 · 盲注{{ t.blind }} · {{ t.rounds }}手</p>
                 </div>
                 <Button class="ml-2 shrink-0" :disabled="playerStore.money < t.minMoney" @click="handleTexas(t.id)">
-                  {{ playerStore.money < t.minMoney ? `Cần ${t.minMoney} văn` : 'Vào cửa' }}
+                  {{ playerStore.money < t.minMoney ? `需${t.minMoney}文` : '入场' }}
                 </Button>
               </div>
             </div>
@@ -333,10 +333,10 @@
           <div class="border border-accent/20 rounded-xs p-2">
             <p class="text-xs text-accent mb-2 flex items-center space-x-1">
               <Crosshair :size="12" />
-              <span>quỷmavòngmâm</span>
+              <span>恶魔轮盘</span>
             </p>
-            <p class="text-xs text-muted mb-2">némcược{{ BUCKSHOT_BET_AMOUNT }}văn，vớiNhà cáivònglưumởsúng，thắngngườiđược{{ BUCKSHOT_WIN_MULTIPLIER }}lần</p>
-            <Button class="w-full justify-center" :disabled="playerStore.money < BUCKSHOT_BET_AMOUNT" @click="handleBuckshot">tháchchiến</Button>
+            <p class="text-xs text-muted mb-2">投注{{ BUCKSHOT_BET_AMOUNT }}文，与庄家轮流开枪，胜者得{{ BUCKSHOT_WIN_MULTIPLIER }}倍</p>
+            <Button class="w-full justify-center" :disabled="playerStore.money < BUCKSHOT_BET_AMOUNT" @click="handleBuckshot">挑战</Button>
           </div>
         </div>
       </template>
@@ -345,15 +345,15 @@
       <div class="mt-3 border border-accent/20 rounded-xs p-2">
         <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs text-muted">Sở hữuTiền</span>
-            <span class="text-xs">{{ playerStore.money }}văn</span>
+            <span class="text-xs text-muted">持有金钱</span>
+            <span class="text-xs">{{ playerStore.money }}文</span>
           </div>
           <div class="flex items-center justify-between">
             <span class="text-xs text-muted">Điểm thông thương</span>
             <span class="text-xs text-accent">{{ hanhaiStore.tradePoints }}</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-xs text-muted">hôm nayngàycờ bạcbảo tàng</span>
+            <span class="text-xs text-muted">今日赌博</span>
             <span class="text-xs">{{ MAX_DAILY_BETS - hanhaiStore.betsRemaining }}/{{ MAX_DAILY_BETS }}</span>
           </div>
           <div class="flex items-center justify-between">
@@ -384,17 +384,17 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">giá</span>
-              <span class="text-xs text-accent">{{ shopModalItem.price }}văn</span>
+              <span class="text-xs text-muted">价格</span>
+              <span class="text-xs text-accent">{{ shopModalItem.price }}文</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Sở hữu</span>
-              <span class="text-xs">{{ playerStore.money }}văn</span>
+              <span class="text-xs text-muted">持有</span>
+              <span class="text-xs">{{ playerStore.money }}文</span>
             </div>
             <div v-if="shopModalItem.weeklyLimit" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Giới hạn mua trong tuần</span>
+              <span class="text-xs text-muted">本周限购</span>
               <span class="text-xs" :class="hanhaiStore.getWeeklyRemaining(shopModalItem.itemId) > 0 ? '' : 'text-danger'">
-                còncòn
+                剩余
                 {{ hanhaiStore.getWeeklyRemaining(shopModalItem.itemId) }}/{{ shopModalItem.weeklyLimit }}
               </span>
             </div>
@@ -405,7 +405,7 @@
             :disabled="playerStore.money < shopModalItem.price || hanhaiStore.getWeeklyRemaining(shopModalItem.itemId) <= 0"
             @click="handleBuyItem(shopModalItem.itemId)"
           >
-            {{ hanhaiStore.getWeeklyRemaining(shopModalItem.itemId) <= 0 ? 'Tuần này đã bán hết' : 'Mua' }}
+            {{ hanhaiStore.getWeeklyRemaining(shopModalItem.itemId) <= 0 ? '本周已售罄' : 'Mua' }}
           </Button>
         </div>
       </div>
@@ -415,8 +415,8 @@
     <Transition name="panel-fade">
       <div v-if="showRouletteModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full">
-          <p class="text-sm text-accent text-center mb-1">Vòng quay may mắn</p>
-          <p class="text-xs text-muted text-center mb-3">némcược {{ rouletteBetAmount }}văn</p>
+          <p class="text-sm text-accent text-center mb-1">幸运轮盘</p>
+          <p class="text-xs text-muted text-center mb-3">投注 {{ rouletteBetAmount }}文</p>
 
           <!-- 转盘格子 -->
           <div class="flex flex-col space-y-1 mb-3">
@@ -435,10 +435,10 @@
           <template v-if="roulettePhase === 'done' && rouletteAnimResult">
             <div class="border border-accent/10 rounded-xs p-3 text-center mb-3">
               <p class="text-sm mb-0.5" :class="rouletteAnimResult.multiplier > 0 ? 'text-success' : 'text-danger'">
-                {{ rouletteAnimResult.multiplier > 0 ? 'Thắng lớn!' : 'Trượt…' }}
+                {{ rouletteAnimResult.multiplier > 0 ? '大赢！' : '落空…' }}
               </p>
-              <p v-if="rouletteAnimResult.multiplier > 0" class="text-xs text-success">+{{ rouletteAnimResult.winnings }}văn</p>
-              <p v-else class="text-xs text-danger">-{{ rouletteBetAmount }}văn</p>
+              <p v-if="rouletteAnimResult.multiplier > 0" class="text-xs text-success">+{{ rouletteAnimResult.winnings }}文</p>
+              <p v-else class="text-xs text-danger">-{{ rouletteBetAmount }}文</p>
             </div>
             <Button class="w-full justify-center" @click="showRouletteModal = false">Xác nhận</Button>
           </template>
@@ -450,10 +450,10 @@
     <Transition name="panel-fade">
       <div v-if="showDiceModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full">
-          <p class="text-sm text-accent text-center mb-1">Đoán lớn nhỏ bằng xúc xắc</p>
+          <p class="text-sm text-accent text-center mb-1">骰子猜大小</p>
           <p class="text-xs text-muted text-center mb-4">
-            bạnđoán
-            <span class="text-accent">{{ diceGuessIsBig ? 'Lớn (7-12)' : 'Nhỏ (2-6)' }}</span>
+            你猜
+            <span class="text-accent">{{ diceGuessIsBig ? '大 (7-12)' : '小 (2-6)' }}</span>
           </p>
 
           <!-- 骰子面 -->
@@ -475,13 +475,13 @@
             <span class="text-accent">{{ diceSum }}</span>
             <span class="text-muted">（{{ diceSum >= 7 ? 'Lớn' : 'Nhỏ' }}）</span>
           </p>
-          <p v-else class="text-xs text-muted/40 text-center mb-3">némxúc xắctrong…</p>
+          <p v-else class="text-xs text-muted/40 text-center mb-3">掷骰中…</p>
 
           <!-- 结果 -->
           <template v-if="dicePhase === 'done' && diceAnimResult">
             <div class="border border-accent/10 rounded-xs p-3 text-center mb-3">
               <p class="text-sm" :class="diceAnimResult.won ? 'text-success' : 'text-danger'">
-                {{ diceAnimResult.won ? 'Đoán đúng!' : 'Đoán sai…' }}
+                {{ diceAnimResult.won ? '猜对了！' : 'Đoán sai…' }}
               </p>
               <p class="text-xs mt-0.5" :class="diceAnimResult.won ? 'text-success' : 'text-danger'">
                 {{ diceAnimResult.won ? '+' + diceAnimResult.winnings + 'xu' : '-' + DICE_BET_AMOUNT + 'xu' }}
@@ -497,8 +497,8 @@
     <Transition name="panel-fade">
       <div v-if="showCupModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full">
-          <p class="text-sm text-accent text-center mb-1">Đoán cốc</p>
-          <p class="text-xs text-muted text-center mb-4">bạnchọnđãlượt{{ cupGuess + 1 }}cốc</p>
+          <p class="text-sm text-accent text-center mb-1">猜杯</p>
+          <p class="text-xs text-muted text-center mb-4">你选了thứ{{ cupGuess + 1 }}杯</p>
 
           <!-- 三个杯子 -->
           <div class="flex justify-center space-x-3 mb-3">
@@ -530,7 +530,7 @@
             </div>
           </div>
 
-          <p v-if="cupPhase === 'shuffling'" class="text-xs text-muted/40 text-center mb-3">xáocốctrong…</p>
+          <p v-if="cupPhase === 'shuffling'" class="text-xs text-muted/40 text-center mb-3">洗杯中…</p>
 
           <!-- 结果 -->
           <template v-if="cupPhase === 'done' && cupAnimResult">
@@ -552,9 +552,9 @@
     <Transition name="panel-fade">
       <div v-if="showCricketModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full">
-          <p class="text-sm text-accent text-center mb-1">Đấu dế</p>
+          <p class="text-sm text-accent text-center mb-1">斗蛐蛐</p>
           <p class="text-xs text-muted text-center mb-4">
-            Dế của bạn:
+            你的蛐蛐：
             <span class="text-accent">{{ cricketChoiceName }}</span>
           </p>
 
@@ -597,7 +597,7 @@
 
             <!-- 对方 -->
             <div class="flex-1 text-center">
-              <p class="text-xs text-danger mb-1">đúngván</p>
+              <p class="text-xs text-danger mb-1">对手</p>
               <div class="border border-danger/20 rounded-xs p-2">
                 <div class="cricket-icon" :class="{ 'cricket-fight': cricketPhase === 'fighting' }">
                   <Bug :size="24" class="text-danger -scale-x-100" />
@@ -629,13 +629,13 @@
             </div>
           </div>
 
-          <p v-if="cricketPhase === 'fighting'" class="text-xs text-muted/40 text-center mb-3">đúngchiếntrong…</p>
+          <p v-if="cricketPhase === 'fighting'" class="text-xs text-muted/40 text-center mb-3">对战中…</p>
 
           <!-- 结果 -->
           <template v-if="cricketPhase === 'done' && cricketAnimResult">
             <div class="border border-accent/10 rounded-xs p-3 text-center mb-3">
               <p class="text-sm" :class="cricketAnimResult.won ? 'text-success' : cricketAnimResult.draw ? 'text-accent' : 'text-danger'">
-                {{ cricketAnimResult.won ? 'Đại thắng!' : cricketAnimResult.draw ? 'Ngang tài ngang sức' : 'Thất bại…' }}
+                {{ cricketAnimResult.won ? '大获全胜！' : cricketAnimResult.draw ? '势均力敌' : '败下阵来…' }}
               </p>
               <p
                 class="text-xs mt-0.5"
@@ -660,8 +660,8 @@
     <Transition name="panel-fade">
       <div v-if="showCardModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full">
-          <p class="text-sm text-accent text-center mb-1">Lật bài tìm kho báu</p>
-          <p class="text-xs text-muted text-center mb-4">bạnchọnđãlượt{{ cardPick + 1 }}lá</p>
+          <p class="text-sm text-accent text-center mb-1">翻牌寻宝</p>
+          <p class="text-xs text-muted text-center mb-4">你选了thứ{{ cardPick + 1 }}张</p>
 
           <!-- 牌面 -->
           <div class="flex justify-center space-x-2 mb-3">
@@ -691,7 +691,7 @@
             </div>
           </div>
 
-          <p v-if="cardPhase === 'flipping'" class="text-xs text-muted/40 text-center mb-3">lậtbàitrong…</p>
+          <p v-if="cardPhase === 'flipping'" class="text-xs text-muted/40 text-center mb-3">翻牌中…</p>
 
           <!-- 结果 -->
           <template v-if="cardPhase === 'done' && cardAnimResult">
@@ -735,7 +735,7 @@
             <X :size="14" />
           </button>
           <p class="text-sm text-accent mb-2">Đăng bán vật phẩm</p>
-          <p class="text-xs text-muted mb-2">Chọn vật phẩm trong Túi đồ để bày bán tại sạp giao thương</p>
+          <p class="text-xs text-muted mb-2">选择背包中的物品放到通商摊位售卖</p>
           <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
             <div
               v-for="inv in sellableItems"
@@ -750,10 +750,10 @@
                 </span>
                 <span class="text-[10px] text-muted ml-1">×{{ inv.quantity }}</span>
               </div>
-              <span class="text-[10px] text-accent shrink-0">~{{ calcPreviewPoints(inv) }}tíchđiểm</span>
+              <span class="text-[10px] text-accent shrink-0">~{{ calcPreviewPoints(inv) }}积分</span>
             </div>
           </div>
-          <p v-if="sellableItems.length === 0" class="text-xs text-muted text-center py-4">Túi đồtrongkhông cócó thể bánVật phẩm</p>
+          <p v-if="sellableItems.length === 0" class="text-xs text-muted text-center py-4">背包中没有可售物品</p>
         </div>
       </div>
     </Transition>
@@ -769,19 +769,19 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="tradeSelectedItem = null">
             <X :size="14" />
           </button>
-          <p class="text-sm text-accent mb-2">lênbày：{{ tradeSelectedItem.name }}</p>
+          <p class="text-sm text-accent mb-2">上架：{{ tradeSelectedItem.name }}</p>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Chất lượng</span>
+              <span class="text-xs text-muted">品质</span>
               <span class="text-xs" :class="qualityColor(tradeSelectedItem.quality)">{{ qualityLabel(tradeSelectedItem.quality) }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Sở hữu</span>
+              <span class="text-xs text-muted">持有</span>
               <span class="text-xs">{{ tradeSelectedItem.quantity }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Chu kỳ bán</span>
+              <span class="text-xs text-muted">售卖周期</span>
               <span class="text-xs">{{ hanhaiStore.tradeShopConfig.sellDays }}ngày</span>
             </div>
           </div>
@@ -789,7 +789,7 @@
           <!-- 数量选择器 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <div class="flex items-center space-x-1">
                 <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="tradeQuantity <= 1" @click="tradeQuantity--">-</Button>
                 <input
@@ -810,22 +810,22 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="tradeQuantity <= 1" @click="tradeQuantity = 1">Ít nhất</Button>
+              <Button class="flex-1 justify-center" :disabled="tradeQuantity <= 1" @click="tradeQuantity = 1">最少</Button>
               <Button
                 class="flex-1 justify-center"
                 :disabled="tradeQuantity >= tradeSelectedItem.quantity"
                 @click="tradeQuantity = tradeSelectedItem.quantity"
               >
-                nhấtnhiều
+                最多
               </Button>
             </div>
             <div class="flex items-center justify-between mt-1.5">
-              <span class="text-xs text-muted">Điểm dự kiến</span>
-              <span class="text-xs text-accent">~{{ tradePreviewPoints }}tíchđiểm</span>
+              <span class="text-xs text-muted">预计积分</span>
+              <span class="text-xs text-accent">~{{ tradePreviewPoints }}积分</span>
             </div>
           </div>
 
-          <Button class="w-full justify-center !bg-accent !text-bg" @click="handleConfirmTradeSlot">lênbày ×{{ tradeQuantity }}</Button>
+          <Button class="w-full justify-center !bg-accent !text-bg" @click="handleConfirmTradeSlot">上架 ×{{ tradeQuantity }}</Button>
         </div>
       </div>
     </Transition>
@@ -849,21 +849,21 @@
           </div>
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">điềucần tíchđiểm</span>
+              <span class="text-xs text-muted">所需积分</span>
               <span class="text-xs text-accent">{{ exchangeModalItem.pointsCost }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Sở hữutíchđiểm</span>
+              <span class="text-xs text-muted">持有积分</span>
               <span class="text-xs">{{ hanhaiStore.tradePoints }}</span>
             </div>
             <div v-if="exchangeModalItem.weeklyLimit" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Còn lại trong tuần</span>
+              <span class="text-xs text-muted">本周剩余</span>
               <span class="text-xs">{{ getExchangeWeeklyRemaining(exchangeModalItem) }}</span>
             </div>
             <div v-if="exchangeModalItem.totalLimit" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Tổng giới hạn mua</span>
+              <span class="text-xs text-muted">总限购</span>
               <span class="text-xs" :class="getExchangeTotalRemaining(exchangeModalItem) > 0 ? '' : 'text-danger'">
-                còncòn {{ getExchangeTotalRemaining(exchangeModalItem) }}
+                剩余 {{ getExchangeTotalRemaining(exchangeModalItem) }}
               </span>
             </div>
           </div>
@@ -872,7 +872,7 @@
             :disabled="!canExchange(exchangeModalItem)"
             @click="handleExchange(exchangeModalItem.itemId)"
           >
-            {{ canExchange(exchangeModalItem) ? 'Đổi' : 'Không thể đổi' }}
+            {{ canExchange(exchangeModalItem) ? '兑换' : '无法兑换' }}
           </Button>
         </div>
       </div>
@@ -955,7 +955,7 @@
     endHanhaiBgm()
   })
 
-  // === giảikhóalogicchỉnh sửa ===
+  // === 解锁逻辑 ===
   const miningStore = useMiningStore()
   const bossDefeated = computed(() => miningStore.defeatedBosses.includes('abyss_dragon'))
   const canUnlock = computed(() => bossDefeated.value && playerStore.money >= HANHAI_UNLOCK_COST)
@@ -964,14 +964,14 @@
     if (result.success) addLog(result.message)
   }
 
-  // === vòngmâmtáctranhtrạng tháitrạng thái ===
+  // === 轮盘动画状态 ===
   const showRouletteModal = ref(false)
   const roulettePhase = ref<'spinning' | 'done'>('spinning')
   const rouletteHighlight = ref(0)
   const rouletteAnimResult = ref<{ multiplier: number; winnings: number } | null>(null)
   const rouletteBetAmount = ref(0)
 
-  // === xúc xắccontáctranhtrạng tháitrạng thái ===
+  // === 骰子动画状态 ===
   const showDiceModal = ref(false)
   const dicePhase = ref<'rolling' | 'done'>('rolling')
   const diceDisplay = ref<number[]>([1, 1])
@@ -980,7 +980,7 @@
 
   const diceSum = computed(() => (diceDisplay.value[0] ?? 0) + (diceDisplay.value[1] ?? 0))
 
-  /** xúc xắcmặtđiểmvị trí (3×3 grid, 0-indexed) */
+  /** 骰面点位 (3×3 grid, 0-indexed) */
   const DICE_DOTS: Record<number, number[]> = {
     1: [4],
     2: [2, 6],
@@ -990,7 +990,7 @@
     6: [0, 2, 3, 5, 6, 8]
   }
 
-  // === đoáncốctáctranhtrạng tháitrạng thái ===
+  // === 猜杯动画状态 ===
   const showCupModal = ref(false)
   const cupPhase = ref<'shuffling' | 'done'>('shuffling')
   const cupGuess = ref(0)
@@ -1001,7 +1001,7 @@
     winnings: number
   } | null>(null)
 
-  // === đấudếdếtáctranhtrạng tháitrạng thái ===
+  // === 斗蛐蛐动画状态 ===
   const showCricketModal = ref(false)
   const cricketPhase = ref<'fighting' | 'done'>('fighting')
   const cricketChoiceName = ref('')
@@ -1014,7 +1014,7 @@
     winnings: number
   } | null>(null)
 
-  // === lậtbàitáctranhtrạng tháitrạng thái ===
+  // === 翻牌动画状态 ===
   const showCardModal = ref(false)
   const cardPhase = ref<'flipping' | 'done'>('flipping')
   const cardPick = ref(0)
@@ -1034,7 +1034,7 @@
     }
   }
 
-  // === giấubáubộ sưu tập ===
+  // === 藏宝图 ===
   const inventoryStore = useInventoryStore()
   const treasureMapCount = computed(() => inventoryStore.getItemCount('hanhai_map'))
   const handleUseTreasureMap = () => {
@@ -1044,10 +1044,10 @@
     }
   }
 
-  // === vòngmâmlogicchỉnh sửa ===
+  // === 轮盘逻辑 ===
   const startRouletteSpin = (targetIndex: number) => {
     const len = ROULETTE_OUTCOMES.length
-    const fullCycles = 3 + Math.floor(Math.random() * 2) // 3~4 vòngtăngthêmtheomáynhiễm
+    const fullCycles = 3 + Math.floor(Math.random() * 2) // 3~4 圈增加随机感
     const totalSteps = fullCycles * len + targetIndex
     let step = 0
 
@@ -1056,7 +1056,7 @@
       sfxRouletteTick()
 
       if (step >= totalSteps) {
-        // táctranhkếtbuộc，dừngđang targetIndex lên，kéo dàitrễhiểnhiển thịkếtquả
+        // 动画结束，停在 targetIndex 上，延迟显示结果
         sfxRouletteStop()
         setTimeout(() => {
           roulettePhase.value = 'done'
@@ -1099,7 +1099,7 @@
     startRouletteSpin(targetIndex >= 0 ? targetIndex : 0)
   }
 
-  // === xúc xắcconlogicchỉnh sửa ===
+  // === 骰子逻辑 ===
   const startDiceRoll = (finalDice1: number, finalDice2: number) => {
     let step = 0
     const totalSteps = 14
@@ -1139,7 +1139,7 @@
     startDiceRoll(result.dice1, result.dice2)
   }
 
-  // === đoáncốclogicchỉnh sửa ===
+  // === 猜杯逻辑 ===
   const startCupShuffle = () => {
     let step = 0
     const totalSteps = 12
@@ -1183,7 +1183,7 @@
     startCupShuffle()
   }
 
-  // === đấudếdếlogicchỉnh sửa ===
+  // === 斗蛐蛐逻辑 ===
   const startCricketFight = () => {
     let step = 0
     const totalSteps = 12
@@ -1228,7 +1228,7 @@
     startCricketFight()
   }
 
-  // === lậtbàilogicchỉnh sửa ===
+  // === 翻牌逻辑 ===
   const startCardFlip = (pickIndex: number) => {
     let step = 0
     const order: number[] = []
@@ -1275,7 +1275,7 @@
     startCardFlip(pick)
   }
 
-  // === HãnHảipokerkhắc ===
+  // === 瀚海扑克 ===
   const showTexasModal = ref(false)
   const texasSetup = ref<TexasSetup | null>(null)
 
@@ -1291,7 +1291,7 @@
     showTexasModal.value = false
   }
 
-  // === quỷmavòngmâm ===
+  // === 恶魔轮盘 ===
   const showBuckshotModal = ref(false)
   const buckshotSetup = ref<BuckshotSetup | null>(null)
 
@@ -1307,7 +1307,7 @@
     showBuckshotModal.value = false
   }
 
-  // === giaothương mạihệhệ thống ===
+  // === 通商系统 ===
   const showTradeAddModal = ref(false)
   const exchangeModalItem = ref<TradeExchangeItemDef | null>(null)
 
@@ -1318,7 +1318,7 @@
   const QUALITY_LABELS: Record<string, string> = {
     normal: 'Thường',
     fine: 'Tốt',
-    excellent: 'Xuất sắc',
+    excellent: '卓越',
     supreme: 'Cực phẩm'
   }
 
@@ -1331,7 +1331,7 @@
     return ''
   }
 
-  /** lưnggóitrong可lênbày的vậtphẩm（cóbángiá的vậtphẩm；giốngconlưuđanggiốngcontúitrong，cũngmộtvà可bán） */
+  /** 背包中可上架的物品（有售价的物品；种子存在种子袋里，也一并可卖） */
   const sellableItems = computed(() => {
     const result: {
       id: string
@@ -1355,13 +1355,13 @@
     return result
   })
 
-  /** tínhtínhtíchđiểmdự kiếnxem（bao gồmtiềntúithêm成） */
+  /** 计算积分预览（含钱袋加成） */
   const calcPreviewPoints = (inv: { sellPrice: number; quality: string; quantity: number }): number => {
     const base = calcTradePoints(inv.sellPrice * inv.quantity, inv.quality)
     return Math.ceil(base * (1 + walletStore.getTradeBonus()))
   }
 
-  // sốlượngchọnchọntươngquan hệ
+  // 数量选择相关
   const tradeSelectedItem = ref<{
     id: string
     name: string
@@ -1468,7 +1468,7 @@
     }
   }
 
-  /* đoáncốc */
+  /* 猜杯 */
   .cup-box {
     position: relative;
     width: 4rem;
@@ -1509,7 +1509,7 @@
     }
   }
 
-  /* đấudếdế */
+  /* 斗蛐蛐 */
   .cricket-icon {
     display: flex;
     justify-content: center;
@@ -1529,7 +1529,7 @@
     }
   }
 
-  /* lậtbài */
+  /* 翻牌 */
   .card-tile {
     width: 3rem;
     height: 3.5rem;

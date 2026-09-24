@@ -36,17 +36,17 @@ export const useSecretNoteStore = defineStore('secretNote', () => {
     if (uncollected.length === 0) return null
     const note = uncollected[Math.floor(Math.random() * uncollected.length)]!
     collectedNotes.value.push(note.id)
-    addLog(`Đã phát hiện ghi chú bí mật #${note.id}: ${note.title}`)
+    addLog(`发现了秘密笔记 #${note.id}：${note.title}`)
     return note.id
   }
 
   /** 使用宝藏笔记（领取奖励） */
   const useNote = (noteId: number): { success: boolean; message: string } => {
-    if (!isCollected(noteId)) return { success: false, message: 'Chưa nhận được ghi chú này.' }
-    if (isUsed(noteId)) return { success: false, message: 'Ghi chú này đã được sử dụng.' }
+    if (!isCollected(noteId)) return { success: false, message: '尚未获得此笔记。' }
+    if (isUsed(noteId)) return { success: false, message: '已经使用过此笔记。' }
 
     const noteDef = SECRET_NOTES.find(n => n.id === noteId)
-    if (!noteDef || !noteDef.usable) return { success: false, message: 'Không thể sử dụng ghi chú này.' }
+    if (!noteDef || !noteDef.usable) return { success: false, message: '此笔记不可使用。' }
 
     usedNotes.value.push(noteId)
 
@@ -56,7 +56,7 @@ export const useSecretNoteStore = defineStore('secretNote', () => {
     const rewards: string[] = []
     if (noteDef.reward?.money) {
       playerStore.earnMoney(noteDef.reward.money)
-      rewards.push(`${noteDef.reward.money} văn`)
+      rewards.push(`${noteDef.reward.money}文`)
     }
     if (noteDef.reward?.items) {
       for (const item of noteDef.reward.items) {
@@ -66,8 +66,8 @@ export const useSecretNoteStore = defineStore('secretNote', () => {
     }
 
     const rewardText = rewards.join('、')
-    addLog(`Đã sử dụng ghi chú bí mật #${noteId}, nhận được ${rewardText}!`)
-    return { success: true, message: `Nhận được ${rewardText}!` }
+    addLog(`使用了秘密笔记 #${noteId}，获得了${rewardText}！`)
+    return { success: true, message: `获得了${rewardText}！` }
   }
 
   const serialize = () => ({

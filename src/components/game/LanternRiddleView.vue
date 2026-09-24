@@ -2,13 +2,13 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <Lightbulb :size="14" />
-      <span>Đoán đố đèn Thất Tịch</span>
+      <span>七夕猜灯谜</span>
     </h3>
 
     <!-- 准备 -->
     <div v-if="phase === 'ready'">
-      <p class="text-xs text-muted mb-3">Quảng trường treo đầy đèn lồng, dưới mỗi đèn có một câu đố. Có 5 câu, mỗi câu có thời gian giới hạn, trả lời đúng có thưởng!</p>
-      <Button class="w-full" @click="startGame">Bắt đầu giải đố!</Button>
+      <p class="text-xs text-muted mb-3">广场上挂满了灯笼，每个灯笼下都有一条灯谜。共5题，每题限时，答对有奖！</p>
+      <Button class="w-full" @click="startGame">开始猜谜！</Button>
     </div>
 
     <!-- 展示灯笼 -->
@@ -16,7 +16,7 @@
       <div class="lantern-drop mb-3">
         <div class="inline-block border-2 border-accent/50 px-6 py-3">
           <Lamp :size="20" class="text-accent mx-auto mb-1" />
-          <p class="text-accent text-xs">lượt {{ currentIndex + 1 }} câu</p>
+          <p class="text-accent text-xs">thứ {{ currentIndex + 1 }} 题</p>
         </div>
       </div>
       <!-- 进度点 -->
@@ -49,7 +49,7 @@
 
       <!-- 谜面 -->
       <div class="border border-accent/30 p-3 mb-3 text-center">
-        <p class="text-xs text-muted mb-1">Câu đố</p>
+        <p class="text-xs text-muted mb-1">谜面</p>
         <p class="text-xs text-text leading-relaxed">
           {{ currentRiddle.question }}
         </p>
@@ -83,12 +83,12 @@
           {{ lastCorrect ? 'Đúng rồi! +100 văn' : 'Sai rồi…' }}
         </p>
         <p class="text-xs text-muted mt-1">
-          đúngxáctrả lờián：
+          正确答案：
           <span class="text-accent">{{ currentRiddle.options[currentRiddle.answer] }}</span>
         </p>
       </div>
       <p class="text-xs text-muted">
-        khitrướcđượcđiểm：
+        当前得分：
         <span class="text-accent">{{ score }}</span>
         xu
       </p>
@@ -96,7 +96,7 @@
 
     <!-- 最终结果 -->
     <div v-else>
-      <p class="text-xs text-muted mb-2">Hội đố đèn kết thúc!</p>
+      <p class="text-xs text-muted mb-2">灯谜会结束！</p>
 
       <!-- 进度点（最终状态） -->
       <div class="flex justify-center space-x-1.5 mb-3">
@@ -105,18 +105,18 @@
 
       <div class="border border-accent/20 p-3 mb-3 text-center">
         <p class="text-xs mb-1">
-          trả lờiđúng：
+          答对：
           <span class="text-success">{{ correctCount }}</span>
-          / 5 câu
+          / 5 题
         </p>
         <p class="text-xs">
-          tổngthưởngvàng：
+          总奖金：
           <span class="text-accent">{{ score }}</span>
           xu
-          <span v-if="correctCount === 5" class="text-accent finish-flash">(Đúng hết +300 văn!)</span>
+          <span v-if="correctCount === 5" class="text-accent finish-flash">（全对+300文！）</span>
         </p>
       </div>
-      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
+      <Button class="w-full" @click="handleClaim">领取奖励</Button>
     </div>
   </div>
 </template>
@@ -148,7 +148,7 @@
   }
 
   const RIDDLE_POOL: Riddle[] = [
-    // === truyềnhệ thốngđènđố ===
+    // === 传统灯谜 ===
     {
       question: 'Có mặt không miệng, có chân không tay, nghe người nói chuyện, cùng người uống rượu. (Đố đồ dùng)',
       options: ['Bàn', 'Ghế', 'Ấm trà', 'Đèn lồng'],
@@ -209,7 +209,7 @@
       options: ['Dao bếp', 'Nồi', 'Bát', 'Thớt'],
       answer: 1
     },
-    // === trongquốcvănhóa/lễngày/thơtừ ===
+    // === 中国文化/节日/诗词 ===
     {
       question: 'Trong câu “Chỉ mong người lâu dài, ngàn dặm cùng thiền quyên”, “thiền quyên” chỉ gì?',
       options: ['Mỹ nhân', 'Mặt trăng', 'Mặt trời', 'Tinh tú'],
@@ -237,7 +237,7 @@
     },
     {
       question: 'Mùng năm tháng năm âm lịch là lễ gì?',
-      options: ['Tết Trung Thu', 'Tết Trùng Dương', 'Tết Đoan Ngọ', 'Lễ Thất Tịch'],
+      options: ['Tết Trung Thu', 'Tết Trùng Dương', 'Tết Đoan Ngọ', '七夕节'],
       answer: 2
     },
     {
@@ -290,7 +290,7 @@
       options: ['Thảnh thơi ngắm Nam Sơn', 'Nâng chén hỏi trời xanh', 'Một mình câu cá giữa tuyết sông lạnh', 'Xuân về nước sông xanh như lam'],
       answer: 0
     },
-    // === tựnhiên/nôngcanh tác/tácvật ===
+    // === 自然/农耕/动物 ===
     {
       question: 'Mặt tròn như táo, chua ngọt và giàu dinh dưỡng, vừa làm rau vừa làm trái. (Đố rau quả)',
       options: ['Cà chua', 'Táo', 'Đào', 'Mơ'],
@@ -333,7 +333,7 @@
     }
   ]
 
-  /** trước2câu7giây，sau3câu6giây */
+  /** 前2题7秒，后3题6秒 */
   const currentTimeLimit = ref(7)
 
   const gameRiddles = ref<Riddle[]>([])

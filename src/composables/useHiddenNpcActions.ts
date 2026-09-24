@@ -14,7 +14,7 @@ export const doOffering = (npcId: string, itemId: string, quality: Quality): boo
     if (result.affinityChange > 0) {
       showFloat(`+${result.affinityChange} duyên phận`, 'accent')
     } else if (result.affinityChange < 0) {
-      showFloat(`Duyên phận ${result.affinityChange}`, 'danger')
+      showFloat(`${result.affinityChange}缘分`, 'danger')
     }
     addLog(result.message)
   } else {
@@ -45,7 +45,7 @@ export const doCourting = (npcId: string): boolean => {
   const hiddenNpcStore = useHiddenNpcStore()
   const result = hiddenNpcStore.startCourting(npcId)
   if (result.success) {
-    showFloat('Cầu duyên thành công', 'accent')
+    showFloat('求缘成功', 'accent')
   }
   addLog(result.message)
   return result.success
@@ -56,7 +56,7 @@ export const doBond = (npcId: string): boolean => {
   const hiddenNpcStore = useHiddenNpcStore()
   const result = hiddenNpcStore.formBond(npcId)
   if (result.success) {
-    showFloat('Kết duyên thành công!', 'accent')
+    showFloat('结缘成功！', 'accent')
   }
   addLog(result.message)
   return result.success
@@ -81,9 +81,9 @@ export const getOfferingPreference = (npcId: string, itemId: string): 'resonant'
 }
 
 export const OFFERING_PREF_LABELS: Record<string, string> = {
-  resonant: 'Tâm linh tương thông',
-  pleased: 'Hợp ý',
-  repelled: 'Bài xích',
+  resonant: '灵犀',
+  pleased: '合意',
+  repelled: '排斥',
   neutral: ''
 }
 

@@ -353,7 +353,7 @@ export const useFarmStore = defineStore('farm', () => {
 
   const applyFertileSoil = (farmingLevel: number): { count: number; fertilizerName: string } => {
     const fertilizerId = farmingLevel >= 8 ? 'deluxe_speed_gro' : farmingLevel >= 5 ? 'quality_fertilizer' : 'basic_fertilizer'
-    const fertilizerName = farmingLevel >= 8 ? 'Hoóc-môn tăng trưởng cao cấp' : farmingLevel >= 5 ? 'Phân Bón Chất Lượng' : 'Phân Bón Cơ Bản'
+    const fertilizerName = farmingLevel >= 8 ? '高级生长激素' : farmingLevel >= 5 ? 'Phân Bón Chất Lượng' : 'Phân Bón Cơ Bản'
     let count = 0
     for (const plot of plots.value) {
       if (plot.state !== 'wasteland' && !plot.fertilizer) {

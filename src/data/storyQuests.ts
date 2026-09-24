@@ -2,10 +2,10 @@ import type { MainQuestDef } from '@/types'
 
 /** 章节标题 */
 export const CHAPTER_TITLES: Record<number, string> = {
-  1: 'Bước vào Đào Nguyên',
-  2: 'Bám rễ nơi đất mẹ',
-  3: 'Danh tiếng vang bốn phương',
-  4: 'Phong vân hội tụ',
+  1: '初入桃源',
+  2: '扎根大地',
+  3: '名扬四乡',
+  4: '风云际会',
   5: 'Chúa Tể Đào Nguyên'
 }
 

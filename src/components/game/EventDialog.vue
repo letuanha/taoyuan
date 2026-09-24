@@ -41,25 +41,25 @@
   const npcStore = useNpcStore()
   const playerStore = usePlayerStore()
 
-  /** phốingẫu nhiêntên（chưahônthìlàlép） */
+  /** 配偶名（未婚则为空） */
   const spouseName = computed(() => {
     const spouse = npcStore.getSpouse()
     return spouse ? (getNpcById(spouse.npcId)?.name ?? '') : ''
   })
 
-  /** đãhônvànênlễngàynângdângđã成nhàbảnbảnthời，cảidùng成nhàbảnvănán */
+  /** 已婚且该节日提供了成家版本时，改用成家版文案 */
   const narrative = computed(() => {
     if (spouseName.value && props.event.narrativeMarried) return props.event.narrativeMarried
     return props.event.narrative
   })
 
-  /** thayđổivănánchiếmvị tríbùa */
+  /** 替换文案占位符 */
   const fill = (line: string): string =>
     line
       .replace(/\{year\}/g, String(gameStore.year))
       .replace(/\{player\}/g, playerStore.playerName)
       .replace(/\{title\}/g, playerStore.honorific)
-      .replace(/\{spouse\}/g, spouseName.value || 'Người nhà')
+      .replace(/\{spouse\}/g, spouseName.value || '家里人')
 
   const lineIndex = ref(1)
 

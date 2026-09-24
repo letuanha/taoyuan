@@ -8,7 +8,7 @@
         >
           <X :size="14" />
         </button>
-        <p class="text-accent text-sm text-center mb-3 tracking-widest">Bản đồ Đào Nguyên Hương</p>
+        <p class="text-accent text-sm text-center mb-3 tracking-widest">Bản đồ Đào Nguyên</p>
 
         <!-- 田庄 -->
         <div class="map-area">
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="map-area flex-1">
-            <p class="map-area-title">Ngoài đồng</p>
+            <p class="map-area-title">Ngoài trời</p>
             <div class="map-area-grid">
               <button
                 v-for="t in wildGroup"
@@ -80,7 +80,7 @@
 
         <!-- 随身 -->
         <div class="map-area">
-          <p class="map-area-title">Mang theo</p>
+          <p class="map-area-title">Cá nhân</p>
           <div class="map-area-grid">
             <button
               v-for="t in personalGroup"
@@ -123,13 +123,14 @@
   const personalGroup = computed(() => pick(['charinfo', 'inventory', 'skills', 'achievement', 'wallet', 'quest']))
 
   const go = (key: PanelKey) => {
-    navigateToPanel(key)
+    // Đóng menu trước khi đổi route để TalkBack không giữ các phần tử của menu trong cây trợ năng.
     emit('close')
+    navigateToPanel(key)
   }
 </script>
 
 <style scoped>
-  /* đấtbộ sưu tậprauđơn */
+  /* 地图菜单 */
   .map-area {
     border: 1px dashed rgba(200, 164, 92, 0.3);
     border-radius: 2px;

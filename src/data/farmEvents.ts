@@ -1,5 +1,5 @@
 // === 晨间随机事件数据 ===
-// 设计理念：不是系统，是"Một câu dẫn chuyện buổi sáng"
+// 设计理念：不是系统，是"早晨的一句旁白"
 
 /** 效果类型 */
 export type MorningEffect =

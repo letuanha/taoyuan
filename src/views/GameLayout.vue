@@ -18,36 +18,43 @@
     </div>
 
     <!-- 内容 -->
-    <div class="game-panel flex-1 min-h-0 overflow-y-auto">
+    <div
+      ref="gameContent"
+      class="game-panel flex-1 min-h-0 overflow-y-auto"
+      role="main"
+      tabindex="-1"
+      aria-label="Nội dung trò chơi"
+      :inert="showSettings || showMobileMap"
+    >
+      <!-- Không dùng Transition ở router-view: màn hình cũ phải được tháo khỏi DOM ngay khi đổi route.
+           Điều này tránh TalkBack tiếp tục duyệt các phần tử của màn hình cũ trong WebView Android. -->
       <router-view v-slot="{ Component }">
-        <Transition name="panel-fade" mode="out-in">
-          <component :is="Component" :key="$route.path" />
-        </Transition>
+        <component :is="Component" :key="$route.path" />
       </router-view>
     </div>
 
     <!-- 移动端地图按钮 -->
-    <button class="mobile-map-btn" @click="showMobileMap = true">
+    <button class="mobile-map-btn" aria-label="Mở bản đồ" @click="showMobileMap = true">
       <Map :size="20" />
     </button>
-    <button class="mobile-setting-btn" @click="showSettings = true">
+    <button class="mobile-setting-btn" aria-label="Mở cài đặt" @click="showSettings = true">
       <SettingsIcon :size="20" />
     </button>
     <!-- 虚空箱远程访问按钮 -->
-    <button v-if="warehouseStore.hasVoidChest" class="mobile-void-btn" @click="showVoidModal = true">
+    <button v-if="warehouseStore.hasVoidChest" class="mobile-void-btn" aria-label="Mở kho lưu trữ" @click="showVoidModal = true">
       <Archive :size="20" />
     </button>
     <!-- 日志按钮 -->
-    <button class="mobile-log-btn" :class="{ 'with-void': warehouseStore.hasVoidChest }" @click="showLogModal = true">
+    <button class="mobile-log-btn" :class="{ 'with-void': warehouseStore.hasVoidChest }" aria-label="Mở nhật ký" @click="showLogModal = true">
       <History :size="20" />
     </button>
     <!-- 待办按钮 -->
-    <button class="mobile-todo-btn" :class="{ 'with-void': warehouseStore.hasVoidChest }" @click="showTodoModal = true">
+    <button class="mobile-todo-btn" :class="{ 'with-void': warehouseStore.hasVoidChest }" aria-label="Mở việc cần làm" @click="showTodoModal = true">
       <ListChecks :size="20" />
       <span v-if="todoUrgentCount > 0" class="todo-badge">{{ todoUrgentCount }}</span>
     </button>
     <!-- 背包按钮：随手清包 / 吃东西，不必特地跑一趟 -->
-    <button class="mobile-bag-btn" :class="{ 'with-void': warehouseStore.hasVoidChest }" @click="showBagModal = true">
+    <button class="mobile-bag-btn" :class="{ 'with-void': warehouseStore.hasVoidChest }" aria-label="Mở ba lô" @click="showBagModal = true">
       <Package :size="20" />
     </button>
 
@@ -119,13 +126,13 @@
       <div v-if="pendingPetAdoption" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full text-center">
           <Divider title label="Động vật nhỏ ghé thăm" />
-          <p class="text-xs leading-relaxed mb-3">Một con vật nhỏ đang quanh quẩn trước cửa nhà bạn, trông có vẻ rất muốn có một mái ấm. Bạn có muốn nhận nuôi nó không?</p>
+          <p class="text-xs leading-relaxed mb-3">一只小动物在你家门口徘徊，看起来很想有个家。你要收养它吗？</p>
           <div class="flex space-x-3 justify-center mb-3">
             <Button :class="petChoice === 'cat' ? '!bg-accent !text-bg' : ''" @click="petChoice = 'cat'">Mèo</Button>
             <Button :class="petChoice === 'dog' ? '!bg-accent !text-bg' : ''" @click="petChoice = 'dog'">Chó</Button>
           </div>
           <div v-if="petChoice" class="mb-3">
-            <p class="text-xs text-muted mb-1">Đặt tên cho nó:</p>
+            <p class="text-xs text-muted mb-1">给它取个名字：</p>
             <input
               v-model="petNameInput"
               class="w-full bg-bg border border-accent/30 rounded-xs px-2 py-1 text-xs text-text focus:border-accent accent outline-none placeholder:text-muted/40 transition-colors"
@@ -133,7 +140,7 @@
               maxlength="8"
             />
           </div>
-          <Button :disabled="!petChoice" @click="confirmPetAdoption">Nhận nuôi</Button>
+          <Button :disabled="!petChoice" @click="confirmPetAdoption">领养</Button>
         </div>
       </div>
     </Transition>
@@ -143,11 +150,11 @@
       <div v-if="childProposalVisible" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full text-center">
           <Divider title label="Đề nghị của gia đình" />
-          <p class="text-xs leading-relaxed mb-4">{{ proposalSpouseName }}nhẹnóinóiđạo：「nhấtGầntôiđangnghĩ，tôichúng talàkhônglànênmuốn cáitrẻconđã？」</p>
+          <p class="text-xs leading-relaxed mb-4">{{ proposalSpouseName }}轻声说道：「最近我在想，我们是不是该要个孩子了？」</p>
           <div class="flex flex-col space-y-1.5">
-            <Button class="w-full justify-center" @click="handleChildProposalResponse('accept')">「Tôi cũng nghĩ vậy.」</Button>
-            <Button class="w-full justify-center" @click="handleChildProposalResponse('wait')">「Đợi thêm chút nữa nhé.」</Button>
-            <Button class="w-full justify-center text-muted" @click="handleChildProposalResponse('decline')">「Bây giờ chưa phải lúc.」</Button>
+            <Button class="w-full justify-center" @click="handleChildProposalResponse('accept')">「我也这么想。」</Button>
+            <Button class="w-full justify-center" @click="handleChildProposalResponse('wait')">「再等等吧。」</Button>
+            <Button class="w-full justify-center text-muted" @click="handleChildProposalResponse('decline')">「现在还不是时候。」</Button>
           </div>
         </div>
       </div>
@@ -180,7 +187,7 @@
           <div class="flex items-center justify-between mb-2">
             <p class="text-sm text-accent">
               <Archive :size="14" class="inline" />
-              hư khôngléprương
+              虚空箱
             </p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="showVoidModal = false" />
           </div>
@@ -196,9 +203,9 @@
               <div class="flex items-center justify-between mb-1">
                 <div class="flex items-center space-x-1.5">
                   <span class="text-xs text-quality-supreme">{{ vc.label }}</span>
-                  <span v-if="vc.voidRole === 'input'" class="text-[10px] px-1 border border-accent/30 rounded-xs text-accent">Rương nguyên liệu</span>
+                  <span v-if="vc.voidRole === 'input'" class="text-[10px] px-1 border border-accent/30 rounded-xs text-accent">原料箱</span>
                   <span v-if="vc.voidRole === 'output'" class="text-[10px] px-1 border border-accent/30 rounded-xs text-accent">
-                    Rương thành phẩm
+                    成品箱
                   </span>
                 </div>
                 <span class="text-[10px] text-muted">{{ vc.items.length }}/{{ voidChestCapacity }}</span>
@@ -235,8 +242,8 @@
                 </div>
                 <div v-else class="flex flex-col items-center justify-center py-4">
                   <Archive :size="28" class="text-accent/20 mb-1.5" />
-                  <p class="text-[10px] text-muted">Rương đang trống</p>
-                  <p class="text-[10px] text-muted/50 mt-0.5">Nhấn 「Cất vào」 bên dưới để thêm</p>
+                  <p class="text-[10px] text-muted">箱子是空的</p>
+                  <p class="text-[10px] text-muted/50 mt-0.5">点击下方「Cất vào」添加</p>
                 </div>
                 <Button
                   v-if="voidDuplicateDepositItems.length > 0"
@@ -245,7 +252,7 @@
                   :icon-size="10"
                   @click.stop="handleVoidDepositDuplicates"
                 >
-                  Cất nhanh đồ trùngvậtphẩm
+                  Cất nhanh đồ trùng物品
                 </Button>
                 <Button
                   v-if="voidDepositableItems.length > 0"
@@ -277,7 +284,7 @@
       >
         <div class="game-panel max-w-sm w-full">
           <div class="flex items-center justify-between mb-2">
-            <p class="text-sm text-accent">Cất vật phẩm</p>
+            <p class="text-sm text-accent">Cất vào物品</p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="showVoidDepositModal = false" />
           </div>
           <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
@@ -318,7 +325,7 @@
           </p>
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <div class="flex items-center space-x-1">
                 <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="voidQty <= 1" @click="addVoidQty(-1)">-</Button>
                 <input
@@ -335,9 +342,9 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="voidQty <= 1" @click="setVoidQty(1)">Ít nhất</Button>
+              <Button class="flex-1 justify-center" :disabled="voidQty <= 1" @click="setVoidQty(1)">最少</Button>
               <Button class="flex-1 justify-center" :disabled="voidQty >= voidQtyModal.max" @click="setVoidQty(voidQtyModal!.max)">
-                nhấtnhiều
+                最多
               </Button>
             </div>
           </div>
@@ -367,23 +374,23 @@
           </div>
           <div class="border border-accent/10 rounded-xs p-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <span class="text-xs">×{{ voidItemDetail.quantity }}</span>
             </div>
             <div v-if="voidItemDetail.quality !== 'normal'" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Chất lượng</span>
+              <span class="text-xs text-muted">品质</span>
               <span class="text-xs" :class="voidQualityClass(voidItemDetail.quality)">
                 {{ VOID_QUALITY_LABEL[voidItemDetail.quality] }}
               </span>
             </div>
             <div v-if="voidItemDef.sellPrice" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ voidItemDef.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ voidItemDef.sellPrice }}文</span>
             </div>
             <div v-if="voidItemDef.staminaRestore" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Hồi phục</span>
               <span class="text-xs text-success">
-                +{{ voidItemDef.staminaRestore }}thểlực
+                +{{ voidItemDef.staminaRestore }}体力
                 <template v-if="voidItemDef.healthRestore">/ +{{ voidItemDef.healthRestore }}HP</template>
               </span>
             </div>
@@ -406,7 +413,7 @@
           <div class="flex items-center justify-between mb-3">
             <p class="text-sm text-accent">
               <History :size="14" class="inline" />
-              ngàychí
+              日志
             </p>
             <Button
               v-if="groupedLogs.length > 0"
@@ -415,13 +422,13 @@
               :icon-size="10"
               @click="requestClearLogs(null)"
             >
-              thanhlépTất cả
+              清空全部
             </Button>
           </div>
           <div class="flex-1 overflow-y-auto min-h-0">
             <div v-if="groupedLogs.length === 0" class="flex flex-col items-center justify-center py-8 text-muted">
               <History :size="32" class="mb-2" />
-              <p class="text-xs">Chưa có nhật ký</p>
+              <p class="text-xs">暂无日志记录</p>
             </div>
             <div v-for="(group, gi) in groupedLogs" :key="gi" class="mb-3">
               <div class="flex items-center justify-between">
@@ -465,15 +472,15 @@
       <div v-if="playerStore.exhaustPrompt" class="fixed inset-0 bg-black/70 flex items-center justify-center z-[80] p-4">
         <div class="game-panel max-w-xs w-full text-center">
           <Divider title label="Thể lực sắp cạn" />
-          <p class="text-xs leading-relaxed mb-2">Làm thêm bước này là thể lực sẽ cạn.</p>
-          <p class="text-[10px] text-muted mb-1">Khi thể lực về 0 hôm nay bạn không thể làm việc nữa, chỉ có thể về nhà ngủ.</p>
-          <p class="text-[10px] text-muted mb-3">Tự về nhà sẽ không mất tiền; nhưng nếu để đến 2 giờ sáng mới gục, bạn sẽ mất {{ passOutPenaltyPct }}% tiền đồng.</p>
-          <p v-if="!hasEdibleItem" class="text-[10px] text-danger mb-3">Trong túi không có gì ăn được, làm xong bước này sẽ không thể hồi HP.</p>
+          <p class="text-xs leading-relaxed mb-2">再做这一步，体力就见底了。</p>
+          <p class="text-[10px] text-muted mb-1">体力归零后今ngày就干不了活了，只能回家睡觉。</p>
+          <p class="text-[10px] text-muted mb-3">主动回家不扣钱；但若拖到凌晨2点才倒下，会损失{{ passOutPenaltyPct }}%铜钱。</p>
+          <p v-if="!hasEdibleItem" class="text-[10px] text-danger mb-3">背包里没有能吃的东西，做完这步就无法回血了。</p>
           <div class="flex space-x-3 justify-center">
-            <Button :icon="X" :icon-size="12" @click="playerStore.cancelExhaust()">Nghỉ một chút</Button>
-            <Button class="!bg-accent !text-bg" @click="playerStore.confirmExhaust()">Tiếp tục (hôm nay không hỏi lại)</Button>
+            <Button :icon="X" :icon-size="12" @click="playerStore.cancelExhaust()">先歇歇</Button>
+            <Button class="!bg-accent !text-bg" @click="playerStore.confirmExhaust()">继续（今ngày不再问）</Button>
           </div>
-          <p class="text-[10px] text-muted/50 mt-2">Nhấn 「Tiếp tục」 rồi thực hiện thêm một thao tác là được.</p>
+          <p class="text-[10px] text-muted/50 mt-2">点「继续」后再操作一次即可。</p>
         </div>
       </div>
     </Transition>
@@ -483,14 +490,14 @@
       <div v-if="showBedtimePrompt" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
         <div class="game-panel max-w-xs w-full text-center">
           <Divider title label="Đêm đã khuya" />
-          <p class="text-xs leading-relaxed mb-2">Bây giờ là {{ formatTime(gameStore.hour) }}, bạn bắt đầu buồn ngủ.</p>
-          <p class="text-danger text-xs mb-1">Sau một canh giờ nữa (2 giờ sáng) bạn sẽ ngất ngay tại chỗ.</p>
-          <p class="text-danger text-xs mb-1">Ngất sẽ mất {{ passOutPenaltyPct }}% tiền đồng (tối đa {{ PASSOUT_MONEY_PENALTY_CAP }} văn),</p>
-          <p class="text-danger text-xs mb-1">và ngày hôm sau chỉ hồi {{ passOutRecoveryPct }}% thể lực.</p>
-          <p class="text-xs text-muted mb-1">Về nghỉ ngay, thể lực có thể hồi {{ lateRecoveryPct }}%.</p>
+          <p class="text-xs leading-relaxed mb-2">现在是{{ formatTime(gameStore.hour) }}，你的眼皮开始打架。</p>
+          <p class="text-danger text-xs mb-1">再过一个时辰（凌晨2点）你会当场昏倒。</p>
+          <p class="text-danger text-xs mb-1">昏倒将损失{{ passOutPenaltyPct }}%铜钱（上限{{ PASSOUT_MONEY_PENALTY_CAP }}文），</p>
+          <p class="text-danger text-xs mb-1">且次日体力只恢复{{ passOutRecoveryPct }}%。</p>
+          <p class="text-xs text-muted mb-1">现在回去休息，体力可恢复{{ lateRecoveryPct }}%。</p>
           <div class="flex space-x-3 justify-center mt-4">
-            <Button :icon="X" :icon-size="12" @click="declineBedtime">Cố thêm một chút</Button>
-            <Button class="!bg-accent !text-bg" :icon="Moon" :icon-size="12" @click="acceptBedtime">Về ngủ</Button>
+            <Button :icon="X" :icon-size="12" @click="declineBedtime">再撑一会儿</Button>
+            <Button class="!bg-accent !text-bg" :icon="Moon" :icon-size="12" @click="acceptBedtime">回去睡觉</Button>
           </div>
         </div>
       </div>
@@ -504,8 +511,8 @@
           <p class="text-xs leading-relaxed mb-3 text-danger">
             {{ lastPassOutNotice }}
           </p>
-          <p class="text-[10px] text-muted mb-3">Lần sau hãy nhớ nghỉ trước 2 giờ sáng hoặc để ý thanh thể lực.</p>
-          <Button class="w-full justify-center" @click="closePassOutNotice">Đã hiểu</Button>
+          <p class="text-[10px] text-muted mb-3">下次记得在凌晨2点前休息，或留意体力条。</p>
+          <Button class="w-full justify-center" @click="closePassOutNotice">知道了</Button>
         </div>
       </div>
     </Transition>
@@ -520,7 +527,7 @@
             {{ warn }}
           </p>
           <div class="flex space-x-3 justify-center mt-4">
-            <Button :icon="X" :icon-size="12" @click="showSleepConfirm = false">Đợi thêm</Button>
+            <Button :icon="X" :icon-size="12" @click="showSleepConfirm = false">再等等</Button>
             <Button class="btn-danger" :icon="Moon" :icon-size="12" @click="confirmSleep">{{ sleepLabel }}</Button>
           </div>
         </div>
@@ -530,7 +537,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
+  import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
   import { useAnimalStore } from '@/stores/useAnimalStore'
   import { useGameStore, SEASON_NAMES } from '@/stores/useGameStore'
@@ -604,7 +611,7 @@
   const farmStore = useFarmStore()
   const { switchToSeasonalBgm } = useAudio()
 
-  // chơitrò chơichưamởbắt đầuthờilạiđịnhhướngđếnchínhrauđơn
+  // 游戏未开始时重定向到主菜单
   if (!gameStore.isGameStarted) {
     void router.replace('/')
   }
@@ -632,25 +639,25 @@
 
   const { startClock, stopClock, setClockBlocker } = useGameClock()
 
-  /** chuyểntácđầuđấtbộ sưu tậprauđơn */
+  /** 移动端地图菜单 */
   const showMobileMap = ref(false)
 
-  /** nghỉtinxácxác nhậnđạncửa sổ */
+  /** 休息确认弹窗 */
   const showSleepConfirm = ref(false)
 
-  /** thiếtđặtđạncửa sổ */
+  /** 设置弹窗 */
   const showSettings = ref(false)
 
-  /** ngàychíđạncửa sổ */
+  /** 日志弹窗 */
   const showLogModal = ref(false)
 
-  /** chờlàmđạncửa sổ */
+  /** 待办弹窗 */
   const showTodoModal = ref(false)
   const { urgentCount: todoUrgentCount } = useTodoList()
 
-  /** lưnggóinhanhnhanhđạncửa sổ */
+  /** 背包快捷弹窗 */
   const showBagModal = ref(false)
-  /** ngàychíthanhlépxácxác nhận：undefined=khônghiểnhiển thị, null=thanhlépTất cả, string=thanhlépchỉđịnhngày */
+  /** 日志清空确认：undefined=不显示, null=清空全部, string=清空指定天 */
   const clearLogTarget = ref<string | null | undefined>(undefined)
   const requestClearLogs = (dayLabel: string | null) => {
     clearLogTarget.value = dayLabel
@@ -664,10 +671,10 @@
     if (!v) clearLogTarget.value = undefined
   })
 
-  // cượcsổngàysốnhãnthẻnhậnlấydụng cụ
+  // 注册天数标签获取器
   _registerDayLabelGetter(() => `Năm ${gameStore.year}, mùa ${SEASON_NAMES[gameStore.season]}, ngày ${gameStore.day}`)
 
-  /** nhấnngàyđiểmnhóm的ngàychí（nhấtmớingàyđangtrước，mỗingàytrongcũnggụcthứ tự） */
+  /** 按天分组的日志（最新天在前，每天内也倒序） */
   const groupedLogs = computed(() => {
     const groups: { label: string; messages: string[] }[] = []
     let currentLabel: string | null = null
@@ -682,14 +689,14 @@
     return groups.reverse()
   })
 
-  // thậtthờithờigiờsinhmệnhtuầnkỳ
+  // 实时时钟生命周期
   onMounted(() => startClock())
   onUnmounted(() => stopClock())
 
-  /** lăngsáng1điểm的「làkhôngvềđinghỉtin」hỏihỏi */
+  /** 凌晨1点的「是否回去休息」询问 */
   const showBedtimePrompt = ref(false)
 
-  // đạncửa sổđánhmởthờitựtáctạmdừngthờigiờ，Tất cảquan hệđóngsauhồi phụchồi
+  // 弹窗打开时自动暂停时钟，全部关闭后恢复
   watch(
     () =>
       !!(
@@ -710,12 +717,12 @@
     { immediate: true }
   )
 
-  // === sâuđêmnângtỉnhvớingấtgụcbáotri ===
+  // === 深夜提醒与昏倒告知 ===
   watch(
     () => gameStore.hour,
     h => {
       if (!gameStore.isGameStarted) return
-      // lăngsáng2điểm：thờigiờđãdừngđangnênthờikhắc，kếttínhvàbáotrichơinhà
+      // 凌晨2点：时钟已停在该时刻，结算并告知玩家
       if (h >= PASSOUT_HOUR) {
         if (!lastPassOutNotice.value) {
           showBedtimePrompt.value = false
@@ -726,7 +733,7 @@
         }
         return
       }
-      // lăngsáng1điểm：chínhtáchỏihỏilàkhôngvềđinghỉtin（mỗingàychỉmộtlần）
+      // 凌晨1点：主动询问是否回去休息（每天仅一次）
       if (h >= BEDTIME_PROMPT_HOUR && !gameStore.bedtimePrompted) {
         gameStore.bedtimePrompted = true
         showBedtimePrompt.value = true
@@ -734,27 +741,37 @@
     }
   )
 
-  /** thìngủhỏihỏi：đingủcảm */
+  /** 就寝询问：去睡觉 */
   const acceptBedtime = () => {
     showBedtimePrompt.value = false
     confirmSleep()
   }
 
-  /** thìngủhỏihỏi：lạichốngmộthộitrẻ */
+  /** 就寝询问：再撑一会儿 */
   const declineBedtime = () => {
     showBedtimePrompt.value = false
     addLog('Bạn quyết định cố thêm một lúc… nhớ về nghỉ trước 2 giờ sáng.')
   }
 
-  /** quan hệđóngngấtgụcbáotri */
+  /** 关闭昏倒告知 */
   const closePassOutNotice = () => {
     lastPassOutNotice.value = null
   }
 
-  /** từđườngdotêngọinhậnlấykhitrướcmặtbảngnhãnbiết */
+  /** 从路由名称获取当前面板标识 */
   const currentPanel = computed(() => {
     return (route.name as string) ?? 'farm'
   })
+
+  // Sau khi đổi màn hình, đưa focus về vùng nội dung mới để TalkBack bắt đầu từ màn hình hiện tại.
+  const gameContent = ref<HTMLElement | null>(null)
+  watch(
+    () => route.fullPath,
+    async () => {
+      await nextTick()
+      gameContent.value?.focus({ preventScroll: true })
+    }
+  )
 
   const sleepLabel = computed(() => {
     if (gameStore.hour >= 24) return 'Ngả lưng ngủ ngay'
@@ -823,19 +840,19 @@
     return warnings.join('\n')
   })
 
-  /** ngấtgụcphạtvàngso sánhví dụ（trămđiểmsố） */
+  /** 昏倒罚金比例（百分数） */
   const passOutPenaltyPct = Math.round(PASSOUT_MONEY_PENALTY_RATE * 100)
 
-  /** lưnggóitronglàkhôngcónănghồi phụchồithểlực的đôngtây（dùngtạihaohếtxácxác nhậnthời的nânghiển thị） */
+  /** 背包里是否有能恢复体力的东西（用于耗尽确认时的提示） */
   const hasEdibleItem = computed(() => inventoryStore.items.some(i => (getItemById(i.itemId)?.staminaRestore ?? 0) > 0))
 
-  /** ngấtgụcsaulầnngàythểlựchồi phụchồiso sánhví dụ（bao gồmởnhàthêm成） */
+  /** 昏倒后次日体力恢复比例（含住宅加成） */
   const passOutRecoveryPct = computed(() => {
     const bonus = useHomeStore().getStaminaRecoveryBonus()
     return Math.round(Math.min(PASSOUT_STAMINA_RECOVERY + bonus, 1) * 100)
   })
 
-  /** nàykhắcthìngủ的thểlựchồi phụchồiso sánhví dụ（bao gồmởnhàthêm成） */
+  /** 此刻就寝的体力恢复比例（含住宅加成） */
   const lateRecoveryPct = computed(() => {
     const bonus = useHomeStore().getStaminaRecoveryBonus()
     const t = Math.min(Math.max(gameStore.hour - 24, 0), 1)
@@ -843,26 +860,26 @@
     return Math.round(Math.min(pct, 1) * 100)
   })
 
-  // === lưulưu：taytácbảo vệlưu + rờimởtrangmặttrướctựtácbảo vệlưu ===
+  // === 存档：手动保存 + 离开页面前自动保存 ===
   const saveStore = useSaveStore()
   const isSaving = ref(false)
 
-  /** taytácbảo vệlưuđếnkhitrướcôvị trí */
+  /** 手动保存到当前槽位 */
   const handleManualSave = () => {
     if (isSaving.value) return
     isSaving.value = true
     const ok = saveStore.autoSave()
     showFloat(ok ? 'Đã lưu tiến trình' : 'Lưu thất bại, hãy kiểm tra bản lưu trong cài đặt', ok ? 'success' : 'danger')
     if (ok) addLog('Đã lưu tiến trình game thủ công.')
-    // ngắntạmkhóađịnh，tránhmiễnliên tụcđiểmlạihồiviếtmâm
+    // 短暂锁定，避免连点重复写盘
     setTimeout(() => {
       isSaving.value = false
     }, 600)
   }
 
   /**
-   * quan hệđóngnhãnthẻtrang / chuyểnđếnsaubànthờirơimâm。
-   * pagehide với visibilitychange mộtlêndùng：chuyểntácđầuduyệtxemdụng cụvà App đếnđếnkhôngchạmphát beforeunload。
+   * 关闭标签页 / 切到后台时落盘。
+   * pagehide 与 visibilitychange 一起用：移动端浏览器和 App 往往不触发 beforeunload。
    */
   const saveBeforeExit = () => {
     if (!gameStore.isGameStarted) return
@@ -886,7 +903,7 @@
     saveBeforeExit()
   })
 
-  /** thú cưngvậtnhậnnuôi */
+  /** 宠物领养 */
   const petChoice = ref<'cat' | 'dog' | null>(null)
   const petNameInput = ref('')
 
@@ -901,7 +918,7 @@
     petNameInput.value = ''
   }
 
-  /** connữnânggợi ývềnên */
+  /** 子女提议回应 */
   const proposalSpouseName = computed(() => {
     const spouse = npcStore.getSpouse()
     if (!spouse) return 'Bạn đời'
@@ -912,7 +929,7 @@
     const result = npcStore.respondToChildProposal(response)
     addLog(result.message)
     if (result.friendshipChange !== 0) {
-      addLog(`(Hảo cảm ${result.friendshipChange > 0 ? '+' : ''}${result.friendshipChange})`)
+      addLog(`(好感${result.friendshipChange > 0 ? '+' : ''}${result.friendshipChange})`)
     }
     closeChildProposal()
   }
@@ -940,7 +957,7 @@
     closeFarmEvent()
   }
 
-  // === hư khôngléprươngxatrìnhthămhỏi ===
+  // === 虚空箱远程访问 ===
   const showVoidModal = ref(false)
   const showVoidDepositModal = ref(false)
   const expandedVoidChestId = ref<string | null>(null)
@@ -982,7 +999,7 @@
     })
   )
 
-  /** lưnggóitrong可mộtphímlưuvào的lạihồivậtphẩm（hư khôngléprươngtrongđãcóvàchưakhóađịnh、không phảigiốngcon） */
+  /** 背包中可一键存入的重复物品（虚空箱中已有且未锁定、非种子） */
   const voidDuplicateDepositItems = computed(() => {
     if (!expandedVoidChestId.value) return []
     const chest = warehouseStore.getChest(expandedVoidChestId.value)
@@ -996,7 +1013,7 @@
     })
   })
 
-  /** mộtphímlưuvàolạihồivậtphẩmđếnhư khôngléprương */
+  /** 一键存入重复物品到虚空箱 */
   const handleVoidDepositDuplicates = () => {
     if (!expandedVoidChestId.value) return
     const chestId = expandedVoidChestId.value
@@ -1021,7 +1038,7 @@
     }
   }
 
-  /** hư khôngléprươngđạocông cụthông tintinđạncửa sổ */
+  /** 虚空箱道具信息弹窗 */
   const voidItemDetail = ref<{
     itemId: string
     quality: Quality
@@ -1032,7 +1049,7 @@
     return getItemById(voidItemDetail.value.itemId) ?? null
   })
 
-  // === hư khôngléprươngsốlượngchọnchọn ===
+  // === 虚空箱数量选择 ===
   interface VoidQtyModalData {
     mode: 'withdraw' | 'deposit'
     chestId: string
@@ -1102,7 +1119,7 @@
 </script>
 
 <style scoped>
-  /* chuyểntácđầuđấtbộ sưu tậpnhấnnút */
+  /* 移动端地图按钮 */
   .mobile-map-btn,
   .mobile-setting-btn {
     position: fixed;
@@ -1180,7 +1197,7 @@
     bottom: calc(calc(0.35rem * 10) + 144px + env(safe-area-inset-bottom, 0px));
   }
 
-  /* chờlàmnhấnnút：xếp chồngđangngàychínhấnnútlênphươngmộtô */
+  /* 待办按钮：叠在日志按钮上方一格 */
   .mobile-todo-btn {
     position: fixed;
     bottom: calc(calc(0.35rem * 10) + 144px + constant(safe-area-inset-bottom, 0px));
@@ -1214,7 +1231,7 @@
     color: rgb(var(--color-bg));
   }
 
-  /* lưnggóinhấnnút：lạiđếnlênxếp chồngmộtô */
+  /* 背包按钮：再往上叠一格 */
   .mobile-bag-btn {
     position: fixed;
     bottom: calc(calc(0.35rem * 10) + 192px + constant(safe-area-inset-bottom, 0px));
@@ -1248,7 +1265,7 @@
     color: rgb(var(--color-bg));
   }
 
-  /* muốngấpviệcmụcgócnhãn */
+  /* 要紧事项角标 */
   .todo-badge {
     position: absolute;
     top: -6px;

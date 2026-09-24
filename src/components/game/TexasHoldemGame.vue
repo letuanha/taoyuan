@@ -1,21 +1,21 @@
 <template>
   <div class="game-panel max-w-sm w-full">
-    <Divider title class="!mb-1">Poker Hãn Hải · {{ tier.name }}</Divider>
+    <Divider title class="!mb-1">瀚海扑克 · {{ tier.name }}</Divider>
     <div class="flex items-center justify-center space-x-2 mb-2">
-      <span class="text-xs text-muted">lượt {{ currentRound }}/{{ tier.rounds }} ván</span>
-      <span class="text-xs text-muted">Phí vào bàn {{ tier.entryFee }} văn</span>
-      <span class="text-xs text-muted">Phí bàn {{ tier.rake }} văn</span>
+      <span class="text-xs text-muted">thứ {{ currentRound }}/{{ tier.rounds }} 手</span>
+      <span class="text-xs text-muted">入场费 {{ tier.entryFee }}文</span>
+      <span class="text-xs text-muted">抽水 {{ tier.rake }}文</span>
     </div>
 
     <!-- 底池 + 街 -->
     <div class="flex items-center justify-between mb-2">
       <span class="text-xs text-muted">{{ streetLabel }}</span>
-      <span class="text-xs text-accent">Pot: {{ pot }}</span>
+      <span class="text-xs text-accent">底池: {{ pot }}</span>
     </div>
 
     <!-- 公共牌 -->
     <div class="mb-2">
-      <p class="text-xs text-muted mb-1">Bài chung</p>
+      <p class="text-xs text-muted mb-1">公共牌</p>
       <div class="flex justify-center space-x-1">
         <span
           v-for="(card, i) in currentCommunity"
@@ -39,8 +39,8 @@
     <!-- 玩家手牌 + 筹码 -->
     <div class="mb-2">
       <div class="flex items-center justify-between mb-1">
-        <span class="text-xs text-muted">Bài của bạn</span>
-        <span class="text-xs">Chip: {{ playerStack }}</span>
+        <span class="text-xs text-muted">你的手牌</span>
+        <span class="text-xs">筹码: {{ playerStack }}</span>
       </div>
       <div class="flex justify-center space-x-1">
         <span
@@ -61,8 +61,8 @@
     <!-- 庄家手牌 + 筹码 -->
     <div class="mb-2">
       <div class="flex items-center justify-between mb-1">
-        <span class="text-xs text-muted">Bài nhà cái</span>
-        <span class="text-xs">Chip: {{ dealerStack }}</span>
+        <span class="text-xs text-muted">庄家手牌</span>
+        <span class="text-xs">筹码: {{ dealerStack }}</span>
       </div>
       <div class="flex justify-center space-x-1">
         <span
@@ -90,34 +90,34 @@
     <!-- 操作按钮 -->
     <div v-if="!handOver && isPlayerTurn && !animating" class="flex flex-wrap space-x-1 mb-2">
       <template v-if="toCall <= 0">
-        <Button class="flex-1 justify-center" @click="doCheck">Check</Button>
+        <Button class="flex-1 justify-center" @click="doCheck">过牌</Button>
         <Button
           v-if="!dealerAllIn && playerStack >= tier.blind * 2"
           class="flex-1 justify-center"
           @click="doRaise(playerBetRound + tier.blind * 2)"
         >
-          thêmcược{{ tier.blind * 2 }}
+          加注{{ tier.blind * 2 }}
         </Button>
         <Button
           v-if="!dealerAllIn && playerStack >= tier.blind * 4"
           class="flex-1 justify-center"
           @click="doRaise(playerBetRound + tier.blind * 4)"
         >
-          thêmcược{{ tier.blind * 4 }}
+          加注{{ tier.blind * 4 }}
         </Button>
       </template>
       <template v-else>
-        <Button class="flex-1 justify-center" @click="doCall">Theo {{ toCall }}</Button>
+        <Button class="flex-1 justify-center" @click="doCall">跟注{{ toCall }}</Button>
         <Button v-if="!dealerAllIn && playerStack > toCall" class="flex-1 justify-center" @click="doRaise(dealerBetRound + tier.blind * 2)">
-          thêmcược{{ toCall + tier.blind * 2 }}
+          加注{{ toCall + tier.blind * 2 }}
         </Button>
       </template>
-      <Button v-if="!dealerAllIn" class="flex-1 justify-center" @click="doAllIn">Tất tay</Button>
-      <Button class="flex-1 justify-center text-danger" @click="doFold">Bỏ bài</Button>
+      <Button v-if="!dealerAllIn" class="flex-1 justify-center" @click="doAllIn">全押</Button>
+      <Button class="flex-1 justify-center text-danger" @click="doFold">弃牌</Button>
     </div>
 
     <!-- 庄家思考中 -->
-    <p v-if="!handOver && !isPlayerTurn && animating" class="text-xs text-muted/40 text-center mb-2">Nhà cái đang suy nghĩ…</p>
+    <p v-if="!handOver && !isPlayerTurn && animating" class="text-xs text-muted/40 text-center mb-2">庄家思考中…</p>
 
     <!-- 日志 -->
     <div class="border border-accent/10 rounded-xs p-2 mb-2 max-h-24 overflow-y-auto" ref="logRef">
@@ -130,13 +130,13 @@
     <template v-if="sessionOver && finalResult">
       <div class="border border-accent/10 rounded-xs p-3 text-center mb-2">
         <p class="text-sm" :class="finalResult.won ? 'text-success' : finalResult.draw ? 'text-accent' : 'text-danger'">
-          {{ finalResult.won ? 'Bạn thắng!' : finalResult.draw ? 'Không lời không lỗ' : 'Bạn thua…' }}
+          {{ finalResult.won ? 'Bạn thắng!' : finalResult.draw ? '不赚不亏' : 'Bạn thua…' }}
         </p>
         <p class="text-xs mt-0.5" :class="finalResult.netProfit >= 0 ? 'text-success' : 'text-danger'">
           {{ finalResult.netProfit >= 0 ? '+' + finalResult.netProfit + 'xu' : finalResult.netProfit + 'xu' }}
         </p>
-        <p class="text-xs text-muted mt-0.5">Tiền boa người chia bài {{ tier.rake }} văn</p>
-        <p class="text-xs text-muted mt-0.5">Tổng {{ currentRound }} ván · Chip cuối {{ playerStack }}</p>
+        <p class="text-xs text-muted mt-0.5">荷官小费 {{ tier.rake }}文</p>
+        <p class="text-xs text-muted mt-0.5">共 {{ currentRound }} 手 · 最终筹码 {{ playerStack }}</p>
       </div>
       <Button class="w-full justify-center" @click="emit('complete', playerStack, tier.name)">Xác nhận</Button>
     </template>
@@ -161,13 +161,13 @@
 
   const tier = props.setup.tier
 
-  // === nhiềutaybàiquản lýquản lý ===
+  // === 多手牌管理 ===
   const currentRound = ref(1)
   const currentPlayerHole = ref<PokerCard[]>(props.setup.playerHole)
   const currentDealerHole = ref<PokerCard[]>(props.setup.dealerHole)
   const currentCommunity = ref<PokerCard[]>(props.setup.community)
 
-  // === đơntaybàitrạng tháitrạng thái ===
+  // === 单手牌状态 ===
   const street = ref<TexasStreet>('preflop')
   const playerStack = ref(tier.entryFee)
   const dealerStack = ref(tier.entryFee)
@@ -191,7 +191,7 @@
     draw: boolean
     netProfit: number
   } | null>(null)
-  const totalInvested = ref(0) // trậnngoàitích lũytínhnémvào（khôngbao gồmban đầubắt đầuvàotrậnphí）
+  const totalInvested = ref(0) // 场外累计投入（不含初始入场费）
   const actionLog = ref<string[]>([])
   const logRef = ref<HTMLElement | null>(null)
 
@@ -199,11 +199,11 @@
 
   const streetLabel = computed(() => {
     const labels: Record<TexasStreet, string> = {
-      preflop: 'Trước flop',
-      flop: 'Flop',
-      turn: 'Turn',
-      river: 'River',
-      showdown: 'Lật bài'
+      preflop: '翻牌前',
+      flop: '翻牌',
+      turn: '转牌',
+      river: '河牌',
+      showdown: '摊牌'
     }
     return labels[street.value]
   })
@@ -232,7 +232,7 @@
     })
   }
 
-  /** sẽchipsốtừmộtphươngchuyểnvàođáyao */
+  /** 将筹码从一方移入底池 */
   const betFromPlayer = (amount: number) => {
     const actual = Math.min(amount, playerStack.value)
     playerStack.value -= actual
@@ -256,7 +256,7 @@
     const matched = Math.min(pBet, dBet)
     pot.value += matched * 2
 
-    // rútcònnhiềucòn的chipsố
+    // 退还多余的筹码
     if (pBet > matched) {
       const refund = pBet - matched
       playerStack.value += refund
@@ -270,7 +270,7 @@
     dealerBetRound.value = 0
   }
 
-  /** tiếnvào下mộtphố */
+  /** 进入下一街 */
   const advanceStreet = () => {
     collectBets()
     const order: TexasStreet[] = ['preflop', 'flop', 'turn', 'river', 'showdown']
@@ -291,11 +291,11 @@
     isPlayerTurn.value = true
   }
 
-  /** kiểm trakiểm trabảnvònglàkhôngkếtbuộc */
+  /** 检查本轮是否结束 */
   const checkRoundEnd = (playerActed: boolean) => {
     const pBet = playerBetRound.value
     const dBet = dealerBetRound.value
-    // 下cượcconphối，hoặc下cượcít的mộtphươngđãall-in（khôngpháplạithêm）
+    // 下注匹配，或下注少的一方已all-in（无法再加）
     const settled = pBet === dBet || (pBet < dBet && playerAllIn.value) || (dBet < pBet && dealerAllIn.value)
 
     if (settled) {
@@ -314,11 +314,11 @@
     }
   }
 
-  // === chơinhàthao táclàm ===
+  // === 玩家操作 ===
 
   const doCheck = () => {
     sfxChipBet()
-    addActionLog('Bạn check')
+    addActionLog('你过牌')
     isPlayerTurn.value = false
     animating.value = true
     setTimeout(() => dealerTurn(), 800)
@@ -327,7 +327,7 @@
   const doCall = () => {
     const amount = betFromPlayer(toCall.value)
     sfxChipBet()
-    addActionLog(`Bạn theo ${amount}`)
+    addActionLog(`你跟注 ${amount}`)
     checkRoundEnd(true)
   }
 
@@ -335,7 +335,7 @@
     const needed = total - playerBetRound.value
     const amount = betFromPlayer(needed)
     sfxChipBet()
-    addActionLog(`Bạn tố thêm ${amount}`)
+    addActionLog(`你加注 ${amount}`)
     isPlayerTurn.value = false
     animating.value = true
     setTimeout(() => dealerTurn(), 800)
@@ -344,7 +344,7 @@
   const doAllIn = () => {
     const amount = betFromPlayer(playerStack.value)
     sfxChipBet()
-    addActionLog(`Bạn tất tay ${amount}`)
+    addActionLog(`你全押 ${amount}`)
     playerAllIn.value = true
     isPlayerTurn.value = false
     animating.value = true
@@ -353,13 +353,13 @@
 
   const doFold = () => {
     sfxFoldCards()
-    addActionLog('Bạn bỏ bài')
+    addActionLog('你弃牌')
     playerFolded.value = true
     collectBets()
     endHand('lost')
   }
 
-  // === trangnhàAI ===
+  // === 庄家AI ===
 
   const dealerTurn = () => {
     const decision = texasDealerAI(
@@ -376,7 +376,7 @@
 
     if (decision.action === 'fold') {
       sfxFoldCards()
-      addActionLog('Nhà cái bỏ bài')
+      addActionLog('庄家弃牌')
       dealerFolded.value = true
       collectBets()
       animating.value = false
@@ -386,7 +386,7 @@
 
     if (decision.action === 'check') {
       sfxChipBet()
-      addActionLog('Nhà cái check')
+      addActionLog('庄家过牌')
       animating.value = false
       checkRoundEnd(false)
       return
@@ -396,7 +396,7 @@
       const callAmt = playerBetRound.value - dealerBetRound.value
       const amount = betFromDealer(callAmt)
       sfxChipBet()
-      addActionLog(`Nhà cái theo ${amount}`)
+      addActionLog(`庄家跟注 ${amount}`)
       animating.value = false
       checkRoundEnd(false)
       return
@@ -405,7 +405,7 @@
     if (decision.action === 'allin') {
       const amount = betFromDealer(dealerStack.value)
       sfxChipBet()
-      addActionLog(`Nhà cái tất tay ${amount}`)
+      addActionLog(`庄家全押 ${amount}`)
       dealerAllIn.value = true
       animating.value = false
       if (dealerBetRound.value > playerBetRound.value && !playerAllIn.value) {
@@ -419,7 +419,7 @@
     // raise
     const amount = betFromDealer(decision.amount)
     sfxChipBet()
-    addActionLog(`Nhà cái tố thêm ${amount}`)
+    addActionLog(`庄家加注 ${amount}`)
     animating.value = false
     isPlayerTurn.value = true
   }
@@ -430,7 +430,7 @@
     street.value = 'showdown'
     showDealerCards.value = true
     sfxCardFlip()
-    addActionLog('—— Lật bài ——')
+    addActionLog('—— 摊牌 ——')
 
     const allCards = currentCommunity.value
     const pHand = evaluateBestHand([...currentPlayerHole.value, ...allCards])
@@ -438,8 +438,8 @@
     playerHandResult.value = pHand
     dealerHandResult.value = dHand
 
-    addActionLog(`Bạn: ${pHand.label}`)
-    addActionLog(`Nhà cái: ${dHand.label}`)
+    addActionLog(`你: ${pHand.label}`)
+    addActionLog(`庄家: ${dHand.label}`)
 
     const cmp = compareHands(pHand, dHand)
     const result = cmp > 0 ? 'won' : cmp === 0 ? 'draw' : 'lost'
@@ -447,7 +447,7 @@
     setTimeout(() => endHand(result), 800)
   }
 
-  // === đơntaykếttính ===
+  // === 单手结算 ===
 
   const endHand = (result: 'won' | 'draw' | 'lost') => {
     handOver.value = true
@@ -455,35 +455,35 @@
       showDealerCards.value = true
     }
 
-    // chipsốkếttính：thắngnhàlấyđiđáyao
+    // 筹码结算：赢家拿走底池
     if (result === 'won') {
       playerStack.value += pot.value
       sfxCasinoWin()
-      addActionLog(`Bạn thắng ván này! Nhận pot ${pot.value}`)
+      addActionLog(`你赢了本手！获得底池 ${pot.value}`)
     } else if (result === 'draw') {
       const half = Math.floor(pot.value / 2)
       playerStack.value += half
       dealerStack.value += pot.value - half
-      addActionLog(`Hòa, chia đôi pot`)
+      addActionLog(`平局，底池平分`)
     } else {
       dealerStack.value += pot.value
       sfxCasinoLose()
-      addActionLog(`Bạn thua ván này, nhà cái nhận pot ${pot.value}`)
+      addActionLog(`你输了本手，庄家获得底池 ${pot.value}`)
     }
     pot.value = 0
     handResult.value = result
 
-    // kiểm trakiểm tralàkhôngđãđánhhoànđiềucótaysố，hoặcchơinhàchipsố+trậnngoàitư liệuvàngđềukhôngđủ继tiếp tục
+    // 检查是否已打完所有手数，或玩家筹码+场外资金都不够继续
     const playerBroke = playerStack.value <= 0 && playerStore.money <= 0
     if (playerBroke || currentRound.value >= tier.rounds) {
       endSession()
     } else {
-      // còncócòncòntaysố，tựtácmởbắt đầu下mộttay
+      // 还有剩余手数，自动开始下一手
       setTimeout(() => startNextHand(), 1000)
     }
   }
 
-  // === mởbắt đầu下mộttay ===
+  // === 开始下一手 ===
 
   const startNextHand = () => {
     currentRound.value++
@@ -493,11 +493,11 @@
     currentCommunity.value = deal.community
     sfxCardFlip()
 
-    // trangnhàchipsốkhôngđủthờibổ sungbổ sungđếnvàotrậnphí
+    // 庄家筹码不足时补充到入场费
     if (dealerStack.value < tier.blind * 2) {
       const refill = tier.entryFee - dealerStack.value
       dealerStack.value = tier.entryFee
-      addActionLog(`Nhà cái bổ sung ${refill} chip`)
+      addActionLog(`庄家补充筹码 ${refill}`)
     }
 
     // 玩家筹码不足时，从场外资金补充
@@ -508,11 +508,11 @@
         playerStore.spendMoney(canAfford)
         playerStack.value += canAfford
         totalInvested.value += canAfford
-        addActionLog(`Bổ sung ${canAfford} chip từ bên ngoài`)
+        addActionLog(`从场外补充筹码 ${canAfford}`)
       }
     }
 
-    // lạiđặtđơntaytrạng tháitrạng thái
+    // 重置单手状态
     street.value = 'preflop'
     pot.value = 0
     playerBetRound.value = 0
@@ -529,21 +529,21 @@
     playerHandResult.value = null
     dealerHandResult.value = null
 
-    // 下mùcược
+    // 下盲注
     betFromPlayer(tier.blind)
     betFromDealer(tier.blind)
     collectBets()
-    addActionLog(`—— Ván ${currentRound.value} ——`)
+    addActionLog(`—— 第 ${currentRound.value} 手 ——`)
     addActionLog(`Mỗi bên đặt cược mù ${tier.blind}`)
     addActionLog('—— Trước khi lật bài ——')
     isPlayerTurn.value = true
   }
 
-  // === chỉnhtrậnkếttính ===
+  // === 整场结算 ===
 
   const endSession = () => {
     sessionOver.value = true
-    // netProfit: nhấtcuốichipsố - ban đầubắt đầuvàotrậnphí - trậnngoàibổ sungbổ sung (khôngbao gồmphínước，phínướcđãđangstoregiảmxóa)
+    // netProfit: 最终筹码 - 初始入场费 - 场外补充 (不含抽水，抽水已在store扣除)
     const net = playerStack.value - tier.entryFee - totalInvested.value
     const won = net > 0
     const draw = net === 0
@@ -551,21 +551,21 @@
     finalResult.value = { won, draw, netProfit: net }
 
     if (won) {
-      addActionLog(`Kết thúc phiên! Bạn thắng! Lời ròng ${net}`)
+      addActionLog(`场次结束！你赢了！净赚 ${net}`)
     } else if (draw) {
-      addActionLog(`Kết thúc phiên! Không lời không lỗ`)
+      addActionLog(`场次结束！不赚不亏`)
     } else {
-      addActionLog(`Kết thúc phiên! Bạn thua… Lỗ ròng ${Math.abs(net)}`)
+      addActionLog(`场次结束！你输了…净亏 ${Math.abs(net)}`)
     }
   }
 
-  // === ban đầubắt đầuhóa ===
+  // === 初始化 ===
 
   onMounted(() => {
     betFromPlayer(tier.blind)
     betFromDealer(tier.blind)
     collectBets()
-    addActionLog(`—— Ván 1 ——`)
+    addActionLog(`—— 第 1 手 ——`)
     addActionLog(`Mỗi bên đặt cược mù ${tier.blind}`)
     addActionLog('—— Trước khi lật bài ——')
     isPlayerTurn.value = true

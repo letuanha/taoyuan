@@ -102,8 +102,8 @@ export const useCookingStore = defineStore('cooking', () => {
   /** 烹饪 */
   const cook = (recipeId: string, quantity: number = 1): { success: boolean; message: string } => {
     const recipe = getRecipeById(recipeId)
-    if (!recipe) return { success: false, message: 'Công thức không tồn tại.' }
-    if (!unlockedRecipes.value.includes(recipeId)) return { success: false, message: 'Công thức này chưa được mở khóa.' }
+    if (!recipe) return { success: false, message: '食谱不存在。' }
+    if (!unlockedRecipes.value.includes(recipeId)) return { success: false, message: '尚未解锁此食谱。' }
 
     // 计算最多能做几份
     let maxPossible = quantity
@@ -133,10 +133,10 @@ export const useCookingStore = defineStore('cooking', () => {
       useAchievementStore().recordRecipeCooked()
     }
     const qualityTag = QUALITY_LABEL[resultQuality] ? `【${QUALITY_LABEL[resultQuality]}】` : ''
-    const qtyTag = maxPossible > 1 ? `${maxPossible} phần` : ''
+    const qtyTag = maxPossible > 1 ? `${maxPossible}份` : ''
     return {
       success: true,
-      message: `Đã nấu ${qtyTag}${qualityTag}${recipe.name}!`
+      message: `烹饪了${qtyTag}${qualityTag}${recipe.name}！`
     }
   }
 
@@ -144,11 +144,11 @@ export const useCookingStore = defineStore('cooking', () => {
   const eat = (recipeId: string, quality: Quality = 'normal'): { success: boolean; message: string } => {
     const foodItemId = `food_${recipeId}`
     if (!inventoryStore.removeItem(foodItemId, 1, quality)) {
-      return { success: false, message: 'Không có món ăn này trong túi.' }
+      return { success: false, message: '背包中没有这个食物。' }
     }
 
     const recipe = getRecipeById(recipeId)
-    if (!recipe) return { success: false, message: 'Dữ liệu công thức bị mất.' }
+    if (!recipe) return { success: false, message: '食谱数据丢失。' }
 
     // 品质加成
     const qualityBonus = QUALITY_MULTIPLIER[quality]
@@ -165,7 +165,7 @@ export const useCookingStore = defineStore('cooking', () => {
     )
     playerStore.restoreStamina(staminaRestore)
     const qualityTag = QUALITY_LABEL[quality] ? `【${QUALITY_LABEL[quality]}】` : ''
-    let msg = `Đã ăn ${qualityTag}${recipe.name}, hồi ${staminaRestore} thể lực`
+    let msg = `食用了${qualityTag}${recipe.name}，恢复${staminaRestore}体力`
 
     if (recipe.effect.healthRestore) {
       const healthRestore = Math.floor(

@@ -85,25 +85,25 @@ export const useShopStore = defineStore('shop', () => {
       itemId: 'copper_ore',
       name: 'Quặng đồng',
       price: 100,
-      description: 'Quặng đồng thường gặp trong mỏ, cần dùng lò luyện để nấu thành thỏi'
+      description: '矿洞中常见的铜矿，需用熔炉冶炼成锭'
     },
     {
       itemId: 'iron_ore',
       name: 'Quặng sắt',
       price: 200,
-      description: 'Quặng sắt ở tầng giữa mỏ, cần dùng lò luyện để nấu thành thỏi'
+      description: '中层矿洞出产的铁矿，需用熔炉冶炼成锭'
     },
     {
       itemId: 'gold_ore',
       name: 'Quặng vàng',
       price: 400,
-      description: 'Quặng vàng ở tầng sâu mỏ, cần dùng lò luyện để nấu thành thỏi'
+      description: '深层矿洞出产的金矿，需用熔炉冶炼成锭'
     },
     {
       itemId: 'charcoal',
       name: 'Than Củi',
       price: 100,
-      description: 'Than củi, nhiên liệu dùng để luyện kim'
+      description: '烧制的木炭，冶炼的燃料'
     }
   ])
 
@@ -120,48 +120,48 @@ export const useShopStore = defineStore('shop', () => {
   )
 
   const apothecaryItems = computed<ShopItemEntry[]>(() => [
-    { itemId: 'herb', name: 'Thảo dược', price: 50, description: 'Thảo dược mọc hoang trên núi' },
+    { itemId: 'herb', name: 'Thảo dược', price: 50, description: '山间野生的草药' },
     {
       itemId: 'ginseng',
       name: 'Nhân Sâm',
       price: 600,
-      description: 'Nhân sâm hoang dã cực kỳ quý hiếm'
+      description: '极其珍贵的野生人参'
     },
     {
       itemId: 'animal_medicine',
       name: 'Thuốc Thú Y',
       price: 150,
-      description: 'Chữa bệnh cho gia súc'
+      description: '治疗生病的牲畜'
     },
     {
       itemId: 'premium_feed',
       name: 'Thức Ăn Tinh Chất',
       price: 200,
-      description: 'Tăng tâm trạng và hảo cảm của động vật'
+      description: '提升动物心情和好感'
     },
     {
       itemId: 'nourishing_feed',
       name: 'Thức Ăn Bồi Bổ',
       price: 250,
-      description: 'Tăng tốc sản lượng động vật'
+      description: '加速动物产出'
     },
     {
       itemId: 'vitality_feed',
       name: 'Thức Ăn Sinh Lực',
       price: 300,
-      description: 'Cho ăn sẽ chắc chắn chữa khỏi bệnh'
+      description: '喂食必定治愈疾病'
     },
     {
       itemId: 'fish_feed',
       name: 'Thức Ăn Cho Cá',
       price: 30,
-      description: 'Thức ăn chuyên dụng cho ao cá'
+      description: '鱼塘专用饲料'
     },
     {
       itemId: 'water_purifier',
       name: 'Chất Cải Thiện Chất Lượng Nước',
       price: 100,
-      description: 'Cải thiện chất lượng nước ao cá'
+      description: '改善鱼塘水质'
     }
   ])
 
@@ -193,7 +193,7 @@ export const useShopStore = defineStore('shop', () => {
       itemId: 'crab_pot',
       name: 'Lồng Bẫy Cua',
       price: 1500,
-      description: 'Đặt tại điểm câu cá, mỗi ngày tự động bắt thủy sản (cần mồi)'
+      description: '放置在钓鱼地点，每日自动捕获水产（需鱼饵）'
     }
   ])
 
@@ -204,61 +204,61 @@ export const useShopStore = defineStore('shop', () => {
       itemId: 'cloth',
       name: 'Vải Vóc',
       price: 1200,
-      description: 'Vải dệt từ len cừu'
+      description: '用羊毛纺织的布匹'
     },
     {
       itemId: 'silk_cloth',
       name: 'Tơ Lụa',
       price: 500,
-      description: 'Lụa hoa mỹ'
+      description: '华美的丝绸'
     },
     {
       itemId: 'alpaca_cloth',
       name: 'Len Alpaca',
       price: 900,
-      description: 'Vải len alpaca cực kỳ mềm mại'
+      description: '极其柔软的羊驼绒布'
     },
     {
       itemId: 'felt',
       name: 'Vải Dạ',
       price: 600,
-      description: 'Nỉ ép từ lông thỏ'
+      description: '用兔毛压制的毛毡'
     },
     {
       itemId: 'silk_ribbon',
       name: 'Khăn Lụa',
       price: 500,
-      description: 'Khăn lụa thêu tinh xảo'
+      description: '精心绣制的丝帕'
     },
     {
       itemId: 'jade_ring',
       name: 'Nhẫn Phỉ Thúy',
       price: 1500,
-      description: 'Có thể dùng để cầu hôn'
+      description: '可以用来求婚'
     },
     {
       itemId: 'zhiji_jade',
       name: 'Ngọc Bội Tri Kỷ',
       price: 1500,
-      description: 'Tặng cho bạn thân cùng giới có thể kết thành tri kỷ'
+      description: '赠予同性挚友可结为知己'
     },
     {
       itemId: 'pine_incense',
       name: 'Hương Thông',
       price: 250,
-      description: 'Hương thông tươi mát'
+      description: '清新的松香'
     },
     {
       itemId: 'camphor_incense',
       name: 'Hương Long Não',
       price: 400,
-      description: 'Giúp tỉnh táo, sảng khoái'
+      description: '提神醒脑'
     },
     {
       itemId: 'osmanthus_incense',
       name: 'Hương Hoa Quế',
       price: 800,
-      description: 'Hương hoa quế nồng nàn'
+      description: '馥郁的桂花香'
     }
   ])
 

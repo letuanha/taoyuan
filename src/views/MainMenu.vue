@@ -80,7 +80,7 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="showAbout = false">
             <X :size="14" />
           </button>
-          <h2 class="text-accent text-lg mb-3">Về {{ pkg.title }}</h2>
+          <h2 class="text-accent text-lg mb-3">关于{{ pkg.title }}</h2>
           <!-- 分区标签 -->
           <div class="flex space-x-1.5 mb-3">
             <Button
@@ -345,7 +345,7 @@
             <p>Ngoài thống kê truy cập, các chức năng cốt lõi chạy cục bộ và không gửi bản lưu hay dữ liệu thao tác của bạn tới máy chủ.</p>
             <p class="text-text">4. An toàn dữ liệu</p>
             <p>Xóa dữ liệu trình duyệt hoặc đổi thiết bị có thể làm mất bản lưu; nên thường xuyên dùng chức năng xuất để sao lưu.</p>
-            <p class="text-text">5. Dịch vụ bên lượt ba</p>
+            <p class="text-text">5. Dịch vụ bên thứ ba</p>
             <p>
               Các dịch vụ thống kê bên thứ ba có chính sách riêng; chúng tôi không chịu trách nhiệm về cách họ xử lý dữ liệu. Các liên kết ngoài trong game cũng dẫn tới những trang bên thứ ba không thuộc phạm vi chính sách này.
             </p>
@@ -456,7 +456,7 @@
   }
 
   const handleNewGame = () => {
-    // điểmphốiléprảnhlưulưuôvị trí
+    // 分配空闲存档槽位
     const slot = saveStore.assignNewSlot()
     if (slot < 0) {
       showFloat('Ô lưu đã đầy, hãy xóa một bản lưu cũ trước.')
@@ -511,7 +511,7 @@
       )
     }
     questStore.initMainQuest()
-    // mớitayhướngdẫn：chơitrò chơimởbắt đầuthờilậptứchiểnhiển thịvuiđónnânghiển thị
+    // 新手引导：游戏开始时立即显示欢迎提示
     const tutorialStore = useTutorialStore()
     if (tutorialStore.enabled) {
       addLog('Trưởng thôn Liễu nói: 「Chào mừng đến Đào Nguyên Hương! Trong túi có hạt giống cải xanh, hãy ra nông trại khai hoang và gieo trồng nhé.」')
@@ -523,7 +523,7 @@
   const handleLoadGame = (slot: number) => {
     if (saveStore.loadFromSlot(slot)) {
       if (playerStore.needsIdentitySetup) {
-        // cũlưulưukhôngcótínhkhác/tênchữsốtheo，trướcđểchơinhàthiếtđặt
+        // 旧存档没有性别/名字数据，先让玩家设置
         showIdentitySetup.value = true
       } else {
         void router.push('/game')
@@ -531,7 +531,7 @@
     }
   }
 
-  /** cũlưulưuthânphầnthiếtđặthoàn成 */
+  /** 旧存档身份设置完成 */
   const handleIdentityConfirm = () => {
     playerStore.setIdentity((charName.value.trim() || 'Chưa đặt tên').slice(0, 4), charGender.value)
     showIdentitySetup.value = false
@@ -570,7 +570,7 @@
     const reader = new FileReader()
     reader.onload = () => {
       const content = reader.result as string
-      // tìmđếnthứmộtcáilépôvị trídẫnvào，khôngcóthìnânghiển thị
+      // 找到thứ一个空槽位导入，没有则提示
       const emptySlot = slots.value.find(s => !s.exists)
       if (!emptySlot) {
         showFloat('Ô lưu đã đầy, hãy xóa một bản lưu cũ trước.')

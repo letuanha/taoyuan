@@ -4,14 +4,14 @@
     <div class="flex items-center justify-between mb-1">
       <div class="flex items-center space-x-1.5 text-sm text-accent">
         <FlaskConical :size="14" />
-        <span>Nhân giống</span>
+        <span>育种</span>
       </div>
-      <span class="text-xs text-muted">Hộp giống {{ breedingStore.boxCount }}/{{ breedingStore.maxSeedBox }}</span>
+      <span class="text-xs text-muted">种子箱 {{ breedingStore.boxCount }}/{{ breedingStore.maxSeedBox }}</span>
     </div>
 
     <!-- 两栏切换 -->
     <div class="flex space-x-1 mb-3">
-      <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'breeding' }" @click="tab = 'breeding'">Bàn nhân giống</Button>
+      <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'breeding' }" @click="tab = 'breeding'">育种台</Button>
       <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'compendium' }" @click="tab = 'compendium'">
         Bộ sưu tập
       </Button>
@@ -22,7 +22,7 @@
       <!-- 育种台区 -->
       <div class="mb-3">
         <div class="flex items-center justify-between mb-1.5">
-          <span class="text-xs text-muted">Bàn nhân giống {{ breedingStore.stationCount }}/{{ MAX_BREEDING_STATIONS }}</span>
+          <span class="text-xs text-muted">育种台 {{ breedingStore.stationCount }}/{{ MAX_BREEDING_STATIONS }}</span>
           <Button v-if="breedingStore.stationCount < MAX_BREEDING_STATIONS" :icon="Plus" :icon-size="12" @click="showCraftModal = true">
             Xây dựng
           </Button>
@@ -31,8 +31,8 @@
         <!-- 无育种台空状态 -->
         <div v-if="breedingStore.stationCount === 0" class="border border-accent/10 rounded-xs py-6 flex flex-col items-center space-y-2">
           <Dna :size="32" class="text-muted/30" />
-          <p class="text-xs text-muted">Chưa xây bàn nhân giống</p>
-          <p class="text-xs text-muted/60">Sau khi xây bàn nhân giống có thể lai tạo</p>
+          <p class="text-xs text-muted">尚未建造育种台</p>
+          <p class="text-xs text-muted/60">建造育种台后可进行杂交育种</p>
         </div>
 
         <!-- 育种台列表 -->
@@ -43,9 +43,9 @@
               <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-1.5">
                   <FlaskConical :size="12" class="text-muted/40" />
-                  <span class="text-xs text-muted">Bàn nhân giống #{{ idx + 1 }} · Rảnh</span>
+                  <span class="text-xs text-muted">育种台 #{{ idx + 1 }} · 空闲</span>
                 </div>
-                <Button :icon="Dna" :icon-size="12" :disabled="breedingStore.boxCount < 2" @click="openBreedingSelect(idx)">Nhân giống</Button>
+                <Button :icon="Dna" :icon-size="12" :disabled="breedingStore.boxCount < 2" @click="openBreedingSelect(idx)">育种</Button>
               </div>
             </template>
             <!-- 加工中 -->
@@ -53,7 +53,7 @@
               <div class="flex items-center justify-between mb-1">
                 <div class="flex items-center space-x-1.5">
                   <FlaskConical :size="12" class="text-accent" />
-                  <span class="text-xs text-accent">Bàn nhân giống #{{ idx + 1 }} · Đang nhân giống</span>
+                  <span class="text-xs text-accent">育种台 #{{ idx + 1 }} · 培育中</span>
                 </div>
                 <span class="text-xs text-muted">{{ slot.daysProcessed }}/{{ slot.totalDays }}ngày</span>
               </div>
@@ -71,7 +71,7 @@
               <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-1.5">
                   <Sprout :size="12" class="text-success" />
-                  <span class="text-xs text-success">Bàn nhân giống #{{ idx + 1 }} · Hoàn thành</span>
+                  <span class="text-xs text-success">育种台 #{{ idx + 1 }} · 完成</span>
                 </div>
                 <Button :icon="Check" :icon-size="12" @click="handleCollect(idx)">Thu thập</Button>
               </div>
@@ -83,7 +83,7 @@
       <!-- 种子箱 -->
       <div>
         <div class="flex items-center justify-between mb-1.5">
-          <span class="text-xs text-muted">Hộp giống {{ breedingStore.boxCount }}/{{ breedingStore.maxSeedBox }}</span>
+          <span class="text-xs text-muted">种子箱 {{ breedingStore.boxCount }}/{{ breedingStore.maxSeedBox }}</span>
           <button
             v-if="nextSeedBoxUpgrade || breedingStore.seedBoxLevel > 0"
             class="text-[10px] px-2 py-0.5 border rounded-xs"
@@ -97,13 +97,13 @@
         <!-- 空状态 -->
         <div v-if="breedingStore.boxCount === 0" class="border border-accent/10 rounded-xs py-6 flex flex-col items-center space-y-2">
           <PackageOpen :size="32" class="text-muted/30" />
-          <p class="text-xs text-muted">Hộp giống trống</p>
-          <p class="text-xs text-muted/60">giaoquaHạt giốngChế tạomáythusảnvậtthờicókháisuấtnhận Nhân giốngHạt giống</p>
+          <p class="text-xs text-muted">种子箱为空</p>
+          <p class="text-xs text-muted/60">通过种子制造机收取产物时有概率获得育种种子</p>
         </div>
         <div v-else>
           <div class="flex justify-end mb-1">
             <Button class="py-0 px-1.5 text-[10px]" :icon="ArrowDownAZ" :icon-size="10" @click="breedingStore.sortBreedingBox()">
-              chỉnhquản lý（nhấngiốngloàivớithuộc tínhtính）
+              整理（按种类与属性）
             </Button>
           </div>
           <div class="grid grid-cols-3 md:grid-cols-5 gap-1 max-h-60 overflow-y-auto">
@@ -132,45 +132,45 @@
       <!-- 育种规则 -->
       <div class="border border-accent/10 rounded-xs mb-2">
         <button class="w-full flex items-center justify-between p-2 text-xs text-accent hover:bg-accent/5" @click="showRules = !showRules">
-          <span>Quy tắc nhân giống</span>
+          <span>育种规则</span>
           <ChevronDown :size="12" :class="{ 'transform rotate-180': showRules }" />
         </button>
         <div v-if="showRules" class="px-2 pb-2 border-t border-accent/10">
           <ul class="text-xs text-muted leading-relaxed mt-1.5 flex flex-col space-y-1">
             <li>
-              · thunhậnlàmvậtthờicó
-              <span class="text-accent">30%+trồngcấp×3%</span>
-              kháisuấtnhậnđượcnuôigiốnggiốngcon
+              · 收获作物时有
+              <span class="text-accent">30%+种植等级×3%</span>
+              概率获得育种种子
             </li>
-            <li>· Hạt giốngChế tạomáygia côngcây trồngcũngcókháisuấtsảnraNhân giốngHạt giống</li>
-            <li>· Nhân giốngHạt giốngsở hữucóđộc lậplậpdi truyềntruyềnthuộc tínhtính（Độ ngọt/Sản lượng/Kháng tính），vớiVật phẩmChất lượngkhông quan hệ</li>
+            <li>· 种子制造机加工作物也有概率产出育种种子</li>
+            <li>· 育种种子拥有独立遗传属性（甜度/产量/抗性），与物品品质无关</li>
             <li>
               ·
-              <span class="text-accent">Nhân giống cùng loại</span>
-              Hai hạt giống cùng loại lai với nhau, có thể nâng thuộc tính di truyền của đời sau
+              <span class="text-accent">同种培育</span>
+              ：两颗相同作物的育种种子杂交，可提升后代遗传属性
             </li>
             <li>
               ·
-              <span class="text-accent">Lai khác loại</span>
-              Hai hạt giống khác loại lai với nhau; khi thuộc tính trung bình của bố mẹ đạt yêu cầu có thể phát hiện giống mới
+              <span class="text-accent">异种杂交</span>
+              ：两颗不同作物的育种种子杂交，当亲本平均属性达标时可Phát hiện 新品种
             </li>
-            <li>· trướcgiaoquaNhân giống cùng loạinângtăngthuộc tínhtính，lạithửthửLai khác loạiHiệu quảhơnTốt</li>
+            <li>· 先通过同种培育提升属性，再尝试异种杂交效果更佳</li>
           </ul>
         </div>
       </div>
       <!-- 说明提示 -->
       <div v-if="totalDiscovered === 0" class="border border-accent/10 rounded-xs p-2 mb-2">
         <p class="text-xs text-muted leading-relaxed">
-          bộ sưu tậpgiámthulụcgiaoqua
-          <span class="text-accent">Lai khác loại</span>
-          Phát hiện giống mới. Hai giống
-          <span class="text-accent">khôngcùngcây trồng</span>
-          được đặt lên bàn nhân giống; khi thuộc tính trung bình của bố mẹ đạt yêu cầu sẽ phát hiện giống lai.
+          图鉴收录通过
+          <span class="text-accent">异种杂交</span>
+          Phát hiện 的新品种。将两种
+          <span class="text-accent">不同作物</span>
+          的育种种子放入育种台，当亲本平均属性达标时即可Phát hiện 杂交品种。
         </p>
         <p class="text-xs text-muted mt-1 leading-relaxed">
-          nânghiển thị：trướcgiaoqua
-          <span class="text-accent">Nhân giống cùng loại</span>
-          Nâng độ ngọt và sản lượng của hạt giống trước, rồi thử lai khác loại.
+          提示：先通过
+          <span class="text-accent">同种培育</span>
+          提升种子的甜度和产量属性，再尝试异种杂交。
         </p>
       </div>
       <!-- 阶层筛选 -->
@@ -187,7 +187,7 @@
       </div>
 
       <!-- 进度 -->
-      <p class="text-xs text-muted mb-2">đã Phát hiện {{ filteredDiscoveredCount }}/{{ filteredHybrids.length }}</p>
+      <p class="text-xs text-muted mb-2">已Phát hiện  {{ filteredDiscoveredCount }}/{{ filteredHybrids.length }}</p>
 
       <!-- 图鉴网格 -->
       <div class="grid grid-cols-3 md:grid-cols-5 gap-1 max-h-72 overflow-y-auto">
@@ -210,7 +210,7 @@
       <!-- 图鉴完成度 -->
       <div class="mt-3 border border-accent/20 rounded-xs p-2">
         <div class="flex items-center space-x-2 text-xs mb-1.5">
-          <span class="text-xs text-muted shrink-0">Tiến độ hoàn thành</span>
+          <span class="text-xs text-muted shrink-0">完成度</span>
           <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
             <div class="h-full bg-accent rounded-xs transition-all" :style="{ width: completionPercent + '%' }" />
           </div>
@@ -237,10 +237,10 @@
             <X :size="14" />
           </button>
 
-          <p class="text-sm text-accent mb-2">Xây bàn nhân giống</p>
+          <p class="text-sm text-accent mb-2">建造育种台</p>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-xs text-muted mb-1">Nguyên liệu cần thiết</p>
+            <p class="text-xs text-muted mb-1">所需材料</p>
             <div v-for="mat in craftMaterials" :key="mat.itemId" class="flex items-center justify-between mt-0.5">
               <span class="text-xs">{{ mat.name }}</span>
               <span class="text-xs" :class="mat.enough ? 'text-success' : 'text-danger'">{{ mat.owned }}/{{ mat.required }}</span>
@@ -249,14 +249,14 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-3">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Chi phí</span>
+              <span class="text-xs text-muted">费用</span>
               <span class="text-xs" :class="playerStore.money >= BREEDING_STATION_COST.money ? 'text-accent' : 'text-danger'">
-                {{ BREEDING_STATION_COST.money }}văn
+                {{ BREEDING_STATION_COST.money }}文
               </span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Đang sở hữu</span>
-              <span class="text-xs">{{ playerStore.money }}văn</span>
+              <span class="text-xs text-muted">当前持有</span>
+              <span class="text-xs">{{ playerStore.money }}文</span>
             </div>
           </div>
 
@@ -268,7 +268,7 @@
             :disabled="!canCraftStation"
             @click="handleCraftStation"
           >
-            xácxác nhậnxâyxây
+            确认建造
           </Button>
         </div>
       </div>
@@ -287,7 +287,7 @@
             <span class="flex items-center space-x-px">
               <Star v-for="n in getStarRating(detailSeed.genetics)" :key="n" :size="10" />
             </span>
-            <span>（tổng {{ getTotalStats(detailSeed.genetics) }}）</span>
+            <span>（总{{ getTotalStats(detailSeed.genetics) }}）</span>
           </p>
 
           <!-- 属性条 -->
@@ -303,7 +303,7 @@
 
           <!-- 操作按钮 -->
           <div class="flex flex-col space-y-1">
-            <Button class="w-full justify-center text-danger" :icon="Trash2" :icon-size="12" @click="handleDiscard">Vứt bỏ</Button>
+            <Button class="w-full justify-center text-danger" :icon="Trash2" :icon-size="12" @click="handleDiscard">丢弃</Button>
           </div>
         </div>
       </div>
@@ -331,43 +331,43 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">tầngtầng</span>
-              <span class="text-xs">{{ TIER_LABELS[getHybridTier(activeHybrid.id)] ?? 'Một' }}đời</span>
+              <span class="text-xs text-muted">阶tầng</span>
+              <span class="text-xs">{{ TIER_LABELS[getHybridTier(activeHybrid.id)] ?? 'Một' }}代</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Bố mẹ A</span>
+              <span class="text-xs text-muted">亲本A</span>
               <span class="text-xs">{{ getCropName(activeHybrid.parentCropA) }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Bố mẹ B</span>
+              <span class="text-xs text-muted">亲本B</span>
               <span class="text-xs">{{ getCropName(activeHybrid.parentCropB) }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Yêu cầu độ ngọt</span>
+              <span class="text-xs text-muted">甜度要求</span>
               <span class="text-xs text-accent">≥{{ activeHybrid.minSweetness }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Yêu cầu sản lượng</span>
+              <span class="text-xs text-muted">产量要求</span>
               <span class="text-xs text-accent">≥{{ activeHybrid.minYield }}</span>
             </div>
           </div>
 
           <div class="border border-accent/10 rounded-xs p-2">
-            <p class="text-xs text-muted mb-1">Thuộc tính cơ bản</p>
+            <p class="text-xs text-muted mb-1">基础属性</p>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Độ ngọt</span>
+              <span class="text-xs text-muted">甜度</span>
               <span class="text-xs">{{ activeHybrid.baseGenetics.sweetness }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Sản lượng</span>
+              <span class="text-xs text-muted">产量</span>
               <span class="text-xs">{{ activeHybrid.baseGenetics.yield }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Kháng tính</span>
+              <span class="text-xs text-muted">抗性</span>
               <span class="text-xs">{{ activeHybrid.baseGenetics.resistance }}</span>
             </div>
             <div v-if="getCompendiumEntry(activeHybrid.id)" class="flex items-center justify-between mt-1 pt-1 border-t border-accent/10">
-              <span class="text-xs text-muted">Số lần trồng</span>
+              <span class="text-xs text-muted">种植次数</span>
               <span class="text-xs">{{ getCompendiumEntry(activeHybrid.id)?.timesGrown ?? 0 }}</span>
             </div>
           </div>
@@ -389,27 +389,27 @@
 
           <p class="text-sm text-accent mb-2">
             <ArrowUpCircle :size="14" class="inline mr-0.5" />
-            giốngconrươngthông tintin
+            种子箱信息
           </p>
 
           <!-- 当前状态 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Cấp hiện tại</span>
+              <span class="text-xs text-muted">当前等级</span>
               <span class="text-xs text-accent">Lv.{{ breedingStore.seedBoxLevel }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Sức chứa tối đa</span>
-              <span class="text-xs text-text">{{ breedingStore.maxSeedBox }} ô</span>
+              <span class="text-xs text-muted">容量上限</span>
+              <span class="text-xs text-text">{{ breedingStore.maxSeedBox }} 格</span>
             </div>
           </div>
 
           <!-- 下一级升级 -->
           <template v-if="nextSeedBoxUpgrade">
             <div class="border border-accent/10 rounded-xs p-2 mb-2">
-              <p class="text-xs text-muted mb-1">Nâng cấpđến Lv.{{ breedingStore.seedBoxLevel + 1 }}</p>
+              <p class="text-xs text-muted mb-1">升级至 Lv.{{ breedingStore.seedBoxLevel + 1 }}</p>
               <div class="flex items-center justify-between">
-                <span class="text-xs text-muted">Sức chứa tối đa</span>
+                <span class="text-xs text-muted">容量上限</span>
                 <span class="text-xs text-text">
                   {{ breedingStore.maxSeedBox }} →
                   {{ breedingStore.maxSeedBox + SEED_BOX_UPGRADE_INCREMENT }}
@@ -419,7 +419,7 @@
 
             <!-- 所需材料 -->
             <div class="border border-accent/10 rounded-xs p-2 mb-2">
-              <p class="text-xs text-muted mb-1">Nguyên liệu cần thiết</p>
+              <p class="text-xs text-muted mb-1">所需材料</p>
               <div v-for="mat in nextSeedBoxUpgrade.materials" :key="mat.itemId" class="flex items-center justify-between">
                 <span class="text-xs text-muted">{{ getItemById(mat.itemId)?.name }}</span>
                 <span class="text-xs" :class="getCombinedItemCount(mat.itemId) >= mat.quantity ? '' : 'text-danger'">
@@ -427,9 +427,9 @@
                 </span>
               </div>
               <div class="flex items-center justify-between mt-0.5">
-                <span class="text-xs text-muted">Tiền đồng</span>
+                <span class="text-xs text-muted">铜钱</span>
                 <span class="text-xs" :class="playerStore.money >= nextSeedBoxUpgrade.cost ? '' : 'text-danger'">
-                  {{ nextSeedBoxUpgrade.cost }}văn
+                  {{ nextSeedBoxUpgrade.cost }}文
                 </span>
               </div>
             </div>
@@ -444,19 +444,19 @@
               :disabled="!canUpgradeSeedBox"
               @click="showSeedBoxUpgradeConfirm = true"
             >
-              mở rộngdung lượnggiốngconrương
+              扩容种子箱
             </Button>
 
             <!-- 确认 -->
             <div v-else class="flex space-x-1">
               <Button class="flex-1 justify-center" @click="showSeedBoxUpgradeConfirm = false">Hủy</Button>
               <Button class="flex-1 justify-center !bg-accent !text-bg" :icon="ArrowUpCircle" :icon-size="12" @click="handleSeedBoxUpgrade">
-                xácxác nhậnmở rộngdung lượng
+                确认扩容
               </Button>
             </div>
           </template>
 
-          <p v-else class="text-[10px] text-muted text-center">Hộp giốngđã đạtđếnnhấtcaocấp。</p>
+          <p v-else class="text-[10px] text-muted text-center">种子箱已达到最高等级。</p>
         </div>
       </div>
     </Transition>
@@ -473,8 +473,8 @@
             <X :size="14" />
           </button>
 
-          <p class="text-sm text-accent mb-1">Chọn hai hạt giống</p>
-          <p class="text-xs text-muted mb-2">đã chọn {{ selectedSeedIds.length }}/2</p>
+          <p class="text-sm text-accent mb-1">选择两颗种子</p>
+          <p class="text-xs text-muted mb-2">已选 {{ selectedSeedIds.length }}/2</p>
 
           <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto mb-3">
             <button
@@ -501,27 +501,27 @@
             :class="crossBreedHint.type === 'recipe' && crossBreedHint.canSucceed ? 'border-success/30' : 'border-accent/10'"
           >
             <template v-if="crossBreedHint.type === 'same'">
-              <p class="text-xs text-muted">Nhân giống cùng loại：nângtăngsauđờithuộc tínhtính，khônghộisảnsinhmớiphẩmloại。</p>
+              <p class="text-xs text-muted">同种培育：提升后代属性，不会产生新品种。</p>
             </template>
             <template v-else-if="crossBreedHint.type === 'no_recipe'">
-              <p class="text-xs text-muted">Hai giống này chưa có công thức lai đã biết.</p>
+              <p class="text-xs text-muted">这两个品种没有已知的杂交配方。</p>
             </template>
             <template v-else-if="crossBreedHint.type === 'recipe'">
-              <p class="text-xs text-accent mb-1">Có thể lai giống: {{ crossBreedHint.name }}</p>
+              <p class="text-xs text-accent mb-1">可杂交：{{ crossBreedHint.name }}</p>
               <div class="flex items-center justify-between">
-                <span class="text-xs text-muted">Độ ngọt</span>
+                <span class="text-xs text-muted">甜度</span>
                 <span class="text-xs" :class="crossBreedHint.sweetOk ? 'text-success' : 'text-danger'">
                   {{ crossBreedHint.avgSweet }} / {{ crossBreedHint.minSweet }}
                 </span>
               </div>
               <div class="flex items-center justify-between mt-0.5">
-                <span class="text-xs text-muted">Sản lượng</span>
+                <span class="text-xs text-muted">产量</span>
                 <span class="text-xs" :class="crossBreedHint.yieldOk ? 'text-success' : 'text-danger'">
                   {{ crossBreedHint.avgYield }} / {{ crossBreedHint.minYield }}
                 </span>
               </div>
-              <p v-if="!crossBreedHint.canSucceed" class="text-xs text-danger mt-1">Thuộc tính chưa đạt yêu cầu, lai giống sẽ thất bại. Hãy nhân giống cùng loại để tăng thuộc tính trước.</p>
-              <p v-else class="text-xs text-success mt-1">Thuộc tính đã đạt yêu cầu, có thể lai giống thành công!</p>
+              <p v-if="!crossBreedHint.canSucceed" class="text-xs text-danger mt-1">属性未达标，杂交将失败。请先同种培育提升属性。</p>
+              <p v-else class="text-xs text-success mt-1">属性达标，可以杂交成功！</p>
             </template>
           </div>
 
@@ -533,7 +533,7 @@
             :disabled="selectedSeedIds.length !== 2"
             @click="handleStartBreeding"
           >
-            mởbắt đầunuôigiống
+            开始育种
           </Button>
         </div>
       </div>
@@ -589,10 +589,10 @@
   type Tab = 'breeding' | 'compendium'
   const tab = ref<Tab>('breeding')
 
-  // === nuôigiốngquy tắcthìtriển lãmhiển thị ===
+  // === 育种规则展示 ===
   const showRules = ref(false)
 
-  // === bộ sưu tậpgiámtầngtầnglọcchọn ===
+  // === 图鉴阶层筛选 ===
 
   const TIER_LABELS: Record<number, string> = {
     1: 'Một',
@@ -661,7 +661,7 @@
     return stats
   })
 
-  /** căntheotầngtầngchođãpháthiệnphẩmgiốnglênmàu */
+  /** 根据阶层给已发现品种上色 */
   const TIER_COLOR_MAP: Record<number, string> = {
     1: 'text-accent',
     2: 'text-quality-fine',
@@ -679,11 +679,11 @@
     return TIER_COLOR_MAP[getHybridTier(hybridId)] ?? 'text-accent'
   }
 
-  // === bộ sưu tậpgiámchi tiếthình ===
+  // === 图鉴详情 ===
 
   const activeHybrid = ref<HybridDef | null>(null)
 
-  // === giốngconchi tiếthình ===
+  // === 种子详情 ===
 
   const detailSeed = ref<BreedingSeed | null>(null)
 
@@ -730,7 +730,7 @@
     detailSeed.value = null
   }
 
-  // === nuôigiốngchọngiống ===
+  // === 育种选种 ===
 
   const breedingSelectSlot = ref<number | null>(null)
   const selectedSeedIds = ref<string[]>([])
@@ -807,7 +807,7 @@
     }
   }
 
-  // === chếxâynuôigiốngbàn ===
+  // === 制造育种台 ===
 
   const showCraftModal = ref(false)
 
@@ -840,7 +840,7 @@
     }
   }
 
-  // === giốngconrươngtăngcấp ===
+  // === 种子箱升级 ===
 
   const showSeedBoxUpgradeModal = ref(false)
   const showSeedBoxUpgradeConfirm = ref(false)
@@ -866,7 +866,7 @@
     showSeedBoxUpgradeModal.value = false
   }
 
-  // === bộ sưu tậpgiám ===
+  // === 图鉴 ===
 
   const isDiscovered = (hybridId: string): boolean => {
     return breedingStore.compendium.some(e => e.hybridId === hybridId)
@@ -876,7 +876,7 @@
     return breedingStore.compendium.find(e => e.hybridId === hybridId) ?? null
   }
 
-  // === hỗ trợgiúp ===
+  // === 辅助 ===
 
   const getCropName = (cropId: string): string => {
     return getCropById(cropId)?.name ?? cropId

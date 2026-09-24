@@ -2,13 +2,13 @@
   <div>
     <VillagerPresence spot="cooking" />
     <div class="flex items-center justify-between mb-3">
-      <h3 class="text-accent text-sm">bếpbàn</h3>
+      <h3 class="text-accent text-sm">灶台</h3>
       <button
         class="text-[10px] px-2 py-0.5 border rounded-xs"
         :class="showOnlyMakeable ? 'border-accent text-accent' : 'border-accent/20 text-muted'"
         @click="showOnlyMakeable = !showOnlyMakeable"
       >
-        {{ showOnlyMakeable ? 'Có thể chế tạo' : 'Tất cả' }}
+        {{ showOnlyMakeable ? '可制作' : 'Tất cả' }}
       </button>
     </div>
     <p v-if="tutorialHint" class="text-[10px] text-muted/50 mb-2">
@@ -19,7 +19,7 @@
     <div v-if="cookingStore.activeBuff" class="border border-water/20 rounded-xs px-3 py-1.5 mb-3">
       <p class="text-[10px] text-water">
         <Zap :size="12" class="inline mr-0.5" />
-        khitrướctăngích：{{ cookingStore.activeBuff.description }}
+        当前增益：{{ cookingStore.activeBuff.description }}
       </p>
     </div>
 
@@ -39,8 +39,8 @@
             </span>
           </span>
           <span class="text-[10px] whitespace-nowrap ml-2" :class="info.canCook ? 'text-success' : 'text-muted/50'">
-            +{{ info.recipe.effect.staminaRestore }}thểlực
-            <span v-if="info.recipe.effect.healthRestore">+{{ info.recipe.effect.healthRestore }}HP</span>
+            +{{ info.recipe.effect.staminaRestore }}体力
+            <span v-if="info.recipe.effect.healthRestore">+{{ info.recipe.effect.healthRestore }}生命</span>
           </span>
         </div>
         <p v-if="info.recipe.effect.buff" class="text-[10px] text-water mt-0.5">
@@ -50,10 +50,10 @@
     </div>
     <div v-else class="flex flex-col items-center justify-center py-8 mb-4">
       <UtensilsCrossed :size="36" class="text-accent/20 mb-2" />
-      <p v-if="showOnlyMakeable" class="text-xs text-muted">không cócó thể Chế tạo của ăncông thức</p>
-      <p v-else-if="cookingStore.recipes.length === 0" class="text-xs text-muted">cònkhông cóăncông thức</p>
-      <p v-if="showOnlyMakeable" class="text-[10px] text-muted/50 mt-0.5">lấytiêulọcchọnhoặcthuthậphơnnhiềuănnguyên liệu</p>
-      <p v-else-if="cookingStore.recipes.length === 0" class="text-[10px] text-muted/50 mt-0.5">Có thể học công thức bằng cách kết thân với dân làng hoặc xem TV</p>
+      <p v-if="showOnlyMakeable" class="text-xs text-muted">没有可制作的食谱</p>
+      <p v-else-if="cookingStore.recipes.length === 0" class="text-xs text-muted">还没有食谱</p>
+      <p v-if="showOnlyMakeable" class="text-[10px] text-muted/50 mt-0.5">取消筛选或收集更多食材</p>
+      <p v-else-if="cookingStore.recipes.length === 0" class="text-[10px] text-muted/50 mt-0.5">与村民交好或观看电视可学习食谱</p>
     </div>
 
     <!-- 烹饪弹窗 -->
@@ -78,9 +78,9 @@
           <!-- 功效 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <p class="text-xs text-success">
-              hồi phụchồi {{ modalInfo.recipe.effect.staminaRestore }} thểlực
+              恢复 {{ modalInfo.recipe.effect.staminaRestore }} 体力
               <span v-if="modalInfo.recipe.effect.healthRestore" class="text-danger ml-1">
-                {{ modalInfo.recipe.effect.healthRestore }} sinhmệnhgiá trị
+                {{ modalInfo.recipe.effect.healthRestore }} 生命值
               </span>
             </p>
             <p v-if="modalInfo.recipe.effect.buff" class="text-xs text-water mt-0.5">
@@ -90,7 +90,7 @@
 
           <!-- 材料 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-xs text-muted mb-1">Nguyên liệu cần thiết</p>
+            <p class="text-xs text-muted mb-1">所需材料</p>
             <div v-for="ing in modalInfo.ingredients" :key="ing.itemId" class="flex items-center justify-between">
               <span class="text-xs text-muted">{{ ing.name }}</span>
               <span class="text-xs" :class="ing.enough ? '' : 'text-danger'">{{ ing.available }}/{{ ing.quantity }}</span>
@@ -100,7 +100,7 @@
           <!-- 数量选择 -->
           <div v-if="modalInfo.maxQty > 1" class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <div class="flex items-center space-x-1">
                 <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="modalQty <= 1" @click="modalQty--">
                   <Minus :size="12" />
@@ -119,14 +119,14 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="modalQty <= 1" @click="modalQty = 1">Ít nhất</Button>
+              <Button class="flex-1 justify-center" :disabled="modalQty <= 1" @click="modalQty = 1">最少</Button>
               <Button class="flex-1 justify-center" :disabled="modalQty >= modalInfo.maxQty" @click="modalQty = modalInfo.maxQty">
-                nhấtnhiều
+                最多
               </Button>
             </div>
             <div class="flex items-center justify-between mt-1.5">
-              <span class="text-xs text-muted">có thể Chế tạo</span>
-              <span class="text-xs text-accent">{{ modalInfo.maxQty }} phần</span>
+              <span class="text-xs text-muted">可制作</span>
+              <span class="text-xs text-accent">{{ modalInfo.maxQty }} 份</span>
             </div>
           </div>
 
@@ -139,7 +139,7 @@
             :disabled="!modalInfo.canCook"
             @click="handleCookFromModal"
           >
-            nấunấu{{ modalQty > 1 ? ` ×${modalQty}` : '' }}
+            烹饪{{ modalQty > 1 ? ` ×${modalQty}` : '' }}
           </Button>
         </div>
       </div>
@@ -174,7 +174,7 @@
   const modalRecipeId = ref<string | null>(null)
   const modalQty = ref(1)
 
-  /** dự kiếntínhtínhăncông thứcthông tintin（khôngbao gồmsốlượng，tránhmiễncảisốlượngchạmpháttoàn bộlượnglạitính） */
+  /** 预计算食谱信息（不含数量，避免改数量触发全量重算） */
   const recipeInfos = computed(() => {
     return cookingStore.recipes.map(recipe => {
       const canCook = cookingStore.canCook(recipe.id)
@@ -200,7 +200,7 @@
     return recipeInfos.value.filter(info => info.canCook)
   })
 
-  /** khitrướcđạncửa sổđúngnên的ăncông thứcthông tintin（âm thanhnênkiểu，nguyên liệuliệubiếnhóathờitựtáchơnmới） */
+  /** 当前弹窗对应的食谱信息（响应式，材料变化时自动更新） */
   const modalInfo = computed(() => {
     if (!modalRecipeId.value) return null
     return recipeInfos.value.find(i => i.recipe.id === modalRecipeId.value) ?? null
@@ -231,14 +231,14 @@
   const tutorialHint = computed(() => {
     if (!tutorialStore.enabled || gameStore.year > 1) return null
     if (achievementStore.stats.totalRecipesCooked === 0)
-      return 'Nhấn vào công thức để xem chi tiết và nấu. Món ăn có thể hồi thể lực và HP; nguyên liệu chất lượng cao tạo ra món ngon hơn.'
+      return '点击食谱查看详情和烹饪。料理可以恢复体力和生命值，高品质材料可做出更好的食物。'
     return null
   })
 
   const handleCookFromModal = () => {
     if (!modalInfo.value || !modalInfo.value.canCook) return
     if (gameStore.isPastBedtime) {
-      addLog('Quá muộn rồi, không còn sức nấu ăn.')
+      addLog('太晚了，没力气做饭了。')
       handleEndDay()
       closeModal()
       return

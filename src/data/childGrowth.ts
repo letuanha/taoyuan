@@ -30,7 +30,7 @@ export const CHILD_STAGE_ORDER: ChildStage[] = ['baby', 'toddler', 'child', 'tee
 export const CHILD_MILESTONES: Record<ChildStage, string[]> = {
   baby: ['{name} chào đời. Một cục nhỏ nhăn nheo nắm chặt ngón tay bạn không chịu buông.'],
   toddler: [
-    'Hôm nay {name} vịn khung cửa đứng dậy, lảo đảo đi ba bước rồi ngồi phịch xuống đất, nhe miệng cười.',
+    'Hôm nay {name} vịn khung cửa đứng dậy, lảo đảo đi ba bước rồi ngồi phịch xuống đất,咧 miệng cười.',
     '{name} cất tiếng gọi đầu tiên. {spouse} nghe thấy bên bếp, đến cả xẻng nấu ăn cũng rơi xuống.'
   ],
   child: [

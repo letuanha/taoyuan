@@ -522,7 +522,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
       daysRemaining: config.sellDays,
       pointsReward
     })
-    addLog(`Đã bày bán ${itemDef.name}×${quantity} tại sạp giao thương, dự kiến nhận ${pointsReward} điểm sau ${config.sellDays} ngày.`)
+    addLog(`在通商摊位上架了${itemDef.name}×${quantity}，预计${config.sellDays}天后获得${pointsReward}积分。`)
     return { success: true, message: `Đã đưa ${itemDef.name}×${quantity} lên quầy.` }
   }
 
@@ -538,7 +538,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
         tradePoints.value += slot.pointsReward
         completed.push({ itemId: slot.itemId, points: slot.pointsReward })
         const itemDef = getItemById(slot.itemId)
-        addLog(`Đã bán ${itemDef?.name ?? slot.itemId}×${slot.quantity} qua giao thương, nhận ${slot.pointsReward} điểm giao thương.`)
+        addLog(`通商售出${itemDef?.name ?? slot.itemId}×${slot.quantity}，获得${slot.pointsReward}通商积分。`)
       } else {
         remaining.push(slot)
       }
@@ -553,7 +553,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!next) return { success: false, message: 'Cửa hàng đã đạt cấp tối đa.' }
     const playerStore = usePlayerStore()
     if (playerStore.money < next.cost) {
-      return { success: false, message: `Không đủ tiền (cần ${next.cost} văn).` }
+      return { success: false, message: `金钱不足（需要${next.cost}文）。` }
     }
     // 检查材料
     for (const mat of next.materialCost) {
@@ -562,7 +562,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
         const itemDef = getItemById(mat.itemId)
         return {
           success: false,
-          message: `Không đủ nguyên liệu: ${itemDef?.name ?? mat.itemId} cần ${mat.quantity} cái.`
+          message: `材料不足：${itemDef?.name ?? mat.itemId} 需要${mat.quantity}个。`
         }
       }
     }
@@ -572,8 +572,8 @@ export const useHanhaiStore = defineStore('hanhai', () => {
       removeCombinedItem(mat.itemId, mat.quantity)
     }
     tradeShopLevel.value = next.level
-    addLog(`Cửa hàng giao thương đã nâng cấp thành 「${next.name}」! Có ${next.maxSlots} ô, chu kỳ bán ${next.sellDays} ngày.`)
-    return { success: true, message: `Cửa hàng đã nâng cấp thành 「${next.name}」!` }
+    addLog(`通商店铺升级为「${next.name}」！槽位${next.maxSlots}个，售卖周期${next.sellDays}天。`)
+    return { success: true, message: `店铺升级为「${next.name}」！` }
   }
 
   /** 积分兑换物品 */
@@ -633,7 +633,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
         }
         return { success: false, message: 'Túi đồ đã đầy, không thể đổi.' }
       }
-      addLog(`Dùng ${exchangeDef.pointsCost} điểm đổi ${exchangeDef.name}, nhận Gia vị Tây Vực ×5.`)
+      addLog(`用${exchangeDef.pointsCost}积分兑换了${exchangeDef.name}，获得西域香料×5。`)
       return { success: true, message: 'Nhận 5× gia vị Tây Vực!' }
     }
     // 马匹升级：把现有的马换成更好的品种
@@ -686,10 +686,10 @@ export const useHanhaiStore = defineStore('hanhai', () => {
         return { success: false, message: 'Đổi thất bại, hãy thử lại sau.' }
       }
 
-      addLog(`Dùng ${exchangeDef.pointsCost} điểm đổi ${exchangeDef.name}, đã đưa vào ô trang bị.`)
+      addLog(`用${exchangeDef.pointsCost}积分兑换了${exchangeDef.name}，已放入装备栏。`)
       return {
         success: true,
-        message: `Đã đổi ${exchangeDef.name}, có thể trang bị trong tab 「Trang bị」 của túi.`
+        message: `兑换了${exchangeDef.name}，可在背包的「装备」页签中装备。`
       }
     }
 
@@ -706,7 +706,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
       }
       return { success: false, message: 'Túi đồ đã đầy, không thể đổi.' }
     }
-    addLog(`Dùng ${exchangeDef.pointsCost} điểm đổi ${exchangeDef.name}.`)
+    addLog(`用${exchangeDef.pointsCost}积分兑换了${exchangeDef.name}。`)
     return { success: true, message: `Đã đổi ${exchangeDef.name}!` }
   }
 

@@ -992,7 +992,7 @@ export const handleEndDay = () => {
       moneyLost > 0
         ? `Bạn kiệt sức và ngã xuống… Có người đưa bạn về nhà. Mất ${moneyLost} văn. Ngày hôm sau chỉ hồi 50% thể lực.`
         : `Bạn kiệt sức và ngã xuống… Ngày hôm sau chỉ hồi 50% thể lực.`
-    // 记录昏倒说明，由 GameLayout 弹窗告知玩家，避免"Tỉnh dậy sau một giấc ngủ, tiền tự nhiên bị thiếu mất"
+    // 记录昏倒说明，由 GameLayout 弹窗告知玩家，避免"一觉醒来莫名其妙少了钱"
     lastPassOutNotice.value = summary
   } else if (recoveryMode === 'late') {
     const pct = Math.round(recoveryPct * 100)
@@ -1149,7 +1149,7 @@ export const handleEndDay = () => {
   // 成就检查
   const newAchievements = achievementStore.checkAchievements()
   for (const a of newAchievements) {
-    addLog(`【Thành tựu đạt được】${a.name}!${a.reward.money ? `Nhận ${a.reward.money} văn` : ''}`)
+    addLog(`【成就达成】${a.name}！${a.reward.money ? `获得${a.reward.money}文` : ''}`)
     showFloat(`Thành tựu: ${a.name}`, 'accent')
   }
 

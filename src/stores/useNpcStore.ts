@@ -322,8 +322,8 @@ export const useNpcStore = defineStore('npc', () => {
   }
 
   /** 子女名字池（按性别） */
-  const CHILD_NAMES_MALE = ['Tiểu Long', 'Tiểu Bảo', 'Đoàn Tử', 'Niên Niên']
-  const CHILD_NAMES_FEMALE = ['Tiểu Phượng', 'A Hoa', 'Đậu Đậu', 'Viên Viên']
+  const CHILD_NAMES_MALE = ['小龙', 'Tiểu Bảo', '团子', '年年']
+  const CHILD_NAMES_FEMALE = ['小凤', 'A Hoa', '豆豆', '圆圆']
 
   /** 再要一个孩子前，最小的孩子至少要长到的天数（约两个季节，刚会走路） */
   const MIN_DAYS_BETWEEN_CHILDREN = 56

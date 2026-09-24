@@ -2,7 +2,7 @@
   <div>
     <h3 class="text-accent text-sm mb-3">
       <Star :size="14" class="inline" />
-      kỹ thuậtnăng
+      技能
     </h3>
     <div class="space-y-3">
       <div v-for="skill in skillStore.skills" :key="skill.type" class="game-panel">
@@ -29,7 +29,7 @@
           <p class="text-[10px] text-muted leading-relaxed">
             {{ SKILL_DESCS[skill.type] }}
           </p>
-          <p class="text-[10px] text-muted mt-0.5">mỗicấp：thể lựctiêuhao-1%，{{ SKILL_LEVEL_BONUS[skill.type] }}</p>
+          <p class="text-[10px] text-muted mt-0.5">每级：体力消耗-1%，{{ SKILL_LEVEL_BONUS[skill.type] }}</p>
         </div>
 
         <!-- 天赋 -->
@@ -45,8 +45,8 @@
             <span class="text-[10px] text-muted">{{ PERK_DESCS[skill.perk10] }}</span>
           </div>
         </div>
-        <p v-else-if="skill.level < 5" class="text-[10px] text-muted">Lv5 / Lv10 thờicó thể chọn chuyên mônngàythiên phú</p>
-        <p v-else class="text-[10px] text-muted">Nâng cấpđến Lv{{ !skill.perk5 ? 5 : 10 }} saucó thể chọn ngàythiên phú</p>
+        <p v-else-if="skill.level < 5" class="text-[10px] text-muted">Lv5 / Lv10 时可选择专精ngày赋</p>
+        <p v-else class="text-[10px] text-muted">升级到 Lv{{ !skill.perk5 ? 5 : 10 }} 后可选择ngày赋</p>
       </div>
     </div>
   </div>

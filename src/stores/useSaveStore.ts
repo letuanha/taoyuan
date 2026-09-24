@@ -275,8 +275,8 @@ export const useSaveStore = defineStore('save', () => {
       const blob = new Blob([raw], { type: 'application/octet-stream' })
       const info = getSlots().find(s => s.slot === slot)
       const name = info?.exists
-        ? `Đào Nguyên Hương_Ô lưu ${slot + 1}_Năm ${info.year}_${SEASON_NAMES[info.season as keyof typeof SEASON_NAMES] ?? info.season}_Ngày ${info.day}`
-        : `Đào Nguyên Hương_Ô lưu ${slot + 1}`
+        ? `桃源乡_存档${slot + 1}_第${info.year}年${SEASON_NAMES[info.season as keyof typeof SEASON_NAMES] ?? info.season}第${info.day}天`
+        : `桃源乡_存档${slot + 1}`
       saveAs(blob, `${name}${SAVE_FILE_EXT}`)
       return true
     } catch {

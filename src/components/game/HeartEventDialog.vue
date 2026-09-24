@@ -48,7 +48,7 @@
 
   const playerStore = usePlayerStore()
 
-  /** thayđổiđúnglờitrong的 {player} / {title} chiếmvị tríbùa */
+  /** 替换对话中的 {player} / {title} 占位符 */
   const r = (text: string): string => text.replace(/\{player\}/g, playerStore.playerName).replace(/\{title\}/g, playerStore.honorific)
 
   const currentIndex = ref(0)
@@ -77,7 +77,7 @@
   }
 
   const nextScene = () => {
-    // trở vềlưukhitrướctrậncảnh
+    // 归档当前场景
     playedScenes.value.push({
       text: currentScene.value?.text ?? '',
       chosenResponse: choiceResponse.value ?? undefined

@@ -3,11 +3,11 @@
     <div class="flex items-center justify-between mb-1">
       <div class="flex items-center space-x-1.5 text-sm text-accent">
         <Swords :size="14" />
-        <span>mạohiểmNhàCông hội Lv.{{ guildStore.guildLevel }}</span>
+        <span>冒险家公会 Lv.{{ guildStore.guildLevel }}</span>
       </div>
       <div class="flex items-center space-x-2 text-xs">
         <span class="text-muted">
-          cống hiếnhiếnđiểm:
+          贡献点:
           <span class="text-accent">{{ guildStore.contributionPoints }}</span>
         </span>
       </div>
@@ -15,9 +15,9 @@
 
     <!-- 标签页 -->
     <div class="flex space-x-1 mb-3">
-      <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'goals' }" @click="tab = 'goals'">Chinh phạt</Button>
-      <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'donate' }" @click="tab = 'donate'">Quyên góp</Button>
-      <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'shop' }" @click="tab = 'shop'">cửa hàng</Button>
+      <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'goals' }" @click="tab = 'goals'">讨伐</Button>
+      <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'donate' }" @click="tab = 'donate'">捐献</Button>
+      <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'shop' }" @click="tab = 'shop'">商店</Button>
       <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': tab === 'bestiary' }" @click="tab = 'bestiary'">Bộ sưu tập</Button>
     </div>
 
@@ -26,8 +26,8 @@
       <!-- 空状态 -->
       <div v-if="!hasAnyKills" class="flex flex-col items-center justify-center py-8 space-y-3 mb-3">
         <Swords :size="48" class="text-accent/30" />
-        <p class="text-sm text-muted">vẫnchưa Chinh phạtbất kỳnàoquáivật</p>
-        <p class="text-xs text-muted/60 text-center max-w-60">trướcđếnMỏđánhbạiquáivật，Hoàn thànhChinh phạtMục tiêucó thể Nhận phần thưởng</p>
+        <p class="text-sm text-muted">尚未讨伐任何怪物</p>
+        <p class="text-xs text-muted/60 text-center max-w-60">前往矿洞击败怪物，完成讨伐目标可领取奖励</p>
       </div>
 
       <!-- 区域筛选 -->
@@ -117,12 +117,12 @@
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <p class="text-xs text-muted mb-1">Phần thưởng</p>
             <p class="text-xs text-accent">
-              {{ selectedGoal.reward.money }}văn{{
+              {{ selectedGoal.reward.money }}文{{
                 selectedGoal.reward.items
                   ? ' + ' + selectedGoal.reward.items.map(i => `${getDropName(i.itemId)}×${i.quantity}`).join('、')
                   : ''
               }}
-              + {{ getGoalBonusPoints(selectedGoal) }}cống hiếnhiếnđiểm
+              + {{ getGoalBonusPoints(selectedGoal) }}贡献点
             </p>
           </div>
 
@@ -138,7 +138,7 @@
             class="btn text-xs w-full justify-center !bg-accent !text-bg"
             @click="handleClaimGoal(selectedGoal.monsterId)"
           >
-            nhậnlấythưởngkhuyến khích
+            领取奖励
           </Button>
         </div>
       </div>
@@ -158,9 +158,9 @@
             <p class="text-xs" :class="item.count > 0 ? 'text-text' : 'text-muted'">
               {{ item.name }}
             </p>
-            <p class="text-xs text-muted">Sở hữu {{ item.count }} · mỗicái {{ item.points }} Điểm cống hiến</p>
+            <p class="text-xs text-muted">持有 {{ item.count }} · 每个 {{ item.points }} 贡献点</p>
           </div>
-          <span class="text-xs ml-2" :class="item.count > 0 ? 'text-accent' : 'text-muted'">{{ item.count * item.points }}điểm</span>
+          <span class="text-xs ml-2" :class="item.count > 0 ? 'text-accent' : 'text-muted'">{{ item.count * item.points }}点</span>
         </div>
       </div>
     </div>
@@ -177,15 +177,15 @@
             <X :size="14" />
           </button>
 
-          <p class="text-sm text-accent mb-2">Quyên góp{{ donateModalItem.name }}</p>
+          <p class="text-sm text-accent mb-2">捐献{{ donateModalItem.name }}</p>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Sở hữuSố lượng</span>
+              <span class="text-xs text-muted">持有数量</span>
               <span class="text-xs">{{ donateModalItem.count }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">đơncáiĐiểm cống hiến</span>
+              <span class="text-xs text-muted">单个贡献点</span>
               <span class="text-xs text-accent">{{ donateModalItem.points }}</span>
             </div>
           </div>
@@ -193,7 +193,7 @@
           <!-- 数量选择 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">Quyên gópSố lượng</span>
+              <span class="text-xs text-muted">捐献数量</span>
               <div class="flex items-center space-x-1">
                 <Button
                   class="h-6 px-1.5 py-0.5 text-xs justify-center"
@@ -220,32 +220,32 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="donateQuantity <= 1" @click="donateQuantity = 1">Ít nhất</Button>
+              <Button class="flex-1 justify-center" :disabled="donateQuantity <= 1" @click="donateQuantity = 1">最少</Button>
               <Button
                 class="flex-1 justify-center"
                 :disabled="donateQuantity >= donateModalItem.count"
                 @click="donateQuantity = donateModalItem.count"
               >
-                nhấtnhiều
+                最多
               </Button>
             </div>
             <div class="flex items-center justify-between mt-1.5">
-              <span class="text-xs text-muted">Dự kiến nhận</span>
-              <span class="text-xs text-accent">{{ donateQuantity * donateModalItem.points }} Điểm cống hiến</span>
+              <span class="text-xs text-muted">预计获得</span>
+              <span class="text-xs text-accent">{{ donateQuantity * donateModalItem.points }} 贡献点</span>
             </div>
           </div>
 
           <!-- 确认状态 -->
           <div v-if="!donateConfirmed" class="flex flex-col space-y-1">
             <Button class="btn text-xs w-full justify-center !bg-accent !text-bg" :icon="HandHeart" @click="donateConfirmed = true">
-              xácxác nhậnquyên góphiến
+              确认捐献
             </Button>
           </div>
           <div v-else class="flex flex-col space-y-1">
-            <p class="text-xs text-center text-danger mb-1">Xác nhận quyên góp {{ donateQuantity }} cái {{ donateModalItem.name }}?</p>
+            <p class="text-xs text-center text-danger mb-1">确定捐献 {{ donateQuantity }} 个{{ donateModalItem.name }}？</p>
             <div class="flex space-x-2">
               <Button class="flex-1 btn text-xs justify-center" @click="donateConfirmed = false">Hủy</Button>
-              <Button class="flex-1 btn text-xs justify-center !bg-accent !text-bg" :icon="HandHeart" @click="executeDonate">Quyên góp</Button>
+              <Button class="flex-1 btn text-xs justify-center !bg-accent !text-bg" :icon="HandHeart" @click="executeDonate">捐献</Button>
             </div>
           </div>
         </div>
@@ -266,7 +266,7 @@
           </p>
           <p class="text-xs text-muted">{{ item.description }}</p>
           <p v-if="item.materials && guildStore.isShopItemUnlocked(item.itemId)" class="text-xs text-muted mt-0.5">
-            nguyên liệuliệu:
+            材料:
             <span
               v-for="(mat, idx) in item.materials"
               :key="mat.itemId"
@@ -278,23 +278,23 @@
           </p>
           <p v-if="item.unlockGuildLevel && !guildStore.isShopItemUnlocked(item.itemId)" class="text-xs text-danger mt-0.5">
             <Lock :size="10" class="inline" />
-            cônghội Lv.{{ item.unlockGuildLevel }} giảikhóa
+            公会 Lv.{{ item.unlockGuildLevel }} 解锁
           </p>
           <p v-if="item.dailyLimit && guildStore.isShopItemUnlocked(item.itemId)" class="text-xs text-muted mt-0.5">
-            hôm nayngàycòncòn:
+            今日剩余:
             {{ guildStore.getDailyRemaining(item.itemId, item.dailyLimit) }}/{{ item.dailyLimit }}
           </p>
           <p v-if="item.weeklyLimit && guildStore.isShopItemUnlocked(item.itemId)" class="text-xs text-muted mt-0.5">
-            bảntuầncòncòn:
+            本周剩余:
             {{ guildStore.getWeeklyRemaining(item.itemId, item.weeklyLimit) }}/{{ item.weeklyLimit }}
           </p>
           <p v-if="item.totalLimit && guildStore.isShopItemUnlocked(item.itemId)" class="text-xs text-muted mt-0.5">
-            tổnggiới hạnmua:
+            总限购:
             {{ guildStore.getTotalRemaining(item.itemId, item.totalLimit) }}/{{ item.totalLimit }}
           </p>
         </div>
         <span class="text-xs whitespace-nowrap ml-2" :class="item.contributionCost ? 'text-success' : 'text-accent'">
-          {{ item.contributionCost ? `${item.contributionCost} điểm cống hiến` : `${item.price} văn` }}
+          {{ item.contributionCost ? `${item.contributionCost}贡献` : `${item.price}文` }}
         </span>
       </div>
     </div>
@@ -320,15 +320,15 @@
             <div class="flex items-center justify-between">
               <span class="text-xs text-muted">{{ shopBuyQty > 1 ? 'Đơn giá' : 'Giá' }}</span>
               <span class="text-xs" :class="shopModalItem.contributionCost ? 'text-success' : 'text-accent'">
-                {{ shopModalItem.contributionCost ? `${shopModalItem.contributionCost} điểm cống hiến` : `${shopModalItem.price} văn` }}
+                {{ shopModalItem.contributionCost ? `${shopModalItem.contributionCost} 贡献点` : `${shopModalItem.price}文` }}
               </span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Sở hữu</span>
+              <span class="text-xs text-muted">持有</span>
               <span class="text-xs">{{ inventoryStore.getItemCount(shopModalItem.itemId) }}</span>
             </div>
             <div v-if="shopModalItem.contributionCost" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Sở hữuĐiểm cống hiến</span>
+              <span class="text-xs text-muted">持有贡献点</span>
               <span
                 class="text-xs"
                 :class="guildStore.contributionPoints >= (shopModalItem.contributionCost ?? 0) * shopBuyQty ? 'text-text' : 'text-danger'"
@@ -337,14 +337,14 @@
               </span>
             </div>
             <div v-else class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Sở hữuTiền đồng</span>
+              <span class="text-xs text-muted">持有铜钱</span>
               <span class="text-xs" :class="playerStore.money >= shopModalItem.price * shopBuyQty ? 'text-text' : 'text-danger'">
-                {{ playerStore.money }}văn
+                {{ playerStore.money }}文
               </span>
             </div>
             <template v-if="shopModalItem.materials">
               <div class="border-t border-accent/10 mt-1.5 pt-1.5">
-                <span class="text-xs text-muted">Nguyên liệu cần thiết</span>
+                <span class="text-xs text-muted">所需材料</span>
               </div>
               <div v-for="mat in shopModalItem.materials" :key="mat.itemId" class="flex items-center justify-between mt-0.5">
                 <span class="text-xs">{{ getMaterialName(mat.itemId) }} ×{{ mat.quantity * shopBuyQty }}</span>
@@ -357,19 +357,19 @@
               </div>
             </template>
             <div v-if="shopModalItem.dailyLimit" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">hôm nayngàycòn còn</span>
+              <span class="text-xs text-muted">今日剩余</span>
               <span class="text-xs">
                 {{ guildStore.getDailyRemaining(shopModalItem.itemId, shopModalItem.dailyLimit) }}/{{ shopModalItem.dailyLimit }}
               </span>
             </div>
             <div v-if="shopModalItem.weeklyLimit" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Còn lại trong tuần</span>
+              <span class="text-xs text-muted">本周剩余</span>
               <span class="text-xs">
                 {{ guildStore.getWeeklyRemaining(shopModalItem.itemId, shopModalItem.weeklyLimit) }}/{{ shopModalItem.weeklyLimit }}
               </span>
             </div>
             <div v-if="shopModalItem.totalLimit" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Tổng giới hạn mua còn lại</span>
+              <span class="text-xs text-muted">总限购剩余</span>
               <span class="text-xs">
                 {{ guildStore.getTotalRemaining(shopModalItem.itemId, shopModalItem.totalLimit) }}/{{ shopModalItem.totalLimit }}
               </span>
@@ -379,7 +379,7 @@
           <!-- 数量选择（可批量购买时显示） -->
           <div v-if="maxShopBuyQty > 1" class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <div class="flex items-center space-x-1">
                 <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="shopBuyQty <= 1" @click="addShopBuyQty(-1)">-</Button>
                 <input
@@ -396,22 +396,22 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="shopBuyQty <= 1" @click="setShopBuyQty(1)">Ít nhất</Button>
+              <Button class="flex-1 justify-center" :disabled="shopBuyQty <= 1" @click="setShopBuyQty(1)">最少</Button>
               <Button class="flex-1 justify-center" :disabled="shopBuyQty >= maxShopBuyQty" @click="setShopBuyQty(maxShopBuyQty)">
-                nhấtnhiều
+                最多
               </Button>
             </div>
             <div class="flex items-center justify-between mt-1.5">
-              <span class="text-xs text-muted">Tổng cộng</span>
+              <span class="text-xs text-muted">合计</span>
               <span class="text-xs" :class="shopModalItem.contributionCost ? 'text-success' : 'text-accent'">
-                {{ shopBuyTotalCost }}{{ shopModalItem.contributionCost ? 'Điểm cống hiến' : 'xu' }}
+                {{ shopBuyTotalCost }}{{ shopModalItem.contributionCost ? '贡献点' : 'xu' }}
               </span>
             </div>
           </div>
 
           <p v-if="shopModalItem.unlockGuildLevel && !guildStore.isShopItemUnlocked(shopModalItem.itemId)" class="text-xs text-danger mb-2">
             <Lock :size="10" class="inline" />
-            cônghội Lv.{{ shopModalItem.unlockGuildLevel }} giảikhóa
+            公会 Lv.{{ shopModalItem.unlockGuildLevel }} 解锁
           </p>
           <Button
             v-else
@@ -423,8 +423,8 @@
           >
             {{
               maxShopBuyQty > 1
-                ? `Mua ×${shopBuyQty}`
-                : `Mua ${shopModalItem.contributionCost ? `${shopModalItem.contributionCost} điểm cống hiến` : `${shopModalItem.price} văn`}`
+                ? `购买 ×${shopBuyQty}`
+                : `购买 ${shopModalItem.contributionCost ? `${shopModalItem.contributionCost}贡献` : `${shopModalItem.price}文`}`
             }}
           </Button>
         </div>
@@ -435,11 +435,11 @@
     <div v-if="tab === 'bestiary'">
       <div v-if="guildStore.encounteredMonsters.length === 0" class="flex flex-col items-center justify-center py-8 space-y-3">
         <BookOpen :size="48" class="text-accent/30" />
-        <p class="text-sm text-muted">bộ sưu tậpgiámvẫnkhông ghilục</p>
-        <p class="text-xs text-muted/60 text-center max-w-60">đangMỏtrongGặp quái vậtsau，nóchúng ta của thông tintinsẽghilụcđangnày</p>
+        <p class="text-sm text-muted">图鉴尚无记录</p>
+        <p class="text-xs text-muted/60 text-center max-w-60">在矿洞中遭遇怪物后，它们的信息将记录在此</p>
       </div>
       <template v-else>
-        <p class="text-xs text-muted mb-2">đã Phát hiện {{ guildStore.encounteredMonsters.length }}/{{ allMonsters.length }}</p>
+        <p class="text-xs text-muted mb-2">已Phát hiện  {{ guildStore.encounteredMonsters.length }}/{{ allMonsters.length }}</p>
         <div class="max-h-72 overflow-y-auto flex flex-col space-y-3">
           <div v-for="group in monsterGroups" :key="group.label">
             <p class="text-xs text-accent mb-1">{{ group.label }}</p>
@@ -480,25 +480,25 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">HP</span>
+              <span class="text-xs text-muted">生命</span>
               <span class="text-xs text-danger">{{ selectedMonster.hp }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Tấn công</span>
+              <span class="text-xs text-muted">攻击</span>
               <span class="text-xs text-accent">{{ selectedMonster.attack }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Phòng thủ</span>
+              <span class="text-xs text-muted">防御</span>
               <span class="text-xs">{{ selectedMonster.defense }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">đánhgiếtsố</span>
+              <span class="text-xs text-muted">击杀数</span>
               <span class="text-xs">{{ guildStore.getKillCount(selectedMonster.id) }}</span>
             </div>
           </div>
 
           <div v-if="selectedMonster.drops.length > 0" class="border border-accent/10 rounded-xs p-2">
-            <p class="text-xs text-muted mb-1">rơirơivật</p>
+            <p class="text-xs text-muted mb-1">掉落物</p>
             <div v-for="drop in selectedMonster.drops" :key="drop.itemId" class="flex items-center justify-between mt-0.5">
               <span class="text-xs">{{ getDropName(drop.itemId) }}</span>
               <span class="text-xs text-muted">{{ Math.round(drop.chance * 100) }}%</span>
@@ -506,14 +506,14 @@
           </div>
 
           <div v-if="getEquipDrops(selectedMonster).length > 0" class="border border-accent/10 rounded-xs p-2 mt-2">
-            <p class="text-xs text-muted mb-1">Trang bị rơi</p>
+            <p class="text-xs text-muted mb-1">装备掉落</p>
             <div v-for="(drop, idx) in getEquipDrops(selectedMonster)" :key="idx" class="flex items-center justify-between mt-0.5">
               <span class="text-xs">
                 {{ drop.name }}
-                <span v-if="drop.firstKill" class="text-[10px] text-accent">（đầugiết）</span>
+                <span v-if="drop.firstKill" class="text-[10px] text-accent">（首杀）</span>
               </span>
               <span v-if="drop.chance !== null" class="text-xs text-muted">{{ Math.round(drop.chance * 100) }}%</span>
-              <span v-else class="text-xs text-success">chắc chắnđược</span>
+              <span v-else class="text-xs text-success">必得</span>
             </div>
           </div>
         </div>
@@ -523,7 +523,7 @@
     <!-- 底部统计 -->
     <div class="mt-3 border border-accent/20 rounded-xs p-2">
       <div class="flex items-center space-x-2 text-xs mb-1.5">
-        <span class="text-muted shrink-0">Tiến độ chinh phạt</span>
+        <span class="text-muted shrink-0">讨伐进度</span>
         <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
           <div
             class="h-full bg-accent rounded-xs transition-all"
@@ -536,19 +536,19 @@
       </div>
       <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">đã Hoàn thànhChinh phạt</span>
+          <span class="text-xs text-muted">已完成讨伐</span>
           <span class="text-xs">{{ guildStore.completedGoalCount }}/{{ MONSTER_GOALS.length }}</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">đã Nhận phần thưởng</span>
+          <span class="text-xs text-muted">已领取奖励</span>
           <span class="text-xs">{{ guildStore.claimedGoals.length }}</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">Gặp quái vật</span>
+          <span class="text-xs text-muted">遭遇怪物</span>
           <span class="text-xs">{{ guildStore.encounteredMonsters.length }}/{{ allMonsters.length }}</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">Công hộicấp</span>
+          <span class="text-xs text-muted">公会等级</span>
           <span class="text-xs text-accent">Lv.{{ guildStore.guildLevel }}</span>
         </div>
       </div>
@@ -591,7 +591,7 @@
     shopBuyQty.value = 1
   }
 
-  /** nhấtlớn可muamuasốlượng */
+  /** 最大可购买数量 */
   const maxShopBuyQty = computed(() => {
     const item = shopModalItem.value
     if (!item) return 1
@@ -648,12 +648,12 @@
     selectedGoal.value = null
   }
 
-  /** tínhtínhthảo luậnđốnmụcnhãn的cống hiếnhiếnđiểmthưởngkhuyến khích */
+  /** 计算讨伐目标的贡献点奖励 */
   const getGoalBonusPoints = (goal: MonsterGoalDef): number => {
     return Math.floor((goal.reward.money ?? 0) / 20) + goal.killTarget
   }
 
-  /** quyên góphiếnđạncửa sổtrạng tháitrạng thái */
+  /** 捐献弹窗状态 */
   const donateModalItem = ref<{
     itemId: string
     name: string
@@ -679,18 +679,18 @@
     if (!donateModalItem.value) return
     const result = guildStore.donateItem(donateModalItem.value.itemId, donateQuantity.value)
     if (result.success) {
-      addLog(`Đã quyên góp ${donateModalItem.value.name}×${donateQuantity.value}, nhận ${result.pointsGained} điểm cống hiến.`)
+      addLog(`捐献了${donateModalItem.value.name}×${donateQuantity.value}，获得 ${result.pointsGained} 贡献点。`)
     }
     donateModalItem.value = null
     donateConfirmed.value = false
   }
 
-  /** nhậnlấynguyên liệuliệutêngọi */
+  /** 获取材料名称 */
   const getMaterialName = (itemId: string): string => {
     return getItemById(itemId)?.name ?? itemId
   }
 
-  /** phánđứtnăngkhôngmuamuathương mạiphẩm */
+  /** 判断能否购买商品 */
   const canBuyItem = (item: GuildShopItemDef): boolean => {
     if (!guildStore.isShopItemUnlocked(item.itemId)) return false
     if (item.dailyLimit && guildStore.getDailyRemaining(item.itemId, item.dailyLimit) <= 0) return false
@@ -707,7 +707,7 @@
 
   const hasAnyKills = computed(() => Object.values(guildStore.monsterKills).some(v => v > 0))
 
-  /** 可quyên góphiếnvậtphẩmdanh sáchbảng */
+  /** 可捐献物品列表 */
   const donatableItems = computed(() => {
     return GUILD_DONATIONS.map(donation => {
       const count = inventoryStore.getItemCount(donation.itemId)
@@ -723,11 +723,11 @@
 
   const ZONE_FILTERS = [
     { key: 'all', label: 'Tất cả' },
-    { key: 'shallow', label: 'Tầng nông' },
-    { key: 'frost', label: 'Băng sương' },
+    { key: 'shallow', label: '浅层' },
+    { key: 'frost', label: '冰霜' },
     { key: 'lava', label: 'Dung nham' },
-    { key: 'crystal', label: 'Tinh thể' },
-    { key: 'shadow', label: 'Bóng tối' },
+    { key: 'crystal', label: '水晶' },
+    { key: 'shadow', label: '暗影' },
     { key: 'abyss', label: 'Vực sâu' },
     { key: 'boss', label: 'BOSS' },
     { key: 'skull', label: 'Hang xương' }
@@ -746,7 +746,7 @@
     return guildStore.claimedGoals.includes(monsterId)
   }
 
-  /** quáivậtbộ sưu tậpgiám：hợpvàphổ thônggiaoquái+BOSS+xươngsọquặnghang */
+  /** 怪物图鉴：合并普通怪+BOSS+骷髅矿穴 */
   const allMonsters = computed<MonsterDef[]>(() => {
     const list: MonsterDef[] = []
     for (const m of Object.values(MONSTERS)) {
@@ -761,9 +761,9 @@
     return list
   })
 
-  /** quáivậtbộ sưu tậpgiámđiểmnhóm */
+  /** 怪物图鉴分组 */
   const monsterGroups = computed(() => [
-    { label: 'Quái vật thường', monsters: Object.values(MONSTERS) as MonsterDef[] },
+    { label: '普通怪物', monsters: Object.values(MONSTERS) as MonsterDef[] },
     { label: 'BOSS', monsters: Object.values(BOSS_MONSTERS) as MonsterDef[] },
     {
       label: 'Hang xương',
@@ -775,7 +775,7 @@
     return getItemById(itemId)?.name ?? itemId
   }
 
-  /** nhậnlấyphổ thônggiaoquáivậtđiềuđangkhukhu vực */
+  /** 获取普通怪物所在区域 */
   const getMonsterZone = (monsterId: string): string | null => {
     for (const [zone, monsters] of Object.entries(ZONE_MONSTERS)) {
       if (monsters.some(m => m.id === monsterId)) return zone
@@ -783,7 +783,7 @@
     return null
   }
 
-  /** nhậnlấy BOSS điềuđanglầutầng */
+  /** 获取 BOSS 所在楼层 */
   const getBossFloor = (monsterId: string): number | null => {
     for (const [floor, monster] of Object.entries(BOSS_MONSTERS)) {
       if (monster.id === monsterId) return Number(floor)
@@ -791,7 +791,7 @@
     return null
   }
 
-  /** nhậnlấyquáivật的trang bịbịrơirơidanh sáchbảng */
+  /** 获取怪物的装备掉落列表 */
   const getEquipDrops = (monster: MonsterDef): { name: string; chance: number | null; firstKill: boolean }[] => {
     const drops: { name: string; chance: number | null; firstKill: boolean }[] = []
     const zone = getMonsterZone(monster.id)

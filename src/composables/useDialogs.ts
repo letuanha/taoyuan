@@ -60,7 +60,7 @@ export const handlePerkSelect = (perk: SkillPerk5 | SkillPerk10) => {
   } else {
     skillStore.setPerk10(skillType, perk as SkillPerk10)
   }
-  addLog('Đã học chuyên môn mới!')
+  addLog('习得了新专精！')
   pendingPerk.value = null
 }
 
@@ -90,9 +90,9 @@ export const closeHeartEvent = (changes: { npcId: string; amount: number }[]) =>
       npcStore.adjustFriendship(change.npcId, change.amount)
     }
     if (change.amount > 0) {
-      addLog(`Hảo cảm +${change.amount}`)
+      addLog(`好感度+${change.amount}`)
     } else if (change.amount < 0) {
-      addLog(`Hảo cảm ${change.amount}`)
+      addLog(`好感度${change.amount}`)
     }
   }
   pendingHeartEvent.value = null
@@ -128,8 +128,8 @@ export const closeFestival = (prize: number) => {
   if (prize > 0) {
     const playerStore = usePlayerStore()
     playerStore.earnMoney(prize)
-    showFloat(`+${prize} văn`, 'accent')
-    addLog(`Thưởng lễ hội: ${prize} văn!`)
+    showFloat(`+${prize}文`, 'accent')
+    addLog(`节日奖金：${prize}文！`)
   }
   currentFestival.value = null
   // 如果还有事件叙述在显示，切换到季节节日 BGM；否则直接恢复季节 BGM

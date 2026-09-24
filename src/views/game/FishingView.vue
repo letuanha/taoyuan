@@ -3,7 +3,7 @@
     <VillagerPresence spot="fishing" />
     <h3 class="text-accent text-sm mb-3">
       <Fish :size="14" class="inline" />
-      {{ currentLocationName }}câucá
+      {{ currentLocationName }}钓鱼
     </h3>
     <p v-if="tutorialHint" class="text-[10px] text-muted/50 mb-2">
       {{ tutorialHint }}
@@ -13,7 +13,7 @@
     <div class="border border-accent/20 rounded-xs p-3 mb-4">
       <p class="text-sm text-accent mb-2">
         <MapPin :size="14" class="inline" />
-        câucáđấtđiểm
+        钓鱼地点
       </p>
       <div class="grid grid-cols-3 gap-1">
         <div
@@ -37,7 +37,7 @@
       <div class="flex flex-col space-y-1">
         <!-- 鱼竿 -->
         <div class="flex items-center justify-between border border-accent/10 rounded-xs px-3 py-1.5">
-          <span class="text-xs">Cần câu</span>
+          <span class="text-xs">鱼竿</span>
           <span class="text-xs text-accent">{{ rodTierName }}</span>
         </div>
         <!-- 鱼饵 -->
@@ -51,7 +51,7 @@
               {{ getBaitName(fishingStore.equippedBait) }}
               <span class="text-muted">(&times;{{ inventoryStore.getItemCount(fishingStore.equippedBait) }})</span>
             </template>
-            <template v-else>chưa Trang bị</template>
+            <template v-else>未装备</template>
           </span>
         </div>
         <!-- 浮漂 -->
@@ -60,7 +60,7 @@
           :class="canEquipTackle ? 'cursor-pointer hover:bg-accent/5' : 'opacity-50'"
           @click="canEquipTackle && (showTackleModal = true)"
         >
-          <span class="text-xs">nổiphao</span>
+          <span class="text-xs">浮漂</span>
           <span class="text-xs" :class="fishingStore.equippedTackle ? 'text-accent' : 'text-muted'">
             <template v-if="fishingStore.equippedTackle">
               {{ getTackleName(fishingStore.equippedTackle) }}
@@ -76,7 +76,7 @@
     <div class="border border-accent/20 rounded-xs p-3 mb-4">
       <div class="flex items-center justify-between mb-2">
         <p class="text-sm text-accent">Câu cá</p>
-        <span class="text-xs text-muted">{{ playerStore.stamina }}/{{ playerStore.maxStamina }} thể lực</span>
+        <span class="text-xs text-muted">{{ playerStore.stamina }}/{{ playerStore.maxStamina }} 体力</span>
       </div>
       <div
         class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
@@ -86,30 +86,30 @@
           <Target :size="12" class="inline" />
           {{ settingsStore.autoFishing ? 'Thả câu một chạm' : 'Thả câu' }}
         </span>
-        <span class="text-xs text-muted">tiêuhaothể lực · {{ fishTimeLabel }}</span>
+        <span class="text-xs text-muted">消耗体力 · {{ fishTimeLabel }}</span>
       </div>
       <p v-if="settingsStore.autoFishing" class="text-[10px] text-muted/50 mt-1">
-        Đã bật câu cá một phím: quăng cần và nhận kết quả ngay, không vào mini game. Có thể tắt trong Cài đặt.
+        一键钓鱼已开启：抛竿直接出结果，不进小游戏。可在设置中关闭。
       </p>
     </div>
 
     <!-- 钓鱼结果 -->
     <div class="border border-accent/20 rounded-xs p-3 mb-4">
-      <p class="text-sm text-accent mb-2">Kết quả câu cá</p>
+      <p class="text-sm text-accent mb-2">钓鱼结果</p>
       <div v-if="lastResult" class="border border-accent/10 rounded-xs px-3 py-1.5">
         <span class="text-xs">{{ lastResult }}</span>
       </div>
       <div v-else class="flex flex-col items-center justify-center py-6 text-muted">
         <Fish :size="32" class="text-muted/30 mb-2" />
-        <p class="text-xs">cònkhông cócâuquacá，đithửthửnhé。</p>
+        <p class="text-xs">还没有钓过鱼，去试试吧。</p>
       </div>
     </div>
 
     <!-- 当前可钓鱼类 -->
     <div class="border border-accent/20 rounded-xs p-3 mb-4">
       <div class="flex items-center justify-between mb-2">
-        <p class="text-sm text-accent">hiện tại có thể Câu cáloài</p>
-        <span class="text-xs text-muted">{{ fishingStore.availableFish.length }}loại</span>
+        <p class="text-sm text-accent">当前可钓鱼类</p>
+        <span class="text-xs text-muted">{{ fishingStore.availableFish.length }}种</span>
       </div>
       <div v-if="fishingStore.availableFish.length > 0" class="flex flex-col space-y-1">
         <div
@@ -126,7 +126,7 @@
       </div>
       <div v-else class="flex flex-col items-center justify-center py-6 text-muted">
         <Fish :size="32" class="text-muted/30 mb-2" />
-        <p class="text-xs">hiện tại thờiđoạn/ngàykhí/địa điểmkhông cócó thể câu của cá。</p>
+        <p class="text-xs">当前时段/ngày气/地点没有可钓的鱼。</p>
       </div>
     </div>
 
@@ -135,7 +135,7 @@
       <div class="flex items-center justify-between mb-2">
         <p class="text-sm text-accent">
           <Box :size="14" class="inline" />
-          cualồng
+          蟹笼
         </p>
         <span class="text-xs text-muted">{{ fishingStore.crabPots.length }}/10</span>
       </div>
@@ -144,23 +144,23 @@
           <div class="flex items-center justify-between mb-1">
             <span class="text-xs text-accent">{{ loc.name }}</span>
             <div class="flex space-x-1">
-              <Button class="py-0 px-1" @click="handleBaitCrabPots(loc.id)">Đặt mồi</Button>
-              <Button class="py-0 px-1" @click="handleRemoveCrabPot(loc.id)">về thu</Button>
+              <Button class="py-0 px-1" @click="handleBaitCrabPots(loc.id)">装饵</Button>
+              <Button class="py-0 px-1" @click="handleRemoveCrabPot(loc.id)">回收</Button>
             </div>
           </div>
-          <p class="text-[10px] text-muted">{{ loc.total }}cái · {{ loc.baited }}cáiđã Đặt mồi</p>
+          <p class="text-[10px] text-muted">{{ loc.total }}个 · {{ loc.baited }}个已装饵</p>
         </div>
       </div>
       <div v-else-if="!hasCrabPotInBag" class="flex flex-col items-center justify-center py-6 text-muted mb-2">
         <Box :size="32" class="text-muted/30 mb-2" />
-        <p class="text-xs">Sau khi mua hoặc chế tạo lồng cua có thể đặt tại đây.</p>
+        <p class="text-xs">购买或制造蟹笼后可在此放置。</p>
       </div>
       <div
         v-if="hasCrabPotInBag"
         class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
         @click="handlePlaceCrabPot"
       >
-        <span class="text-xs">đặtđặtcualồng</span>
+        <span class="text-xs">放置蟹笼</span>
         <span class="text-xs text-muted">{{ currentLocationName }}</span>
       </div>
     </div>
@@ -169,16 +169,16 @@
     <div class="border border-accent/20 rounded-xs p-3">
       <p class="text-sm text-accent mb-2">
         <CircleDot :size="14" class="inline" />
-        đãivàng
+        淘金
       </p>
       <div v-if="canPan">
-        <p class="text-xs text-muted mb-2">Ngày mưa, nước sông dâng lên, có thể dùng mâm đãi vàng bên bờ nước để đãi vàng.</p>
+        <p class="text-xs text-muted mb-2">雨ngày河水涨起，可以用淘金盘在水边淘金。</p>
         <div
           class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5"
           @click="handlePan"
         >
-          <span class="text-xs">đãivàngmộtlần</span>
-          <span class="text-xs text-muted">tiêuhaothể lực · {{ Math.round(panTime * 60) }}điểmgiờ</span>
+          <span class="text-xs">淘金一次</span>
+          <span class="text-xs text-muted">消耗体力 · {{ Math.round(panTime * 60) }}分钟</span>
         </div>
         <div v-if="panResult" class="border border-accent/10 rounded-xs px-3 py-1.5 mt-1">
           <span class="text-xs">{{ panResult }}</span>
@@ -204,15 +204,15 @@
           <p class="text-sm text-accent mb-2">Mồi câu</p>
           <!-- 当前装备 -->
           <div v-if="fishingStore.equippedBait" class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-[10px] text-muted mb-1">hiện tại Trang bị</p>
+            <p class="text-[10px] text-muted mb-1">当前装备</p>
             <div class="flex items-center justify-between">
               <span class="text-xs text-accent">{{ getBaitName(fishingStore.equippedBait) }}</span>
-              <Button class="py-0 px-1" @click="handleUnequipBait">tháo </Button>
+              <Button class="py-0 px-1" @click="handleUnequipBait">卸下</Button>
             </div>
           </div>
           <!-- 可用鱼饵列表 -->
           <div v-if="availableBaits.length > 0" class="border border-accent/10 rounded-xs p-2">
-            <p class="text-[10px] text-muted mb-1">Mồi trong túi</p>
+            <p class="text-[10px] text-muted mb-1">背包中的鱼饵</p>
             <div class="flex flex-col space-y-1">
               <div
                 v-for="b in availableBaits"
@@ -227,8 +227,8 @@
           </div>
           <div v-else-if="!fishingStore.equippedBait" class="flex flex-col items-center justify-center py-4 text-muted">
             <Target :size="28" class="text-muted/30 mb-2" />
-            <p class="text-xs">Trong túi không có mồi</p>
-            <p class="text-[10px] text-muted/60 mt-0.5">Có thể mua tại cửa hàng hoặc chế tạo tại xưởng</p>
+            <p class="text-xs">背包中没有鱼饵</p>
+            <p class="text-[10px] text-muted/60 mt-0.5">可在商店购买或加工制造</p>
           </div>
         </div>
       </div>
@@ -245,21 +245,21 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="showTackleModal = false">
             <X :size="14" />
           </button>
-          <p class="text-sm text-accent mb-2">nổiphao</p>
+          <p class="text-sm text-accent mb-2">浮漂</p>
           <!-- 当前装备 -->
           <div v-if="fishingStore.equippedTackle" class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-[10px] text-muted mb-1">hiện tại Trang bị</p>
+            <p class="text-[10px] text-muted mb-1">当前装备</p>
             <div class="flex items-center justify-between">
               <span class="text-xs text-accent">{{ getTackleName(fishingStore.equippedTackle) }}</span>
               <div class="flex items-center space-x-2">
-                <span class="text-[10px] text-muted">bềnlâu {{ fishingStore.tackleDurability }}</span>
-                <Button class="py-0 px-1" @click="handleUnequipTackle">tháo </Button>
+                <span class="text-[10px] text-muted">耐久 {{ fishingStore.tackleDurability }}</span>
+                <Button class="py-0 px-1" @click="handleUnequipTackle">卸下</Button>
               </div>
             </div>
           </div>
           <!-- 可用浮漂列表 -->
           <div v-if="availableTackles.length > 0" class="border border-accent/10 rounded-xs p-2">
-            <p class="text-[10px] text-muted mb-1">Phao trong túi</p>
+            <p class="text-[10px] text-muted mb-1">背包中的浮漂</p>
             <div class="flex flex-col space-y-1">
               <div
                 v-for="t in availableTackles"
@@ -274,8 +274,8 @@
           </div>
           <div v-else-if="!fishingStore.equippedTackle" class="flex flex-col items-center justify-center py-4 text-muted">
             <MapPin :size="28" class="text-muted/30 mb-2" />
-            <p class="text-xs">Trong túi không có phao</p>
-            <p class="text-[10px] text-muted/60 mt-0.5">Có thể mua tại cửa hàng hoặc chế tạo tại xưởng</p>
+            <p class="text-xs">背包中没有浮漂</p>
+            <p class="text-[10px] text-muted/60 mt-0.5">可在商店购买或加工制造</p>
           </div>
         </div>
       </div>
@@ -298,10 +298,10 @@
           </p>
           <!-- 放弃确认 -->
           <div v-if="showCloseConfirm" class="border border-danger/40 rounded-xs p-3 mb-3">
-            <p class="text-xs text-danger mb-2">Cá vẫn đang cắn câu, bạn chắc muốn bỏ cuộc sao?</p>
+            <p class="text-xs text-danger mb-2">鱼还在咬钩，确定要放弃吗？</p>
             <div class="flex space-x-2">
-              <Button class="text-danger" @click="handleConfirmClose">xác nhận đặtbỏ</Button>
-              <Button @click="showCloseConfirm = false">Tiếp tụcCâu cá</Button>
+              <Button class="text-danger" @click="handleConfirmClose">确认放弃</Button>
+              <Button @click="showCloseConfirm = false">继续钓鱼</Button>
             </div>
           </div>
           <FishingMiniGame v-bind="miniGameParams" @complete="handleMiniGameComplete" />
@@ -336,30 +336,30 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">kếtquả</span>
+              <span class="text-xs text-muted">结果</span>
               <span class="text-xs" :class="catchResult.success ? 'text-success' : 'text-danger'">
                 {{ catchResult.success ? 'Bắt thành công' : 'Cá đã thoát' }}
               </span>
             </div>
             <div v-if="catchResult.success && catchResult.quantity" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Số lượng</span>
+              <span class="text-xs text-muted">数量</span>
               <span class="text-xs">×{{ catchResult.quantity }}</span>
             </div>
             <div v-if="catchResult.success && catchResult.quality" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Chất lượng</span>
+              <span class="text-xs text-muted">品质</span>
               <span class="text-xs" :class="QUALITY_COLORS[catchResult.quality]">{{ QUALITY_NAMES[catchResult.quality] }}</span>
             </div>
             <div v-if="catchResult.difficulty" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">Độ khó</span>
+              <span class="text-xs text-muted">难度</span>
               <span class="text-xs" :class="DIFFICULTY_COLORS[catchResult.difficulty]">{{ DIFFICULTY_NAMES[catchResult.difficulty] }}</span>
             </div>
             <div v-if="catchResult.sellPrice" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ catchResult.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ catchResult.sellPrice }}文</span>
             </div>
           </div>
 
-          <p v-if="catchResult.message.includes('Rương báu')" class="text-xs text-accent mb-2">
+          <p v-if="catchResult.message.includes('宝箱')" class="text-xs text-accent mb-2">
             {{ catchResult.message.slice(catchResult.message.indexOf('Rương báu')) }}
           </p>
 
@@ -389,21 +389,21 @@
 
           <div class="border border-accent/10 rounded-xs p-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">Độ khó</span>
+              <span class="text-xs text-muted">难度</span>
               <span class="text-xs" :class="DIFFICULTY_COLORS[selectedFish.difficulty]">
                 {{ DIFFICULTY_NAMES[selectedFish.difficulty] }}
               </span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ selectedFish.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ selectedFish.sellPrice }}文</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">mùalễ</span>
+              <span class="text-xs text-muted">mùa节</span>
               <span class="text-xs">{{ selectedFish.season.map(s => SEASON_LABEL[s] ?? s).join('、') }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">ngàykhí</span>
+              <span class="text-xs text-muted">ngày气</span>
               <span class="text-xs">{{ selectedFish.weather.map(w => WEATHER_LABEL[w] ?? w).join('、') }}</span>
             </div>
           </div>
@@ -480,7 +480,7 @@
 
   // === Computed ===
 
-  /** câucáhaothời（nhỏthời），chịu工công cụvàkỹ thuậtnănggiảmmiễn */
+  /** 钓鱼耗时（小时），受工具和技能减免 */
   const fishTime = computed(() => {
     const baseMin = ACTION_TIME_COSTS.fishStart * 60
     const toolTier = inventoryStore.getTool('fishingRod')?.tier ?? 'basic'
@@ -491,7 +491,7 @@
 
   const fishTimeLabel = computed(() => `${Math.round(fishTime.value * 60)} phút`)
 
-  /** đãivànghaothời（nhỏthời），chịu工công cụvàkỹ thuậtnănggiảmmiễn */
+  /** 淘金耗时（小时），受工具和技能减免 */
   const panTime = computed(() => {
     const baseMin = ACTION_TIME_COSTS.pan * 60
     const toolTier = inventoryStore.getTool('pan')?.tier ?? 'basic'
@@ -657,10 +657,10 @@
         return
       }
       if (result.junk) {
-        // rácrácthẳngtiếpvàogói，khôngtiếnvàonhỏchơitrò chơi
+        // 垃圾直接入包，不进入小游戏
         lastResult.value = result.message
       } else if (settingsStore.autoFishing) {
-        // mộtphímcâucá：khôngmởnhỏchơitrò chơi，thẳngtiếpnémđánh giácấprakếtquả
+        // 一键钓鱼：不开小游戏，直接掷评级出结果
         addLog(result.message)
         const auto = fishingStore.rollAutoFishingRating()
         addLog(`Thu dây tự động (tỷ lệ thành công ${Math.round(auto.successChance * 100)}%): ${RATING_NAMES[auto.rating]}`)
@@ -700,7 +700,7 @@
     poor: 'Thất bại'
   }
 
-  /** nhấnđánh giácấpkếttínhnàymộtcần：vàogói、quakiểm tra、báurương、kếtquảđạncửa sổ。nhỏchơitrò chơivàmộtphímcâucátổngdùng。 */
+  /** 按评级结算这一竿：入包、经验、宝箱、结果弹窗。小游戏和一键钓鱼共用。 */
   const resolveCatch = (rating: MiniGameRating) => {
     const catchData = fishingStore.completeFishing(rating)
     if (!catchData) return

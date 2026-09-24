@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between mb-1">
       <div class="flex items-center space-x-1.5 text-sm text-accent">
         <Landmark :size="14" />
-        <span>bảo tàngvậtquán</span>
+        <span>博物馆</span>
       </div>
       <span class="text-xs text-muted">{{ museumStore.donatedCount }}/{{ museumStore.totalCount }}</span>
     </div>
@@ -14,8 +14,8 @@
       class="flex flex-col items-center justify-center py-10 space-y-3"
     >
       <Landmark :size="48" class="text-accent/30" />
-      <p class="text-sm text-muted">bảo tàngvậtquánléplépnhưcũng</p>
-      <p class="text-xs text-muted/60 text-center max-w-60">đangMỏbáurương、trerừngthu háithậptrongnhận hóađávớicổvật，quyên góptặngchobảo tàngvậtquáncó thể nhận trongtrìnhbiaphần thưởng</p>
+      <p class="text-sm text-muted">博物馆空空如也</p>
+      <p class="text-xs text-muted/60 text-center max-w-60">在矿洞宝箱、竹林采集中获得化石与古物，捐赠给博物馆可获得里程碑奖励</p>
     </div>
 
     <template v-else>
@@ -50,7 +50,7 @@
 
       <!-- 快捷捐赠区 -->
       <div v-if="museumStore.donatableItems.length > 0" class="border border-accent/20 rounded-xs p-2 mb-3">
-        <p class="text-xs text-accent mb-1">có thể quyên góptặngVật phẩm</p>
+        <p class="text-xs text-accent mb-1">可捐赠物品</p>
         <div class="flex flex-wrap space-x-1">
           <Button v-for="itemId in museumStore.donatableItems" :key="itemId" :icon="Send" :icon-size="10" @click="handleDonate(itemId)">
             {{ getItemName(itemId) }}
@@ -60,7 +60,7 @@
 
       <!-- 里程碑 -->
       <div class="border border-accent/20 rounded-xs p-2">
-        <p class="text-xs text-muted mb-2">trongtrìnhbiaphần thưởng</p>
+        <p class="text-xs text-muted mb-2">里程碑奖励</p>
         <div class="flex flex-col space-y-1 max-h-52 overflow-y-auto">
           <div
             v-for="ms in MUSEUM_MILESTONES"
@@ -70,15 +70,15 @@
             <CircleCheck v-if="isMilestoneClaimed(ms.count)" :size="12" class="text-success shrink-0" />
             <Circle v-else :size="12" class="shrink-0" :class="museumStore.donatedCount >= ms.count ? 'text-accent' : 'text-muted'" />
             <span class="flex-1" :class="museumStore.donatedCount >= ms.count ? 'text-text' : 'text-muted'">
-              {{ ms.name }} ({{ ms.count }}món)
+              {{ ms.name }} ({{ ms.count }}件)
             </span>
-            <span class="text-muted">{{ ms.reward.money }}văn{{ ms.reward.items ? '+Vật phẩm' : '' }}</span>
+            <span class="text-muted">{{ ms.reward.money }}文{{ ms.reward.items ? '+物品' : '' }}</span>
             <Button
               v-if="museumStore.donatedCount >= ms.count && !isMilestoneClaimed(ms.count)"
               class="!bg-accent !text-bg px-2 py-0.5"
               @click="museumStore.claimMilestone(ms.count)"
             >
-              nhậnlấy
+              领取
             </Button>
           </div>
         </div>
@@ -87,7 +87,7 @@
       <!-- 底部进度 -->
       <div class="mt-3 border border-accent/20 rounded-xs p-2">
         <div class="flex items-center space-x-2 text-xs mb-1.5">
-          <span class="text-muted shrink-0">quyên góptặngtiếnđộ</span>
+          <span class="text-muted shrink-0">捐赠进度</span>
           <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
             <div
               class="h-full bg-accent rounded-xs transition-all"
@@ -100,15 +100,15 @@
         </div>
         <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
           <div class="flex items-center justify-between">
-            <span class="text-xs text-muted">đã quyên góptặng</span>
+            <span class="text-xs text-muted">已捐赠</span>
             <span class="text-xs">{{ museumStore.donatedCount }}</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-xs text-muted">có thể quyên góptặng</span>
+            <span class="text-xs text-muted">可捐赠</span>
             <span class="text-xs">{{ museumStore.donatableItems.length }}</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-xs text-muted">đã nhậnlấytrongtrìnhbia</span>
+            <span class="text-xs text-muted">已领取里程碑</span>
             <span class="text-xs">{{ museumStore.claimedMilestones.length }}/{{ MUSEUM_MILESTONES.length }}</span>
           </div>
         </div>
@@ -146,7 +146,7 @@
             <div class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Trạng thái</span>
               <span class="text-xs" :class="museumStore.isDonated(selectedItem.id) ? 'text-success' : 'text-muted'">
-                {{ museumStore.isDonated(selectedItem.id) ? 'Đã quyên góp' : 'Chưa quyên góp' }}
+                {{ museumStore.isDonated(selectedItem.id) ? '已捐赠' : '未捐赠' }}
               </span>
             </div>
           </div>
@@ -155,7 +155,7 @@
           <div v-if="museumStore.isDonated(selectedItem.id)" class="border border-success/30 rounded-xs p-2">
             <div class="flex items-center justify-center space-x-1">
               <CircleCheck :size="12" class="text-success" />
-              <span class="text-xs text-success">đã quyên góptặngđếnbảo tàngvậtquán</span>
+              <span class="text-xs text-success">已捐赠至博物馆</span>
             </div>
           </div>
           <Button
@@ -165,12 +165,12 @@
             :icon-size="12"
             @click="handleDonateAndClose(selectedItem.id)"
           >
-            quyên góptặng
+            捐赠
           </Button>
           <div v-else class="border border-accent/10 rounded-xs p-2">
             <div class="flex items-center space-x-1">
               <Package :size="12" class="text-muted" />
-              <span class="text-xs text-muted">Túi đồtrongkhông cónàyVật phẩm</span>
+              <span class="text-xs text-muted">背包中没有此物品</span>
             </div>
           </div>
         </div>

@@ -3,11 +3,11 @@
     <!-- 第一行：日期时间天气 + 铜钱 -->
     <div class="flex items-center justify-between text-xs md:text-sm">
       <div class="flex items-center space-x-2 md:space-x-3">
-        <span class="text-accent font-bold">Đào Nguyên Hương</span>
+        <span class="text-accent font-bold">桃源乡</span>
         <span class="text-muted text-xs max-w-16 truncate">{{ playerStore.playerName }}</span>
-        <span class="hidden md:inline">lượt{{ gameStore.year }}năm</span>
+        <span class="hidden md:inline">thứ{{ gameStore.year }}năm</span>
         <!-- 点日期直接开时历：原先只能在小屋里翻到，很多人一个季节过完都没找到 -->
-        <button class="text-text hover:text-accent transition-colors" title="Xem lịch" @click="showCalendar = true">
+        <button class="text-text hover:text-accent transition-colors" title="查看时历" @click="showCalendar = true">
           {{ SEASON_NAMES[gameStore.season] }} thứ{{ gameStore.day }}ngày
           <Calendar :size="11" class="inline text-accent/70" />
         </button>
@@ -17,7 +17,7 @@
       </div>
       <span class="text-accent shrink-0">
         <Coins :size="12" class="inline" />
-        {{ playerStore.money }}văn
+        {{ playerStore.money }}文
       </span>
     </div>
 
@@ -81,7 +81,7 @@
   const gameStore = useGameStore()
   const playerStore = usePlayerStore()
 
-  /** thờilịchđạncửa sổ */
+  /** 时历弹窗 */
   const showCalendar = ref(false)
 
   const staminaBarColor = computed(() => {
@@ -120,7 +120,7 @@
 </script>
 
 <style scoped>
-  /* thểlựcmụcchớplấp lánh */
+  /* 体力条闪烁 */
   @keyframes staminaPulse {
     0%,
     100% {

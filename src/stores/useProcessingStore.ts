@@ -520,7 +520,7 @@ export const useProcessingStore = defineStore('processing', () => {
       const summary = Array.from(counts.entries())
         .map(([name, count]) => (count > 1 ? `${name}x${count}` : name))
         .join('、')
-      addLog(`Xưởng đã tự động thu: ${summary}.`)
+      addLog(`工坊自动收取了：${summary}。`)
     }
     if (readyNames.length > 0) {
       const counts = new Map<string, number>()
@@ -530,7 +530,7 @@ export const useProcessingStore = defineStore('processing', () => {
       const summary = Array.from(counts.entries())
         .map(([name, count]) => (count > 1 ? `${name}x${count}` : name))
         .join('、')
-      addLog(`Gia công hoàn tất: ${summary}, hãy đến xưởng nhận hàng.`)
+      addLog(`加工完成：${summary}，去工坊收取吧。`)
     }
   }
 
@@ -540,12 +540,12 @@ export const useProcessingStore = defineStore('processing', () => {
   const upgradeWorkshop = (): { success: boolean; message: string } => {
     const next = workshopLevel.value + 1
     const upgrade = WORKSHOP_UPGRADES.find(u => u.level === next)
-    if (!upgrade) return { success: false, message: 'Xưởng đã đạt cấp tối đa.' }
+    if (!upgrade) return { success: false, message: '工坊已达到最高等级。' }
     if (!consumeCraftMaterials(upgrade.materials, upgrade.cost)) return { success: false, message: 'Không đủ nguyên liệu hoặc tiền.' }
     workshopLevel.value = next
     return {
       success: true,
-      message: `Mở rộng xưởng hoàn tất! Số máy tối đa tăng lên ${maxMachines.value}.`
+      message: `工坊扩建完成！机器上限提升至${maxMachines.value}台。`
     }
   }
 

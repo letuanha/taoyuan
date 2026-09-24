@@ -209,19 +209,19 @@ export const MUSEUM_ITEMS: MuseumItemDef[] = [
     id: 'spirit_peach',
     name: 'Linh đào',
     category: 'spirit',
-    sourceHint: 'Có xác suất nhận được từ cây đào sau khi được Đào Yêu ban phúc'
+    sourceHint: '桃夭赐福的桃树概率产出'
   },
   {
     id: 'moon_herb',
     name: 'Nguyệt thảo',
     category: 'spirit',
-    sourceHint: 'Có xác suất nhận được khi thu thập sau khi được Thỏ Nguyệt ban phúc'
+    sourceHint: '月兔赐福后采集概率获得'
   },
   {
     id: 'dream_silk',
     name: 'Mộng ty',
     category: 'spirit',
-    sourceHint: 'Có xác suất nhận được từ máy dệt sau khi được Quy Nữ ban phúc'
+    sourceHint: '归女赐福后织布机概率产出'
   }
 ]
 
@@ -229,33 +229,33 @@ export const MUSEUM_ITEMS: MuseumItemDef[] = [
 export const MUSEUM_CATEGORIES = [
   { key: 'ore' as const, label: 'Quặng' },
   { key: 'gem' as const, label: 'Đá quý' },
-  { key: 'bar' as const, label: 'Thỏi kim loại' },
+  { key: 'bar' as const, label: '金属锭' },
   { key: 'fossil' as const, label: 'Hóa thạch' },
   { key: 'artifact' as const, label: 'Cổ vật' },
-  { key: 'spirit' as const, label: 'Tiên linh' }
+  { key: 'spirit' as const, label: '仙灵' }
 ]
 
 /** 博物馆里程碑奖励 */
 export const MUSEUM_MILESTONES: MuseumMilestone[] = [
-  { count: 5, name: 'Mới nhập môn', reward: { money: 300 } },
+  { count: 5, name: '初窥门径', reward: { money: 300 } },
   {
     count: 10,
-    name: 'Có chút sưu tầm',
+    name: '小有收藏',
     reward: { money: 500, items: [{ itemId: 'ancient_seed', quantity: 1 }] }
   },
-  { count: 15, name: 'Nhà thưởng thức quặng', reward: { money: 1000 } },
+  { count: 15, name: '矿石鉴赏家', reward: { money: 1000 } },
   {
     count: 20,
-    name: 'Thông kim bác cổ',
+    name: '博古通今',
     reward: {
       money: 1500,
       items: [{ itemId: 'prismatic_shard', quantity: 1 }]
     }
   },
-  { count: 25, name: 'Người bảo vệ cổ vật', reward: { money: 3000 } },
+  { count: 25, name: '文物守护者', reward: { money: 3000 } },
   {
     count: 30,
-    name: 'Khám phá thời viễn cổ',
+    name: '远古探秘',
     reward: { money: 5000, items: [{ itemId: 'iridium_bar', quantity: 3 }] }
   },
   { count: 36, name: 'Ngôi sao bảo tàng', reward: { money: 10000 } },

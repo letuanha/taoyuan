@@ -4,18 +4,18 @@ import type { FruitTreeDef } from '@/types'
 export const FRUIT_TREE_DEFS: FruitTreeDef[] = [
   {
     type: 'peach_tree',
-    name: 'Cây đào',
+    name: '桃树',
     saplingId: 'sapling_peach',
     saplingPrice: 300,
     fruitId: 'tree_peach',
-    fruitName: 'Đào tươi',
+    fruitName: '鲜桃',
     fruitSeason: 'spring',
     growthDays: 28,
     fruitSellPrice: 60
   },
   {
     type: 'lychee_tree',
-    name: 'Cây vải',
+    name: '荔枝树',
     saplingId: 'sapling_lychee',
     saplingPrice: 400,
     fruitId: 'lychee',
@@ -26,7 +26,7 @@ export const FRUIT_TREE_DEFS: FruitTreeDef[] = [
   },
   {
     type: 'mandarin_tree',
-    name: 'Cây quýt',
+    name: '橘树',
     saplingId: 'sapling_mandarin',
     saplingPrice: 350,
     fruitId: 'mandarin',
@@ -37,18 +37,18 @@ export const FRUIT_TREE_DEFS: FruitTreeDef[] = [
   },
   {
     type: 'plum_tree',
-    name: 'Cây mơ',
+    name: '梅树',
     saplingId: 'sapling_plum',
     saplingPrice: 500,
     fruitId: 'plum_blossom',
-    fruitName: 'Hoa mai',
+    fruitName: '梅花',
     fruitSeason: 'winter',
     growthDays: 28,
     fruitSellPrice: 100
   },
   {
     type: 'apricot_tree',
-    name: 'Cây mơ vàng',
+    name: '杏树',
     saplingId: 'sapling_apricot',
     saplingPrice: 350,
     fruitId: 'apricot',
@@ -59,7 +59,7 @@ export const FRUIT_TREE_DEFS: FruitTreeDef[] = [
   },
   {
     type: 'pomegranate_tree',
-    name: 'Cây lựu',
+    name: '石榴树',
     saplingId: 'sapling_pomegranate',
     saplingPrice: 500,
     fruitId: 'pomegranate',
@@ -70,22 +70,22 @@ export const FRUIT_TREE_DEFS: FruitTreeDef[] = [
   },
   {
     type: 'persimmon_tree',
-    name: 'Cây hồng',
+    name: '柿树',
     saplingId: 'sapling_persimmon',
     saplingPrice: 400,
     fruitId: 'persimmon',
-    fruitName: 'Hồng tươi',
+    fruitName: '鲜柿',
     fruitSeason: 'autumn',
     growthDays: 28,
     fruitSellPrice: 85
   },
   {
     type: 'hawthorn_tree',
-    name: 'Cây táo gai',
+    name: '山楂树',
     saplingId: 'sapling_hawthorn',
     saplingPrice: 350,
     fruitId: 'hawthorn',
-    fruitName: 'Táo gai',
+    fruitName: '山楂',
     fruitSeason: 'winter',
     growthDays: 28,
     fruitSellPrice: 65

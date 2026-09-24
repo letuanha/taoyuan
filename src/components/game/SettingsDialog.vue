@@ -1,6 +1,6 @@
 <template>
   <Transition name="panel-fade">
-    <div v-if="open" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4" @click.self="$emit('close')">
+    <div v-if="open" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-label="Cài đặt" @click.self="$emit('close')">
       <div class="game-panel w-full max-w-xs text-center relative">
         <button class="absolute top-2 right-2 text-muted hover:text-text" @click="$emit('close')">
           <X :size="14" />
@@ -39,8 +39,26 @@
               <div class="border border-accent/20 rounded-xs p-3 mr-1 mb-2">
                 <p class="text-xs text-muted mb-2">Âm thanh</p>
                 <div class="flex items-center justify-center space-x-2">
-                  <Button :icon="sfxEnabled ? Volume2 : VolumeX" :icon-size="12" class="py-1 px-3" @click="toggleSfx">Hiệu ứng âm thanh</Button>
-                  <Button :icon="bgmEnabled ? Headphones : HeadphoneOff" :icon-size="12" class="py-1 px-3" @click="toggleBgm">Nhạc</Button>
+                  <Button
+                    :icon="sfxEnabled ? Volume2 : VolumeX"
+                    :icon-size="12"
+                    class="py-1 px-3"
+                    :aria-pressed="sfxEnabled"
+                    :aria-label="`Hiệu ứng âm thanh: ${sfxEnabled ? 'đang bật' : 'đang tắt'}`"
+                    @click="toggleSfxAndTest"
+                  >
+                    Hiệu ứng: {{ sfxEnabled ? 'Bật' : 'Tắt' }}
+                  </Button>
+                  <Button
+                    :icon="bgmEnabled ? Headphones : HeadphoneOff"
+                    :icon-size="12"
+                    class="py-1 px-3"
+                    :aria-pressed="bgmEnabled"
+                    :aria-label="`Nhạc: ${bgmEnabled ? 'đang bật' : 'đang tắt'}`"
+                    @click="toggleBgm"
+                  >
+                    Nhạc: {{ bgmEnabled ? 'Bật' : 'Tắt' }}
+                  </Button>
                 </div>
               </div>
 
@@ -99,7 +117,7 @@
               <!-- 新手提示 -->
               <div class="border border-accent/20 rounded-xs p-3 mr-1 mb-2">
                 <p class="text-xs text-muted mb-2">Gợi ý cho người mới</p>
-                <p class="text-[10px] text-muted/50 mb-2">Liễulàngtrưởng của sánggianxâygợi ý và mặtbảnghướngdẫnvănchữ</p>
+                <p class="text-[10px] text-muted/50 mb-2">柳村长的晨间建议和面板引导文字</p>
                 <div class="flex items-center justify-center space-x-2">
                   <Button class="py-1 px-3" :class="{ '!bg-accent !text-bg': tutorialStore.enabled }" @click="tutorialStore.enabled = true">
                     Bật
@@ -117,7 +135,7 @@
               <!-- WebDAV 云同步 -->
               <div class="border border-accent/20 rounded-xs p-3 mr-1">
                 <div class="flex items-center justify-between mb-2">
-                  <p class="text-xs text-muted">Đồng bộ WebDAV</p>
+                  <p class="text-xs text-muted">WebDAV 云同步</p>
                   <div class="flex space-x-1">
                     <Button
                       class="py-0.5 px-2 text-[10px]"
@@ -147,34 +165,34 @@
                   </button>
                   <div v-if="showWebdavHelp" class="mt-2 space-y-1.5">
                     <p class="text-[10px] text-muted leading-relaxed">
-                      Bản lưu mặc định chỉ tồn tại trong trình duyệt của thiết bị này. Đổi điện thoại hoặc xóa bộ nhớ trình duyệt sẽ mất bản lưu. WebDAV
-                      WebDAV giống như ổ đám mây của riêng bạn. Sau khi bật, bạn có thể tải bản lưu lên và tải xuống trên thiết bị khác để tiếp tục chơi.
+                      存档默认只存在这台设备的浏览器里，换手机、清缓存就没了。WebDAV
+                      相当于你自己的网盘，开启后可以把存档上传上去，在别的设备上下载回来接着玩。
                     </p>
-                    <p class="text-[10px] text-accent/80">Chỉ ba bước là dùng được:</p>
+                    <p class="text-[10px] text-accent/80">三步就能用起来：</p>
                     <p class="text-[10px] text-muted leading-relaxed">
-                      ① Tìm một dịch vụ lưu trữ hỗ trợ WebDAV, đăng ký rồi vào phần cài đặt 「WebDAV」 để lấy
+                      ① 找一个支持 WebDAV 的网盘，注册后在它的设置里找到「WebDAV」，拿到
                       <span class="text-text">Địa chỉ máy chủ</span>
                       、
-                      <span class="text-text">Tài khoản</span>
-                      và
+                      <span class="text-text">账号</span>
+                      和
                       <span class="text-text">Mật khẩu</span>
-                      。Một số dịch vụ phổ biến: Jianguoyun (trong nước, dung lượng miễn phí đủ dùng), InfiniCLOUD, TeraCLOUD, hoặc tự dựng Nextcloud / Synology NAS.
+                      。常见的有：坚果云（国内，免费额度够用）、InfiniCLOUD、TeraCLOUD，或者自己用 Nextcloud / 群晖 NAS 搭。
                     </p>
                     <p class="text-[10px] text-muted leading-relaxed">
-                      ② Điền ba thông tin này vào các ô bên dưới.
+                      ② 把这三项填进下面的输入框。
                       <span class="text-text">Đường dẫn lưu trữ</span>
-                      Có thể để trống, hoặc điền tên một thư mục (ví dụ
+                      可以留空，也可以填一个文件夹名（例如
                       <span class="text-text">taoyuan</span>
-                      ）đemlưulưuđơnđộc lậptrở vềđặt。
+                      ）把存档单独归置。
                     </p>
                     <p class="text-[10px] text-muted leading-relaxed">
-                      ③ Nhấn 「Kiểm tra kết nối」. Nếu kết nối thành công là đã thiết lập xong. Sau đó dùng 「Tải lên」 để tải tiến độ hiện tại lên; khi đổi thiết bị, với cùng cấu hình hãy nhấn 「Tải xuống」 để lấy lại bản lưu.
+                      ③ 点「测试连接」，通了就说明配好了。之后用下面的「上传」把当前进度传上去，换设备时在同样的配置下点「下载」取回来。
                     </p>
                     <p class="text-[10px] text-muted/60 leading-relaxed">
-                      Lưu ý: mật khẩu được lưu trong trình duyệt trên máy. Nên tạo riêng một 「mật khẩu ứng dụng」 trên dịch vụ đám mây để nhập tại đây, không dùng mật khẩu tài khoản chính.
+                      提醒：密码保存在本机浏览器中。建议在网盘里单独生成一个「应用密码」填在这里，不要用你的主账号密码。
                     </p>
                     <p class="text-[10px] text-muted/60 leading-relaxed">
-                      Lưu ý: địa chỉ WebDAV của các dịch vụ như Jianguoyun thường có dạng https://dav.jianguoyun.com/dav/，muốnđiềnhoànchỉnh（bao gồm https:// vàkếtđuôi的 /）。
+                      注意：坚果云等服务的 WebDAV 地址通常形如 https://dav.jianguoyun.com/dav/，要填完整（含 https:// 和结尾的 /）。
                     </p>
                   </div>
                 </div>
@@ -184,7 +202,7 @@
                       <label class="text-[10px] text-muted mb-0.5 block">Địa chỉ máy chủ</label>
                       <input
                         v-model="webdavConfig.serverUrl"
-                        placeholder="Vui lòng nhập địa chỉ máy chủ đồng bộ WebDAV"
+                        placeholder="Nhập địa chỉ máy chủ WebDAV để đồng bộ lưu trữ"
                         class="w-full px-2 py-1.5 bg-bg border border-accent/30 rounded-xs text-xs text-text focus:border-accent outline-none placeholder:text-muted/40 transition-colors"
                         @change="saveWebdavConfig"
                       />
@@ -193,11 +211,11 @@
                       <label class="text-[10px] text-muted mb-0.5 block">Đường dẫn lưu trữ</label>
                       <input
                         v-model="webdavConfig.path"
-                        placeholder="Có thể để trống nếu không cần đường dẫn"
+                        placeholder="Nếu không cần đường dẫn thì có thể để trống"
                         class="w-full px-2 py-1.5 bg-bg border border-accent/30 rounded-xs text-xs text-text focus:border-accent outline-none placeholder:text-muted/40 transition-colors"
                         @change="saveWebdavConfig"
                       />
-                      <p class="text-[10px] text-muted/50 mt-0.5">Nhập tên thư mục có sẵn trên ổ đám mây, để trống sẽ lưu vào thư mục gốc</p>
+                      <p class="text-[10px] text-muted/50 mt-0.5">填写网盘中已有的文件夹名，留空则存到根目录</p>
                     </div>
                     <div class="grid grid-cols-2 gap-2">
                       <div>
@@ -497,7 +515,7 @@
   } from 'lucide-vue-next'
   import Button from '@/components/game/Button.vue'
   import Divider from '@/components/game/Divider.vue'
-  import { useAudio } from '@/composables/useAudio'
+  import { sfxClick, useAudio } from '@/composables/useAudio'
   import { useGameClock } from '@/composables/useGameClock'
   import { useGameLog } from '@/composables/useGameLog'
   import { useSettingsStore, MINE_LOG_LINE_OPTIONS, type QmsgPosition, type QmsgLimitWidthWrap } from '@/stores/useSettingsStore'
@@ -552,9 +570,14 @@
   defineEmits<{ close: [] }>()
 
   const activeTab = ref<SettingsTab>('general')
-  /** WebDAV mớitaynóingày mailàkhôngtriển lãmmở */
+  /** WebDAV 新手说明是否展开 */
   const showWebdavHelp = ref(false)
   const { sfxEnabled, bgmEnabled, toggleSfx, toggleBgm } = useAudio()
+  const toggleSfxAndTest = () => {
+    toggleSfx()
+    // Khi vừa bật, phát một tiếng xác nhận để người dùng khiếm thị biết trạng thái đã đổi.
+    if (sfxEnabled.value) sfxClick()
+  }
   const { isPaused, gameSpeed, togglePause, cycleSpeed } = useGameClock()
   const { showFloat } = useGameLog()
   const settingsStore = useSettingsStore()

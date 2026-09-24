@@ -675,8 +675,8 @@ export const TRADE_EXCHANGE_ITEMS: TradeExchangeItemDef[] = [
     description: 'Nguyên liệu quý hiếm, dùng để chế tạo cao cấp.',
     weeklyLimit: 3
   },
-  // { itemId: 'trade_golden_coconut', name: 'Dừa vàng', pointsCost: 80, description: 'Mở ra để nhận một vật phẩm hiếm ngẫu nhiên.', weeklyLimit: 2 },
-  // { itemId: 'trade_desert_totem', name: 'Tượng vật sa mạc', pointsCost: 30, description: 'Dịch chuyển ngay đến Hãn Hải (không tốn thời gian).', weeklyLimit: 5 },
+  // { itemId: 'trade_golden_coconut', name: '金椰子', pointsCost: 80, description: '打开可获得随机稀有物品。', weeklyLimit: 2 },
+  // { itemId: 'trade_desert_totem', name: '沙漠图腾', pointsCost: 30, description: '立即传送至瀚海（不消耗时间）。', weeklyLimit: 5 },
   {
     itemId: 'trade_spice_bundle',
     name: 'Gói Quà Hương Liệu',

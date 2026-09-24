@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between mb-1">
       <div class="flex items-center space-x-1.5 text-sm text-accent">
         <BookOpen :size="14" />
-        <span>Bộ sưu tập và thành tựu</span>
+        <span>图鉴与成就</span>
       </div>
       <span class="text-xs text-muted">{{ achievementStore.perfectionPercent }}%</span>
     </div>
@@ -25,7 +25,7 @@
     <template v-if="tab === 'collection'">
       <div class="flex items-center justify-between mb-1.5">
         <p class="text-xs text-muted">
-          đãPhát hiện  {{ filteredDiscoveredCount }}/{{ filteredItems.length }}
+          已Phát hiện  {{ filteredDiscoveredCount }}/{{ filteredItems.length }}
           <span v-if="selectedCategory" class="text-accent ml-0.5">· {{ CATEGORY_NAMES[selectedCategory] ?? selectedCategory }}</span>
         </p>
         <button
@@ -33,7 +33,7 @@
           class="text-[10px] px-1.5 py-0.5 border border-accent/20 rounded-xs text-muted hover:text-text"
           @click="selectedCategory = null"
         >
-          thanhxóalọcchọn
+          清除筛选
         </button>
       </div>
       <div class="flex flex-wrap mb-2">
@@ -103,12 +103,12 @@
             </div>
             <div class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ activeCollectionItem.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ activeCollectionItem.sellPrice }}文</span>
             </div>
             <div v-if="activeCollectionItem.edible && activeCollectionItem.staminaRestore" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Hồi phục</span>
               <span class="text-xs text-success">
-                +{{ activeCollectionItem.staminaRestore }}thểlực
+                +{{ activeCollectionItem.staminaRestore }}体力
                 <template v-if="activeCollectionItem.healthRestore">/ +{{ activeCollectionItem.healthRestore }}HP</template>
               </span>
             </div>
@@ -149,7 +149,7 @@
 
     <!-- 成就列表 -->
     <template v-if="tab === 'achievements'">
-      <p class="text-xs text-muted mb-2">đã Hoàn thành {{ achievementStore.completedAchievements.length }}/{{ ACHIEVEMENTS.length }}</p>
+      <p class="text-xs text-muted mb-2">已完成 {{ achievementStore.completedAchievements.length }}/{{ ACHIEVEMENTS.length }}</p>
       <div class="grid grid-cols-3 md:grid-cols-5 gap-1 max-h-72 overflow-y-auto">
         <div
           v-for="a in ACHIEVEMENTS"
@@ -213,7 +213,7 @@
           <div class="border border-accent/10 rounded-xs p-2">
             <p class="text-xs text-muted mb-1">Phần thưởng</p>
             <div class="flex flex-wrap space-x-3">
-              <span v-if="activeAchievement.reward.money" class="text-xs text-accent">{{ activeAchievement.reward.money }}văn</span>
+              <span v-if="activeAchievement.reward.money" class="text-xs text-accent">{{ activeAchievement.reward.money }}文</span>
               <span v-for="ri in activeAchievement.reward.items ?? []" :key="ri.itemId" class="text-xs text-text">
                 {{ getItemName(ri.itemId) }}×{{ ri.quantity }}
               </span>
@@ -302,7 +302,7 @@
               :disabled="!inventoryStore.hasItem(req.itemId)"
               @click="handleSubmit(activeBundle!.id, req.itemId)"
             >
-              nânggiao{{ getItemName(req.itemId) }}
+              提交{{ getItemName(req.itemId) }}
             </Button>
           </div>
 
@@ -319,7 +319,7 @@
 
     <!-- 出货收集 -->
     <template v-if="tab === 'shipping'">
-      <p class="text-xs text-muted mb-2">rahàngghilục {{ shopStore.shippedItems.length }}/{{ shippableItems.length }}</p>
+      <p class="text-xs text-muted mb-2">出货记录 {{ shopStore.shippedItems.length }}/{{ shippableItems.length }}</p>
       <div class="flex flex-col space-y-2 max-h-72 overflow-y-auto">
         <div v-for="(items, category) in itemsByCategory" :key="category" class="border border-accent/20 rounded-xs p-2">
           <p class="text-xs text-muted mb-1">
@@ -374,12 +374,12 @@
             </div>
             <div class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Giá bán</span>
-              <span class="text-xs text-accent">{{ activeShippingItem.sellPrice }}văn</span>
+              <span class="text-xs text-accent">{{ activeShippingItem.sellPrice }}文</span>
             </div>
             <div v-if="activeShippingItem.edible && activeShippingItem.staminaRestore" class="flex items-center justify-between mt-0.5">
               <span class="text-xs text-muted">Hồi phục</span>
               <span class="text-xs text-success">
-                +{{ activeShippingItem.staminaRestore }}thểlực
+                +{{ activeShippingItem.staminaRestore }}体力
                 <template v-if="activeShippingItem.healthRestore">/ +{{ activeShippingItem.healthRestore }}HP</template>
               </span>
             </div>
@@ -392,12 +392,12 @@
     <template v-if="tab === 'notes'">
       <div v-if="secretNoteStore.collectedCount === 0" class="flex flex-col items-center justify-center py-10 space-y-3">
         <ScrollText :size="48" class="text-accent/30" />
-        <p class="text-sm text-muted">Chưa thu thập ghi chú bí mật nào</p>
-        <p class="text-xs text-muted/60 text-center max-w-60">Khi khai mỏ, câu cá hoặc thu thập, có xác suất nhận được ghi chú bí mật</p>
+        <p class="text-sm text-muted">尚未收集到秘密笔记</p>
+        <p class="text-xs text-muted/60 text-center max-w-60">在挖矿、钓鱼、采集时有概率获得秘密笔记</p>
       </div>
       <template v-else>
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs text-muted">thuthậptiếnđộ</span>
+          <span class="text-xs text-muted">收集进度</span>
           <span class="text-xs text-accent">{{ secretNoteStore.collectedCount }}/{{ secretNoteStore.totalNotes }}</span>
         </div>
         <div class="grid grid-cols-3 md:grid-cols-5 gap-1 max-h-72 overflow-y-auto mb-3">
@@ -443,12 +443,12 @@
           </div>
 
           <div v-if="activeNote.usable && !secretNoteStore.isUsed(activeNote.id)" class="mt-2">
-            <Button class="w-full justify-center !bg-accent !text-bg" @click="handleUseNote(activeNote.id)">Sử dụngbútghi</Button>
+            <Button class="w-full justify-center !bg-accent !text-bg" @click="handleUseNote(activeNote.id)">使用笔记</Button>
           </div>
           <div v-else-if="activeNote.usable && secretNoteStore.isUsed(activeNote.id)" class="border border-success/30 rounded-xs p-2">
             <div class="flex items-center space-x-1">
               <CircleCheck :size="12" class="text-success" />
-              <span class="text-xs text-success">đã Sử dụng</span>
+              <span class="text-xs text-success">已使用</span>
             </div>
           </div>
         </div>
@@ -458,7 +458,7 @@
     <!-- 完成度 -->
     <div class="mt-3 border border-accent/20 rounded-xs p-2">
       <div class="flex items-center space-x-2 text-xs mb-1.5">
-        <span class="text-xs text-muted shrink-0">Tiến độ hoàn thành</span>
+        <span class="text-xs text-muted shrink-0">完成度</span>
         <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
           <div class="h-full bg-accent rounded-xs transition-all" :style="{ width: achievementStore.perfectionPercent + '%' }" />
         </div>
@@ -466,7 +466,7 @@
       </div>
       <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">cây trồngthu hoạch</span>
+          <span class="text-xs text-muted">作物收获</span>
           <span class="text-xs">{{ achievementStore.stats.totalCropsHarvested }}</span>
         </div>
         <div class="flex items-center justify-between">
@@ -474,33 +474,33 @@
           <span class="text-xs">{{ achievementStore.stats.totalFishCaught }}</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">nấu ăn</span>
+          <span class="text-xs text-muted">烹饪</span>
           <span class="text-xs">{{ achievementStore.stats.totalRecipesCooked }}</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">Tổng thu nhập tích lũy</span>
-          <span class="text-xs">{{ achievementStore.stats.totalMoneyEarned }}văn</span>
+          <span class="text-xs text-muted">累计收入</span>
+          <span class="text-xs">{{ achievementStore.stats.totalMoneyEarned }}文</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">Mỏnhấtsâu</span>
+          <span class="text-xs text-muted">矿洞最深</span>
           <span class="text-xs">{{ achievementStore.stats.highestMineFloor }}tầng</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">quáivậtđánhgiết</span>
+          <span class="text-xs text-muted">怪物击杀</span>
           <span class="text-xs">{{ achievementStore.stats.totalMonstersKilled }}</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">Số lần nhân giống</span>
+          <span class="text-xs text-muted">育种次数</span>
           <span class="text-xs">{{ achievementStore.stats.totalBreedingsDone }}</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">Phát hiện lai giống </span>
+          <span class="text-xs text-muted">杂交Phát hiện </span>
           <span class="text-xs">{{ achievementStore.stats.totalHybridsDiscovered }}</span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">nhấtcaođờisố</span>
+          <span class="text-xs text-muted">最高代数</span>
           <span class="text-xs">
-            {{ achievementStore.stats.highestHybridTier > 0 ? achievementStore.stats.highestHybridTier + 'Thay thế' : '-' }}
+            {{ achievementStore.stats.highestHybridTier > 0 ? achievementStore.stats.highestHybridTier + '代' : '-' }}
           </span>
         </div>
       </div>
@@ -550,10 +550,10 @@
 
   const allItems = ITEMS
 
-  // === bộ sưu tậpgiámđiểmloàilọcchọn ===
+  // === 图鉴分类筛选 ===
   const selectedCategory = ref<ItemCategory | null>(null)
 
-  /** hệ thốngtínhmỗiđiểmloàivậtphẩmsốlượng，sinh成điểmloàinhấnnútdanh sáchbảng */
+  /** 统计各分类物品数量，生成分类按钮列表 */
   const collectionCategories = computed(() => {
     const countMap = new Map<ItemCategory, number>()
     for (const item of allItems) {
@@ -566,18 +566,18 @@
     }))
   })
 
-  /** nhấnđiểmloàilọcchọnsau的vậtphẩmdanh sáchbảng */
+  /** 按分类筛选后的物品列表 */
   const filteredItems = computed(() => {
     if (!selectedCategory.value) return allItems
     return allItems.filter(i => i.category === selectedCategory.value)
   })
 
-  /** lọcchọnsauđãpháthiệnsốlượng */
+  /** 筛选后已发现数量 */
   const filteredDiscoveredCount = computed(() => {
     return filteredItems.value.filter(i => achievementStore.isDiscovered(i.id)).length
   })
 
-  // === bộ sưu tậpgiámhư khôngdự kiếncuộntác ===
+  // === 图鉴虚拟滚动 ===
   const collectionRef = ref<HTMLElement | null>(null)
   const collectionScrollTop = ref(0)
   const ROW_H = 34
@@ -629,22 +629,22 @@
     if (collectionRef.value) collectionRef.value.scrollTop = 0
   })
 
-  /** 成thìchi tiếthìnhđạncửa sổ */
+  /** 成就详情弹窗 */
   const activeAchievement = ref<AchievementDef | null>(null)
 
-  /** từ đườngđườngbất kỳvụđạncửa sổ */
+  /** 祠堂任务弹窗 */
   const activeBundle = ref<CommunityBundleDef | null>(null)
 
-  /** từ đườngđườngbất kỳvụhoàn成tiếnđộvănbản */
+  /** 祠堂任务完成进度文本 */
   const getBundleProgress = (bundle: CommunityBundleDef): string => {
     const done = bundle.requiredItems.filter(r => getSubmittedCount(bundle.id, r.itemId) >= r.quantity).length
     return `${done}/${bundle.requiredItems.length}`
   }
 
-  /** bímậtbútghiđạncửa sổ */
+  /** 秘密笔记弹窗 */
   const activeNote = ref<SecretNoteDef | null>(null)
 
-  /** rahàngchi tiếthìnhđạncửa sổ */
+  /** 出货详情弹窗 */
   const activeShippingId = ref<string | null>(null)
   const activeShippingItem = computed(() => {
     if (!activeShippingId.value) return null
@@ -659,10 +659,10 @@
   }
 
   const NOTE_TYPE_LABELS: Record<string, string> = {
-    tip: 'Gợi ý',
-    treasure: 'Kho báu',
-    npc: 'Nhân vật',
-    story: 'Câu chuyện'
+    tip: '提示',
+    treasure: '宝藏',
+    npc: '人物',
+    story: '故事'
   }
 
   const noteTypeColor = (type: string): string => NOTE_TYPE_COLORS[type] ?? 'text-accent'
@@ -674,20 +674,20 @@
     }
   }
 
-  /** bộ sưu tậpgiámchi tiếthìnhđạncửa sổ */
+  /** 图鉴详情弹窗 */
   const activeCollectionId = ref<string | null>(null)
   const activeCollectionItem = computed(() => {
     if (!activeCollectionId.value) return null
     return getItemById(activeCollectionId.value) ?? null
   })
 
-  /** khitrướcchi tiếthình的vũdụng cụđịnhnghĩa（nếulàvũdụng cụloài） */
+  /** 当前详情的武器定义（若为武器类） */
   const activeWeaponDef = computed(() => {
     if (!activeCollectionItem.value || activeCollectionItem.value.category !== 'weapon') return null
     return WEAPONS[activeCollectionItem.value.id] ?? null
   })
 
-  /** khitrướcchi tiếthình的trang bịbịhiệuquảdanh sáchbảng（nhẫnchỉ/mũcon/giàycon） */
+  /** 当前详情的装备效果列表（戒指/帽子/鞋子） */
   const activeEquipEffects = computed(() => {
     if (!activeCollectionItem.value) return []
     const id = activeCollectionItem.value.id
@@ -698,40 +698,40 @@
     return []
   })
 
-  /** trang bịbịhiệuquảtêngọihiển thịbắn */
+  /** 装备效果名称映射 */
   const EFFECT_NAMES: Record<string, string> = {
     attack_bonus: 'Công kích',
     crit_rate_bonus: 'Tỷ lệ chí mạng',
     defense_bonus: 'Giảm sát thương',
     vampiric: 'Hút Máu',
     max_hp_bonus: 'HP tối đa',
-    stamina_reduction: 'Giảm tiêu hao thể lực',
-    mining_stamina: 'Giảm thể lực khi khai khoáng',
-    farming_stamina: 'Giảm thể lực khi làm nông',
-    fishing_stamina: 'Giảm thể lực khi câu cá',
+    stamina_reduction: '体力消耗降低',
+    mining_stamina: '采矿体力降低',
+    farming_stamina: '农耕体力降低',
+    fishing_stamina: '钓鱼体力降低',
     crop_quality_bonus: 'Phẩm chất nông sản',
-    crop_growth_bonus: 'Tăng tốc sinh trưởng cây trồng',
+    crop_growth_bonus: '作物生长加速',
     fish_quality_bonus: 'Phẩm chất cá',
-    fishing_calm: 'Độ thuần của cá',
+    fishing_calm: '鱼温顺度',
     sell_price_bonus: 'Tăng giá bán',
     shop_discount: 'Giảm giá cửa hàng',
     gift_friendship: 'Hảo cảm khi tặng quà',
     monster_drop_bonus: 'Rơi đồ quái vật',
     exp_bonus: 'Cộng thêm kinh nghiệm',
-    treasure_find: 'Tỷ lệ phát hiện rương',
-    ore_bonus: 'Quặng thêm',
+    treasure_find: '宝箱发现率',
+    ore_bonus: '额外矿石',
     luck: 'May Mắn',
     travel_speed: 'Tăng tốc hành trình'
   }
 
-  /** ôkiểuhóahiệuquảgiá trị */
+  /** 格式化效果值 */
   const FLAT_VALUE_EFFECTS = new Set(['attack_bonus', 'max_hp_bonus', 'ore_bonus'])
   const formatEffectValue = (eff: { type: string; value: number }): string => {
     if (FLAT_VALUE_EFFECTS.has(eff.type)) return `+${eff.value}`
     return `+${Math.round(eff.value * 100)}%`
   }
 
-  /** nhấnđiểmloàichovậtphẩmtêngọilênmàu */
+  /** 按分类给物品名称上色 */
   const CATEGORY_COLOR_MAP: Partial<Record<ItemCategory, string>> = {
     crop: 'text-success',
     fish: 'text-water',
@@ -764,12 +764,12 @@
     return CATEGORY_COLOR_MAP[category] ?? 'text-accent'
   }
 
-  // === rahàngthuthập ===
+  // === 出货收集 ===
 
   const CATEGORY_NAMES: Record<string, string> = {
     seed: 'Hạt giống',
     crop: 'Cây trồng',
-    hybrid: 'Cây trồng lai',
+    hybrid: '杂交作物',
     fish: 'Cá',
     animal_product: 'Sản phẩm chăn nuôi',
     processed: 'Đồ chế biến',
@@ -779,13 +779,13 @@
     material: 'Nguyên liệu',
     misc: 'Tạp hóa',
     food: 'Món ăn',
-    gift: 'Quà tặng',
+    gift: '礼品',
     machine: 'Máy móc',
     sprinkler: 'Vòi phun nước',
     fertilizer: 'Phân bón',
     sapling: 'Cây non',
     bait: 'Mồi câu',
-    tackle: 'Phao câu',
+    tackle: '浮漂',
     bomb: 'Bom',
     fossil: 'Hóa thạch',
     artifact: 'Cổ vật',
@@ -795,7 +795,7 @@
     shoe: 'Giày'
   }
 
-  /** 可rahàng的loàikhác（xếpxóagiốngcon、máydụng cụ、工công cụloài） */
+  /** 可出货的类别（排除种子、机器、工具类） */
   const SHIPPABLE_CATEGORIES = ['crop', 'fish', 'animal_product', 'processed', 'fruit', 'ore', 'gem', 'material', 'misc', 'food', 'gift']
 
   const shippableItems = computed(() => ITEMS.filter(i => SHIPPABLE_CATEGORIES.includes(i.category)))
@@ -824,7 +824,7 @@
     return achievementStore.getBundleProgress(bundleId)[itemId] ?? 0
   }
 
-  /** tínhtính成thìtiếnđộtrămđiểmso sánh（dùngtạitiếnđộmục） */
+  /** 计算成就进度百分比（用于进度条） */
   const getProgressPercent = (a: (typeof ACHIEVEMENTS)[number]): number => {
     if (isCompleted(a.id)) return 100
     const c = a.condition
@@ -1049,12 +1049,12 @@
 
     if (achievementStore.submitToBundle(bundleId, itemId, toSubmit)) {
       sfxClick()
-      addLog(`Đã nộp ${getItemName(itemId)}×${toSubmit} cho 「${bundle?.name}」.`)
+      addLog(`向「${bundle?.name}」提交了${getItemName(itemId)}×${toSubmit}。`)
       if (achievementStore.isBundleComplete(bundleId)) {
-        addLog(`Đã hoàn thành 「${bundle?.name}」! Nhận phần thưởng!`)
+        addLog(`「${bundle?.name}」完成！获得了奖励！`)
       }
     } else {
-      addLog('Nộp thất bại.')
+      addLog('提交失败。')
     }
   }
 </script>

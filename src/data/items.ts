@@ -17,17 +17,17 @@ const SEED_ITEMS: ItemDef[] = CROPS.filter(
   id: crop.seedId,
   name: `Hạt giống ${crop.name}`,
   category: 'seed',
-  description: `${crop.name} có thể trồng vào mùa ${crop.season
+  description: `${crop.name}的种子，${crop.season
     .map(s => {
       const names: Record<string, string> = {
-        spring: 'Xuân',
-        summer: 'Hạ',
-        autumn: 'Thu',
-        winter: 'Đông'
+        spring: '春',
+        summer: '夏',
+        autumn: '秋',
+        winter: '冬'
       }
       return names[s]
     })
-    .join('/')}.`,
+    .join('/')}季可种植。`,
   sellPrice: Math.floor(crop.seedPrice / 2),
   edible: false
 }))
@@ -2096,12 +2096,12 @@ export const ITEMS: ItemDef[] = [
     sellPrice: 500,
     edible: false
   },
-  // { id: 'trade_golden_coconut', name: 'Dừa vàng', category: 'misc', description: 'Mở ra để nhận một vật phẩm hiếm ngẫu nhiên.', sellPrice: 800, edible: false },
+  // { id: 'trade_golden_coconut', name: '金椰子', category: 'misc', description: '打开可获得随机稀有物品。', sellPrice: 800, edible: false },
   // {
   //   id: 'trade_desert_totem',
-  //   name: 'Tượng vật sa mạc',
+  //   name: '沙漠图腾',
   //   category: 'misc',
-  //   description: 'Dịch chuyển ngay đến Hãn Hải (không tốn thời gian).',
+  //   description: '立即传送至瀚海（不消耗时间）。',
   //   sellPrice: 300,
   //   edible: false
   // },

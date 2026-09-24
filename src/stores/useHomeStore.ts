@@ -49,10 +49,10 @@ export const useHomeStore = defineStore('home', () => {
 
   const farmhouseName = computed(() => {
     const names: Record<FarmhouseLevel, string> = {
-      0: 'Túp lều tranh',
+      0: '茅屋',
       1: 'Nhà gạch',
       2: 'Nhà sân vườn',
-      3: 'Trang viện có hầm rượu'
+      3: '酒窖宅院'
     }
     return names[farmhouseLevel.value]
   })
