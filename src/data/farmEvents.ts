@@ -1,5 +1,5 @@
 // === 晨间随机事件数据 ===
-// 设计理念：不是系统，是"早晨的一句旁白"
+// 设计理念：不是系统，是"Một câu dẫn chuyện buổi sáng"
 
 /** 效果类型 */
 export type MorningEffect =
@@ -36,53 +36,53 @@ export interface MorningEasterEgg {
 export const MORNING_NARRATIONS: MorningNarration[] = [
   // —— 有轻微损失 ——
   {
-    message: '地里的菜被什么啃了一口，旁边留下一串小爪印。',
+    message: 'Rau trong ruộng bị thứ gì đó gặm một miếng, bên cạnh còn để lại một hàng dấu chân nhỏ.',
     effect: { type: 'loseCrop' }
   },
   {
-    message: '一只乌鸦叼走了一颗刚熟的果子，在枝头得意地叫了两声。',
+    message: 'Một con quạ tha đi một quả vừa chín, đậu trên cành kêu hai tiếng đầy đắc ý.',
     effect: { type: 'loseCrop' }
   },
   {
-    message: '田里有一株作物被连根拔起扔在旁边，像是野猪干的。',
+    message: 'Một cây trồng ngoài ruộng bị nhổ bật cả rễ và vứt bên cạnh, có vẻ là do lợn rừng.',
     effect: { type: 'loseCrop' }
   },
   {
-    message: '角落里的一棵苗不知被谁踩断了，地上还留着蹄印。',
+    message: 'Một cây con ở góc ruộng bị ai đó giẫm gãy, trên đất còn dấu móng.',
     effect: { type: 'loseCrop' }
   },
   // —— 有轻微收获 ——
   {
-    message: '好像有人摘走了一把野菜，但在门口留了三文钱。',
+    message: 'Có vẻ ai đó đã hái một nắm rau dại, nhưng để lại ba văn trước cửa.',
     effect: { type: 'gainMoney', amount: 3 }
   },
   {
-    message: '篱笆外有个草编的小篮子，里面放着几根草药，不知是谁留的。',
+    message: 'Ngoài hàng rào có một chiếc giỏ nhỏ đan bằng cỏ, bên trong có vài cây thuốc, không biết ai để lại.',
     effect: { type: 'gainItem', itemId: 'herb', qty: 1 }
   },
   {
-    message: '屋后的柴堆旁多了一小捆竹子，整整齐齐的。大概是哪个好心的樵夫。',
+    message: 'Bên đống củi sau nhà có thêm một bó tre nhỏ được xếp ngay ngắn. Có lẽ là người tiều phu tốt bụng nào đó.',
     effect: { type: 'gainItem', itemId: 'bamboo', qty: 2 }
   },
   // —— 纯旁白 ——
-  { message: '篱笆上挂着几根兔毛，看来夜里有不速之客。' },
-  { message: '一只野猫在田埂上打盹，看样子已经赖了一夜了。' },
-  { message: '菜地边上发现一堆松鼠藏的坚果壳，它们似乎很喜欢你的农场。' },
-  { message: '清晨出门，发现地上有一串小脚印从菜地延伸到篱笆外。' },
-  { message: '有只刺猬在堆肥堆里安了家，它看起来很满意现在的住所。' },
-  { message: '田边的稻草人歪了，像是被什么撞了一下。大概是夜里路过的野鹿。' },
-  { message: '水井旁发现了几根散落的羽毛，可能是野鸡来喝过水。' },
-  { message: '屋顶上蹲着一只猫头鹰，正歪头打量你。你一动，它就飞走了。' },
-  { message: '田坎边多了一个小洞，看着像是田鼠挖的。好在没伤到作物。' },
-  { message: '晨雾散去，篱笆上挂着一张蜘蛛网，露珠在阳光下闪闪发亮。' },
-  { message: '几只麻雀在屋檐下吵作一团，不知道在争什么。' },
-  { message: '水渠里多了几条小蝌蚪，看来青蛙也喜欢你的农场。' },
-  { message: '地头的大石头上趴着一只壁虎，一动不动地晒太阳。' },
-  { message: '风吹过来一股桂花香，不知是谁家院子里飘来的。' },
-  { message: '你的稻草人歪得更厉害了。说不定它晚上偷偷活动过。' },
-  { message: '清晨有只蜻蜓落在你的锄头上，翅膀薄得透光。' },
-  { message: '一群蚂蚁正搬着什么东西穿过田埂，队伍长得看不到尾。' },
-  { message: '农场角落里多了一个小鸟窝，看来有鸟儿打算在这安家了。' }
+  { message: 'Trên hàng rào mắc vài sợi lông thỏ, xem ra đêm qua có vị khách không mời.' },
+  { message: 'Một con mèo hoang đang ngủ gật bên bờ ruộng, xem ra đã ở lì cả đêm.' },
+  { message: 'Bên vườn rau có một đống vỏ hạt do sóc giấu, có vẻ chúng rất thích nông trại của bạn.' },
+  { message: 'Sáng sớm ra ngoài, bạn thấy một hàng dấu chân nhỏ kéo dài từ vườn rau ra ngoài hàng rào.' },
+  { message: 'Một con nhím làm tổ trong đống phân ủ, trông có vẻ rất hài lòng với chỗ ở mới.' },
+  { message: 'Bù nhìn bên ruộng bị nghiêng, như thể vừa bị thứ gì đó va vào. Có lẽ là hươu hoang đi ngang ban đêm.' },
+  { message: 'Bên giếng có vài chiếc lông rơi rải rác, có lẽ gà lôi hoang đã tới uống nước.' },
+  { message: 'Một con cú đậu trên mái nhà, nghiêng đầu quan sát bạn. Bạn vừa cử động, nó đã bay đi.' },
+  { message: 'Bên bờ ruộng có thêm một cái hang nhỏ, trông như do chuột đồng đào. May là cây trồng không bị hại.' },
+  { message: 'Sương sớm tan đi, trên hàng rào còn một mạng nhện, giọt sương lấp lánh dưới nắng.' },
+  { message: 'Mấy con chim sẻ cãi nhau ầm ĩ dưới mái hiên, không biết chúng đang tranh chuyện gì.' },
+  { message: 'Trong mương nước có thêm vài chú nòng nọc, xem ra ếch cũng thích nông trại của bạn.' },
+  { message: 'Một con thạch sùng nằm im trên tảng đá lớn đầu ruộng để sưởi nắng.' },
+  { message: 'Gió thổi tới một làn hương hoa quế, không biết từ sân nhà ai bay sang.' },
+  { message: 'Bù nhìn của bạn nghiêng hơn nữa. Biết đâu ban đêm nó đã lén hoạt động.' },
+  { message: 'Sáng sớm có một con chuồn chuồn đậu trên chiếc cuốc của bạn, đôi cánh mỏng đến mức xuyên sáng.' },
+  { message: 'Một đàn kiến đang tha thứ gì đó qua bờ ruộng, hàng dài đến mức không thấy điểm cuối.' },
+  { message: 'Góc nông trại có thêm một tổ chim nhỏ, xem ra có chim định làm nhà ở đây.' }
 ]
 
 /** 纯旁白（无 loseCrop）的子集，空农场回退用 */
@@ -93,226 +93,226 @@ export const NARRATIONS_NO_LOSS: MorningNarration[] = MORNING_NARRATIONS.filter(
 export const MORNING_CHOICE_EVENTS: MorningChoiceEvent[] = [
   {
     id: 'injured_bird',
-    message: '清晨，你在田边发现一只受伤的小鸟，它用黑豆般的眼睛望着你。',
+    message: 'Sáng sớm, bạn phát hiện một chú chim nhỏ bị thương bên bờ ruộng, nó dùng đôi mắt đen láy như hạt đậu nhìn bạn chằm chằm.',
     choices: [
       {
-        label: '包扎伤口，放它养一阵',
-        result: '你小心地包扎了小鸟的翅膀。村民们听说了这件事，都夸你心善。',
+        label: 'Băng bó vết thương, để nó dưỡng thương một thời gian',
+        result: 'Bạn cẩn thận băng bó lại đôi cánh cho chú chim nhỏ. Dân làng nghe được chuyện này, ai nấy đều khen bạn tốt bụng.',
         effect: { type: 'gainFriendship', amount: 10 }
       },
       {
-        label: '把它放回树丛',
-        result: '小鸟扑棱着翅膀飞走了，临走前叫了两声，像是在道谢。'
+        label: 'Thả nó lại vào lùm cây',
+        result: 'Chú chim nhỏ vỗ cánh bay đi, trước lúc rời đi còn kêu lên hai tiếng, tựa như đang muốn nói lời cảm ơn.'
       }
     ]
   },
   {
     id: 'hungry_traveler',
-    message: '农场外来了个风尘仆仆的旅人，看起来又累又饿。',
+    message: 'Bên ngoài nông trại có một lữ khách phong trần mệt mỏi đi tới, trông có vẻ vừa mệt vừa đói.',
     choices: [
       {
-        label: '请他吃顿饭',
-        result: '旅人吃饱后千恩万谢，临走时从包袱里掏出一把草药送你。',
+        label: 'Mời người đó một bữa cơm',
+        result: 'Lữ khách ăn no xong thì muôn vàn cảm tạ, lúc rời đi còn lấy từ trong tay nải ra một nắm thảo dược để tặng cho bạn.',
         effect: { type: 'gainItem', itemId: 'herb', qty: 3 }
       },
       {
-        label: '指路给他去村里',
-        result: '旅人朝你鞠了一躬，沿着小路往村子走去了。'
+        label: 'Chỉ đường cho người đó đi vào làng',
+        result: 'Lữ khách cúi người chào bạn một cái, rồi dọc theo con đường mòn đi về phía ngôi làng.'
       }
     ]
   },
   {
     id: 'stealing_child',
-    message: '一个小孩正偷偷在你地里拔萝卜，见你出来吓得愣住了。',
+    message: 'Một đứa trẻ đang lén lút nhổ củ cải trong ruộng của bạn, thấy bạn bước ra thì sợ đến mức sững sờ.',
     choices: [
       {
-        label: '多送他几个',
-        result: '小孩红着脸接过菜，鞠了个躬跑了。后来他娘专门来道谢。',
+        label: 'Tặng thêm cho đứa bé vài củ',
+        result: 'Đứa trẻ đỏ mặt nhận lấy rau củ, cúi chào một cái rồi bỏ chạy. Sau này mẹ của đứa bé đã đích thân tới cảm ơn.',
         effect: { type: 'gainFriendship', amount: 15 }
       },
       {
-        label: '假装没看见',
-        result: '你转身回屋，听到身后一阵窸窣声，然后是远去的脚步声。'
+        label: 'Giả vờ như không nhìn thấy',
+        result: 'Bạn quay người về nhà, nghe thấy phía sau lưng có tiếng sột soạt, sau đó là tiếng bước chân đi xa dần.'
       }
     ]
   },
   {
     id: 'mysterious_cat',
-    message: '一只从没见过的黑猫蹲在田里，面前整齐地放着一颗松果。',
+    message: 'Một con mèo đen chưa từng gặp bao giờ đang ngồi xổm trên ruộng, trước mặt nó đặt ngay ngắn một quả thông.',
     choices: [
       {
-        label: '收下松果',
-        result: '你弯腰捡起松果，黑猫喵了一声，慢悠悠地消失在晨雾中。',
+        label: 'Nhận lấy quả thông',
+        result: 'Bạn khom lưng nhặt quả thông lên, mèo đen kêu meo một tiếng, chậm rãi biến mất trong màn sương sớm.',
         effect: { type: 'gainItem', itemId: 'pine_cone', qty: 1 }
       },
       {
-        label: '摸摸它的头',
-        result: '黑猫咕噜咕噜叫了几声，蹭了蹭你的手，然后翻墙走了。'
+        label: 'Sờ sờ đầu nó',
+        result: 'Mèo đen kêu gừ gừ vài tiếng, cọ cọ vào tay bạn, sau đó trèo qua tường bỏ đi.'
       }
     ]
   },
   {
     id: 'old_man_fishing',
-    message: '一位白胡子老伯在你农场边的水渠钓鱼，看到你出来笑着打了声招呼。',
+    message: 'Một ông lão râu trắng đang câu cá ở mương nước cạnh nông trại của bạn, thấy bạn bước ra thì cười chào hỏi.',
     choices: [
       {
-        label: '坐下来聊一会',
-        result: '老伯讲了不少种地的门道。你觉得受益匪浅。',
+        label: 'Ngồi xuống trò chuyện một lát',
+        result: 'Ông lão đã chia sẻ không ít mánh khóe trồng trọt. Bạn cảm thấy được hưởng lợi rất nhiều.',
         effect: { type: 'gainFriendship', amount: 8 }
       },
       {
-        label: '给他泡杯茶',
-        result: '老伯高兴地喝了茶，走前留了几条鱼在桶里给你。',
+        label: 'Pha cho ông ấy một tách trà',
+        result: 'Ông lão vui vẻ uống trà, trước khi đi còn để lại vài con cá trong thùng cho bạn.',
         effect: { type: 'gainMoney', amount: 50 }
       }
     ]
   },
   {
     id: 'lost_dog',
-    message: '一条脏兮兮的小狗蜷在你家门口，看起来走丢了很久。',
+    message: 'Một chú chó nhỏ bẩn thỉu cuộn tròn trước cửa nhà bạn, trông có vẻ như đã đi lạc từ rất lâu rồi.',
     choices: [
       {
-        label: '给它洗个澡喂点吃的',
-        result: '小狗摇着尾巴舔你的手。它在你家待了一天，傍晚被主人领走了。主人留了些钱表示感谢。',
+        label: 'Tắm rửa và cho nó ăn chút gì đó',
+        result: 'Chú chó nhỏ vẫy đuôi liếm tay bạn. Nó ở nhà bạn một ngày, đến chập tối thì được chủ nhân đón đi. Chủ nhân của nó để lại một ít tiền thay cho lời cảm ơn.',
         effect: { type: 'gainMoney', amount: 30 }
       },
       {
-        label: '带它去村里找主人',
-        result: '你带着小狗在村里转了一圈，很快找到了它的主人。大家都说你热心。',
+        label: 'Dẫn nó vào làng tìm chủ',
+        result: 'Bạn dẫn chú chó nhỏ đi một vòng quanh làng, rất nhanh đã tìm thấy chủ của nó. Mọi người đều khen bạn nhiệt tình.',
         effect: { type: 'gainFriendship', amount: 8 }
       }
     ]
   },
   {
     id: 'herb_woman',
-    message: '一位背着竹篓的老婆婆路过，问你能不能讨碗水喝。',
+    message: 'Một bà lão đeo gùi tre đi ngang qua, hỏi xin bạn một bát nước để uống.',
     choices: [
       {
-        label: '端碗水给她',
-        result: '老婆婆喝完水道了谢，临走从竹篓里抓了一把草药给你。',
+        label: 'Bưng một bát nước ra cho bà',
+        result: 'Bà lão uống xong thì cảm tạ, trước lúc rời đi còn nắm một nắm thảo dược từ trong gùi tre đưa cho bạn.',
         effect: { type: 'gainItem', itemId: 'herb', qty: 2 }
       },
       {
-        label: '请她歇歇脚',
-        result: '老婆婆坐了会儿，念叨着年轻人心好。你隐约觉得她有点面善。',
+        label: 'Mời bà lão nghỉ chân một lát',
+        result: 'Bà lão ngồi nghỉ một lát, luôn miệng khen ngợi người trẻ tuổi tốt bụng. Bạn lờ mờ cảm thấy bà lão này trông có vẻ hơi quen quen.',
         effect: { type: 'gainFriendship', amount: 5 }
       }
     ]
   },
   {
     id: 'fox_standoff',
-    message: '一只狐狸叼着什么东西蹲在菜地里，见你出来也不跑，就那么对视着。',
+    message: 'Một con hồ ly đang ngậm thứ gì đó ngồi chồm hổm trong luống rau, thấy bạn bước ra cũng không thèm chạy, cứ thế trố mắt nhìn nhau.',
     choices: [
       {
-        label: '挥挥手赶走它',
-        result: '狐狸不紧不慢地跑了。你检查了一圈，菜地倒是没什么损失。'
+        label: 'Xua tay đuổi nó đi',
+        result: 'Hồ ly thong dong chạy mất. Bạn kiểm tra lại một vòng, luống rau không có tổn thất gì cả.'
       },
       {
-        label: '丢块饼子给它',
-        result: '狐狸丢下嘴里的东西，叼起饼跑了。你捡起来一看，是颗松果。',
+        label: 'Ném cho nó một miếng bánh',
+        result: 'Hồ ly nhả thứ đang ngậm trong miệng ra, ngoạm lấy miếng bánh bỏ chạy. Bạn nhặt lên xem thử, thì ra là một quả thông.',
         effect: { type: 'gainItem', itemId: 'pine_cone', qty: 1 }
       }
     ]
   },
   {
     id: 'broken_fence',
-    message: '篱笆有一段被什么拱开了个洞，几只野兔正在田里悠闲地吃草。',
+    message: 'Một đoạn hàng rào bị thứ gì đó húc vỡ ra thành một cái lỗ, vài con thỏ rừng đang nhàn nhã gặm cỏ trên đồng.',
     choices: [
       {
-        label: '先补篱笆',
-        result: '你花了点功夫把篱笆补好了。野兔们慌慌张张地从缺口跑了出去。'
+        label: 'Sửa hàng rào trước',
+        result: 'Bạn mất chút công sức để vá lại hàng rào. Bầy thỏ rừng hoảng hốt chạy thoát ra từ chỗ hổng đó.'
       },
       {
-        label: '看看它们吃的啥',
-        result: '野兔在啃杂草，没碰作物。你笑了笑，由它们去了。它们反而帮你除了些杂草。'
+        label: 'Xem thử xem bọn chúng đang ăn gì',
+        result: 'Thỏ rừng đang gặm cỏ dại, hoàn toàn không chạm vào cây trồng. Bạn bật cười, mặc kệ bọn chúng. Bọn chúng ngược lại còn giúp bạn diệt trừ bớt cỏ dại.'
       }
     ]
   },
   {
     id: 'rain_mushroom',
-    message: '昨夜下过雨，田埂边冒出了几个蘑菇。',
+    message: 'Đêm qua trời đổ mưa, bên bờ ruộng mọc lên vài cây nấm.',
     choices: [
       {
-        label: '采一些',
-        result: '你认出这是可以吃的野蘑菇，顺手摘了几个。',
+        label: 'Hái một ít',
+        result: 'Bạn nhận ra đây là nấm rừng có thể ăn được, thuận tay hái vài cây.',
         effect: { type: 'gainItem', itemId: 'wild_mushroom', qty: 2 }
       },
-      { label: '留着别动', result: '你决定让它们长着。说不定过几天会长更多。' }
+      { label: 'Cứ giữ nguyên đó đừng động vào', result: 'Bạn quyết định cứ để chúng tiếp tục lớn. Không chừng vài ngày nữa sẽ mọc ra nhiều hơn.' }
     ]
   },
   {
     id: 'painting_visitor',
-    message: '一个背着画板的年轻人站在田边，正在画你的农场。',
+    message: 'Một thanh niên đeo bảng vẽ đang đứng bên bờ ruộng, vẽ lại nông trại của bạn.',
     choices: [
       {
-        label: '过去看看',
-        result: '画得还挺好。年轻人说这里的景色让他很有灵感，送了你几个铜板表示感谢。',
+        label: 'Đi qua xem thử',
+        result: 'Vẽ cũng khá đẹp đấy. Thanh niên kia bảo cảnh sắc nơi này mang lại cho cậu ta rất nhiều cảm hứng, tặng bạn vài đồng xu để thay cho lời cảm ơn.',
         effect: { type: 'gainMoney', amount: 20 }
       },
       {
-        label: '送杯茶给他',
-        result: '年轻人感激地接过茶。他说会把画寄回来给你。你期待了好一阵。',
+        label: 'Mang cho cậu ta một tách trà',
+        result: 'Người thanh niên cảm kích nhận lấy tách trà. Cậu ta bảo sau này sẽ gửi lại bức tranh cho bạn. Bạn đã mong chờ điều đó suốt một thời gian dài.',
         effect: { type: 'gainFriendship', amount: 5 }
       }
     ]
   },
   {
     id: 'snake_shed',
-    message: '水渠边发现一条完整的蛇蜕，薄得近乎透明。',
+    message: 'Bên mương nước phát hiện một lớp xác rắn lột hoàn chỉnh, mỏng đến mức gần như trong suốt.',
     choices: [
       {
-        label: '收起来',
-        result: '老人说蛇蜕是好兆头。你把它挂在屋檐下，心情不错。'
+        label: 'Cất đi',
+        result: 'Người xưa bảo xác rắn là một điềm tốt. Bạn đem treo nó dưới mái hiên, tâm trạng khá vui vẻ.'
       },
       {
-        label: '放回原处',
-        result: '你把蛇蜕放好，转身离开。大自然的东西，还是留在大自然吧。'
+        label: 'Đặt lại chỗ cũ',
+        result: 'Bạn đặt xác rắn lại cẩn thận, quay người rời đi. Những thứ thuộc về thiên nhiên, tốt nhất vẫn nên để lại cho thiên nhiên vậy.'
       }
     ]
   },
   {
     id: 'wild_bee_nest',
-    message: '屋后的老树上多了个小蜂巢，几只蜜蜂嗡嗡地忙碌着。',
+    message: 'Trên cây cổ thụ sau nhà có thêm một cái tổ ong nhỏ, vài con ong mật đang bay vo ve bận rộn.',
     choices: [
       {
-        label: '让它们待着',
-        result: '蜜蜂对庄稼的授粉有好处。你决定和它们和平共处。'
+        label: 'Cứ để chúng ở đó',
+        result: 'Ong mật giúp thụ phấn cho hoa màu rất tốt. Bạn quyết định chung sống hòa bình với chúng.'
       },
       {
-        label: '小心地取些蜜',
-        result: '你用烟熏法取了一小块蜂蜜。虽然不多，但味道很甜。',
+        label: 'Cẩn thận lấy một ít mật',
+        result: 'Bạn dùng phương pháp hun khói để lấy một tảng mật ong nhỏ. Tuy không nhiều, nhưng hương vị lại vô cùng ngọt ngào.',
         effect: { type: 'gainItem', itemId: 'honey', qty: 1 }
       }
     ]
   },
   {
     id: 'stone_buddha',
-    message: '翻地时挖出一个拳头大的石头，仔细看像个小佛像。',
+    message: 'Lúc xới đất đào được một hòn đá to bằng nắm tay, nhìn kỹ thì thấy giống một bức tượng Phật nhỏ.',
     choices: [
       {
-        label: '擦干净放在田边',
-        result: '你把小佛像擦净放好。路过的村民说这是好彩头，大伙儿的运气要好了。',
+        label: 'Lau sạch sẽ rồi đặt cạnh bờ ruộng',
+        result: 'Bạn lau sạch bức tượng Phật nhỏ rồi đặt lại ngay ngắn. Dân làng đi ngang qua bảo đây là một điềm lành, vận may của mọi người sắp tốt lên rồi.',
         effect: { type: 'gainFriendship', amount: 10 }
       },
       {
-        label: '收起来卖掉',
-        result: '你拿去给村里的古董商看了看，换了些铜板。',
+        label: 'Cất đi đem bán',
+        result: 'Bạn đem tới cho thương nhân đồ cổ trong làng xem thử, đổi được một vài đồng xu.',
         effect: { type: 'gainMoney', amount: 66 }
       }
     ]
   },
   {
     id: 'bamboo_shoots',
-    message: '昨夜的雨后，篱笆根部冒出了几根竹笋。',
+    message: 'Sau cơn mưa đêm qua, dưới chân hàng rào nhú lên vài búp măng.',
     choices: [
       {
-        label: '挖出来',
-        result: '新鲜的笋子，做菜一定不错。',
+        label: 'Đào lên',
+        result: 'Măng tươi thế này, đem nấu ăn chắc chắn sẽ rất ngon.',
         effect: { type: 'gainItem', itemId: 'bamboo', qty: 3 }
       },
       {
-        label: '让它们长大',
-        result: '你决定让竹笋长大。过不了多久，这里就会多几根竹子了。'
+        label: 'Để cho chúng lớn',
+        result: 'Bạn quyết định để cho măng tiếp tục lớn. Chẳng bao lâu nữa, nơi này sẽ có thêm vài cây trúc.'
       }
     ]
   }
@@ -322,36 +322,36 @@ export const MORNING_CHOICE_EVENTS: MorningChoiceEvent[] = [
 
 export const MORNING_EASTER_EGGS: MorningEasterEgg[] = [
   {
-    message: '翻地时挖出了一枚古铜钱，上面的字迹已模糊不清，但隐约透着光泽。',
+    message: 'Khi xới đất, bạn đào được một đồng tiền đồng cổ. Chữ trên đó đã mờ nhưng vẫn thấp thoáng ánh sáng.',
     effect: { type: 'gainItem', itemId: 'ancient_coin', qty: 1 }
   },
   {
-    message: '一只金色的蝴蝶在田间飞舞，绕了你三圈后朝远山飞去。据说看到它的人会走好运。'
+    message: 'Một con bướm vàng bay giữa ruộng, lượn quanh bạn ba vòng rồi bay về núi xa. Người ta nói ai nhìn thấy nó sẽ gặp may.'
   },
   {
-    message: '夜里似乎下了一场花瓣雨，整个农场弥漫着淡淡的花香。谁也说不清花从哪来的。'
+    message: 'Đêm qua dường như có một trận mưa cánh hoa, cả nông trại ngập trong hương hoa nhè nhẹ. Không ai biết hoa từ đâu tới.'
   },
   {
-    message: '你在水井底看到了自己的倒影，但倒影似乎对你笑了一下。大概是没睡醒吧。'
+    message: 'Bạn nhìn thấy bóng mình dưới đáy giếng, nhưng cái bóng dường như đã mỉm cười. Chắc là bạn vẫn chưa tỉnh ngủ.'
   },
   {
-    message: '清晨推门，发现门口放着一束不知名的野花，用草绳扎得整整齐齐。没人知道是谁放的。',
+    message: 'Sáng sớm mở cửa, bạn thấy trước cửa có một bó hoa dại không tên được buộc ngay ngắn bằng dây cỏ. Không ai biết ai đã đặt nó ở đó.',
     effect: { type: 'gainMoney', amount: 88 }
   },
   {
-    message: '一只白鹤从天边飞来，在你的田里停了片刻，然后振翅而去。古人说白鹤是仙人的坐骑。'
+    message: 'Một con hạc trắng bay từ chân trời tới, dừng trên ruộng bạn một lúc rồi vỗ cánh bay đi. Người xưa nói hạc trắng là vật cưỡi của tiên nhân.'
   },
   {
-    message: '今天早上，所有的作物似乎都比昨天精神了一些。也许是你的错觉，也许不是。'
+    message: 'Sáng nay dường như mọi cây trồng đều khỏe khoắn hơn hôm qua một chút. Có thể chỉ là ảo giác, cũng có thể không.'
   },
   {
-    message: '你在枕头底下发现了一枚不知道从哪来的铜板。仔细想想，昨晚好像做了个关于财神的梦。',
+    message: 'Bạn tìm thấy một đồng tiền đồng không biết từ đâu dưới gối. Nghĩ kỹ lại, hình như đêm qua bạn mơ thấy Thần Tài.',
     effect: { type: 'gainMoney', amount: 66 }
   },
   {
-    message: '稻草人今天面朝了一个不同的方向。你确定昨天它不是这样放的。……确定吗？'
+    message: 'Hôm nay bù nhìn quay sang hướng khác. Bạn chắc chắn hôm qua nó không đặt như vậy. …Chắc chứ?'
   },
   {
-    message: '天还没亮时你听到远处传来几声笛声，悠扬得不像是凡人吹的。等你开门去看，什么也没有。'
+    message: 'Trời chưa sáng, bạn nghe vài tiếng sáo từ xa, du dương đến mức không giống người phàm thổi. Khi mở cửa nhìn, chẳng có gì cả.'
   }
 ]

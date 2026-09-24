@@ -29,7 +29,7 @@ const FIGHTER_HP_BONUS = 25
 const WARRIOR_HP_BONUS = 40
 
 export const usePlayerStore = defineStore('player', () => {
-  const playerName = ref('未命名')
+  const playerName = ref('Chưa đặt tên')
   const gender = ref<Gender>('male')
   /** 旧存档加载后需要设置身份（不持久化） */
   const needsIdentitySetup = ref(false)
@@ -47,7 +47,7 @@ export const usePlayerStore = defineStore('player', () => {
   const isExhausted = computed(() => stamina.value <= 5)
   const staminaPercent = computed(() => Math.round((stamina.value / maxStamina.value) * 100))
   /** NPC 用来称呼玩家的称谓 */
-  const honorific = computed(() => (gender.value === 'male' ? '小哥' : '姑娘'))
+  const honorific = computed(() => (gender.value === 'male' ? 'Chàng trai' : 'Cô gái'))
 
   /**
    * 今日已提示过的体力预警级别（0 无 / 1 偏低 / 2 告急 / 3 耗尽）。
@@ -62,19 +62,19 @@ export const usePlayerStore = defineStore('player', () => {
 
     if (stamina.value <= 0 && staminaWarnStage.value < 3) {
       staminaWarnStage.value = 3
-      showFloat('体力已耗尽！再行动就会当场累倒', 'danger')
-      addLog(`体力已耗尽。就这样倒下会损失${penaltyPct}%铜钱（上限${PASSOUT_MONEY_PENALTY_CAP}文），次日体力也只恢复一半。快回去休息吧。`)
+      showFloat('Đã cạn thể lực! Hành động tiếp sẽ khiến bạn kiệt sức và gục ngay tại chỗ', 'danger')
+      addLog(`Đã cạn thể lực. Nếu gục xuống lúc này, bạn sẽ mất ${penaltyPct}% tiền đồng (tối đa ${PASSOUT_MONEY_PENALTY_CAP} văn), và ngày hôm sau chỉ hồi một nửa thể lực. Mau về nghỉ đi.`)
       return
     }
     if (ratio <= STAMINA_CRITICAL_RATIO && staminaWarnStage.value < 2) {
       staminaWarnStage.value = 2
-      showFloat(`体力告急！只剩${stamina.value}点`, 'danger')
-      addLog(`体力所剩无几。若体力归零倒下，将损失${penaltyPct}%铜钱（上限${PASSOUT_MONEY_PENALTY_CAP}文）——吃点东西或回去休息吧。`)
+      showFloat(`Thể lực nguy cấp! Chỉ còn ${stamina.value} điểm`, 'danger')
+      addLog(`Thể lực gần cạn. Nếu về 0 rồi gục xuống, bạn sẽ mất ${penaltyPct}% tiền đồng (tối đa ${PASSOUT_MONEY_PENALTY_CAP} văn) — hãy ăn chút gì hoặc về nghỉ.`)
       return
     }
     if (ratio <= STAMINA_WARN_RATIO && staminaWarnStage.value < 1) {
       staminaWarnStage.value = 1
-      showFloat(`体力不多了（${stamina.value}/${maxStamina.value}）`, 'water')
+      showFloat(`Thể lực không còn nhiều (${stamina.value}/${maxStamina.value})`, 'water')
     }
   }
 
@@ -259,7 +259,7 @@ export const usePlayerStore = defineStore('player', () => {
 
   const deserialize = (data: ReturnType<typeof serialize>) => {
     const hasIdentity = (data as any).playerName != null
-    playerName.value = (data as any).playerName ?? '未命名'
+    playerName.value = (data as any).playerName ?? 'Chưa đặt tên'
     gender.value = (data as any).gender ?? 'male'
     needsIdentitySetup.value = !hasIdentity
     money.value = data.money

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Tab 切换按钮 -->
-    <h3 class="text-accent text-sm mb-3">桃源村</h3>
+    <h3 class="text-accent text-sm mb-3">Làng Đào Nguyên</h3>
 
     <div class="flex space-x-1.5 mb-3">
       <Button
@@ -10,7 +10,7 @@
         :icon="Users"
         @click="activeTab = 'villager'"
       >
-        村民
+        làngdân
       </Button>
       <Button
         class="flex-1 justify-center"
@@ -18,7 +18,7 @@
         :icon="Sparkles"
         @click="activeTab = 'spirit'"
       >
-        仙灵
+        tiênlinh
       </Button>
     </div>
 
@@ -33,7 +33,7 @@
         <div class="flex items-center justify-between mb-1">
           <span class="text-xs text-accent">
             <MapPin :size="12" class="inline" />
-            此刻村民分布
+            nàykhắclàngdânđiểmvải
           </span>
         </div>
         <div v-if="spotGroups.length > 0" class="flex flex-col space-y-0.5">
@@ -42,7 +42,7 @@
             <span class="text-text">{{ g.names.join('、') }}</span>
           </p>
         </div>
-        <p v-else class="text-[10px] text-muted">这个时辰大家都回屋了。</p>
+        <p v-else class="text-[10px] text-muted">nàycáithờigiờlớnNhàđềuvề nhàđã。</p>
       </div>
 
       <!-- NPC 网格：移动端紧凑，桌面端详细 -->
@@ -79,9 +79,9 @@
             <div class="flex items-center justify-between">
               <span class="text-xs" :class="levelColor(npcStore.getFriendshipLevel(npc.id))">
                 {{ npc.name }}
-                <span v-if="npcStore.getNpcState(npc.id)?.married" class="text-danger text-[10px] ml-0.5">[伴侣]</span>
-                <span v-else-if="npcStore.getNpcState(npc.id)?.dating" class="text-danger/70 text-[10px] ml-0.5">[约会中]</span>
-                <span v-else-if="npcStore.getNpcState(npc.id)?.zhiji" class="text-accent text-[10px] ml-0.5">[知己]</span>
+                <span v-if="npcStore.getNpcState(npc.id)?.married" class="text-danger text-[10px] ml-0.5">[bạnđời]</span>
+                <span v-else-if="npcStore.getNpcState(npc.id)?.dating" class="text-danger/70 text-[10px] ml-0.5">[Đang hẹn hò]</span>
+                <span v-else-if="npcStore.getNpcState(npc.id)?.zhiji" class="text-accent text-[10px] ml-0.5">[trikỷ]</span>
               </span>
               <div class="flex items-center space-x-1">
                 <MessageCircle :size="10" :class="npcStore.getNpcState(npc.id)?.talkedToday ? 'text-muted/20' : 'text-success'" />
@@ -166,14 +166,14 @@
 
       <!-- 传闻区（显示rumor/glimpse阶段的线索） -->
       <div v-if="rumorHiddenNpcs.length > 0" :class="{ 'mt-4': revealedHiddenNpcs.length > 0 }">
-        <h3 class="text-muted/60 text-sm mb-2">传闻</h3>
+        <h3 class="text-muted/60 text-sm mb-2">truyềnđồn</h3>
         <div class="flex flex-col space-y-1">
           <div v-for="npc in rumorHiddenNpcs" :key="npc.id" class="border border-muted/10 rounded-xs px-2 py-1 text-[10px] text-muted/50">
             <span v-if="hiddenNpcStore.getHiddenNpcState(npc.id)?.discoveryPhase === 'rumor'">
-              {{ getLastDiscoveryLog(npc.id) ?? '似乎有什么隐约的传说……' }}
+              {{ getLastDiscoveryLog(npc.id) ?? 'Dường như có một truyền thuyết mơ hồ…' }}
             </span>
             <span v-else>
-              {{ getLastDiscoveryLog(npc.id) ?? '你曾看到某种异象……' }}
+              {{ getLastDiscoveryLog(npc.id) ?? 'Bạn từng nhìn thấy một điềm lạ…' }}
             </span>
           </div>
         </div>
@@ -185,7 +185,7 @@
         class="flex flex-col items-center justify-center py-12 text-muted"
       >
         <Sparkles :size="32" class="mb-2" />
-        <p class="text-xs">尚未发现任何仙灵的踪迹。</p>
+        <p class="text-xs">Chưa phát hiện dấu vết của bất kỳ tiên linh nào.</p>
       </div>
     </div>
 
@@ -205,20 +205,20 @@
                 {{ selectedNpcDef?.name }}
                 <span class="text-xs text-muted ml-0.5">{{ selectedNpcDef?.role }}</span>
                 <span v-if="selectedNpcState?.married" class="text-[10px] text-danger border border-danger/30 rounded-xs px-1 ml-1">
-                  伴侣
+                  Bạn đời
                 </span>
                 <span v-else-if="selectedNpcState?.dating" class="text-[10px] text-danger/70 border border-danger/20 rounded-xs px-1 ml-1">
-                  约会中
+                  hẹnhộitrong
                 </span>
                 <span v-else-if="selectedNpcState?.zhiji" class="text-[10px] text-accent border border-accent/30 rounded-xs px-1 ml-1">
-                  知己
+                  trikỷ
                 </span>
               </p>
               <p class="text-[10px] text-muted/60 mt-0.5">
                 {{ selectedNpcDef?.personality }}
               </p>
             </div>
-            <Button @click="selectedNpc = null">关闭</Button>
+            <Button @click="selectedNpc = null">Tắt</Button>
           </div>
 
           <!-- 好感度条 -->
@@ -242,12 +242,12 @@
             <!-- 关系称谓：几心对应什么关系，直接写明 -->
             <div class="flex items-center justify-between mb-1.5">
               <span class="text-[10px]" :class="levelColor(npcStore.getFriendshipLevel(selectedNpc!))">
-                当前关系：{{ FRIENDSHIP_LEVEL_INFO[npcStore.getFriendshipLevel(selectedNpc!)].name }} （{{ heartCount(selectedNpc!) }}心）
+                khitrướcquan hệhệ：{{ FRIENDSHIP_LEVEL_INFO[npcStore.getFriendshipLevel(selectedNpc!)].name }} （{{ heartCount(selectedNpc!) }}tâm）
               </span>
               <span v-if="nextLevelInfo" class="text-[10px] text-muted">
-                距「{{ nextLevelInfo.name }}」还差{{ nextLevelInfo.remain }}点
+                khoảng cách「{{ nextLevelInfo.name }}」cònthiếu{{ nextLevelInfo.remain }}điểm
               </span>
-              <span v-else class="text-[10px] text-success">已是最高关系</span>
+              <span v-else class="text-[10px] text-success">Đã đạt quan hệ cao nhất</span>
             </div>
             <!-- 等级对照 -->
             <div class="flex flex-wrap">
@@ -260,7 +260,7 @@
                 "
               >
                 {{ FRIENDSHIP_LEVEL_INFO[lv].name }}
-                {{ FRIENDSHIP_LEVEL_INFO[lv].hearts }}心
+                {{ FRIENDSHIP_LEVEL_INFO[lv].hearts }}tâm
               </span>
             </div>
             <!-- 状态标签 -->
@@ -270,7 +270,7 @@
                 :class="selectedNpcState?.talkedToday ? 'text-muted/40 border-muted/10' : 'text-success border-success/30'"
               >
                 <MessageCircle :size="10" />
-                <span>{{ selectedNpcState?.talkedToday ? '已聊天' : '可聊天' }}</span>
+                <span>{{ selectedNpcState?.talkedToday ? 'Đã trò chuyện' : 'Có thể trò chuyện hôm nay' }}</span>
               </span>
               <span class="text-[10px] border rounded-xs px-1 flex items-center space-x-0.5" :class="giftTagClass">
                 <Gift :size="10" />
@@ -281,17 +281,17 @@
                 class="text-[10px] border border-muted/10 rounded-xs px-1 text-muted flex items-center space-x-0.5"
               >
                 <Cake :size="10" />
-                <span>{{ SEASON_NAMES_MAP[selectedNpcDef.birthday.season] }}{{ selectedNpcDef.birthday.day }}日</span>
+                <span>{{ SEASON_NAMES_MAP[selectedNpcDef.birthday.season] }}{{ selectedNpcDef.birthday.day }}ngày</span>
               </span>
               <span v-if="npcStore.isBirthday(selectedNpc!)" class="text-[10px] text-danger border border-danger/30 rounded-xs px-1">
-                生日! 送礼×4
+                sinhngày! tặngquà×4
               </span>
             </div>
           </div>
 
           <!-- 已触发的心事件 -->
           <div v-if="selectedNpcState && selectedNpcState.triggeredHeartEvents.length > 0" class="mb-3">
-            <p class="text-xs text-muted mb-1">回忆：</p>
+            <p class="text-xs text-muted mb-1">về nhớ：</p>
             <div class="flex space-x-1 flex-wrap">
               <span v-for="eid in selectedNpcState.triggeredHeartEvents" :key="eid" class="text-xs border border-accent/20 rounded-xs px-1">
                 {{ getHeartEventTitle(eid) }}
@@ -302,10 +302,10 @@
           <!-- 对话 -->
           <div class="mb-3 flex space-y-2 flex-wrap">
             <Button class="w-full" :icon="MessageCircle" :disabled="selectedNpcState?.talkedToday" @click="handleTalk">
-              {{ selectedNpcState?.talkedToday ? '今天已聊过' : '聊天' }}
+              {{ selectedNpcState?.talkedToday ? 'Hôm nay đã trò chuyện' : 'Trò chuyện' }}
             </Button>
             <!-- 已聊过仍可闲扯：不加好感，但每次都有新内容 -->
-            <Button v-if="selectedNpcState?.talkedToday" class="w-full" :icon="MessageCircle" @click="handleChat">再聊两句</Button>
+            <Button v-if="selectedNpcState?.talkedToday" class="w-full" :icon="MessageCircle" @click="handleChat">Trò chuyện thêm vài câu</Button>
             <!-- 每日提示按钮 -->
             <Button
               v-if="selectedNpc && npcStore.hasDailyTip(selectedNpc)"
@@ -314,17 +314,17 @@
               :disabled="!!(selectedNpc && npcStore.isTipGivenToday(selectedNpc))"
               @click="handleDailyTip"
             >
-              {{ selectedNpc && npcStore.isTipGivenToday(selectedNpc) ? '今天已提示' : TIP_NPC_LABELS[selectedNpc as TipNpcId] }}
+              {{ selectedNpc && npcStore.isTipGivenToday(selectedNpc) ? 'Hôm nay đã được nhắc' : TIP_NPC_LABELS[selectedNpc as TipNpcId] }}
             </Button>
             <!-- 离婚按钮 -->
             <Button v-if="selectedNpcState?.married" class="w-full text-danger border-danger/40" @click="showDivorceConfirm = true">
-              休书
+              nghỉsách
             </Button>
           </div>
 
           <!-- 婚礼倒计时 -->
           <p v-if="npcStore.weddingCountdown > 0 && npcStore.weddingNpcId === selectedNpc" class="text-xs text-accent mb-3">
-            婚礼将在 {{ npcStore.weddingCountdown }} 天后举行！
+            hônquàsẽđang {{ npcStore.weddingCountdown }} ngàysaunânghành！
           </p>
 
           <!-- 恋爱/求婚面板 -->
@@ -334,10 +334,10 @@
           >
             <p class="text-xs text-danger/80 mb-1.5 flex items-center space-x-1">
               <Heart :size="12" />
-              <span>姻缘</span>
+              <span>hônduyên</span>
             </p>
             <template v-if="!selectedNpcState?.dating && !(npcStore.weddingCountdown > 0 && npcStore.weddingNpcId === selectedNpc)">
-              <p v-if="npcStore.npcStates.some(s => s.married)" class="text-[10px] text-muted/50 mb-1">你已有伴侣，无法再赠帕。</p>
+              <p v-if="npcStore.npcStates.some(s => s.married)" class="text-[10px] text-muted/50 mb-1">bạnđã cóbạnđời，không pháplạitặngkhăn。</p>
               <template v-else>
                 <div class="flex flex-col space-y-0.5 mb-1.5">
                   <span
@@ -346,8 +346,8 @@
                   >
                     <CircleCheck v-if="(selectedNpcState?.friendship ?? 0) >= 2000" :size="10" />
                     <Circle v-else :size="10" />
-                    <span>好感≥2000（8心）</span>
-                    <span class="text-muted/40">— 当前{{ selectedNpcState?.friendship ?? 0 }}</span>
+                    <span>hảo cảm≥2000（8tâm）</span>
+                    <span class="text-muted/40">— hiện tại {{ selectedNpcState?.friendship ?? 0 }}</span>
                   </span>
                   <span
                     class="text-[10px] flex items-center space-x-1"
@@ -355,18 +355,18 @@
                   >
                     <CircleCheck v-if="inventoryStore.hasItem('silk_ribbon')" :size="10" />
                     <Circle v-else :size="10" />
-                    <span>持有丝帕</span>
-                    <span class="text-muted/40">— 绸缎庄有售</span>
+                    <span>Sở hữulụakhăn</span>
+                    <span class="text-muted/40">— Có bán tại Tiệm Lụa</span>
                   </span>
                 </div>
                 <Button class="w-full text-danger border-danger/40" :icon="Heart" :disabled="!canStartDating" @click="handleStartDating">
-                  赠帕（开始约会）
+                  tặngkhăn（mởbắt đầuhẹnhội）
                 </Button>
               </template>
             </template>
             <template v-else-if="selectedNpcState?.dating">
               <p class="text-[10px] text-danger/60 mb-1">
-                约会中
+                hẹnhộitrong
                 <Heart :size="10" class="inline" />
               </p>
               <div class="flex flex-col space-y-0.5 mb-1.5">
@@ -376,8 +376,8 @@
                 >
                   <CircleCheck v-if="(selectedNpcState?.friendship ?? 0) >= 2500" :size="10" />
                   <Circle v-else :size="10" />
-                  好感≥2500（10心）
-                  <span class="text-muted/40">— 当前{{ selectedNpcState?.friendship ?? 0 }}</span>
+                  tốtnhiễm≥2500（10tâm）
+                  <span class="text-muted/40">— hiện tại {{ selectedNpcState?.friendship ?? 0 }}</span>
                 </span>
                 <span
                   class="text-[10px] flex items-center space-x-0.5"
@@ -385,11 +385,11 @@
                 >
                   <CircleCheck v-if="inventoryStore.hasItem('jade_ring')" :size="10" />
                   <Circle v-else :size="10" />
-                  持有翡翠戒指
-                  <span class="text-muted/40">— 绸缎庄有售</span>
+                  giữcóphỉ thúyphỉ thúynhẫnchỉ
+                  <span class="text-muted/40">— Có bán tại Tiệm Lụa</span>
                 </span>
               </div>
-              <Button class="w-full text-danger border-danger/40" :icon="Heart" :disabled="!canPropose" @click="handlePropose">求婚</Button>
+              <Button class="w-full text-danger border-danger/40" :icon="Heart" :disabled="!canPropose" @click="handlePropose">cầuhôn</Button>
             </template>
           </div>
 
@@ -405,17 +405,17 @@
           >
             <p class="text-xs text-accent/80 mb-1.5 flex items-center space-x-1">
               <Heart :size="12" />
-              <span>知己</span>
+              <span>trikỷ</span>
             </p>
             <template v-if="selectedNpcState?.zhiji">
               <p class="text-[10px] text-accent/60 mb-1">
-                {{ selectedNpcDef.gender === 'male' ? '蓝颜知己' : '红颜知己' }}
+                {{ selectedNpcDef.gender === 'male' ? 'Tri kỷ nam' : 'Tri kỷ nữ' }}
                 ♦
               </p>
-              <Button class="w-full text-danger border-danger/40" @click="showZhijiDissolveConfirm = true">断缘</Button>
+              <Button class="w-full text-danger border-danger/40" @click="showZhijiDissolveConfirm = true">Đứtduyên</Button>
             </template>
             <template v-else-if="npcStore.npcStates.some(s => s.zhiji)">
-              <p class="text-[10px] text-muted/50">你已有知己，无法再结缘。</p>
+              <p class="text-[10px] text-muted/50">bạnđã cótrikỷ，không pháplạikếtduyên。</p>
             </template>
             <template v-else>
               <div class="flex flex-col space-y-0.5 mb-1.5">
@@ -425,8 +425,8 @@
                 >
                   <CircleCheck v-if="(selectedNpcState?.friendship ?? 0) >= 2000" :size="10" />
                   <Circle v-else :size="10" />
-                  好感≥2000（8心）
-                  <span class="text-muted/40">— 当前{{ selectedNpcState?.friendship ?? 0 }}</span>
+                  tốtnhiễm≥2000（8tâm）
+                  <span class="text-muted/40">— hiện tại {{ selectedNpcState?.friendship ?? 0 }}</span>
                 </span>
                 <span
                   class="text-[10px] flex items-center space-x-0.5"
@@ -434,31 +434,31 @@
                 >
                   <CircleCheck v-if="inventoryStore.hasItem('zhiji_jade')" :size="10" />
                   <Circle v-else :size="10" />
-                  持有知己玉佩
-                  <span class="text-muted/40">— 绸缎庄有售</span>
+                  giữcótrikỷngọcđeo
+                  <span class="text-muted/40">— Có bán tại Tiệm Lụa</span>
                 </span>
               </div>
               <Button class="w-full text-accent border-accent/40" :icon="Heart" :disabled="!canBecomeZhiji" @click="handleBecomeZhiji">
-                赠玉（结为知己）
+                tặngngọc（kếtlàtrikỷ）
               </Button>
             </template>
           </div>
 
           <!-- 断缘确认 -->
           <div v-if="showZhijiDissolveConfirm" class="game-panel mb-3 border-accent/40">
-            <p class="text-xs text-danger mb-2">确定要与{{ selectedNpcDef?.name }}断缘吗？（花费10000文）</p>
+            <p class="text-xs text-danger mb-2">Xác nhận muốn cắt duyên với {{ selectedNpcDef?.name }}? (Phí 10000 văn)</p>
             <div class="flex space-x-2">
-              <Button class="text-danger" @click="handleDissolveZhiji">确认</Button>
-              <Button @click="showZhijiDissolveConfirm = false">取消</Button>
+              <Button class="text-danger" @click="handleDissolveZhiji">Xác nhận</Button>
+              <Button @click="showZhijiDissolveConfirm = false">Hủy</Button>
             </div>
           </div>
 
           <!-- 离婚确认 -->
           <div v-if="showDivorceConfirm" class="game-panel mb-3 border-danger/40">
-            <p class="text-xs text-danger mb-2">确定要与{{ selectedNpcDef?.name }}和离吗？（花费30000文）</p>
+            <p class="text-xs text-danger mb-2">Xác nhận muốn ly hôn với {{ selectedNpcDef?.name }}? (Phí 30000 văn)</p>
             <div class="flex space-x-2">
-              <Button class="text-danger" @click="handleDivorce">确认</Button>
-              <Button @click="showDivorceConfirm = false">取消</Button>
+              <Button class="text-danger" @click="handleDivorce">Xác nhận</Button>
+              <Button @click="showDivorceConfirm = false">Hủy</Button>
             </div>
           </div>
 
@@ -471,8 +471,8 @@
           <!-- 送礼 -->
           <div>
             <p class="text-xs text-muted mb-2">
-              送礼（选择背包中的物品）
-              <span v-if="npcStore.isBirthday(selectedNpc!)" class="text-danger">— 生日加成中!</span>
+              Tặng quà (chọn vật phẩm trong túi)
+              <span v-if="npcStore.isBirthday(selectedNpc!)" class="text-danger">— Đang được cộng thêm do sinh nhật!</span>
             </p>
             <!-- 生日礼有独立额度，先判断能不能送，再分别说明原因 -->
             <template v-if="!selectedNpc || npcStore.canGiftToday(selectedNpc)">
@@ -500,14 +500,14 @@
               </div>
               <div v-if="giftableItems.length === 0" class="flex flex-col items-center justify-center py-6 text-muted">
                 <Package :size="32" class="mb-2" />
-                <p class="text-xs">背包为空</p>
+                <p class="text-xs">Túi đồ trống</p>
               </div>
             </template>
             <template v-else>
               <div class="flex flex-col items-center justify-center py-6 text-muted">
                 <Gift :size="32" class="mb-2" />
-                <p class="text-xs">{{ selectedNpcState?.giftedToday ? '今天已送过礼物了。' : '本周已送过2次礼物了。' }}</p>
-                <p v-if="selectedNpc && npcStore.isBirthday(selectedNpc)" class="text-[10px] text-muted/60 mt-1">今年的生日礼也已送过。</p>
+                <p class="text-xs">{{ selectedNpcState?.giftedToday ? 'Hôm nay đã tặng quà rồi.' : 'Tuần này đã tặng quà 2 lần.' }}</p>
+                <p v-if="selectedNpc && npcStore.isBirthday(selectedNpc)" class="text-[10px] text-muted/60 mt-1">hôm naynăm của Sinh nhậtquàcũngđã tặngqua。</p>
               </div>
             </template>
           </div>
@@ -533,11 +533,11 @@
                 </div>
                 <div class="border border-accent/10 rounded-xs p-2 mb-2">
                   <div class="flex items-center justify-between">
-                    <span class="text-xs text-muted">数量</span>
+                    <span class="text-xs text-muted">Số lượng</span>
                     <span class="text-xs">&times;{{ activeGiftItem.quantity }}</span>
                   </div>
                   <div v-if="activeGiftItem.quality !== 'normal'" class="flex items-center justify-between mt-0.5">
-                    <span class="text-xs text-muted">品质</span>
+                    <span class="text-xs text-muted">Chất lượng</span>
                     <span class="text-xs" :class="qualityTextClass(activeGiftItem.quality)">
                       {{ QUALITY_NAMES[activeGiftItem.quality] }}
                     </span>
@@ -545,7 +545,7 @@
                 </div>
                 <div v-if="activeGiftReaction" class="border border-accent/10 rounded-xs p-2 mb-2">
                   <div class="flex items-center justify-between">
-                    <span class="text-xs text-muted">{{ selectedNpcDef?.name }}觉得</span>
+                    <span class="text-xs text-muted">{{ selectedNpcDef?.name }}cảmđược</span>
                     <span class="text-xs" :class="activeGiftReaction.className">
                       {{ activeGiftReaction.text }}
                     </span>
@@ -553,7 +553,7 @@
                 </div>
                 <div class="flex flex-col space-y-1.5">
                   <Button :icon="Gift" class="w-full justify-center" @click="handleGift(activeGiftItem!.itemId, activeGiftItem!.quality)">
-                    赠送给{{ selectedNpcDef?.name }}
+                    tặngtặngcho{{ selectedNpcDef?.name }}
                   </Button>
                 </div>
               </div>
@@ -632,7 +632,7 @@
 
   const tutorialHint = computed(() => {
     if (!tutorialStore.enabled || gameStore.year > 1) return null
-    if (npcStore.npcStates.every(n => n.friendship === 0)) return '点击村民名称可以聊天和送礼，经常互动能增进友好度。'
+    if (npcStore.npcStates.every(n => n.friendship === 0)) return 'Nhấn tên dân làng để trò chuyện và tặng quà; tương tác thường xuyên sẽ tăng độ thân thiện.'
     return null
   })
 
@@ -662,13 +662,13 @@
     return isNpcAvailable(npcId, gameStore.day, gameStore.hour, gameStore.season)
   }
 
-  /** 某位村民此刻所在地点名（不在户外则为 null） */
+  /** mộtvị trílàngdânnàykhắcđiềuđangđấtđiểmtên（khôngđangtài khoảnngoàithìlà null） */
   const npcSpotName = (npcId: string): string | null => {
     if (!npcAvailable(npcId)) return null
     return getNpcSpotName(npcId, gameStore.hour)
   }
 
-  /** 按地点汇总此刻在外活动的村民 */
+  /** nhấnđấtđiểmtổng hợptổngnàykhắcđangngoàihoạttác的làngdân */
   const spotGroups = computed(() => {
     const map = new Map<NpcSpot, string[]>()
     for (const npc of NPCS) {
@@ -704,14 +704,14 @@
     return npcStore.canGiftToday(npcId) ? 'text-accent' : 'text-muted/20'
   }
 
-  /** 弹窗中下一颗心的阈值 */
+  /** đạncửa sổtrong下mộthạttâm的ngưỡnggiá trị */
   const nextHeartThreshold = computed(() => {
     const f = selectedNpcState.value?.friendship ?? 0
     const hearts = Math.min(10, Math.floor(f / 250))
     return hearts >= 10 ? 2500 : (hearts + 1) * 250
   })
 
-  /** 下一个关系等级及所差好感（已是最高则为 null） */
+  /** 下mộtcáiquan hệhệđợicấpvàđiềuthiếutốtnhiễm（đãlànhấtcaothìlà null） */
   const nextLevelInfo = computed(() => {
     if (!selectedNpc.value) return null
     const current = npcStore.getFriendshipLevel(selectedNpc.value)
@@ -725,7 +725,7 @@
     }
   })
 
-  /** 弹窗中送礼标签样式（生日礼可送时用醒目色） */
+  /** đạncửa sổtrongtặngquànhãnthẻmẫukiểu（sinhngàyquà可tặngthờidùngtỉnhmụcmàu） */
   const giftTagClass = computed(() => {
     if (!selectedNpc.value) return 'text-muted/40 border-muted/10'
     if (!npcStore.canGiftToday(selectedNpc.value)) return 'text-muted/40 border-muted/10'
@@ -733,7 +733,7 @@
     return 'text-accent border-accent/30'
   })
 
-  /** 弹窗中送礼标签文字 */
+  /** đạncửa sổtrongtặngquànhãnthẻvănchữ */
   const giftTagText = computed(() => {
     if (!selectedNpc.value) return ''
     return npcStore.getGiftStatusText(selectedNpc.value)
@@ -748,7 +748,7 @@
     return [...filtered].sort((a, b) => GIFT_PREF_ORDER[getGiftPreference(a.itemId)] - GIFT_PREF_ORDER[getGiftPreference(b.itemId)])
   })
 
-  /** 是否可以赠帕开始约会 */
+  /** làkhông可dùngtặngkhănmởbắt đầuhẹnhội */
   const canStartDating = computed(() => {
     if (!selectedNpcDef.value?.marriageable) return false
     if (selectedNpcDef.value.gender === playerStore.gender) return false
@@ -785,10 +785,10 @@
   })
 
   const SEASON_NAMES_MAP: Record<string, string> = {
-    spring: '春',
-    summer: '夏',
-    autumn: '秋',
-    winter: '冬'
+    spring: 'Xuân',
+    summer: 'Hạ',
+    autumn: 'Thu',
+    winter: 'Đông'
   }
 
   const qualityTextClass = (q: Quality, fallback = ''): string => {
@@ -799,13 +799,13 @@
   }
 
   const QUALITY_NAMES: Record<Quality, string> = {
-    normal: '普通',
-    fine: '优良',
-    excellent: '精品',
-    supreme: '极品'
+    normal: 'Thường',
+    fine: 'Tốt',
+    excellent: 'Tinh phẩm',
+    supreme: 'Cực phẩm'
   }
 
-  // === 送礼偏好 ===
+  // === tặngquàlệchtốt ===
 
   type GiftPreference = 'loved' | 'liked' | 'hated' | 'neutral'
 
@@ -819,9 +819,9 @@
   }
 
   const GIFT_PREF_LABELS: Record<GiftPreference, string> = {
-    loved: '最爱',
-    liked: '喜欢',
-    hated: '讨厌',
+    loved: 'Rất thích',
+    liked: 'Thích',
+    hated: 'Ghét',
     neutral: ''
   }
   const GIFT_PREF_CLASS: Record<GiftPreference, string> = {
@@ -837,10 +837,10 @@
     hated: 3
   }
   const GIFT_REACTION_TEXT: Record<GiftPreference, string> = {
-    loved: '非常喜欢',
-    liked: '还不错',
-    hated: '讨厌',
-    neutral: '一般'
+    loved: 'Rất thích',
+    liked: 'Khá thích',
+    hated: 'Ghét',
+    neutral: 'Bình thường'
   }
 
   const activeGiftReaction = computed(() => {
@@ -869,14 +869,14 @@
   const handleTalk = () => {
     if (!selectedNpc.value) return
     if (gameStore.isPastBedtime) {
-      addLog('太晚了，人家都睡了。')
+      addLog('Muộn quá rồi, họ đã ngủ.')
       handleEndDay()
       return
     }
     const result = npcStore.talkTo(selectedNpc.value)
     if (result) {
       dialogueText.value = result.message
-      addLog(`与${selectedNpcDef.value?.name}聊天。(+${result.friendshipGain}好感)`)
+      addLog(`Trò chuyện với ${selectedNpcDef.value?.name}. (+${result.friendshipGain} hảo cảm)`)
 
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.talk)
       if (tr.message) addLog(tr.message)
@@ -885,7 +885,7 @@
         return
       }
 
-      // 检查心事件触发
+      // kiểm trakiểm tratâmviệcmónchạmphát
       const heartEvent = npcStore.checkHeartEvent(selectedNpc.value)
       if (heartEvent) {
         triggerHeartEvent(heartEvent)
@@ -893,7 +893,7 @@
     }
   }
 
-  /** 闲扯：不加好感也不耗时，纯粹多听几句 */
+  /** rảnhkéo：khôngthêmtốtnhiễmcũngkhônghaothời，thuầntinhnhiềunghemấycâu */
   const handleChat = () => {
     if (!selectedNpc.value) return
     const message = npcStore.chatWith(selectedNpc.value)
@@ -905,7 +905,7 @@
     const tip = npcStore.getDailyTip(selectedNpc.value)
     if (tip) {
       dialogueText.value = tip
-      addLog(`${selectedNpcDef.value?.name}告诉了你一些有用的信息。`)
+      addLog(`${selectedNpcDef.value?.name} cho bạn biết một số thông tin hữu ích.`)
     }
   }
 
@@ -919,11 +919,11 @@
       const itemName = getItemById(itemId)?.name ?? itemId
       const npcName = selectedNpcDef.value?.name
       if (result.gain > 0) {
-        addLog(`送给${npcName}${itemName}，${npcName}觉得${result.reaction}。(+${result.gain}好感)`)
+        addLog(`Tặng ${itemName} cho ${npcName}, ${npcName} cảm thấy ${result.reaction}. (+${result.gain} hảo cảm)`)
       } else if (result.gain < 0) {
-        addLog(`送给${npcName}${itemName}，${npcName}${result.reaction}这个……(${result.gain}好感)`)
+        addLog(`Tặng ${itemName} cho ${npcName}, ${npcName} ${result.reaction} món này… (${result.gain} hảo cảm)`)
       } else {
-        addLog(`送给${npcName}${itemName}，${npcName}觉得${result.reaction}。`)
+        addLog(`Tặng ${itemName} cho ${npcName}, ${npcName} cảm thấy ${result.reaction}.`)
       }
 
       // 关闭送礼弹窗

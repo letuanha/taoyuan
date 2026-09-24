@@ -12,9 +12,9 @@ export const doOffering = (npcId: string, itemId: string, quality: Quality): boo
     const gameStore = useGameStore()
     gameStore.advanceTime(30)
     if (result.affinityChange > 0) {
-      showFloat(`+${result.affinityChange}缘分`, 'accent')
+      showFloat(`+${result.affinityChange} duyên phận`, 'accent')
     } else if (result.affinityChange < 0) {
-      showFloat(`${result.affinityChange}缘分`, 'danger')
+      showFloat(`Duyên phận ${result.affinityChange}`, 'danger')
     }
     addLog(result.message)
   } else {
@@ -32,7 +32,7 @@ export const doSpecialInteraction = (npcId: string): boolean => {
   if (result.success) {
     const gameStore = useGameStore()
     gameStore.advanceTime(60)
-    showFloat(`+${result.affinityChange}缘分`, 'accent')
+    showFloat(`+${result.affinityChange} duyên phận`, 'accent')
     addLog(result.message)
   } else {
     addLog(result.message)
@@ -45,7 +45,7 @@ export const doCourting = (npcId: string): boolean => {
   const hiddenNpcStore = useHiddenNpcStore()
   const result = hiddenNpcStore.startCourting(npcId)
   if (result.success) {
-    showFloat('求缘成功', 'accent')
+    showFloat('Cầu duyên thành công', 'accent')
   }
   addLog(result.message)
   return result.success
@@ -56,7 +56,7 @@ export const doBond = (npcId: string): boolean => {
   const hiddenNpcStore = useHiddenNpcStore()
   const result = hiddenNpcStore.formBond(npcId)
   if (result.success) {
-    showFloat('结缘成功！', 'accent')
+    showFloat('Kết duyên thành công!', 'accent')
   }
   addLog(result.message)
   return result.success
@@ -81,9 +81,9 @@ export const getOfferingPreference = (npcId: string, itemId: string): 'resonant'
 }
 
 export const OFFERING_PREF_LABELS: Record<string, string> = {
-  resonant: '灵犀',
-  pleased: '合意',
-  repelled: '排斥',
+  resonant: 'Tâm linh tương thông',
+  pleased: 'Hợp ý',
+  repelled: 'Bài xích',
   neutral: ''
 }
 

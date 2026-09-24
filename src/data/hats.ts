@@ -5,43 +5,43 @@ export const HATS: HatDef[] = [
   // ===== Tier 1: 基础款（绸缎庄购买）=====
   {
     id: 'straw_hat',
-    name: '草帽',
-    description: '轻便的草编帽子，农作时减少体力消耗。',
+    name: 'Mũ Rơm',
+    description: 'Chiếc mũ đan bằng rơm nhẹ nhàng, giảm tiêu hao thể lực khi làm nông.',
     effects: [{ type: 'farming_stamina', value: 0.08 }],
     shopPrice: 200,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 80
   },
   {
     id: 'bamboo_hat',
-    name: '竹笠',
-    description: '竹编斗笠，遮阳挡雨，减少体力消耗。',
+    name: 'Nón Lá',
+    description: 'Nón lá đan bằng tre, che nắng che mưa, giảm tiêu hao thể lực.',
     effects: [{ type: 'stamina_reduction', value: 0.05 }],
     shopPrice: 300,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 120
   },
 
   // ===== Tier 2: 中级款（绸缎庄购买）=====
   {
     id: 'miner_helmet',
-    name: '矿工帽',
-    description: '带有灯座的皮帽，矿洞探索体力大幅降低。',
+    name: 'Mũ Thợ Mỏ',
+    description: 'Mũ da có gắn giá đỡ đèn, giảm mạnh thể lực khi thám hiểm mỏ.',
     effects: [{ type: 'mining_stamina', value: 0.12 }],
     shopPrice: 800,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 320
   },
   {
     id: 'fisher_hat',
-    name: '渔夫帽',
-    description: '宽檐遮阳帽，钓鱼时更加专注。',
+    name: 'Mũ Ngư Phủ',
+    description: 'Mũ vành rộng che nắng, giúp tập trung hơn khi câu cá.',
     effects: [
       { type: 'fishing_stamina', value: 0.1 },
       { type: 'fishing_calm', value: 0.05 }
@@ -49,15 +49,15 @@ export const HATS: HatDef[] = [
     shopPrice: 800,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 320
   },
 
   // ===== Tier 3: 高级款（铁匠铺合成）=====
   {
     id: 'iron_helm',
-    name: '铁盔',
-    description: '坚固的铁制头盔，提升防御与生命上限。',
+    name: 'Mũ Sắt',
+    description: 'Mũ bảo hiểm bằng sắt chắc chắn, tăng phòng ngự và giới hạn sinh lực.',
     effects: [
       { type: 'defense_bonus', value: 0.1 },
       { type: 'max_hp_bonus', value: 15 }
@@ -65,24 +65,24 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: [{ itemId: 'iron_bar', quantity: 5 }],
     recipeMoney: 1000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 500
   },
   {
     id: 'scholar_hat',
-    name: '文士帽',
-    description: '儒雅的文士方巾，增加经验获取。',
+    name: 'Mũ Văn Sĩ',
+    description: 'Khăn vuông nho nhã của văn sĩ, tăng điểm kinh nghiệm nhận được.',
     effects: [{ type: 'exp_bonus', value: 0.1 }],
     shopPrice: null,
     recipe: [{ itemId: 'silk_cloth', quantity: 2 }],
     recipeMoney: 1500,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 600
   },
   {
     id: 'herbalist_hat',
-    name: '药师帽',
-    description: '采药人常戴的宽帽，农耕时减少体力且提高作物品质。',
+    name: 'Mũ Dược Sư',
+    description: 'Mũ vành rộng người hái thuốc thường đội, giảm thể lực làm nông và tăng chất lượng cây trồng.',
     effects: [
       { type: 'farming_stamina', value: 0.06 },
       { type: 'crop_quality_bonus', value: 0.05 }
@@ -93,13 +93,13 @@ export const HATS: HatDef[] = [
       { itemId: 'silk_cloth', quantity: 1 }
     ],
     recipeMoney: 800,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 400
   },
   {
     id: 'merchant_hat',
-    name: '商人帽',
-    description: '绸面圆帽，商人们的标志，提升售价并降低购物开支。',
+    name: 'Mũ Thương Nhân',
+    description: 'Mũ tròn bọc lụa, biểu tượng của thương nhân, tăng giá bán và giảm chi phí mua sắm.',
     effects: [
       { type: 'sell_price_bonus', value: 0.08 },
       { type: 'shop_discount', value: 0.05 }
@@ -110,15 +110,15 @@ export const HATS: HatDef[] = [
       { itemId: 'silk_cloth', quantity: 2 }
     ],
     recipeMoney: 2500,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 1200
   },
 
   // ===== Tier 4: 顶级款（铁匠铺合成）=====
   {
     id: 'golden_crown',
-    name: '金冠',
-    description: '金光闪耀的冠冕，财运亨通。',
+    name: 'Mũ Vàng',
+    description: 'Vương miện lấp lánh ánh vàng, tài vận hanh thông.',
     effects: [
       { type: 'luck', value: 0.1 },
       { type: 'sell_price_bonus', value: 0.08 }
@@ -129,13 +129,13 @@ export const HATS: HatDef[] = [
       { itemId: 'moonstone', quantity: 1 }
     ],
     recipeMoney: 3000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 1500
   },
   {
     id: 'dragon_helm',
-    name: '龙角盔',
-    description: '以龙玉镶嵌的战盔，攻守兼备。',
+    name: 'Mũ Sừng Rồng',
+    description: 'Mũ chiến khảm long ngọc, công thủ toàn diện.',
     effects: [
       { type: 'attack_bonus', value: 5 },
       { type: 'crit_rate_bonus', value: 0.05 },
@@ -147,15 +147,15 @@ export const HATS: HatDef[] = [
       { itemId: 'dragon_jade', quantity: 1 }
     ],
     recipeMoney: 8000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 4000
   },
 
   // ===== 怪物掉落 =====
   {
     id: 'frost_hood',
-    name: '霜寒兜帽',
-    description: '冰蝠身上剥下的毛皮缝制，散发着寒气。',
+    name: 'Mũ Trùm Sương Hàn',
+    description: 'May từ da lông lột trên người Dơi Băng, tỏa ra hàn khí lạnh lẽo.',
     effects: [
       { type: 'defense_bonus', value: 0.05 },
       { type: 'stamina_reduction', value: 0.03 }
@@ -163,13 +163,13 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '冰霜层怪物掉落',
+    obtainSource: 'Rớt từ quái vật tầng Băng Giá',
     sellPrice: 150
   },
   {
     id: 'shadow_mask',
-    name: '暗影面具',
-    description: '暗影潜伏者遗留的面具，戴上后能感知怪物的弱点。',
+    name: 'Mặt Nạ Bóng Đêm',
+    description: 'Mặt nạ do Kẻ Rình Rập Bóng Tối để lại, đeo vào có thể cảm nhận được điểm yếu của quái vật.',
     effects: [
       { type: 'monster_drop_bonus', value: 0.08 },
       { type: 'vampiric', value: 0.03 }
@@ -177,13 +177,13 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '暗影层怪物掉落',
+    obtainSource: 'Rớt từ quái vật tầng Bóng Tối',
     sellPrice: 1000
   },
   {
     id: 'void_visor',
-    name: '虚空面甲',
-    description: '深渊巨蟒的鳞片锻成，蕴含着深渊的力量。',
+    name: 'Mặt Nạ Hư Không',
+    description: 'Rèn từ vảy của Cự Mãng Vực Thẳm, chứa đựng sức mạnh của Vực Thẳm.',
     effects: [
       { type: 'attack_bonus', value: 4 },
       { type: 'defense_bonus', value: 0.06 },
@@ -192,15 +192,15 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '深渊层怪物掉落',
+    obtainSource: 'Rớt từ quái vật tầng Vực Thẳm',
     sellPrice: 1800
   },
 
   // ===== BOSS掉落 =====
   {
     id: 'golem_stone_cap',
-    name: '石魔帽',
-    description: '泥石魔的核心碎片镶嵌其上，坚硬异常。',
+    name: 'Mũ Thạch Ma',
+    description: 'Khảm mảnh vỡ cốt lõi của Nê Thạch Ma, vô cùng cứng rắn.',
     effects: [
       { type: 'defense_bonus', value: 0.06 },
       { type: 'mining_stamina', value: 0.06 }
@@ -208,13 +208,13 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '20层BOSS首杀',
+    obtainSource: 'Hạ gục BOSS Tầng 20 lần đầu',
     sellPrice: 300
   },
   {
     id: 'crystal_king_crown',
-    name: '晶王冠',
-    description: '水晶之王碎裂后留下的王冠，蕴含纯净的晶能。',
+    name: 'Vương Miện Tinh Vương',
+    description: 'Vương miện để lại sau khi Vua Pha Lê vỡ vụn, chứa đựng năng lượng tinh thể thuần khiết.',
     effects: [
       { type: 'exp_bonus', value: 0.08 },
       { type: 'luck', value: 0.06 },
@@ -223,15 +223,15 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '80层BOSS首杀',
+    obtainSource: 'Hạ gục BOSS Tầng 80 lần đầu',
     sellPrice: 1500
   },
 
   // ===== 宝箱掉落 =====
   {
     id: 'lucky_cap',
-    name: '幸运小帽',
-    description: '宝箱中发现的古怪小帽，似乎能带来好运。',
+    name: 'Mũ Nhỏ May Mắn',
+    description: 'Chiếc mũ nhỏ kỳ quặc tìm thấy trong rương báu, có vẻ mang lại may mắn.',
     effects: [
       { type: 'luck', value: 0.04 },
       { type: 'sell_price_bonus', value: 0.03 }
@@ -239,26 +239,26 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '矿洞宝箱',
+    obtainSource: 'Rương báu hang mỏ',
     sellPrice: 250
   },
 
   // ===== 新增商店帽子（绸缎庄）=====
   {
     id: 'lotus_hat',
-    name: '莲花帽',
-    description: '以莲叶编成的清凉帽子，减少全局体力消耗。',
+    name: 'Mũ Hoa Sen',
+    description: 'Chiếc mũ thanh mát tết từ lá sen, giảm tiêu hao thể lực toàn diện.',
     effects: [{ type: 'stamina_reduction', value: 0.06 }],
     shopPrice: 500,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 200
   },
   {
     id: 'fur_cap',
-    name: '皮毛帽',
-    description: '柔软的兽皮帽，矿洞中格外实用。',
+    name: 'Mũ Lông Thú',
+    description: 'Mũ lông thú mềm mại, cực kỳ hữu dụng trong hang mỏ.',
     effects: [
       { type: 'mining_stamina', value: 0.08 },
       { type: 'defense_bonus', value: 0.03 }
@@ -266,13 +266,13 @@ export const HATS: HatDef[] = [
     shopPrice: 600,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 240
   },
   {
     id: 'silk_turban',
-    name: '丝绸头巾',
-    description: '华美的丝绸头巾，提升售价并增加送礼好感。',
+    name: 'Khăn Đội Đầu Tơ Lụa',
+    description: 'Khăn trùm đầu tơ lụa hoa mỹ, tăng giá bán và độ thiện cảm khi tặng quà.',
     effects: [
       { type: 'sell_price_bonus', value: 0.05 },
       { type: 'gift_friendship', value: 0.08 }
@@ -280,15 +280,15 @@ export const HATS: HatDef[] = [
     shopPrice: 1000,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 400
   },
 
   // ===== 新增合成帽子（铁匠铺）=====
   {
     id: 'jade_hairpin',
-    name: '翡翠簪',
-    description: '翡翠打磨的发簪，田间劳作更加轻松。',
+    name: 'Trâm Phỉ Thúy',
+    description: 'Trâm cài tóc mài từ phỉ thúy, giúp làm lụng đồng áng nhẹ nhàng hơn.',
     effects: [
       { type: 'crop_quality_bonus', value: 0.06 },
       { type: 'farming_stamina', value: 0.05 }
@@ -299,13 +299,13 @@ export const HATS: HatDef[] = [
       { itemId: 'silk_cloth', quantity: 1 }
     ],
     recipeMoney: 600,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 300
   },
   {
     id: 'obsidian_helm',
-    name: '黑曜盔',
-    description: '黑曜石铸成的重盔，防御力极强。',
+    name: 'Mũ Hắc Diện',
+    description: 'Mũ giáp nặng đúc từ đá hắc diện, lực phòng ngự cực mạnh.',
     effects: [
       { type: 'defense_bonus', value: 0.12 },
       { type: 'max_hp_bonus', value: 20 }
@@ -316,13 +316,13 @@ export const HATS: HatDef[] = [
       { itemId: 'iron_bar', quantity: 3 }
     ],
     recipeMoney: 3000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 1500
   },
   {
     id: 'phoenix_crown',
-    name: '凤冠',
-    description: '龙玉镶嵌的华美凤冠，带来好运与悟性。',
+    name: 'Phượng Quán',
+    description: 'Vương miện phượng lộng lẫy khảm long ngọc, mang lại vận may và ngộ tính.',
     effects: [
       { type: 'luck', value: 0.08 },
       { type: 'exp_bonus', value: 0.1 }
@@ -333,15 +333,15 @@ export const HATS: HatDef[] = [
       { itemId: 'dragon_jade', quantity: 1 }
     ],
     recipeMoney: 6000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 3000
   },
 
   // ===== 新增BOSS掉落帽子 =====
   {
     id: 'frost_queen_tiara',
-    name: '冰后冠冕',
-    description: '冰霜女王的冠冕，蕴含寒冰之力，钓鱼格外专注。',
+    name: 'Vương Miện Băng Hậu',
+    description: 'Vương miện của Nữ Hoàng Băng Giá, chứa sức mạnh hàn băng, giúp tập trung cao độ khi câu cá.',
     effects: [
       { type: 'fishing_calm', value: 0.08 },
       { type: 'fishing_stamina', value: 0.08 }
@@ -349,13 +349,13 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '40层BOSS首杀',
+    obtainSource: 'Hạ gục BOSS tầng 40 lần đầu',
     sellPrice: 500
   },
   {
     id: 'abyss_dragon_horns',
-    name: '龙王角冠',
-    description: '深渊龙王的角制成的战冠，蕴含毁灭之力。',
+    name: 'Mũ Sừng Long Vương',
+    description: 'Vương miện chiến binh làm từ sừng của Long Vương Vực Thẳm, chứa sức mạnh hủy diệt.',
     effects: [
       { type: 'attack_bonus', value: 8 },
       { type: 'defense_bonus', value: 0.1 },
@@ -364,15 +364,15 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '120层BOSS首杀',
+    obtainSource: 'Hạ gục BOSS tầng 120 lần đầu',
     sellPrice: 5000
   },
 
   // ===== 新增怪物掉落帽子 =====
   {
     id: 'lava_helm',
-    name: '熔岩兜帽',
-    description: '火蝠翼膜缝制的耐热兜帽，蕴含灼热之力。',
+    name: 'Mũ Trùm Dung Nham',
+    description: 'Mũ trùm chịu nhiệt may từ màng cánh Dơi Lửa, chứa sức mạnh nóng bỏng.',
     effects: [
       { type: 'attack_bonus', value: 3 },
       { type: 'defense_bonus', value: 0.04 }
@@ -380,15 +380,15 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '熔岩层怪物掉落',
+    obtainSource: 'Quái vật tầng Dung Nham rớt',
     sellPrice: 350
   },
 
   // ===== 新增宝箱掉落帽子 =====
   {
     id: 'treasure_cap',
-    name: '淘金帽',
-    description: '宝箱中发现的奇特帽子，似乎能吸引更多宝物。',
+    name: 'Mũ Đãi Vàng',
+    description: 'Chiếc mũ kỳ lạ tìm thấy trong rương báu, dường như có khả năng thu hút nhiều bảo vật hơn.',
     effects: [
       { type: 'treasure_find', value: 0.05 },
       { type: 'ore_bonus', value: 1 }
@@ -396,15 +396,15 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '矿洞宝箱',
+    obtainSource: 'Rương báu hang mỏ',
     sellPrice: 400
   },
 
   // === 公会专属 ===
   {
     id: 'guild_war_helm',
-    name: '公会战盔',
-    description: '冒险家公会精英成员的战斗头盔，坚固而威严。',
+    name: 'Mũ Chiến Công Hội',
+    description: 'Mũ bảo hiểm chiến đấu của thành viên tinh anh Công hội Mạo Hiểm Giả, chắc chắn và uy nghiêm.',
     effects: [
       { type: 'attack_bonus', value: 3 },
       { type: 'max_hp_bonus', value: 15 }
@@ -412,14 +412,14 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '公会商店',
+    obtainSource: 'Cửa hàng Công hội',
     sellPrice: 800
   },
   // === 通商兑换 ===
   {
     id: 'trade_silk_robe',
-    name: '丝绸长袍',
-    description: '西域丝绸织就的华美长袍，穿着时神清气爽。',
+    name: 'Trường Bào Tơ Lụa',
+    description: 'Trường bào lộng lẫy dệt từ tơ lụa Tây Vực, mặc vào tinh thần sảng khoái.',
     effects: [
       { type: 'attack_bonus', value: 3 },
       { type: 'max_hp_bonus', value: 20 }
@@ -427,14 +427,14 @@ export const HATS: HatDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '通商积分兑换',
+    obtainSource: 'Đổi bằng điểm thông thương',
     sellPrice: 750
   },
   // === 竹林野兽材料制作 ===
   {
     id: 'wolf_pelt_hood',
-    name: '狼皮兜帽',
-    description: '以竹林灰狼的毛皮缝制的兜帽，保暖且防护力强。',
+    name: 'Mũ Trùm Da Sói',
+    description: 'Mũ trùm may từ da sói xám rừng trúc, giữ ấm tốt và có sức phòng ngự cao.',
     effects: [
       { type: 'defense_bonus', value: 0.08 },
       { type: 'max_hp_bonus', value: 10 }
@@ -445,13 +445,13 @@ export const HATS: HatDef[] = [
       { itemId: 'silk_cloth', quantity: 1 }
     ],
     recipeMoney: 800,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 400
   },
   {
     id: 'tiger_pelt_cape',
-    name: '虎皮披风',
-    description: '虎皮与熊皮合制的披风，攻守兼备，气势慑人。',
+    name: 'Áo Choàng Da Hổ',
+    description: 'Áo choàng may ghép từ da hổ và da gấu, công thủ toàn diện, khí thế áp đảo.',
     effects: [
       { type: 'attack_bonus', value: 5 },
       { type: 'defense_bonus', value: 0.06 }
@@ -463,7 +463,7 @@ export const HATS: HatDef[] = [
       { itemId: 'silk_cloth', quantity: 1 }
     ],
     recipeMoney: 2000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 900
   }
 ]

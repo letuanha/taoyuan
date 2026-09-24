@@ -26,20 +26,20 @@ const SEASON_ORDER: Season[] = ['spring', 'summer', 'autumn', 'winter']
 
 /** 季节中文名 */
 export const SEASON_NAMES: Record<Season, string> = {
-  spring: '春',
-  summer: '夏',
-  autumn: '秋',
-  winter: '冬'
+  spring: 'Xuân',
+  summer: 'Hạ',
+  autumn: 'Thu',
+  winter: 'Đông'
 }
 
 /** 天气中文名 */
 export const WEATHER_NAMES: Record<Weather, string> = {
-  sunny: '晴',
-  rainy: '雨',
-  stormy: '雷雨',
-  snowy: '雪',
-  windy: '大风',
-  green_rain: '绿雨'
+  sunny: 'Trời quang',
+  rainy: 'Mưa',
+  stormy: 'Mưa giông',
+  snowy: 'Tuyết',
+  windy: 'Gió lớn',
+  green_rain: 'Mưa xanh'
 }
 
 /** 固定天气日 */
@@ -140,7 +140,7 @@ export const useGameStore = defineStore('game', () => {
       return {
         ok: true,
         passedOut: true,
-        message: '已经凌晨2点了，你撑不住倒下了……'
+        message: 'Đã 2 giờ sáng, bạn không thể trụ nổi và gục xuống…'
       }
     }
 
@@ -152,7 +152,7 @@ export const useGameStore = defineStore('game', () => {
       return {
         ok: true,
         passedOut: false,
-        message: '已经过了午夜，你开始感到困倦……'
+        message: 'Đã quá nửa đêm, bạn bắt đầu thấy buồn ngủ…'
       }
     }
 
@@ -201,7 +201,7 @@ export const useGameStore = defineStore('game', () => {
     const targetName = getLocationGroupName(targetGroup)
     currentLocationGroup.value = targetGroup
 
-    const travelMsg = cost > 0 ? `前往${targetName}，路上花了${Math.round(cost * 60)}分钟，消耗${staminaCost}点体力。` : ''
+    const travelMsg = cost > 0 ? `Đi đến ${targetName}, mất ${Math.round(cost * 60)} phút trên đường và tiêu hao ${staminaCost} thể lực.` : ''
     return {
       ok: true,
       timeCost: cost,

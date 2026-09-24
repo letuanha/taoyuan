@@ -45,10 +45,10 @@ const FRIENDSHIP_THRESHOLDS: { level: FriendshipLevel; min: number }[] = [
 
 /** 好感等级的中文称谓与对应心数，供界面直接展示 */
 export const FRIENDSHIP_LEVEL_INFO: Record<FriendshipLevel, { name: string; min: number; hearts: number }> = {
-  stranger: { name: '陌生', min: 0, hearts: 0 },
-  acquaintance: { name: '相识', min: 500, hearts: 2 },
-  friendly: { name: '友好', min: 1000, hearts: 4 },
-  bestFriend: { name: '挚友', min: 2000, hearts: 8 }
+  stranger: { name: 'Xa lạ', min: 0, hearts: 0 },
+  acquaintance: { name: 'Làm quen', min: 500, hearts: 2 },
+  friendly: { name: 'Thân thiện', min: 1000, hearts: 4 },
+  bestFriend: { name: 'Bạn thân', min: 2000, hearts: 8 }
 }
 
 /** 好感等级顺序（由低到高） */
@@ -121,22 +121,22 @@ export const useNpcStore = defineStore('npc', () => {
 
   /** 雇工任务名称 */
   const HELPER_TASK_NAMES: Record<FarmHelperTask, string> = {
-    water: '浇水',
-    feed: '喂食',
-    harvest: '收获',
-    weed: '除草除虫',
-    bait: '装饵',
-    collect: '收加工品'
+    water: 'Tưới nước',
+    feed: 'Cho ăn',
+    harvest: 'Thu hoạch',
+    weed: 'Nhổ cỏ, bắt sâu',
+    bait: 'Đặt mồi',
+    collect: 'Thu sản phẩm chế biến'
   }
 
   /** 雇工任务说明：讲清楚每种活到底干什么，免得玩家雇了之后看不出效果 */
   const HELPER_TASK_DESCRIPTIONS: Record<FarmHelperTask, string> = {
-    water: '清晨为未浇水的作物浇水（最多约4-6块，好感高时更多）',
-    feed: '喂饱畜舍里的牲畜和鱼塘的鱼',
-    harvest: '收割已成熟的作物并放进你的背包（最多约5块）',
-    weed: '清理田里的杂草与虫害',
-    bait: '给所有蟹笼补上鱼饵',
-    collect: '把加工坊中已完成的成品全部收起来'
+    water: 'Sáng sớm tưới những cây chưa được tưới (tối đa khoảng 4-6 ô, hảo cảm cao thì nhiều hơn)',
+    feed: 'Cho gia súc trong chuồng và cá trong ao ăn no',
+    harvest: 'Thu hoạch cây đã chín và bỏ vào túi (tối đa khoảng 5 ô)',
+    weed: 'Dọn cỏ dại và sâu bệnh trên ruộng',
+    bait: 'Bổ sung mồi cho tất cả bẫy cua',
+    collect: 'Thu toàn bộ thành phẩm đã hoàn tất trong xưởng chế biến'
   }
 
   /** 可雇佣的NPC列表（好感>=1000 且 未被雇佣 且 非配偶/知己） */
@@ -165,30 +165,30 @@ export const useNpcStore = defineStore('npc', () => {
   /** 雇佣NPC */
   const hireHelper = (npcId: string, task: FarmHelperTask): { success: boolean; message: string } => {
     const state = getNpcState(npcId)
-    if (!state) return { success: false, message: 'NPC不存在。' }
-    if (state.friendship < 1000) return { success: false, message: '好感度不足（需要4心/1000）。' }
-    if (state.married || state.zhiji) return { success: false, message: '伴侣和知己不可雇佣。' }
-    if (hiredHelpers.value.length >= MAX_HELPERS) return { success: false, message: `最多雇佣${MAX_HELPERS}名帮手。` }
-    if (hiredHelpers.value.some(h => h.npcId === npcId)) return { success: false, message: '此人已被雇佣。' }
+    if (!state) return { success: false, message: 'NPC không tồn tại.' }
+    if (state.friendship < 1000) return { success: false, message: 'Hảo cảm chưa đủ (cần 4 tim/1000).' }
+    if (state.married || state.zhiji) return { success: false, message: 'Bạn đời và tri kỷ không thể được thuê làm.' }
+    if (hiredHelpers.value.length >= MAX_HELPERS) return { success: false, message: `Có thể thuê tối đa ${MAX_HELPERS} người giúp việc.` }
+    if (hiredHelpers.value.some(h => h.npcId === npcId)) return { success: false, message: 'Người này đã được thuê.' }
 
     const npcDef = getNpcById(npcId)
     const name = npcDef?.name ?? npcId
     hiredHelpers.value.push({ npcId, task, dailyWage: HELPER_WAGES[task] })
     return {
       success: true,
-      message: `${name}开始帮你${HELPER_TASK_NAMES[task]}了！(日薪${HELPER_WAGES[task]}文)`
+      message: `${name} bắt đầu giúp bạn ${HELPER_TASK_NAMES[task]}! (lương ngày ${HELPER_WAGES[task]} văn)`
     }
   }
 
   /** 解雇 */
   const dismissHelper = (npcId: string): { success: boolean; message: string } => {
     const idx = hiredHelpers.value.findIndex(h => h.npcId === npcId)
-    if (idx < 0) return { success: false, message: '此人未被雇佣。' }
+    if (idx < 0) return { success: false, message: 'Người này chưa được thuê.' }
 
     const npcDef = getNpcById(npcId)
     const name = npcDef?.name ?? npcId
     hiredHelpers.value.splice(idx, 1)
-    return { success: true, message: `${name}已离开。` }
+    return { success: true, message: `${name} đã rời đi.` }
   }
 
   /** 每日雇工结算（useEndDay调用） */
@@ -206,13 +206,13 @@ export const useNpcStore = defineStore('npc', () => {
       if (taskFilter && !taskFilter.includes(helper.task)) continue
 
       const npcDef = getNpcById(helper.npcId)
-      const name = npcDef?.name ?? '雇工'
+      const name = npcDef?.name ?? 'Người làm thuê'
       const state = getNpcState(helper.npcId)
 
       // 已变为配偶/知己 → 自动解雇（不收工资）
       if (state && (state.married || state.zhiji)) {
         hiredHelpers.value = hiredHelpers.value.filter(h => h.npcId !== helper.npcId)
-        messages.push(`${name}已成为你的${state.married ? '伴侣' : '知己'}，不再担任雇工。`)
+        messages.push(`${name} đã trở thành ${state.married ? 'bạn đời' : 'tri kỷ'} của bạn và không còn làm thuê nữa.`)
         dismissed.push(helper.npcId)
         continue
       }
@@ -222,7 +222,7 @@ export const useNpcStore = defineStore('npc', () => {
       // 扣工资
       if (!playerStore.spendMoney(helper.dailyWage)) {
         hiredHelpers.value = hiredHelpers.value.filter(h => h.npcId !== helper.npcId)
-        messages.push(`付不起${name}的工资，${name}不干了。`)
+        messages.push(`Không trả nổi tiền công cho ${name}, ${name} nghỉ việc.`)
         dismissed.push(helper.npcId)
         continue
       }
@@ -234,11 +234,11 @@ export const useNpcStore = defineStore('npc', () => {
           for (let i = 0; i < count; i++) farmStore.waterPlot(unwatered[i]!.id)
           if (count > 0) {
             // 说清楚浇的是「今天这一轮」，否则玩家一早看到地是干的会以为雇工没干活
-            messages.push(`${name}一早帮你浇了${count}块地，今天这些地不用再浇了。(-${helper.dailyWage}文)`)
+            messages.push(`Sáng sớm ${name} đã tưới ${count} ô đất, hôm nay những ô này không cần tưới nữa. (-${helper.dailyWage} văn)`)
           } else if (farmStore.plots.some(p => p.state === 'planted' || p.state === 'growing')) {
-            messages.push(`${name}来时地已经浇过了（下雨或洒水器），今天不用他动手。(-${helper.dailyWage}文)`)
+            messages.push(`Khi ${name} đến, ruộng đã được tưới (do mưa hoặc vòi phun), hôm nay không cần làm gì. (-${helper.dailyWage} văn)`)
           } else {
-            messages.push(`${name}今天没什么可浇的——地里还没种东西。(-${helper.dailyWage}文)`)
+            messages.push(`Hôm nay ${name} không có gì để tưới — ruộng vẫn chưa trồng gì. (-${helper.dailyWage} văn)`)
           }
           break
         }
@@ -248,15 +248,15 @@ export const useNpcStore = defineStore('npc', () => {
           const fedFish = fishPondStore.pond.built && !fishPondStore.pond.fedToday ? fishPondStore.feedFish() : false
           allFed = result.noFeedCount === 0 && result.fedCount > 0
           if (result.fedCount > 0 && fedFish) {
-            messages.push(`${name}帮你喂了${result.fedCount}只牲畜和鱼塘的鱼。(-${helper.dailyWage}文)`)
+            messages.push(`${name} đã cho ${result.fedCount} gia súc và cá trong ao ăn. (-${helper.dailyWage} văn)`)
           } else if (result.fedCount > 0) {
-            messages.push(`${name}帮你喂了${result.fedCount}只牲畜。(-${helper.dailyWage}文)`)
+            messages.push(`${name} đã cho ${result.fedCount} gia súc ăn. (-${helper.dailyWage} văn)`)
           } else if (fedFish) {
-            messages.push(`${name}帮你喂了鱼塘的鱼。(-${helper.dailyWage}文)`)
+            messages.push(`${name} đã cho cá trong ao ăn. (-${helper.dailyWage} văn)`)
           } else if (result.noFeedCount > 0) {
-            messages.push(`${name}发现草料不足，${result.noFeedCount}只牲畜未能喂食。(-${helper.dailyWage}文)`)
+            messages.push(`${name} phát hiện không đủ cỏ, ${result.noFeedCount} gia súc chưa được cho ăn. (-${helper.dailyWage} văn)`)
           } else {
-            messages.push(`${name}今天没什么需要喂的。(-${helper.dailyWage}文)`)
+            messages.push(`Hôm nay ${name} không có gì cần cho ăn. (-${helper.dailyWage} văn)`)
           }
           break
         }
@@ -278,19 +278,19 @@ export const useNpcStore = defineStore('npc', () => {
           }
           if (collected.size > 0) {
             const detail = [...collected.entries()].map(([n, c]) => `${n}×${c}`).join('、')
-            messages.push(`${name}帮你收了${detail}，已放进背包。(-${helper.dailyWage}文)`)
+            messages.push(`${name} đã thu ${detail} và bỏ vào túi. (-${helper.dailyWage} văn)`)
           } else {
-            messages.push(`${name}今天没什么可收的——地里还没有成熟的作物。(-${helper.dailyWage}文)`)
+            messages.push(`Hôm nay ${name} không có gì để thu — chưa có cây nào chín. (-${helper.dailyWage} văn)`)
           }
-          if (lost > 0) messages.push(`背包放不下，${name}只好把${lost}份收成留在了田里。`)
+          if (lost > 0) messages.push(`Túi không đủ chỗ, ${name} đành để lại ${lost} phần nông sản ngoài ruộng.`)
           break
         }
         case 'collect': {
           // 收取加工坊里已完成的产物，省去玩家逐个点收
           const processingStore = useProcessingStore()
           const collected = processingStore.collectAllReady()
-          if (collected > 0) messages.push(`${name}帮你从加工坊收了${collected}份成品。(-${helper.dailyWage}文)`)
-          else messages.push(`${name}去加工坊转了一圈，今天没有做好的东西。(-${helper.dailyWage}文)`)
+          if (collected > 0) messages.push(`${name} đã thu ${collected} thành phẩm từ xưởng. (-${helper.dailyWage} văn)`)
+          else messages.push(`${name} ghé xưởng nhưng hôm nay không có thành phẩm nào hoàn tất. (-${helper.dailyWage} văn)`)
           break
         }
         case 'weed': {
@@ -305,15 +305,15 @@ export const useNpcStore = defineStore('npc', () => {
               cleared++
             }
           }
-          if (cleared > 0) messages.push(`${name}清理了${cleared}处杂草和虫害。(-${helper.dailyWage}文)`)
-          else messages.push(`${name}今天田里挺干净的。(-${helper.dailyWage}文)`)
+          if (cleared > 0) messages.push(`${name} đã dọn ${cleared} chỗ cỏ dại và sâu bệnh. (-${helper.dailyWage} văn)`)
+          else messages.push(`Ruộng hôm nay khá sạch, không có gì để dọn. (-${helper.dailyWage} văn)`)
           break
         }
         case 'bait': {
           const fishingStore = useFishingStore()
           const baited = fishingStore.baitAllCrabPots()
-          if (baited > 0) messages.push(`${name}帮你给${baited}个蟹笼装了饵。(-${helper.dailyWage}文)`)
-          else messages.push(`${name}今天蟹笼都有饵了。(-${helper.dailyWage}文)`)
+          if (baited > 0) messages.push(`${name} đã đặt mồi cho ${baited} bẫy cua. (-${helper.dailyWage} văn)`)
+          else messages.push(`Hôm nay tất cả bẫy cua đều đã có mồi. (-${helper.dailyWage} văn)`)
           break
         }
       }
@@ -322,8 +322,8 @@ export const useNpcStore = defineStore('npc', () => {
   }
 
   /** 子女名字池（按性别） */
-  const CHILD_NAMES_MALE = ['小龙', '小宝', '团子', '年年']
-  const CHILD_NAMES_FEMALE = ['小凤', '阿花', '豆豆', '圆圆']
+  const CHILD_NAMES_MALE = ['Tiểu Long', 'Tiểu Bảo', 'Đoàn Tử', 'Niên Niên']
+  const CHILD_NAMES_FEMALE = ['Tiểu Phượng', 'A Hoa', 'Đậu Đậu', 'Viên Viên']
 
   /** 再要一个孩子前，最小的孩子至少要长到的天数（约两个季节，刚会走路） */
   const MIN_DAYS_BETWEEN_CHILDREN = 56
@@ -363,10 +363,10 @@ export const useNpcStore = defineStore('npc', () => {
   const getGiftStatusText = (npcId: string): string => {
     const state = getNpcState(npcId)
     if (!state) return ''
-    if (isBirthday(npcId) && !state.birthdayGiftGiven) return '生日礼 ×4'
-    if (state.giftedToday) return '今日已送'
-    if (state.giftsThisWeek >= 2) return '本周已送满'
-    return `可送礼 ${state.giftsThisWeek}/2`
+    if (isBirthday(npcId) && !state.birthdayGiftGiven) return 'Quà sinh nhật ×4'
+    if (state.giftedToday) return 'Hôm nay đã tặng'
+    if (state.giftsThisWeek >= 2) return 'Tuần này đã tặng đủ'
+    return `Có thể tặng quà ${state.giftsThisWeek}/2`
   }
 
   /** 获取今天过生日的NPC (null if none) */
@@ -446,28 +446,28 @@ export const useNpcStore = defineStore('npc', () => {
       const name = playerStore.playerName
 
       const marriedDialogues = [
-        `${name}，今天辛苦了，早点回来吃饭。`,
-        `我给${name}留了饭菜，还热着呢。`,
-        '田里的活干完了吗？别太累了。',
-        `有${name}在身边，每天都很开心。`,
-        '今天想吃什么？我去准备。',
-        '家里收拾好了，你歇会儿吧。',
-        `和${name}在一起的日子，真好。`,
-        `${name}，今天精神不错嘛。`
+        `${name}, hôm nay vất vả rồi, về ăn cơm sớm nhé.`,
+        `Tôi đã để phần cơm cho ${name}, vẫn còn nóng đấy.`,
+        'Việc ngoài ruộng xong chưa? Đừng làm quá sức.',
+        `Có ${name} bên cạnh, ngày nào cũng vui.`,
+        'Hôm nay muốn ăn gì? Tôi đi chuẩn bị.',
+        'Nhà đã dọn xong rồi, bạn nghỉ một lát đi.',
+        `Những ngày ở bên ${name} thật tuyệt.`,
+        `${name}, hôm nay trông có vẻ khỏe khoắn đấy.`
       ]
 
       const seasonDialogues: Record<string, string[]> = {
-        spring: [`春天到了，院子里的花都开了呢。`, `${name}，春播忙完了吗？`],
-        summer: [`好热啊……${name}多喝水。`, '夏天的西瓜最解暑了。'],
-        autumn: [`秋天的风真舒服。${name}，要不要一起散步？`, '丰收的季节，辛苦种的东西都有了回报。'],
-        winter: [`外面好冷，${name}快进屋暖和暖和。`, '冬天就该窝在家里喝热茶。']
+        spring: [`Mùa xuân đến rồi, hoa trong sân đều nở cả.`, `${name}, việc gieo trồng mùa xuân xong chưa?`],
+        summer: [`Nóng quá… ${name} nhớ uống nhiều nước.`, 'Dưa hấu mùa hè là thứ giải nhiệt tuyệt nhất.'],
+        autumn: [`Gió mùa thu thật dễ chịu. ${name}, đi dạo cùng nhau nhé?`, 'Mùa thu hoạch rồi, những gì vất vả gieo trồng cuối cùng cũng có kết quả.'],
+        winter: [`Ngoài trời lạnh quá, ${name} mau vào nhà sưởi ấm.`, 'Mùa đông nên ở nhà uống trà nóng.']
       }
 
       const weatherDialogues: Record<string, string | null> = {
-        rainy: '下雨了，田里不用浇水，在家歇歇吧。',
-        stormy: '外面风雨好大，今天别出远门了。',
-        snowy: '下雪了呢，外面白茫茫的，真好看。',
-        windy: '风好大，出门小心别着凉了。',
+        rainy: 'Mưa rồi, ruộng không cần tưới, ở nhà nghỉ ngơi đi.',
+        stormy: 'Ngoài trời mưa gió lớn, hôm nay đừng đi xa.',
+        snowy: 'Tuyết rơi rồi, bên ngoài trắng xóa, đẹp thật.',
+        windy: 'Gió lớn lắm, ra ngoài nhớ cẩn thận kẻo lạnh.',
         sunny: null,
         cloudy: null,
         green_rain: null
@@ -574,16 +574,16 @@ export const useNpcStore = defineStore('npc', () => {
 
     if (npcDef.lovedItems.includes(itemId)) {
       gain = 80
-      reaction = '非常喜欢'
+      reaction = 'Rất thích'
     } else if (npcDef.likedItems.includes(itemId)) {
       gain = 45
-      reaction = '还不错'
+      reaction = 'Khá thích'
     } else if (npcDef.hatedItems.includes(itemId)) {
       gain = -40
-      reaction = '讨厌'
+      reaction = 'Ghét'
     } else {
       gain = 20
-      reaction = '一般'
+      reaction = 'Bình thường'
     }
 
     // 品质加成
@@ -605,63 +605,63 @@ export const useNpcStore = defineStore('npc', () => {
   /** 赠帕开启约会 (需2000好感/8心) */
   const startDating = (npcId: string): { success: boolean; message: string } => {
     const state = getNpcState(npcId)
-    if (!state) return { success: false, message: 'NPC不存在。' }
+    if (!state) return { success: false, message: 'NPC không tồn tại.' }
 
     const npcDef = getNpcById(npcId)
-    if (!npcDef?.marriageable) return { success: false, message: '无法与此人约会。' }
+    if (!npcDef?.marriageable) return { success: false, message: 'Không thể hẹn hò với người này.' }
 
     const playerStore = usePlayerStore()
     if (npcDef.gender === playerStore.gender) {
-      return { success: false, message: '只能向异性赠帕。' }
+      return { success: false, message: 'Chỉ có thể tặng khăn tay cho người khác giới.' }
     }
 
-    if (state.dating) return { success: false, message: '你们已经在约会了。' }
-    if (state.married) return { success: false, message: '你们已经结婚了。' }
-    if (npcStates.value.some(s => s.married)) return { success: false, message: '你已经结婚了。' }
-    if (state.friendship < 2000) return { success: false, message: '好感度不足（需要8心/2000）。' }
+    if (state.dating) return { success: false, message: 'Hai người đang hẹn hò rồi.' }
+    if (state.married) return { success: false, message: 'Hai người đã kết hôn rồi.' }
+    if (npcStates.value.some(s => s.married)) return { success: false, message: 'Bạn đã kết hôn.' }
+    if (state.friendship < 2000) return { success: false, message: 'Hảo cảm chưa đủ (cần 8 tim/2000).' }
 
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.removeItem('silk_ribbon')) {
-      return { success: false, message: '需要一条丝帕。' }
+      return { success: false, message: 'Cần một chiếc khăn lụa.' }
     }
 
     state.dating = true
     state.friendship += 160
     return {
       success: true,
-      message: `${npcDef.name}羞红了脸，接过了你的丝帕……你们开始约会了！`
+      message: `${npcDef.name} đỏ mặt nhận chiếc khăn lụa của bạn… Hai người bắt đầu hẹn hò!`
     }
   }
 
   /** 求婚 (需2500好感/10心) */
   const propose = (npcId: string): { success: boolean; message: string } => {
     const state = getNpcState(npcId)
-    if (!state) return { success: false, message: 'NPC不存在。' }
+    if (!state) return { success: false, message: 'NPC không tồn tại.' }
 
     const npcDef = getNpcById(npcId)
-    if (!npcDef?.marriageable) return { success: false, message: '这个人无法求婚。' }
+    if (!npcDef?.marriageable) return { success: false, message: 'Không thể cầu hôn người này.' }
 
     // 只允许异性求婚
     const playerStore = usePlayerStore()
     if (npcDef.gender === playerStore.gender) {
-      return { success: false, message: '只能向异性求婚。' }
+      return { success: false, message: 'Chỉ có thể cầu hôn người khác giới.' }
     }
 
     // 检查是否已有配偶
     const alreadyMarried = npcStates.value.some(s => s.married)
-    if (alreadyMarried) return { success: false, message: '你已经结婚了。' }
+    if (alreadyMarried) return { success: false, message: 'Bạn đã kết hôn.' }
 
     // 检查是否正在筹备婚礼
-    if (weddingCountdown.value > 0) return { success: false, message: '婚礼正在筹备中。' }
+    if (weddingCountdown.value > 0) return { success: false, message: 'Đám cưới đang được chuẩn bị.' }
 
     // 需要先约会
-    if (!state.dating) return { success: false, message: '需要先赠帕约会。' }
+    if (!state.dating) return { success: false, message: 'Cần tặng khăn và hẹn hò trước.' }
 
-    if (state.friendship < 2500) return { success: false, message: '好感度不足（需要10心/2500）。' }
+    if (state.friendship < 2500) return { success: false, message: 'Hảo cảm chưa đủ (cần 10 tim/2500).' }
 
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.removeItem('jade_ring')) {
-      return { success: false, message: '需要一枚翡翠戒指。' }
+      return { success: false, message: 'Cần một chiếc nhẫn ngọc lục bảo.' }
     }
 
     // 设置婚礼倒计时而非立即结婚
@@ -670,7 +670,7 @@ export const useNpcStore = defineStore('npc', () => {
     state.friendship += 400
     return {
       success: true,
-      message: `${npcDef.name}含泪接受了你的翡翠戒指……婚礼将在3天后举行！`
+      message: `${npcDef.name} rưng rưng nhận chiếc nhẫn ngọc lục bảo… Đám cưới sẽ diễn ra sau 3 ngày!`
     }
   }
 
@@ -687,43 +687,43 @@ export const useNpcStore = defineStore('npc', () => {
   /** 赠玉结为知己 (需同性+2000好感) */
   const becomeZhiji = (npcId: string): { success: boolean; message: string } => {
     const state = getNpcState(npcId)
-    if (!state) return { success: false, message: 'NPC不存在。' }
+    if (!state) return { success: false, message: 'NPC không tồn tại.' }
 
     const npcDef = getNpcById(npcId)
-    if (!npcDef?.marriageable) return { success: false, message: '无法与此人结为知己。' }
+    if (!npcDef?.marriageable) return { success: false, message: 'Không thể kết giao tri kỷ với người này.' }
 
     const playerStore = usePlayerStore()
     if (npcDef.gender !== playerStore.gender) {
-      return { success: false, message: '只能与同性结为知己。' }
+      return { success: false, message: 'Chỉ có thể kết giao tri kỷ với người cùng giới.' }
     }
 
-    if (state.zhiji) return { success: false, message: '你们已经是知己了。' }
-    if (state.dating || state.married) return { success: false, message: '无法与恋人或伴侣结为知己。' }
-    if (npcStates.value.some(s => s.zhiji)) return { success: false, message: '你已经有知己了。' }
-    if (state.friendship < 2000) return { success: false, message: '好感度不足（需要8心/2000）。' }
+    if (state.zhiji) return { success: false, message: 'Hai người đã là tri kỷ.' }
+    if (state.dating || state.married) return { success: false, message: 'Không thể kết giao tri kỷ với người yêu hoặc bạn đời.' }
+    if (npcStates.value.some(s => s.zhiji)) return { success: false, message: 'Bạn đã có tri kỷ rồi.' }
+    if (state.friendship < 2000) return { success: false, message: 'Hảo cảm chưa đủ (cần 8 tim/2000).' }
 
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.removeItem('zhiji_jade')) {
-      return { success: false, message: '需要一块知己玉佩。' }
+      return { success: false, message: 'Cần một miếng ngọc bội tri kỷ.' }
     }
 
     state.zhiji = true
     state.friendship += 160
-    const label = playerStore.gender === 'male' ? '蓝颜知己' : '红颜知己'
+    const label = playerStore.gender === 'male' ? 'Tri kỷ nam' : 'Tri kỷ nữ'
     return {
       success: true,
-      message: `${npcDef.name}郑重地接过了玉佩……你们结为了${label}！`
+      message: `${npcDef.name} trịnh trọng nhận ngọc bội… Hai người trở thành ${label}!`
     }
   }
 
   /** 断绝知己之缘 */
   const dissolveZhiji = (): { success: boolean; message: string } => {
     const zhijiState = getZhiji()
-    if (!zhijiState) return { success: false, message: '你还没有知己。' }
+    if (!zhijiState) return { success: false, message: 'Bạn chưa có tri kỷ.' }
 
     const playerStore = usePlayerStore()
     if (!playerStore.spendMoney(10000)) {
-      return { success: false, message: '金钱不足（需要10000文）。' }
+      return { success: false, message: 'Không đủ tiền (cần 10.000 văn).' }
     }
 
     const npcDef = getNpcById(zhijiState.npcId)
@@ -733,7 +733,7 @@ export const useNpcStore = defineStore('npc', () => {
 
     return {
       success: true,
-      message: `你和${npcDef?.name ?? '知己'}的知己之缘已断。`
+      message: `Duyên tri kỷ giữa bạn và ${npcDef?.name ?? 'tri kỷ'} đã chấm dứt.`
     }
   }
 
@@ -769,11 +769,11 @@ export const useNpcStore = defineStore('npc', () => {
   /** 离婚 */
   const divorce = (): { success: boolean; message: string } => {
     const spouse = getSpouse()
-    if (!spouse) return { success: false, message: '你还没有结婚。' }
+    if (!spouse) return { success: false, message: 'Bạn chưa kết hôn.' }
 
     const playerStore = usePlayerStore()
     if (!playerStore.spendMoney(30000)) {
-      return { success: false, message: '金钱不足（需要30000文）。' }
+      return { success: false, message: 'Không đủ tiền (cần 30.000 văn).' }
     }
 
     const npcDef = getNpcById(spouse.npcId)
@@ -787,23 +787,23 @@ export const useNpcStore = defineStore('npc', () => {
 
     return {
       success: true,
-      message: `你和${npcDef?.name ?? '配偶'}的婚姻结束了。`
+      message: `Cuộc hôn nhân giữa bạn và ${npcDef?.name ?? 'bạn đời'} đã kết thúc.`
     }
   }
 
   /** 放生子女 */
   const releaseChild = (childId: number): { success: boolean; message: string } => {
     const child = children.value.find(c => c.id === childId)
-    if (!child) return { success: false, message: '找不到这个孩子。' }
+    if (!child) return { success: false, message: 'Không tìm thấy đứa trẻ này.' }
 
     const playerStore = usePlayerStore()
     if (!playerStore.spendMoney(10000)) {
-      return { success: false, message: '金钱不足（需要10000文）。' }
+      return { success: false, message: 'Không đủ tiền (cần 10.000 văn).' }
     }
 
     const name = child.name
     children.value = children.value.filter(c => c.id !== childId)
-    return { success: true, message: `${name}被送往了远方亲戚家。` }
+    return { success: true, message: `${name} được đưa đến sống với họ hàng ở xa.` }
   }
 
   // ============================================================
@@ -811,18 +811,18 @@ export const useNpcStore = defineStore('npc', () => {
   // ============================================================
 
   const PREGNANCY_STAGE_CONFIG: Record<PregnancyStage, { days: number; label: string }> = {
-    early: { days: 5, label: '初期' },
-    mid: { days: 5, label: '中期' },
-    late: { days: 5, label: '后期' },
-    ready: { days: 3, label: '待产期' }
+    early: { days: 5, label: 'Giai đoạn đầu' },
+    mid: { days: 5, label: 'Giai đoạn giữa' },
+    late: { days: 5, label: 'Giai đoạn cuối' },
+    ready: { days: 3, label: 'Thời kỳ chờ sinh' }
   }
 
   const STAGE_ORDER: PregnancyStage[] = ['early', 'mid', 'late', 'ready']
 
   const MEDICAL_PLANS = {
-    normal: { cost: 1000, successRate: 0.8, label: '普通接生' },
-    advanced: { cost: 5000, successRate: 0.95, label: '高级接生' },
-    luxury: { cost: 15000, successRate: 1.0, label: '豪华接生' }
+    normal: { cost: 1000, successRate: 0.8, label: 'Đỡ sinh thường' },
+    advanced: { cost: 5000, successRate: 0.95, label: 'Đỡ sinh cao cấp' },
+    luxury: { cost: 15000, successRate: 1.0, label: 'Đỡ sinh cao cấp đặc biệt' }
   } as const
 
   /** 检查配偶是否应提议要孩子（每日调用） */
@@ -872,18 +872,18 @@ export const useNpcStore = defineStore('npc', () => {
         if (spouse) spouse.friendship += 100
         childProposalDeclinedCount.value = 0
         daysSinceProposalDecline.value = 0
-        return { message: '你们决定迎接新的家庭成员。', friendshipChange: 100 }
+        return { message: 'Hai người quyết định đón thêm một thành viên mới.', friendshipChange: 100 }
 
       case 'decline':
         if (spouse) spouse.friendship = Math.max(0, spouse.friendship - 50)
         childProposalDeclinedCount.value++
         daysSinceProposalDecline.value = 0
-        return { message: '你委婉地拒绝了。', friendshipChange: -50 }
+        return { message: 'Bạn khéo léo từ chối.', friendshipChange: -50 }
 
       case 'wait':
         daysSinceProposalDecline.value = 0
         childProposalDeclinedCount.value++ // 也计入冷却
-        return { message: '你说了再等等看。', friendshipChange: 0 }
+        return { message: 'Bạn nói hãy chờ thêm xem sao.', friendshipChange: 0 }
     }
   }
 
@@ -891,7 +891,7 @@ export const useNpcStore = defineStore('npc', () => {
   const performPregnancyCare = (
     action: 'gift' | 'companion' | 'supplement' | 'rest'
   ): { success: boolean; message: string; careGain: number } => {
-    if (!pregnancy.value) return { success: false, message: '没有待产。', careGain: 0 }
+    if (!pregnancy.value) return { success: false, message: 'Không có con đang chờ sinh.', careGain: 0 }
 
     let careGain = 0
     let message = ''
@@ -901,22 +901,22 @@ export const useNpcStore = defineStore('npc', () => {
         if (pregnancy.value.giftedForPregnancy) {
           return {
             success: false,
-            message: '今天已经送过礼物了。',
+            message: 'Hôm nay đã tặng quà rồi.',
             careGain: 0
           }
         }
         pregnancy.value.giftedForPregnancy = true
         careGain = pregnancy.value.stage === 'early' ? 5 : 3
-        message = '你送了一份贴心的礼物。'
+        message = 'Bạn tặng một món quà đầy tình cảm.'
         break
       }
       case 'companion': {
         if (pregnancy.value.companionToday) {
-          return { success: false, message: '今天已经陪伴过了。', careGain: 0 }
+          return { success: false, message: 'Hôm nay đã dành thời gian bên nhau rồi.', careGain: 0 }
         }
         pregnancy.value.companionToday = true
         careGain = pregnancy.value.stage === 'mid' ? 5 : 3
-        message = '你陪伴了一会儿，聊了很多。'
+        message = 'Bạn ở bên một lúc và trò chuyện rất nhiều.'
         break
       }
       case 'supplement': {
@@ -935,14 +935,14 @@ export const useNpcStore = defineStore('npc', () => {
             found = true
             careGain = si.gain
             const itemDef = getItemById(si.id)
-            message = `服用了${itemDef?.name ?? '补品'}。`
+            message = `Đã dùng ${itemDef?.name ?? 'thuốc bổ'}.`
             break
           }
         }
         if (!found) {
           return {
             success: false,
-            message: '没有合适的补品（人参/草药/茶饮）。',
+            message: 'Không có thuốc bổ phù hợp (nhân sâm/thảo dược/trà).',
             careGain: 0
           }
         }
@@ -952,12 +952,12 @@ export const useNpcStore = defineStore('npc', () => {
         if (pregnancy.value.caredToday) {
           return {
             success: false,
-            message: '今天已经安排过休息了。',
+            message: 'Hôm nay đã sắp xếp nghỉ ngơi rồi.',
             careGain: 0
           }
         }
         careGain = pregnancy.value.stage === 'late' ? 5 : 2
-        message = '你让配偶好好休息了一天。'
+        message = 'Bạn để bạn đời nghỉ ngơi thật tốt một ngày.'
         break
       }
     }
@@ -969,22 +969,22 @@ export const useNpcStore = defineStore('npc', () => {
 
   /** 选择接生方式（仅待产期） */
   const chooseMedicalPlan = (plan: 'normal' | 'advanced' | 'luxury'): { success: boolean; message: string } => {
-    if (!pregnancy.value) return { success: false, message: '没有待产。' }
-    if (pregnancy.value.stage !== 'ready') return { success: false, message: '还没到待产期。' }
+    if (!pregnancy.value) return { success: false, message: 'Không có con đang chờ sinh.' }
+    if (pregnancy.value.stage !== 'ready') return { success: false, message: 'Chưa đến thời kỳ chờ sinh.' }
 
     const planInfo = MEDICAL_PLANS[plan]
     const playerStore = usePlayerStore()
     if (!playerStore.spendMoney(planInfo.cost)) {
       return {
         success: false,
-        message: `金钱不足（需要${planInfo.cost}文）。`
+        message: `Không đủ tiền (cần ${planInfo.cost} văn).`
       }
     }
 
     pregnancy.value.medicalPlan = plan
     return {
       success: true,
-      message: `选择了${planInfo.label}（${planInfo.cost}文）。`
+      message: `Đã chọn ${planInfo.label} (${planInfo.cost} văn).`
     }
   }
 
@@ -1021,7 +1021,7 @@ export const useNpcStore = defineStore('npc', () => {
     const namePool = isBoy ? CHILD_NAMES_MALE : CHILD_NAMES_FEMALE
     const usedNames = children.value.map(c => c.name)
     const availableNames = namePool.filter(n => !usedNames.includes(n))
-    const name = availableNames[Math.floor(Math.random() * availableNames.length)] ?? '小宝'
+    const name = availableNames[Math.floor(Math.random() * availableNames.length)] ?? 'Tiểu Bảo'
 
     children.value.push({
       id: nextChildId.value++,
@@ -1114,11 +1114,11 @@ export const useNpcStore = defineStore('npc', () => {
           watered++
         }
         if (watered === 0) break
-        milestones.push(`${teen.name}一早就去田里帮忙了。`)
+        milestones.push(`${teen.name} sáng sớm đã ra ruộng giúp việc.`)
         break
       }
       if (watered > 0) {
-        milestones.push(`孩子帮你浇了${watered}块地。`)
+        milestones.push(`Đứa trẻ giúp bạn tưới ${watered} ô đất.`)
       }
     }
 
@@ -1142,10 +1142,10 @@ export const useNpcStore = defineStore('npc', () => {
     const pool = CHILD_GIFT_POOL[child.stage]
     if (pool.length > 0 && Math.random() < CHILD_GIFT_CHANCE[child.stage]) {
       const item = pool[Math.floor(Math.random() * pool.length)]!
-      return { message: `${message}（+2好感）`, item }
+      return { message: `${message} (+2 hảo cảm)`, item }
     }
 
-    return { message: `${message}（+2好感）` }
+    return { message: `${message} (+2 hảo cảm)` }
   }
 
   /** 检查NPC是否有每日提示功能 */

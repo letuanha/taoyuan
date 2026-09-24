@@ -5,43 +5,43 @@ export const SHOES: ShoeDef[] = [
   // ===== Tier 1: 基础款（绸缎庄购买）=====
   {
     id: 'straw_sandals',
-    name: '草鞋',
-    description: '朴素的草编鞋，减少体力消耗。',
+    name: 'Giày rơm',
+    description: 'Giày bện bằng rơm mộc mạc, giảm tiêu hao thể lực.',
     effects: [{ type: 'stamina_reduction', value: 0.05 }],
     shopPrice: 200,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 80
   },
   {
     id: 'cloth_shoes',
-    name: '布鞋',
-    description: '舒适的布鞋，农作时更加轻松。',
+    name: 'Giày vải',
+    description: 'Giày vải thoải mái, giúp làm nông nhẹ nhàng hơn.',
     effects: [{ type: 'farming_stamina', value: 0.08 }],
     shopPrice: 300,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 120
   },
 
   // ===== Tier 2: 中级款（绸缎庄购买）=====
   {
     id: 'leather_boots',
-    name: '皮靴',
-    description: '结实的皮革长靴，走路更快。',
+    name: 'Ủng da',
+    description: 'Ủng da cao cổ chắc chắn, giúp đi bộ nhanh hơn.',
     effects: [{ type: 'travel_speed', value: 0.15 }],
     shopPrice: 800,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 320
   },
   {
     id: 'miner_boots',
-    name: '矿工靴',
-    description: '厚底铁头靴，矿洞探索更加安全。',
+    name: 'Ủng thợ mỏ',
+    description: 'Ủng mũi sắt đế dày, giúp thám hiểm hang mỏ an toàn hơn.',
     effects: [
       { type: 'mining_stamina', value: 0.1 },
       { type: 'defense_bonus', value: 0.05 }
@@ -49,15 +49,15 @@ export const SHOES: ShoeDef[] = [
     shopPrice: 1000,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 400
   },
 
   // ===== Tier 3: 高级款（铁匠铺合成）=====
   {
     id: 'gale_boots',
-    name: '疾风靴',
-    description: '轻盈如风的皮靴，大幅缩短旅途时间。',
+    name: 'Giày Tật Phong',
+    description: 'Giày da nhẹ như gió, giúp rút ngắn đáng kể thời gian di chuyển.',
     effects: [
       { type: 'travel_speed', value: 0.25 },
       { type: 'stamina_reduction', value: 0.08 }
@@ -68,13 +68,13 @@ export const SHOES: ShoeDef[] = [
       { itemId: 'rabbit_foot', quantity: 1 }
     ],
     recipeMoney: 2000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 1000
   },
   {
     id: 'iron_greaves',
-    name: '铁甲靴',
-    description: '厚重的铁甲护胫，防御力出众。',
+    name: 'Ủng thiết giáp',
+    description: 'Xà cạp sắt dày cộp, khả năng phòng ngự vượt trội.',
     effects: [
       { type: 'defense_bonus', value: 0.12 },
       { type: 'max_hp_bonus', value: 10 }
@@ -82,13 +82,13 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: [{ itemId: 'iron_bar', quantity: 8 }],
     recipeMoney: 1500,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 750
   },
   {
     id: 'silk_slippers',
-    name: '丝绸绣鞋',
-    description: '精致的丝绸绣花鞋，踏青采药脚步轻盈。',
+    name: 'Giày thêu tơ lụa',
+    description: 'Giày thêu hoa bằng tơ lụa tinh xảo, giúp bước chân nhẹ nhàng khi dạo xuân hái thuốc.',
     effects: [
       { type: 'farming_stamina', value: 0.08 },
       { type: 'crop_quality_bonus', value: 0.04 }
@@ -99,13 +99,13 @@ export const SHOES: ShoeDef[] = [
       { itemId: 'herb', quantity: 5 }
     ],
     recipeMoney: 800,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 400
   },
   {
     id: 'merchant_boots',
-    name: '商旅靴',
-    description: '行商常穿的皮靴，行路快且购物有折扣。',
+    name: 'Ủng thương nhân',
+    description: 'Ủng da thương nhân hay đi, di chuyển nhanh và được giảm giá khi mua sắm.',
     effects: [
       { type: 'travel_speed', value: 0.18 },
       { type: 'shop_discount', value: 0.05 }
@@ -116,15 +116,15 @@ export const SHOES: ShoeDef[] = [
       { itemId: 'silk_cloth', quantity: 1 }
     ],
     recipeMoney: 2500,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 1200
   },
 
   // ===== Tier 4: 顶级款（铁匠铺合成）=====
   {
     id: 'moon_step_boots',
-    name: '月步靴',
-    description: '月光石嵌入的灵巧之靴，行路如飞。',
+    name: 'Ủng Nguyệt Bước',
+    description: 'Ủng linh hoạt khảm đá nguyệt quang, bước đi như bay.',
     effects: [
       { type: 'travel_speed', value: 0.3 },
       { type: 'luck', value: 0.08 }
@@ -135,13 +135,13 @@ export const SHOES: ShoeDef[] = [
       { itemId: 'moonstone', quantity: 2 }
     ],
     recipeMoney: 4000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 2000
   },
   {
     id: 'dragon_scale_boots',
-    name: '龙鳞靴',
-    description: '龙鳞制成的战靴，攻守兼备行如风。',
+    name: 'Ủng vảy rồng',
+    description: 'Ủng chiến làm từ vảy rồng, công thủ toàn diện, di chuyển như gió.',
     effects: [
       { type: 'defense_bonus', value: 0.1 },
       { type: 'attack_bonus', value: 3 },
@@ -153,15 +153,15 @@ export const SHOES: ShoeDef[] = [
       { itemId: 'dragon_jade', quantity: 1 }
     ],
     recipeMoney: 8000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 4000
   },
 
   // ===== 怪物掉落 =====
   {
     id: 'frost_treads',
-    name: '霜行靴',
-    description: '寒冰层怪物留下的冻结护胫，穿上后脚步稳健。',
+    name: 'Ủng Sương Hành',
+    description: 'Xà cạp đóng băng do quái vật tầng băng giá để lại, đeo vào giúp bước đi vững chãi.',
     effects: [
       { type: 'travel_speed', value: 0.08 },
       { type: 'defense_bonus', value: 0.03 }
@@ -169,13 +169,13 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '冰霜层怪物掉落',
+    obtainSource: 'Rớt từ quái vật tầng Băng Giá',
     sellPrice: 150
   },
   {
     id: 'shadow_striders',
-    name: '暗影行者',
-    description: '暗影层怪物的暗能凝聚而成，移动迅捷无声。',
+    name: 'Ủng Bóng Đêm',
+    description: 'Ngưng tụ từ ám năng của quái vật tầng bóng tối, di chuyển nhanh chóng và không tiếng động.',
     effects: [
       { type: 'travel_speed', value: 0.18 },
       { type: 'monster_drop_bonus', value: 0.06 }
@@ -183,13 +183,13 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '暗影层怪物掉落',
+    obtainSource: 'Rớt từ quái vật tầng Bóng Tối',
     sellPrice: 1000
   },
   {
     id: 'void_treads',
-    name: '虚空战靴',
-    description: '深渊骨龙的骨骼锻成，蕴含毁灭之力。',
+    name: 'Ủng chiến Hư Không',
+    description: 'Rèn từ xương cốt của cốt long vực thẳm, chứa đựng sức mạnh hủy diệt.',
     effects: [
       { type: 'attack_bonus', value: 3 },
       { type: 'defense_bonus', value: 0.08 },
@@ -198,15 +198,15 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '深渊层怪物掉落',
+    obtainSource: 'Rớt từ quái vật tầng Vực Thẳm',
     sellPrice: 1800
   },
 
   // ===== BOSS掉落 =====
   {
     id: 'lava_lord_greaves',
-    name: '熔岩铠靴',
-    description: '熔岩领主的余热凝结而成，坚固且灼热。',
+    name: 'Ủng giáp dung nham',
+    description: 'Ngưng tụ từ nhiệt lượng còn sót lại của Chúa tể Dung Nham, chắc chắn và nóng bóng.',
     effects: [
       { type: 'defense_bonus', value: 0.1 },
       { type: 'attack_bonus', value: 2 }
@@ -214,13 +214,13 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '60层BOSS首杀',
+    obtainSource: 'Hạ gục BOSS tầng 60 lần đầu',
     sellPrice: 800
   },
   {
     id: 'shadow_sovereign_treads',
-    name: '暗王之靴',
-    description: '暗影君主的遗物，暗能缠绕脚踝，步履生风。',
+    name: 'Ủng Ám Vương',
+    description: 'Di vật của Chúa tể Bóng Tối, ám năng quấn quanh cổ chân, bước đi sinh gió.',
     effects: [
       { type: 'travel_speed', value: 0.22 },
       { type: 'defense_bonus', value: 0.08 },
@@ -229,15 +229,15 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '100层BOSS首杀',
+    obtainSource: 'Hạ gục BOSS tầng 100 lần đầu',
     sellPrice: 1500
   },
 
   // ===== 宝箱掉落 =====
   {
     id: 'fortune_slippers',
-    name: '福运鞋',
-    description: '宝箱中发现的柔软拖鞋，似乎能招来好运。',
+    name: 'Giày may mắn',
+    description: 'Dép lê mềm mại tìm thấy trong rương báu, dường như có thể mang lại vận may.',
     effects: [
       { type: 'sell_price_bonus', value: 0.04 },
       { type: 'luck', value: 0.03 }
@@ -245,15 +245,15 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '矿洞宝箱',
+    obtainSource: 'Rương báu hang mỏ',
     sellPrice: 300
   },
 
   // ===== 新增商店鞋子（绸缎庄）=====
   {
     id: 'cotton_shoes',
-    name: '棉鞋',
-    description: '柔软保暖的棉鞋，减少日常体力消耗。',
+    name: 'Giày bông',
+    description: 'Giày bông mềm mại giữ ấm, giảm tiêu hao thể lực hàng ngày.',
     effects: [
       { type: 'stamina_reduction', value: 0.04 },
       { type: 'farming_stamina', value: 0.04 }
@@ -261,13 +261,13 @@ export const SHOES: ShoeDef[] = [
     shopPrice: 400,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 160
   },
   {
     id: 'fishing_waders',
-    name: '钓鱼靴',
-    description: '防水长靴，钓鱼时更加从容。',
+    name: 'Ủng câu cá',
+    description: 'Ủng cao cổ chống nước, giúp thoải mái hơn khi câu cá.',
     effects: [
       { type: 'fishing_stamina', value: 0.1 },
       { type: 'fishing_calm', value: 0.03 }
@@ -275,13 +275,13 @@ export const SHOES: ShoeDef[] = [
     shopPrice: 700,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 280
   },
   {
     id: 'jade_slippers',
-    name: '玉底鞋',
-    description: '翡翠镶底的绣花鞋，提升售价并增加送礼好感。',
+    name: 'Giày đế ngọc',
+    description: 'Giày thêu hoa nạm đế phỉ thúy, tăng giá bán và tăng độ thiện cảm khi tặng quà.',
     effects: [
       { type: 'sell_price_bonus', value: 0.04 },
       { type: 'gift_friendship', value: 0.06 }
@@ -289,15 +289,15 @@ export const SHOES: ShoeDef[] = [
     shopPrice: 1200,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '绸缎庄',
+    obtainSource: 'Trang Viên Tơ Lụa',
     sellPrice: 480
   },
 
   // ===== 新增合成鞋子（铁匠铺）=====
   {
     id: 'obsidian_greaves',
-    name: '黑曜甲靴',
-    description: '黑曜石锻造的重甲靴，防御力极强。',
+    name: 'Ủng giáp hắc diện',
+    description: 'Ủng giáp nặng rèn từ đá hắc diện, phòng ngự cực mạnh.',
     effects: [
       { type: 'defense_bonus', value: 0.15 },
       { type: 'max_hp_bonus', value: 15 }
@@ -308,13 +308,13 @@ export const SHOES: ShoeDef[] = [
       { itemId: 'iron_bar', quantity: 5 }
     ],
     recipeMoney: 3000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 1500
   },
   {
     id: 'wind_walker',
-    name: '风行靴',
-    description: '月光石赋予的轻盈之力，旅行速度大幅提升。',
+    name: 'Ủng Phong Hành',
+    description: 'Sức mạnh nhẹ nhàng do đá nguyệt quang ban tặng, tăng mạnh tốc độ di chuyển.',
     effects: [
       { type: 'travel_speed', value: 0.22 },
       { type: 'stamina_reduction', value: 0.06 }
@@ -325,13 +325,13 @@ export const SHOES: ShoeDef[] = [
       { itemId: 'moonstone', quantity: 1 }
     ],
     recipeMoney: 2500,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 1200
   },
   {
     id: 'phoenix_boots',
-    name: '凤鸣靴',
-    description: '龙玉与金铸成的华美靴子，带来好运与悟性。',
+    name: 'Ủng Phượng Minh',
+    description: 'Ủng lộng lẫy đúc từ long ngọc và vàng, mang lại may mắn và ngộ tính.',
     effects: [
       { type: 'luck', value: 0.06 },
       { type: 'exp_bonus', value: 0.08 }
@@ -342,15 +342,15 @@ export const SHOES: ShoeDef[] = [
       { itemId: 'dragon_jade', quantity: 1 }
     ],
     recipeMoney: 5000,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 2500
   },
 
   // ===== 新增BOSS掉落鞋子 =====
   {
     id: 'frost_queen_slippers',
-    name: '冰后舞靴',
-    description: '冰霜女王的遗物，穿上后脚步轻盈如冰上起舞。',
+    name: 'Ủng khiêu vũ Băng Hậu',
+    description: 'Di vật của Nữ hoàng Băng Giá, mang vào giúp bước chân nhẹ nhàng như khiêu vũ trên băng.',
     effects: [
       { type: 'travel_speed', value: 0.12 },
       { type: 'fishing_calm', value: 0.06 }
@@ -358,13 +358,13 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '40层BOSS首杀',
+    obtainSource: 'Hạ gục BOSS tầng 40 lần đầu',
     sellPrice: 500
   },
   {
     id: 'abyss_dragon_treads',
-    name: '龙王战靴',
-    description: '深渊龙王鳞片锻成的至高战靴，行如疾风攻守兼备。',
+    name: 'Ủng chiến Long Vương',
+    description: 'Ủng chiến tối cao rèn từ vảy của Long Vương Vực Thẳm, di chuyển như gió, công thủ toàn diện.',
     effects: [
       { type: 'travel_speed', value: 0.25 },
       { type: 'attack_bonus', value: 5 },
@@ -373,15 +373,15 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '120层BOSS首杀',
+    obtainSource: 'Hạ gục BOSS tầng 120 lần đầu',
     sellPrice: 5000
   },
 
   // ===== 新增怪物掉落鞋子 =====
   {
     id: 'crystal_treads',
-    name: '晶矿踏靴',
-    description: '水晶层怪物碎片凝成的矿靴，采矿效率提升。',
+    name: 'Ủng khai thác tinh quặng',
+    description: 'Ủng mỏ ngưng tụ từ mảnh vụn quái vật tầng pha lê, tăng hiệu suất khai thác mỏ.',
     effects: [
       { type: 'ore_bonus', value: 1 },
       { type: 'mining_stamina', value: 0.06 }
@@ -389,15 +389,15 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '水晶层怪物掉落',
+    obtainSource: 'Rớt từ quái vật tầng Pha Lê',
     sellPrice: 800
   },
 
   // ===== 新增宝箱掉落鞋子 =====
   {
     id: 'lucky_boots',
-    name: '幸运长靴',
-    description: '宝箱中发现的古怪长靴，带来好运与额外战利品。',
+    name: 'Ủng cao cổ may mắn',
+    description: 'Ủng cao cổ kỳ lạ tìm thấy trong rương báu, mang lại may mắn và thêm chiến lợi phẩm.',
     effects: [
       { type: 'luck', value: 0.05 },
       { type: 'monster_drop_bonus', value: 0.04 }
@@ -405,15 +405,15 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '矿洞宝箱',
+    obtainSource: 'Rương báu hang mỏ',
     sellPrice: 450
   },
 
   // === 公会专属 ===
   {
     id: 'guild_war_boots',
-    name: '公会战靴',
-    description: '冒险家公会精英成员的战斗靴，轻便且坚韧。',
+    name: 'Ủng chiến công hội',
+    description: 'Ủng chiến đấu của thành viên tinh anh thuộc Công hội Mạo Hiểm Giả, nhẹ nhàng và bền bỉ.',
     effects: [
       { type: 'attack_bonus', value: 2 },
       { type: 'defense_bonus', value: 0.05 },
@@ -422,14 +422,14 @@ export const SHOES: ShoeDef[] = [
     shopPrice: null,
     recipe: null,
     recipeMoney: 0,
-    obtainSource: '公会商店',
+    obtainSource: 'Cửa hàng Công hội',
     sellPrice: 800
   },
   // === 竹林野兽材料制作 ===
   {
     id: 'bear_pelt_boots',
-    name: '熊皮靴',
-    description: '厚实的熊皮缝制的战靴，坚韧无比，穿着者更加强壮。',
+    name: 'Ủng da gấu',
+    description: 'Ủng chiến rèn từ da gấu dày dặn, vô cùng bền bỉ, giúp người đeo trở nên mạnh mẽ hơn.',
     effects: [
       { type: 'defense_bonus', value: 0.1 },
       { type: 'max_hp_bonus', value: 15 }
@@ -440,7 +440,7 @@ export const SHOES: ShoeDef[] = [
       { itemId: 'iron_bar', quantity: 2 }
     ],
     recipeMoney: 1200,
-    obtainSource: '铁匠铺合成',
+    obtainSource: 'Ghép tại Tiệm Rèn',
     sellPrice: 600
   }
 ]

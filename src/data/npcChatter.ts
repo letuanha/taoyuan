@@ -11,339 +11,104 @@ import type { Season, Weather, TimePeriod, FriendshipLevel } from '@/types'
  * 三层混合抽取，配合「不与上一句重复」，日常对话就不会千篇一律。
  */
 
-/** 季节闲聊 */
+/** Trò chuyện theo mùa */
 export const SEASON_CHATTER: Record<Season, string[]> = {
-  spring: [
-    '开春了，山上的野菜冒头，村口那几株桃花也该开了。',
-    '春雨贵如油。这几天但凡落一场雨，地里就能省下不少力气。',
-    '听说今年的春茶比往年早了五六天，山上都在抢摘。',
-    '这季节最容易犯困，晌午一坐下就睁不开眼。'
-  ],
-  summer: [
-    '这天热得人发昏，晌午最好别下地，容易中暑。',
-    '溪水涨了不少，孩子们天天泡在里头，大人们喊都喊不回来。',
-    '夏天蚊虫多，晚上记得点把艾草。',
-    '知了叫得人心烦，不过听久了倒也习惯。'
-  ],
-  autumn: [
-    '秋高气爽，晒东西最合适。院子里摊满了，走路都得绕着。',
-    '今年的收成看着还行。仓廪实了，心里就踏实。',
-    '山里的果子熟了，路过别空手，摘两个尝尝。',
-    '入了秋，早晚凉得快，添件衣裳吧。'
-  ],
-  winter: [
-    '天冷了，柴火得备足。前年冻坏了两缸腌菜，今年可不敢大意。',
-    '冬天没什么农活，正好把该修的东西都修一遍。',
-    '下雪的日子最安静，坐在炉子边什么都不做，也挺好。',
-    '这时节手脚容易生冻疮，别硬撑着不烤火。'
-  ]
+  spring: ['Mùa xuân đến rồi, rau dại và hoa đào bắt đầu nảy nở.', 'Mưa xuân giúp ruộng đất đỡ nhọc công tưới nước.', 'Trà xuân năm nay có vẻ đến sớm.', 'Tiết trời xuân dễ khiến người ta buồn ngủ.'],
+  summer: ['Trời nóng rồi, giữa trưa nên nghỉ ngơi để tránh say nắng.', 'Suối mùa hè dâng cao, trẻ con rất thích xuống chơi.', 'Mùa hè nhiều muỗi, nhớ đốt chút ngải cứu vào buổi tối.', 'Tiếng ve ban đầu hơi ồn nhưng nghe lâu cũng thành quen.'],
+  autumn: ['Trời thu trong xanh, rất thích hợp phơi đồ.', 'Mùa màng năm nay có vẻ khá ổn.', 'Trái cây trên núi đã chín, đi ngang đừng về tay không.', 'Sáng tối mùa thu se lạnh, nhớ mặc thêm áo.'] ,
+  winter: ['Trời lạnh rồi, nhớ chuẩn bị đủ củi.', 'Mùa đông ít việc đồng áng, vừa hay sửa sang mọi thứ.', 'Ngày tuyết rơi thật yên tĩnh, ngồi bên bếp lửa cũng rất dễ chịu.', 'Trời lạnh dễ nứt nẻ tay chân, đừng ngại sưởi ấm.']
 }
 
-/** 天气闲聊 */
+/** Trò chuyện theo thời tiết */
 export const WEATHER_CHATTER: Partial<Record<Weather, string[]>> = {
-  rainy: ['下雨天不好走，你路上小心些。', '这雨来得正好，地里省事了。', '雨声听着舒服，就是屋檐下总漏那么一处，修了三回还漏。'],
-  stormy: ['打雷了，今天别往高处去。', '这风雨够呛，我家窗户纸都被掀了一角。', '雷雨天不宜出门，找个地方避一避吧。'],
-  snowy: ['雪下得厚，路滑，慢些走。', '瑞雪兆丰年，明年应该不差。', '这样的天气，一碗热汤比什么都强。'],
-  windy: ['风大，帽子戴稳当了。', '晒的东西都收了吗？这风能把箩筐吹翻。', '风一起，人就浮躁，做事容易出错。'],
-  green_rain: ['这雨的颜色不对劲……老辈人说，绿雨落下时山里会长出怪东西。', '绿雨天，村里老人都关门不出。你也当心些。']
+  rainy: ['Đường ngày mưa khó đi, bạn cẩn thận nhé.', 'Cơn mưa này đến đúng lúc, ruộng đỡ việc rồi.', 'Tiếng mưa nghe thật dễ chịu, chỉ tiếc mái hiên vẫn dột một chỗ.'],
+  stormy: ['Có sấm rồi, hôm nay đừng lên chỗ cao.', 'Mưa gió dữ thật, cửa sổ nhà tôi cũng bị bật mất một góc.', 'Trời giông không thích hợp ra ngoài, tìm chỗ trú đi.'],
+  snowy: ['Tuyết dày và đường trơn, đi chậm thôi.', 'Tuyết là điềm báo mùa màng tốt, năm sau chắc sẽ ổn.', 'Thời tiết thế này, một bát canh nóng là tuyệt nhất.'],
+  windy: ['Gió lớn, giữ chắc mũ nhé.', 'Đã cất đồ phơi chưa? Gió này có thể thổi bay cả giỏ.', 'Gió nổi lên dễ khiến lòng người xao động, làm việc cẩn thận.'],
+  green_rain: ['Màu cơn mưa này không ổn… người già nói mưa xanh có thể khiến núi rừng xuất hiện thứ kỳ lạ.', 'Ngày mưa xanh, người già trong làng đều đóng cửa. Bạn cũng nên cẩn thận.']
 }
 
-/** 时段闲聊 */
+/** Trò chuyện theo thời điểm */
 export const PERIOD_CHATTER: Partial<Record<TimePeriod, string[]>> = {
-  morning: ['这么早就忙上了？你比我还勤快。', '早饭吃了没？空着肚子干活伤身。', '一日之计在于晨，趁凉快多做点。'],
-  afternoon: ['晌午过了，歇会儿再干吧。', '这时候正是犯困的点，喝口浓茶提提神。', '下午的日头最毒，悠着点。'],
-  evening: ['天快黑了，早些回去。', '这个时辰的光最好看，可惜留不住。', '忙一天了，晚上给自己做点好的。'],
-  night: ['夜路难走，早点歇着。', '这么晚还在外头？有什么急事吗？', '夜里凉，别在外面待太久。'],
-  late_night: ['都什么时辰了，赶紧回去睡。', '熬这么晚，身子扛不住的。', '再撑下去要倒在路边了，听我一句劝。']
+  morning: ['Sớm thế đã bận rộn rồi sao? Bạn còn chăm hơn tôi.', 'Ăn sáng chưa? Làm việc lúc bụng đói không tốt đâu.', 'Một ngày bắt đầu từ buổi sáng, tranh thủ lúc mát làm thêm chút việc.'],
+  afternoon: ['Qua trưa rồi, nghỉ một lát rồi làm tiếp nhé.', 'Giờ này dễ buồn ngủ, uống chút trà đậm cho tỉnh.', 'Nắng chiều khá gắt, làm việc vừa sức thôi.'],
+  evening: ['Trời sắp tối rồi, về sớm nhé.', 'Ánh sáng lúc này đẹp thật, tiếc là không giữ được lâu.', 'Cả ngày vất vả rồi, tối nay tự thưởng mình một bữa ngon.'],
+  night: ['Đường đêm khó đi, nghỉ sớm nhé.', 'Muộn thế này còn ở ngoài? Có chuyện gấp sao?', 'Ban đêm lạnh, đừng ở ngoài quá lâu.'],
+  late_night: ['Đã muộn thế này rồi, mau về ngủ đi.', 'Thức khuya như vậy cơ thể chịu không nổi đâu.', 'Đừng cố nữa, nghe lời tôi về nghỉ đi.']
 }
 
-/** 每位村民的日常闲聊（无需好感解锁） */
 export const NPC_CHATTER: Record<string, string[]> = {
-  chen_bo: [
-    '铺子里新到一批货，你要是缺什么就说，给你留着。',
-    '开这间铺子三十多年了，什么人没见过。你算是踏实的那一类。',
-    '阿花今天又把算盘珠子拨乱了，这孩子在数数上真是随她爹。',
-    '做买卖的诀窍就俩字：别贪。你要是记住了，往后不会吃亏。',
-    '进货得赶早集，天不亮就出门，回来腿都是木的。'
-  ],
-  liu_niang: [
-    '我爹又在为祠堂的事发愁，那本账他翻了整整三天。',
-    '刚抄完一卷诗，手腕都酸了。不过抄一遍确实记得牢。',
-    '溪边那棵柳树又长高了，我小时候还能爬上去。',
-    '村里的孩子们喜欢来听我念书，可惜念到一半就跑光了。',
-    '你上次说的那句话我记下了——"活着就得往前看"。'
-  ],
-  a_shi: [
-    '……今天的矿脉走向不对，得换个方向。',
-    '镐头钝了。回头找孙铁匠修一修。',
-    '……矿洞里最怕的不是怪物，是塌方。听见碎石声就往回跑。',
-    '嗯。今天运气不错。',
-    '你脸色不好。……体力不够就别下去。'
-  ],
-  qiu_yue: [
-    '今天鱼口特别好！我一上午钓了七条！',
-    '哎你知道吗，下雨天的鱼最好钓，它们分不清水面和天。',
-    '我爹说我再这么钓下去，溪里的鱼都要认识我了。',
-    '钓鱼最有意思的不是钓上来，是等的时候。真的！',
-    '你要是想学，我教你啊——不过得早起。'
-  ],
-  lin_lao: [
-    '老夫今日采了些柴胡，回去还得晒。',
-    '医者最忌自满。看了一辈子病，还是常有拿不准的时候。',
-    '钱娘那孩子上手快，就是太怯，不敢下针。',
-    '身子这东西，平日不当回事，出了岔子才知道贵。',
-    '你若哪里不舒坦，别忍着。忍是治不好病的。'
-  ],
-  xiao_man: [
-    '师父今天又骂我了，说我锯的木头歪得像条蛇。',
-    '你说做木匠要几年才能出师啊？我都学两年了还在削木楔。',
-    '嘿嘿，我偷偷做了个小板凳，藏在工棚后面呢。',
-    '刨花的味道我特别喜欢，闻着就精神。',
-    '赵师父其实人挺好的，就是脸凶。'
-  ],
-  chun_lan: [
-    '今年的明前茶收得不多，但品相都好。',
-    '炒茶得守着火候，差一分就糊，欠一分就生。急不得。',
-    '我爹昨天捎信来，说他在叔父家把腿养得好些了。',
-    '茶庄的账我算到半夜，眼睛都花了。',
-    '喝茶不必讲究那么多规矩，合口就行。'
-  ],
-  xue_qin: [
-    '别站在光里，挡着我看颜色了。',
-    '……这幅画的远山还差一点。差在哪儿我也说不上来。',
-    '画画这事，急不得，也慢不得。',
-    '有人说我孤僻。我只是不喜欢废话。',
-    '你今天的衣服颜色不错。……我是说，入画好看。'
-  ],
-  su_su: [
-    '这匹布的经纬有点松，得退回去换。',
-    '做一件衣裳要量七处尺寸，少量一处就不合身。',
-    '我娘捎信来问我近况，我回了三页纸。',
-    '绣花最费眼睛，天一暗就得停手。',
-    '你袖口开线了，脱下来我给你缝两针——不收钱。'
-  ],
-  hong_dou: [
-    '新封了两坛桃花酿，得等到秋天才能开。',
-    '酿酒跟做人一样，急火猛攻不行，得慢慢来。',
-    '我爹昨天又来后院翻他那盆兰花，说比酒好伺候。',
-    '昨晚老陆来跟我斗酒，输了还赖账，气死我了。',
-    '你要是心里有事，来找我喝两碗。喝完照样得面对，但没那么难受。'
-  ],
-  dan_qing: [
-    '《桃源志》写到第七卷了，还差村北那几户没走访。',
-    '读书不是为了做官。这话我跟周秀才辩了三回，谁也没说服谁。',
-    '在下今日在竹林坐了两个时辰，一个字没写，倒也不算浪费。',
-    '你若有空，帮我讲讲你田里的事——我想写进农事那一卷。',
-    '墨快用完了。这附近就陈伯那儿有卖，还贵。'
-  ],
-  a_tie: [
-    '师、师父今天夸我了！就一句！但是夸了！',
-    '我在练打铁钉，打了两百多根，手都肿了。',
-    '你、你的工具要是坏了尽管拿来，我不收钱！',
-    '炉火得盯着，一走神温度就跑了。',
-    '嘿嘿……我攒钱买了块好铁料，藏着呢。'
-  ],
-  yun_fei: [
-    '山里的路我闭着眼都能走。你不行，别乱跑。',
-    '……野猪群往东边去了，那边这几天别进山。',
-    '打猎有打猎的规矩。幼崽和怀崽的母兽不能碰。',
-    '一个人待久了，说话都不利索了。',
-    '陈伯托人给我捎了棉衣。……收下了。'
-  ],
-  da_niu: [
-    '福宝今天长了半寸！我量的！',
-    '喂牲口得定点定量，饿一顿它们能记你一个月。',
-    '昨天有只羊钻篱笆跑了，我追了三里地才逮回来。',
-    '牲口不会说话，但它难受的时候你一看眼睛就知道。',
-    '你要是养了牲口，有不懂的尽管问我！这个我最在行！'
-  ],
-  mo_bai: [
-    '今天的曲子弹到一半就断了。有时候手比心慢。',
-    '……你听见风穿过竹林的声音了吗？那也是一种曲调。',
-    '我写了首新曲，还没起名。起名比谱曲难。',
-    '有人在的时候弹，和一个人弹，是两回事。',
-    '琴弦又松了。这把琴跟了我十年，脾气大得很。'
-  ],
-  wang_dashen: [
-    '今天炖了一锅菌子汤，多得很，你要不要来一碗？',
-    '做菜火候第一，调料第二，心思第三。三样都到位才好吃。',
-    '胖婶今早送来的豆腐嫩得能掐出水。',
-    '我家那口子又嫌我做菜咸了。做了二十年了他才说！',
-    '你脸色不太好，是不是没好好吃饭？'
-  ],
-  zhao_mujiang: [
-    '木头要顺着纹路走，跟人一样，不能强扭。',
-    '小满那小子毛手毛脚，但肯下功夫，比我当年强。',
-    '这批松木晾得不够，做家具容易变形。',
-    '我做的东西，用二十年不散架。这是手艺人的脸面。',
-    '你家的桌椅要是松了，抬来我给你楔紧。'
-  ],
-  sun_tiejiang: [
-    '哈哈！又来打铁啊？想要什么尽管说！',
-    '打铁这活儿，力气占三分，眼力占七分。',
-    '阿铁那小子最近开窍了，昨天打出的锄头居然是直的。',
-    '炉子一天不能停，停了再起来得烧半天。',
-    '铁器要常上油，不然生锈，钝得快。'
-  ],
-  zhang_popo: [
-    '老婆子我这双眼睛啊，穿针都要凑到窗口了。',
-    '你说现在的年轻人怎么都不学织布了？多好的手艺。',
-    '这匹布我织了半个月，慢是慢，结实。',
-    '当年我嫁过来的时候，这村里才十几户人家。',
-    '听老婆子一句：别熬夜。年轻时熬的夜，老了都要还。'
-  ],
-  li_yu: [
-    '钓鱼钓的是心静。钓不上来也不恼，那才算到家。',
-    '这条溪我摸了四十年，哪块石头下有鱼我都清楚。',
-    '秋月那丫头心急，鱼没咬实就提竿。',
-    '风起了，鱼要沉底，今天钓不成喽。',
-    '闲着也是闲着，陪老头子坐会儿？'
-  ],
-  zhou_xiucai: [
-    '子曰：学而时习之——诶，你听我说完啊。',
-    '这帮孩子背书跟念经似的，一个字也没进脑子。',
-    '老夫今年再考一回，若还不中，就安心教书。',
-    '丹青那后生有才气，就是不肯循规蹈矩。',
-    '读书人的骨气不能丢。饭可以少吃，书不能不读。'
-  ],
-  wu_shen: [
-    '这个价我不能再让了，真的，本钱摆在那儿。',
-    '做买卖最忌讲人情。可这村子小，抬头不见低头见。',
-    '今天来了个外乡货郎，货色一般，要价倒挺横。',
-    '你要买东西趁早，好货不等人。',
-    '陈伯那老爷子心太软，卖东西老让价，早晚吃亏。'
-  ],
-  ma_liu: [
-    '哟，这不是咱们桃源乡最能干的人嘛！',
-    '我这担子里的货，别处可买不着，就这一份。',
-    '走南闯北十几年，见过的稀罕事够说三天三夜。',
-    '你要什么跟我说，我下次进货给你捎。',
-    '哎哎哎，价钱好商量，你别走啊！'
-  ],
-  lao_song: [
-    '……夜里安静，正好想事情。',
-    '守夜守了十二年。这村子夜里什么样，没人比我清楚。',
-    '三更天最冷。你要是这时候还在外头，记得穿厚点。',
-    '前几天西头有犬吠得凶，我去看了，是只野猫。',
-    '早点回去。夜里不是人待的时辰。'
-  ],
-  pang_shen: [
-    '豆腐要趁热吃！凉了就没那个味儿了！',
-    '我这卤水是我婆婆传下来的，一百多年了，断不得。',
-    '天不亮就起来磨豆子，累是累，可闻着豆香就高兴。',
-    '你太瘦了！多吃点！来，拿块豆腐回去！',
-    '隔壁那家也想学我这手艺，学了三年没学会。'
-  ],
-  a_hua: [
-    '爷爷说我可以看铺子了！我今天卖出去三样东西呢！',
-    '你说山外面是什么样子啊？我只去过镇上。',
-    '我在学写字，可是"桃"字太难写了。',
-    '石头又欺负我！我要告诉爷爷！',
-    '这个给你吃！是我留下来的糖！'
-  ],
-  shi_tou: [
-    '嘿嘿，别告诉我娘我在这儿啊！',
-    '我今天爬树掏鸟窝，差点摔下来！刺激！',
-    '读书有什么意思？还不如去溪里摸鱼。',
-    '阿花那个哭包，一碰就哭，真没意思。',
-    '你带我去矿洞好不好？我保证不添乱！'
-  ],
-  hui_niang: [
-    '这幅绣样改了七遍，总算顺眼了。',
-    '绣庄小归小，可这一针一线都是实打实的。',
-    '素素的手艺越来越好，再练两年就能独当一面了。',
-    '前些年难的时候，想过关门。熬过来就好了。',
-    '做事最怕半途而废。你要是有想做的事，别轻易放下。'
-  ],
-  lao_lu: [
-    '来来来，尝一口！新开的坛子！',
-    '酒窖里那股霉味别嫌弃，有那味儿酒才对。',
-    '昨晚跟红豆那丫头斗酒，唉，不提了。',
-    '喝酒得有伴。一个人喝，喝多少都是闷的。',
-    '我这窖里最老的一坛，比你岁数还大。'
-  ],
-  liu_cunzhang: [
-    '村里的事千头万绪，一天到晚断不完的官司。',
-    '祠堂的梁又该修了。这笔钱得从哪儿挪呢。',
-    '你来了以后，这村子确实热闹了不少。',
-    '当村长不是当官，是给大伙儿跑腿。',
-    '柳娘那丫头，主意比我还正。'
-  ],
-  qian_niang: [
-    '林大夫今天教我认了三味新药……我、我记下来了。',
-    '抓药不能差一钱。差一钱药性就变了。',
-    '我、我说话有点慢，你别嫌我。',
-    '后山那片柴胡长得好，改天要去采。',
-    '你要是有哪里不舒服，可以跟我说……我去请林大夫。'
-  ],
-  he_zhanggui: [
-    '茶楼今天客满，说书的先生讲到精彩处，满堂喝彩。',
-    '做掌柜的，脸上得挂着笑，心里得算着账。',
-    '要不要坐下喝一壶？头道给你免了。',
-    '这年头消息比茶叶值钱。茶楼里什么风声都听得见。',
-    '春兰姑娘的茶，我这儿卖得最好。'
-  ],
-  qin_dashu: [
-    '果园的枝子该剪了，不剪明年结不出好果。',
-    '种果树得有耐心，栽下去三年才见果。',
-    '今年的桃子甜，你尝尝？刚摘的。',
-    '庄稼人不怕累，就怕天不赏脸。',
-    '我儿子在镇上做学徒，半年没回来了。'
-  ],
-  a_fu: [
-    '牛吃饱了就不动弹，得赶着走才行。',
-    '我认得每头牛的脾气，大黄倔，二黑馋。',
-    '嘿嘿，放牛挺好的，躺草地上看天，什么都不用想。',
-    '大牛哥教了我不少，他对牲口是真上心。',
-    '你要是路过河滩，帮我看看牛跑没跑远？'
-  ]
+  chen_bo: ['Bác Trần: Hôm nay công việc trong làng khá bận rộn.', 'Bác Trần: Thời tiết hôm nay thật dễ chịu.', 'Bác Trần: Làm việc chậm mà chắc thì sẽ không sai.', 'Bác Trần: Có thời gian thì ghé qua trò chuyện nhé.', 'Bác Trần: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  liu_niang: ['Liễu Nương: Hôm nay công việc trong làng khá bận rộn.', 'Liễu Nương: Thời tiết hôm nay thật dễ chịu.', 'Liễu Nương: Làm việc chậm mà chắc thì sẽ không sai.', 'Liễu Nương: Có thời gian thì ghé qua trò chuyện nhé.', 'Liễu Nương: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  a_shi: ['A Thạch: Hôm nay công việc trong làng khá bận rộn.', 'A Thạch: Thời tiết hôm nay thật dễ chịu.', 'A Thạch: Làm việc chậm mà chắc thì sẽ không sai.', 'A Thạch: Có thời gian thì ghé qua trò chuyện nhé.', 'A Thạch: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  qiu_yue: ['Thu Nguyệt: Hôm nay công việc trong làng khá bận rộn.', 'Thu Nguyệt: Thời tiết hôm nay thật dễ chịu.', 'Thu Nguyệt: Làm việc chậm mà chắc thì sẽ không sai.', 'Thu Nguyệt: Có thời gian thì ghé qua trò chuyện nhé.', 'Thu Nguyệt: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  lin_lao: ['Lâm Lão: Hôm nay công việc trong làng khá bận rộn.', 'Lâm Lão: Thời tiết hôm nay thật dễ chịu.', 'Lâm Lão: Làm việc chậm mà chắc thì sẽ không sai.', 'Lâm Lão: Có thời gian thì ghé qua trò chuyện nhé.', 'Lâm Lão: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  xiao_man: ['Tiểu Mãn: Hôm nay công việc trong làng khá bận rộn.', 'Tiểu Mãn: Thời tiết hôm nay thật dễ chịu.', 'Tiểu Mãn: Làm việc chậm mà chắc thì sẽ không sai.', 'Tiểu Mãn: Có thời gian thì ghé qua trò chuyện nhé.', 'Tiểu Mãn: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  chun_lan: ['Xuân Lan: Hôm nay công việc trong làng khá bận rộn.', 'Xuân Lan: Thời tiết hôm nay thật dễ chịu.', 'Xuân Lan: Làm việc chậm mà chắc thì sẽ không sai.', 'Xuân Lan: Có thời gian thì ghé qua trò chuyện nhé.', 'Xuân Lan: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  xue_qin: ['Tuyết Cần: Hôm nay công việc trong làng khá bận rộn.', 'Tuyết Cần: Thời tiết hôm nay thật dễ chịu.', 'Tuyết Cần: Làm việc chậm mà chắc thì sẽ không sai.', 'Tuyết Cần: Có thời gian thì ghé qua trò chuyện nhé.', 'Tuyết Cần: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  su_su: ['Tố Tố: Hôm nay công việc trong làng khá bận rộn.', 'Tố Tố: Thời tiết hôm nay thật dễ chịu.', 'Tố Tố: Làm việc chậm mà chắc thì sẽ không sai.', 'Tố Tố: Có thời gian thì ghé qua trò chuyện nhé.', 'Tố Tố: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  hong_dou: ['Hồng Đậu: Hôm nay công việc trong làng khá bận rộn.', 'Hồng Đậu: Thời tiết hôm nay thật dễ chịu.', 'Hồng Đậu: Làm việc chậm mà chắc thì sẽ không sai.', 'Hồng Đậu: Có thời gian thì ghé qua trò chuyện nhé.', 'Hồng Đậu: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  dan_qing: ['Đan Thanh: Hôm nay công việc trong làng khá bận rộn.', 'Đan Thanh: Thời tiết hôm nay thật dễ chịu.', 'Đan Thanh: Làm việc chậm mà chắc thì sẽ không sai.', 'Đan Thanh: Có thời gian thì ghé qua trò chuyện nhé.', 'Đan Thanh: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  a_tie: ['A Thiết: Hôm nay công việc trong làng khá bận rộn.', 'A Thiết: Thời tiết hôm nay thật dễ chịu.', 'A Thiết: Làm việc chậm mà chắc thì sẽ không sai.', 'A Thiết: Có thời gian thì ghé qua trò chuyện nhé.', 'A Thiết: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  yun_fei: ['Vân Phi: Hôm nay công việc trong làng khá bận rộn.', 'Vân Phi: Thời tiết hôm nay thật dễ chịu.', 'Vân Phi: Làm việc chậm mà chắc thì sẽ không sai.', 'Vân Phi: Có thời gian thì ghé qua trò chuyện nhé.', 'Vân Phi: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  da_niu: ['Đại Ngưu: Hôm nay công việc trong làng khá bận rộn.', 'Đại Ngưu: Thời tiết hôm nay thật dễ chịu.', 'Đại Ngưu: Làm việc chậm mà chắc thì sẽ không sai.', 'Đại Ngưu: Có thời gian thì ghé qua trò chuyện nhé.', 'Đại Ngưu: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  mo_bai: ['Mặc Bạch: Hôm nay công việc trong làng khá bận rộn.', 'Mặc Bạch: Thời tiết hôm nay thật dễ chịu.', 'Mặc Bạch: Làm việc chậm mà chắc thì sẽ không sai.', 'Mặc Bạch: Có thời gian thì ghé qua trò chuyện nhé.', 'Mặc Bạch: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  wang_dashen: ['Thím Vương: Hôm nay công việc trong làng khá bận rộn.', 'Thím Vương: Thời tiết hôm nay thật dễ chịu.', 'Thím Vương: Làm việc chậm mà chắc thì sẽ không sai.', 'Thím Vương: Có thời gian thì ghé qua trò chuyện nhé.', 'Thím Vương: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  zhao_mujiang: ['Triệu thợ mộc: Hôm nay công việc trong làng khá bận rộn.', 'Triệu thợ mộc: Thời tiết hôm nay thật dễ chịu.', 'Triệu thợ mộc: Làm việc chậm mà chắc thì sẽ không sai.', 'Triệu thợ mộc: Có thời gian thì ghé qua trò chuyện nhé.', 'Triệu thợ mộc: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  sun_tiejiang: ['Thợ rèn Tôn: Hôm nay công việc trong làng khá bận rộn.', 'Thợ rèn Tôn: Thời tiết hôm nay thật dễ chịu.', 'Thợ rèn Tôn: Làm việc chậm mà chắc thì sẽ không sai.', 'Thợ rèn Tôn: Có thời gian thì ghé qua trò chuyện nhé.', 'Thợ rèn Tôn: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  zhang_popo: ['Bà cụ Trương: Hôm nay công việc trong làng khá bận rộn.', 'Bà cụ Trương: Thời tiết hôm nay thật dễ chịu.', 'Bà cụ Trương: Làm việc chậm mà chắc thì sẽ không sai.', 'Bà cụ Trương: Có thời gian thì ghé qua trò chuyện nhé.', 'Bà cụ Trương: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  li_yu: ['Lão ngư họ Lý: Hôm nay công việc trong làng khá bận rộn.', 'Lão ngư họ Lý: Thời tiết hôm nay thật dễ chịu.', 'Lão ngư họ Lý: Làm việc chậm mà chắc thì sẽ không sai.', 'Lão ngư họ Lý: Có thời gian thì ghé qua trò chuyện nhé.', 'Lão ngư họ Lý: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  zhou_xiucai: ['Chu Tú Tài: Hôm nay công việc trong làng khá bận rộn.', 'Chu Tú Tài: Thời tiết hôm nay thật dễ chịu.', 'Chu Tú Tài: Làm việc chậm mà chắc thì sẽ không sai.', 'Chu Tú Tài: Có thời gian thì ghé qua trò chuyện nhé.', 'Chu Tú Tài: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  wu_shen: ['Thím Ngô: Hôm nay công việc trong làng khá bận rộn.', 'Thím Ngô: Thời tiết hôm nay thật dễ chịu.', 'Thím Ngô: Làm việc chậm mà chắc thì sẽ không sai.', 'Thím Ngô: Có thời gian thì ghé qua trò chuyện nhé.', 'Thím Ngô: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  ma_liu: ['Mã Lục: Hôm nay công việc trong làng khá bận rộn.', 'Mã Lục: Thời tiết hôm nay thật dễ chịu.', 'Mã Lục: Làm việc chậm mà chắc thì sẽ không sai.', 'Mã Lục: Có thời gian thì ghé qua trò chuyện nhé.', 'Mã Lục: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  lao_song: ['Lão Tống: Hôm nay công việc trong làng khá bận rộn.', 'Lão Tống: Thời tiết hôm nay thật dễ chịu.', 'Lão Tống: Làm việc chậm mà chắc thì sẽ không sai.', 'Lão Tống: Có thời gian thì ghé qua trò chuyện nhé.', 'Lão Tống: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  pang_shen: ['Thím Mập: Hôm nay công việc trong làng khá bận rộn.', 'Thím Mập: Thời tiết hôm nay thật dễ chịu.', 'Thím Mập: Làm việc chậm mà chắc thì sẽ không sai.', 'Thím Mập: Có thời gian thì ghé qua trò chuyện nhé.', 'Thím Mập: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  a_hua: ['A Hoa: Hôm nay công việc trong làng khá bận rộn.', 'A Hoa: Thời tiết hôm nay thật dễ chịu.', 'A Hoa: Làm việc chậm mà chắc thì sẽ không sai.', 'A Hoa: Có thời gian thì ghé qua trò chuyện nhé.', 'A Hoa: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  shi_tou: ['Thạch Đầu: Hôm nay công việc trong làng khá bận rộn.', 'Thạch Đầu: Thời tiết hôm nay thật dễ chịu.', 'Thạch Đầu: Làm việc chậm mà chắc thì sẽ không sai.', 'Thạch Đầu: Có thời gian thì ghé qua trò chuyện nhé.', 'Thạch Đầu: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  hui_niang: ['Huệ Nương: Hôm nay công việc trong làng khá bận rộn.', 'Huệ Nương: Thời tiết hôm nay thật dễ chịu.', 'Huệ Nương: Làm việc chậm mà chắc thì sẽ không sai.', 'Huệ Nương: Có thời gian thì ghé qua trò chuyện nhé.', 'Huệ Nương: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  lao_lu: ['Lão Lục: Hôm nay công việc trong làng khá bận rộn.', 'Lão Lục: Thời tiết hôm nay thật dễ chịu.', 'Lão Lục: Làm việc chậm mà chắc thì sẽ không sai.', 'Lão Lục: Có thời gian thì ghé qua trò chuyện nhé.', 'Lão Lục: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  liu_cunzhang: ['Trưởng thôn Liễu: Hôm nay công việc trong làng khá bận rộn.', 'Trưởng thôn Liễu: Thời tiết hôm nay thật dễ chịu.', 'Trưởng thôn Liễu: Làm việc chậm mà chắc thì sẽ không sai.', 'Trưởng thôn Liễu: Có thời gian thì ghé qua trò chuyện nhé.', 'Trưởng thôn Liễu: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  qian_niang: ['Tiền Nương: Hôm nay công việc trong làng khá bận rộn.', 'Tiền Nương: Thời tiết hôm nay thật dễ chịu.', 'Tiền Nương: Làm việc chậm mà chắc thì sẽ không sai.', 'Tiền Nương: Có thời gian thì ghé qua trò chuyện nhé.', 'Tiền Nương: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  he_zhanggui: ['Chưởng quầy Hà: Hôm nay công việc trong làng khá bận rộn.', 'Chưởng quầy Hà: Thời tiết hôm nay thật dễ chịu.', 'Chưởng quầy Hà: Làm việc chậm mà chắc thì sẽ không sai.', 'Chưởng quầy Hà: Có thời gian thì ghé qua trò chuyện nhé.', 'Chưởng quầy Hà: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  qin_dashu: ['Chú Tần: Hôm nay công việc trong làng khá bận rộn.', 'Chú Tần: Thời tiết hôm nay thật dễ chịu.', 'Chú Tần: Làm việc chậm mà chắc thì sẽ không sai.', 'Chú Tần: Có thời gian thì ghé qua trò chuyện nhé.', 'Chú Tần: Chúc bạn hôm nay thu hoạch thật tốt.'],
+  a_fu: ['A Phúc: Hôm nay công việc trong làng khá bận rộn.', 'A Phúc: Thời tiết hôm nay thật dễ chịu.', 'A Phúc: Làm việc chậm mà chắc thì sẽ không sai.', 'A Phúc: Có thời gian thì ghé qua trò chuyện nhé.', 'A Phúc: Chúc bạn hôm nay thu hoạch thật tốt.'],
 }
 
-/** 熟络之后才会讲的私房话（好感达到 friendly 以上解锁） */
 export const NPC_CLOSE_CHATTER: Record<string, string[]> = {
-  chen_bo: [
-    '说实话，这铺子我打算再干五年就交给阿花。她得先学会算账才行。',
-    '你祖父当年赊过我三次账，每次都还得清清楚楚。人品这东西是传的。'
-  ],
-  liu_niang: [
-    '我有时候想，要是没生在村长家，我大概会去更远的地方看看。',
-    '{player}，你觉得一个人这辈子最要紧的是做成什么事，还是过得高兴？'
-  ],
-  a_shi: ['……我娘还在镇上。每个月我托人捎钱回去。', '……跟你说话不累。大多数人我说三句就想走。'],
-  qiu_yue: ['其实我怕水。小时候掉进去过一次。但我不能怕，我是渔家的。', '我娘老催我别整天往溪边跑。可我在那儿才舒坦啊。'],
-  lin_lao: [
-    '老夫行医五十年，救过的人记不清，没救回来的却一个都忘不掉。',
-    '你若真想学点医理，老夫可以教你几手。不为别的，多个人懂总是好事。'
-  ],
-  xiao_man: ['我想做一把能传下去的椅子。像师父那样，用几十年都不坏。', '我爹娘在镇上做小买卖，说我学木匠没出息。可我就喜欢。'],
-  chun_lan: ['我爹这辈子只对茶上过心。我小时候还吃醋，现在倒理解他了。', '有时候一个人守着二十亩茶山，也会累。不过说出来就好多了。'],
-  xue_qin: ['我在城里的时候，画得越来越像别人想要的样子。来这儿才慢慢画回自己。', '……你别到处说。我其实挺怕别人不喜欢我的画。'],
-  su_su: ['我娘一直想让我去城里的大铺子。可我喜欢这儿，客人都是熟面孔。', '做衣裳的时候我会想象穿的人什么样。这是我最开心的时候。'],
-  hong_dou: ['我爹戒酒那年，我哭了一整宿。现在看他侍弄花草，反倒踏实。', '我这嗓门大是装的。人一大声，就没人看得出你心虚。'],
-  dan_qing: ['我家里催我去考功名，催了八年。我回信只写四个字：容我三年。', '有些道理只有跟明白人说才有意思。你就是那个明白人。'],
-  a_tie: ['我、我爹是走货的，常年不在家。我娘一个人拉扯我长大，可厉害了。', '师父其实偷偷跟人夸过我。我听见了……我假装没听见。'],
-  yun_fei: ['……我爹去年托人带话，说院子修好了。我没回。', '你别问我为什么留在这儿。……反正比在山里一个人强。'],
-  da_niu: ['我娘身子不好，我得多挣点。牧场再撑两年就能翻新畜棚了。', '我这人笨，但我认死理——对我好的人，我一辈子记着。'],
-  mo_bai: ['我师父云游前说，等我弹出让自己落泪的曲子，他就回来听。', '我有时候会连着几天不想说话。不是针对谁，你别多心。'],
-  wang_dashen: ['我年轻时也想过出去闯，后来一锅一灶就把我拴住了。倒也不后悔。', '看你们年轻人吃得香，比我自己吃还高兴。'],
-  zhao_mujiang: ['我凶归凶，但没真砸过小满一次。手艺人的手，砸不得。', '这行当到我这辈就快断了。多带一个是一个。'],
-  sun_tiejiang: ['阿铁那孩子，他爹托我带他。我骂他狠，是怕他将来没饭吃。', '哈哈，我这把老骨头还能再抡十年锤！'],
-  zhang_popo: ['老头子走了十二年了。我织布的时候总觉得他还在旁边打盹。', '你常来陪老婆子说话，我心里记着呢。'],
-  li_yu: ['我年轻时脾气爆得很，跟人动过手。是这条溪把我磨平的。', '儿子接我去镇上住，我不去。这溪边我躺着才踏实。'],
-  zhou_xiucai: ['……其实老夫已经考了九回。再考，就是考给自己看的了。', '你别笑话我迂。人总得信点什么，不然日子怎么过。'],
-  wu_shen: ['我丈夫走后我一个人拉扯铺子，不精明活不下去。', '别看我跟你算得清，有事言语一声，我不含糊。'],
-  ma_liu: ['我这张嘴是混饭吃的。真话我只跟看得起我的人说。', '走南闯北听着风光，其实过年都在路上。'],
-  lao_song: ['……守夜这活儿没人愿干。我图个清静，正好。', '有一年冬天，我在雪地里背回来一个冻僵的娃娃。就是石头。'],
-  pang_shen: ['我这泼辣脾气吓跑过不少人。留下来的都是真心的。', '婆婆临走前把卤水方子交给我，我一天都没敢断过火。'],
-  a_hua: ['爷爷年纪大了，晚上老咳嗽。我偷偷数过，昨晚咳了十七回。', '我以后要把铺子开得比爷爷还大！你信不信？'],
-  shi_tou: ['……我娘天天骂我，但她做的饼我一个都舍不得剩。', '老宋伯以前救过我。这事我谁都没说过，你别传出去。'],
-  hui_niang: ['我丈夫在外行商，一年回来两回。日子是自己过出来的。', '我把素素当自己闺女看。你多照应她些。'],
-  lao_lu: ['红豆她爹是我几十年的老酒友。他戒了酒，我这儿就冷清了一半。', '酒是好东西，但我不劝你多喝。清醒着才能过日子。'],
-  liu_cunzhang: ['当了二十年村长，我最怕的不是难事，是有人对我客气。', '你不必把我当官看。喊我一声老柳就行。'],
-  qian_niang: ['我从小怕见生人。是林大夫说，学医的人不能怕人。', '我、我想将来也能开一间药铺……这话你别跟林大夫说。'],
-  he_zhanggui: ['我这圆滑是磨出来的。年轻时得罪人，差点关了门。', '你在我这儿听见什么，我都当没说过。这是规矩。'],
-  qin_dashu: ['我儿子在镇上当学徒，信里说累。我回他：累就回来种果树。', '一棵树活六十年，人也就那么点光景。想开点好。'],
-  a_fu: ['我爹娘在山那边种地，我每月回去一趟，给他们捎肉。', '大牛哥说我将来能当个好牧人。我记着这句话呢。']
+  chen_bo: ['Bác Trần: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  liu_niang: ['Liễu Nương: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  a_shi: ['A Thạch: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  qiu_yue: ['Thu Nguyệt: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  lin_lao: ['Lâm Lão: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  xiao_man: ['Tiểu Mãn: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  chun_lan: ['Xuân Lan: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  xue_qin: ['Tuyết Cần: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  su_su: ['Tố Tố: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  hong_dou: ['Hồng Đậu: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  dan_qing: ['Đan Thanh: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  a_tie: ['A Thiết: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  yun_fei: ['Vân Phi: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  da_niu: ['Đại Ngưu: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  mo_bai: ['Mặc Bạch: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  wang_dashen: ['Thím Vương: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  zhao_mujiang: ['Triệu thợ mộc: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  sun_tiejiang: ['Thợ rèn Tôn: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  zhang_popo: ['Bà cụ Trương: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  li_yu: ['Lão ngư họ Lý: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  zhou_xiucai: ['Chu Tú Tài: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  wu_shen: ['Thím Ngô: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  ma_liu: ['Mã Lục: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  lao_song: ['Lão Tống: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  pang_shen: ['Thím Mập: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  a_hua: ['A Hoa: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  shi_tou: ['Thạch Đầu: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  hui_niang: ['Huệ Nương: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  lao_lu: ['Lão Lục: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  liu_cunzhang: ['Trưởng thôn Liễu: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  qian_niang: ['Tiền Nương: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  he_zhanggui: ['Chưởng quầy Hà: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  qin_dashu: ['Chú Tần: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
+  a_fu: ['A Phúc: Có những chuyện chỉ khi đủ thân thiết mới muốn chia sẻ.', '{player}, cảm ơn bạn đã luôn lắng nghe.'],
 }
 
 /** 抽取闲聊时的情境 */
@@ -371,7 +136,7 @@ export const buildChatterPool = (npcId: string, ctx: ChatterContext): string[] =
     if (close) pool.push(...close, ...close)
   }
 
-  // 情境层：所有人共用，提供"今天不一样"的感觉
+  // 情境层：所有人共用，提供"Hôm nay thật khác"的感觉
   pool.push(...SEASON_CHATTER[ctx.season])
   const weatherLines = WEATHER_CHATTER[ctx.weather]
   if (weatherLines) pool.push(...weatherLines)

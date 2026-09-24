@@ -2,21 +2,21 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <Target :size="14" />
-      <span>重阳投壶</span>
+      <span>Ném tên vào bình Trùng Dương</span>
     </h3>
 
     <!-- 准备 -->
     <div v-if="phase === 'ready'">
-      <p class="text-xs text-muted mb-3">瞄准铜壶，投出箭矢！共5次机会，在指针移到中心时点击「投掷」，越准得分越高！</p>
-      <Button class="w-full" @click="startGame">开始投壶！</Button>
+      <p class="text-xs text-muted mb-3">Nhắm bình đồng rồi ném tên! Có 5 lượt, khi kim di chuyển vào giữa hãy nhấn 「Ném」, càng chính xác điểm càng cao!</p>
+      <Button class="w-full" @click="startGame">Bắt đầu ném bình!</Button>
     </div>
 
     <!-- 瞄准中 -->
     <div v-else-if="phase === 'aiming'">
       <div class="flex items-center justify-between mb-2">
-        <p class="text-xs text-muted">第 {{ throwIndex + 1 }} / 5 投</p>
+        <p class="text-xs text-muted">lượt {{ throwIndex + 1 }} / 5 ném</p>
         <p class="text-xs text-muted">
-          总分：
+          tổngđiểm：
           <span class="text-accent">{{ totalScore }}</span>
         </p>
       </div>
@@ -43,23 +43,23 @@
         <div class="absolute top-0 bottom-0 w-1 bg-accent" :style="{ left: `${aimPosition}%`, transition: 'none' }" />
         <!-- 区域标签 -->
         <div class="absolute bottom-0 w-full flex text-center" style="font-size: 9px">
-          <span class="flex-1 text-danger/40">远</span>
-          <span class="flex-1 text-success/40">近</span>
-          <span class="flex-1 text-accent/60">中</span>
-          <span class="flex-1 text-success/40">近</span>
-          <span class="flex-1 text-danger/40">远</span>
+          <span class="flex-1 text-danger/40">Xa</span>
+          <span class="flex-1 text-success/40">Gần</span>
+          <span class="flex-1 text-accent/60">Giữa</span>
+          <span class="flex-1 text-success/40">Gần</span>
+          <span class="flex-1 text-danger/40">Xa</span>
         </div>
       </div>
 
       <!-- 壶 -->
       <div class="text-center mb-3">
         <div class="inline-block border-2 border-accent/40 px-4 py-2 relative">
-          <div class="text-accent text-sm">壶</div>
+          <div class="text-accent text-sm">Bình</div>
           <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-4 h-1 border border-accent/40 bg-panel" />
         </div>
       </div>
 
-      <Button class="w-full py-2" :icon="ArrowUp" @click="throwArrow">投掷！</Button>
+      <Button class="w-full py-2" :icon="ArrowUp" @click="throwArrow">Ném!</Button>
     </div>
 
     <!-- 投掷动画 -->
@@ -85,7 +85,7 @@
             'text-danger': lastResult === 'miss'
           }"
         >
-          {{ lastResult === 'bullseye' ? '正中壶心！' : lastResult === 'good' ? '擦边命中！' : '没投中…' }}
+          {{ lastResult === 'bullseye' ? 'Trúng chính giữa!' : lastResult === 'good' ? 'Trúng sượt mép!' : 'Ném trượt…' }}
         </p>
         <p
           class="text-xs score-pop"
@@ -95,14 +95,14 @@
             'text-muted': lastResult === 'miss'
           }"
         >
-          +{{ lastScore }}分
+          +{{ lastScore }}điểm
         </p>
       </div>
     </div>
 
     <!-- 最终结果 -->
     <div v-else>
-      <p class="text-xs text-muted mb-2">投壶结束！</p>
+      <p class="text-xs text-muted mb-2">Trò chơi ném bình kết thúc!</p>
 
       <!-- 投掷进度点（最终） -->
       <div class="flex justify-center space-x-1.5 mb-3">
@@ -115,7 +115,7 @@
           :key="i"
           class="flex items-center justify-between text-xs py-0.5 border-b border-accent/10 last:border-0"
         >
-          <span class="text-muted">第{{ i + 1 }}投</span>
+          <span class="text-muted">lượt{{ i + 1 }}ném</span>
           <span
             :class="{
               'text-accent': r.result === 'bullseye',
@@ -123,25 +123,25 @@
               'text-danger': r.result === 'miss'
             }"
           >
-            {{ r.result === 'bullseye' ? '正中' : r.result === 'good' ? '擦边' : '未中' }}
+            {{ r.result === 'bullseye' ? 'Trúng giữa' : r.result === 'good' ? 'Sượt mép' : 'Trượt' }}
           </span>
-          <span class="text-muted">{{ r.score }}分</span>
+          <span class="text-muted">{{ r.score }}điểm</span>
         </div>
       </div>
 
       <div class="border border-accent/20 p-2 mb-3 text-center">
         <p class="text-xs mb-1">
-          总分：
+          tổngđiểm：
           <span class="text-accent">{{ totalScore }}</span>
           / 500
         </p>
         <p class="text-xs">
-          奖金：
+          thưởngvàng：
           <span class="text-accent">{{ prize }}</span>
-          文
+          xu
         </p>
       </div>
-      <Button class="w-full" @click="handleClaim">领取奖励</Button>
+      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
     </div>
   </div>
 </template>
@@ -178,7 +178,7 @@
   let phaseTimeout: ReturnType<typeof setTimeout> | null = null
   let aimDirection = 1
 
-  /** 难度随回合递增: 第1投2.0 → 第5投4.0 */
+  /** khóđộtheovềhợpgửităng: thứ1ném2.0 → thứ5ném4.0 */
   const getAimSpeed = () => 2.0 + throwIndex.value * 0.5
 
   const prize = computed(() => {
@@ -229,7 +229,7 @@
     if (aimTimer) clearInterval(aimTimer)
     aimTimer = null
 
-    // 计算偏移（50为中心）
+    // tínhtínhlệchchuyển（50làtrongtâm）
     const offset = Math.abs(aimPosition.value - 50)
     let result: ThrowResult
     let score: number
@@ -252,7 +252,7 @@
 
     phase.value = 'throwing'
     phaseTimeout = setTimeout(() => {
-      // 命中结果音效
+      // mệnhtrongkếtquảâm thanhhiệu
       if (result === 'bullseye') sfxPotClang()
       else if (result === 'good') sfxMiniGood()
       else sfxMiniFail()
@@ -261,7 +261,7 @@
         throwIndex.value++
         if (throwIndex.value >= 5) {
           phase.value = 'finished'
-          // 最终排名音效
+          // nhấtcuốixếptênâm thanhhiệu
           if (totalScore.value >= 500) sfxRankFirst()
           else if (totalScore.value >= 300) sfxRankSecond()
         } else {

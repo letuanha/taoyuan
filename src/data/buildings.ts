@@ -13,16 +13,16 @@ export interface FarmhouseUpgradeDef {
 export const FARMHOUSE_UPGRADES: FarmhouseUpgradeDef[] = [
   {
     level: 1,
-    name: '砖房',
-    description: '升级厨房，烹饪体力恢复+20%。',
+    name: 'Nhà gạch',
+    description: 'Nâng cấp bếp, thể lực hồi từ nấu ăn +20%.',
     cost: 10000,
     materialCost: [{ itemId: 'wood', quantity: 200 }],
     benefit: 'kitchen_bonus'
   },
   {
     level: 2,
-    name: '宅院',
-    description: '宽敞的院落，每晚额外恢复10%体力。',
+    name: 'Nhà sân vườn',
+    description: 'Sân nhà rộng rãi, mỗi đêm hồi thêm 10% thể lực.',
     cost: 65000,
     materialCost: [
       { itemId: 'wood', quantity: 100 },
@@ -32,8 +32,8 @@ export const FARMHOUSE_UPGRADES: FarmhouseUpgradeDef[] = [
   },
   {
     level: 3,
-    name: '酒窖',
-    description: '地下酒窖，可陈酿美酒提升品质。',
+    name: 'Hầm rượu',
+    description: 'Hầm rượu ngầm, có thể ủ rượu để tăng chất lượng.',
     cost: 100000,
     materialCost: [
       { itemId: 'wood', quantity: 100 },
@@ -80,7 +80,7 @@ export interface CaveUpgradeDef {
 export const CAVE_UPGRADES: CaveUpgradeDef[] = [
   {
     level: 1,
-    name: '山洞',
+    name: 'Hang động',
     mushroomChance: 0.6,
     fruitBatChance: 0.5,
     doubleChance: 0,
@@ -91,7 +91,7 @@ export const CAVE_UPGRADES: CaveUpgradeDef[] = [
   },
   {
     level: 2,
-    name: '山洞·贰',
+    name: 'Hang động · II',
     mushroomChance: 0.7,
     fruitBatChance: 0.6,
     doubleChance: 0,
@@ -108,7 +108,7 @@ export const CAVE_UPGRADES: CaveUpgradeDef[] = [
   },
   {
     level: 3,
-    name: '山洞·叁',
+    name: 'Hang động · III',
     mushroomChance: 0.8,
     fruitBatChance: 0.7,
     doubleChance: 0.25,
@@ -128,7 +128,7 @@ export const CAVE_UPGRADES: CaveUpgradeDef[] = [
   },
   {
     level: 4,
-    name: '山洞·肆',
+    name: 'Hang động · IV',
     mushroomChance: 1.0,
     fruitBatChance: 0.9,
     doubleChance: 0.5,
@@ -197,7 +197,7 @@ export interface GreenhouseUpgradeDef {
 export const GREENHOUSE_UPGRADES: GreenhouseUpgradeDef[] = [
   {
     level: 1,
-    name: '温室扩建·壹',
+    name: 'Mở rộng nhà kính · I',
     plotCount: 20,
     gridCols: 5,
     cost: 50000,
@@ -205,11 +205,11 @@ export const GREENHOUSE_UPGRADES: GreenhouseUpgradeDef[] = [
       { itemId: 'wood', quantity: 300 },
       { itemId: 'iron_bar', quantity: 20 }
     ],
-    description: '扩建至20个地块（5×4）'
+    description: 'Mở rộng tới 20 ô đất (5×4)'
   },
   {
     level: 2,
-    name: '温室扩建·贰',
+    name: 'Mở rộng nhà kính · II',
     plotCount: 30,
     gridCols: 6,
     cost: 100000,
@@ -217,7 +217,7 @@ export const GREENHOUSE_UPGRADES: GreenhouseUpgradeDef[] = [
       { itemId: 'wood', quantity: 500 },
       { itemId: 'gold_bar', quantity: 15 }
     ],
-    description: '扩建至30个地块（6×5）'
+    description: 'Mở rộng tới 30 ô đất (6×5)'
   }
 ]
 
@@ -237,7 +237,7 @@ export interface CellarUpgradeDef {
 export const CELLAR_UPGRADES: CellarUpgradeDef[] = [
   {
     level: 1,
-    name: '酒窖',
+    name: 'Hầm rượu',
     valuePerCycle: 100,
     maxSlots: 6,
     cost: 0,
@@ -245,7 +245,7 @@ export const CELLAR_UPGRADES: CellarUpgradeDef[] = [
   },
   {
     level: 2,
-    name: '酒窖·贰',
+    name: 'Hầm rượu · II',
     valuePerCycle: 125,
     maxSlots: 9,
     cost: 30000,
@@ -256,7 +256,7 @@ export const CELLAR_UPGRADES: CellarUpgradeDef[] = [
   },
   {
     level: 3,
-    name: '酒窖·叁',
+    name: 'Hầm rượu · III',
     valuePerCycle: 150,
     maxSlots: 12,
     cost: 60000,
@@ -267,7 +267,7 @@ export const CELLAR_UPGRADES: CellarUpgradeDef[] = [
   },
   {
     level: 4,
-    name: '酒窖·肆',
+    name: 'Hầm rượu · IV',
     valuePerCycle: 175,
     maxSlots: 15,
     cost: 100000,
@@ -278,7 +278,7 @@ export const CELLAR_UPGRADES: CellarUpgradeDef[] = [
   },
   {
     level: 5,
-    name: '酒窖·伍',
+    name: 'Hầm rượu · V',
     valuePerCycle: 200,
     maxSlots: 18,
     cost: 150000,

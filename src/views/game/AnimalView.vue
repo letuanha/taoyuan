@@ -3,15 +3,15 @@
     <div class="flex items-center justify-between mb-2">
       <h3 class="text-accent text-sm">
         <Home :size="14" class="inline" />
-        牧场
+        Mục trường
       </h3>
-      <Button v-if="unpettedCount > 0" :icon="Hand" @click="handlePetAll">一键抚摸（{{ unpettedCount }}只）</Button>
+      <Button v-if="unpettedCount > 0" :icon="Hand" @click="handlePetAll">mộtphímvuốtve（{{ unpettedCount }}con）</Button>
     </div>
 
     <!-- 每日例行操作放在最上面，免得为了喂食放牧来回翻屏 -->
     <div v-if="animalStore.animals.length > 0" class="flex flex-wrap mb-3">
       <Button class="mr-1 mb-1" :icon="Wheat" :icon-size="12" :disabled="unfedCount === 0" @click="unfedCount > 0 && handleFeedAll()">
-        {{ unfedCount > 0 ? `喂食全部（${unfedCount}只）` : '都已喂过' }}
+        {{ unfedCount > 0 ? `Cho tất cả ăn (${unfedCount} con)` : 'Đã cho ăn hết' }}
       </Button>
       <Button class="mr-1 mb-1" :icon="Sun" :icon-size="12" :disabled="!canGrazeOrFeed" @click="canGrazeOrFeed && handleGraze()">
         {{ grazeButtonLabel }}
@@ -24,7 +24,7 @@
 
     <!-- 宠物区域 -->
     <div class="mb-4 border border-accent/20 rounded-xs p-3">
-      <p class="text-xs text-muted mb-2">宠物</p>
+      <p class="text-xs text-muted mb-2">Thú nuôi</p>
       <template v-if="animalStore.pet">
         <div class="flex items-center justify-between mb-1">
           <div class="flex items-center space-x-1 min-w-0 mr-2">
@@ -36,12 +36,12 @@
                 @keyup.enter="confirmRename"
                 @keyup.escape="cancelRename"
               />
-              <Button class="btn-compact" @click="confirmRename">确定</Button>
-              <Button class="btn-compact" @click="cancelRename">取消</Button>
+              <Button class="btn-compact" @click="confirmRename">Xác nhận</Button>
+              <Button class="btn-compact" @click="cancelRename">Hủy</Button>
             </template>
             <template v-else>
               <span class="text-xs text-accent truncate">
-                {{ animalStore.pet.type === 'cat' ? '猫' : '狗' }} — {{ animalStore.pet.name }}
+                {{ animalStore.pet.type === 'cat' ? 'Mèo' : 'Chó' }} — {{ animalStore.pet.name }}
               </span>
               <button class="text-muted hover:text-accent shrink-0" @click="startRename('pet', animalStore.pet!.name)">
                 <Pencil :size="10" />
@@ -49,11 +49,11 @@
             </template>
           </div>
           <Button class="btn-compact" :icon="Hand" :icon-size="12" :disabled="animalStore.pet.wasPetted" @click="handlePetThePet">
-            {{ animalStore.pet.wasPetted ? '已摸' : '抚摸' }}
+            {{ animalStore.pet.wasPetted ? 'Đã vuốt ve' : 'Vuốt ve' }}
           </Button>
         </div>
         <div class="flex items-center space-x-1">
-          <span class="text-[10px] text-muted w-6">好感</span>
+          <span class="text-[10px] text-muted w-6">Hảo cảm</span>
           <div class="flex-1 h-1.5 bg-bg rounded-xs border border-accent/10">
             <div
               class="h-full rounded-xs bg-danger transition-all"
@@ -64,12 +64,12 @@
           </div>
           <span class="text-[10px] text-muted">{{ animalStore.pet.friendship }}/1000</span>
         </div>
-        <p v-if="animalStore.pet.friendship >= 800" class="text-xs text-success mt-1">好感度很高，每天有机会叼回采集物！</p>
+        <p v-if="animalStore.pet.friendship >= 800" class="text-xs text-success mt-1">hảo cảmđộrấtcao，mỗingàycómáyhộithavề thu háithậpvật！</p>
       </template>
       <div v-else class="flex flex-col items-center justify-center py-6 text-muted">
         <Home :size="32" class="mb-2" />
-        <p class="text-xs">暂无宠物</p>
-        <p class="text-[10px] mt-1">入住后第7天会有小动物来访。</p>
+        <p class="text-xs">Chưa có thú nuôi</p>
+        <p class="text-[10px] mt-1">Sau khi chuyển vào ở, sau 7 ngày sẽ có động vật nhỏ đến thăm.</p>
       </div>
     </div>
 
@@ -79,22 +79,22 @@
         <span class="text-sm text-accent">{{ getBuildingDisplayName(bDef.type) }}</span>
         <div v-if="isBuildingBuilt(bDef.type)" class="flex items-center space-x-2">
           <span class="text-xs text-muted">{{ getAnimalsInBuilding(bDef.type).length }}/{{ getBuildingCapacity(bDef.type) }}</span>
-          <Button v-if="getBuildingLevel(bDef.type) < 3" :icon="ArrowUp" @click="openUpgradeModal(bDef.type)">升级</Button>
+          <Button v-if="getBuildingLevel(bDef.type) < 3" :icon="ArrowUp" @click="openUpgradeModal(bDef.type)">Nâng cấp</Button>
         </div>
-        <Button v-else :icon="Hammer" @click="handleBuildBuilding(bDef.type)">建造 ({{ bDef.cost }}文)</Button>
+        <Button v-else :icon="Hammer" @click="handleBuildBuilding(bDef.type)">xâyxây ({{ bDef.cost }}văn)</Button>
       </div>
 
       <template v-if="isBuildingBuilt(bDef.type)">
-        <p v-if="animalStore.hasAutoPetter(bDef.type)" class="text-[10px] text-success mb-2">自动抚摸机运行中 — 每日自动抚摸所有动物</p>
+        <p v-if="animalStore.hasAutoPetter(bDef.type)" class="text-[10px] text-success mb-2">Máy vuốt ve tự động đang chạy — mỗi ngày tự động vuốt ve tất cả động vật</p>
         <!-- 鸡舍孵化器（鸡舍2级以上） -->
         <div v-if="bDef.type === 'coop' && getBuildingLevel('coop') >= 2" class="mb-3 p-2 border border-accent/10 rounded-xs">
           <p class="text-xs text-accent mb-1">
             <Egg :size="14" class="inline" />
-            孵化器
+            Máy ấp trứng
           </p>
           <div v-if="animalStore.incubating">
             <p class="text-xs text-muted">
-              正在孵化：{{ getAnimalName(animalStore.incubating.animalType) }}（剩余{{ animalStore.incubating.daysLeft }}天）
+              Đang ấp: {{ getAnimalName(animalStore.incubating.animalType) }}（còncòn{{ animalStore.incubating.daysLeft }}ngày）
             </p>
           </div>
           <div v-else-if="coopIncubatableEggs.length > 0" class="flex flex-col space-y-1">
@@ -108,18 +108,18 @@
               <span class="text-xs text-muted">&times;{{ eggItem.count }}</span>
             </div>
           </div>
-          <p v-else class="text-xs text-muted">背包中没有可孵化的蛋。</p>
+          <p v-else class="text-xs text-muted">Túi đồtrongkhông cócó thể ấphóa của trứng。</p>
         </div>
 
         <!-- 牲口棚孵化器（牲口棚2级以上） -->
         <div v-if="bDef.type === 'barn' && getBuildingLevel('barn') >= 2" class="mb-3 p-2 border border-accent/10 rounded-xs">
           <p class="text-xs text-accent mb-1">
             <Egg :size="14" class="inline" />
-            孵化器
+            Máy ấp trứng
           </p>
           <div v-if="animalStore.barnIncubating">
             <p class="text-xs text-muted">
-              正在孵化：{{ getAnimalName(animalStore.barnIncubating.animalType) }}（剩余{{ animalStore.barnIncubating.daysLeft }}天）
+              Đang ấp: {{ getAnimalName(animalStore.barnIncubating.animalType) }}（còncòn{{ animalStore.barnIncubating.daysLeft }}ngày）
             </p>
           </div>
           <div v-else-if="barnIncubatableEggs.length > 0" class="flex flex-col space-y-1">
@@ -133,16 +133,16 @@
               <span class="text-xs text-muted">&times;{{ eggItem.count }}</span>
             </div>
           </div>
-          <p v-else class="text-xs text-muted">背包中没有可在牲口棚孵化的蛋。</p>
+          <p v-else class="text-xs text-muted">Trong Túi đồ không có trứng có thể ấp trong chuồng gia súc.</p>
         </div>
 
         <!-- 购买动物按钮 -->
-        <Button class="w-full md:w-auto mb-3" :icon="ShoppingCart" @click="buyListBuilding = bDef.type">购买动物</Button>
+        <Button class="w-full md:w-auto mb-3" :icon="ShoppingCart" @click="buyListBuilding = bDef.type">Mua động vật</Button>
 
         <!-- 动物列表 -->
         <div v-if="getAnimalsInBuilding(bDef.type).length > 0" class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
           <div v-for="animal in getAnimalsInBuilding(bDef.type)" :key="animal.id" class="border border-accent/10 rounded-xs p-2 mr-1">
-            <!-- 名字与按钮组允许换行：小屏放不下时按钮组整体落到第二行，不再把按钮挤成竖排 -->
+            <!-- 名字与按钮组允许换行：小屏放不下时按钮组整体落到thứ二行，不再把按钮挤成竖排 -->
             <div class="flex flex-wrap items-center justify-between mb-1 -mt-1">
               <div class="flex items-center space-x-1 min-w-0 mr-2 mt-1">
                 <template v-if="renamingId === animal.id">
@@ -153,8 +153,8 @@
                     @keyup.enter="confirmRename"
                     @keyup.escape="cancelRename"
                   />
-                  <Button class="btn-compact" @click="confirmRename">确定</Button>
-                  <Button class="btn-compact" @click="cancelRename">取消</Button>
+                  <Button class="btn-compact" @click="confirmRename">Xác nhận</Button>
+                  <Button class="btn-compact" @click="cancelRename">Hủy</Button>
                 </template>
                 <template v-else>
                   <span class="text-xs text-accent truncate">{{ animal.name }}</span>
@@ -171,10 +171,10 @@
                   :disabled="animal.wasFed"
                   @click="handleFeedAnimal(animal.id, animal.name)"
                 >
-                  {{ animal.wasFed ? '已喂' : '喂食' }}
+                  {{ animal.wasFed ? 'Đã cho ăn' : 'Cho ăn' }}
                 </Button>
                 <Button class="btn-compact" :icon="Hand" :icon-size="12" :disabled="animal.wasPetted" @click="handlePetAnimal(animal.id)">
-                  {{ animal.wasPetted ? '已摸' : '抚摸' }}
+                  {{ animal.wasPetted ? 'Đã vuốt ve' : 'Vuốt ve' }}
                 </Button>
                 <Button
                   class="btn-compact"
@@ -188,19 +188,19 @@
                     }
                   "
                 >
-                  出售
+                  Bán
                 </Button>
               </div>
             </div>
             <div class="space-y-0.5">
               <div class="flex items-center space-x-1">
-                <span class="text-[10px] text-muted w-6">好感</span>
+                <span class="text-[10px] text-muted w-6">Hảo cảm</span>
                 <div class="flex-1 h-1.5 bg-bg rounded-xs border border-accent/10">
                   <div class="h-full rounded-xs bg-danger transition-all" :style="{ width: Math.floor(animal.friendship / 10) + '%' }" />
                 </div>
               </div>
               <div class="flex items-center space-x-1">
-                <span class="text-[10px] text-muted w-6">心情</span>
+                <span class="text-[10px] text-muted w-6">Tâm trạng</span>
                 <div class="flex-1 h-1.5 bg-bg rounded-xs border border-accent/10">
                   <div
                     class="h-full rounded-xs transition-all"
@@ -213,7 +213,7 @@
                 <span class="text-[10px] text-muted w-6">{{ getMoodText(animal.mood) }}</span>
               </div>
               <div v-if="animal.hunger > 0" class="flex items-center space-x-1">
-                <span class="text-[10px] text-muted w-6">饥饿</span>
+                <span class="text-[10px] text-muted w-6">Đói</span>
                 <div class="flex-1 h-1.5 bg-bg rounded-xs border border-accent/10">
                   <div
                     class="h-full rounded-xs bg-danger transition-all"
@@ -222,11 +222,11 @@
                     }"
                   />
                 </div>
-                <span class="text-[10px] text-danger w-6">{{ animal.hunger }}天</span>
+                <span class="text-[10px] text-danger w-6">{{ animal.hunger }}ngày</span>
               </div>
             </div>
             <div v-if="animal.sick" class="flex items-center justify-between mt-0.5">
-              <p class="text-[10px] text-danger">生病中({{ animal.sickDays }}/5天)</p>
+              <p class="text-[10px] text-danger">sinhBệnhtrong({{ animal.sickDays }}/5ngày)</p>
               <Button
                 class="btn-compact"
                 :icon="Syringe"
@@ -234,30 +234,30 @@
                 :disabled="medicineCount <= 0"
                 @click="handleHealAnimal(animal.id, animal.name)"
               >
-                治疗
+                Điều trị
               </Button>
             </div>
           </div>
         </div>
         <div v-else class="flex flex-col items-center justify-center py-6">
           <Home :size="36" class="text-accent/20 mb-2" />
-          <p class="text-xs text-muted">暂无动物</p>
-          <p class="text-[10px] text-muted/50 mt-0.5">在商店购买幼崽来饲养吧</p>
+          <p class="text-xs text-muted">tạmkhông động vật</p>
+          <p class="text-[10px] text-muted/50 mt-0.5">Hãy mua con non tại cửa hàng để nuôi.</p>
         </div>
       </template>
       <template v-else>
-        <p class="text-xs text-muted">需要：{{ bDef.materialCost.map(m => `${getItemName(m.itemId)}×${m.quantity}`).join('、') }}</p>
+        <p class="text-xs text-muted">cầnmuốn：{{ bDef.materialCost.map(m => `${getItemName(m.itemId)}×${m.quantity}`).join('、') }}</p>
       </template>
     </div>
 
     <!-- 马厩 -->
     <div class="mb-4 border border-accent/20 rounded-xs p-3">
       <div class="flex items-center justify-between mb-2">
-        <span class="text-sm text-accent">马厩</span>
+        <span class="text-sm text-accent">Chuồng ngựa</span>
         <div v-if="animalStore.stableBuilt" class="flex items-center space-x-2">
           <span class="text-xs text-muted">{{ animalStore.getHorse ? '1/1' : '0/1' }}</span>
         </div>
-        <Button v-else :icon="Hammer" @click="handleBuildBuilding('stable')">建造 ({{ stableDef?.cost ?? 10000 }}文)</Button>
+        <Button v-else :icon="Hammer" @click="handleBuildBuilding('stable')">xâyxây ({{ stableDef?.cost ?? 10000 }}văn)</Button>
       </div>
 
       <template v-if="animalStore.stableBuilt">
@@ -272,8 +272,8 @@
                   @keyup.enter="confirmRename"
                   @keyup.escape="cancelRename"
                 />
-                <Button class="btn-compact" @click="confirmRename">确定</Button>
-                <Button class="btn-compact" @click="cancelRename">取消</Button>
+                <Button class="btn-compact" @click="confirmRename">Xác nhận</Button>
+                <Button class="btn-compact" @click="cancelRename">Hủy</Button>
               </template>
               <template v-else>
                 <span class="text-xs text-accent truncate">{{ animalStore.getHorse.name }}</span>
@@ -294,7 +294,7 @@
                 :disabled="animalStore.getHorse.wasFed"
                 @click="handleFeedAnimal(animalStore.getHorse.id, animalStore.getHorse.name)"
               >
-                {{ animalStore.getHorse.wasFed ? '已喂' : '喂食' }}
+                {{ animalStore.getHorse.wasFed ? 'Đã cho ăn' : 'Cho ăn' }}
               </Button>
               <Button
                 class="btn-compact"
@@ -303,7 +303,7 @@
                 :disabled="animalStore.getHorse.wasPetted"
                 @click="handlePetAnimal(animalStore.getHorse.id)"
               >
-                {{ animalStore.getHorse.wasPetted ? '已摸' : '抚摸' }}
+                {{ animalStore.getHorse.wasPetted ? 'Đã vuốt ve' : 'Vuốt ve' }}
               </Button>
               <Button
                 class="btn-compact"
@@ -317,7 +317,7 @@
                   }
                 "
               >
-                出售
+                Bán
               </Button>
             </div>
           </div>
@@ -327,15 +327,15 @@
               {{ animalStore.horseBreedDef.description }}
             </p>
             <p class="text-[10px] text-accent/70">
-              赶路耗时 ×{{ animalStore.getHorseTravelTimeMultiplier().toFixed(2) }} · 体力 ×{{
+              đuổiđườnghaothời ×{{ animalStore.getHorseTravelTimeMultiplier().toFixed(2) }} · thểlực ×{{
                 animalStore.getHorseTravelStaminaMultiplier().toFixed(2)
               }}
-              · 放牧协助
+              · đặtchăn thảhợp tácgiúp
               {{ Math.round(animalStore.getHorseGrazeBonusChance() * 100) }}%
             </p>
-            <p class="text-[10px] text-muted/50">喂食抚摸提升好感，好感越高赶路越省力、放牧带回的产物越多。</p>
+            <p class="text-[10px] text-muted/50">Cho ăn và vuốt ve để tăng hảo cảm; hảo cảm càng cao thì đi lại càng tiết kiệm sức và chăn thả càng mang về nhiều sản phẩm.</p>
             <div class="flex items-center space-x-1">
-              <span class="text-[10px] text-muted w-6">好感</span>
+              <span class="text-[10px] text-muted w-6">Hảo cảm</span>
               <div class="flex-1 h-1.5 bg-bg rounded-xs border border-accent/10">
                 <div
                   class="h-full rounded-xs bg-danger transition-all"
@@ -346,7 +346,7 @@
               </div>
             </div>
             <div class="flex items-center space-x-1">
-              <span class="text-[10px] text-muted w-6">心情</span>
+              <span class="text-[10px] text-muted w-6">Tâm trạng</span>
               <div class="flex-1 h-1.5 bg-bg rounded-xs border border-accent/10">
                 <div
                   class="h-full rounded-xs transition-all"
@@ -359,7 +359,7 @@
               <span class="text-[10px] text-muted w-6">{{ getMoodText(animalStore.getHorse.mood) }}</span>
             </div>
             <div v-if="animalStore.getHorse.hunger > 0" class="flex items-center space-x-1">
-              <span class="text-[10px] text-muted w-6">饥饿</span>
+              <span class="text-[10px] text-muted w-6">Đói</span>
               <div class="flex-1 h-1.5 bg-bg rounded-xs border border-accent/10">
                 <div
                   class="h-full rounded-xs bg-danger transition-all"
@@ -368,21 +368,21 @@
                   }"
                 />
               </div>
-              <span class="text-[10px] text-danger w-6">{{ animalStore.getHorse.hunger }}天</span>
+              <span class="text-[10px] text-danger w-6">{{ animalStore.getHorse.hunger }}ngày</span>
             </div>
           </div>
           <div v-if="animalStore.getHorse.sick" class="flex items-center justify-between mt-0.5">
-            <p class="text-[10px] text-danger">生病中({{ animalStore.getHorse.sickDays }}/5天)</p>
+            <p class="text-[10px] text-danger">sinhBệnhtrong({{ animalStore.getHorse.sickDays }}/5ngày)</p>
             <Button
               class="py-0 px-1"
               :icon="Syringe"
               :disabled="medicineCount <= 0"
               @click="handleHealAnimal(animalStore.getHorse!.id, animalStore.getHorse!.name)"
             >
-              治疗
+              Điều trị
             </Button>
           </div>
-          <p class="text-xs text-success mt-1">骑马出行，旅行时间减少30%。</p>
+          <p class="text-xs text-success mt-1">Cưỡi ngựa đi lại, giảm 30% thời gian di chuyển.</p>
         </div>
         <div v-else>
           <div
@@ -391,11 +391,11 @@
               openBuyModal(
                 {
                   type: 'horse' as AnimalType,
-                  name: '马',
+                  name: 'Ngựa',
                   building: 'stable' as AnimalBuildingType,
                   cost: 5000,
                   productId: '',
-                  productName: '无',
+                  productName: 'Không có',
                   produceDays: 0,
                   friendship: { min: 0, max: 1000 }
                 },
@@ -403,17 +403,17 @@
               )
             "
           >
-            <span class="text-xs">马</span>
-            <span class="text-xs text-accent whitespace-nowrap">5000文</span>
+            <span class="text-xs">Ngựa</span>
+            <span class="text-xs text-accent whitespace-nowrap">5000văn</span>
           </div>
-          <p class="text-xs text-muted mt-1">拥有马匹可减少30%旅行时间。</p>
+          <p class="text-xs text-muted mt-1">Có ngựa sẽ giảm 30% thời gian di chuyển.</p>
         </div>
       </template>
       <template v-else>
         <p class="text-xs text-muted">
-          需要：{{ stableDef?.materialCost.map(m => `${getItemName(m.itemId)}×${m.quantity}`).join('、') ?? '' }}
+          cầnmuốn：{{ stableDef?.materialCost.map(m => `${getItemName(m.itemId)}×${m.quantity}`).join('、') ?? '' }}
         </p>
-        <p class="text-xs text-muted mt-1">拥有马匹可减少30%旅行时间。</p>
+        <p class="text-xs text-muted mt-1">Có ngựa sẽ giảm 30% thời gian di chuyển.</p>
       </template>
     </div>
 
@@ -421,12 +421,12 @@
     <div class="border border-accent/20 rounded-xs p-3">
       <h3 class="text-accent text-sm mb-3">
         <Apple :size="14" class="inline" />
-        饲养管理
+        thức ănnuôiquản lýquản lý
       </h3>
 
       <!-- 饲料选择 -->
       <div class="mb-3">
-        <p class="text-xs text-muted mb-1">饲料选择</p>
+        <p class="text-xs text-muted mb-1">Chọn thức ăn</p>
         <div class="flex flex-col space-y-1">
           <div
             v-for="feed in feedCounts"
@@ -447,8 +447,8 @@
       <!-- 喂食 -->
       <div class="mb-3">
         <div class="flex items-center justify-between mb-1">
-          <p class="text-xs text-muted">喂食</p>
-          <span class="text-xs text-muted">{{ selectedFeedName }}库存：{{ selectedFeedCount }}</span>
+          <p class="text-xs text-muted">Cho ăn</p>
+          <span class="text-xs text-muted">{{ selectedFeedName }}kholưu：{{ selectedFeedCount }}</span>
         </div>
         <div class="flex flex-col space-y-1">
           <div
@@ -456,46 +456,46 @@
             :class="unfedCount > 0 ? 'cursor-pointer hover:bg-accent/5' : 'opacity-50'"
             @click="unfedCount > 0 && handleFeedAll()"
           >
-            <span class="text-xs">喂食全部</span>
-            <span class="text-xs text-muted">需{{ selectedFeedName }}&times;{{ unfedCount }}</span>
+            <span class="text-xs">Cho tất cả ăn</span>
+            <span class="text-xs text-muted">Cần {{ selectedFeedName }} × {{ unfedCount }}</span>
           </div>
           <div
             class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5"
             :class="playerStore.money >= selectedFeedPrice ? 'cursor-pointer hover:bg-accent/5' : 'opacity-50'"
             @click="playerStore.money >= selectedFeedPrice && handleBuyFeed()"
           >
-            <span class="text-xs">购买{{ selectedFeedName }}</span>
-            <span class="text-xs text-accent">{{ selectedFeedPrice }}文</span>
+            <span class="text-xs">Mua {{ selectedFeedName }}</span>
+            <span class="text-xs text-accent">{{ selectedFeedPrice }}văn</span>
           </div>
         </div>
       </div>
 
       <!-- 放牧 -->
       <div>
-        <p class="text-xs text-muted mb-1">放牧</p>
+        <p class="text-xs text-muted mb-1">đặtchăn thả</p>
         <div
           class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5"
           :class="canGraze ? 'cursor-pointer hover:bg-accent/5' : 'opacity-50'"
           @click="canGraze && handleGraze()"
         >
-          <span class="text-xs">放牧全部动物</span>
+          <span class="text-xs">Chăn thả tất cả động vật</span>
           <span v-if="grazeDisabledReason" class="text-xs text-muted">{{ grazeDisabledReason }}</span>
         </div>
       </div>
 
-      <!-- 治疗 -->
+      <!-- Điều trị -->
       <div v-if="sickCount > 0" class="mt-3">
         <div class="flex items-center justify-between mb-1">
-          <p class="text-xs text-muted">治疗</p>
-          <span class="text-xs text-muted">兽药库存：{{ medicineCount }}</span>
+          <p class="text-xs text-muted">Điều trị</p>
+          <span class="text-xs text-muted">Thuốc thú y trong kho: {{ medicineCount }}</span>
         </div>
         <div
           class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-1.5"
           :class="medicineCount > 0 ? 'cursor-pointer hover:bg-accent/5' : 'opacity-50'"
           @click="medicineCount > 0 && handleHealAll()"
         >
-          <span class="text-xs">治疗全部生病动物</span>
-          <span class="text-xs text-muted">需兽药×{{ sickCount }}</span>
+          <span class="text-xs">Điều trịTất cảsinhBệnhđộng vật</span>
+          <span class="text-xs text-muted">Cần thuốc thú y × {{ sickCount }}</span>
         </div>
       </div>
     </div>
@@ -509,7 +509,7 @@
       >
         <div class="game-panel max-w-xs w-full">
           <div class="flex items-center justify-between mb-2">
-            <p class="text-sm text-accent">购买动物</p>
+            <p class="text-sm text-accent">Mua động vật</p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="buyListBuilding = null" />
           </div>
           <div class="flex flex-col space-y-1">
@@ -520,7 +520,7 @@
               @click="handleSelectAnimalToBuy(aDef)"
             >
               <span class="text-xs">{{ aDef.name }}</span>
-              <span class="text-xs text-accent whitespace-nowrap">{{ aDef.cost }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ aDef.cost }}văn</span>
             </div>
           </div>
         </div>
@@ -536,13 +536,13 @@
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="buyModal = null" />
           </div>
           <div class="text-xs space-y-1 mb-3 border-b border-accent/20 pb-2">
-            <p v-if="buyModal.productName && buyModal.productName !== '无'" class="text-muted">
-              产出：{{ buyModal.productName }}（每{{ buyModal.produceDays }}天）
+            <p v-if="buyModal.productName && buyModal.productName !== 'Không có'" class="text-muted">
+              sảnra：{{ buyModal.productName }}（mỗi{{ buyModal.produceDays }}ngày）
             </p>
-            <p v-else class="text-muted">旅行时间减少30%</p>
-            <p>价格：{{ buyModal.cost }}文</p>
+            <p v-else class="text-muted">du lịchhànhThời giangiảmít30%</p>
+            <p>giá：{{ buyModal.cost }}văn</p>
           </div>
-          <Button class="w-full" :icon="ShoppingCart" :disabled="!buyModal.canBuy()" @click="handleBuyFromModal">购买</Button>
+          <Button class="w-full" :icon="ShoppingCart" :disabled="!buyModal.canBuy()" @click="handleBuyFromModal">Mua</Button>
         </div>
       </div>
     </Transition>
@@ -554,20 +554,20 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="sellTarget = null">
             <X :size="14" />
           </button>
-          <p class="text-accent text-sm mb-2">出售动物</p>
+          <p class="text-accent text-sm mb-2">bánđộng vật</p>
           <p class="text-xs text-text mb-1">
-            确定要卖掉
+            xácđịnhmuốnbánrơi
             <span class="text-accent">{{ sellTarget.name }}</span>
-            吗？
+            sao？
           </p>
           <p class="text-xs text-muted mb-3">
-            出售后不可恢复，将获得
-            <span class="text-accent">{{ sellTargetRefund }}文</span>
-            （原价一半）。
+            Sau khi bán không thể hoàn lại, bạn sẽ nhận được
+            <span class="text-accent">{{ sellTargetRefund }}văn</span>
+            （nguyêngiámộtmột nửa）。
           </p>
           <div class="flex space-x-2">
-            <Button class="flex-1" @click="sellTarget = null">取消</Button>
-            <Button class="flex-1 !bg-danger !text-text" :icon="Coins" :icon-size="12" @click="confirmSellAnimal">确认出售</Button>
+            <Button class="flex-1" @click="sellTarget = null">Hủy</Button>
+            <Button class="flex-1 !bg-danger !text-text" :icon="Coins" :icon-size="12" @click="confirmSellAnimal">xác nhận bán</Button>
           </div>
         </div>
       </div>
@@ -585,39 +585,39 @@
             <X :size="14" />
           </button>
 
-          <p class="text-sm text-accent mb-2">升级畜舍</p>
+          <p class="text-sm text-accent mb-2">Nâng cấpgia súcchuồng</p>
 
           <!-- 当前等级信息 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">当前</span>
+              <span class="text-xs text-muted">Hiện tại</span>
               <span class="text-xs">{{ upgradeModal.currentName }}（Lv.{{ upgradeModal.currentLevel }}）</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">容量</span>
-              <span class="text-xs">{{ upgradeModal.currentCapacity }}只</span>
+              <span class="text-xs text-muted">Sức chứa</span>
+              <span class="text-xs">{{ upgradeModal.currentCapacity }}con</span>
             </div>
           </div>
 
           <!-- 升级目标 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">升级为</span>
+              <span class="text-xs text-muted">Nâng cấp thành</span>
               <span class="text-xs text-accent">{{ upgradeModal.targetName }}（Lv.{{ upgradeModal.targetLevel }}）</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">容量</span>
-              <span class="text-xs text-accent">{{ upgradeModal.targetCapacity }}只</span>
+              <span class="text-xs text-muted">Sức chứa</span>
+              <span class="text-xs text-accent">{{ upgradeModal.targetCapacity }}con</span>
             </div>
           </div>
 
           <!-- 所需资源 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-3">
-            <p class="text-xs text-muted mb-1">所需资源</p>
+            <p class="text-xs text-muted mb-1">Tài nguyên cần thiết</p>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs">金钱</span>
+              <span class="text-xs">Tiền</span>
               <span class="text-xs" :class="playerStore.money >= upgradeModal.cost ? 'text-success' : 'text-danger'">
-                {{ playerStore.money }} / {{ upgradeModal.cost }}文
+                {{ playerStore.money }} / {{ upgradeModal.cost }}văn
               </span>
             </div>
             <div v-for="mat in upgradeModal.materials" :key="mat.itemId" class="flex items-center justify-between mt-0.5">
@@ -634,7 +634,7 @@
             :disabled="!canConfirmUpgrade"
             @click="confirmUpgradeBuilding"
           >
-            确认升级
+            xácxác nhậntăngcấp
           </Button>
         </div>
       </div>
@@ -668,13 +668,13 @@
     if (!tutorialStore.enabled || gameStore.year > 1) return null
     const coopBuilt = animalStore.buildings.find(b => b.type === 'coop')?.built ?? false
     const barnBuilt = animalStore.buildings.find(b => b.type === 'barn')?.built ?? false
-    if (!coopBuilt && !barnBuilt) return '先去商铺的万物铺建造鸡舍或牧场，然后就可以购买和饲养动物了。'
+    if (!coopBuilt && !barnBuilt) return 'Trước tiên hãy tới tiệm Vạn Vật xây chuồng gà hoặc đồng cỏ, sau đó bạn có thể mua và nuôi động vật.'
     if (animalStore.animals.length > 0 && animalStore.animals.every(a => !a.wasPetted))
-      return '每天抚摸动物可以增进友好度，「一键抚摸」可以批量操作。'
+      return 'Vuốt ve động vật mỗi ngày giúp tăng độ thân thiện; 「Vuốt ve một chạm」 cho phép thao tác hàng loạt.'
     return null
   })
 
-  // === 购买弹窗 ===
+  // === muamuađạncửa sổ ===
 
   interface BuyAnimalModalData {
     name: string
@@ -714,7 +714,7 @@
     buyModal.value = null
   }
 
-  // === 出售确认弹窗 ===
+  // === rabánxácxác nhậnđạncửa sổ ===
 
   const sellTarget = ref<{ id: string; name: string; type: AnimalType } | null>(null)
 
@@ -729,22 +729,22 @@
     const result = animalStore.sellAnimal(sellTarget.value.id)
     sellTarget.value = null
     if (result.success) {
-      addLog(`卖掉了${result.name}，获得${result.refund}文。`)
+      addLog(`Đã bán ${result.name}, nhận ${result.refund} văn.`)
     }
   }
 
-  // === 数据计算 ===
+  // === sốtheotínhtính ===
 
-  /** 只显示鸡舍和牲口棚（马厩单独渲染） */
+  /** conhiểnhiển thịgàchuồngvàgia súcmiệngchuồng（ngựachuồngđơnđộc lậprendernhiễm） */
   const mainBuildings = computed(() => ANIMAL_BUILDINGS.filter(b => b.type !== 'stable'))
 
-  /** 马厩建筑定义 */
+  /** ngựachuồngxâyxây dựngđịnhnghĩa */
   const stableDef = computed(() => ANIMAL_BUILDINGS.find(b => b.type === 'stable'))
 
-  /** 当前选择的饲料类型 */
+  /** khitrướcchọnchọn的thức ănliệuloàiloại */
   const selectedFeed = ref<string>(HAY_ITEM_ID)
 
-  /** 各类饲料库存数量 */
+  /** mỗiloàithức ănliệukholưusốlượng */
   const feedCounts = computed(() =>
     FEED_DEFS.map(f => ({
       ...f,
@@ -752,25 +752,25 @@
     }))
   )
 
-  /** 当前选中饲料的名称 */
-  const selectedFeedName = computed(() => FEED_DEFS.find(f => f.id === selectedFeed.value)?.name ?? '干草')
+  /** khitrướcchọntrongthức ănliệu的têngọi */
+  const selectedFeedName = computed(() => FEED_DEFS.find(f => f.id === selectedFeed.value)?.name ?? 'Cỏ Khô')
 
-  /** 当前选中饲料的库存 */
+  /** khitrướcchọntrongthức ănliệu的kholưu */
   const selectedFeedCount = computed(() => inventoryStore.getItemCount(selectedFeed.value))
 
-  /** 当前选中饲料的价格 */
+  /** khitrướcchọntrongthức ănliệu的giáô */
   const selectedFeedPrice = computed(() => FEED_DEFS.find(f => f.id === selectedFeed.value)?.price ?? 50)
 
-  /** 未喂食动物数量 */
+  /** chưacho ănăntácvậtsốlượng */
   const unfedCount = computed(() => animalStore.animals.filter(a => !a.wasFed).length)
 
-  /** 兽药库存数量 */
+  /** thúthuốckholưusốlượng */
   const medicineCount = computed(() => inventoryStore.getItemCount('animal_medicine'))
 
-  /** 生病动物数量 */
+  /** sinhbệnhtácvậtsốlượng */
   const sickCount = computed(() => animalStore.animals.filter(a => a.sick).length)
 
-  /** 可在鸡舍孵化的蛋列表 */
+  /** 可đanggàchuồngấphóa的trứngdanh sáchbảng */
   const coopIncubatableEggs = computed(() => {
     const result: { itemId: string; name: string; count: number }[] = []
     for (const [itemId, mapping] of Object.entries(INCUBATION_MAP)) {
@@ -784,7 +784,7 @@
     return result
   })
 
-  /** 可在牲口棚孵化的蛋列表 */
+  /** 可đanggia súcmiệngchuồngấphóa的trứngdanh sáchbảng */
   const barnIncubatableEggs = computed(() => {
     const result: { itemId: string; name: string; count: number }[] = []
     for (const [itemId, mapping] of Object.entries(INCUBATION_MAP)) {
@@ -798,7 +798,7 @@
     return result
   })
 
-  // === 工具函数 ===
+  // === 工công cụthưsố ===
 
   const getAnimalName = (type: AnimalType): string => {
     return ANIMAL_DEFS.find(d => d.type === type)?.name ?? type
@@ -843,9 +843,9 @@
   }
 
   const getMoodText = (mood: number): string => {
-    if (mood > 200) return '开心'
-    if (mood > 100) return '一般'
-    return '低落'
+    if (mood > 200) return 'Vui vẻ'
+    if (mood > 100) return 'Bình thường'
+    return 'Buồn bã'
   }
 
   const getMoodBarColor = (mood: number): string => {
@@ -854,7 +854,7 @@
     return 'bg-danger'
   }
 
-  // === 放牧 ===
+  // === đặtchăn thả ===
 
   const canGraze = computed(() => {
     if (animalStore.grazedToday) return false
@@ -867,38 +867,38 @@
   })
 
   const grazeDisabledReason = computed(() => {
-    if (animalStore.animals.filter(a => a.type !== 'horse').length === 0) return '没有牲畜'
-    if (animalStore.grazedToday) return '今天已放牧'
-    if (gameStore.isRainy) return '雨天不能放牧'
+    if (animalStore.animals.filter(a => a.type !== 'horse').length === 0) return 'Không có gia súc.'
+    if (animalStore.grazedToday) return 'Hôm nay đã chăn thả'
+    if (gameStore.isRainy) return 'Không thể chăn thả khi trời mưa'
     if (gameStore.season === 'winter') {
       const hasYak = animalStore.animals.some(a => a.wasFed && a.type === 'yak')
-      return hasYak ? '' : '冬天只有牦牛可放牧'
+      return hasYak ? '' : 'Mùa đông chỉ có bò Tây Tạng được chăn thả'
     }
-    if (!animalStore.animals.some(a => a.wasFed && a.type !== 'horse')) return '先喂食再放牧'
+    if (!animalStore.animals.some(a => a.wasFed && a.type !== 'horse')) return 'Cho ăn trước rồi mới chăn thả'
     return ''
   })
 
   /**
-   * 放牧按钮是否可点。
-   * 一早进牧场时牲畜都还没喂，按严格规则会直接变灰；这里允许「未喂食但有饲料」也能点，
-   * 由 handleGraze 先自动喂一遍再放牧，省掉来回两次操作。
+   * đặtchăn thảnhấnnútlàkhông可điểm。
+   * mộtsớmtiếnchăn thảtrậnthờigia súcgia súcđềucònkhôngcho ăn，nhấnnghiêmôquy tắcthìhộithẳngtiếpbiếnxám；nàytrongcho phépcho phép「chưacho ănănnhưngcóthức ănliệu」cũngnăngđiểm，
+   * do handleGraze trướctựtáccho ănmộtlượtlạiđặtchăn thả，tiết kiệmrơiđếnvềhailầnthao táclàm。
    */
   const canGrazeOrFeed = computed(() => {
     if (canGraze.value) return true
     if (animalStore.grazedToday || gameStore.isRainy) return false
     if (unfedCount.value === 0) return false
-    // 冬天只有牦牛能放牧，没牦牛就别自动喂了
+    // đôngngàyconcóyakbònăngđặtchăn thả，khôngyakbòthìkháctựtáccho ănđã
     if (gameStore.season === 'winter' && !animalStore.animals.some(a => a.type === 'yak')) return false
     return selectedFeedCount.value > 0
   })
 
   const grazeButtonLabel = computed(() => {
-    if (canGraze.value) return '放牧全部'
-    if (canGrazeOrFeed.value) return '喂食并放牧'
-    return grazeDisabledReason.value || '放牧全部'
+    if (canGraze.value) return 'Cho tất cả ra đồng'
+    if (canGrazeOrFeed.value) return 'Cho ăn và chăn thả'
+    return grazeDisabledReason.value || 'Cho tất cả ra đồng'
   })
 
-  // === 升级弹窗 ===
+  // === tăngcấpđạncửa sổ ===
 
   interface UpgradeModalData {
     buildingType: AnimalBuildingType
@@ -950,27 +950,27 @@
     upgradeModal.value = null
     const success = animalStore.upgradeBuilding(type)
     if (success) {
-      addLog(`成功升级为${targetName}！容量增至${targetCapacity}。`)
+      addLog(`Nâng cấp thành công thành ${targetName}! Sức chứa tăng lên ${targetCapacity}.`)
       const tr = gameStore.advanceTime(2)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) handleEndDay()
     } else {
-      addLog('升级失败，请检查铜钱和材料是否充足。')
+      addLog('Nâng cấp thất bại, hãy kiểm tra tiền và nguyên liệu.')
     }
   }
 
-  // === 操作处理 ===
+  // === thao táclàmnơiquản lý ===
 
   const handleBuildBuilding = (type: AnimalBuildingType) => {
     const success = animalStore.buildBuilding(type)
     const bDef = ANIMAL_BUILDINGS.find(b => b.type === type)
     if (success) {
-      addLog(`成功建造了${bDef?.name ?? '畜舍'}！`)
+      addLog(`Xây thành công ${bDef?.name ?? 'chuồng'}!`)
       const tr = gameStore.advanceTime(2)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) handleEndDay()
     } else {
-      addLog(`建造${bDef?.name ?? '畜舍'}失败，请检查铜钱和材料是否充足。`)
+      addLog(`Xây ${bDef?.name ?? 'chuồng'} thất bại, hãy kiểm tra tiền và nguyên liệu.`)
     }
   }
 
@@ -981,9 +981,9 @@
     const defaultName = `${aDef.name}${count + 1}`
     const success = animalStore.buyAnimal(type, defaultName)
     if (success) {
-      addLog(`买了一只${aDef.name}，取名「${defaultName}」。`)
+      addLog(`Đã mua một ${aDef.name}, đặt tên 「${defaultName}」.`)
     } else {
-      addLog(`购买${aDef.name}失败，请检查铜钱和畜舍容量。`)
+      addLog(`Mua ${aDef.name} thất bại, hãy kiểm tra tiền và sức chứa chuồng.`)
     }
   }
 
@@ -991,24 +991,24 @@
     const success = animalStore.petAnimal(id)
     if (success) {
       const animal = animalStore.animals.find(a => a.id === id)
-      addLog(`抚摸了${animal?.name ?? '动物'}，友好度提升了。`)
+      addLog(`Đã vuốt ve ${animal?.name ?? 'động vật'}, độ thân thiện tăng.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.petAnimal)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) handleEndDay()
     } else {
-      addLog('今天已经抚摸过了。')
+      addLog('Hôm nay đã vuốt ve rồi.')
     }
   }
 
   const handlePetThePet = () => {
     const success = animalStore.petThePet()
     if (success) {
-      addLog(`抚摸了${animalStore.pet?.name ?? '宠物'}，好感度+5。`)
+      addLog(`Đã vuốt ve ${animalStore.pet?.name ?? 'thú cưng'}, hảo cảm +5.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.petAnimal)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) handleEndDay()
     } else {
-      addLog('今天已经抚摸过了。')
+      addLog('Hôm nay đã vuốt ve rồi.')
     }
   }
 
@@ -1021,17 +1021,17 @@
   const handlePetAll = () => {
     const STAMINA_COST = 2
     if (!playerStore.consumeStamina(STAMINA_COST)) {
-      addLog('体力不足，无法一键抚摸。')
+      addLog('Không đủ thể lực để vuốt ve một chạm.')
       return
     }
     const count = animalStore.petAllAnimals()
     if (count > 0) {
-      addLog(`一口气抚摸了${count}只动物，大家都很开心！`)
+      addLog(`Đã vuốt ve ${count} động vật một lượt, tất cả đều rất vui!`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.batchPet)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) handleEndDay()
     } else {
-      addLog('今天已经全部抚摸过了。')
+      addLog('Hôm nay đã vuốt ve tất cả rồi.')
     }
   }
 
@@ -1048,12 +1048,12 @@
   const handleFeedAnimal = (animalId: string, animalName: string) => {
     const success = animalStore.feedAnimal(animalId, selectedFeed.value)
     if (success) {
-      addLog(`用${selectedFeedName.value}喂食了${animalName}。`)
+      addLog(`Dùng ${selectedFeedName.value} cho ${animalName} ăn.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.petAnimal)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) handleEndDay()
     } else {
-      addLog(`${selectedFeedName.value}不足，无法喂食。`)
+      addLog(`Không đủ ${selectedFeedName.value}, không thể cho ăn.`)
     }
   }
 
@@ -1061,13 +1061,13 @@
     const result = animalStore.feedAll(selectedFeed.value)
     const feedName = selectedFeedName.value
     if (result.fedCount > 0) {
-      addLog(`用${feedName}喂食了${result.fedCount}只动物。`)
+      addLog(`Dùng ${feedName} cho ${result.fedCount} động vật ăn.`)
     }
     if (result.noFeedCount > 0) {
-      addLog(`${feedName}不足，${result.noFeedCount}只动物未能喂食。`)
+      addLog(`Không đủ ${feedName}, ${result.noFeedCount} động vật chưa được cho ăn.`)
     }
     if (result.fedCount === 0 && result.noFeedCount === 0) {
-      addLog('所有动物今天都已喂过了。')
+      addLog('Hôm nay tất cả động vật đã được cho ăn.')
     }
     if (result.fedCount > 0) {
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.feedAnimals)
@@ -1079,27 +1079,27 @@
   const handleBuyFeed = () => {
     const feed = FEED_DEFS.find(f => f.id === selectedFeed.value)
     if (!feed) return
-    // 检查背包主区是否有空间（已有同类栈或有空位），防止溢出到临时背包导致无法使用
+    // kiểm trakiểm tralưnggóichínhkhulàkhôngcólépgian（đãcócùngloàikhohoặccólépvị trí），phòngdừngtrànrađếntạmthờilưnggóidẫnđếnkhôngphápkhiếndùng
     const hasStack = inventoryStore.items.some(s => s.itemId === feed.id && s.quality === 'normal' && s.quantity < 999)
     if (!hasStack && inventoryStore.isFull) {
-      addLog('背包已满，无法购买。')
+      addLog('Balo đã đầy, không thể mua.')
       return
     }
     if (!playerStore.spendMoney(feed.price)) {
-      addLog(`铜钱不足，无法购买${feed.name}。`)
+      addLog(`Không đủ tiền, không thể mua ${feed.name}.`)
       return
     }
     if (!inventoryStore.addItem(feed.id)) {
       // addItem 异常失败，退款
       playerStore.earnMoney(feed.price)
-      addLog('购买失败，已退款。')
+      addLog('Mua thất bại, đã hoàn tiền.')
       return
     }
-    addLog(`购买了1份${feed.name}，花费${feed.price}文。`)
+    addLog(`Đã mua 1 phần ${feed.name}, tốn ${feed.price} văn.`)
   }
 
   const handleGraze = () => {
-    // 还没喂就先喂一遍：一早进牧场时这两步本来就是连着做的
+    // cònkhôngcho ănthìtrướccho ănmộtlượt：mộtsớmtiếnchăn thảtrậnthờinàyhaibướcbảnđếnthìlàliên tụcđanglàm的
     if (!canGraze.value && unfedCount.value > 0) {
       handleFeedAll()
       if (!canGraze.value) return
@@ -1115,17 +1115,17 @@
 
   const handleHealAnimal = (animalId: string, animalName: string) => {
     const success = animalStore.healAnimal(animalId)
-    if (success) addLog(`用兽药治好了${animalName}。`)
-    else addLog('治疗失败，请检查是否有兽药。')
+    if (success) addLog(`Đã chữa ${animalName} bằng thuốc thú y.`)
+    else addLog('Điều trị thất bại, hãy kiểm tra thuốc thú y.')
   }
 
   const handleHealAll = () => {
     const result = animalStore.healAllSick()
-    if (result.healedCount > 0) addLog(`用兽药治疗了${result.healedCount}只动物。`)
-    if (result.noMedicineCount > 0) addLog(`兽药不足，${result.noMedicineCount}只动物未能治疗。`)
+    if (result.healedCount > 0) addLog(`Đã điều trị ${result.healedCount} động vật bằng thuốc thú y.`)
+    if (result.noMedicineCount > 0) addLog(`Không đủ thuốc thú y, ${result.noMedicineCount} động vật chưa được điều trị.`)
   }
 
-  // === 改名 ===
+  // === cảitên ===
 
   const renamingId = ref<string | null>(null)
   const renameInput = ref('')
@@ -1139,9 +1139,9 @@
     if (!renamingId.value) return
     const success = animalStore.renameAnimal(renamingId.value, renameInput.value)
     if (success) {
-      addLog(`改名为「${renameInput.value.trim()}」。`)
+      addLog(`Đã đổi tên thành 「${renameInput.value.trim()}」.`)
     } else {
-      addLog('改名失败，名称需要1-8个字。')
+      addLog('Đổi tên thất bại, tên cần 1-8 ký tự.')
     }
     renamingId.value = null
   }

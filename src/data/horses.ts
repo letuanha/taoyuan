@@ -24,39 +24,39 @@ export interface HorseBreedDef {
 export const HORSE_BREEDS: HorseBreedDef[] = [
   {
     id: 'common',
-    name: '土马',
-    description: '村里常见的驮马，性子温顺，赶路比走着强。',
+    name: 'Ngựa thường',
+    description: 'Ngựa thồ thường thấy trong làng, tính hiền, đi nhanh hơn đi bộ.',
     travelTimeMultiplier: 0.7,
     travelStaminaMultiplier: 0.5,
     grazeBonusChance: 0.05,
-    sourceHint: '马厩购买'
+    sourceHint: 'Mua tại chuồng ngựa'
   },
   {
     id: 'steppe',
-    name: '草原马',
-    description: '瀚海商队带来的良驹，耐力极佳。',
+    name: 'Ngựa thảo nguyên',
+    description: 'Tuấn mã do thương đội Hãn Hải mang tới, sức bền cực tốt.',
     travelTimeMultiplier: 0.55,
     travelStaminaMultiplier: 0.4,
     grazeBonusChance: 0.12,
-    sourceHint: '瀚海通商积分兑换'
+    sourceHint: 'Đổi bằng điểm thương mại Hãn Hải'
   },
   {
     id: 'cloud',
-    name: '踏云驹',
-    description: '据说能踏云而行，蹄下生风。',
+    name: 'Tuấn mã Đạp Vân',
+    description: 'Tương truyền có thể đạp mây mà đi, vó ngựa sinh gió.',
     travelTimeMultiplier: 0.4,
     travelStaminaMultiplier: 0.3,
     grazeBonusChance: 0.2,
-    sourceHint: '冒险家公会高阶悬赏'
+    sourceHint: 'Phần thưởng cấp cao của Hội Mạo hiểm'
   },
   {
     id: 'divine',
-    name: '龙驹',
-    description: '传说中龙种所化，通人性，识归途。',
+    name: 'Long câu',
+    description: 'Tương truyền hóa từ long chủng, hiểu lòng người và biết đường về.',
     travelTimeMultiplier: 0.3,
     travelStaminaMultiplier: 0.2,
     grazeBonusChance: 0.3,
-    sourceHint: '仙缘·龙灵结缘后赠予'
+    sourceHint: 'Tặng sau khi kết duyên tiên duyên với Long Linh'
   }
 ]
 

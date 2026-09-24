@@ -7,7 +7,7 @@
 
     <!-- 返回按钮（在子商铺时显示） -->
     <Button v-if="shopStore.currentShopId" class="mb-3 w-full md:w-auto" :icon="ChevronLeft" @click="shopStore.currentShopId = null">
-      返回商圈
+      Trở lại khu thương mại
     </Button>
 
     <!-- 移动端：购买/出售切换 -->
@@ -18,7 +18,7 @@
         :icon="ShoppingCart"
         @click="mobileTab = 'buy'"
       >
-        购买
+        Mua
       </Button>
       <Button
         class="flex-1 justify-center"
@@ -26,7 +26,7 @@
         :icon="Coins"
         @click="mobileTab = 'sell'"
       >
-        出售
+        Bán
       </Button>
     </div>
 
@@ -34,23 +34,23 @@
       <!-- 左侧：购买区 -->
       <div class="flex-1" :class="{ 'hidden md:block': mobileTab === 'sell' }">
         <!-- 折扣提示 -->
-        <p v-if="hasDiscount" class="text-success text-xs mb-3">折扣生效中：所有购物价格 -{{ discountPercent }}%</p>
+        <p v-if="hasDiscount" class="text-success text-xs mb-3">Đang giảm giá: giá mua mọi vật phẩm -{{ discountPercent }}%</p>
 
         <!-- ====== 商圈总览 ====== -->
         <template v-if="!shopStore.currentShopId">
           <h3 class="text-accent text-sm mb-3">
             <Store :size="14" class="inline" />
-            桃源商圈
+            Khu thương mại Đào Nguyên
           </h3>
-          <p class="text-muted text-xs mb-3">点击商铺进入选购。</p>
+          <p class="text-muted text-xs mb-3">Chạm vào cửa hàng để mua sắm.</p>
 
           <!-- 旅行商人（仅周五/日） -->
           <div v-if="shopStore.isMerchantHere" class="mb-4">
             <h4 class="text-accent text-sm mb-2">
               <MapPin :size="14" class="inline" />
-              旅行商人 · 限时特卖
+              Thương nhân Lữ Hành · Bán giới hạn
             </h4>
-            <p class="text-muted text-xs mb-2">旅行商人今天在桃源村摆摊，带来了稀有货物！</p>
+            <p class="text-muted text-xs mb-2">Hôm nay Thương nhân Lữ Hành bày hàng ở Làng Đào Nguyên, mang theo những món hiếm!</p>
             <div class="flex flex-col space-y-2">
               <div
                 v-for="item in shopStore.travelingStock"
@@ -77,7 +77,7 @@
                     {{ getTravelerItemDesc(item.itemId, item.quantity) }}
                   </p>
                 </div>
-                <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}文</span>
+                <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}văn</span>
               </div>
             </div>
           </div>
@@ -103,12 +103,12 @@
 
         <!-- ====== 万物铺 ====== -->
         <template v-else-if="shopStore.currentShopId === 'wanwupu'">
-          <ShopHeader name="万物铺" npc="陈伯" />
+          <ShopHeader name="Tiệm Vạn Vật" npc="Bác Trần" />
 
           <!-- 当季种子 -->
           <h4 class="text-accent text-sm mb-2 mt-3">
             <Sprout :size="14" class="inline" />
-            当季种子
+            Hạt giống theo mùa
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -117,8 +117,8 @@
               class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-2 cursor-pointer hover:bg-accent/5"
               @click="
                 openBatchBuyModal(
-                  seed.cropName + '种子',
-                  `${seed.season.map(s => SEASON_NAMES[s]).join('/')}季 · ${seed.growthDays}天成熟 → 售${seed.sellPrice}文`,
+                  'Hạt giống ' + seed.cropName,
+                  `${seed.season.map(s => SEASON_NAMES[s]).join('/')} · ${seed.growthDays} ngày trưởng thành → bán ${seed.sellPrice} văn`,
                   discounted(seed.price),
                   () => handleBuySeed(seed.seedId),
                   () => playerStore.money >= discounted(seed.price),
@@ -130,28 +130,28 @@
             >
               <div>
                 <p class="text-sm">
-                  {{ seed.cropName }}种子
-                  <span v-if="seed.regrowth" class="text-success text-xs ml-1">[多茬]</span>
+                  Hạt giống {{ seed.cropName }}
+                  <span v-if="seed.regrowth" class="text-success text-xs ml-1">[Nhiều vụ]</span>
                 </p>
                 <p class="text-muted text-xs">
-                  {{ seed.season.map(s => SEASON_NAMES[s]).join('/') }}季 · {{ seed.growthDays }}天{{
-                    seed.regrowth ? ` · 每${seed.regrowthDays}天再收` : ''
+                  {{ seed.season.map(s => SEASON_NAMES[s]).join('/') }} · {{ seed.growthDays }} ngày{{
+                    seed.regrowth ? ` · mỗithu lại sau mỗi ${seed.regrowthDays} ngày` : ''
                   }}
-                  → 售{{ seed.sellPrice }}文
+                  → bán {{ seed.sellPrice }} văn
                 </p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(seed.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(seed.price) }}văn</span>
             </div>
             <div v-if="shopStore.availableSeeds.length === 0" class="flex flex-col items-center justify-center py-4 text-muted">
               <Sprout :size="24" class="text-muted/30 mb-2" />
-              <p class="text-xs">本季没有种子出售</p>
+              <p class="text-xs">Mùa này không có hạt giống để bán</p>
             </div>
           </div>
 
           <!-- 杂货 -->
           <h4 class="text-accent text-sm mb-2 mt-4">
             <Package :size="14" class="inline" />
-            杂货
+            Tạp hóa
           </h4>
           <div class="flex flex-col space-y-2">
             <!-- 背包扩容 -->
@@ -160,8 +160,8 @@
               class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-2 cursor-pointer hover:bg-accent/5"
               @click="
                 openBuyModal(
-                  '背包扩容',
-                  `当前${inventoryStore.capacity}格 → ${inventoryStore.capacity + 4}格`,
+                  'Mở rộng túi',
+                  `Hiện tại ${inventoryStore.capacity} ô → ${inventoryStore.capacity + 4} ô`,
                   discounted(bagPrice),
                   handleBuyBag,
                   () => playerStore.money >= discounted(bagPrice)
@@ -169,10 +169,10 @@
               "
             >
               <div>
-                <p class="text-sm">背包扩容</p>
-                <p class="text-muted text-xs">当前{{ inventoryStore.capacity }}格 → {{ inventoryStore.capacity + 4 }}格</p>
+                <p class="text-sm">Mở rộng balo</p>
+                <p class="text-muted text-xs">hiện tại {{ inventoryStore.capacity }}ô → {{ inventoryStore.capacity + 4 }}ô</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(bagPrice) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(bagPrice) }}văn</span>
             </div>
 
             <div
@@ -180,8 +180,8 @@
               class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-2 cursor-pointer hover:bg-accent/5"
               @click="
                 openBuyModal(
-                  '仓库扩建',
-                  `箱子槽位 ${warehouseStore.maxChests} → ${warehouseStore.maxChests + 1}`,
+                  'Mở rộng kho',
+                  `Ô rương ${warehouseStore.maxChests} → ${warehouseStore.maxChests + 1} ô`,
                   discounted(warehouseExpandPrice),
                   handleBuyWarehouseExpand,
                   () => playerStore.money >= discounted(warehouseExpandPrice)
@@ -189,13 +189,13 @@
               "
             >
               <div>
-                <p class="text-sm">仓库扩建</p>
+                <p class="text-sm">khoMở rộng</p>
                 <p class="text-muted text-xs">
-                  箱子槽位 {{ warehouseStore.maxChests }} →
+                  rươngconôvị trí {{ warehouseStore.maxChests }} →
                   {{ warehouseStore.maxChests + 1 }}
                 </p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(warehouseExpandPrice) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(warehouseExpandPrice) }}văn</span>
             </div>
 
             <!-- 农场扩建 -->
@@ -204,7 +204,7 @@
               class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-2 cursor-pointer hover:bg-accent/5"
               @click="
                 openBuyModal(
-                  '农场扩建',
+                  'Mở rộng nông trại',
                   `${farmStore.farmSize}×${farmStore.farmSize} → ${farmExpandInfo.newSize}×${farmExpandInfo.newSize}`,
                   discounted(farmExpandInfo.price),
                   handleBuyFarmExpand,
@@ -213,12 +213,12 @@
               "
             >
               <div>
-                <p class="text-sm">农场扩建</p>
+                <p class="text-sm">Nông trạiMở rộng</p>
                 <p class="text-muted text-xs">
                   {{ farmStore.farmSize }}×{{ farmStore.farmSize }} → {{ farmExpandInfo.newSize }}×{{ farmExpandInfo.newSize }}
                 </p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(farmExpandInfo.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(farmExpandInfo.price) }}văn</span>
             </div>
 
             <!-- 树苗 -->
@@ -228,8 +228,8 @@
               class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-2 cursor-pointer hover:bg-accent/5"
               @click="
                 openBatchBuyModal(
-                  tree.name + '苗',
-                  `28天成熟 · ${seasonName(tree.fruitSeason)}季产${tree.fruitName}`,
+                  tree.name + ' cây giống',
+                  `28 ngày trưởng thành · mùa ${seasonName(tree.fruitSeason)} cho ${tree.fruitName}`,
                   discounted(tree.saplingPrice),
                   () => handleBuySapling(tree.saplingId, tree.saplingPrice, tree.name),
                   () => playerStore.money >= discounted(tree.saplingPrice),
@@ -240,10 +240,10 @@
               "
             >
               <div>
-                <p class="text-sm">{{ tree.name }}苗</p>
-                <p class="text-muted text-xs">28天成熟 · {{ seasonName(tree.fruitSeason) }}季产{{ tree.fruitName }}</p>
+                <p class="text-sm">{{ tree.name }}cây giống</p>
+                <p class="text-muted text-xs">28 ngày trưởng thành · mùa {{ seasonName(tree.fruitSeason) }} cho {{ tree.fruitName }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(tree.saplingPrice) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(tree.saplingPrice) }}văn</span>
             </div>
 
             <!-- 干草 -->
@@ -251,22 +251,22 @@
               class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-2 cursor-pointer hover:bg-accent/5"
               @click="
                 openBatchBuyModal(
-                  '干草',
-                  '喂养牲畜用',
+                  'Cỏ khô',
+                  'Dùng để cho gia súc ăn',
                   discounted(HAY_PRICE),
                   handleBuyHay,
                   () => playerStore.money >= discounted(HAY_PRICE),
-                  count => handleBatchBuyItem('hay', HAY_PRICE, '干草', count),
+                  count => handleBatchBuyItem('hay', HAY_PRICE, 'Cỏ khô', count),
                   () => getMaxBuyable(discounted(HAY_PRICE)),
                   'hay'
                 )
               "
             >
               <div>
-                <p class="text-sm">干草</p>
-                <p class="text-muted text-xs">喂养牲畜用</p>
+                <p class="text-sm">Cỏ khô</p>
+                <p class="text-muted text-xs">Dùng để cho gia súc ăn</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(HAY_PRICE) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(HAY_PRICE) }}văn</span>
             </div>
 
             <!-- 木材 -->
@@ -274,22 +274,22 @@
               class="flex items-center justify-between border border-accent/20 rounded-xs px-3 py-2 cursor-pointer hover:bg-accent/5"
               @click="
                 openBatchBuyModal(
-                  '木材',
-                  '建筑和加工的基础材料',
+                  'Gỗ',
+                  'Nguyên liệu cơ bản cho xây dựng và chế biến',
                   discounted(WOOD_PRICE),
-                  () => handleBuyItem('wood', WOOD_PRICE, '木材'),
+                  () => handleBuyItem('wood', WOOD_PRICE, 'Gỗ'),
                   () => playerStore.money >= discounted(WOOD_PRICE),
-                  count => handleBatchBuyItem('wood', WOOD_PRICE, '木材', count),
+                  count => handleBatchBuyItem('wood', WOOD_PRICE, 'Gỗ', count),
                   () => getMaxBuyable(discounted(WOOD_PRICE)),
                   'wood'
                 )
               "
             >
               <div>
-                <p class="text-sm">木材</p>
-                <p class="text-muted text-xs">建筑和加工的基础材料</p>
+                <p class="text-sm">gỗnguyên liệu</p>
+                <p class="text-muted text-xs">xâyxây dựng và gia công của cơ bảnnền tảngnguyên liệu</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(WOOD_PRICE) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(WOOD_PRICE) }}văn</span>
             </div>
 
             <!-- 天气图腾：花大钱买一个确定的明天 -->
@@ -314,14 +314,14 @@
                 <p class="text-sm">{{ totem.name }}</p>
                 <p class="text-muted text-xs">{{ totem.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(totem.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(totem.price) }}văn</span>
             </div>
           </div>
         </template>
 
         <!-- ====== 铁匠铺 ====== -->
         <template v-else-if="shopStore.currentShopId === 'tiejiangpu'">
-          <ShopHeader name="铁匠铺" npc="孙铁匠" />
+          <ShopHeader name="Tiệm Rèn" npc="Thợ rèn Tôn" />
 
           <div class="flex flex-col space-y-2">
             <div
@@ -345,14 +345,14 @@
                 <p class="text-sm">{{ item.name }}</p>
                 <p class="text-muted text-xs">{{ item.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}văn</span>
             </div>
           </div>
 
           <!-- 戒指合成 -->
           <h4 class="text-accent text-sm mb-2 mt-4">
             <CircleDot :size="14" class="inline" />
-            戒指合成
+            Hợp thành nhẫn
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -365,22 +365,22 @@
               <div>
                 <p class="text-sm">
                   {{ ring.name }}
-                  <span v-if="inventoryStore.hasRing(ring.id)" class="text-success text-xs ml-1">已拥有</span>
+                  <span v-if="inventoryStore.hasRing(ring.id)" class="text-success text-xs ml-1">Đang có</span>
                 </p>
                 <p class="text-muted text-xs">{{ ring.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ ring.recipeMoney }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ ring.recipeMoney }}văn</span>
             </div>
             <div v-if="craftableRings.length === 0" class="flex flex-col items-center justify-center py-4 text-muted">
               <CircleDot :size="24" class="text-muted/30 mb-2" />
-              <p class="text-xs">没有可合成的戒指</p>
+              <p class="text-xs">Không thể hợp thành nhẫn</p>
             </div>
           </div>
 
           <!-- 帽子合成 -->
           <h4 class="text-accent text-sm mb-2 mt-4">
             <Crown :size="14" class="inline" />
-            帽子合成
+            Hợp thành mũ
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -393,18 +393,18 @@
               <div>
                 <p class="text-sm">
                   {{ hat.name }}
-                  <span v-if="inventoryStore.hasHat(hat.id)" class="text-success text-xs ml-1">已拥有</span>
+                  <span v-if="inventoryStore.hasHat(hat.id)" class="text-success text-xs ml-1">Đang có</span>
                 </p>
                 <p class="text-muted text-xs">{{ hat.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ hat.recipeMoney }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ hat.recipeMoney }}văn</span>
             </div>
           </div>
 
           <!-- 鞋子合成 -->
           <h4 class="text-accent text-sm mb-2 mt-4">
             <Footprints :size="14" class="inline" />
-            鞋子合成
+            Hợp thành giày
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -417,23 +417,23 @@
               <div>
                 <p class="text-sm">
                   {{ shoe.name }}
-                  <span v-if="inventoryStore.hasShoe(shoe.id)" class="text-success text-xs ml-1">已拥有</span>
+                  <span v-if="inventoryStore.hasShoe(shoe.id)" class="text-success text-xs ml-1">Đang có</span>
                 </p>
                 <p class="text-muted text-xs">{{ shoe.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ shoe.recipeMoney }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ shoe.recipeMoney }}văn</span>
             </div>
           </div>
         </template>
 
         <!-- ====== 镖局 ====== -->
         <template v-else-if="shopStore.currentShopId === 'biaoju'">
-          <ShopHeader name="镖局" npc="云飞" />
+          <ShopHeader name="Tiêu Cục" npc="Vân Phi" />
 
           <!-- 武器 -->
           <h4 class="text-accent text-sm mb-2">
             <Sword :size="14" class="inline" />
-            武器
+            Vũ khí
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -445,23 +445,23 @@
               <div>
                 <p class="text-sm">
                   {{ w.name }}
-                  <span v-if="inventoryStore.hasWeapon(w.id)" class="text-success text-xs ml-1">已拥有</span>
+                  <span v-if="inventoryStore.hasWeapon(w.id)" class="text-success text-xs ml-1">Đang có</span>
                 </p>
-                <p class="text-muted text-xs">{{ WEAPON_TYPE_NAMES[w.type] }} · 攻击{{ w.attack }}</p>
+                <p class="text-muted text-xs">{{ WEAPON_TYPE_NAMES[w.type] }} · Tấn công{{ w.attack }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(w.shopPrice!) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(w.shopPrice!) }}văn</span>
             </div>
           </div>
         </template>
 
         <!-- ====== 渔具铺 ====== -->
         <template v-else-if="shopStore.currentShopId === 'yugupu'">
-          <ShopHeader name="渔具铺" npc="秋月" />
+          <ShopHeader name="Tiệm Đồ Câu" npc="Thu Nguyệt" />
 
           <!-- 鱼饵 -->
           <h4 class="text-accent text-sm mb-2">
             <Fish :size="14" class="inline" />
-            鱼饵
+            Mồi câu
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -485,14 +485,14 @@
                 <p class="text-sm">{{ b.name }}</p>
                 <p class="text-muted text-xs">{{ b.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(b.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(b.price) }}văn</span>
             </div>
           </div>
 
           <!-- 浮漂 -->
           <h4 class="text-accent text-sm mb-2 mt-4">
             <Fish :size="14" class="inline" />
-            浮漂
+            nổiphao
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -516,14 +516,14 @@
                 <p class="text-sm">{{ t.name }}</p>
                 <p class="text-muted text-xs">{{ t.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(t.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(t.price) }}văn</span>
             </div>
           </div>
 
           <!-- 其他 -->
           <h4 class="text-accent text-sm mb-2 mt-4">
             <Fish :size="14" class="inline" />
-            其他
+            đóanh ấy
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -547,19 +547,19 @@
                 <p class="text-sm">{{ item.name }}</p>
                 <p class="text-muted text-xs">{{ item.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}văn</span>
             </div>
           </div>
         </template>
 
         <!-- ====== 药铺 ====== -->
         <template v-else-if="shopStore.currentShopId === 'yaopu'">
-          <ShopHeader name="药铺" npc="林老" />
+          <ShopHeader name="Tiệm Thuốc" npc="Lâm Lão" />
 
           <!-- 肥料 -->
           <h4 class="text-accent text-sm mb-2">
             <Leaf :size="14" class="inline" />
-            肥料
+            Phân bón
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -583,14 +583,14 @@
                 <p class="text-sm">{{ f.name }}</p>
                 <p class="text-muted text-xs">{{ f.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(f.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(f.price) }}văn</span>
             </div>
           </div>
 
           <!-- 草药 -->
           <h4 class="text-accent text-sm mb-2 mt-4">
             <Sprout :size="14" class="inline" />
-            草药
+            cỏthuốc
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -614,14 +614,14 @@
                 <p class="text-sm">{{ item.name }}</p>
                 <p class="text-muted text-xs">{{ item.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}văn</span>
             </div>
           </div>
         </template>
 
         <!-- ====== 绸缎庄 ====== -->
         <template v-else-if="shopStore.currentShopId === 'chouduanzhuang'">
-          <ShopHeader name="绸缎庄" npc="素素" />
+          <ShopHeader name="Trang Viên Tơ Lụa" npc="Tố Tố" />
 
           <div class="flex flex-col space-y-2">
             <div
@@ -645,14 +645,14 @@
                 <p class="text-sm">{{ item.name }}</p>
                 <p class="text-muted text-xs">{{ item.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(item.price) }}văn</span>
             </div>
           </div>
 
           <!-- 帽子 -->
           <h4 class="text-accent text-sm mb-2 mt-4">
             <Crown :size="14" class="inline" />
-            帽子
+            Mũ
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -664,18 +664,18 @@
               <div>
                 <p class="text-sm">
                   {{ hat.name }}
-                  <span v-if="inventoryStore.hasHat(hat.id)" class="text-success text-xs ml-1">已拥有</span>
+                  <span v-if="inventoryStore.hasHat(hat.id)" class="text-success text-xs ml-1">Đang có</span>
                 </p>
                 <p class="text-muted text-xs">{{ hat.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(hat.shopPrice!) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(hat.shopPrice!) }}văn</span>
             </div>
           </div>
 
           <!-- 鞋子 -->
           <h4 class="text-accent text-sm mb-2 mt-4">
             <Footprints :size="14" class="inline" />
-            鞋子
+            Giày
           </h4>
           <div class="flex flex-col space-y-2">
             <div
@@ -687,11 +687,11 @@
               <div>
                 <p class="text-sm">
                   {{ shoe.name }}
-                  <span v-if="inventoryStore.hasShoe(shoe.id)" class="text-success text-xs ml-1">已拥有</span>
+                  <span v-if="inventoryStore.hasShoe(shoe.id)" class="text-success text-xs ml-1">Đang có</span>
                 </p>
                 <p class="text-muted text-xs">{{ shoe.description }}</p>
               </div>
-              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(shoe.shopPrice!) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ discounted(shoe.shopPrice!) }}văn</span>
             </div>
           </div>
         </template>
@@ -702,7 +702,7 @@
         <div class="flex items-center justify-between mb-3">
           <h3 class="text-accent text-sm">
             <TrendingUp :size="14" class="inline" />
-            出售物品
+            rabánvậtphẩm
           </h3>
           <div class="flex space-x-1.5">
             <Button
@@ -712,19 +712,19 @@
               :icon-size="12"
               @click="openSellFilterModal"
             >
-              筛选
+              Lọc
             </Button>
             <Button v-if="sellableItems.length > 0" class="btn-danger" :icon="Coins" @click="showSellAllConfirm = true">
-              一键全部出售
+              mộtphímTất cảrabán
             </Button>
           </div>
         </div>
         <!-- 售价加成提示 -->
-        <p v-if="hasSellBonus" class="text-success text-xs mb-2">戒指加成中：所有售价 +{{ sellBonusPercent }}%</p>
+        <p v-if="hasSellBonus" class="text-success text-xs mb-2">Hiệu ứng nhẫn: giá bán mọi vật phẩm +{{ sellBonusPercent }}%</p>
 
         <!-- 今日行情 -->
         <div class="border border-accent/30 rounded-xs p-2 mb-3">
-          <p class="text-[10px] text-muted mb-1">今日行情</p>
+          <p class="text-[10px] text-muted mb-1">hôm nayngàyhànhhình</p>
           <div class="grid grid-cols-4">
             <span v-for="m in todayMarket" :key="m.category" class="text-[10px] whitespace-nowrap mt-2">
               <span class="text-muted">{{ MARKET_CATEGORY_NAMES[m.category] }}</span>
@@ -747,7 +747,7 @@
               <span class="text-muted text-xs ml-1">×{{ item.quantity }}</span>
             </div>
             <div class="flex items-center space-x-1">
-              <span class="text-xs text-accent whitespace-nowrap">{{ shopStore.calculateSellPrice(item.itemId, 1, item.quality) }}文</span>
+              <span class="text-xs text-accent whitespace-nowrap">{{ shopStore.calculateSellPrice(item.itemId, 1, item.quality) }}văn</span>
               <span v-if="getItemTrend(item.itemId) === 'rising' || getItemTrend(item.itemId) === 'boom'" class="text-[10px] text-success">
                 ↑{{ Math.round((getItemMultiplier(item.itemId) - 1) * 100) }}%
               </span>
@@ -762,7 +762,7 @@
           </div>
           <div v-if="sellableItems.length === 0" class="flex flex-col items-center justify-center py-4 text-muted">
             <Package :size="100" class="text-muted/30 my-4" />
-            <p class="text-xs">背包中没有可出售的物品</p>
+            <p class="text-xs">Túi đồtrongkhông cócó thể bán của Vật phẩm</p>
           </div>
         </div>
       </div>
@@ -779,8 +779,8 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="showSellFilterModal = false">
             <X :size="14" />
           </button>
-          <p class="text-sm text-accent mb-2">出售筛选</p>
-          <p class="text-[10px] text-muted mb-2">选择要显示的分类，不选则显示全部</p>
+          <p class="text-sm text-accent mb-2">bánlọcchọn</p>
+          <p class="text-[10px] text-muted mb-2">Chọn loại muốn hiển thị, bỏ chọn để hiển thị tất cả</p>
           <div class="grid grid-cols-3 gap-1.5 mb-3">
             <div
               v-for="cat in SELL_FILTER_CATEGORIES"
@@ -795,8 +795,8 @@
             </div>
           </div>
           <div class="flex space-x-1.5">
-            <Button class="flex-1 justify-center" @click="handleClearSellFilter">全部显示</Button>
-            <Button class="flex-1 justify-center !bg-accent !text-bg" @click="handleSaveSellFilter">保存</Button>
+            <Button class="flex-1 justify-center" @click="handleClearSellFilter">Hiển thị tất cả</Button>
+            <Button class="flex-1 justify-center !bg-accent !text-bg" @click="handleSaveSellFilter">Lưu</Button>
           </div>
         </div>
       </div>
@@ -810,11 +810,11 @@
         @click.self="showSellAllConfirm = false"
       >
         <div class="game-panel max-w-xs w-full">
-          <p class="text-sm text-accent mb-2">确认一键出售</p>
-          <p class="text-xs text-muted mb-3">将出售背包中所有未锁定的非种子物品（共{{ sellableItems.length }}种），确定继续？</p>
+          <p class="text-sm text-accent mb-2">xác nhận mộtphímbán</p>
+          <p class="text-xs text-muted mb-3">Bán tất cả vật phẩm không khóa trong Túi đồ, không tính Hạt giống (tổng {{ sellableItems.length }} loại), tiếp tục?</p>
           <div class="flex space-x-1.5">
-            <Button class="flex-1 justify-center" @click="showSellAllConfirm = false">取消</Button>
-            <Button class="flex-1 justify-center btn-danger" :icon="Coins" @click="confirmSellAll">确认出售</Button>
+            <Button class="flex-1 justify-center" @click="showSellAllConfirm = false">Hủy</Button>
+            <Button class="flex-1 justify-center btn-danger" :icon="Coins" @click="confirmSellAll">xác nhận bán</Button>
           </div>
         </div>
       </div>
@@ -843,11 +843,11 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">{{ buyModalData.batchBuy ? '单价' : '价格' }}</span>
-              <span class="text-xs text-accent">{{ buyModalData.price }}文</span>
+              <span class="text-xs text-muted">{{ buyModalData.batchBuy ? 'Đơn giá' : 'Giá' }}</span>
+              <span class="text-xs text-accent">{{ buyModalData.price }}văn</span>
             </div>
             <div v-if="buyModalData.itemId" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">持有</span>
+              <span class="text-xs text-muted">Sở hữu</span>
               <span class="text-xs">{{ inventoryStore.getItemCount(buyModalData.itemId) }}</span>
             </div>
           </div>
@@ -855,7 +855,7 @@
           <!-- 批量购买数量选择器 -->
           <div v-if="buyModalData.batchBuy" class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">数量</span>
+              <span class="text-xs text-muted">Số lượng</span>
               <div class="flex items-center space-x-1">
                 <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="buyQuantity <= 1" @click="addBuyQuantity(-1)">-</Button>
                 <input
@@ -876,14 +876,14 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="buyQuantity <= 1" @click="setBuyQuantity(1)">最少</Button>
+              <Button class="flex-1 justify-center" :disabled="buyQuantity <= 1" @click="setBuyQuantity(1)">Ít nhất</Button>
               <Button class="flex-1 justify-center" :disabled="buyQuantity >= maxBuyQuantity" @click="setBuyQuantity(maxBuyQuantity)">
-                最多
+                nhấtnhiều
               </Button>
             </div>
             <div class="flex items-center justify-between mt-1.5">
-              <span class="text-xs text-muted">总价</span>
-              <span class="text-xs text-accent">{{ buyTotalPrice }}文</span>
+              <span class="text-xs text-muted">tổng giá</span>
+              <span class="text-xs text-accent">{{ buyTotalPrice }}văn</span>
             </div>
           </div>
 
@@ -896,7 +896,7 @@
               :icon="ShoppingCart"
               @click="buyModalData.batchBuy!.onBuy(buyQuantity)"
             >
-              购买 ×{{ buyQuantity }}
+              muamua ×{{ buyQuantity }}
             </Button>
             <Button
               v-else
@@ -906,7 +906,7 @@
               :icon="buyModalData.buttonText ? Hammer : ShoppingCart"
               @click="buyModalData.onBuy()"
             >
-              {{ buyModalData.buttonText ?? '购买' }}
+              {{ buyModalData.buttonText ?? 'Mua' }}
             </Button>
           </div>
         </div>
@@ -926,44 +926,44 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">数量</span>
+              <span class="text-xs text-muted">Số lượng</span>
               <span class="text-xs">×{{ sellModalItem.quantity }}</span>
             </div>
             <div v-if="sellModalItem.quality !== 'normal'" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">品质</span>
+              <span class="text-xs text-muted">Chất lượng</span>
               <span class="text-xs" :class="qualityTextClass(sellModalItem.quality)">{{ QUALITY_NAMES[sellModalItem.quality] }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">售价</span>
+              <span class="text-xs text-muted">Giá bán</span>
               <span class="text-xs flex items-center space-x-1">
                 <span
                   v-if="getItemTrend(sellModalData!.itemId) && getItemTrend(sellModalData!.itemId) !== 'stable'"
                   class="line-through text-muted/40"
                 >
-                  {{ shopStore.calculateBaseSellPrice(sellModalData!.itemId, 1, sellModalData!.quality) }}文
+                  {{ shopStore.calculateBaseSellPrice(sellModalData!.itemId, 1, sellModalData!.quality) }}văn
                 </span>
-                <span class="text-accent">{{ shopStore.calculateSellPrice(sellModalData!.itemId, 1, sellModalData!.quality) }}文</span>
+                <span class="text-accent">{{ shopStore.calculateSellPrice(sellModalData!.itemId, 1, sellModalData!.quality) }}văn</span>
               </span>
             </div>
             <div
               v-if="getItemTrend(sellModalData!.itemId) && getItemTrend(sellModalData!.itemId) !== 'stable'"
               class="flex items-center justify-between mt-0.5"
             >
-              <span class="text-xs text-muted">行情</span>
+              <span class="text-xs text-muted">hànhhình</span>
               <span class="text-xs" :class="trendColor(getItemTrend(sellModalData!.itemId)!)">
                 {{ TREND_NAMES[getItemTrend(sellModalData!.itemId)!] }} ×{{ getItemMultiplier(sellModalData!.itemId) }}
               </span>
             </div>
             <div v-if="hasSellBonus" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">戒指加成</span>
+              <span class="text-xs text-muted">Hiệu ứng nhẫn</span>
               <span class="text-xs text-success">+{{ sellBonusPercent }}%</span>
             </div>
           </div>
 
-          <!-- 数量选择器（物品数量>1时显示） -->
+          <!-- 数量选择器（物品数量>1thờihiểnhiển thị） -->
           <div v-if="sellModalItem.quantity > 1" class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">出售数量</span>
+              <span class="text-xs text-muted">bánSố lượng</span>
               <div class="flex items-center space-x-1">
                 <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="sellQuantity <= 1" @click="addSellQuantity(-1)">
                   -
@@ -986,19 +986,19 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="sellQuantity <= 1" @click="setSellQuantity(1)">最少</Button>
+              <Button class="flex-1 justify-center" :disabled="sellQuantity <= 1" @click="setSellQuantity(1)">Ít nhất</Button>
               <Button class="flex-1 justify-center" :disabled="sellQuantity >= maxSellQuantity" @click="setSellQuantity(maxSellQuantity)">
-                最多
+                nhấtnhiều
               </Button>
             </div>
             <div class="flex items-center justify-between mt-1.5">
-              <span class="text-xs text-muted">总价</span>
-              <span class="text-xs text-accent">{{ sellTotalPrice }}文</span>
+              <span class="text-xs text-muted">tổng giá</span>
+              <span class="text-xs text-accent">{{ sellTotalPrice }}văn</span>
             </div>
           </div>
 
           <div class="flex flex-col space-y-1.5">
-            <Button class="w-full justify-center" :icon="Coins" @click="handleModalSell(sellQuantity)">出售 ×{{ sellQuantity }}</Button>
+            <Button class="w-full justify-center" :icon="Coins" @click="handleModalSell(sellQuantity)">bán ×{{ sellQuantity }}</Button>
           </div>
         </div>
       </div>
@@ -1072,11 +1072,11 @@
 
   const tutorialHint = computed(() => {
     if (!tutorialStore.enabled || gameStore.year > 1) return null
-    if (achievementStore.stats.totalCropsHarvested === 0) return '万物铺出售各种种子，购买后去农场种植。上方可以切换「买入」和「卖出」。'
+    if (achievementStore.stats.totalCropsHarvested === 0) return 'Tiệm Vạn Vật bán nhiều loại hạt giống, mua xong hãy tới nông trại trồng. Có thể chuyển 「Mua」 và 「Bán」 ở phía trên.'
     return null
   })
 
-  // === 行情系统 ===
+  // === hànhhìnhhệhệ thống ===
 
   const todayMarket = computed(() =>
     getDailyMarketInfo(gameStore.year, gameStore.seasonIndex, gameStore.day, shopStore.getRecentShipping())
@@ -1103,14 +1103,14 @@
     return 'text-muted/40'
   }
 
-  // 每次进入商圈页面，重置到商圈总览（避免跳过营业时间检查）
+  // mỗilầntiếnvàothương mạivòngtrangmặt，lạiđặtđếnthương mạivòngtổngxem（tránhmiễnnhảyquakinh doanhnghiệpthờigiankiểm trakiểm tra）
   shopStore.currentShopId = null
 
-  // === 移动端切换 ===
+  // === chuyểntácđầuchuyểnđổi ===
 
   const mobileTab = ref<'buy' | 'sell'>('buy')
 
-  // === 一键出售确认 ===
+  // === mộtphímrabánxácxác nhận ===
 
   const showSellAllConfirm = ref(false)
 
@@ -1119,7 +1119,7 @@
     handleSellAll(sellFilter.value)
   }
 
-  // === 弹窗系统 ===
+  // === đạncửa sổhệhệ thống ===
 
   type BuyModalState = {
     type: 'buy'
@@ -1285,9 +1285,9 @@
   }
 
   const openWeaponModal = (w: WeaponDef) => {
-    const lines = [`${WEAPON_TYPE_NAMES[w.type]} · 攻击${w.attack} · 暴击${Math.round(w.critRate * 100)}%`]
+    const lines = [`${WEAPON_TYPE_NAMES[w.type]} · Tấn công ${w.attack} · Chí mạng ${Math.round(w.critRate * 100)}%`]
     if (w.shopMaterials.length > 0) {
-      lines.push('需要材料：' + w.shopMaterials.map(m => `${getItemById(m.itemId)?.name ?? m.itemId}×${m.quantity}`).join('、'))
+      lines.push('Cần nguyên liệu:' + w.shopMaterials.map(m => `${getItemById(m.itemId)?.name ?? m.itemId}×${m.quantity}`).join('、'))
     }
     openBuyModal(
       w.name,
@@ -1301,13 +1301,13 @@
 
   const openRingModal = (ring: RingDef) => {
     const lines = [
-      '效果：' +
+      'Hiệu ứng:' +
         ring.effects
           .map(eff => RING_EFFECT_LABELS[eff.type] + (eff.value > 0 && eff.value < 1 ? Math.round(eff.value * 100) + '%' : '+' + eff.value))
           .join('、'),
-      '材料：' +
+      'Nguyên liệu:' +
         (ring.recipe?.map(m => `${getItemById(m.itemId)?.name ?? m.itemId}×${m.quantity}`).join('、') ?? '') +
-        ` + ${ring.recipeMoney}文`
+        ` + ${ring.recipeMoney} văn`
     ]
     openBuyModal(
       ring.name,
@@ -1316,7 +1316,7 @@
       () => handleCraftRing(ring.id),
       () => canCraftRing(ring),
       lines,
-      '合成'
+      'Chế tạo'
     )
   }
 
@@ -1328,7 +1328,7 @@
     } else {
       handleSellItemAll(modal.itemId, count, modal.quality)
     }
-    // 物品消耗完则关闭弹窗，否则修正出售数量
+    // vậtphẩmtiêuhaohoànthìquan hệđóngđạncửa sổ，khôngthìsửađúngrabánsốlượng
     const remaining = inventoryStore.items.find(i => i.itemId === modal.itemId && i.quality === modal.quality)
     if (!remaining) {
       shopModal.value = null
@@ -1337,7 +1337,7 @@
     }
   }
 
-  // === 折扣系统 ===
+  // === giảmgiảmhệhệ thống ===
 
   const hasDiscount = computed(() => walletStore.getShopDiscount() > 0 || inventoryStore.getRingEffectValue('shop_discount') > 0)
   const discountPercent = computed(() => {
@@ -1352,12 +1352,12 @@
     return Math.floor(price * (1 - walletDiscount) * (1 - ringDiscount))
   }
 
-  // === 售价加成 ===
+  // === bángiáthêm成 ===
 
   const hasSellBonus = computed(() => inventoryStore.getRingEffectValue('sell_price_bonus') > 0)
   const sellBonusPercent = computed(() => Math.round(inventoryStore.getRingEffectValue('sell_price_bonus') * 100))
 
-  // === 商铺开放状态 ===
+  // === thương mạiquánmởđặttrạng tháitrạng thái ===
 
   const isOpen = (shop: ShopDef): boolean => {
     return isShopAvailable(shop, gameStore.day, gameStore.hour, gameStore.weather, gameStore.season)
@@ -1371,7 +1371,7 @@
     shopStore.currentShopId = shopId
   }
 
-  // === 旅行商人 ===
+  // === du lịchhànhthương mạingười ===
 
   if (shopStore.isMerchantHere) {
     shopStore.refreshMerchantStock()
@@ -1381,14 +1381,14 @@
     const actualPrice = discounted(originalPrice)
     if (shopStore.buyFromTraveler(itemId)) {
       sfxBuy()
-      showFloat(`-${actualPrice}文`, 'danger')
-      addLog(`从旅行商人处购买了${name}。(-${actualPrice}文)`)
+      showFloat(`-${actualPrice} văn`, 'danger')
+      addLog(`Đã mua ${name} từ thương nhân du hành. (-${actualPrice} văn)`)
     } else {
-      addLog('铜钱不足或背包已满。')
+      addLog('Không đủ tiền hoặc túi đồ đã đầy.')
     }
   }
 
-  // === 万物铺 ===
+  // === 万vậtquán ===
 
   const bagPrice = computed(() => {
     const level = (inventoryStore.capacity - 24) / 4
@@ -1409,14 +1409,14 @@
   const handleBuyBag = () => {
     const actualPrice = discounted(bagPrice.value)
     if (!playerStore.spendMoney(actualPrice)) {
-      addLog('铜钱不足。')
+      addLog('Không đủ tiền.')
       return
     }
     if (inventoryStore.expandCapacity()) {
-      addLog(`背包扩容至${inventoryStore.capacity}格！(-${actualPrice}文)`)
+      addLog(`Túi mở rộng lên ${inventoryStore.capacity} ô! (-${actualPrice} văn)`)
     } else {
       playerStore.earnMoney(actualPrice)
-      addLog('背包已满级。')
+      addLog('Túi đã đạt cấp tối đa.')
     }
   }
 
@@ -1428,14 +1428,14 @@
   const handleBuyWarehouseExpand = () => {
     const actualPrice = discounted(warehouseExpandPrice.value)
     if (!playerStore.spendMoney(actualPrice)) {
-      addLog('铜钱不足。')
+      addLog('Không đủ tiền.')
       return
     }
     if (warehouseStore.expandMaxChests()) {
-      addLog(`仓库扩建至${warehouseStore.maxChests}个箱子槽位！(-${actualPrice}文)`)
+      addLog(`Kho mở rộng lên ${warehouseStore.maxChests} ô rương! (-${actualPrice} văn)`)
     } else {
       playerStore.earnMoney(actualPrice)
-      addLog('仓库已满级。')
+      addLog('Kho đã đạt cấp tối đa.')
     }
   }
 
@@ -1444,15 +1444,15 @@
     if (!info) return
     const actualPrice = discounted(info.price)
     if (!playerStore.spendMoney(actualPrice)) {
-      addLog('铜钱不足。')
+      addLog('Không đủ tiền.')
       return
     }
     const newSize = farmStore.expandFarm()
     if (newSize) {
-      addLog(`农场扩建至${newSize}×${newSize}！(-${actualPrice}文)`)
+      addLog(`Nông trại mở rộng lên ${newSize}×${newSize}! (-${actualPrice} văn)`)
     } else {
       playerStore.earnMoney(actualPrice)
-      addLog('农场已满级。')
+      addLog('Nông trại đã đạt cấp tối đa.')
     }
   }
 
@@ -1463,40 +1463,40 @@
   const getTravelerItemDesc = (itemId: string, quantity: number): string => {
     const crop = getCropBySeedId(itemId)
     if (crop) {
-      return `${crop.season.map(s => SEASON_NAMES[s]).join('/')}季 · ${crop.growthDays}天成熟 · 剩余${quantity}个`
+      return `Mùa ${crop.season.map(s => SEASON_NAMES[s]).join('/')} · chín sau ${crop.growthDays} ngày · còn ${quantity} cái`
     }
-    return `剩余${quantity}个`
+    return `Còn ${quantity} cái`
   }
 
   const handleBuySapling = (saplingId: string, price: number, treeName: string) => {
     const actualPrice = discounted(price)
     if (!playerStore.spendMoney(actualPrice)) {
-      addLog('铜钱不足。')
+      addLog('Không đủ tiền.')
       return
     }
     if (!inventoryStore.addItem(saplingId)) {
       playerStore.earnMoney(actualPrice)
-      addLog('背包已满，无法购买。')
+      addLog('Balo đã đầy, không thể mua.')
       return
     }
-    addLog(`购买了${treeName}苗。(-${actualPrice}文)`)
+    addLog(`Đã mua cây giống ${treeName}. (-${actualPrice} văn)`)
   }
 
   const handleBuyHay = () => {
     const actualPrice = discounted(HAY_PRICE)
     if (!playerStore.spendMoney(actualPrice)) {
-      addLog('铜钱不足。')
+      addLog('Không đủ tiền.')
       return
     }
     if (!inventoryStore.addItem('hay')) {
       playerStore.earnMoney(actualPrice)
-      addLog('背包已满，无法购买。')
+      addLog('Balo đã đầy, không thể mua.')
       return
     }
-    addLog(`购买了干草。(-${actualPrice}文)`)
+    addLog(`Đã mua cỏ khô. (-${actualPrice} văn)`)
   }
 
-  // === 批量购买处理 ===
+  // === lôlượngmuamuanơiquản lý ===
 
   const handleBatchBuySeed = (seedId: string, count: number) => {
     const seed = shopStore.availableSeeds.find(s => s.seedId === seedId)
@@ -1504,10 +1504,10 @@
     const unitPrice = discounted(seed.price)
     if (shopStore.buySeed(seedId, count)) {
       sfxBuy()
-      showFloat(`-${unitPrice * count}文`, 'danger')
-      addLog(`购买了${count}个${seed.cropName}种子。(-${unitPrice * count}文)`)
+      showFloat(`-${unitPrice * count} văn`, 'danger')
+      addLog(`Đã mua ${count} hạt giống ${seed.cropName}. (-${unitPrice * count} văn)`)
     } else {
-      addLog('铜钱不足或背包已满。')
+      addLog('Không đủ tiền hoặc túi đồ đã đầy.')
     }
   }
 
@@ -1515,10 +1515,10 @@
     const unitPrice = discounted(price)
     if (shopStore.buyItem(itemId, price, count)) {
       sfxBuy()
-      showFloat(`-${unitPrice * count}文`, 'danger')
-      addLog(`购买了${count}个${name}。(-${unitPrice * count}文)`)
+      showFloat(`-${unitPrice * count} văn`, 'danger')
+      addLog(`Đã mua ${count} ${name}. (-${unitPrice * count} văn)`)
     } else {
-      addLog('铜钱不足或背包已满。')
+      addLog('Không đủ tiền hoặc túi đồ đã đầy.')
     }
   }
 
@@ -1535,10 +1535,10 @@
     }
     if (bought > 0) {
       sfxBuy()
-      showFloat(`-${unitPrice * bought}文`, 'danger')
-      addLog(`购买了${bought}个${treeName}苗。(-${unitPrice * bought}文)`)
+      showFloat(`-${unitPrice * bought} văn`, 'danger')
+      addLog(`Đã mua ${bought} cây giống ${treeName}. (-${unitPrice * bought} văn)`)
     } else {
-      addLog('铜钱不足或背包已满。')
+      addLog('Không đủ tiền hoặc túi đồ đã đầy.')
     }
   }
 
@@ -1551,14 +1551,14 @@
     }
     if (bought > 0) {
       sfxBuy()
-      showFloat(`-${unitPrice * bought}文`, 'danger')
-      addLog(`从旅行商人处购买了${bought}个${name}。(-${unitPrice * bought}文)`)
+      showFloat(`-${unitPrice * bought} văn`, 'danger')
+      addLog(`Đã mua ${bought} ${name} từ thương nhân du hành. (-${unitPrice * bought} văn)`)
     } else {
-      addLog('铜钱不足或背包已满。')
+      addLog('Không đủ tiền hoặc túi đồ đã đầy.')
     }
   }
 
-  // === 镖局 ===
+  // === phi tiêuván ===
 
   const hasWeaponMaterials = (w: WeaponDef): boolean => {
     for (const mat of w.shopMaterials) {
@@ -1569,53 +1569,53 @@
 
   const handleBuyWeapon = (w: WeaponDef) => {
     if (inventoryStore.hasWeapon(w.id)) {
-      addLog('你已经拥有这把武器了。')
+      addLog('Bạn đã sở hữu vũ khí này.')
       return
     }
     if (w.shopPrice === null) return
     const actualPrice = discounted(w.shopPrice)
     if (!playerStore.spendMoney(actualPrice)) {
-      addLog('铜钱不足。')
+      addLog('Không đủ tiền.')
       return
     }
     for (const mat of w.shopMaterials) {
       if (!inventoryStore.removeItem(mat.itemId, mat.quantity)) {
         playerStore.earnMoney(actualPrice)
-        addLog('材料不足。')
+        addLog('Không đủ nguyên liệu.')
         return
       }
     }
     inventoryStore.addWeapon(w.id)
     const matStr =
       w.shopMaterials.length > 0 ? ' + ' + w.shopMaterials.map(m => `${getItemById(m.itemId)?.name}×${m.quantity}`).join(' + ') : ''
-    addLog(`购买了${w.name}。(-${actualPrice}文${matStr})`)
+    addLog(`Đã mua ${w.name}. (-${actualPrice} văn${matStr})`)
   }
 
-  // === 戒指合成 ===
+  // === Hợp thành nhẫn ===
 
   const RING_EFFECT_LABELS: Record<RingEffectType, string> = {
-    attack_bonus: '攻击',
-    crit_rate_bonus: '暴击',
-    defense_bonus: '减伤',
-    vampiric: '吸血',
-    max_hp_bonus: '生命',
-    stamina_reduction: '全局体力减免',
-    mining_stamina: '挖矿体力减免',
-    farming_stamina: '农耕体力减免',
-    fishing_stamina: '钓鱼体力减免',
-    crop_quality_bonus: '作物品质',
-    crop_growth_bonus: '生长加速',
-    fish_quality_bonus: '鱼品质',
-    fishing_calm: '鱼速降低',
-    sell_price_bonus: '售价加成',
-    shop_discount: '商店折扣',
-    gift_friendship: '送礼好感',
-    monster_drop_bonus: '怪物掉落',
-    exp_bonus: '经验加成',
-    treasure_find: '宝箱概率',
-    ore_bonus: '矿石额外',
-    luck: '幸运',
-    travel_speed: '旅行加速'
+    attack_bonus: 'Tấn công',
+    crit_rate_bonus: 'Chí mạng',
+    defense_bonus: 'Giảm sát thương',
+    vampiric: 'Hút Máu',
+    max_hp_bonus: 'Sinh lực',
+    stamina_reduction: 'Giảm thể lực toàn cục',
+    mining_stamina: 'Giảm thể lực khai mỏ',
+    farming_stamina: 'Giảm thể lực làm ruộng',
+    fishing_stamina: 'Giảm thể lực câu cá',
+    crop_quality_bonus: 'Phẩm chất nông sản',
+    crop_growth_bonus: 'Tăng tốc sinh trưởng',
+    fish_quality_bonus: 'Chất lượng cá',
+    fishing_calm: 'Giảm tốc độ cá',
+    sell_price_bonus: 'Tăng giá bán',
+    shop_discount: 'Giảm giá cửa hàng',
+    gift_friendship: 'Hảo cảm khi tặng quà',
+    monster_drop_bonus: 'Rơi đồ quái vật',
+    exp_bonus: 'Cộng thêm kinh nghiệm',
+    treasure_find: 'Tỷ lệ rương báu',
+    ore_bonus: 'Quặng thêm',
+    luck: 'May Mắn',
+    travel_speed: 'Tăng tốc hành trình'
   }
 
   const craftableRings = computed(() => CRAFTABLE_RINGS)
@@ -1640,7 +1640,7 @@
     }
   }
 
-  // === 帽子/鞋子商店 ===
+  // === mũcon/giàyconthương mạicửa hàng ===
 
   const formatEffectLabel = (eff: { type: RingEffectType; value: number }): string => {
     const label = RING_EFFECT_LABELS[eff.type]
@@ -1648,7 +1648,7 @@
   }
 
   const openHatShopModal = (hat: HatDef) => {
-    const lines = ['效果：' + hat.effects.map(formatEffectLabel).join('、')]
+    const lines = ['Hiệu ứng:' + hat.effects.map(formatEffectLabel).join('、')]
     openBuyModal(
       hat.name,
       hat.description,
@@ -1660,7 +1660,7 @@
   }
 
   const openShoeShopModal = (shoe: ShoeDef) => {
-    const lines = ['效果：' + shoe.effects.map(formatEffectLabel).join('、')]
+    const lines = ['Hiệu ứng:' + shoe.effects.map(formatEffectLabel).join('、')]
     openBuyModal(
       shoe.name,
       shoe.description,
@@ -1673,10 +1673,10 @@
 
   const openHatCraftModal = (hat: HatDef) => {
     const lines = [
-      '效果：' + hat.effects.map(formatEffectLabel).join('、'),
-      '材料：' +
+      'Hiệu ứng:' + hat.effects.map(formatEffectLabel).join('、'),
+      'Nguyên liệu:' +
         (hat.recipe?.map(m => `${getItemById(m.itemId)?.name ?? m.itemId}×${m.quantity}`).join('、') ?? '') +
-        ` + ${hat.recipeMoney}文`
+        ` + ${hat.recipeMoney} văn`
     ]
     openBuyModal(
       hat.name,
@@ -1685,16 +1685,16 @@
       () => handleCraftHat(hat.id),
       () => canCraftHat(hat),
       lines,
-      '合成'
+      'Chế tạo'
     )
   }
 
   const openShoeCraftModal = (shoe: ShoeDef) => {
     const lines = [
-      '效果：' + shoe.effects.map(formatEffectLabel).join('、'),
-      '材料：' +
+      'Hiệu ứng:' + shoe.effects.map(formatEffectLabel).join('、'),
+      'Nguyên liệu:' +
         (shoe.recipe?.map(m => `${getItemById(m.itemId)?.name ?? m.itemId}×${m.quantity}`).join('、') ?? '') +
-        ` + ${shoe.recipeMoney}文`
+        ` + ${shoe.recipeMoney} văn`
     ]
     openBuyModal(
       shoe.name,
@@ -1703,42 +1703,42 @@
       () => handleCraftShoe(shoe.id),
       () => canCraftShoe(shoe),
       lines,
-      '合成'
+      'Chế tạo'
     )
   }
 
   const handleBuyHat = (hat: HatDef) => {
     if (inventoryStore.hasHat(hat.id)) {
-      addLog('你已经拥有这顶帽子了。')
+      addLog('Bạn đã sở hữu chiếc mũ này.')
       return
     }
     if (hat.shopPrice === null) return
     const actualPrice = discounted(hat.shopPrice)
     if (!playerStore.spendMoney(actualPrice)) {
-      addLog('铜钱不足。')
+      addLog('Không đủ tiền.')
       return
     }
     inventoryStore.addHat(hat.id)
     sfxBuy()
-    showFloat(`-${actualPrice}文`, 'danger')
-    addLog(`购买了${hat.name}。(-${actualPrice}文)`)
+    showFloat(`-${actualPrice} văn`, 'danger')
+    addLog(`Đã mua ${hat.name}. (-${actualPrice} văn)`)
   }
 
   const handleBuyShoe = (shoe: ShoeDef) => {
     if (inventoryStore.hasShoe(shoe.id)) {
-      addLog('你已经拥有这双鞋子了。')
+      addLog('Bạn đã sở hữu đôi giày này.')
       return
     }
     if (shoe.shopPrice === null) return
     const actualPrice = discounted(shoe.shopPrice)
     if (!playerStore.spendMoney(actualPrice)) {
-      addLog('铜钱不足。')
+      addLog('Không đủ tiền.')
       return
     }
     inventoryStore.addShoe(shoe.id)
     sfxBuy()
-    showFloat(`-${actualPrice}文`, 'danger')
-    addLog(`购买了${shoe.name}。(-${actualPrice}文)`)
+    showFloat(`-${actualPrice} văn`, 'danger')
+    addLog(`Đã mua ${shoe.name}. (-${actualPrice} văn)`)
   }
 
   const canCraftHat = (hat: HatDef): boolean => {
@@ -1781,14 +1781,14 @@
     }
   }
 
-  // === 通用 ===
+  // === giaodùng ===
 
   const handleBuyItem = (itemId: string, price: number, name: string) => {
     const actualPrice = discounted(price)
     if (shopStore.buyItem(itemId, price)) {
-      addLog(`购买了${name}。(-${actualPrice}文)`)
+      addLog(`Đã mua ${name}. (-${actualPrice} văn)`)
     } else {
-      addLog('铜钱不足或背包已满。')
+      addLog('Không đủ tiền hoặc túi đồ đã đầy.')
     }
   }
 
@@ -1799,7 +1799,7 @@
     return fallback
   }
 
-  // === 出售筛选 ===
+  // === rabánlọcchọn ===
 
   const SELL_FILTER_CATEGORIES: ItemCategory[] = [
     'crop',
@@ -1818,19 +1818,19 @@
   ]
 
   const SELL_CATEGORY_NAMES: Partial<Record<ItemCategory, string>> = {
-    crop: '作物',
-    fruit: '水果',
-    fish: '鱼类',
-    animal_product: '畜产',
-    processed: '加工品',
-    food: '料理',
-    ore: '矿石',
-    gem: '宝石',
-    material: '材料',
-    gift: '礼物',
-    fossil: '化石',
-    artifact: '文物',
-    misc: '杂货'
+    crop: 'Nông sản',
+    fruit: 'Trái cây',
+    fish: 'Cá',
+    animal_product: 'Chăn nuôi',
+    processed: 'Đồ chế biến',
+    food: 'Món ăn',
+    ore: 'Quặng',
+    gem: 'Đá quý',
+    material: 'Nguyên liệu',
+    gift: 'Quà tặng',
+    fossil: 'Hóa thạch',
+    artifact: 'Cổ vật',
+    misc: 'Tạp hóa'
   }
 
   const showSellFilterModal = ref(false)

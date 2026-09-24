@@ -426,7 +426,7 @@ export const useWarehouseStore = defineStore('warehouse', () => {
           migratedChests.push({
             id: `migrated_chest_${migratedChests.length + 1}`,
             tier: 'gold',
-            label: migratedChests.length === 0 ? '旧仓库' : `旧仓库${migratedChests.length + 1}`,
+            label: migratedChests.length === 0 ? 'Kho cũ' : `Kho cũ ${migratedChests.length + 1}`,
             items: oldItems.slice(i, i + goldCap),
             voidRole: 'none'
           })

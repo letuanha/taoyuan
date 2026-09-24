@@ -15,19 +15,19 @@ const SEED_ITEMS: ItemDef[] = CROPS.filter(
   crop => crop.seedId !== 'ancient_seed' && crop.seedId !== 'hanhai_cactus_seed' && crop.seedId !== 'hanhai_date_seed'
 ).map(crop => ({
   id: crop.seedId,
-  name: `${crop.name}种子`,
+  name: `Hạt giống ${crop.name}`,
   category: 'seed',
-  description: `${crop.name}的种子，${crop.season
+  description: `${crop.name} có thể trồng vào mùa ${crop.season
     .map(s => {
       const names: Record<string, string> = {
-        spring: '春',
-        summer: '夏',
-        autumn: '秋',
-        winter: '冬'
+        spring: 'Xuân',
+        summer: 'Hạ',
+        autumn: 'Thu',
+        winter: 'Đông'
       }
       return names[s]
     })
-    .join('/')}季可种植。`,
+    .join('/')}.`,
   sellPrice: Math.floor(crop.seedPrice / 2),
   edible: false
 }))
@@ -48,121 +48,121 @@ const CROP_ITEMS: ItemDef[] = CROPS.map(crop => ({
 const ORE_ITEMS: ItemDef[] = [
   {
     id: 'copper_ore',
-    name: '铜矿',
+    name: 'Quặng đồng',
     category: 'ore',
-    description: '常见的金属矿石。',
+    description: 'Quặng kim loại thường gặp.',
     sellPrice: 5,
     edible: false
   },
   {
     id: 'iron_ore',
-    name: '铁矿',
+    name: 'Quặng sắt',
     category: 'ore',
-    description: '坚硬的铁矿石。',
+    description: 'Quặng sắt cứng cáp.',
     sellPrice: 10,
     edible: false
   },
   {
     id: 'gold_ore',
-    name: '金矿',
+    name: 'Quặng vàng',
     category: 'ore',
-    description: '珍贵的金矿石。',
+    description: 'Quặng vàng quý giá.',
     sellPrice: 18,
     edible: false
   },
   {
     id: 'crystal_ore',
-    name: '水晶矿',
+    name: 'Quặng pha lê',
     category: 'ore',
-    description: '折射光芒的水晶矿石。',
+    description: 'Quặng pha lê khúc xạ ánh sáng.',
     sellPrice: 30,
     edible: false
   },
   {
     id: 'shadow_ore',
-    name: '暗影矿',
+    name: 'Quặng bóng tối',
     category: 'ore',
-    description: '沉重漆黑的神秘矿石。',
+    description: 'Quặng bí ẩn màu đen bóng nặng nề.',
     sellPrice: 45,
     edible: false
   },
   {
     id: 'void_ore',
-    name: '虚空矿',
+    name: 'Quặng hư không',
     category: 'ore',
-    description: '来自深渊尽头的矿石。',
+    description: 'Quặng đá đến từ tận cùng vực thẳm.',
     sellPrice: 60,
     edible: false
   },
   {
     id: 'iridium_ore',
-    name: '铱矿',
+    name: 'Quặng Iridium',
     category: 'ore',
-    description: '最坚硬稀有的金属矿石。',
+    description: 'Quặng kim loại cứng và hiếm nhất.',
     sellPrice: 80,
     edible: false
   },
   {
     id: 'quartz',
-    name: '石英',
+    name: 'Thạch anh',
     category: 'gem',
-    description: '晶莹剔透的石英。',
+    description: 'Thạch anh trong suốt lấp lánh.',
     sellPrice: 10,
     edible: false
   },
   {
     id: 'jade',
-    name: '翡翠',
+    name: 'Phỉ thúy',
     category: 'gem',
-    description: '温润的翡翠。',
+    description: 'Phỉ thúy ôn nhuận.',
     sellPrice: 30,
     edible: false
   },
   {
     id: 'ruby',
-    name: '红宝石',
+    name: 'Hồng ngọc',
     category: 'gem',
-    description: '光芒四射的红宝石。',
+    description: 'Hồng ngọc tỏa sáng rực rỡ.',
     sellPrice: 45,
     edible: false
   },
   {
     id: 'moonstone',
-    name: '月光石',
+    name: 'Đá Nguyệt Quang',
     category: 'gem',
-    description: '散发柔和光辉的宝石。',
+    description: 'Đá quý tỏa ra ánh sáng dịu nhẹ.',
     sellPrice: 65,
     edible: false
   },
   {
     id: 'obsidian',
-    name: '黑曜石',
+    name: 'Đá hắc diện',
     category: 'gem',
-    description: '暗如深渊的火山玻璃。',
+    description: 'Thủy tinh núi lửa tối tăm như vực thẳm.',
     sellPrice: 90,
     edible: false
   },
   {
     id: 'dragon_jade',
-    name: '龙玉',
+    name: 'Long Ngọc',
     category: 'gem',
-    description: '传说中龙脉凝聚的神玉。',
+    description: 'Thần ngọc ngưng tụ từ long mạch trong truyền thuyết.',
     sellPrice: 120,
     edible: false
   },
   {
     id: 'prismatic_shard',
-    name: '五彩碎片',
+    name: 'Mảnh Vỡ Ngũ Sắc',
     category: 'gem',
-    description: '蕴含远古能量的碎片。',
+    description: 'Mảnh vỡ chứa đựng năng lượng viễn cổ.',
     sellPrice: 180,
     edible: false
   },
   {
     id: 'battery',
-    name: '电池组',
+    name: 'Bộ Pin',
     category: 'material',
-    description: '避雷针吸收雷电后产出的能量。',
+    description: 'Năng lượng sản sinh sau khi cột thu lôi hấp thụ sấm sét.',
     sellPrice: 100,
     edible: false
   }
@@ -172,41 +172,41 @@ const ORE_ITEMS: ItemDef[] = [
 const MISC_ITEMS: ItemDef[] = [
   {
     id: 'wood',
-    name: '木材',
+    name: 'Gỗ',
     category: 'material',
-    description: '建造和制作的基础材料。',
+    description: 'Nguyên liệu cơ bản để xây dựng và chế tạo.',
     sellPrice: 5,
     edible: false
   },
   {
     id: 'bamboo',
-    name: '竹子',
+    name: 'Tre trúc',
     category: 'material',
-    description: '竹林中采集的翠竹。',
+    description: 'Trúc xanh thu hoạch trong rừng trúc.',
     sellPrice: 10,
     edible: false
   },
   {
     id: 'herb',
-    name: '草药',
+    name: 'Thảo dược',
     category: 'material',
-    description: '山间野生的草药。',
+    description: 'Thảo dược mọc hoang dã trong núi.',
     sellPrice: 15,
     edible: false
   },
   {
     id: 'firewood',
-    name: '柴火',
+    name: 'Củi khô',
     category: 'material',
-    description: '烹饪用的燃料。',
+    description: 'Nhiên liệu dùng để nấu nướng.',
     sellPrice: 5,
     edible: false
   },
   {
     id: 'winter_bamboo_shoot',
-    name: '冬笋',
+    name: 'Măng Đông',
     category: 'misc',
-    description: '冬季特有的鲜嫩竹笋。',
+    description: 'Búp măng tươi non đặc sản của mùa đông.',
     sellPrice: 40,
     edible: true,
     staminaRestore: 8,
@@ -214,17 +214,17 @@ const MISC_ITEMS: ItemDef[] = [
   },
   {
     id: 'wintersweet',
-    name: '腊梅',
+    name: 'Hoa Mai',
     category: 'gift',
-    description: '寒冬中绽放的腊梅，送礼佳品。',
+    description: 'Lạp mai nở giữa mùa đông giá rét, thích hợp làm quà tặng.',
     sellPrice: 50,
     edible: false
   },
   {
     id: 'wild_mushroom',
-    name: '野蘑菇',
+    name: 'Nấm rừng',
     category: 'misc',
-    description: '秋天的山林中采到的蘑菇。',
+    description: 'Nấm rừng thu hoạch vào mùa thu.',
     sellPrice: 30,
     edible: true,
     staminaRestore: 5,
@@ -232,17 +232,17 @@ const MISC_ITEMS: ItemDef[] = [
   },
   {
     id: 'ginseng',
-    name: '人参',
+    name: 'Nhân Sâm',
     category: 'misc',
-    description: '极其珍贵的野生人参。',
+    description: 'Nhân sâm hoang dã cực kỳ quý hiếm.',
     sellPrice: 200,
     edible: false
   },
   {
     id: 'wild_berry',
-    name: '野果',
+    name: 'Quả dại',
     category: 'misc',
-    description: '夏天山间的甜美野果。',
+    description: 'Quả dại ngọt ngào hái trong núi vào mùa hè.',
     sellPrice: 20,
     edible: true,
     staminaRestore: 5,
@@ -250,65 +250,65 @@ const MISC_ITEMS: ItemDef[] = [
   },
   {
     id: 'pine_cone',
-    name: '松果',
+    name: 'Quả thông',
     category: 'material',
-    description: '松树上掉落的果实。',
+    description: 'Quả rụng từ cây thông.',
     sellPrice: 10,
     edible: false
   },
   {
     id: 'jade_ring',
-    name: '翡翠戒指',
+    name: 'Nhẫn Phỉ Thúy',
     category: 'gift',
-    description: '精心打磨的翡翠戒指，可以用来求婚。',
+    description: 'Nhẫn phỉ thúy được mài giũa tinh xảo, có thể dùng để cầu hôn.',
     sellPrice: 500,
     edible: false
   },
   {
     id: 'silk_ribbon',
-    name: '丝帕',
+    name: 'Khăn Lụa',
     category: 'gift',
-    description: '精心绣制的丝帕，用来向心仪之人表达心意。',
+    description: 'Khăn lụa thêu tinh tế, dùng để bày tỏ tấm lòng với người thương.',
     sellPrice: 200,
     edible: false
   },
   {
     id: 'zhiji_jade',
-    name: '知己玉佩',
+    name: 'Ngọc Bội Tri Kỷ',
     category: 'gift',
-    description: '一对精心雕琢的玉佩，赠予同性挚友可结为知己。',
+    description: 'Cặp ngọc bội điêu khắc tinh xảo, tặng cho hảo hữu đồng giới để kết làm tri kỷ.',
     sellPrice: 300,
     edible: false
   },
   {
     id: 'scarecrow',
-    name: '稻草人',
+    name: 'Bù Nhìn Rơm',
     category: 'machine',
-    description: '放置在农场，驱赶偷吃作物的乌鸦。',
+    description: 'Đặt tại nông trại để xua đuổi quạ ăn trộm nông sản.',
     sellPrice: 75,
     edible: false
   },
   {
     id: 'rain_totem',
-    name: '雨图腾',
+    name: 'Đồ Đằng Mưa',
     category: 'misc',
-    description: '使用后可以让明天下雨。',
+    description: 'Sử dụng có thể khiến ngày mai đổ mưa.',
     sellPrice: 1500,
     edible: false
   },
   {
     id: 'fish_feed',
-    name: '鱼饲料',
+    name: 'Thức Ăn Cho Cá',
     category: 'material',
-    description: '鱼塘专用饲料，维持鱼塘水质和鱼的健康。',
+    description: 'Thức ăn chuyên dụng cho ao cá, duy trì chất lượng nước và sức khỏe của cá.',
     sellPrice: 10,
     edible: false
   },
   {
     id: 'water_purifier',
-    name: '水质改良剂',
+    name: 'Chất Cải Thiện Chất Lượng Nước',
     category: 'material',
-    description: '改善鱼塘水质，降低鱼生病概率。',
+    description: 'Cải thiện chất lượng nước ao cá và giảm khả năng cá bị bệnh.',
     sellPrice: 50,
     edible: false
   }
@@ -332,9 +332,9 @@ const FISH_ITEMS: ItemDef[] = FISH.map(fish => ({
 const PROCESSED_ITEMS: ItemDef[] = [
   {
     id: 'watermelon_wine',
-    name: '西瓜酒',
+    name: 'Rượu dưa hấu',
     category: 'processed',
-    description: '甘甜的西瓜酿成的佳酿。',
+    description: 'Mỹ tửu ủ từ những quả dưa hấu ngọt lịm.',
     sellPrice: 390,
     edible: true,
     staminaRestore: 25,
@@ -342,9 +342,9 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'osmanthus_wine',
-    name: '桂花酿',
+    name: 'Rượu hoa quế',
     category: 'processed',
-    description: '馥郁芬芳的桂花酒。',
+    description: 'Rượu hoa quế thơm ngát nồng nàn.',
     sellPrice: 600,
     edible: true,
     staminaRestore: 30,
@@ -352,17 +352,17 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'rice_vinegar',
-    name: '米醋',
+    name: 'Giấm gạo',
     category: 'processed',
-    description: '家酿老陈醋。',
+    description: 'Giấm gạo nuôi lâu năm tại nhà.',
     sellPrice: 290,
     edible: false
   },
   {
     id: 'pickled_cabbage',
-    name: '腌白菜',
+    name: 'Cải thảo muối',
     category: 'processed',
-    description: '开胃的腌白菜。',
+    description: 'Món cải thảo muối chua kích thích vị giác.',
     sellPrice: 155,
     edible: true,
     staminaRestore: 10,
@@ -370,9 +370,9 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'dried_radish',
-    name: '萝卜干',
+    name: 'Củ cải khô',
     category: 'processed',
-    description: '香脆的萝卜干。',
+    description: 'Củ cải phơi khô giòn sần sật.',
     sellPrice: 245,
     edible: true,
     staminaRestore: 12,
@@ -380,9 +380,9 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'pumpkin_preserve',
-    name: '南瓜酱',
+    name: 'Mứt bí đỏ',
     category: 'processed',
-    description: '浓郁的南瓜酱。',
+    description: 'Mứt bí đỏ sánh mịn thơm đậm đà.',
     sellPrice: 410,
     edible: true,
     staminaRestore: 15,
@@ -390,9 +390,9 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'honey',
-    name: '蜂蜜',
+    name: 'Mật ong',
     category: 'processed',
-    description: '金黄甘甜的蜂蜜。',
+    description: 'Mật ong vàng óng ngọt ngào.',
     sellPrice: 100,
     edible: true,
     staminaRestore: 20,
@@ -400,25 +400,25 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'sesame_oil',
-    name: '芝麻油',
+    name: 'Dầu mè',
     category: 'processed',
-    description: '醇香的小磨麻油。',
+    description: 'Dầu mè thơm lừng ép thủ công.',
     sellPrice: 260,
     edible: false
   },
   {
     id: 'tea_oil',
-    name: '茶油',
+    name: 'Dầu trà',
     category: 'processed',
-    description: '珍贵的山茶油。',
+    description: 'Dầu sơn trà quý báu.',
     sellPrice: 620,
     edible: false
   },
   {
     id: 'peach_wine',
-    name: '桃花酒',
+    name: 'Rượu hoa đào',
     category: 'processed',
-    description: '清甜的桃花酒。',
+    description: 'Rượu hoa đào ngọt thanh tao.',
     sellPrice: 420,
     edible: true,
     staminaRestore: 25,
@@ -426,9 +426,9 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'jujube_wine',
-    name: '红枣酒',
+    name: 'Rượu táo đỏ',
     category: 'processed',
-    description: '醇厚滋补的红枣酒。',
+    description: 'Rượu táo đỏ ngọt đậm bồi bổ cơ thể.',
     sellPrice: 300,
     edible: true,
     staminaRestore: 20,
@@ -436,9 +436,9 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'corn_wine',
-    name: '玉米酒',
+    name: 'Rượu ngô',
     category: 'processed',
-    description: '淡雅清香的玉米酒。',
+    description: 'Rượu ngô thơm thanh tao nhã.',
     sellPrice: 330,
     edible: true,
     staminaRestore: 18,
@@ -446,9 +446,9 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'pickled_chili',
-    name: '泡椒',
+    name: 'Ớt ngâm',
     category: 'processed',
-    description: '酸辣开胃的泡椒。',
+    description: 'Ớt ngâm chua cay kích thích vị giác.',
     sellPrice: 270,
     edible: true,
     staminaRestore: 10,
@@ -456,9 +456,9 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'pickled_ginger',
-    name: '腌姜',
+    name: 'Gừng muối',
     category: 'processed',
-    description: '酸甜脆嫩的腌姜。',
+    description: 'Gừng muối chua ngọt giòn non.',
     sellPrice: 315,
     edible: true,
     staminaRestore: 12,
@@ -466,49 +466,49 @@ const PROCESSED_ITEMS: ItemDef[] = [
   },
   {
     id: 'mayonnaise',
-    name: '蛋黄酱',
+    name: 'Sốt mayonnaise',
     category: 'processed',
-    description: '用鸡蛋制成的浓郁蛋黄酱。',
+    description: 'Sốt mayonnaise béo ngậy làm từ trứng gà.',
     sellPrice: 115,
     edible: false
   },
   {
     id: 'duck_mayonnaise',
-    name: '鸭蛋黄酱',
+    name: 'Sốt mayonnaise trứng vịt',
     category: 'processed',
-    description: '用鸭蛋制成的高级蛋黄酱。',
+    description: 'Sốt bơ trứng cao cấp làm từ trứng vịt.',
     sellPrice: 215,
     edible: false
   },
   {
     id: 'goose_mayonnaise',
-    name: '鹅蛋黄酱',
+    name: 'Sốt mayonnaise trứng ngỗng',
     category: 'processed',
-    description: '用鹅蛋制成的浓稠蛋黄酱。',
+    description: 'Sốt bơ trứng sánh đặc làm từ trứng ngỗng.',
     sellPrice: 250,
     edible: false
   },
   {
     id: 'silkie_mayonnaise',
-    name: '乌鸡蛋黄酱',
+    name: 'Sốt mayonnaise trứng ác vy',
     category: 'processed',
-    description: '用乌鸡蛋制成的滋补蛋黄酱。',
+    description: 'Sốt bơ trứng bồi bổ làm từ trứng gà ác.',
     sellPrice: 295,
     edible: false
   },
   {
     id: 'ostrich_mayonnaise',
-    name: '鸵鸟蛋黄酱',
+    name: 'Sốt mayonnaise trứng đà điểu',
     category: 'processed',
-    description: '用鸵鸟蛋制成的大份蛋黄酱。',
+    description: 'Sốt bơ trứng phần lớn làm từ trứng đà điểu.',
     sellPrice: 450,
     edible: false
   },
   {
     id: 'quail_mayonnaise',
-    name: '鹌鹑蛋黄酱',
+    name: 'Sốt mayonnaise trứng cút',
     category: 'processed',
-    description: '用鹌鹑蛋制成的精致蛋黄酱。',
+    description: 'Sốt bơ trứng tinh xảo làm từ trứng cút.',
     sellPrice: 170,
     edible: false
   }
@@ -518,9 +518,9 @@ const PROCESSED_ITEMS: ItemDef[] = [
 const SMOKED_ITEMS: ItemDef[] = [
   {
     id: 'smoked_crucian',
-    name: '烟熏鲫鱼',
+    name: 'Cá diếc hun khói',
     category: 'processed',
-    description: '经过烟熏处理的鲫鱼，风味独特。',
+    description: 'Cá diếc hun khói có hương vị độc đáo.',
     sellPrice: 30,
     edible: true,
     staminaRestore: 7,
@@ -528,9 +528,9 @@ const SMOKED_ITEMS: ItemDef[] = [
   },
   {
     id: 'smoked_carp',
-    name: '烟熏鲤鱼',
+    name: 'Cá chép hun khói',
     category: 'processed',
-    description: '经过烟熏处理的鲤鱼，肉质紧实。',
+    description: 'Cá chép hun khói có thịt chắc.',
     sellPrice: 50,
     edible: true,
     staminaRestore: 12,
@@ -538,9 +538,9 @@ const SMOKED_ITEMS: ItemDef[] = [
   },
   {
     id: 'smoked_grass_carp',
-    name: '烟熏草鱼',
+    name: 'Cá trắm hun khói',
     category: 'processed',
-    description: '经过烟熏处理的草鱼，鲜香可口。',
+    description: 'Cá trắm cỏ hun khói tươi và ngon.',
     sellPrice: 80,
     edible: true,
     staminaRestore: 20,
@@ -548,9 +548,9 @@ const SMOKED_ITEMS: ItemDef[] = [
   },
   {
     id: 'smoked_bass',
-    name: '烟熏鲈鱼',
+    name: 'Cá vược hun khói',
     category: 'processed',
-    description: '经过烟熏处理的鲈鱼，口感细腻。',
+    description: 'Cá chẽm hun khói có hương vị tinh tế.',
     sellPrice: 120,
     edible: true,
     staminaRestore: 30,
@@ -558,9 +558,9 @@ const SMOKED_ITEMS: ItemDef[] = [
   },
   {
     id: 'smoked_catfish',
-    name: '烟熏鲶鱼',
+    name: 'Cá trê hun khói',
     category: 'processed',
-    description: '经过烟熏处理的鲶鱼，味道醇厚。',
+    description: 'Cá da trơn hun khói với hương vị phong phú.',
     sellPrice: 90,
     edible: true,
     staminaRestore: 22,
@@ -568,9 +568,9 @@ const SMOKED_ITEMS: ItemDef[] = [
   },
   {
     id: 'smoked_mandarin_fish',
-    name: '烟熏桂花鱼',
+    name: 'Cá quế hun khói',
     category: 'processed',
-    description: '经过烟熏处理的桂花鱼，鲜嫩多汁。',
+    description: 'Cá quýt hun khói mềm và ngon ngọt.',
     sellPrice: 140,
     edible: true,
     staminaRestore: 35,
@@ -578,9 +578,9 @@ const SMOKED_ITEMS: ItemDef[] = [
   },
   {
     id: 'smoked_eel',
-    name: '烟熏鳗鱼',
+    name: 'Lươn hun khói',
     category: 'processed',
-    description: '经过烟熏处理的鳗鱼，肥美香滑。',
+    description: 'Lươn hun khói đầy đặn và mịn màng.',
     sellPrice: 170,
     edible: true,
     staminaRestore: 42,
@@ -588,9 +588,9 @@ const SMOKED_ITEMS: ItemDef[] = [
   },
   {
     id: 'smoked_sturgeon',
-    name: '烟熏鲟鱼',
+    name: 'Cá tầm hun khói',
     category: 'processed',
-    description: '经过烟熏处理的鲟鱼，珍贵美味。',
+    description: 'Cá tầm hun khói rất quý và ngon.',
     sellPrice: 260,
     edible: true,
     staminaRestore: 65,
@@ -598,9 +598,9 @@ const SMOKED_ITEMS: ItemDef[] = [
   },
   {
     id: 'smoked_loach',
-    name: '烟熏泥鳅',
+    name: 'Cá chạch hun khói',
     category: 'processed',
-    description: '经过烟熏处理的泥鳅，酥脆鲜香。',
+    description: 'Cá hun khói giòn và thơm.',
     sellPrice: 44,
     edible: true,
     staminaRestore: 11,
@@ -608,9 +608,9 @@ const SMOKED_ITEMS: ItemDef[] = [
   },
   {
     id: 'smoked_yellow_eel',
-    name: '烟熏黄鳝',
+    name: 'Lươn đồng hun khói',
     category: 'processed',
-    description: '经过烟熏处理的黄鳝，滋补美味。',
+    description: 'Lươn hun khói rất bổ dưỡng và thơm ngon.',
     sellPrice: 100,
     edible: true,
     staminaRestore: 25,
@@ -622,9 +622,9 @@ const SMOKED_ITEMS: ItemDef[] = [
 const DRIED_ITEMS: ItemDef[] = [
   {
     id: 'dried_mushroom',
-    name: '干蘑菇',
+    name: 'Nấm khô',
     category: 'processed',
-    description: '脱水保存的蘑菇，浓缩了鲜味。',
+    description: 'Nấm khử nước và bảo quản tập trung hương vị umami.',
     sellPrice: 135,
     edible: true,
     staminaRestore: 18,
@@ -632,9 +632,9 @@ const DRIED_ITEMS: ItemDef[] = [
   },
   {
     id: 'dried_peach',
-    name: '桃干',
+    name: 'Đào sấy khô',
     category: 'processed',
-    description: '脱水制成的桃干，酸甜可口。',
+    description: 'Đào khô làm bằng phương pháp khử nước có vị chua ngọt.',
     sellPrice: 120,
     edible: true,
     staminaRestore: 30,
@@ -642,9 +642,9 @@ const DRIED_ITEMS: ItemDef[] = [
   },
   {
     id: 'dried_lychee',
-    name: '荔枝干',
+    name: 'Vải sấy khô',
     category: 'processed',
-    description: '脱水制成的荔枝干，甘甜浓郁。',
+    description: 'Vải thiều khô làm từ quá trình khử nước có vị ngọt và đậm đà.',
     sellPrice: 160,
     edible: true,
     staminaRestore: 40,
@@ -652,9 +652,9 @@ const DRIED_ITEMS: ItemDef[] = [
   },
   {
     id: 'dried_persimmon_slice',
-    name: '柿饼',
+    name: 'Hồng sấy dẻo',
     category: 'processed',
-    description: '柿子脱水制成的柿饼，软糯香甜。',
+    description: 'Bánh hồng làm từ hồng khô mềm, dẻo và có vị ngọt.',
     sellPrice: 170,
     edible: true,
     staminaRestore: 42,
@@ -662,9 +662,9 @@ const DRIED_ITEMS: ItemDef[] = [
   },
   {
     id: 'dried_hawthorn',
-    name: '山楂片',
+    name: 'Sơn tra sấy',
     category: 'processed',
-    description: '脱水制成的山楂片，酸甜开胃。',
+    description: 'Những lát táo gai mất nước có vị chua ngọt và ngon miệng.',
     sellPrice: 130,
     edible: true,
     staminaRestore: 32,
@@ -672,9 +672,9 @@ const DRIED_ITEMS: ItemDef[] = [
   },
   {
     id: 'dried_apricot',
-    name: '杏脯',
+    name: 'Mơ sấy dẻo',
     category: 'processed',
-    description: '脱水制成的杏脯，酸甜适中。',
+    description: 'Chất bảo quản mơ mất nước có vị chua ngọt vừa phải.',
     sellPrice: 110,
     edible: true,
     staminaRestore: 27,
@@ -682,9 +682,9 @@ const DRIED_ITEMS: ItemDef[] = [
   },
   {
     id: 'dried_berry',
-    name: '果脯',
+    name: 'Mứt quả sấy',
     category: 'processed',
-    description: '野果脱水制成的果脯，方便保存。',
+    description: 'Trái cây được bảo quản từ trái cây dại đã khử nước rất dễ bảo quản.',
     sellPrice: 90,
     edible: true,
     staminaRestore: 12,
@@ -746,9 +746,9 @@ const TACKLE_ITEMS: ItemDef[] = TACKLES.map(t => ({
 const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   {
     id: 'egg',
-    name: '鸡蛋',
+    name: 'Trứng Gà',
     category: 'animal_product',
-    description: '新鲜的鸡蛋。',
+    description: 'Trứng tươi.',
     sellPrice: 75,
     edible: true,
     staminaRestore: 5,
@@ -756,9 +756,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'duck_egg',
-    name: '鸭蛋',
+    name: 'Trứng Vịt',
     category: 'animal_product',
-    description: '个大味美的鸭蛋。',
+    description: 'Một quả trứng vịt to và ngon.',
     sellPrice: 142,
     edible: true,
     staminaRestore: 8,
@@ -766,9 +766,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'milk',
-    name: '牛奶',
+    name: 'Sữa Bò',
     category: 'animal_product',
-    description: '新鲜的牛奶。',
+    description: 'Sữa tươi.',
     sellPrice: 187,
     edible: true,
     staminaRestore: 10,
@@ -776,42 +776,42 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'wool',
-    name: '羊毛',
+    name: 'Len Cừu',
     category: 'animal_product',
-    description: '柔软的羊毛。',
+    description: 'Len mềm.',
     sellPrice: 510,
     edible: false
   },
   {
     id: 'hay',
-    name: '干草',
+    name: 'Cỏ Khô',
     category: 'material',
-    description: '喂养牲畜的干草。',
+    description: 'Hay cho chăn nuôi.',
     sellPrice: 0,
     edible: false
   },
   // 新增动物产品
   {
     id: 'rabbit_fur',
-    name: '兔毛',
+    name: 'Lông Thỏ',
     category: 'animal_product',
-    description: '柔软的兔毛。',
+    description: 'Lông thỏ mềm mại.',
     sellPrice: 225,
     edible: false
   },
   {
     id: 'rabbit_foot',
-    name: '幸运兔脚',
+    name: 'Chân Thỏ May Mắn',
     category: 'animal_product',
-    description: '传说能带来好运的兔脚，十分稀有。',
+    description: 'Bàn chân thỏ được cho là mang lại may mắn và rất hiếm.',
     sellPrice: 300,
     edible: false
   },
   {
     id: 'goose_egg',
-    name: '鹅蛋',
+    name: 'Trứng Ngỗng',
     category: 'animal_product',
-    description: '个头很大的鹅蛋。',
+    description: 'Một quả trứng ngỗng rất lớn.',
     sellPrice: 165,
     edible: true,
     staminaRestore: 10,
@@ -819,9 +819,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'quail_egg',
-    name: '鹌鹑蛋',
+    name: 'Trứng Cút',
     category: 'animal_product',
-    description: '小巧的鹌鹑蛋。',
+    description: 'Trứng cút nhỏ.',
     sellPrice: 37,
     edible: true,
     staminaRestore: 3,
@@ -829,9 +829,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'pigeon_egg',
-    name: '鸽子蛋',
+    name: 'Trứng Bồ Câu',
     category: 'animal_product',
-    description: '营养丰富的鸽子蛋。',
+    description: 'Trứng chim bồ câu bổ dưỡng.',
     sellPrice: 67,
     edible: true,
     staminaRestore: 5,
@@ -839,9 +839,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'silkie_egg',
-    name: '乌鸡蛋',
+    name: 'Trứng Gà Ác',
     category: 'animal_product',
-    description: '滋补的乌鸡蛋。',
+    description: 'Trứng đen bổ dưỡng.',
     sellPrice: 195,
     edible: true,
     staminaRestore: 15,
@@ -849,17 +849,17 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'peacock_feather',
-    name: '孔雀羽',
+    name: 'Lông Khổng Tước',
     category: 'animal_product',
-    description: '华丽的孔雀尾羽。',
+    description: 'Lông đuôi công tuyệt đẹp.',
     sellPrice: 525,
     edible: false
   },
   {
     id: 'goat_milk',
-    name: '羊奶',
+    name: 'Sữa Dê',
     category: 'animal_product',
-    description: '新鲜的羊奶。',
+    description: 'Sữa dê tươi.',
     sellPrice: 165,
     edible: true,
     staminaRestore: 10,
@@ -867,9 +867,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'truffle',
-    name: '松露',
+    name: 'Nấm Truffle',
     category: 'animal_product',
-    description: '珍贵的地下菌类。',
+    description: 'Nấm ngầm quý hiếm.',
     sellPrice: 450,
     edible: true,
     staminaRestore: 5,
@@ -877,9 +877,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'buffalo_milk',
-    name: '水牛奶',
+    name: 'Sữa Trâu Nước',
     category: 'animal_product',
-    description: '醇厚的水牛奶。',
+    description: 'Sữa trâu đậm đà.',
     sellPrice: 150,
     edible: true,
     staminaRestore: 8,
@@ -887,9 +887,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'yak_milk',
-    name: '牦牛奶',
+    name: 'Sữa Bò Tây Tạng',
     category: 'animal_product',
-    description: '高原牦牛的浓郁奶。',
+    description: 'Sữa đậm đà từ yak cao nguyên.',
     sellPrice: 210,
     edible: true,
     staminaRestore: 12,
@@ -897,17 +897,17 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'alpaca_wool',
-    name: '羊驼毛',
+    name: 'Lông Alpaca',
     category: 'animal_product',
-    description: '极其柔软的羊驼毛。',
+    description: 'Len alpaca cực kỳ mềm mại.',
     sellPrice: 375,
     edible: false
   },
   {
     id: 'antler_velvet',
-    name: '鹿茸',
+    name: 'Lộc Nhung',
     category: 'animal_product',
-    description: '珍贵的鹿茸，可直接食用补体力。',
+    description: 'Những chiếc gạc hươu quý giá có thể được ăn trực tiếp để bổ sung thể lực.',
     sellPrice: 675,
     edible: true,
     staminaRestore: 30,
@@ -915,9 +915,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'donkey_milk',
-    name: '驴奶',
+    name: 'Sữa Lừa',
     category: 'animal_product',
-    description: '驴奶，味道温和。',
+    description: 'Sữa lừa có vị nhẹ.',
     sellPrice: 120,
     edible: true,
     staminaRestore: 6,
@@ -925,9 +925,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'camel_milk',
-    name: '驼奶',
+    name: 'Sữa Lạc Đà',
     category: 'animal_product',
-    description: '营养丰富的驼奶。',
+    description: 'Sữa lạc đà bổ dưỡng.',
     sellPrice: 240,
     edible: true,
     staminaRestore: 12,
@@ -935,9 +935,9 @@ const ANIMAL_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'ostrich_egg',
-    name: '鸵鸟蛋',
+    name: 'Trứng Đà Điểu',
     category: 'animal_product',
-    description: '巨大的鸵鸟蛋。',
+    description: 'Trứng đà điểu khổng lồ.',
     sellPrice: 300,
     edible: true,
     staminaRestore: 15,
@@ -950,7 +950,7 @@ const FRUIT_TREE_ITEMS: ItemDef[] = FRUIT_TREE_DEFS.map(t => ({
   id: t.fruitId,
   name: t.fruitName,
   category: 'fruit' as const,
-  description: `${t.name}结出的${t.fruitName}。`,
+  description: `${t.fruitName} do ${t.name} cho ra.`,
   sellPrice: Math.floor(t.fruitSellPrice * 1.5),
   edible: true,
   staminaRestore: Math.floor(t.fruitSellPrice / 5),
@@ -960,9 +960,9 @@ const FRUIT_TREE_ITEMS: ItemDef[] = FRUIT_TREE_DEFS.map(t => ({
 /** 树苗 */
 const SAPLING_ITEMS: ItemDef[] = FRUIT_TREE_DEFS.map(t => ({
   id: t.saplingId,
-  name: `${t.name}苗`,
+  name: `Cây giống ${t.name}`,
   category: 'sapling' as const,
-  description: `种下后${t.growthDays}天可成熟，${t.fruitSeason === 'spring' ? '春' : t.fruitSeason === 'summer' ? '夏' : t.fruitSeason === 'autumn' ? '秋' : '冬'}季产出${t.fruitName}。`,
+  description: `Trồng xong cần ${t.growthDays} ngày trưởng thành, cho ${t.fruitName} vào mùa tương ứng.`,
   sellPrice: Math.floor(t.saplingPrice / 2),
   edible: false
 }))
@@ -971,17 +971,17 @@ const SAPLING_ITEMS: ItemDef[] = FRUIT_TREE_DEFS.map(t => ({
 const WILD_TREE_ITEMS: ItemDef[] = [
   {
     id: 'camphor_seed',
-    name: '樟树种子',
+    name: 'Hạt Giống Cây Long Não',
     category: 'material',
-    description: '樟树的种子，种下后可长成樟树。',
+    description: 'Hạt giống cây long não, gieo xuống sẽ lớn thành cây long não.',
     sellPrice: 15,
     edible: false
   },
   {
     id: 'mulberry',
-    name: '桑葚',
+    name: 'Quả Dâu Tằm',
     category: 'misc',
-    description: '紫黑色的桑葚，酸甜可口。',
+    description: 'Quả dâu tằm chín tím đen, vị chua ngọt ngon miệng.',
     sellPrice: 25,
     edible: true,
     staminaRestore: 5,
@@ -989,33 +989,33 @@ const WILD_TREE_ITEMS: ItemDef[] = [
   },
   {
     id: 'pine_resin',
-    name: '松脂',
+    name: 'Nhựa Thông',
     category: 'material',
-    description: '松树分泌的树脂，可用于制作。',
+    description: 'Nhựa cây do thông tiết ra, có thể dùng để chế tạo.',
     sellPrice: 30,
     edible: false
   },
   {
     id: 'camphor_oil',
-    name: '樟脑油',
+    name: 'Dầu Long Não',
     category: 'material',
-    description: '樟树提取的精油，气味清香。',
+    description: 'Tinh dầu chiết xuất từ cây long não, hương thơm thanh khiết.',
     sellPrice: 50,
     edible: false
   },
   {
     id: 'silk',
-    name: '蚕丝',
+    name: 'Tơ Tằm',
     category: 'material',
-    description: '桑树上采集的蚕丝，光滑细腻。',
+    description: 'Sợi tơ thu hoạch từ cây dâu tằm, mềm mịn trơn bóng.',
     sellPrice: 40,
     edible: false
   },
   {
     id: 'tapper',
-    name: '采脂器',
+    name: 'Vòi Khai Thác Nhựa Cây',
     category: 'machine',
-    description: '安装到成熟野树上，定期产出树脂。',
+    description: 'Lắp đặt lên cây hoang dã trưởng thành để định kỳ thu hoạch nhựa cây.',
     sellPrice: 100,
     edible: false
   }
@@ -1035,17 +1035,17 @@ const BOMB_ITEMS: ItemDef[] = BOMBS.map(b => ({
 const CRAB_POT_ITEMS: ItemDef[] = [
   {
     id: 'crab_pot',
-    name: '蟹笼',
+    name: 'Lồng Bẫy Cua',
     category: 'machine',
-    description: '放置在钓鱼地点，每日自动捕获水产（需鱼饵）。',
+    description: 'Đặt tại các khu vực nước, tự động bẫy thủy sản mỗi ngày (cần mồi câu).',
     sellPrice: 750,
     edible: false
   },
   {
     id: 'snail',
-    name: '蜗牛',
+    name: 'Ốc Sên',
     category: 'fish',
-    description: '小巧的淡水蜗牛。',
+    description: 'Ốc sên nước ngọt nhỏ nhắn.',
     sellPrice: 15,
     edible: true,
     staminaRestore: 3,
@@ -1053,9 +1053,9 @@ const CRAB_POT_ITEMS: ItemDef[] = [
   },
   {
     id: 'freshwater_shrimp',
-    name: '淡水虾',
+    name: 'Tôm Nước Ngọt',
     category: 'fish',
-    description: '清澈水域中的小虾。',
+    description: 'Tôm nhỏ sống trong vùng nước trong vắt.',
     sellPrice: 20,
     edible: true,
     staminaRestore: 4,
@@ -1063,9 +1063,9 @@ const CRAB_POT_ITEMS: ItemDef[] = [
   },
   {
     id: 'crab',
-    name: '螃蟹',
+    name: 'Cua',
     category: 'fish',
-    description: '鲜美的河蟹。',
+    description: 'Cua sông thơm ngon.',
     sellPrice: 30,
     edible: true,
     staminaRestore: 6,
@@ -1073,9 +1073,9 @@ const CRAB_POT_ITEMS: ItemDef[] = [
   },
   {
     id: 'lobster',
-    name: '龙虾',
+    name: 'Tôm Hùm',
     category: 'fish',
-    description: '珍贵的淡水龙虾。',
+    description: 'Tôm hùm nước ngọt quý giá.',
     sellPrice: 50,
     edible: true,
     staminaRestore: 10,
@@ -1083,9 +1083,9 @@ const CRAB_POT_ITEMS: ItemDef[] = [
   },
   {
     id: 'cave_shrimp',
-    name: '洞穴虾',
+    name: 'Tôm Hang Động',
     category: 'fish',
-    description: '矿洞暗河中的透明小虾。',
+    description: 'Tôm nhỏ trong suốt sống ở sông ngầm hang mỏ.',
     sellPrice: 40,
     edible: true,
     staminaRestore: 8,
@@ -1093,9 +1093,9 @@ const CRAB_POT_ITEMS: ItemDef[] = [
   },
   {
     id: 'swamp_crab',
-    name: '沼泽蟹',
+    name: 'Cua Đầm Lầy',
     category: 'fish',
-    description: '沼泽中的深色螃蟹。',
+    description: 'Cua màu sẫm sống trong đầm lầy.',
     sellPrice: 45,
     edible: true,
     staminaRestore: 9,
@@ -1103,33 +1103,33 @@ const CRAB_POT_ITEMS: ItemDef[] = [
   },
   {
     id: 'trash',
-    name: '垃圾',
+    name: 'Rác Thải',
     category: 'misc',
-    description: '没什么用的杂物。',
+    description: 'Đồ lặt vặt không có nhiều tác dụng.',
     sellPrice: 1,
     edible: false
   },
   {
     id: 'driftwood',
-    name: '浮木',
+    name: 'Gỗ Trôi',
     category: 'misc',
-    description: '水中捞起的朽木。',
+    description: 'Gỗ mục vớt lên từ dưới nước.',
     sellPrice: 2,
     edible: false
   },
   {
     id: 'broken_cd',
-    name: '碎碟片',
+    name: 'Mảnh Đĩa Vỡ',
     category: 'misc',
-    description: '不知谁丢的破碟子。',
+    description: 'Mảnh đĩa vỡ không biết ai vứt bỏ.',
     sellPrice: 1,
     edible: false
   },
   {
     id: 'soggy_newspaper',
-    name: '湿报纸',
+    name: 'Báo Ướt',
     category: 'misc',
-    description: '泡烂的旧报纸。',
+    description: 'Tờ báo cũ sũng nước.',
     sellPrice: 1,
     edible: false
   }
@@ -1139,9 +1139,9 @@ const CRAB_POT_ITEMS: ItemDef[] = [
 const FLOWER_HONEY_ITEMS: ItemDef[] = [
   {
     id: 'chrysanthemum_honey',
-    name: '菊花蜜',
+    name: 'Mật ong hoa cúc',
     category: 'processed',
-    description: '带有菊花清香的蜂蜜。',
+    description: 'Mật ong mang hương thơm thanh mát của hoa cúc.',
     sellPrice: 200,
     edible: true,
     staminaRestore: 25,
@@ -1149,9 +1149,9 @@ const FLOWER_HONEY_ITEMS: ItemDef[] = [
   },
   {
     id: 'osmanthus_honey',
-    name: '桂花蜜',
+    name: 'Mật ong hoa quế',
     category: 'processed',
-    description: '馥郁芬芳的桂花蜂蜜。',
+    description: 'Mật ong hoa quế thơm ngát nồng nàn.',
     sellPrice: 450,
     edible: true,
     staminaRestore: 30,
@@ -1159,9 +1159,9 @@ const FLOWER_HONEY_ITEMS: ItemDef[] = [
   },
   {
     id: 'rapeseed_honey',
-    name: '菜花蜜',
+    name: 'Mật ong hoa cải',
     category: 'processed',
-    description: '清甜的油菜花蜂蜜。',
+    description: 'Mật ong hoa cải dầu ngọt thanh.',
     sellPrice: 150,
     edible: true,
     staminaRestore: 20,
@@ -1169,9 +1169,9 @@ const FLOWER_HONEY_ITEMS: ItemDef[] = [
   },
   {
     id: 'snow_lotus_honey',
-    name: '雪莲蜜',
+    name: 'Mật ong tuyết liên',
     category: 'processed',
-    description: '珍贵的雪莲花蜂蜜。',
+    description: 'Mật ong hoa tuyết liên quý giá.',
     sellPrice: 730,
     edible: true,
     staminaRestore: 40,
@@ -1183,9 +1183,9 @@ const FLOWER_HONEY_ITEMS: ItemDef[] = [
 const TRUFFLE_OIL_ITEM: ItemDef[] = [
   {
     id: 'truffle_oil',
-    name: '松露油',
+    name: 'Dầu Truffle',
     category: 'processed',
-    description: '珍贵的松露油，烹饪佳品。',
+    description: 'Dầu nấm Truffle vô giá.',
     sellPrice: 680,
     edible: false
   }
@@ -1195,9 +1195,9 @@ const TRUFFLE_OIL_ITEM: ItemDef[] = [
 const CHEESE_ITEMS: ItemDef[] = [
   {
     id: 'cheese',
-    name: '奶酪',
+    name: 'Phô Mai',
     category: 'processed',
-    description: '用牛奶制成的醇厚奶酪。',
+    description: 'Phô mai béo ngậy làm từ sữa bò.',
     sellPrice: 250,
     edible: true,
     staminaRestore: 50,
@@ -1205,9 +1205,9 @@ const CHEESE_ITEMS: ItemDef[] = [
   },
   {
     id: 'goat_cheese',
-    name: '山羊奶酪',
+    name: 'Phô Mai Dê',
     category: 'processed',
-    description: '用山羊奶制成的风味奶酪。',
+    description: 'Phô mai thơm làm từ sữa dê.',
     sellPrice: 220,
     edible: true,
     staminaRestore: 44,
@@ -1215,9 +1215,9 @@ const CHEESE_ITEMS: ItemDef[] = [
   },
   {
     id: 'buffalo_cheese',
-    name: '水牛奶酪',
+    name: 'Phô Mai Sữa Trâu',
     category: 'processed',
-    description: '用水牛奶制成的浓郁奶酪。',
+    description: 'Phô mai béo ngậy làm từ sữa trâu.',
     sellPrice: 200,
     edible: true,
     staminaRestore: 40,
@@ -1225,9 +1225,9 @@ const CHEESE_ITEMS: ItemDef[] = [
   },
   {
     id: 'yak_cheese',
-    name: '牦牛奶酪',
+    name: 'Phô Mai Sữa Bò Tây Tạng',
     category: 'processed',
-    description: '用牦牛奶制成的高原奶酪。',
+    description: 'Phô mai cao nguyên làm từ sữa yak.',
     sellPrice: 280,
     edible: true,
     staminaRestore: 56,
@@ -1239,33 +1239,33 @@ const CHEESE_ITEMS: ItemDef[] = [
 const CLOTH_ITEMS: ItemDef[] = [
   {
     id: 'cloth',
-    name: '布匹',
+    name: 'Vải Vóc',
     category: 'material',
-    description: '用羊毛纺织的布匹。',
+    description: 'Tấm vải dệt từ len cừu.',
     sellPrice: 660,
     edible: false
   },
   {
     id: 'silk_cloth',
-    name: '丝绸',
+    name: 'Tơ Lụa',
     category: 'material',
-    description: '华美的丝绸。',
+    description: 'Tơ lụa hoa lệ lộng lẫy.',
     sellPrice: 200,
     edible: false
   },
   {
     id: 'alpaca_cloth',
-    name: '羊驼绒',
+    name: 'Len Alpaca',
     category: 'material',
-    description: '极其柔软的羊驼绒布。',
+    description: 'Vải nỉ lông lạc đà không bướu cực kỳ mềm mại.',
     sellPrice: 530,
     edible: false
   },
   {
     id: 'felt',
-    name: '毛毡',
+    name: 'Vải Dạ',
     category: 'material',
-    description: '用兔毛压制的毛毡。',
+    description: 'Tấm dạ ép từ lông thỏ.',
     sellPrice: 340,
     edible: false
   }
@@ -1275,33 +1275,33 @@ const CLOTH_ITEMS: ItemDef[] = [
 const BAR_ITEMS: ItemDef[] = [
   {
     id: 'copper_bar',
-    name: '铜锭',
+    name: 'Thỏi Đồng',
     category: 'material',
-    description: '冶炼出的铜锭。',
+    description: 'Thỏi đồng luyện ra từ quặng.',
     sellPrice: 40,
     edible: false
   },
   {
     id: 'iron_bar',
-    name: '铁锭',
+    name: 'Thỏi Sắt',
     category: 'material',
-    description: '冶炼出的铁锭。',
+    description: 'Thỏi sắt luyện ra từ quặng.',
     sellPrice: 80,
     edible: false
   },
   {
     id: 'gold_bar',
-    name: '金锭',
+    name: 'Thỏi Vàng',
     category: 'material',
-    description: '冶炼出的金锭。',
+    description: 'Thỏi vàng luyện ra từ quặng.',
     sellPrice: 160,
     edible: false
   },
   {
     id: 'iridium_bar',
-    name: '铱锭',
+    name: 'Thỏi Iridium',
     category: 'material',
-    description: '冶炼出的铱锭，极其珍贵。',
+    description: 'Thỏi Iridium luyện ra từ quặng, vô cùng trân quý.',
     sellPrice: 700,
     edible: false
   }
@@ -1311,9 +1311,9 @@ const BAR_ITEMS: ItemDef[] = [
 const CHARCOAL_ITEMS: ItemDef[] = [
   {
     id: 'charcoal',
-    name: '木炭',
+    name: 'Than Củi',
     category: 'material',
-    description: '烧制的木炭，可用作燃料和制作。',
+    description: 'Than củi nung đốt, có thể dùng làm nhiên liệu và chế tạo.',
     sellPrice: 55,
     edible: false
   }
@@ -1323,25 +1323,25 @@ const CHARCOAL_ITEMS: ItemDef[] = [
 const FLOUR_ITEMS: ItemDef[] = [
   {
     id: 'rice_flour',
-    name: '米粉',
+    name: 'Bột Gạo',
     category: 'material',
-    description: '用稻米磨成的细腻米粉。',
+    description: 'Bột gạo mịn xay từ lúa gạo.',
     sellPrice: 160,
     edible: false
   },
   {
     id: 'wheat_flour',
-    name: '面粉',
+    name: 'Bột Mì',
     category: 'material',
-    description: '用冬小麦磨成的面粉。',
+    description: 'Bột mì xay từ lúa mì đông.',
     sellPrice: 130,
     edible: false
   },
   {
     id: 'cornmeal',
-    name: '玉米粉',
+    name: 'Bột Ngô',
     category: 'material',
-    description: '用玉米磨成的粗粉。',
+    description: 'Bột ngô thô xay từ ngô.',
     sellPrice: 180,
     edible: false
   }
@@ -1351,9 +1351,9 @@ const FLOUR_ITEMS: ItemDef[] = [
 const TEA_DRINK_ITEMS: ItemDef[] = [
   {
     id: 'green_tea_drink',
-    name: '绿茶',
+    name: 'Trà Xanh',
     category: 'processed',
-    description: '清香的绿茶饮品。',
+    description: 'Thức uống trà xanh thơm ngát thanh khiết.',
     sellPrice: 620,
     edible: true,
     staminaRestore: 25,
@@ -1361,9 +1361,9 @@ const TEA_DRINK_ITEMS: ItemDef[] = [
   },
   {
     id: 'chrysanthemum_tea',
-    name: '菊花茶',
+    name: 'Trà Hoa Cúc',
     category: 'processed',
-    description: '清热明目的菊花茶。',
+    description: 'Trà hoa cúc thanh nhiệt sáng mắt.',
     sellPrice: 470,
     edible: true,
     staminaRestore: 20,
@@ -1371,9 +1371,9 @@ const TEA_DRINK_ITEMS: ItemDef[] = [
   },
   {
     id: 'osmanthus_tea',
-    name: '桂花茶',
+    name: 'Trà Hoa Quế',
     category: 'processed',
-    description: '馥郁芬芳的桂花茶。',
+    description: 'Sự kết hợp hoàn hảo giữa vị đậm đà của lá trà và hương thơm của hoa quế, thơm ngát cả phòng.',
     sellPrice: 780,
     edible: true,
     staminaRestore: 30,
@@ -1381,9 +1381,9 @@ const TEA_DRINK_ITEMS: ItemDef[] = [
   },
   {
     id: 'ginseng_tea',
-    name: '人参茶',
+    name: 'Trà Nhân Sâm',
     category: 'processed',
-    description: '滋补强身的人参茶。',
+    description: 'Trà nhân sâm bồi bổ cường thân.',
     sellPrice: 300,
     edible: true,
     staminaRestore: 40,
@@ -1395,9 +1395,9 @@ const TEA_DRINK_ITEMS: ItemDef[] = [
 const TOFU_ITEMS: ItemDef[] = [
   {
     id: 'tofu',
-    name: '豆腐',
+    name: 'Đậu Hũ',
     category: 'processed',
-    description: '鲜嫩的豆腐。',
+    description: 'Đậu hũ tươi non.',
     sellPrice: 500,
     edible: true,
     staminaRestore: 20,
@@ -1405,9 +1405,9 @@ const TOFU_ITEMS: ItemDef[] = [
   },
   {
     id: 'peanut_tofu',
-    name: '花生豆腐',
+    name: 'Đậu Hũ Đậu Phộng',
     category: 'processed',
-    description: '香浓的花生豆腐。',
+    description: 'Đậu hũ đậu phộng béo ngậy.',
     sellPrice: 380,
     edible: true,
     staminaRestore: 18,
@@ -1415,9 +1415,9 @@ const TOFU_ITEMS: ItemDef[] = [
   },
   {
     id: 'sesame_paste',
-    name: '芝麻酱',
+    name: 'Chè mè đen',
     category: 'processed',
-    description: '浓香的芝麻酱。',
+    description: 'Chè mè đen thơm lừng sánh mịn.',
     sellPrice: 175,
     edible: true,
     staminaRestore: 15,
@@ -1429,9 +1429,9 @@ const TOFU_ITEMS: ItemDef[] = [
 const HERB_PRODUCT_ITEMS: ItemDef[] = [
   {
     id: 'herbal_paste',
-    name: '草药膏',
+    name: 'Cao Thảo Dược',
     category: 'processed',
-    description: '研磨制成的草药膏。',
+    description: 'Cao thuốc mỡ điều chế từ việc nghiền thảo dược.',
     sellPrice: 80,
     edible: true,
     staminaRestore: 15,
@@ -1439,9 +1439,9 @@ const HERB_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'ginseng_extract',
-    name: '人参精',
+    name: 'Tinh Chất Nhân Sâm',
     category: 'processed',
-    description: '浓缩的人参精华。',
+    description: 'Tinh chất sâm cô đặc.',
     sellPrice: 400,
     edible: true,
     staminaRestore: 50,
@@ -1449,9 +1449,9 @@ const HERB_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'antler_powder',
-    name: '鹿茸粉',
+    name: 'Bột Lộc Nhung',
     category: 'processed',
-    description: '研磨的鹿茸粉。',
+    description: 'Bột lộc nhung nghiền mịn.',
     sellPrice: 950,
     edible: true,
     staminaRestore: 60,
@@ -1459,17 +1459,17 @@ const HERB_PRODUCT_ITEMS: ItemDef[] = [
   },
   {
     id: 'animal_medicine',
-    name: '兽药',
+    name: 'Thuốc Thú Y',
     category: 'misc',
-    description: '治疗生病的牲畜，立即痊愈。',
+    description: 'Điều trị cho gia súc bị bệnh, khỏi ngay lập tức.',
     sellPrice: 50,
     edible: false
   },
   {
     id: 'stamina_fruit',
-    name: '仙桃',
+    name: 'Tiên Đào',
     category: 'misc',
-    description: '蕴含远古灵气的果实，食用后永久提升体力上限。极其稀有。',
+    description: 'Trái cây chứa linh khí viễn cổ, sau khi ăn sẽ tăng vĩnh viễn giới hạn thể lực. Cực kỳ quý hiếm.',
     sellPrice: 5000,
     edible: false
   }
@@ -1479,25 +1479,25 @@ const HERB_PRODUCT_ITEMS: ItemDef[] = [
 const FEED_ITEMS: ItemDef[] = [
   {
     id: 'premium_feed',
-    name: '精饲料',
+    name: 'Thức Ăn Tinh Chất',
     category: 'material',
-    description: '精心配制的优质饲料，显著提升动物心情和好感度。',
+    description: 'Thức ăn chất lượng cao được phối trộn kỹ lưỡng, tăng rõ rệt tâm trạng và độ thiện cảm của động vật.',
     sellPrice: 40,
     edible: false
   },
   {
     id: 'nourishing_feed',
-    name: '滋补饲料',
+    name: 'Thức Ăn Bồi Bổ',
     category: 'material',
-    description: '添加滋补成分的饲料，加速动物产出周期。',
+    description: 'Thức ăn được thêm thành phần bổ dưỡng, đẩy nhanh chu kỳ sản sinh của động vật.',
     sellPrice: 50,
     edible: false
   },
   {
     id: 'vitality_feed',
-    name: '活力饲料',
+    name: 'Thức Ăn Sinh Lực',
     category: 'material',
-    description: '含有草药精华的饲料，喂食后必定治愈疾病。',
+    description: 'Thức ăn chứa tinh chất thảo dược, sau khi cho ăn chắc chắn sẽ chữa khỏi bệnh tật.',
     sellPrice: 60,
     edible: false
   }
@@ -1507,25 +1507,25 @@ const FEED_ITEMS: ItemDef[] = [
 const INCENSE_ITEMS: ItemDef[] = [
   {
     id: 'pine_incense',
-    name: '松香',
+    name: 'Hương Thông',
     category: 'gift',
-    description: '清新的松香，送礼佳品。',
+    description: 'Hương thông thanh khiết, quà tặng tuyệt hảo.',
     sellPrice: 100,
     edible: false
   },
   {
     id: 'camphor_incense',
-    name: '樟脑香',
+    name: 'Hương Long Não',
     category: 'gift',
-    description: '提神醒脑的樟脑香。',
+    description: 'Hương long não giúp tỉnh táo tinh thần.',
     sellPrice: 150,
     edible: false
   },
   {
     id: 'osmanthus_incense',
-    name: '桂花香',
+    name: 'Hương Hoa Quế',
     category: 'gift',
-    description: '馥郁的桂花香。',
+    description: 'Hương hoa quế nồng nàn.',
     sellPrice: 780,
     edible: false
   }
@@ -1642,9 +1642,9 @@ export const ITEMS: ItemDef[] = [
   // 淘金产出
   {
     id: 'gold_nugget',
-    name: '金砂',
+    name: 'Cát Vàng',
     category: 'misc',
-    description: '河中淘得的金砂，闪闪发光。',
+    description: 'Cát vàng đãi được dưới sông, lấp lánh rực rỡ.',
     sellPrice: 80,
     edible: false
   },
@@ -1652,65 +1652,65 @@ export const ITEMS: ItemDef[] = [
   // ===== 化石 (8) =====
   {
     id: 'trilobite_fossil',
-    name: '三叶虫化石',
+    name: 'Hóa thạch bọ ba thùy',
     category: 'fossil',
-    description: '远古海洋生物的化石。',
+    description: 'Hóa thạch của sinh vật biển viễn cổ.',
     sellPrice: 120,
     edible: false
   },
   {
     id: 'amber',
-    name: '琥珀',
+    name: 'Hổ phách',
     category: 'fossil',
-    description: '凝固了万年的树脂化石。',
+    description: 'Hóa thạch nhựa cây ngưng tụ suốt vạn năm.',
     sellPrice: 150,
     edible: false
   },
   {
     id: 'ammonite_fossil',
-    name: '菊石化石',
+    name: 'Hóa thạch cúc đá',
     category: 'fossil',
-    description: '螺旋状的远古海洋化石。',
+    description: 'Hóa thạch sinh vật biển viễn cổ hình xoắn ốc.',
     sellPrice: 180,
     edible: false
   },
   {
     id: 'fern_fossil',
-    name: '蕨叶化石',
+    name: 'Hóa thạch lá dương xỉ',
     category: 'fossil',
-    description: '保存完好的远古蕨类化石。',
+    description: 'Hóa thạch dương xỉ viễn cổ được bảo tồn nguyên vẹn.',
     sellPrice: 100,
     edible: false
   },
   {
     id: 'shell_fossil',
-    name: '螺壳化石',
+    name: 'Hóa thạch vỏ ốc',
     category: 'fossil',
-    description: '古代软体动物的壳化石。',
+    description: 'Hóa thạch vỏ của động vật thân mềm cổ đại.',
     sellPrice: 90,
     edible: false
   },
   {
     id: 'bone_fragment',
-    name: '骨骸碎片',
+    name: 'Mảnh vụn xương cốt',
     category: 'fossil',
-    description: '不知名远古生物的骨骸碎片。',
+    description: 'Mảnh vỡ xương cốt của sinh vật viễn cổ không rõ tên.',
     sellPrice: 200,
     edible: false
   },
   {
     id: 'petrified_wood',
-    name: '石化木',
+    name: 'Gỗ hóa đá',
     category: 'fossil',
-    description: '被矿物质替代的远古木材。',
+    description: 'Gỗ viễn cổ được thay thế bằng khoáng chất.',
     sellPrice: 130,
     edible: false
   },
   {
     id: 'dragon_tooth',
-    name: '龙牙化石',
+    name: 'Hóa thạch nanh rồng',
     category: 'fossil',
-    description: '传说中龙族遗留的牙齿化石。',
+    description: 'Hóa thạch răng do long tộc để lại trong truyền thuyết.',
     sellPrice: 350,
     edible: false
   },
@@ -1718,81 +1718,81 @@ export const ITEMS: ItemDef[] = [
   // ===== 古物 (10) =====
   {
     id: 'ancient_pottery',
-    name: '古陶片',
+    name: 'Mảnh gốm cổ',
     category: 'artifact',
-    description: '远古文明留下的陶器碎片。',
+    description: 'Mảnh vỡ đồ gốm do nền văn minh viễn cổ để lại.',
     sellPrice: 100,
     edible: false
   },
   {
     id: 'jade_disc',
-    name: '玉璧残片',
+    name: 'Mảnh vỡ ngọc bích',
     category: 'artifact',
-    description: '精美的远古玉璧碎片。',
+    description: 'Mảnh vỡ ngọc bích viễn cổ tinh mỹ.',
     sellPrice: 250,
     edible: false
   },
   {
     id: 'bronze_mirror',
-    name: '铜镜',
+    name: 'Gương đồng',
     category: 'artifact',
-    description: '磨制精良的远古铜镜。',
+    description: 'Gương đồng viễn cổ được chế tác tinh xảo.',
     sellPrice: 200,
     edible: false
   },
   {
     id: 'ancient_coin',
-    name: '远古铜钱',
+    name: 'Đồng tiền cổ',
     category: 'artifact',
-    description: '不知名朝代的古铜钱。',
+    description: 'Đồng tiền đồng cổ thuộc triều đại không rõ tên.',
     sellPrice: 150,
     edible: false
   },
   {
     id: 'oracle_bone',
-    name: '甲骨片',
+    name: 'Mảnh giáp cốt',
     category: 'artifact',
-    description: '刻有卜辞的远古甲骨。',
+    description: 'Giáp cốt viễn cổ có khắc bói toán.',
     sellPrice: 300,
     edible: false
   },
   {
     id: 'jade_pendant',
-    name: '玉佩',
+    name: 'Ngọc bội',
     category: 'artifact',
-    description: '温润如玉的远古佩饰。',
+    description: 'Đồ trang sức đeo người viễn cổ ôn nhuận như ngọc.',
     sellPrice: 220,
     edible: false
   },
   {
     id: 'ancient_seed',
-    name: '远古种子',
+    name: 'Hạt giống viễn cổ',
     category: 'artifact',
-    description: '蕴含远古生命力的神秘种子，据说能种出远古水果。',
+    description: 'Hạt giống bí ẩn chứa đựng sinh mệnh lực viễn cổ, nghe nói có thể trồng ra trái cây viễn cổ.',
     sellPrice: 400,
     edible: false
   },
   {
     id: 'bamboo_scroll',
-    name: '竹简',
+    name: 'Thẻ tre',
     category: 'artifact',
-    description: '刻有古文的竹简残片。',
+    description: 'Mảnh tre vỡ có khắc cổ văn.',
     sellPrice: 180,
     edible: false
   },
   {
     id: 'stone_axe_head',
-    name: '石斧头',
+    name: 'Rìu đá',
     category: 'artifact',
-    description: '远古先民使用的石斧头。',
+    description: 'Rìu đá do tổ tiên viễn cổ sử dụng.',
     sellPrice: 120,
     edible: false
   },
   {
     id: 'painted_pottery',
-    name: '彩陶碎片',
+    name: 'Mảnh gốm màu',
     category: 'artifact',
-    description: '绘有精美纹饰的彩陶碎片。',
+    description: 'Mảnh gốm màu có vẽ hoa văn tinh mỹ.',
     sellPrice: 200,
     edible: false
   },
@@ -1800,9 +1800,9 @@ export const ITEMS: ItemDef[] = [
   // ===== 公会商店物品 =====
   {
     id: 'combat_tonic',
-    name: '战斗补剂',
+    name: 'Thuốc Bổ Trợ Chiến Đấu',
     category: 'food',
-    description: '恢复30点HP。',
+    description: 'Hồi phục 30 điểm HP.',
     sellPrice: 100,
     edible: true,
     staminaRestore: 0,
@@ -1810,9 +1810,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'fortify_brew',
-    name: '强化药水',
+    name: 'Thuốc Tăng Lực',
     category: 'food',
-    description: '恢复60点HP。',
+    description: 'Hồi phục 60 điểm HP.',
     sellPrice: 250,
     edible: true,
     staminaRestore: 0,
@@ -1820,9 +1820,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'ironhide_potion',
-    name: '铁壁药剂',
+    name: 'Dược Tề Thiết Bích',
     category: 'food',
-    description: '恢复全部HP。',
+    description: 'Hồi phục toàn bộ HP.',
     sellPrice: 400,
     edible: true,
     staminaRestore: 0,
@@ -1830,17 +1830,17 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'slayer_charm',
-    name: '猎魔符',
+    name: 'Phù Săn Ma',
     category: 'misc',
-    description: '怪物掉落率+20%（当次探索）。',
+    description: 'Tỷ lệ rớt đồ của quái vật +20% (Trong lần thám hiểm này).',
     sellPrice: 750,
     edible: false
   },
   {
     id: 'warriors_feast',
-    name: '勇者盛宴',
+    name: 'Yến Tiệc Dũng Sĩ',
     category: 'food',
-    description: '恢复50体力和50HP。',
+    description: 'Hồi phục 50 thể lực và 50 HP.',
     sellPrice: 500,
     edible: true,
     staminaRestore: 50,
@@ -1848,41 +1848,41 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'monster_lure',
-    name: '怪物诱饵',
+    name: 'Mồi Nhử Quái Vật',
     category: 'misc',
-    description: '本层怪物数量翻倍。',
+    description: 'Số lượng quái vật ở tầng này tăng gấp đôi.',
     sellPrice: 1000,
     edible: false
   },
   {
     id: 'guild_badge',
-    name: '公会徽章',
+    name: 'Huy Hiệu Công Hội',
     category: 'misc',
-    description: '攻击力永久+3。',
+    description: 'Lực tấn công vĩnh viễn +3.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'life_talisman',
-    name: '生命护符',
+    name: 'Bùa Hộ Mệnh Sinh Mệnh',
     category: 'misc',
-    description: '最大生命值永久+15。',
+    description: 'Sinh lực tối đa vĩnh viễn +15.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'defense_charm',
-    name: '守护符',
+    name: 'Bùa Hộ Vệ',
     category: 'misc',
-    description: '防御永久+3%。',
+    description: 'Phòng ngự vĩnh viễn +3%.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'adventurer_ration',
-    name: '冒险口粮',
+    name: 'Lương Khô Thám Hiểm',
     category: 'food',
-    description: '恢复25体力和25HP。',
+    description: 'Hồi phục 25 thể lực và 25 HP.',
     sellPrice: 175,
     edible: true,
     staminaRestore: 25,
@@ -1890,9 +1890,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'stamina_elixir',
-    name: '精力药剂',
+    name: 'Dược Tề Tinh Lực',
     category: 'food',
-    description: '恢复120点体力。',
+    description: 'Hồi phục 120 điểm thể lực.',
     sellPrice: 300,
     edible: true,
     staminaRestore: 120,
@@ -1900,9 +1900,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'lucky_coin',
-    name: '幸运铜钱',
+    name: 'Đồng Tiền May Mắn',
     category: 'misc',
-    description: '怪物掉落率永久+5%。',
+    description: 'Tỷ lệ rớt đồ của quái vật vĩnh viễn +5%.',
     sellPrice: 0,
     edible: false
   },
@@ -1910,132 +1910,132 @@ export const ITEMS: ItemDef[] = [
   // ===== 瀚海物品 =====
   {
     id: 'hanhai_cactus_seed',
-    name: '仙人掌种子',
+    name: 'Hạt Giống Xương Rồng',
     category: 'seed',
-    description: '来自西域的奇特植物种子，夏季可种植。',
+    description: 'Hạt giống loài thực vật kỳ lạ đến từ Tây Vực, có thể trồng vào mùa hè.',
     sellPrice: 250,
     edible: false
   },
   {
     id: 'hanhai_date_seed',
-    name: '椰枣种子',
+    name: 'Hạt Giống Chà Là',
     category: 'seed',
-    description: '丝绸之路带来的西域果实种子，夏/秋季可种植。',
+    description: 'Hạt giống trái cây Tây Vực do Con Đường Tơ Lụa mang lại, có thể trồng vào mùa hè/mùa thu.',
     sellPrice: 200,
     edible: false
   },
   {
     id: 'hanhai_spice',
-    name: '西域香料',
+    name: 'Hương Liệu Tây Vực',
     category: 'material',
-    description: '异域风情的香料，烹饪佳品。',
+    description: 'Hương liệu mang phong tình dị vực, cực phẩm nấu ăn.',
     sellPrice: 150,
     edible: false
   },
   {
     id: 'hanhai_silk',
-    name: '丝绸',
+    name: 'Tơ Lụa',
     category: 'material',
-    description: '细腻光滑的上等丝绸。',
+    description: 'Tơ lụa thượng hạng mềm mịn trơn bóng.',
     sellPrice: 400,
     edible: false
   },
   {
     id: 'hanhai_turquoise',
-    name: '绿松石',
+    name: 'Ngọc Lục Bảo',
     category: 'gem',
-    description: '西域特产的珍贵宝石。',
+    description: 'Đá quý trân quý đặc sản của Tây Vực.',
     sellPrice: 300,
     edible: false
   },
   {
     id: 'hanhai_map',
-    name: '藏宝图',
+    name: 'Bản Đồ Kho Báu',
     category: 'misc',
-    description: '标记着荒原某处宝藏的地图。',
+    description: 'Bản đồ đánh dấu vị trí kho báu tại hoang mạc.',
     sellPrice: 500,
     edible: false
   },
   {
     id: 'mega_bomb_recipe',
-    name: '巨型炸弹配方',
+    name: 'Công Thức Bom Khổng Lồ',
     category: 'misc',
-    description: '据说能炸开整层矿洞的秘方。',
+    description: 'Phương thức bí truyền nghe nói có thể phá nổ cả một tầng hang mỏ.',
     sellPrice: 2500,
     edible: false
   },
   // --- 新增西域商品 ---
   {
     id: 'hanhai_incense',
-    name: '瀚海沉香',
+    name: 'Trầm Hương Hãn Hải',
     category: 'gift',
-    description: '西域珍贵香料，送礼佳品。',
+    description: 'Hương liệu trân quý của Tây Vực, quà tặng tuyệt hảo.',
     sellPrice: 250,
     edible: false
   },
   {
     id: 'hanhai_carpet',
-    name: '飞毯碎片',
+    name: 'Mảnh Thảm Bay',
     category: 'misc',
-    description: '传说中飞毯的残片，珍贵的收藏品。',
+    description: 'Mảnh vỡ thảm bay trong truyền thuyết, vật phẩm sưu tầm quý giá.',
     sellPrice: 600,
     edible: false
   },
   {
     id: 'hanhai_amber',
-    name: '戈壁琥珀',
+    name: 'Hổ Phách Gobi',
     category: 'gem',
-    description: '戈壁滩的天然琥珀。',
+    description: 'Hổ phách tự nhiên trên sa mạc Gobi.',
     sellPrice: 220,
     edible: false
   },
   {
     id: 'hanhai_dried_fruit',
-    name: '西域干果',
+    name: 'Trái Cây Khô Tây Vực',
     category: 'food',
-    description: '甜蜜的异域干果，恢复体力。',
+    description: 'Trái cây khô dị vực ngọt ngào, giúp hồi phục thể lực.',
     sellPrice: 100,
     edible: true,
     staminaRestore: 20
   },
   {
     id: 'hanhai_pottery',
-    name: '彩陶',
+    name: 'Gốm Màu',
     category: 'gift',
-    description: '精致的西域彩陶，送礼佳品。',
+    description: 'Gốm màu Tây Vực tinh xảo, quà tặng tuyệt hảo.',
     sellPrice: 175,
     edible: false
   },
   {
     id: 'hanhai_saddle_leather',
-    name: '鞍具皮革',
+    name: 'Da Yên Ngựa',
     category: 'material',
-    description: '上等的西域马具皮革。',
+    description: 'Da thuộc làm yên ngựa Tây Vực thượng hạng.',
     sellPrice: 350,
     edible: false
   },
   {
     id: 'hanhai_lapis',
-    name: '青金石',
+    name: 'Đá Lapis Lazuli',
     category: 'gem',
-    description: '深蓝色的珍贵宝石。',
+    description: 'Đá quý màu xanh lam đậm trân quý.',
     sellPrice: 275,
     edible: false
   },
   // --- 加工产出 ---
   {
     id: 'spice_oil',
-    name: '香料油',
+    name: 'Dầu Hương Liệu',
     category: 'processed',
-    description: '浓郁的异域风味油脂。',
+    description: 'Dầu mỡ đậm đà mang phong vị dị vực.',
     sellPrice: 350,
     edible: false
   },
   {
     id: 'cactus_jam',
-    name: '仙人掌果酱',
+    name: 'Mứt Xương Rồng',
     category: 'processed',
-    description: '酸甜可口的沙漠果酱。',
+    description: 'Mứt sa mạc chua ngọt ngon miệng.',
     sellPrice: 400,
     edible: true,
     staminaRestore: 35,
@@ -2043,9 +2043,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'cactus_wine',
-    name: '仙人掌酒',
+    name: 'Rượu Xương Rồng',
     category: 'processed',
-    description: '西域特色佳酿。',
+    description: 'Mỹ tửu đặc sản Tây Vực.',
     sellPrice: 800,
     edible: true,
     staminaRestore: 30,
@@ -2053,9 +2053,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'date_wine',
-    name: '椰枣酒',
+    name: 'Rượu Chà Là',
     category: 'processed',
-    description: '甘醇滋补的枣酿。',
+    description: 'Rượu chà là ngọt dịu bồi bổ.',
     sellPrice: 650,
     edible: true,
     staminaRestore: 25,
@@ -2063,25 +2063,25 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'turquoise_accessory',
-    name: '绿松石饰品',
+    name: 'Trang Sức Ngọc Lục Bảo',
     category: 'gift',
-    description: '精致的绿松石首饰，送礼极佳。',
+    description: 'Trang sức ngọc lục bảo tinh xảo, quà tặng tuyệt hảo.',
     sellPrice: 650,
     edible: false
   },
   {
     id: 'brocade',
-    name: '锦缎',
+    name: 'Gấm Vóc',
     category: 'material',
-    description: '上等华丽的锦缎。',
+    description: 'Gấm vóc hoa lệ thượng hạng.',
     sellPrice: 900,
     edible: false
   },
   {
     id: 'spice_tea',
-    name: '香料茶',
+    name: 'Trà Hương Liệu',
     category: 'processed',
-    description: '异域风味的香茶。',
+    description: 'Trà thơm mang phong vị dị vực.',
     sellPrice: 350,
     edible: true,
     staminaRestore: 20,
@@ -2090,59 +2090,59 @@ export const ITEMS: ItemDef[] = [
   // --- 积分兑换物品 ---
   {
     id: 'trade_star_fragment',
-    name: '星辰碎片',
+    name: 'Mảnh Vỡ Tinh Thần',
     category: 'material',
-    description: '稀有材料，用于高级制作。',
+    description: 'Nguyên liệu quý hiếm, dùng để chế tạo cao cấp.',
     sellPrice: 500,
     edible: false
   },
-  // { id: 'trade_golden_coconut', name: '金椰子', category: 'misc', description: '打开可获得随机稀有物品。', sellPrice: 800, edible: false },
+  // { id: 'trade_golden_coconut', name: 'Dừa vàng', category: 'misc', description: 'Mở ra để nhận một vật phẩm hiếm ngẫu nhiên.', sellPrice: 800, edible: false },
   // {
   //   id: 'trade_desert_totem',
-  //   name: '沙漠图腾',
+  //   name: 'Tượng vật sa mạc',
   //   category: 'misc',
-  //   description: '立即传送至瀚海（不消耗时间）。',
+  //   description: 'Dịch chuyển ngay đến Hãn Hải (không tốn thời gian).',
   //   sellPrice: 300,
   //   edible: false
   // },
   {
     id: 'trade_spice_bundle',
-    name: '香料礼包',
+    name: 'Gói Quà Hương Liệu',
     category: 'misc',
-    description: '内含西域香料×5。',
+    description: 'Bên trong chứa Hương Liệu Tây Vực ×5.',
     sellPrice: 750,
     edible: false
   },
   {
     id: 'trade_turquoise_pendant',
-    name: '绿松石吊坠',
+    name: 'Dây chuyền ngọc lục bảo',
     category: 'gem',
-    description: '西域绿松石打磨而成的精致吊坠。',
+    description: 'Mặt dây chuyền tinh xảo mài từ ngọc lục bảo Tây Vực, chứa sức mạnh sa mạc.',
     sellPrice: 600,
     edible: false
   },
   {
     id: 'trade_silk_robe',
-    name: '丝绸长袍',
+    name: 'Trường Bào Tơ Lụa',
     category: 'misc',
-    description: '西域丝绸织就的华美长袍。',
+    description: 'Trường bào lộng lẫy dệt từ tơ lụa Tây Vực, mặc vào tinh thần sảng khoái.',
     sellPrice: 750,
     edible: false
   },
   {
     id: 'trade_desert_blade',
-    name: '沙漠弯刀',
+    name: 'Loan Đao Sa Mạc',
     category: 'misc',
-    description: '西域锻造的弯刀，锋利无比。',
+    description: 'Loan đao rèn ở Tây Vực, lưỡi cong như trăng khuyết, sắc bén vô cùng.',
     sellPrice: 2000,
     edible: false
   },
   // --- 瀚海拓展料理 ---
   {
     id: 'cactus_salad',
-    name: '仙人掌沙拉',
+    name: 'Salad xương rồng',
     category: 'food',
-    description: '清爽可口的仙人掌沙拉。',
+    description: 'Đĩa salad xương rồng thanh mát, kết hợp hương liệu Tây Vực độc đáo.',
     sellPrice: 250,
     edible: true,
     staminaRestore: 40,
@@ -2150,9 +2150,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'spice_fried_rice',
-    name: '香料炒饭',
+    name: 'Cơm chiên hương liệu',
     category: 'food',
-    description: '西域香料翻炒的米饭。',
+    description: 'Cơm chiên đượm vị hương liệu Tây Vực, dẻo thơm chắc hạt, làm việc không biết mệt.',
     sellPrice: 300,
     edible: true,
     staminaRestore: 55,
@@ -2160,9 +2160,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'turquoise_tea',
-    name: '绿松石养生茶',
+    name: 'Trà dưỡng sinh ngọc lục bảo',
     category: 'food',
-    description: '以绿松石粉入茶的养生饮品。',
+    description: 'Tách trà pha chút bột ngọc lục bảo, tương truyền tăng khả năng cảm ứng quặng đá.',
     sellPrice: 400,
     edible: true,
     staminaRestore: 60,
@@ -2170,9 +2170,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'silk_tofu',
-    name: '丝绸豆腐',
+    name: 'Đậu hũ tơ lụa',
     category: 'food',
-    description: '用丝绸包裹蒸制的嫩滑豆腐。',
+    description: 'Đậu hũ non hấp bọc trong lụa mỏng, kết cấu mịn màng như tơ lụa.',
     sellPrice: 280,
     edible: true,
     staminaRestore: 45,
@@ -2180,9 +2180,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'date_porridge',
-    name: '枣泥粥',
+    name: 'Cháo táo đỏ nghiền',
     category: 'food',
-    description: '温热滋补的枣泥粥。',
+    description: 'Cháo táo đỏ nhuyễn mịn, giữ ấm dạ dày bồi bổ thân thể.',
     sellPrice: 260,
     edible: true,
     staminaRestore: 50,
@@ -2190,9 +2190,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'desert_feast',
-    name: '西域盛宴',
+    name: 'Đại tiệc Tây Vực',
     category: 'food',
-    description: '集西域精华于一桌的豪华宴席。',
+    description: 'Bữa tiệc sang trọng kết hợp tinh hoa miền Tây trong một bàn tiệc, mang đến cho bạn tràn đầy năng lượng.',
     sellPrice: 800,
     edible: true,
     staminaRestore: 80,
@@ -2200,9 +2200,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'brocade_dumpling',
-    name: '锦缎御饺',
+    name: 'Há Cảo Gấm Ngự Ban',
     category: 'food',
-    description: '以锦缎为皮的极品饺子。',
+    description: 'Món há cảo cực phẩm có vỏ như gấm vóc, là món quà thượng hạng cấp ngự ban.',
     sellPrice: 700,
     edible: true,
     staminaRestore: 75,
@@ -2213,9 +2213,9 @@ export const ITEMS: ItemDef[] = [
   // 发现线索
   {
     id: 'fox_bead',
-    name: '狐珠',
+    name: 'Hồ châu',
     category: 'misc',
-    description: '矿洞深处捡到的赤红色珠子，温热如有生命。',
+    description: 'Viên châu màu đỏ rực nhặt được nơi sâu thẳm hang mỏ, ấm áp như thể có sinh mệnh.',
     sellPrice: 500,
     edible: false
   },
@@ -2223,49 +2223,49 @@ export const ITEMS: ItemDef[] = [
   // 求缘物品
   {
     id: 'dragon_scale_charm',
-    name: '龙鳞佩',
+    name: 'Long Lân Bội',
     category: 'misc',
-    description: '以龙玉雕琢的鳞片形佩饰，蕴含潜渊之力。',
+    description: 'Ngọc bội hình vảy rồng điêu khắc từ long ngọc, chứa đựng sức mạnh tiềm uyên.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'blossom_crown',
-    name: '花灵冠',
+    name: 'Hoa Linh Quán',
     category: 'misc',
-    description: '用永不凋零的桃花编织的花冠。',
+    description: 'Vương miện hoa bện từ những đóa hoa đào không bao giờ héo tàn.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'jade_mortar',
-    name: '玉药杵',
+    name: 'Chày Ngọc Giã Thuốc',
     category: 'misc',
-    description: '月光石雕成的药杵，与月兔的玉杵成对。',
+    description: 'Chày giã thuốc điêu khắc từ đá nguyệt quang, ghép thành cặp với chày ngọc của Nguyệt Thỏ.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'fox_flame_lantern',
-    name: '狐火灯笼',
+    name: 'Đèn Lồng Hồ Hỏa',
     category: 'misc',
-    description: '内含狐火的灯笼，永不熄灭。',
+    description: 'Chiếc đèn lồng chứa hồ hỏa bên trong, vĩnh viễn không tắt.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'cultivation_jade',
-    name: '修炼玉佩',
+    name: 'Ngọc Bội Tu Luyện',
     category: 'misc',
-    description: '蕴含灵气的玉佩，修行者的信物。',
+    description: 'Ngọc bội chứa đựng linh khí, tín vật của người tu hành.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'silver_thread_ring',
-    name: '银丝戒',
+    name: 'Nhẫn Chỉ Bạc',
     category: 'misc',
-    description: '用月光银丝编织的戒指，寄托归乡之思。',
+    description: 'Chiếc nhẫn bện từ sợi chỉ bạc dưới ánh trăng, gửi gắm nỗi lòng nhớ quê hương.',
     sellPrice: 0,
     edible: false
   },
@@ -2273,49 +2273,49 @@ export const ITEMS: ItemDef[] = [
   // 结缘物品
   {
     id: 'dragon_pearl',
-    name: '龙珠',
+    name: 'Long Châu',
     category: 'misc',
-    description: '以龙玉、月光石与棱彩碎片炼成的灵珠，是龙族至高的缘定信物。',
+    description: 'Ngọn lửa của ớt phượng hoàng va chạm với ánh bạc của lúa nguyệt quang, quả tròn trịa như long châu, chí bảo!',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'eternal_blossom',
-    name: '不凋花',
+    name: 'Hoa Không Tàn',
     category: 'misc',
-    description: '用至尊桃子、蜂蜜和桂花凝聚而成，永不枯萎的灵花。',
+    description: 'Đóa hoa linh thiêng ngưng tụ từ quả đào chí tôn, mật ong và hoa quế, vĩnh viễn không héo úa.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'moon_elixir',
-    name: '月华丹',
+    name: 'Nguyệt Hoa Đan',
     category: 'misc',
-    description: '人参、雪莲与月光石炼制的仙丹，散发柔和的银白色光芒。',
+    description: 'Tiên đan luyện từ nhân sâm, tuyết liên và đá nguyệt quang, tỏa ra ánh sáng trắng bạc dịu nhẹ.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'fox_spirit_bead',
-    name: '灵狐珠',
+    name: 'Linh Hồ Châu',
     category: 'misc',
-    description: '红宝石、月光石与黄金炼成的珠子，封印着狐仙的一缕灵力。',
+    description: 'Viên châu luyện từ hồng ngọc, đá nguyệt quang và vàng ròng, phong ấn một luồng linh lực của Hồ Tiên.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'immortal_gourd',
-    name: '仙人葫',
+    name: 'Tiên Nhân Hồ',
     category: 'misc',
-    description: '人参、鹿茸与铱矿炼制的丹葫芦，内蕴五百年修行之力。',
+    description: 'Thần dược làm từ nhân sâm, nhung hươu và quặng iridium chứa đựng sức mạnh của năm trăm năm trồng trọt.',
     sellPrice: 0,
     edible: false
   },
   {
     id: 'starlight_loom',
-    name: '星光织机',
+    name: 'Khung Cửi Ánh Sao',
     category: 'misc',
-    description: '蚕丝、月光石与棱彩碎片织成的微型织机，能织出星光般的丝线。',
+    description: 'Khung cửi thu nhỏ dệt từ tơ tằm, đá nguyệt quang và mảnh vỡ lăng kính, có thể dệt ra những sợi chỉ lấp lánh như ánh sao.',
     sellPrice: 0,
     edible: false
   },
@@ -2323,9 +2323,9 @@ export const ITEMS: ItemDef[] = [
   // 能力产出物品
   {
     id: 'spirit_peach',
-    name: '灵桃',
+    name: 'Linh đào',
     category: 'misc',
-    description: '桃夭赐福的仙桃，散发着灵气。',
+    description: 'Tiên đào được Đào Yêu chúc phúc, tỏa ra linhtức giận.',
     sellPrice: 800,
     edible: true,
     staminaRestore: 50,
@@ -2333,83 +2333,83 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'moon_herb',
-    name: '月草',
+    name: 'Nguyệt thảo',
     category: 'material',
-    description: '沐浴月华而生的灵草，药效极佳。',
+    description: 'Linh thảo sinh ra từ việc tắm gội ánh trăng, dược hiệu cực tốt.',
     sellPrice: 300,
     edible: false
   },
   {
     id: 'dream_silk',
-    name: '梦丝',
+    name: 'Mộng ty',
     category: 'material',
-    description: '归女织出的银白丝线，闪烁着星光。',
+    description: 'Sợi chỉ bạc do Quy Nữ dệt ra, lấp lánh ánh sao.',
     sellPrice: 500,
     edible: false
   },
   // --- 竹林野兽掉落 ---
   {
     id: 'wolf_pelt',
-    name: '狼皮',
+    name: 'Da Sói',
     category: 'material',
-    description: '竹林灰狼的毛皮，柔韧耐磨。',
+    description: 'Da của sói xám rừng trúc, dẻo dai chống mài mòn.',
     sellPrice: 200,
     edible: false
   },
   {
     id: 'wolf_fang',
-    name: '狼牙',
+    name: 'Nanh Sói',
     category: 'material',
-    description: '锋利的狼牙，可作装饰。',
+    description: 'Nanh sói sắc bén, có thể làm đồ trang trí.',
     sellPrice: 150,
     edible: false
   },
   {
     id: 'bear_pelt',
-    name: '熊皮',
+    name: 'Da Gấu',
     category: 'material',
-    description: '厚实的黑熊皮毛，御寒极佳。',
+    description: 'Da lông gấu đen dày dặn, giữ ấm cực tốt.',
     sellPrice: 400,
     edible: false
   },
   {
     id: 'bear_gall',
-    name: '熊胆',
+    name: 'Mật Gấu',
     category: 'material',
-    description: '珍贵的药材，苦寒入肝。',
+    description: 'Dược liệu quý giá, tính hàn đắng vào kinh can.',
     sellPrice: 600,
     edible: false
   },
   {
     id: 'tiger_pelt',
-    name: '虎皮',
+    name: 'Da Hổ',
     category: 'material',
-    description: '稀有的虎皮，价值连城。',
+    description: 'Da hổ quý hiếm, giá trị liên thành.',
     sellPrice: 800,
     edible: false
   },
   {
     id: 'tiger_bone',
-    name: '虎骨',
+    name: 'Xương Hổ',
     category: 'material',
-    description: '传统名贵药材。',
+    description: 'Dược liệu truyền thống danh giá.',
     sellPrice: 500,
     edible: false
   },
   {
     id: 'tiger_fang',
-    name: '虎牙',
+    name: 'Nanh Hổ',
     category: 'material',
-    description: '猛虎獠牙，可作护身符。',
+    description: 'Răng nanh mãnh hổ, có thể làm bùa hộ mệnh.',
     sellPrice: 350,
     edible: false
   },
   // --- 竹林野兽掉落加工品 ---
   {
     id: 'bear_gall_pill',
-    name: '熊胆丸',
+    name: 'Mật Gấu Hoàn',
     category: 'food',
-    description: '熊胆研磨制成的苦寒丸药，服后神清气爽。',
+    description: 'Viên thuốc đắng lạnh nghiền từ mật gấu, uống vào tinh thần sảng khoái.',
     sellPrice: 450,
     edible: true,
     staminaRestore: 55,
@@ -2417,9 +2417,9 @@ export const ITEMS: ItemDef[] = [
   },
   {
     id: 'tiger_bone_tonic',
-    name: '虎骨酒',
+    name: 'Rượu Hổ Cốt',
     category: 'food',
-    description: '虎骨浸泡的药酒，饮后气血翻涌。',
+    description: 'Rượu thuốc ngâm xương hổ, uống vào khí huyết cuộn trào.',
     sellPrice: 700,
     edible: true,
     staminaRestore: 70,
@@ -2532,31 +2532,31 @@ export const isProtectedItem = (itemId: string): boolean => {
 
 /** 物品分类中文名（背包筛选、仓库分区、商店标签共用） */
 export const ITEM_CATEGORY_NAMES: Record<ItemCategory, string> = {
-  seed: '种子',
-  crop: '作物',
-  fruit: '水果',
-  fish: '鱼类',
-  animal_product: '畜产',
-  processed: '加工品',
-  food: '料理',
-  ore: '矿石',
-  gem: '宝石',
-  material: '材料',
-  machine: '机器',
-  sprinkler: '洒水器',
-  fertilizer: '肥料',
-  bait: '鱼饵',
-  tackle: '钓具',
-  bomb: '炸弹',
-  sapling: '树苗',
-  gift: '礼物',
-  fossil: '化石',
-  artifact: '文物',
-  misc: '杂货',
-  weapon: '武器',
-  ring: '戒指',
-  hat: '帽子',
-  shoe: '鞋子'
+  seed: 'Hạt giống',
+  crop: 'Nông sản',
+  fruit: 'Trái cây',
+  fish: 'Cá',
+  animal_product: 'Chăn nuôi',
+  processed: 'Đồ chế biến',
+  food: 'Món ăn',
+  ore: 'Quặng',
+  gem: 'Đá quý',
+  material: 'Nguyên liệu',
+  machine: 'Máy móc',
+  sprinkler: 'Vòi phun nước',
+  fertilizer: 'Phân bón',
+  bait: 'Mồi câu',
+  tackle: 'Đồ câu',
+  bomb: 'Bom',
+  sapling: 'Cây non',
+  gift: 'Quà tặng',
+  fossil: 'Hóa thạch',
+  artifact: 'Cổ vật',
+  misc: 'Tạp hóa',
+  weapon: 'Vũ khí',
+  ring: 'Nhẫn',
+  hat: 'Mũ',
+  shoe: 'Giày'
 }
 
 /** 根据ID查找物品 */
@@ -2566,201 +2566,201 @@ export const getItemById = (id: string): ItemDef | undefined => {
 
 /** 物品分类默认来源 */
 const CATEGORY_SOURCE: Record<ItemCategory, string> = {
-  seed: '商店购买',
-  crop: '种植收获',
-  fish: '钓鱼获得',
-  ore: '矿洞采集',
-  gem: '矿洞采集',
-  material: '采集/合成',
-  food: '烹饪制作',
-  processed: '加工制作',
-  machine: '合成制作',
-  sprinkler: '合成制作',
-  fertilizer: '合成制作',
-  bait: '商店购买',
-  tackle: '商店购买',
-  animal_product: '畜牧产出',
-  fruit: '果树收获',
-  sapling: '商店购买',
-  bomb: '合成制作',
-  gift: '采集/商店',
-  fossil: '矿洞挖掘',
-  artifact: '矿洞挖掘',
-  weapon: '商店/掉落',
-  ring: '商店/合成',
-  hat: '商店/合成',
-  shoe: '铁匠铺合成',
-  misc: '多种途径'
+  seed: 'Mua từ cửa hàng',
+  crop: 'Trồng và thu hoạch',
+  fish: 'Nhận từ câu cá',
+  ore: 'Thu thập trong hầm mỏ',
+  gem: 'Thu thập trong hầm mỏ',
+  material: 'Thu thập / chế tạo',
+  food: 'Nấu ăn',
+  processed: 'Chế biến',
+  machine: 'Chế tạo',
+  sprinkler: 'Chế tạo',
+  fertilizer: 'Chế tạo',
+  bait: 'Mua từ cửa hàng',
+  tackle: 'Mua từ cửa hàng',
+  animal_product: 'Sản phẩm chăn nuôi',
+  fruit: 'Thu hoạch cây ăn quả',
+  sapling: 'Mua từ cửa hàng',
+  bomb: 'Chế tạo',
+  gift: 'Thu thập / cửa hàng',
+  fossil: 'Khai thác trong hầm mỏ',
+  artifact: 'Khai thác trong hầm mỏ',
+  weapon: 'Cửa hàng / rơi đồ',
+  ring: 'Cửa hàng / Chế tạo',
+  hat: 'Cửa hàng / Chế tạo',
+  shoe: 'Ghép tại Tiệm Rèn',
+  misc: 'Nhiều nguồn'
 }
 
 /** 特定物品来源覆写 */
 const ITEM_SOURCE_OVERRIDES: Record<string, string> = {
   // 材料类
-  wood: '砍树获得',
-  bamboo: '砍竹获得',
-  herb: '山间采集',
-  firewood: '砍树获得',
-  pine_cone: '砍树掉落',
-  battery: '避雷针（雷雨天气）',
-  copper_bar: '熔炉冶炼',
-  iron_bar: '熔炉冶炼',
-  gold_bar: '熔炉冶炼',
-  iridium_bar: '熔炉冶炼',
-  charcoal: '窑炉烧制',
-  rice_flour: '石磨加工',
-  wheat_flour: '石磨加工',
-  cornmeal: '石磨加工',
-  cloth: '织布机加工',
-  silk_cloth: '织布机加工',
-  alpaca_cloth: '织布机加工',
-  felt: '织布机加工',
-  fish_feed: '商店购买',
-  water_purifier: '商店购买',
+  wood: 'Nhận khi chặt cây',
+  bamboo: 'Nhận khi chặt tre',
+  herb: 'Thu thập trên núi',
+  firewood: 'Nhận khi chặt cây',
+  pine_cone: 'Rơi khi chặt cây',
+  battery: 'Cột thu lôi (trời giông)',
+  copper_bar: 'Luyện bằng lò nung',
+  iron_bar: 'Luyện bằng lò nung',
+  gold_bar: 'Luyện bằng lò nung',
+  iridium_bar: 'Luyện bằng lò nung',
+  charcoal: 'Nung bằng lò',
+  rice_flour: 'Xay bằng cối đá',
+  wheat_flour: 'Xay bằng cối đá',
+  cornmeal: 'Xay bằng cối đá',
+  cloth: 'Chế biến bằng khung cửi',
+  silk_cloth: 'Chế biến bằng khung cửi',
+  alpaca_cloth: 'Chế biến bằng khung cửi',
+  felt: 'Chế biến bằng khung cửi',
+  fish_feed: 'Mua từ cửa hàng',
+  water_purifier: 'Mua từ cửa hàng',
   // 采集类
-  wild_mushroom: '矿洞蘑菇层/秋季觅食',
-  winter_bamboo_shoot: '冬季觅食',
-  ginseng: '秋季觅食',
-  wild_berry: '夏季觅食',
-  camphor_seed: '野树掉落',
-  mulberry: '桑树收获',
-  pine_resin: '树液采集器',
+  wild_mushroom: 'Tầng nấm hầm mỏ / hái lượm mùa thu',
+  winter_bamboo_shoot: 'Hái lượm mùa đông',
+  ginseng: 'Hái lượm mùa thu',
+  wild_berry: 'Hái lượm mùa hè',
+  camphor_seed: 'Rơi từ cây hoang',
+  mulberry: 'Thu hoạch cây dâu',
+  pine_resin: 'Dụng cụ lấy nhựa cây',
   // 野树相关
-  tapper: '合成制作',
-  lightning_rod: '合成制作',
+  tapper: 'Chế tạo',
+  lightning_rod: 'Chế tạo',
   // 机器
-  scarecrow: '合成制作',
-  crab_pot: '合成制作',
+  scarecrow: 'Chế tạo',
+  crab_pot: 'Chế tạo',
   // 蟹笼捕获
-  snail: '蟹笼捕获',
-  freshwater_shrimp: '蟹笼捕获',
-  crab: '蟹笼捕获',
-  lobster: '蟹笼捕获',
-  cave_shrimp: '蟹笼捕获',
-  swamp_crab: '蟹笼捕获',
-  trash: '蟹笼捕获',
-  driftwood: '蟹笼捕获',
-  broken_cd: '蟹笼捕获',
-  soggy_newspaper: '蟹笼捕获',
+  snail: 'Bắt bằng bẫy cua',
+  freshwater_shrimp: 'Bắt bằng bẫy cua',
+  crab: 'Bắt bằng bẫy cua',
+  lobster: 'Bắt bằng bẫy cua',
+  cave_shrimp: 'Bắt bằng bẫy cua',
+  swamp_crab: 'Bắt bằng bẫy cua',
+  trash: 'Bắt bằng bẫy cua',
+  driftwood: 'Bắt bằng bẫy cua',
+  broken_cd: 'Bắt bằng bẫy cua',
+  soggy_newspaper: 'Bắt bằng bẫy cua',
   // 蜂蜜
-  chrysanthemum_honey: '蜂箱产出',
-  osmanthus_honey: '蜂箱产出',
-  rapeseed_honey: '蜂箱产出',
-  snow_lotus_honey: '蜂箱产出',
+  chrysanthemum_honey: 'Sản phẩm từ tổ ong',
+  osmanthus_honey: 'Sản phẩm từ tổ ong',
+  rapeseed_honey: 'Sản phẩm từ tổ ong',
+  snow_lotus_honey: 'Sản phẩm từ tổ ong',
   // 奶酪
-  cheese: '奶酪机加工',
-  goat_cheese: '奶酪机加工',
-  buffalo_cheese: '奶酪机加工',
-  yak_cheese: '奶酪机加工',
+  cheese: 'Chế biến bằng máy làm phô mai',
+  goat_cheese: 'Chế biến bằng máy làm phô mai',
+  buffalo_cheese: 'Chế biến bằng máy làm phô mai',
+  yak_cheese: 'Chế biến bằng máy làm phô mai',
   // 松露油
-  truffle_oil: '榨油机加工',
+  truffle_oil: 'Chế biến bằng máy ép dầu',
   // 豆腐
-  tofu: '石磨加工',
-  peanut_tofu: '石磨加工',
-  sesame_paste: '石磨加工',
+  tofu: 'Xay bằng cối đá',
+  peanut_tofu: 'Xay bằng cối đá',
+  sesame_paste: 'Xay bằng cối đá',
   // 茶饮
-  green_tea_drink: '加工制作',
-  chrysanthemum_tea: '加工制作',
-  ginseng_tea: '加工制作',
+  green_tea_drink: 'Chế biến',
+  chrysanthemum_tea: 'Chế biến',
+  ginseng_tea: 'Chế biến',
   // 礼物
-  jade_ring: '商店购买',
-  silk_ribbon: '商店购买',
-  zhiji_jade: '商店购买',
-  wintersweet: '冬季觅食',
-  pine_incense: '合成制作',
-  camphor_incense: '合成制作',
-  osmanthus_incense: '合成制作',
+  jade_ring: 'Mua từ cửa hàng',
+  silk_ribbon: 'Mua từ cửa hàng',
+  zhiji_jade: 'Mua từ cửa hàng',
+  wintersweet: 'Hái lượm mùa đông',
+  pine_incense: 'Chế tạo',
+  camphor_incense: 'Chế tạo',
+  osmanthus_incense: 'Chế tạo',
   // 杂货
-  rain_totem: '桃源商圈·杂货',
-  sun_totem: '桃源商圈·杂货',
-  storm_totem: '桃源商圈·杂货',
-  snow_totem: '桃源商圈·杂货',
-  wind_totem: '桃源商圈·杂货',
-  green_rain_totem: '桃源商圈·杂货',
-  gold_nugget: '河边淘金',
+  rain_totem: 'Khu thương mại Đào Nguyên · Tạp hóa',
+  sun_totem: 'Khu thương mại Đào Nguyên · Tạp hóa',
+  storm_totem: 'Khu thương mại Đào Nguyên · Tạp hóa',
+  snow_totem: 'Khu thương mại Đào Nguyên · Tạp hóa',
+  wind_totem: 'Khu thương mại Đào Nguyên · Tạp hóa',
+  green_rain_totem: 'Khu thương mại Đào Nguyên · Tạp hóa',
+  gold_nugget: 'Đãi vàng bên sông',
   // 公会商店
-  combat_tonic: '冒险家公会',
-  fortify_brew: '冒险家公会',
-  ironhide_potion: '冒险家公会',
-  warriors_feast: '冒险家公会',
-  slayer_charm: '冒险家公会',
-  monster_lure: '冒险家公会',
-  guild_badge: '冒险家公会',
-  life_talisman: '冒险家公会',
-  defense_charm: '冒险家公会',
-  lucky_coin: '冒险家公会',
-  adventurer_ration: '冒险家公会',
-  stamina_elixir: '冒险家公会',
+  combat_tonic: 'Hội Mạo hiểm',
+  fortify_brew: 'Hội Mạo hiểm',
+  ironhide_potion: 'Hội Mạo hiểm',
+  warriors_feast: 'Hội Mạo hiểm',
+  slayer_charm: 'Hội Mạo hiểm',
+  monster_lure: 'Hội Mạo hiểm',
+  guild_badge: 'Hội Mạo hiểm',
+  life_talisman: 'Hội Mạo hiểm',
+  defense_charm: 'Hội Mạo hiểm',
+  lucky_coin: 'Hội Mạo hiểm',
+  adventurer_ration: 'Hội Mạo hiểm',
+  stamina_elixir: 'Hội Mạo hiểm',
   // 瀚海物品
-  hanhai_cactus_seed: '瀚海沙漠商人',
-  hanhai_date_seed: '瀚海沙漠商人',
-  hanhai_spice: '瀚海沙漠商人',
-  hanhai_silk: '瀚海沙漠商人',
-  hanhai_turquoise: '瀚海沙漠商人',
-  hanhai_map: '瀚海沙漠',
-  hanhai_fossil: '瀚海沙漠',
-  mega_bomb_recipe: '瀚海沙漠',
-  hanhai_incense: '瀚海沙漠商人',
-  hanhai_carpet: '瀚海沙漠商人',
-  hanhai_amber: '瀚海沙漠商人',
-  hanhai_dried_fruit: '瀚海沙漠商人',
-  hanhai_pottery: '瀚海沙漠商人',
-  hanhai_saddle_leather: '瀚海沙漠商人',
-  hanhai_lapis: '瀚海沙漠商人',
-  spice_oil: '加工制作',
-  cactus_jam: '加工制作',
-  cactus_wine: '加工制作',
-  date_wine: '加工制作',
-  turquoise_accessory: '加工制作',
-  brocade: '加工制作',
-  spice_tea: '加工制作',
-  trade_star_fragment: '通商积分兑换',
-  // trade_golden_coconut: '通商积分兑换',
-  // trade_desert_totem: '通商积分兑换',
-  trade_spice_bundle: '通商积分兑换',
-  trade_turquoise_pendant: '通商积分兑换',
-  trade_silk_robe: '通商积分兑换',
-  trade_desert_blade: '通商积分兑换',
-  cactus_salad: '烹饪',
-  spice_fried_rice: '烹饪',
-  turquoise_tea: '烹饪',
-  silk_tofu: '烹饪',
-  date_porridge: '烹饪',
-  desert_feast: '烹饪',
-  brocade_dumpling: '烹饪',
+  hanhai_cactus_seed: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_date_seed: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_spice: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_silk: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_turquoise: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_map: 'Sa mạc Hãn Hải',
+  hanhai_fossil: 'Sa mạc Hãn Hải',
+  mega_bomb_recipe: 'Sa mạc Hãn Hải',
+  hanhai_incense: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_carpet: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_amber: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_dried_fruit: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_pottery: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_saddle_leather: 'Thương nhân sa mạc Hãn Hải',
+  hanhai_lapis: 'Thương nhân sa mạc Hãn Hải',
+  spice_oil: 'Chế biến',
+  cactus_jam: 'Chế biến',
+  cactus_wine: 'Chế biến',
+  date_wine: 'Chế biến',
+  turquoise_accessory: 'Chế biến',
+  brocade: 'Chế biến',
+  spice_tea: 'Chế biến',
+  trade_star_fragment: 'Đổi bằng điểm thông thương',
+  // trade_golden_coconut: 'Đổi bằng điểm thông thương',
+  // trade_desert_totem: 'Đổi bằng điểm thông thương',
+  trade_spice_bundle: 'Đổi bằng điểm thông thương',
+  trade_turquoise_pendant: 'Đổi bằng điểm thông thương',
+  trade_silk_robe: 'Đổi bằng điểm thông thương',
+  trade_desert_blade: 'Đổi bằng điểm thông thương',
+  cactus_salad: 'Nấu ăn',
+  spice_fried_rice: 'Nấu ăn',
+  turquoise_tea: 'Nấu ăn',
+  silk_tofu: 'Nấu ăn',
+  date_porridge: 'Nấu ăn',
+  desert_feast: 'Nấu ăn',
+  brocade_dumpling: 'Nấu ăn',
   // 远古种子
-  ancient_seed: '矿洞挖掘（可种植）',
+  ancient_seed: 'Khai thác hầm mỏ (có thể trồng)',
   // 草药加工品
-  herbal_paste: '加工制作',
-  ginseng_extract: '加工制作',
-  antler_powder: '加工制作',
-  stamina_fruit: '深渊宝箱(极稀有) / 制作',
+  herbal_paste: 'Chế biến',
+  ginseng_extract: 'Chế biến',
+  antler_powder: 'Chế biến',
+  stamina_fruit: 'Rương báu vực sâu (cực hiếm) / chế tạo',
   // 仙灵相关物品
-  fox_bead: '矿洞深处（狐仙发现线索）',
-  spirit_peach: '仙缘能力·灵桃（桃夭）',
-  moon_herb: '仙缘能力·月华（月兔）',
-  dream_silk: '仙缘能力·梦织（归女）',
-  dragon_scale_charm: '制作（龙灵求缘信物）',
-  blossom_crown: '制作（桃夭求缘信物）',
-  jade_mortar: '制作（月兔求缘信物）',
-  fox_flame_lantern: '制作（狐仙求缘信物）',
-  cultivation_jade: '制作（山翁求缘信物）',
-  silver_thread_ring: '制作（归女求缘信物）',
-  dragon_pearl: '制作（龙灵结缘信物）',
-  eternal_blossom: '制作（桃夭结缘信物）',
-  moon_elixir: '制作（月兔结缘信物）',
-  fox_spirit_bead: '制作（狐仙结缘信物）',
-  immortal_gourd: '制作（山翁结缘信物）',
-  starlight_loom: '制作（归女结缘信物）',
+  fox_bead: 'Sâu trong hầm mỏ (manh mối về hồ ly)',
+  spirit_peach: 'Năng lực tiên duyên · Linh Đào (Đào Yêu)',
+  moon_herb: 'Năng lực tiên duyên · Nguyệt Hoa (Thỏ Nguyệt)',
+  dream_silk: 'Năng lực tiên duyên · Mộng Chức (Quy Nữ)',
+  dragon_scale_charm: 'Chế tạo (tín vật cầu duyên Long Linh)',
+  blossom_crown: 'Chế tạo (tín vật cầu duyên Đào Yêu)',
+  jade_mortar: 'Chế tạo (tín vật cầu duyên Thỏ Nguyệt)',
+  fox_flame_lantern: 'Chế tạo (tín vật cầu duyên Hồ Ly)',
+  cultivation_jade: 'Chế tạo (tín vật cầu duyên Sơn Ông)',
+  silver_thread_ring: 'Chế tạo (tín vật cầu duyên Quy Nữ)',
+  dragon_pearl: 'Chế tạo (tín vật kết duyên Long Linh)',
+  eternal_blossom: 'Chế tạo (tín vật kết duyên Đào Yêu)',
+  moon_elixir: 'Chế tạo (tín vật kết duyên Thỏ Nguyệt)',
+  fox_spirit_bead: 'Chế tạo (tín vật kết duyên Hồ Ly)',
+  immortal_gourd: 'Chế tạo (tín vật kết duyên Sơn Ông)',
+  starlight_loom: 'Chế tạo (tín vật kết duyên Quy Nữ)',
   // 竹林野兽掉落
-  wolf_pelt: '竹林野兽掉落',
-  wolf_fang: '竹林野兽掉落',
-  bear_pelt: '竹林野兽掉落',
-  bear_gall: '竹林野兽掉落',
-  tiger_pelt: '竹林野兽掉落',
-  tiger_bone: '竹林野兽掉落',
-  tiger_fang: '竹林野兽掉落',
-  bear_gall_pill: '加工制作',
-  tiger_bone_tonic: '加工制作'
+  wolf_pelt: 'Rơi từ thú dữ rừng trúc',
+  wolf_fang: 'Rơi từ thú dữ rừng trúc',
+  bear_pelt: 'Rơi từ thú dữ rừng trúc',
+  bear_gall: 'Rơi từ thú dữ rừng trúc',
+  tiger_pelt: 'Rơi từ thú dữ rừng trúc',
+  tiger_bone: 'Rơi từ thú dữ rừng trúc',
+  tiger_fang: 'Rơi từ thú dữ rừng trúc',
+  bear_gall_pill: 'Chế biến',
+  tiger_bone_tonic: 'Chế biến'
 }
 
 /** 获取物品来源描述 */
@@ -2768,7 +2768,7 @@ export const getItemSource = (itemId: string): string => {
   const override = ITEM_SOURCE_OVERRIDES[itemId]
   if (override) return override
   const def = getItemById(itemId)
-  if (!def) return '未知'
+  if (!def) return 'Chưa biết'
   return CATEGORY_SOURCE[def.category]
 }
 
@@ -2786,55 +2786,55 @@ export const CHEST_DEFS: Record<
   }
 > = {
   main: {
-    name: '总仓',
+    name: 'Kho tổng',
     capacity: 120,
     craftCost: [],
     craftMoney: 0,
-    description: '解锁仓库即赠。物品按类别自动归档，容量随仓库扩建提升。不可拆除。'
+    description: 'Tặng ngay khi mở khóa kho. Vật phẩm tự động phân loại, sức chứa tăng khi mở rộng kho. Không thể tháo dỡ.'
   },
   wood: {
-    name: '木箱',
+    name: 'Rương gỗ',
     capacity: 9,
     craftCost: [{ itemId: 'wood', quantity: 50 }],
     craftMoney: 500,
-    description: '基础储物箱，可存放9格物品。'
+    description: 'Rương cơ bản, chứa được 9 ô vật phẩm.'
   },
   copper: {
-    name: '铜箱',
+    name: 'Rương đồng',
     capacity: 18,
     craftCost: [{ itemId: 'copper_bar', quantity: 15 }],
     craftMoney: 2000,
-    description: '坚固的铜制储物箱，可存放18格物品。'
+    description: 'Rương đồng chắc chắn, chứa được 18 ô vật phẩm.'
   },
   iron: {
-    name: '铁箱',
+    name: 'Rương sắt',
     capacity: 27,
     craftCost: [
       { itemId: 'iron_bar', quantity: 10 },
       { itemId: 'wood', quantity: 20 }
     ],
     craftMoney: 5000,
-    description: '耐用的铁制储物箱，可存放27格物品。'
+    description: 'Rương sắt bền, chứa được 27 ô vật phẩm.'
   },
   gold: {
-    name: '金箱',
+    name: 'Rương vàng',
     capacity: 36,
     craftCost: [
       { itemId: 'gold_bar', quantity: 8 },
       { itemId: 'iron_bar', quantity: 5 }
     ],
     craftMoney: 10000,
-    description: '华贵的金制储物箱，可存放36格物品。'
+    description: 'Rương vàng sang trọng, chứa được 36 ô vật phẩm.'
   },
   void: {
-    name: '虚空箱',
+    name: 'Rương hư không',
     capacity: 27,
     craftCost: [
       { itemId: 'iridium_bar', quantity: 5 },
       { itemId: 'void_ore', quantity: 20 }
     ],
     craftMoney: 25000,
-    description: '可远程存取，并可设为作坊原料箱/成品箱。容量27格。'
+    description: 'Có thể cất/lấy từ xa, đặt làm rương nguyên liệu hoặc thành phẩm của xưởng. Sức chứa 27 ô.'
   }
 }
 

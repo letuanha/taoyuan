@@ -197,20 +197,20 @@ export const useMiningStore = defineStore('mining', () => {
 
   /** 与已揭示的怪物/BOSS重新交战（逃跑后或炸弹揭示后） */
   const engageRevealedMonster = (index: number): { success: boolean; message: string; startsCombat: boolean } => {
-    if (!isExploring.value) return { success: false, message: '你不在矿洞中。', startsCombat: false }
+    if (!isExploring.value) return { success: false, message: 'Bạn không ở trong hầm mỏ.', startsCombat: false }
     if (inCombat.value)
       return {
         success: false,
-        message: '战斗中无法探索。',
+        message: 'Không thể thám hiểm khi đang chiến đấu.',
         startsCombat: false
       }
 
     const tile = floorGrid.value[index]
-    if (!tile || tile.state !== 'revealed') return { success: false, message: '无法交战。', startsCombat: false }
+    if (!tile || tile.state !== 'revealed') return { success: false, message: 'Không thể giao chiến.', startsCombat: false }
     if (tile.type !== 'monster' && tile.type !== 'boss')
       return {
         success: false,
-        message: '该格子没有怪物。',
+        message: 'Ô này không có quái vật.',
         startsCombat: false
       }
 
@@ -218,7 +218,7 @@ export const useMiningStore = defineStore('mining', () => {
     if (!monster)
       return {
         success: false,
-        message: '该格子没有怪物。',
+        message: 'Ô này không có quái vật.',
         startsCombat: false
       }
 
@@ -229,17 +229,17 @@ export const useMiningStore = defineStore('mining', () => {
 
     if (tile.type === 'boss') {
       const isFirstKill = !defeatedBosses.value.includes(monster.id)
-      combatLog.value = [`BOSS战！再次挑战${monster.name}！(HP: ${monster.hp})${isFirstKill ? '' : '（弱化版）'}`]
+      combatLog.value = [`TRẬN BOSS! Thách đấu lại ${monster.name}! (HP: ${monster.hp})${isFirstKill ? '' : ' (bản suy yếu)'}`]
       combatIsBoss.value = true
     } else {
-      combatLog.value = [`再次遭遇${monster.name}！(HP: ${monster.hp})`]
+      combatLog.value = [`Lại gặp ${monster.name}! (HP: ${monster.hp})`]
       combatIsBoss.value = false
     }
     inCombat.value = true
 
     return {
       success: true,
-      message: `与${monster.name}交战！`,
+      message: `Giao chiến với ${monster.name}!`,
       startsCombat: true
     }
   }
@@ -258,11 +258,11 @@ export const useMiningStore = defineStore('mining', () => {
 
   /** 翻开格子 — 核心交互入口 */
   const revealTile = (index: number): { success: boolean; message: string; startsCombat: boolean } => {
-    if (!isExploring.value) return { success: false, message: '你不在矿洞中。', startsCombat: false }
+    if (!isExploring.value) return { success: false, message: 'Bạn không ở trong hầm mỏ.', startsCombat: false }
     if (inCombat.value)
       return {
         success: false,
-        message: '战斗中无法探索。',
+        message: 'Không thể thám hiểm khi đang chiến đấu.',
         startsCombat: false
       }
 
@@ -270,13 +270,13 @@ export const useMiningStore = defineStore('mining', () => {
     if (!tile || tile.state !== 'hidden')
       return {
         success: false,
-        message: '无法翻开该格子。',
+        message: 'Không thể lật ô này.',
         startsCombat: false
       }
     if (!canRevealTile(index))
       return {
         success: false,
-        message: '只能翻开已探索格子的相邻位置。',
+        message: 'Chỉ có thể lật các ô kề với ô đã khám phá.',
         startsCombat: false
       }
 
@@ -284,7 +284,7 @@ export const useMiningStore = defineStore('mining', () => {
     if (!inventoryStore.isToolAvailable('pickaxe')) {
       return {
         success: false,
-        message: '镐正在升级中，无法探索矿洞。',
+        message: 'Cuốc chim đang được nâng cấp, không thể thám hiểm hầm mỏ.',
         startsCombat: false
       }
     }
@@ -315,7 +315,7 @@ export const useMiningStore = defineStore('mining', () => {
     if (!playerStore.consumeStamina(staminaCost)) {
       return {
         success: false,
-        message: '体力不足，无法探索。',
+        message: 'Không đủ thể lực để thám hiểm.',
         startsCombat: false
       }
     }
@@ -345,7 +345,7 @@ export const useMiningStore = defineStore('mining', () => {
         return _handleMushroomTile(tile, staminaCost)
       default:
         tile.state = 'revealed'
-        return { success: true, message: '空无一物。', startsCombat: false }
+        return { success: true, message: 'Không có gì cả.', startsCombat: false }
     }
   }
 
@@ -354,7 +354,7 @@ export const useMiningStore = defineStore('mining', () => {
     tile.state = 'revealed'
     return {
       success: true,
-      message: `探索了一个空区域。(-${staminaCost}体力)`,
+      message: `Khám phá một khu vực trống. (-${staminaCost} thể lực)`,
       startsCombat: false
     }
   }
@@ -401,7 +401,7 @@ export const useMiningStore = defineStore('mining', () => {
     tile.state = 'collected'
     return {
       success: true,
-      message: `挖到了${quantity}个矿石！(-${staminaCost}体力)`,
+      message: `Đào được ${quantity} quặng! (-${staminaCost} thể lực)`,
       startsCombat: false
     }
   }
@@ -411,20 +411,20 @@ export const useMiningStore = defineStore('mining', () => {
     const monster = tile.data?.monster
     if (!monster) {
       tile.state = 'revealed'
-      return { success: true, message: '空无一物。', startsCombat: false }
+      return { success: true, message: 'Không có gì cả.', startsCombat: false }
     }
 
     _combatTileIndex.value = tile.index
     combatMonster.value = { ...monster }
     combatMonsterHp.value = monster.hp
     combatRound.value = 0
-    combatLog.value = [`遭遇了${monster.name}！(HP: ${monster.hp})  (-${staminaCost}体力)`]
+    combatLog.value = [`Chạm trán ${monster.name}! (HP: ${monster.hp}) (-${staminaCost} thể lực)`]
     combatIsBoss.value = false
     inCombat.value = true
 
     return {
       success: true,
-      message: `遭遇了${monster.name}！`,
+      message: `Chạm trán ${monster.name}!`,
       startsCombat: true
     }
   }
@@ -434,7 +434,7 @@ export const useMiningStore = defineStore('mining', () => {
     const monster = tile.data?.monster
     if (!monster) {
       tile.state = 'revealed'
-      return { success: true, message: '空无一物。', startsCombat: false }
+      return { success: true, message: 'Không có gì cả.', startsCombat: false }
     }
 
     _combatTileIndex.value = tile.index
@@ -443,13 +443,13 @@ export const useMiningStore = defineStore('mining', () => {
     combatRound.value = 0
 
     const isFirstKill = !defeatedBosses.value.includes(monster.id)
-    combatLog.value = [`BOSS战！遭遇了${monster.name}！(HP: ${monster.hp})${isFirstKill ? '' : '（弱化版）'}  (-${staminaCost}体力)`]
+    combatLog.value = [`Trận BOSS! Chạm trán ${monster.name}! (HP: ${monster.hp})${isFirstKill ? '' : ' (bản suy yếu)'} (-${staminaCost} thể lực)`]
     combatIsBoss.value = true
     inCombat.value = true
 
     return {
       success: true,
-      message: `BOSS层！${monster.name}挡住了去路！`,
+      message: `Tầng BOSS! ${monster.name} chặn đường!`,
       startsCombat: true
     }
   }
@@ -465,14 +465,14 @@ export const useMiningStore = defineStore('mining', () => {
         const remaining = totalMonstersOnFloor.value - monstersDefeatedCount.value
         return {
           success: true,
-          message: `发现了楼梯！但需要先清除剩余${remaining}只怪物才能前进。(-${staminaCost}体力)`,
+          message: `Phát hiện cầu thang! Nhưng cần tiêu diệt ${remaining} quái vật còn lại trước khi đi tiếp. (-${staminaCost} thể lực)`,
           startsCombat: false
         }
       }
       if (floor?.specialType === 'boss') {
         return {
           success: true,
-          message: `发现了楼梯！但需要先击败BOSS才能前进。(-${staminaCost}体力)`,
+          message: `Phát hiện cầu thang! Nhưng cần đánh bại BOSS trước khi đi tiếp. (-${staminaCost} thể lực)`,
           startsCombat: false
         }
       }
@@ -480,7 +480,7 @@ export const useMiningStore = defineStore('mining', () => {
 
     return {
       success: true,
-      message: `发现了楼梯！可以前往下一层。(-${staminaCost}体力)`,
+      message: `Phát hiện cầu thang! Có thể đi xuống tầng tiếp theo. (-${staminaCost} thể lực)`,
       startsCombat: false
     }
   }
@@ -495,14 +495,14 @@ export const useMiningStore = defineStore('mining', () => {
       const defeatResult = handleDefeat()
       return {
         success: true,
-        message: `踩中了陷阱！受到${damage}点伤害。${defeatResult.message}`,
+        message: `Dẫm phải bẫy! Chịu ${damage} sát thương. ${defeatResult.message}`,
         startsCombat: false
       }
     }
 
     return {
       success: true,
-      message: `踩中了陷阱！受到${damage}点伤害。(-${staminaCost}体力)`,
+      message: `Dẫm phải bẫy! Chịu ${damage} sát thương. (-${staminaCost} thể lực)`,
       startsCombat: false
     }
   }
@@ -596,11 +596,11 @@ export const useMiningStore = defineStore('mining', () => {
 
     tile.state = 'collected'
 
-    let msg = '发现宝箱！'
-    if (items.length > 0) msg += `获得了${getRewardNames(items)}`
-    if (money > 0) msg += `${items.length > 0 ? '和' : '获得了'}${money}文`
-    if (autoSoldMoney > 0) msg += `（重复装备自动售出+${autoSoldMoney}文）`
-    msg += `！(-${staminaCost}体力)`
+    let msg = 'Phát hiện rương báu!'
+    if (items.length > 0) msg += `Nhận được ${getRewardNames(items)}`
+    if (money > 0) msg += `${items.length > 0 ? ' và ' : 'Nhận được '}${money} văn`
+    if (autoSoldMoney > 0) msg += `(Trang bị trùng tự động bán +${autoSoldMoney} văn)`
+    msg += `! (-${staminaCost} thể lực)`
     return { success: true, message: msg, startsCombat: false }
   }
 
@@ -618,7 +618,7 @@ export const useMiningStore = defineStore('mining', () => {
     tile.state = 'collected'
     return {
       success: true,
-      message: `采集到了${getRewardNames(items)}！(+3采集经验, -${staminaCost}体力)`,
+      message: `Thu thập được ${getRewardNames(items)}! (+3 kinh nghiệm thu thập, -${staminaCost} thể lực)`,
       startsCombat: false
     }
   }
@@ -627,12 +627,12 @@ export const useMiningStore = defineStore('mining', () => {
 
   /** 在格子上使用炸弹 */
   const useBombOnGrid = (bombId: string, centerIndex: number): { success: boolean; message: string } => {
-    if (!isExploring.value) return { success: false, message: '你不在矿洞中。' }
-    if (inCombat.value) return { success: false, message: '战斗中无法使用炸弹。' }
+    if (!isExploring.value) return { success: false, message: 'Bạn không ở trong hầm mỏ.' }
+    if (inCombat.value) return { success: false, message: 'Không thể dùng bom khi đang chiến đấu.' }
 
     const bombDef = getBombById(bombId)
-    if (!bombDef) return { success: false, message: '无效的炸弹。' }
-    if (!inventoryStore.removeItem(bombId)) return { success: false, message: '背包中没有该炸弹。' }
+    if (!bombDef) return { success: false, message: 'Bom không hợp lệ.' }
+    if (!inventoryStore.removeItem(bombId)) return { success: false, message: 'Túi đồ không có quả bom này.' }
 
     // 挖掘者专精：30%概率不消耗炸弹
     const excavatorSaved = skillStore.getSkill('mining').perk10 === 'excavator' && Math.random() < 0.3
@@ -747,12 +747,12 @@ export const useMiningStore = defineStore('mining', () => {
       skillStore.addExp('mining', bombExpPerOre * oreCollected)
     }
 
-    let msg = `${bombDef.name}爆炸了！`
-    if (oreCollected > 0) msg += `采集了${oreCollected}份矿石`
-    if (monstersKilled > 0) msg += `${oreCollected > 0 ? '，' : ''}击败了${monstersKilled}只怪物`
-    if (oreCollected === 0 && monstersKilled === 0) msg += '翻开了一些区域'
+    let msg = `${bombDef.name} phát nổ!`
+    if (oreCollected > 0) msg += `Thu thập ${oreCollected} phần quặng`
+    if (monstersKilled > 0) msg += `${oreCollected > 0 ? ', ' : ''}đã đánh bại ${monstersKilled} quái vật`
+    if (oreCollected === 0 && monstersKilled === 0) msg += 'Đã lật mở một số khu vực'
     msg += '！'
-    if (excavatorSaved) msg += '（挖掘者：炸弹未消耗！）'
+    if (excavatorSaved) msg += '(Thợ đào: bom không bị tiêu hao!)'
     return { success: true, message: msg }
   }
 
@@ -771,12 +771,12 @@ export const useMiningStore = defineStore('mining', () => {
     // BOSS 层自动进入战斗（如果格子中有 boss 且入口邻格就是 boss）
     _checkAutoBossCombat()
 
-    return `进入云隐矿洞，当前第${currentFloor.value}层。`
+    return `Tiến vào hầm mỏ Vân Ẩn, hiện tại tầng ${currentFloor.value}.`
   }
 
   /** 进入骷髅矿穴（可选择起始安全点楼层） */
   const enterSkullCavern = (startFromSafePoint?: number): string => {
-    if (!isSkullCavernUnlocked()) return '需要先击败60层BOSS才能进入骷髅矿穴。'
+    if (!isSkullCavernUnlocked()) return 'Cần đánh bại BOSS tầng 60 trước khi vào Hang Mỏ Xương.'
     isExploring.value = true
     isInSkullCavern.value = true
     const baseFloor = startFromSafePoint ?? skullSafePointFloor.value
@@ -788,7 +788,7 @@ export const useMiningStore = defineStore('mining', () => {
 
     _checkAutoBossCombat()
 
-    return `进入骷髅矿穴，当前第${skullCavernFloor.value}层。`
+    return `Tiến vào Hang Mỏ Xương, hiện tại tầng ${skullCavernFloor.value}.`
   }
 
   /** 检查是否自动触发BOSS战（BOSS格在入口邻格时） */
@@ -819,7 +819,7 @@ export const useMiningStore = defineStore('mining', () => {
   /** 战斗操作 */
   const combatAction = (action: CombatAction): { message: string; combatOver: boolean; won: boolean } => {
     if (!inCombat.value || !combatMonster.value) {
-      return { message: '不在战斗中。', combatOver: true, won: false }
+      return { message: 'Không đang chiến đấu.', combatOver: true, won: false }
     }
 
     combatRound.value++
@@ -828,8 +828,8 @@ export const useMiningStore = defineStore('mining', () => {
     // BOSS 战不可逃跑
     if (action === 'flee') {
       if (combatIsBoss.value) {
-        combatLog.value.push('BOSS战无法逃跑！')
-        return { message: 'BOSS战无法逃跑！', combatOver: false, won: false }
+        combatLog.value.push('Không thể chạy trốn khỏi trận BOSS!')
+        return { message: 'Không thể chạy trốn khỏi trận BOSS!', combatOver: false, won: false }
       }
       inCombat.value = false
       // 逃跑时格子标记为 revealed（怪物还在但已翻开）
@@ -838,8 +838,8 @@ export const useMiningStore = defineStore('mining', () => {
         if (tile) tile.state = 'revealed'
         _combatTileIndex.value = -1
       }
-      combatLog.value.push('你逃跑了！')
-      return { message: '成功逃离了战斗。', combatOver: true, won: false }
+      combatLog.value.push('Bạn đã chạy trốn!')
+      return { message: 'Đã thoát khỏi trận chiến thành công.', combatOver: true, won: false }
     }
 
     if (action === 'defend') {
@@ -864,12 +864,12 @@ export const useMiningStore = defineStore('mining', () => {
         )
       )
       playerStore.takeDamage(damage)
-      let defendMsg = `你举盾防御，受到${damage}点伤害。`
+      let defendMsg = `Bạn giơ khiên phòng thủ và chịu ${damage} sát thương.`
 
       // 守护者专精：防御回合恢复5HP
       if (skillStore.getSkill('combat').perk5 === 'defender') {
         playerStore.restoreHealth(5)
-        defendMsg += '（守护者回复5HP）'
+        defendMsg += '(Hộ vệ hồi 5 HP)'
       }
 
       combatLog.value.push(defendMsg)
@@ -878,7 +878,7 @@ export const useMiningStore = defineStore('mining', () => {
         return handleDefeat()
       }
       return {
-        message: `防御！受到${damage}点伤害。`,
+        message: `Phòng thủ! Chịu ${damage} sát thương.`,
         combatOver: false,
         won: false
       }
@@ -914,8 +914,8 @@ export const useMiningStore = defineStore('mining', () => {
     combatMonsterHp.value = Math.max(0, combatMonsterHp.value - damageToMonster)
     const totalDamageDealt = damageToMonster
 
-    let msg = `你攻击${monster.name}，造成${damageToMonster}点伤害。`
-    if (isCrit) msg = `暴击！${msg}`
+    let msg = `Bạn tấn công ${monster.name}, gây ${damageToMonster} sát thương.`
+    if (isCrit) msg = `Bạo kích! ${msg}`
 
     // 匕首追加攻击（25%概率，造成50%伤害）
     let extraDamage = 0
@@ -923,7 +923,7 @@ export const useMiningStore = defineStore('mining', () => {
       const bonusDamage = Math.max(1, Math.floor(damageToMonster * 0.5))
       combatMonsterHp.value = Math.max(0, combatMonsterHp.value - bonusDamage)
       extraDamage = bonusDamage
-      msg += ` 追加攻击！额外造成${bonusDamage}点伤害！`
+      msg += ` Tấn công thêm! Gây thêm ${bonusDamage} sát thương!`
     }
 
     // 锤眩晕判定（20%概率跳过怪物反击）
@@ -936,7 +936,7 @@ export const useMiningStore = defineStore('mining', () => {
       const healAmount = Math.floor((totalDamageDealt + extraDamage) * totalVampiric)
       if (healAmount > 0) {
         playerStore.restoreHealth(healAmount)
-        msg += ` 吸血回复${healAmount}HP！`
+        msg += ` Hút máu hồi ${healAmount} HP!`
       }
     }
 
@@ -946,14 +946,14 @@ export const useMiningStore = defineStore('mining', () => {
     }
 
     if (isStunned) {
-      msg += ` ${monster.name}被震晕了！`
+      msg += ` ${monster.name} bị choáng!`
       combatLog.value.push(msg)
       return { message: msg, combatOver: false, won: false }
     }
 
     // 杂技师专精：25% 概率闪避反击
     if (skillStore.getSkill('combat').perk10 === 'acrobat' && Math.random() < 0.25) {
-      msg += ` 你灵巧地闪避了${monster.name}的反击！`
+      msg += ` Bạn khéo léo né đòn phản công của ${monster.name}!`
       combatLog.value.push(msg)
       return { message: msg, combatOver: false, won: false }
     }
@@ -975,7 +975,7 @@ export const useMiningStore = defineStore('mining', () => {
       )
     )
     playerStore.takeDamage(monsterDamage)
-    msg += ` ${monster.name}反击，你受到${monsterDamage}点伤害。`
+    msg += ` ${monster.name} phản công, bạn chịu ${monsterDamage} sát thương.`
     combatLog.value.push(msg)
 
     if (playerStore.hp <= 0) {
@@ -1048,7 +1048,7 @@ export const useMiningStore = defineStore('mining', () => {
             } else {
               inventoryStore.addWeapon(wd.weaponId, enchantId)
               const displayName = getWeaponDisplayName(wd.weaponId, enchantId)
-              msg += ` 获得了武器：${displayName}！`
+              msg += ` Nhận vũ khí: ${displayName}!`
             }
           }
         }
@@ -1065,7 +1065,7 @@ export const useMiningStore = defineStore('mining', () => {
             } else {
               inventoryStore.addRing(rd.ringId)
               const ringDef = getRingById(rd.ringId)
-              msg += ` 获得了戒指：${ringDef?.name ?? rd.ringId}！`
+              msg += ` Nhận nhẫn: ${ringDef?.name ?? rd.ringId}!`
             }
           }
         }
@@ -1082,7 +1082,7 @@ export const useMiningStore = defineStore('mining', () => {
             } else {
               inventoryStore.addHat(hd.hatId)
               const hatDef = getHatById(hd.hatId)
-              msg += ` 获得了帽子：${hatDef?.name ?? hd.hatId}！`
+              msg += ` Nhận mũ: ${hatDef?.name ?? hd.hatId}!`
             }
           }
         }
@@ -1099,12 +1099,12 @@ export const useMiningStore = defineStore('mining', () => {
             } else {
               inventoryStore.addShoe(sd.shoeId)
               const shoeDef = getShoeById(sd.shoeId)
-              msg += ` 获得了鞋子：${shoeDef?.name ?? sd.shoeId}！`
+              msg += ` Nhận giày: ${shoeDef?.name ?? sd.shoeId}!`
             }
           }
         }
       }
-      if (monsterAutoSold > 0) msg += `（重复装备自动售出+${monsterAutoSold}文）`
+      if (monsterAutoSold > 0) msg += `(Trang bị trùng tự động bán +${monsterAutoSold} văn)`
     }
 
     // BOSS 击败处理
@@ -1114,7 +1114,7 @@ export const useMiningStore = defineStore('mining', () => {
         const scFloor = skullCavernFloor.value
         const moneyReward = 200 + scFloor * 20
         playerStore.earnMoney(moneyReward)
-        msg += ` 获得${moneyReward}文！`
+        msg += ` Nhận ${moneyReward} văn!`
         const bonusOreCount = 3 + Math.floor(scFloor / 25)
         const orePool = ['iridium_ore', 'void_ore', 'shadow_ore']
         for (let i = 0; i < bonusOreCount; i++) {
@@ -1122,7 +1122,7 @@ export const useMiningStore = defineStore('mining', () => {
           inventoryStore.addItem(oreId)
           sessionLoot.value.push({ itemId: oreId, quantity: 1 })
         }
-        msg += ` 获得了${bonusOreCount}个稀有矿石！`
+        msg += ` Nhận ${bonusOreCount} quặng hiếm!`
       } else {
         // 主矿洞BOSS
         const bossId = monster.id
@@ -1137,7 +1137,7 @@ export const useMiningStore = defineStore('mining', () => {
             const fixedEnchant = bossWeaponDef?.fixedEnchantment ?? null
             inventoryStore.addWeapon(weaponId, fixedEnchant)
             const displayName = getWeaponDisplayName(weaponId, fixedEnchant)
-            msg += ` 首次击败BOSS！获得了传说武器：${displayName}！`
+            msg += ` Lần đầu đánh bại BOSS! Nhận vũ khí huyền thoại: ${displayName}!`
           }
         }
         // 装备掉落（独立于首杀，使用 has* 去重，兼容旧存档补发）
@@ -1145,26 +1145,26 @@ export const useMiningStore = defineStore('mining', () => {
         if (bossRingId && !inventoryStore.hasRing(bossRingId)) {
           inventoryStore.addRing(bossRingId)
           const bossRingDef = getRingById(bossRingId)
-          msg += ` 获得了戒指：${bossRingDef?.name ?? bossRingId}！`
+          msg += ` Nhận được nhẫn: ${bossRingDef?.name ?? bossRingId}!`
         }
         const bossHatId = BOSS_DROP_HATS[currentFloor.value]
         if (bossHatId && !inventoryStore.hasHat(bossHatId)) {
           inventoryStore.addHat(bossHatId)
           const bossHatDef = getHatById(bossHatId)
-          msg += ` 获得了帽子：${bossHatDef?.name ?? bossHatId}！`
+          msg += ` Nhận được mũ: ${bossHatDef?.name ?? bossHatId}!`
         }
         const bossShoeId = BOSS_DROP_SHOES[currentFloor.value]
         if (bossShoeId && !inventoryStore.hasShoe(bossShoeId)) {
           inventoryStore.addShoe(bossShoeId)
           const bossShoeDef = getShoeById(bossShoeId)
-          msg += ` 获得了鞋子：${bossShoeDef?.name ?? bossShoeId}！`
+          msg += ` Nhận được giày: ${bossShoeDef?.name ?? bossShoeId}!`
         }
 
         // BOSS 额外掉落铜钱和矿石
         const moneyReward = BOSS_MONEY_REWARDS[currentFloor.value] ?? 0
         if (moneyReward > 0) {
           playerStore.earnMoney(moneyReward)
-          msg += ` 获得${moneyReward}文！`
+          msg += ` Nhận ${moneyReward} văn!`
         }
         const oreRewards = BOSS_ORE_REWARDS[currentFloor.value]
         if (oreRewards) {
@@ -1172,13 +1172,13 @@ export const useMiningStore = defineStore('mining', () => {
             inventoryStore.addItem(ore.itemId, ore.quantity)
             sessionLoot.value.push(ore)
           }
-          msg += ` 获得了${getRewardNames(oreRewards)}！`
+          msg += ` Nhận ${getRewardNames(oreRewards)}!`
         }
       }
     }
 
-    msg += ` ${monster.name}被击败了！(+${monster.expReward}经验)`
-    if (drops.length > 0) msg += ` 掉落了物品。`
+    msg += ` ${monster.name} đã bị đánh bại! (+${monster.expReward} kinh nghiệm)`
+    if (drops.length > 0) msg += ` Rơi ra vật phẩm.`
     combatLog.value.push(msg)
 
     // === 更新格子状态 ===
@@ -1205,11 +1205,11 @@ export const useMiningStore = defineStore('mining', () => {
           sessionLoot.value.push(r)
         }
         playerStore.earnMoney(clearRewards.money)
-        msg += ` 感染层清除完毕！获得${getRewardNames(clearRewards.items)}和${clearRewards.money}文！`
+        msg += ` Đã dọn sạch tầng nhiễm bệnh! Nhận ${getRewardNames(clearRewards.items)} và ${clearRewards.money} văn!`
       }
     } else if (floor?.specialType === 'infested') {
       const remaining = totalMonstersOnFloor.value - monstersDefeatedCount.value
-      msg += ` 还剩${remaining}只怪物！`
+      msg += ` Còn ${remaining} quái vật!`
     }
 
     combatIsBoss.value = false
@@ -1266,12 +1266,12 @@ export const useMiningStore = defineStore('mining', () => {
       cachedSkullFloorData.value = null
     }
 
-    const location = wasInSkullCavern ? '骷髅矿穴' : '矿洞'
-    const parts: string[] = [`你在${location}中倒下了……`]
-    parts.push('丢失了一半战利品')
-    if (droppedItems.length > 0) parts.push(`和${droppedItems.length}件背包物品`)
-    if (moneyLost > 0) parts.push(`及${moneyLost}文`)
-    parts.push('，被送回入口。')
+    const location = wasInSkullCavern ? 'Hang xương' : 'Hang mỏ'
+    const parts: string[] = [`Bạn gục ngã tại ${location}…`]
+    parts.push('Mất một nửa chiến lợi phẩm')
+    if (droppedItems.length > 0) parts.push(`và ${droppedItems.length} vật phẩm trong túi`)
+    if (moneyLost > 0) parts.push(`cùng ${moneyLost} văn`)
+    parts.push(' và được đưa về lối vào.')
     const msg = parts.join('')
     combatLog.value.push(msg)
     return { message: msg, combatOver: true, won: false }
@@ -1281,9 +1281,9 @@ export const useMiningStore = defineStore('mining', () => {
 
   /** 前进到下一层 */
   const goNextFloor = (): { success: boolean; message: string } => {
-    if (!isExploring.value) return { success: false, message: '你不在矿洞中。' }
+    if (!isExploring.value) return { success: false, message: 'Bạn không ở trong hầm mỏ.' }
     if (!stairsFound.value) {
-      return { success: false, message: '还没有找到楼梯，继续探索吧。' }
+      return { success: false, message: 'Chưa tìm thấy cầu thang, hãy tiếp tục khám phá.' }
     }
     if (!stairsUsable.value) {
       const floor = getActiveFloorData()
@@ -1291,13 +1291,13 @@ export const useMiningStore = defineStore('mining', () => {
         const remaining = totalMonstersOnFloor.value - monstersDefeatedCount.value
         return {
           success: false,
-          message: `还有${remaining}只怪物未清除，无法前进！`
+          message: `Còn ${remaining} quái vật chưa bị tiêu diệt, không thể đi tiếp!`
         }
       }
       if (floor?.specialType === 'boss') {
-        return { success: false, message: '必须击败BOSS才能前进！' }
+        return { success: false, message: 'Phải đánh bại BOSS mới có thể đi tiếp!' }
       }
-      return { success: false, message: '楼梯暂时无法使用。' }
+      return { success: false, message: 'Cầu thang hiện chưa thể sử dụng.' }
     }
 
     // 下探本身给一点经验：鼓励往深处走，而不是守在浅层反复刷
@@ -1327,12 +1327,12 @@ export const useMiningStore = defineStore('mining', () => {
           _generateGrid()
           return {
             success: true,
-            message: '你穿过矿洞最深处的裂隙，进入了骷髅矿穴第1层！'
+            message: 'Bạn xuyên qua khe nứt sâu nhất hầm mỏ và tiến vào tầng 1 Hang Mỏ Xương!'
           }
         }
         return {
           success: false,
-          message: '已经到达矿洞最深处！（击败60层BOSS可解锁骷髅矿穴）'
+          message: 'Đã đến tận cùng hầm mỏ! (Đánh bại BOSS tầng 60 để mở khóa Hang Mỏ Xương)'
         }
       }
 
@@ -1351,16 +1351,16 @@ export const useMiningStore = defineStore('mining', () => {
 
     const activeFloorNum = getActiveFloorNum()
     const newFloor = getActiveFloorData()
-    const locationName = isInSkullCavern.value ? '骷髅矿穴' : ''
+    const locationName = isInSkullCavern.value ? 'Hang xương' : ''
     const specialLabels: Record<string, string> = {
-      mushroom: '蘑菇洞穴',
-      treasure: '宝箱层',
-      infested: '感染层',
-      dark: '暗河层',
-      boss: 'BOSS层'
+      mushroom: 'Hang nấm',
+      treasure: 'Tầng rương báu',
+      infested: 'Tầng nhiễm bệnh',
+      dark: 'Tầng sông ngầm',
+      boss: 'Tầng BOSS'
     }
     const specialLabel = newFloor?.specialType ? (specialLabels[newFloor.specialType] ?? '') : ''
-    let msg = `前进到${locationName}第${activeFloorNum}层。${newFloor?.isSafePoint ? '（安全点！）' : ''}`
+    let msg = `Tiến đến tầng ${activeFloorNum} của ${locationName}.${newFloor?.isSafePoint ? ' (Điểm an toàn!)' : ''}`
     if (specialLabel) msg += ` [${specialLabel}]`
     return { success: true, message: msg }
   }
@@ -1389,24 +1389,24 @@ export const useMiningStore = defineStore('mining', () => {
     if (isInSkullCavern.value) {
       isInSkullCavern.value = false
       cachedSkullFloorData.value = null
-      return '你离开了骷髅矿穴。'
+      return 'Bạn rời Hang Mỏ Xương.'
     }
-    return '你离开了矿洞。'
+    return 'Bạn rời hầm mỏ.'
   }
 
   // ==================== 道具使用 ====================
 
   /** 在战斗/探索中使用道具 */
   const useCombatItem = (itemId: string, quantity: number = 1): { success: boolean; message: string } => {
-    if (!inCombat.value && !isExploring.value) return { success: false, message: '不在矿洞中。' }
+    if (!inCombat.value && !isExploring.value) return { success: false, message: 'Bạn không ở trong hầm mỏ.' }
 
     // 公会徽章：永久+3攻击力
     if (itemId === 'guild_badge') {
       const actual = Math.min(quantity, inventoryStore.getItemCount('guild_badge'))
-      if (actual <= 0) return { success: false, message: '没有公会徽章。' }
+      if (actual <= 0) return { success: false, message: 'Không có huy hiệu hội.' }
       inventoryStore.removeItem('guild_badge', actual)
       guildBadgeBonusAttack.value += 3 * actual
-      const msg = `使用了公会徽章×${actual}，攻击力永久+${3 * actual}！`
+      const msg = `Đã dùng huy hiệu công hội ×${actual}, sức tấn công vĩnh viễn +${3 * actual}!`
       if (inCombat.value) combatLog.value.push(msg)
       return { success: true, message: msg }
     }
@@ -1414,10 +1414,10 @@ export const useMiningStore = defineStore('mining', () => {
     // 生命护符：永久+15最大HP
     if (itemId === 'life_talisman') {
       const actual = Math.min(quantity, inventoryStore.getItemCount('life_talisman'))
-      if (actual <= 0) return { success: false, message: '没有生命护符。' }
+      if (actual <= 0) return { success: false, message: 'Không có bùa sinh mệnh.' }
       inventoryStore.removeItem('life_talisman', actual)
       guildBonusMaxHp.value += 15 * actual
-      const msg = `使用了生命护符×${actual}，最大生命值永久+${15 * actual}！`
+      const msg = `Đã dùng bùa sinh mệnh ×${actual}, HP tối đa vĩnh viễn +${15 * actual}!`
       if (inCombat.value) combatLog.value.push(msg)
       return { success: true, message: msg }
     }
@@ -1425,10 +1425,10 @@ export const useMiningStore = defineStore('mining', () => {
     // 幸运铜钱：永久掉落率+5%
     if (itemId === 'lucky_coin') {
       const actual = Math.min(quantity, inventoryStore.getItemCount('lucky_coin'))
-      if (actual <= 0) return { success: false, message: '没有幸运铜钱。' }
+      if (actual <= 0) return { success: false, message: 'Không có đồng xu may mắn.' }
       inventoryStore.removeItem('lucky_coin', actual)
       guildBonusDropRate.value += 0.05 * actual
-      const msg = `使用了幸运铜钱×${actual}，怪物掉落率永久+${5 * actual}%！`
+      const msg = `Đã dùng đồng tiền may mắn ×${actual}, tỷ lệ rơi đồ quái vật vĩnh viễn +${5 * actual}%!`
       if (inCombat.value) combatLog.value.push(msg)
       return { success: true, message: msg }
     }
@@ -1436,27 +1436,27 @@ export const useMiningStore = defineStore('mining', () => {
     // 守护符：永久防御+3%
     if (itemId === 'defense_charm') {
       const actual = Math.min(quantity, inventoryStore.getItemCount('defense_charm'))
-      if (actual <= 0) return { success: false, message: '没有守护符。' }
+      if (actual <= 0) return { success: false, message: 'Không có bùa hộ vệ.' }
       inventoryStore.removeItem('defense_charm', actual)
       guildBonusDefense.value += 0.03 * actual
-      const msg = `使用了守护符×${actual}，防御永久+${3 * actual}%！`
+      const msg = `Đã dùng bùa hộ mệnh ×${actual}, phòng thủ vĩnh viễn +${3 * actual}%!`
       if (inCombat.value) combatLog.value.push(msg)
       return { success: true, message: msg }
     }
 
     // 猎魔符：本次探索掉落率+20%
     if (itemId === 'slayer_charm') {
-      if (slayerCharmActive.value) return { success: false, message: '猎魔符效果已激活。' }
-      if (!inventoryStore.removeItem('slayer_charm')) return { success: false, message: '没有猎魔符。' }
+      if (slayerCharmActive.value) return { success: false, message: 'Hiệu ứng bùa săn quỷ đã kích hoạt.' }
+      if (!inventoryStore.removeItem('slayer_charm')) return { success: false, message: 'Không có bùa săn quỷ.' }
       slayerCharmActive.value = true
-      const msg = '使用了猎魔符，本次探索怪物掉落率+20%！'
+      const msg = 'Đã dùng bùa săn ma, tỷ lệ rơi đồ quái vật trong lần thám hiểm này +20%!'
       if (inCombat.value) combatLog.value.push(msg)
       return { success: true, message: msg }
     }
 
     // 食物/药剂类道具
     const def = getItemById(itemId)
-    if (!def) return { success: false, message: '未知物品。' }
+    if (!def) return { success: false, message: 'Vật phẩm không xác định.' }
 
     // 烹饪品走 cookingStore.eat()，以正确应用buff、厨房加成等
     if (itemId.startsWith('food_')) {
@@ -1464,7 +1464,7 @@ export const useMiningStore = defineStore('mining', () => {
       const hpFull = playerStore.hp >= playerStore.getMaxHp()
       const staminaFull = playerStore.stamina >= playerStore.maxStamina
       if (hpFull && staminaFull) {
-        return { success: false, message: '体力和生命值都已满。' }
+        return { success: false, message: 'Thể lực và sinh lực đều đã đầy.' }
       }
       // 查找背包中该食物的最低品质
       const qualityOrder: Quality[] = ['normal', 'fine', 'excellent', 'supreme']
@@ -1480,16 +1480,16 @@ export const useMiningStore = defineStore('mining', () => {
     const hasStaminaRestore = def.staminaRestore && def.staminaRestore > 0
 
     if (hasHpRestore && !hasStaminaRestore && hpFull) {
-      return { success: false, message: '生命值已满。' }
+      return { success: false, message: 'Sinh lực đã đầy.' }
     }
     if (hasStaminaRestore && !hasHpRestore && staminaFull) {
-      return { success: false, message: '体力已满。' }
+      return { success: false, message: 'Thể lực đã đầy.' }
     }
     if (hpFull && staminaFull && (hasHpRestore || hasStaminaRestore)) {
-      return { success: false, message: '体力和生命值都已满。' }
+      return { success: false, message: 'Thể lực và sinh lực đều đã đầy.' }
     }
 
-    if (!inventoryStore.removeItem(itemId)) return { success: false, message: `没有${def.name}。` }
+    if (!inventoryStore.removeItem(itemId)) return { success: false, message: `Không có ${def.name}.` }
 
     // 炼金师专精：食物恢复+50%
     const alchemistBonus = skillStore.getSkill('foraging').perk10 === 'alchemist' ? 1.5 : 1.0
@@ -1497,27 +1497,27 @@ export const useMiningStore = defineStore('mining', () => {
     if (hasHpRestore) {
       const restore = def.healthRestore! >= 999 ? playerStore.getMaxHp() : Math.floor(def.healthRestore! * alchemistBonus)
       playerStore.restoreHealth(restore)
-      parts.push(`恢复${def.healthRestore! >= 999 ? '全部' : restore}HP`)
+      parts.push(`Hồi ${def.healthRestore! >= 999 ? 'toàn bộ' : restore} HP`)
     }
     if (hasStaminaRestore) {
       const restore = Math.floor(def.staminaRestore! * alchemistBonus)
       playerStore.restoreStamina(restore)
-      parts.push(`恢复${restore}体力`)
+      parts.push(`Hồi ${restore} thể lực`)
     }
 
-    const msg = `使用了${def.name}，${parts.join('和')}！`
+    const msg = `Đã dùng ${def.name}, ${parts.join(' và ')}!`
     if (inCombat.value) combatLog.value.push(msg)
     return { success: true, message: msg }
   }
 
   /** 在探索中使用怪物诱饵（本层怪物数量翻倍） */
   const useMonsterLure = (): { success: boolean; message: string } => {
-    if (!isExploring.value) return { success: false, message: '不在矿洞中。' }
-    if (inCombat.value) return { success: false, message: '战斗中无法使用怪物诱饵。' }
-    if (!inventoryStore.removeItem('monster_lure')) return { success: false, message: '没有怪物诱饵。' }
+    if (!isExploring.value) return { success: false, message: 'Bạn không ở trong hầm mỏ.' }
+    if (inCombat.value) return { success: false, message: 'Không thể dùng mồi quái vật khi đang chiến đấu.' }
+    if (!inventoryStore.removeItem('monster_lure')) return { success: false, message: 'Không có mồi quái vật.' }
 
     const floor = getActiveFloorData()
-    if (!floor) return { success: true, message: '使用了怪物诱饵，但本层无效。' }
+    if (!floor) return { success: true, message: 'Đã dùng mồi quái vật, nhưng không có tác dụng ở tầng này.' }
 
     // 统计现有未击败的怪物数量
     const existingMonsters = floorGrid.value.filter(t => (t.type === 'monster' || t.type === 'boss') && t.state !== 'defeated').length
@@ -1529,7 +1529,7 @@ export const useMiningStore = defineStore('mining', () => {
     if (monstersToAdd === 0) {
       return {
         success: true,
-        message: '使用了怪物诱饵，但本层没有空间放置更多怪物。'
+        message: 'Đã dùng mồi quái vật, nhưng tầng này không còn chỗ để đặt thêm quái vật.'
       }
     }
 
@@ -1548,7 +1548,7 @@ export const useMiningStore = defineStore('mining', () => {
     totalMonstersOnFloor.value += monstersToAdd
     return {
       success: true,
-      message: `使用了怪物诱饵！本层增加了${monstersToAdd}只怪物。`
+      message: `Đã dùng mồi quái vật! Tầng này xuất hiện thêm ${monstersToAdd} quái vật.`
     }
   }
 

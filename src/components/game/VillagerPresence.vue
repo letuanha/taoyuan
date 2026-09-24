@@ -3,9 +3,9 @@
     <div class="flex items-center justify-between mb-1.5">
       <span class="text-xs text-accent">
         <Users :size="12" class="inline" />
-        此处的村民
+        Dân làng tại đây
       </span>
-      <span class="text-[10px] text-muted">{{ presentNpcs.length }}人在这儿</span>
+      <span class="text-[10px] text-muted">Có {{ presentNpcs.length }} người ở đây</span>
     </div>
 
     <div class="flex flex-wrap">
@@ -38,7 +38,7 @@
             {{ selectedDef.name }}
             <span class="text-[10px] text-muted ml-0.5">{{ selectedDef.role }}</span>
           </p>
-          <p class="text-[10px] text-muted/60 mb-2">在{{ SPOT_NAMES[spot] }}遇见</p>
+          <p class="text-[10px] text-muted/60 mb-2">Gặp tại {{ SPOT_NAMES[spot] }}</p>
 
           <!-- 好感 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
@@ -56,7 +56,7 @@
               <span class="text-[10px] text-muted">{{ selectedState?.friendship ?? 0 }}</span>
             </div>
             <p class="text-[10px] text-accent/70 mt-1">
-              当前关系：{{ FRIENDSHIP_LEVEL_INFO[npcStore.getFriendshipLevel(selected!)].name }}
+              khitrướcquan hệhệ：{{ FRIENDSHIP_LEVEL_INFO[npcStore.getFriendshipLevel(selected!)].name }}
             </p>
           </div>
 
@@ -75,7 +75,7 @@
               :disabled="selectedState?.talkedToday"
               @click="handleTalk"
             >
-              {{ selectedState?.talkedToday ? '今天已聊过' : '打个招呼' }}
+              {{ selectedState?.talkedToday ? 'Hôm nay đã trò chuyện' : 'Chào hỏi' }}
             </Button>
             <!-- 已聊过仍可闲扯：不加好感，但每次都有新内容 -->
             <Button
@@ -85,7 +85,7 @@
               :icon-size="12"
               @click="handleChat"
             >
-              再聊两句
+              lạitrò chuyệnhaicâu
             </Button>
             <Button
               v-if="!giftPanelOpen"
@@ -102,7 +102,7 @@
           <!-- 送礼列表 -->
           <div v-if="giftPanelOpen" class="border border-accent/10 rounded-xs p-2">
             <div class="flex items-center justify-between mb-1">
-              <span class="text-[10px] text-muted">选一样送出</span>
+              <span class="text-[10px] text-muted">Chọn một món để tặng</span>
               <button class="text-muted hover:text-text" @click="giftPanelOpen = false">
                 <X :size="12" />
               </button>
@@ -125,10 +125,10 @@
                 </span>
               </button>
             </div>
-            <p v-else class="text-[10px] text-muted text-center py-3">背包里没有可送的东西</p>
+            <p v-else class="text-[10px] text-muted text-center py-3">Trong túi không có gì để tặng</p>
           </div>
 
-          <p class="text-[10px] text-muted/40 mt-2">想送定情信物或谈婚论嫁，去「桃源村」面板找对方。</p>
+          <p class="text-[10px] text-muted/40 mt-2">Muốn tặng tín vật tình yêu hoặc bàn chuyện hôn nhân, hãy tìm đối phương trong bảng 「Làng Đào Nguyên」.</p>
         </div>
       </div>
     </Transition>
@@ -167,7 +167,7 @@
   const dialogueText = ref<string | null>(null)
   const giftPanelOpen = ref(false)
 
-  /** 此刻出现在本地点的村民 */
+  /** nàykhắcrahiệnđangbảnđấtđiểm的làngdân */
   const presentNpcs = computed(() => {
     return getNpcsAtSpot(props.spot, gameStore.day, gameStore.hour, gameStore.season).map(npcId => {
       const state = npcStore.getNpcState(npcId)
@@ -196,14 +196,14 @@
   })
 
   const giftLabel = computed(() => {
-    if (!selected.value) return '送点东西'
+    if (!selected.value) return 'Tặng một món đồ'
     if (npcStore.canGiftToday(selected.value)) {
-      return npcStore.isBirthday(selected.value) ? '送生日礼（×4）' : '送点东西'
+      return npcStore.isBirthday(selected.value) ? 'Tặng quà sinh nhật (×4)' : 'Tặng một món đồ'
     }
     return npcStore.getGiftStatusText(selected.value)
   })
 
-  /** 可赠送的物品（种子不参与送礼） */
+  /** 可tặngtặng的vậtphẩm（giốngconkhôngtham giavớitặngquà） */
   const giftableItems = computed(() => {
     return inventoryStore.items.filter(i => {
       const def = getItemById(i.itemId)
@@ -214,9 +214,9 @@
   const giftPreference = (itemId: string): string => {
     const def = selectedDef.value
     if (!def) return ''
-    if (def.lovedItems.includes(itemId)) return '最爱'
-    if (def.likedItems.includes(itemId)) return '喜欢'
-    if (def.hatedItems.includes(itemId)) return '讨厌'
+    if (def.lovedItems.includes(itemId)) return 'Rất thích'
+    if (def.likedItems.includes(itemId)) return 'Thích'
+    if (def.hatedItems.includes(itemId)) return 'Ghét'
     return ''
   }
 
@@ -229,7 +229,7 @@
     return ''
   }
 
-  /** 品质对应的文字颜色 */
+  /** phẩmchấtđúngnên的vănchữmàu sắcmàu */
   const qualityTextClass = (q: Quality): string => {
     if (q === 'fine') return 'text-quality-fine'
     if (q === 'excellent') return 'text-quality-excellent'
@@ -240,7 +240,7 @@
   const handleTalk = () => {
     if (!selected.value) return
     if (gameStore.isPastBedtime) {
-      addLog('太晚了，人家都睡了。')
+      addLog('Muộn quá rồi, họ đã ngủ.')
       handleEndDay()
       close()
       return
@@ -248,7 +248,7 @@
     const result = npcStore.talkTo(selected.value)
     if (!result) return
     dialogueText.value = result.message
-    addLog(`在${SPOT_NAMES[props.spot]}遇到${selectedDef.value?.name}，聊了几句。(+${result.friendshipGain}好感)`)
+    addLog(`Gặp ${selectedDef.value?.name} tại ${SPOT_NAMES[props.spot]}, trò chuyện vài câu. (+${result.friendshipGain} hảo cảm)`)
 
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.talk)
     if (tr.message) addLog(tr.message)
@@ -265,7 +265,7 @@
     }
   }
 
-  /** 闲扯：不加好感也不耗时，纯粹多听几句 */
+  /** rảnhkéo：khôngthêmtốtnhiễmcũngkhônghaothời，thuầntinhnhiềunghemấycâu */
   const handleChat = () => {
     if (!selected.value) return
     const message = npcStore.chatWith(selected.value)
@@ -282,11 +282,11 @@
     const itemName = getItemById(itemId)?.name ?? itemId
     const npcName = selectedDef.value?.name
     if (result.gain > 0) {
-      addLog(`送给${npcName}${itemName}，${npcName}觉得${result.reaction}。(+${result.gain}好感)`)
+      addLog(`Tặng ${itemName} cho ${npcName}, ${npcName} cảm thấy ${result.reaction}. (+${result.gain} hảo cảm)`)
     } else if (result.gain < 0) {
-      addLog(`送给${npcName}${itemName}，${npcName}${result.reaction}这个……(${result.gain}好感)`)
+      addLog(`Tặng ${itemName} cho ${npcName}, ${npcName} ${result.reaction} món này… (${result.gain} hảo cảm)`)
     } else {
-      addLog(`送给${npcName}${itemName}，${npcName}觉得${result.reaction}。`)
+      addLog(`Tặng ${itemName} cho ${npcName}, ${npcName} cảm thấy ${result.reaction}.`)
     }
     giftPanelOpen.value = false
 

@@ -5,178 +5,178 @@ export const MONSTER_GOALS: MonsterGoalDef[] = [
   // ===== 浅层 =====
   {
     monsterId: 'mud_worm',
-    monsterName: '泥虫',
+    monsterName: 'Trùn đất',
     zone: 'shallow',
     killTarget: 25,
     reward: { money: 200 },
-    description: '清除浅层的泥虫。'
+    description: 'Tiêu diệt sâu bùn tầng nông.'
   },
   {
     monsterId: 'stone_crab',
-    monsterName: '石蟹',
+    monsterName: 'Cua đá',
     zone: 'shallow',
     killTarget: 25,
     reward: { money: 300 },
-    description: '消灭浅层的石蟹。'
+    description: 'Tiêu diệt cua đá tầng nông.'
   },
   // ===== 冰霜 =====
   {
     monsterId: 'ice_bat',
-    monsterName: '冰蝠',
+    monsterName: 'Dơi băng',
     zone: 'frost',
     killTarget: 25,
     reward: { money: 500 },
-    description: '击落冰霜层的冰蝠。'
+    description: 'Hạ dơi băng tầng băng giá.'
   },
   {
     monsterId: 'ghost',
-    monsterName: '幽灵',
+    monsterName: 'U linh',
     zone: 'frost',
     killTarget: 25,
     reward: { money: 500 },
-    description: '驱散冰霜层的幽灵。'
+    description: 'Xua đuổi hồn ma tầng băng giá.'
   },
   // ===== 熔岩 =====
   {
     monsterId: 'fire_bat',
-    monsterName: '火蝠',
+    monsterName: 'Dơi lửa',
     zone: 'lava',
     killTarget: 50,
     reward: { money: 800 },
-    description: '击退熔岩层的火蝠。'
+    description: 'Đẩy lùi dơi lửa tầng dung nham.'
   },
   {
     monsterId: 'shadow_warrior',
-    monsterName: '暗影武士',
+    monsterName: 'Chiến sĩ bóng tối',
     zone: 'lava',
     killTarget: 50,
     reward: { money: 1000 },
-    description: '击败熔岩层的暗影武士。'
+    description: 'Đánh bại võ sĩ bóng tối tầng dung nham.'
   },
   // ===== 水晶 =====
   {
     monsterId: 'crystal_golem',
-    monsterName: '水晶魔像',
+    monsterName: 'Ma tượng pha lê',
     zone: 'crystal',
     killTarget: 50,
     reward: { money: 1500 },
-    description: '粉碎水晶层的魔像。'
+    description: 'Đập tan golem tầng pha lê.'
   },
   {
     monsterId: 'prism_spider',
-    monsterName: '棱镜蛛',
+    monsterName: 'Nhện lăng kính',
     zone: 'crystal',
     killTarget: 50,
     reward: { money: 1500 },
-    description: '消灭水晶层的棱镜蛛。'
+    description: 'Tiêu diệt nhện lăng kính tầng pha lê.'
   },
   // ===== 暗影 =====
   {
     monsterId: 'shadow_lurker',
-    monsterName: '暗影潜伏者',
+    monsterName: 'Kẻ rình rập bóng tối',
     zone: 'shadow',
     killTarget: 75,
     reward: { money: 2000 },
-    description: '猎杀暗影层的潜伏者。'
+    description: 'Săn kẻ ẩn nấp tầng bóng tối.'
   },
   {
     monsterId: 'void_wraith',
-    monsterName: '虚空幽魂',
+    monsterName: 'U hồn hư không',
     zone: 'shadow',
     killTarget: 75,
     reward: { money: 2500 },
-    description: '净化暗影层的虚空幽魂。'
+    description: 'Thanh tẩy u hồn hư không tầng bóng tối.'
   },
   // ===== 深渊 =====
   {
     monsterId: 'abyss_serpent',
-    monsterName: '深渊巨蟒',
+    monsterName: 'Cự mãng vực thẳm',
     zone: 'abyss',
     killTarget: 100,
     reward: { money: 3000 },
-    description: '讨伐深渊层的巨蟒。'
+    description: 'Chinh phạt mãng xà khổng lồ tầng vực sâu.'
   },
   {
     monsterId: 'bone_dragon',
-    monsterName: '骨龙',
+    monsterName: 'Cốt Long',
     zone: 'abyss',
     killTarget: 100,
     reward: { money: 4000 },
-    description: '击败深渊层的骨龙。'
+    description: 'Đánh bại rồng xương tầng vực sâu.'
   },
   // ===== BOSS =====
   {
     monsterId: 'mud_golem',
-    monsterName: '泥岩巨兽',
+    monsterName: 'Cự thú bùn đá',
     zone: 'boss',
     killTarget: 3,
     reward: { money: 500, items: [{ itemId: 'copper_bar', quantity: 10 }] },
-    description: '三次击败泥岩巨兽。'
+    description: 'Đánh bại thú đá bùn 3 lần.'
   },
   {
     monsterId: 'frost_queen',
-    monsterName: '冰霜女王',
+    monsterName: 'Nữ hoàng Băng Giá',
     zone: 'boss',
     killTarget: 3,
     reward: { money: 800, items: [{ itemId: 'iron_bar', quantity: 10 }] },
-    description: '三次击败冰霜女王。'
+    description: 'Đánh bại Nữ hoàng Băng giá 3 lần.'
   },
   {
     monsterId: 'lava_lord',
-    monsterName: '熔岩君主',
+    monsterName: 'Chúa tể Dung Nham',
     zone: 'boss',
     killTarget: 3,
     reward: { money: 1500, items: [{ itemId: 'gold_bar', quantity: 10 }] },
-    description: '三次击败熔岩君主。'
+    description: 'Đánh bại Chúa tể Dung nham 3 lần.'
   },
   {
     monsterId: 'crystal_king',
-    monsterName: '水晶之王',
+    monsterName: 'Vua Pha Lê',
     zone: 'boss',
     killTarget: 3,
     reward: { money: 2500, items: [{ itemId: 'moonstone', quantity: 3 }] },
-    description: '三次击败水晶之王。'
+    description: 'Đánh bại Vua Pha lê 3 lần.'
   },
   {
     monsterId: 'shadow_sovereign',
-    monsterName: '暗影君主',
+    monsterName: 'Chúa tể Bóng Tối',
     zone: 'boss',
     killTarget: 3,
     reward: { money: 4000, items: [{ itemId: 'obsidian', quantity: 3 }] },
-    description: '三次击败暗影君主。'
+    description: 'Đánh bại Chúa tể Bóng tối 3 lần.'
   },
   {
     monsterId: 'abyss_dragon',
-    monsterName: '深渊龙王',
+    monsterName: 'Long Vương Vực Thẳm',
     zone: 'boss',
     killTarget: 3,
     reward: { money: 6000, items: [{ itemId: 'dragon_jade', quantity: 2 }] },
-    description: '三次击败深渊龙王。'
+    description: 'Đánh bại Long vương Vực sâu 3 lần.'
   },
   // ===== 骷髅矿穴 =====
   {
     monsterId: 'iridium_golem',
-    monsterName: '铱金魔像',
+    monsterName: 'Ma tượng Iridium',
     zone: 'skull',
     killTarget: 50,
     reward: { money: 3000 },
-    description: '在骷髅矿穴中讨伐铱金魔像。'
+    description: 'Chinh phạt golem iridi trong Hang Mỏ Xương.'
   },
   {
     monsterId: 'skull_serpent',
-    monsterName: '骷髅飞蛇',
+    monsterName: 'Phi xà đầu lâu',
     zone: 'skull',
     killTarget: 50,
     reward: { money: 3000 },
-    description: '在骷髅矿穴中消灭骷髅飞蛇。'
+    description: 'Tiêu diệt rắn bay xương trong Hang Mỏ Xương.'
   },
   {
     monsterId: 'ancient_mummy',
-    monsterName: '远古木乃伊',
+    monsterName: 'Xác ướp viễn cổ',
     zone: 'skull',
     killTarget: 50,
     reward: { money: 5000 },
-    description: '在骷髅矿穴中击败远古木乃伊。'
+    description: 'Đánh bại xác ướp cổ đại trong Hang Mỏ Xương.'
   }
 ]
 
@@ -185,64 +185,64 @@ export const GUILD_SHOP_ITEMS: GuildShopItemDef[] = [
   // --- 消耗品（铜钱购买，不限购）---
   {
     itemId: 'combat_tonic',
-    name: '战斗补剂',
+    name: 'Thuốc Bổ Trợ Chiến Đấu',
     price: 200,
-    description: '恢复30点HP。'
+    description: 'Hồi phục 30 điểm HP.'
   },
   {
     itemId: 'adventurer_ration',
-    name: '冒险口粮',
+    name: 'Lương Khô Thám Hiểm',
     price: 350,
-    description: '恢复25体力和25HP。',
+    description: 'Hồi phục 25 thể lực và 25 HP.',
     unlockGuildLevel: 2
   },
   {
     itemId: 'fortify_brew',
-    name: '强化药水',
+    name: 'Thuốc Tăng Lực',
     price: 500,
-    description: '恢复60点HP。'
+    description: 'Hồi phục 60 điểm HP.'
   },
   {
     itemId: 'ironhide_potion',
-    name: '铁壁药剂',
+    name: 'Dược Tề Thiết Bích',
     price: 800,
-    description: '恢复全部HP。'
+    description: 'Hồi phục toàn bộ HP.'
   },
   {
     itemId: 'warriors_feast',
-    name: '勇者盛宴',
+    name: 'Yến Tiệc Dũng Sĩ',
     price: 1000,
-    description: '恢复50体力和50HP。',
+    description: 'Hồi phục 50 thể lực và 50 HP.',
     unlockGuildLevel: 5
   },
   {
     itemId: 'slayer_charm',
-    name: '猎魔符',
+    name: 'Phù Săn Ma',
     price: 1500,
-    description: '怪物掉落率+20%（当次探索）。',
+    description: 'Tỷ lệ rớt đồ của quái vật +20% (Trong lần thám hiểm này).',
     unlockGuildLevel: 3
   },
   {
     itemId: 'stamina_elixir',
-    name: '精力药剂',
+    name: 'Dược Tề Tinh Lực',
     price: 600,
-    description: '恢复120点体力。',
+    description: 'Hồi phục 120 điểm thể lực.',
     unlockGuildLevel: 4
   },
   {
     itemId: 'monster_lure',
-    name: '怪物诱饵',
+    name: 'Mồi Nhử Quái Vật',
     price: 2000,
-    description: '本层怪物数量翻倍。',
+    description: 'Số lượng quái vật ở tầng này tăng gấp đôi.',
     unlockGuildLevel: 7
   },
   // --- 装备（贡献点+材料，限购1件）---
   {
     itemId: 'guild_cloud_horse',
-    name: '踏云驹',
+    name: 'Tuấn mã Đạp Vân',
     price: 0,
     contributionCost: 600,
-    description: '公会驯养的神骏。把你的马升级为踏云驹：赶路极快，放牧时帮你照看畜群。',
+    description: 'Tuấn mã do hội thuần dưỡng. Nâng ngựa của bạn thành Đạp Vân Câu: đi đường rất nhanh và giúp trông đàn khi chăn thả.',
     unlockGuildLevel: 8,
     totalLimit: 1,
     horseUpgrade: 'cloud',
@@ -253,10 +253,10 @@ export const GUILD_SHOP_ITEMS: GuildShopItemDef[] = [
   },
   {
     itemId: 'guild_war_ring',
-    name: '公会战戒',
+    name: 'Nhẫn chiến công hội',
     price: 0,
     contributionCost: 200,
-    description: '攻击+4，防御+6%。',
+    description: 'Tấn công +4, phòng thủ +6%.',
     unlockGuildLevel: 5,
     totalLimit: 1,
     equipType: 'ring',
@@ -267,10 +267,10 @@ export const GUILD_SHOP_ITEMS: GuildShopItemDef[] = [
   },
   {
     itemId: 'guild_war_helm',
-    name: '公会战盔',
+    name: 'Mũ Chiến Công Hội',
     price: 0,
     contributionCost: 250,
-    description: '攻击+3，HP+15。',
+    description: 'Tấn công +3, HP +15.',
     unlockGuildLevel: 6,
     totalLimit: 1,
     equipType: 'hat',
@@ -281,10 +281,10 @@ export const GUILD_SHOP_ITEMS: GuildShopItemDef[] = [
   },
   {
     itemId: 'guild_war_boots',
-    name: '公会战靴',
+    name: 'Ủng chiến công hội',
     price: 0,
     contributionCost: 250,
-    description: '攻击+2，防御+5%，移速+10%。',
+    description: 'Tấn công +2, phòng thủ +5%, tốc độ +10%.',
     unlockGuildLevel: 7,
     totalLimit: 1,
     equipType: 'shoe',
@@ -295,10 +295,10 @@ export const GUILD_SHOP_ITEMS: GuildShopItemDef[] = [
   },
   {
     itemId: 'guild_war_blade',
-    name: '公会战刃',
+    name: 'Chiến Nhẫn Công Hội',
     price: 0,
     contributionCost: 350,
-    description: '攻击力36，暴击率10%。',
+    description: 'Tấn công 36, tỷ lệ chí mạng 10%.',
     unlockGuildLevel: 9,
     totalLimit: 1,
     equipType: 'weapon',
@@ -310,39 +310,39 @@ export const GUILD_SHOP_ITEMS: GuildShopItemDef[] = [
   // --- 永久品（贡献点购买，每日限购）---
   {
     itemId: 'guild_badge',
-    name: '公会徽章',
+    name: 'Huy Hiệu Công Hội',
     price: 0,
     contributionCost: 150,
-    description: '攻击力永久+3。',
+    description: 'Lực tấn công vĩnh viễn +3.',
     unlockGuildLevel: 6,
     weeklyLimit: 10
   },
   {
     itemId: 'life_talisman',
-    name: '生命护符',
+    name: 'Bùa Hộ Mệnh Sinh Mệnh',
     price: 0,
     contributionCost: 200,
-    description: '最大生命值永久+15。',
+    description: 'Sinh lực tối đa vĩnh viễn +15.',
     unlockGuildLevel: 8,
     dailyLimit: 1,
     totalLimit: 100
   },
   {
     itemId: 'defense_charm',
-    name: '守护符',
+    name: 'Bùa Hộ Vệ',
     price: 0,
     contributionCost: 180,
-    description: '防御永久+3%。',
+    description: 'Phòng ngự vĩnh viễn +3%.',
     unlockGuildLevel: 7,
     weeklyLimit: 3,
     totalLimit: 10
   },
   {
     itemId: 'lucky_coin',
-    name: '幸运铜钱',
+    name: 'Đồng Tiền May Mắn',
     price: 0,
     contributionCost: 300,
-    description: '怪物掉落率永久+5%。',
+    description: 'Tỷ lệ rớt đồ của quái vật vĩnh viễn +5%.',
     unlockGuildLevel: 10,
     weeklyLimit: 3,
     totalLimit: 10

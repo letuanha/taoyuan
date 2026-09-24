@@ -9,15 +9,15 @@ import { isNpcAvailable } from './timeConstants'
 export type NpcSpot = 'village' | 'shop' | 'cooking' | 'upgrade' | 'forage' | 'fishing' | 'mining' | 'farm' | 'hanhai'
 
 export const SPOT_NAMES: Record<NpcSpot, string> = {
-  village: '桃源村',
-  shop: '桃源商圈',
-  cooking: '灶台',
-  upgrade: '工坊',
-  forage: '竹林',
-  fishing: '清溪',
-  mining: '云隐矿洞',
-  farm: '农场',
-  hanhai: '瀚海'
+  village: 'Làng Đào Nguyên',
+  shop: 'Khu thương mại Đào Nguyên',
+  cooking: 'Bếp',
+  upgrade: 'Xưởng',
+  forage: 'Rừng trúc',
+  fishing: 'Thanh Khê',
+  mining: 'Hang Vân Ẩn',
+  farm: 'Nông trại',
+  hanhai: 'Hãn Hải'
 }
 
 /** 一段作息：[from, to) 小时区间内待在某地 */

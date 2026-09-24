@@ -5,48 +5,48 @@ export const CROPS: CropDef[] = [
   // 春季
   {
     id: 'cabbage',
-    name: '青菜',
+    name: 'Cải xanh',
     seedId: 'seed_cabbage',
     season: ['spring'],
     growthDays: 3,
     sellPrice: 35,
     seedPrice: 10,
     deepWatering: false,
-    description: '最基础的蔬菜，容易种植。',
+    description: 'Loại rau cơ bản nhất, rất dễ trồng.',
     giantCropEligible: true
   },
   {
     id: 'radish',
-    name: '萝卜',
+    name: 'Củ cải',
     seedId: 'seed_radish',
     season: ['spring'],
     growthDays: 4,
     sellPrice: 55,
     seedPrice: 15,
     deepWatering: false,
-    description: '脆甜多汁的根茎作物。'
+    description: 'Cây thân củ giòn ngọt nhiều nước.'
   },
   {
     id: 'potato',
-    name: '土豆',
+    name: 'Khoai tây',
     seedId: 'seed_potato',
     season: ['spring'],
     growthDays: 5,
     sellPrice: 80,
     seedPrice: 25,
     deepWatering: false,
-    description: '朴实耐饱的粮食。'
+    description: 'Lương thực mộc mạc ăn no lâu.'
   },
   {
     id: 'tea',
-    name: '茶苗',
+    name: 'Cây Trà Non',
     seedId: 'seed_tea',
     season: ['spring'],
     growthDays: 8,
     sellPrice: 160,
     seedPrice: 80,
     deepWatering: false,
-    description: '精心培育的好茶，价值不菲。',
+    description: 'Trà ngon được bồi dưỡng cẩn thận, giá trị không nhỏ.',
     regrowth: true,
     regrowthDays: 4,
     maxHarvests: 3
@@ -54,116 +54,116 @@ export const CROPS: CropDef[] = [
   // 夏季
   {
     id: 'watermelon',
-    name: '西瓜',
+    name: 'Dưa hấu',
     seedId: 'seed_watermelon',
     season: ['summer'],
     growthDays: 6,
     sellPrice: 130,
     seedPrice: 40,
     deepWatering: false,
-    description: '盛夏消暑的佳品。',
+    description: 'Cực phẩm giải nhiệt giữa mùa hè.',
     giantCropEligible: true
   },
   {
     id: 'rice',
-    name: '稻谷',
+    name: 'Lúa Gạo',
     seedId: 'seed_rice',
     season: ['summer'],
     growthDays: 7,
     sellPrice: 75,
     seedPrice: 20,
     deepWatering: false,
-    description: '民以食为天。'
+    description: 'Dân dĩ thực vi thiên (Dân lấy cái ăn làm gốc).'
   },
   {
     id: 'lotus_root',
-    name: '莲藕',
+    name: 'Củ Sen',
     seedId: 'seed_lotus_root',
     season: ['summer'],
     growthDays: 8,
     sellPrice: 170,
     seedPrice: 50,
     deepWatering: true,
-    description: '需深度灌溉，但收益颇丰。'
+    description: 'Cần tưới tiêu ngập nước, nhưng thu hoạch rất khá.'
   },
   {
     id: 'sesame',
-    name: '芝麻',
+    name: 'Hạt Mè',
     seedId: 'seed_sesame',
     season: ['summer'],
     growthDays: 4,
     sellPrice: 45,
     seedPrice: 15,
     deepWatering: false,
-    description: '小小芝麻，用途广泛。'
+    description: 'Hạt mè nhỏ bé, công dụng vô vàn.'
   },
   // 秋季
   {
     id: 'pumpkin',
-    name: '南瓜',
+    name: 'Bí đỏ',
     seedId: 'seed_pumpkin',
     season: ['autumn'],
     growthDays: 7,
     sellPrice: 180,
     seedPrice: 50,
     deepWatering: false,
-    description: '金秋时节的丰收象征。',
+    description: 'Biểu tượng thu hoạch của tiết trời thu vàng.',
     giantCropEligible: true
   },
   {
     id: 'sweet_potato',
-    name: '红薯',
+    name: 'Khoai lang',
     seedId: 'seed_sweet_potato',
     season: ['autumn'],
     growthDays: 5,
     sellPrice: 65,
     seedPrice: 20,
     deepWatering: false,
-    description: '甜糯可口的粗粮。'
+    description: 'Lương thực thô dẻo ngọt ngon miệng.'
   },
   {
     id: 'chrysanthemum',
-    name: '菊花',
+    name: 'Hoa Cúc',
     seedId: 'seed_chrysanthemum',
     season: ['autumn'],
     growthDays: 6,
     sellPrice: 120,
     seedPrice: 35,
     deepWatering: false,
-    description: '采菊东篱下，可作送礼佳品。'
+    description: 'Hái cúc dưới rào đông, món quà tặng tuyệt hảo.'
   },
   {
     id: 'osmanthus',
-    name: '桂花',
+    name: 'Hoa Quế',
     seedId: 'seed_osmanthus',
     season: ['autumn'],
     growthDays: 8,
     sellPrice: 200,
     seedPrice: 60,
     deepWatering: false,
-    description: '桂花飘香，高级作物。'
+    description: 'Hoa quế đưa hương, nông sản cao cấp.'
   },
   {
     id: 'rapeseed',
-    name: '油菜',
+    name: 'Cải Dầu',
     seedId: 'seed_rapeseed',
     season: ['spring'],
     growthDays: 5,
     sellPrice: 50,
     seedPrice: 15,
     deepWatering: false,
-    description: '春日田野里金黄一片的油菜。'
+    description: 'Cải dầu nhuộm vàng cả một vùng đồng quê ngày xuân.'
   },
   {
     id: 'broad_bean',
-    name: '蚕豆',
+    name: 'Đậu Tằm',
     seedId: 'seed_broad_bean',
     season: ['spring'],
     growthDays: 7,
     sellPrice: 85,
     seedPrice: 25,
     deepWatering: false,
-    description: '饱满的蚕豆，可反复采收。',
+    description: 'Đậu tằm căng mọng, có thể thu hoạch nhiều lần.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 3
@@ -171,67 +171,67 @@ export const CROPS: CropDef[] = [
   // 春季新作物
   {
     id: 'bamboo_shoot',
-    name: '春笋',
+    name: 'Măng Xuân',
     seedId: 'seed_bamboo_shoot',
     season: ['spring'],
     growthDays: 4,
     sellPrice: 50,
     seedPrice: 15,
     deepWatering: false,
-    description: '春天的竹林间挖出的鲜嫩笋。'
+    description: 'Măng tươi non đào được trong rừng trúc mùa xuân.'
   },
   {
     id: 'peach',
-    name: '水蜜桃',
+    name: 'Đào Thủy Mật',
     seedId: 'seed_peach',
     season: ['spring'],
     growthDays: 7,
     sellPrice: 140,
     seedPrice: 45,
     deepWatering: false,
-    description: '鲜美多汁的水蜜桃。',
+    description: 'Đào thủy mật tươi ngon mọng nước.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 4
   },
   {
     id: 'green_bean',
-    name: '豆角',
+    name: 'Đậu Đũa',
     seedId: 'seed_green_bean',
     season: ['spring', 'summer'],
     growthDays: 6,
     sellPrice: 45,
     seedPrice: 12,
     deepWatering: false,
-    description: '清脆的豆角，跨春夏生长。',
+    description: 'Đậu đũa giòn tươi, sinh trưởng qua mùa xuân và hè.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 5
   },
   {
     id: 'loofah',
-    name: '丝瓜',
+    name: 'Mướp Hương',
     seedId: 'seed_loofah',
     season: ['summer'],
     growthDays: 6,
     sellPrice: 55,
     seedPrice: 18,
     deepWatering: false,
-    description: '嫩绿的丝瓜，反复采收。',
+    description: 'Mướp hương xanh non, có thể thu hoạch nhiều lần.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 4
   },
   {
     id: 'eggplant',
-    name: '茄子',
+    name: 'Cà Tím',
     seedId: 'seed_eggplant',
     season: ['summer'],
     growthDays: 7,
     sellPrice: 90,
     seedPrice: 28,
     deepWatering: false,
-    description: '紫亮的茄子，可形成巨型作物。',
+    description: 'Cà tím bóng láng, có thể phát triển thành nông sản khổng lồ.',
     giantCropEligible: true,
     regrowth: true,
     regrowthDays: 3,
@@ -240,146 +240,146 @@ export const CROPS: CropDef[] = [
   // 夏季新作物
   {
     id: 'chili',
-    name: '辣椒',
+    name: 'Ớt',
     seedId: 'seed_chili',
     season: ['summer'],
     growthDays: 5,
     sellPrice: 60,
     seedPrice: 15,
     deepWatering: false,
-    description: '火辣的开胃椒。',
+    description: 'Trái ớt cay nồng kích thích vị giác.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 4
   },
   {
     id: 'lotus_seed',
-    name: '莲子',
+    name: 'Hạt Sen',
     seedId: 'seed_lotus_seed',
     season: ['summer'],
     growthDays: 9,
     sellPrice: 200,
     seedPrice: 60,
     deepWatering: true,
-    description: '清心养神的莲子，需深灌。'
+    description: 'Hạt sen thanh tâm dưỡng thần, cần tưới ngập nước.'
   },
   {
     id: 'corn',
-    name: '玉米',
+    name: 'Ngô',
     seedId: 'seed_corn',
     season: ['summer', 'autumn'],
     growthDays: 8,
     sellPrice: 85,
     seedPrice: 25,
     deepWatering: false,
-    description: '金灿灿的玉米，跨夏秋生长。',
+    description: 'Bắp ngô vàng rực, sinh trưởng qua mùa hè và thu.',
     regrowth: true,
     regrowthDays: 4,
     maxHarvests: 5
   },
   {
     id: 'yam',
-    name: '山药',
+    name: 'Hoài Sơn',
     seedId: 'seed_yam',
     season: ['autumn'],
     growthDays: 8,
     sellPrice: 150,
     seedPrice: 45,
     deepWatering: false,
-    description: '滋补上品，秋日收获的山药。'
+    description: 'Thượng phẩm bồi bổ, hoài sơn thu hoạch vào ngày thu.'
   },
   {
     id: 'peanut',
-    name: '花生',
+    name: 'Đậu Phộng',
     seedId: 'seed_peanut',
     season: ['autumn'],
     growthDays: 5,
     sellPrice: 65,
     seedPrice: 18,
     deepWatering: false,
-    description: '香脆可口的花生。'
+    description: 'Đậu phộng giòn thơm ngon miệng.'
   },
   // 秋季新作物
   {
     id: 'jujube',
-    name: '红枣',
+    name: 'Táo Đỏ',
     seedId: 'seed_jujube',
     season: ['autumn'],
     growthDays: 6,
     sellPrice: 100,
     seedPrice: 30,
     deepWatering: false,
-    description: '滋补佳品红枣。',
+    description: 'Cực phẩm bồi bổ táo đỏ.',
     regrowth: true,
     regrowthDays: 4,
     maxHarvests: 3
   },
   {
     id: 'persimmon',
-    name: '柿子',
+    name: 'Quả Hồng',
     seedId: 'seed_persimmon',
     season: ['autumn'],
     growthDays: 7,
     sellPrice: 150,
     seedPrice: 40,
     deepWatering: false,
-    description: '软糯香甜的柿子。'
+    description: 'Quả hồng dẻo mềm thơm ngọt.'
   },
   {
     id: 'ginger',
-    name: '生姜',
+    name: 'Củ Gừng',
     seedId: 'seed_ginger',
     season: ['autumn', 'winter'],
     growthDays: 6,
     sellPrice: 70,
     seedPrice: 20,
     deepWatering: false,
-    description: '驱寒暖身的生姜，跨秋冬生长。'
+    description: 'Gừng xua hàn giữ ấm, sinh trưởng qua mùa thu và đông.'
   },
   {
     id: 'napa_cabbage',
-    name: '白菜',
+    name: 'Cải Thảo',
     seedId: 'seed_napa_cabbage',
     season: ['winter'],
     growthDays: 7,
     sellPrice: 50,
     seedPrice: 12,
     deepWatering: false,
-    description: '冬日里最家常的蔬菜，可形成巨型作物。',
+    description: 'Loại rau gia đình quen thuộc nhất ngày đông, có thể phát triển thành nông sản khổng lồ.',
     giantCropEligible: true
   },
   {
     id: 'spinach',
-    name: '菠菜',
+    name: 'Cải Bó Xôi',
     seedId: 'seed_spinach',
     season: ['winter'],
     growthDays: 5,
     sellPrice: 40,
     seedPrice: 10,
     deepWatering: false,
-    description: '耐寒的菠菜，冬季也能长得好。'
+    description: 'Cải bó xôi chịu rét, mùa đông vẫn lớn rất tốt.'
   },
   {
     id: 'mustard_green',
-    name: '芥菜',
+    name: 'Cải Bẹ',
     seedId: 'seed_mustard_green',
     season: ['winter'],
     growthDays: 6,
     sellPrice: 45,
     seedPrice: 12,
     deepWatering: false,
-    description: '耐寒的芥菜，冬日腌制的好材料。'
+    description: 'Cải bẹ chịu rét, nguyên liệu tuyệt vời để muối dưa ngày đông.'
   },
   {
     id: 'chives',
-    name: '韭菜',
+    name: 'Hẹ',
     seedId: 'seed_chives',
     season: ['winter', 'spring'],
     growthDays: 4,
     sellPrice: 30,
     seedPrice: 8,
     deepWatering: false,
-    description: '割了又长的韭菜，跨冬春生长。',
+    description: 'Cây hẹ cắt xong lại mọc, sinh trưởng qua mùa đông và xuân.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 6
@@ -387,4530 +387,4530 @@ export const CROPS: CropDef[] = [
   // 冬季原有作物
   {
     id: 'winter_wheat',
-    name: '冬小麦',
+    name: 'Lúa mì mùa đông',
     seedId: 'seed_winter_wheat',
     season: ['winter'],
     growthDays: 10,
     sellPrice: 60,
     seedPrice: 15,
     deepWatering: false,
-    description: '耐寒的冬小麦。'
+    description: 'Lúa mì đông chịu rét tốt.'
   },
   {
     id: 'garlic',
-    name: '大蒜',
+    name: 'Tỏi',
     seedId: 'seed_garlic',
     season: ['winter'],
     growthDays: 6,
     sellPrice: 55,
     seedPrice: 15,
     deepWatering: false,
-    description: '辛辣的大蒜，冬季也能种。'
+    description: 'Tỏi cay nồng, mùa đông cũng có thể trồng.'
   },
   {
     id: 'snow_lotus',
-    name: '雪莲',
+    name: 'Tuyết Liên',
     seedId: 'seed_snow_lotus',
     season: ['winter'],
     growthDays: 12,
     sellPrice: 350,
     seedPrice: 100,
     deepWatering: true,
-    description: '传说中的雪莲花，极其珍贵。'
+    description: 'Hoa tuyết liên trong truyền thuyết, cực kỳ quý giá.'
   },
   // 杂交作物
   {
     id: 'golden_melon',
-    name: '金蜜瓜',
+    name: 'Dưa Kim Mật',
     seedId: 'seed_golden_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 400,
     seedPrice: 0,
     deepWatering: false,
-    description: '西瓜与莲藕杂交的传说作物，金黄剔透。',
+    description: 'Nông sản truyền thuyết lai tạo giữa dưa hấu và củ sen, vàng óng trong trẻo.',
     giantCropEligible: true
   },
   {
     id: 'jade_tea',
-    name: '翡翠茶',
+    name: 'Trà Phỉ Thúy',
     seedId: 'seed_jade_tea',
     season: ['spring', 'autumn'],
     growthDays: 9,
     sellPrice: 350,
     seedPrice: 0,
     deepWatering: false,
-    description: '茶与菊杂交的珍品，茶汤碧绿如翡翠。'
+    description: 'Trân phẩm lai tạo giữa trà và hoa cúc, nước trà xanh biếc như phỉ thúy.'
   },
   {
     id: 'phoenix_pepper',
-    name: '凤凰椒',
+    name: 'Ớt Phượng Hoàng',
     seedId: 'seed_phoenix_pepper',
     season: ['summer', 'autumn'],
     growthDays: 7,
     sellPrice: 320,
     seedPrice: 0,
     deepWatering: false,
-    description: '辣椒与南瓜杂交的奇果，辣中带甘。',
+    description: 'Kỳ quả lai tạo giữa ớt và bí đỏ, cay nồng mang theo vị ngọt.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 3
   },
   {
     id: 'moonlight_rice',
-    name: '月光稻',
+    name: 'Lúa Nguyệt Quang',
     seedId: 'seed_moonlight_rice',
     season: ['summer', 'autumn'],
     growthDays: 9,
     sellPrice: 280,
     seedPrice: 0,
     deepWatering: false,
-    description: '稻与笋杂交的神稻，月下泛银光。'
+    description: 'Thần đạo lai tạo giữa lúa và măng, dưới trăng tỏa ánh bạc.'
   },
   {
     id: 'frost_garlic',
-    name: '霜雪蒜',
+    name: 'Tỏi Sương Tuyết',
     seedId: 'seed_frost_garlic',
     season: ['autumn', 'winter'],
     growthDays: 8,
     sellPrice: 380,
     seedPrice: 0,
     deepWatering: false,
-    description: '雪莲与大蒜杂交的珍品，寒气逼人。'
+    description: 'Trân phẩm lai tạo giữa tuyết liên và tỏi, hàn khí bức người.'
   },
   // === 一代杂交作物 ===,
   {
     id: 'emerald_radish',
-    name: '翡翠萝卜',
+    name: 'Củ Cải Phỉ Thúy',
     seedId: 'seed_emerald_radish',
     season: ['spring', 'summer'],
     growthDays: 6,
     sellPrice: 155,
     seedPrice: 0,
     deepWatering: false,
-    description: '青菜的清脆与萝卜的甘甜融合，翡翠般的根茎闪闪发光。'
+    description: 'Sự dung hợp giữa độ giòn của cải xanh và vị ngọt của củ cải, phần củ như ngọc phỉ thúy lấp lánh tỏa sáng.'
   },
   {
     id: 'jade_shoot',
-    name: '玉竹芽',
+    name: 'Mầm Ngọc Trúc',
     seedId: 'seed_jade_shoot',
     season: ['spring'],
     growthDays: 7,
     sellPrice: 180,
     seedPrice: 0,
     deepWatering: false,
-    description: '春笋的鲜嫩与茶叶的醇香交融，如玉如竹。'
+    description: 'Sự giao hòa giữa độ tươi non của măng xuân và hương thơm của lá trà, như ngọc như trúc.'
   },
   {
     id: 'golden_tuber',
-    name: '金油薯',
+    name: 'Khoai Mỡ Vàng',
     seedId: 'seed_golden_tuber',
     season: ['spring', 'summer'],
     growthDays: 6,
     sellPrice: 160,
     seedPrice: 0,
     deepWatering: false,
-    description: '土豆的饱满与油菜的金黄交织，通体金色。'
+    description: 'Khoai tây tròn trịa đan xen màu vàng của cải dầu, toàn thân màu vàng kim.'
   },
   {
     id: 'peach_blossom_tea',
-    name: '桃花茶',
+    name: 'Trà Hoa Đào',
     seedId: 'seed_peach_blossom_tea',
     season: ['spring'],
     growthDays: 8,
     sellPrice: 250,
     seedPrice: 0,
     deepWatering: false,
-    description: '桃花的妩媚与茶香的雅致合一，花瓣似蝶。'
+    description: 'Sự quyến rũ của hoa đào kết hợp với sự tao nhã của hương trà, cánh hoa tựa hồ điệp.'
   },
   {
     id: 'ruby_bean',
-    name: '红宝豆',
+    name: 'Đậu Hồng Ngọc',
     seedId: 'seed_ruby_bean',
     season: ['spring', 'summer'],
     growthDays: 7,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '蚕豆的饱满与蜜桃的红润结合，颗颗如红宝石。',
+    description: 'Đậu tằm căng mọng kết hợp với màu hồng đào, từng hạt như viên hồng ngọc.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 3
   },
   {
     id: 'twin_bean',
-    name: '双子豆',
+    name: 'Đậu Song Tử',
     seedId: 'seed_twin_bean',
     season: ['spring'],
     growthDays: 6,
     sellPrice: 155,
     seedPrice: 0,
     deepWatering: false,
-    description: '蚕豆与油菜联姻，每荚双生如孪生兄弟。',
+    description: 'Sự kết duyên của đậu tằm và cải dầu, mỗi vỏ đều có hạt sinh đôi như anh em ruột.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 3
   },
   {
     id: 'jade_melon',
-    name: '碧玉瓜',
+    name: 'Dưa Bích Ngọc',
     seedId: 'seed_jade_melon',
     season: ['spring', 'summer'],
     growthDays: 7,
     sellPrice: 200,
     seedPrice: 0,
     deepWatering: false,
-    description: '西瓜的多汁与土豆的醇厚碰撞，果肉翠绿如玉。',
+    description: 'Dưa hấu mọng nước va chạm với độ bùi của khoai tây, ruột quả xanh mướt như ngọc.',
     giantCropEligible: true
   },
   {
     id: 'pearl_grain',
-    name: '珍珠谷',
+    name: 'Lúa Trân Châu',
     seedId: 'seed_pearl_grain',
     season: ['spring', 'summer'],
     growthDays: 8,
     sellPrice: 220,
     seedPrice: 0,
     deepWatering: false,
-    description: '稻谷的质朴与茶叶的清雅融合，米粒晶莹如珍珠。'
+    description: 'Sự mộc mạc của lúa gạo hòa quyện cùng sự thanh nhã của lá trà, hạt gạo trong trẻo như trân châu.'
   },
   {
     id: 'golden_corn',
-    name: '金穗玉米',
+    name: 'Ngô Bông Vàng',
     seedId: 'seed_golden_corn',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 190,
     seedPrice: 0,
     deepWatering: false,
-    description: '玉米的丰硕与油菜的金色交汇，穗穗金黄。',
+    description: 'Sự sung túc của ngô giao thoa với màu vàng của cải dầu, từng bắp vàng ươm.',
     regrowth: true,
     regrowthDays: 4,
     maxHarvests: 4
   },
   {
     id: 'lotus_tea',
-    name: '莲心茶',
+    name: 'Trà Liên Tâm',
     seedId: 'seed_lotus_tea',
     season: ['spring', 'summer'],
     growthDays: 9,
     sellPrice: 260,
     seedPrice: 0,
     deepWatering: true,
-    description: '莲藕的清润与茶叶的芬芳共鸣，杯中莲花绽放。'
+    description: 'Sự thanh mát của củ sen cộng hưởng với hương thơm của lá trà, tựa hoa sen nở trong chén.'
   },
   {
     id: 'purple_bamboo',
-    name: '紫竹茄',
+    name: 'Cà Tử Trúc',
     seedId: 'seed_purple_bamboo',
     season: ['spring', 'summer'],
     growthDays: 7,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '春笋的挺拔与茄子的紫韵合一，紫色竹节状果实。'
+    description: 'Sự thẳng tắp của măng xuân hợp nhất với sắc tím của cà tím, quả có hình dáng đốt trúc màu tím.'
   },
   {
     id: 'honey_peach_melon',
-    name: '蜜桃瓜',
+    name: 'Dưa Mật Đào',
     seedId: 'seed_honey_peach_melon',
     season: ['spring', 'summer'],
     growthDays: 7,
     sellPrice: 210,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜桃的香甜与西瓜的清爽交融，咬一口蜜汁四溢。',
+    description: 'Hương vị ngọt ngào của quả đào hòa quyện với sự thanh mát của dưa hấu, cắn một miếng mật ngọt trào ra.',
     giantCropEligible: true
   },
   {
     id: 'fire_bean',
-    name: '火豆',
+    name: 'Đậu Lửa',
     seedId: 'seed_fire_bean',
     season: ['spring', 'summer'],
     growthDays: 6,
     sellPrice: 165,
     seedPrice: 0,
     deepWatering: false,
-    description: '蚕豆的饱满裹上辣椒的火焰，辣中带香。',
+    description: 'Sự căng mọng của đậu tằm bọc trong ngọn lửa của ớt, cay nồng mang theo hương thơm.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 3
   },
   {
     id: 'silk_bean',
-    name: '丝豆',
+    name: 'Đậu Tơ',
     seedId: 'seed_silk_bean',
     season: ['spring', 'summer'],
     growthDays: 6,
     sellPrice: 155,
     seedPrice: 0,
     deepWatering: false,
-    description: '豆角的清脆与丝瓜的丝滑结合，口感如丝。',
+    description: 'Độ giòn của đậu đũa kết hợp với sự trơn trượt của mướp, cảm giác nhai mềm mượt như tơ.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 4
   },
   {
     id: 'double_oil_seed',
-    name: '双油籽',
+    name: 'Hạt Song Dầu',
     seedId: 'seed_double_oil_seed',
     season: ['spring', 'summer'],
     growthDays: 6,
     sellPrice: 160,
     seedPrice: 0,
     deepWatering: false,
-    description: '油菜与芝麻双重醇香，出油率极高。'
+    description: 'Hương vị đậm đà nhân đôi của cải dầu và hạt mè, tỷ lệ ép ra dầu cực kỳ cao.'
   },
   {
     id: 'lotus_potato',
-    name: '莲薯',
+    name: 'Khoai Sen',
     seedId: 'seed_lotus_potato',
     season: ['spring', 'summer'],
     growthDays: 8,
     sellPrice: 195,
     seedPrice: 0,
     deepWatering: true,
-    description: '土豆的淀粉与莲子的清甜结合，口感绵密。'
+    description: 'Tinh bột của khoai tây kết hợp với vị ngọt thanh của hạt sen, cảm giác nhai xốp mịn.'
   },
   {
     id: 'jade_pumpkin',
-    name: '翡翠南瓜',
+    name: 'Bí Đỏ Phỉ Thúy',
     seedId: 'seed_jade_pumpkin',
     season: ['spring', 'autumn'],
     growthDays: 8,
     sellPrice: 210,
     seedPrice: 0,
     deepWatering: false,
-    description: '土豆的质朴与南瓜的金黄交融，外皮翠绿内里金黄。',
+    description: 'Sự mộc mạc của khoai tây hòa quyện với màu vàng của bí đỏ, vỏ ngoài xanh biếc bên trong vàng óng.',
     giantCropEligible: true
   },
   {
     id: 'crystal_yam',
-    name: '水晶山药',
+    name: 'Hoài Sơn Pha Lê',
     seedId: 'seed_crystal_yam',
     season: ['spring', 'autumn'],
     growthDays: 8,
     sellPrice: 220,
     seedPrice: 0,
     deepWatering: false,
-    description: '春笋的脆嫩与山药的滋补合一，通体晶莹。'
+    description: 'Sự giòn non của măng xuân hợp nhất với tính bồi bổ của hoài sơn, toàn thân trong suốt.'
   },
   {
     id: 'osmanthus_tea',
-    name: '桂花茶',
+    name: 'Trà Hoa Quế',
     seedId: 'seed_osmanthus_tea',
     season: ['spring', 'autumn'],
     growthDays: 9,
     sellPrice: 280,
     seedPrice: 0,
     deepWatering: false,
-    description: '茶叶的醇厚与桂花的芬芳天作之合，满室飘香。'
+    description: 'Sự kết hợp hoàn hảo giữa vị đậm đà của lá trà và hương thơm của hoa quế, thơm ngát cả phòng.'
   },
   {
     id: 'mountain_bamboo',
-    name: '山竹薯',
+    name: 'Khoai Sơn Trúc',
     seedId: 'seed_mountain_bamboo',
     season: ['spring', 'autumn'],
     growthDays: 7,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '春笋的清爽与红薯的甜糯碰撞，山野间的美味。'
+    description: 'Sự thanh mát của măng xuân va chạm với độ dẻo ngọt của khoai lang, món ngon chốn núi rừng.'
   },
   {
     id: 'golden_fruit',
-    name: '金秋果',
+    name: 'Quả Kim Thu',
     seedId: 'seed_golden_fruit',
     season: ['spring', 'autumn'],
     growthDays: 8,
     sellPrice: 230,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜桃的甜与柿子的糯完美融合，金色果实满枝头。'
+    description: 'Vị ngọt của quả đào và độ dẻo của quả hồng hòa quyện hoàn hảo, quả vàng ươm trĩu nặng cành.'
   },
   {
     id: 'nut_potato',
-    name: '花生薯',
+    name: 'Khoai Đậu Phộng',
     seedId: 'seed_nut_potato',
     season: ['spring', 'autumn'],
     growthDays: 7,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '土豆的绵密与花生的香脆结合，越嚼越香。'
+    description: 'Sự xốp mịn của khoai tây kết hợp với độ giòn của đậu phộng, càng nhai càng thơm.'
   },
   {
     id: 'autumn_bean',
-    name: '秋枣豆',
+    name: 'Đậu Táo Thu',
     seedId: 'seed_autumn_bean',
     season: ['spring', 'autumn'],
     growthDays: 7,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '蚕豆与红枣联姻，豆中带枣香。',
+    description: 'Sự kết duyên của đậu tằm và táo đỏ, trong hạt đậu có hương táo.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 3
   },
   {
     id: 'jujube_blossom',
-    name: '枣花桃',
+    name: 'Đào Táo Hoa',
     seedId: 'seed_jujube_blossom',
     season: ['spring', 'autumn'],
     growthDays: 8,
     sellPrice: 220,
     seedPrice: 0,
     deepWatering: false,
-    description: '桃花的粉嫩与枣花的素雅共绽，果实甜蜜。'
+    description: 'Sự hồng hào của hoa đào cùng nở rộ với sự mộc mạc của hoa táo, quả vô cùng ngọt ngào.'
   },
   {
     id: 'ginger_blossom',
-    name: '姜花菜',
+    name: 'Cải Hoa Gừng',
     seedId: 'seed_ginger_blossom',
     season: ['spring', 'autumn', 'winter'],
     growthDays: 6,
     sellPrice: 170,
     seedPrice: 0,
     deepWatering: false,
-    description: '油菜的嫩与生姜的辛交融，花开似蝶。'
+    description: 'Sự non mềm của cải dầu hòa quyện với vị cay của gừng, hoa nở tựa hồ điệp.'
   },
   {
     id: 'fairy_chrysanthemum',
-    name: '仙菊菜',
+    name: 'Cải Tiên Cúc',
     seedId: 'seed_fairy_chrysanthemum',
     season: ['spring', 'autumn'],
     growthDays: 7,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '青菜的平凡与菊花的高洁融合，叶缘如菊瓣。'
+    description: 'Sự bình dị của cải xanh dung hợp với sự thanh cao của hoa cúc, viền lá như cánh cúc.'
   },
   {
     id: 'imperial_cabbage',
-    name: '御品白菜',
+    name: 'Ngự Phẩm Cải Thảo',
     seedId: 'seed_imperial_cabbage',
     season: ['spring', 'winter'],
     growthDays: 6,
     sellPrice: 155,
     seedPrice: 0,
     deepWatering: false,
-    description: '青菜与白菜的皇家联姻，叶嫩味鲜。',
+    description: 'Cuộc hôn nhân hoàng gia giữa cải xanh và cải thảo, lá non vị tươi ngọt.',
     giantCropEligible: true
   },
   {
     id: 'spicy_radish',
-    name: '蒜香萝卜',
+    name: 'Củ Cải Hương Tỏi',
     seedId: 'seed_spicy_radish',
     season: ['spring', 'winter'],
     growthDays: 6,
     sellPrice: 160,
     seedPrice: 0,
     deepWatering: false,
-    description: '萝卜的脆甜与大蒜的辛辣交织，风味独特。'
+    description: 'Sự giòn ngọt của củ cải đan xen với vị cay nồng của tỏi, phong vị độc đáo.'
   },
   {
     id: 'snow_tea',
-    name: '雪茶',
+    name: 'Trà Tuyết',
     seedId: 'seed_snow_tea',
     season: ['spring', 'winter'],
     growthDays: 10,
     sellPrice: 300,
     seedPrice: 0,
     deepWatering: true,
-    description: '茶叶与雪莲的极品融合，茶汤如雪般纯白。'
+    description: 'Sự dung hợp cực phẩm giữa lá trà và tuyết liên, nước trà trắng tinh như tuyết.'
   },
   {
     id: 'spring_chive',
-    name: '春韭菜',
+    name: 'Hẹ Xuân',
     seedId: 'seed_spring_chive',
     season: ['spring', 'winter'],
     growthDays: 5,
     sellPrice: 150,
     seedPrice: 0,
     deepWatering: false,
-    description: '青菜的温和与韭菜的浓郁合一，四季可种。',
+    description: 'Sự ôn hòa của cải xanh hợp nhất với vị nồng của hẹ, có thể trồng quanh năm.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 5
   },
   {
     id: 'wheat_potato',
-    name: '麦香薯',
+    name: 'Khoai Hương Mạch',
     seedId: 'seed_wheat_potato',
     season: ['spring', 'winter'],
     growthDays: 8,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '土豆与冬小麦跨季联姻，带着麦香的薯类。'
+    description: 'Sự kết duyên trái mùa của khoai tây và lúa mì đông, loài khoai mang theo hương lúa mạch.'
   },
   {
     id: 'spring_green_peach',
-    name: '绿桃',
+    name: 'Đào Xanh',
     seedId: 'seed_spring_green_peach',
     season: ['spring', 'winter'],
     growthDays: 7,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '水蜜桃的甜与菠菜的翠绿交融，果皮碧绿如翠玉。'
+    description: 'Vị ngọt của đào thủy mật hòa quyện với màu xanh của cải bó xôi, vỏ quả xanh biếc như ngọc bích.'
   },
   {
     id: 'mustard_bean',
-    name: '芥香豆',
+    name: 'Đậu Hương Mù Tạt',
     seedId: 'seed_mustard_bean',
     season: ['spring', 'winter'],
     growthDays: 7,
     sellPrice: 170,
     seedPrice: 0,
     deepWatering: false,
-    description: '蚕豆裹上芥菜的微辣，冬春佳品。',
+    description: 'Đậu tằm bọc trong vị cay nhẹ của cải bẹ, giai phẩm của mùa đông và xuân.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 3
   },
   {
     id: 'frost_rapeseed',
-    name: '霜油菜',
+    name: 'Cải Dầu Sương',
     seedId: 'seed_frost_rapeseed',
     season: ['spring', 'winter'],
     growthDays: 6,
     sellPrice: 155,
     seedPrice: 0,
     deepWatering: false,
-    description: '油菜不畏寒霜，叶上凝霜犹翠绿。'
+    description: 'Cải dầu không ngại sương hàn, trên lá đọng sương vẫn xanh mướt.'
   },
   {
     id: 'purple_melon',
-    name: '紫晶瓜',
+    name: 'Dưa Tử Tinh',
     seedId: 'seed_purple_melon',
     season: ['summer'],
     growthDays: 7,
     sellPrice: 195,
     seedPrice: 0,
     deepWatering: false,
-    description: '西瓜的多汁与茄子的紫韵碰撞，果肉紫如水晶。',
+    description: 'Dưa hấu mọng nước va chạm với sắc tím của cà tím, ruột quả tím như pha lê.',
     giantCropEligible: true
   },
   {
     id: 'golden_rice',
-    name: '金芝稻',
+    name: 'Lúa Kim Chi',
     seedId: 'seed_golden_rice',
     season: ['summer'],
     growthDays: 7,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '稻谷与芝麻合一，金色的谷粒散发芝麻香。'
+    description: 'Lúa gạo và hạt mè hợp nhất, hạt thóc vàng kim tỏa ra hương mè.'
   },
   {
     id: 'double_lotus',
-    name: '双莲',
+    name: 'Song Liên',
     seedId: 'seed_double_lotus',
     season: ['summer'],
     growthDays: 9,
     sellPrice: 280,
     seedPrice: 0,
     deepWatering: true,
-    description: '莲藕与莲子同根生的极致融合，花开并蒂。'
+    description: 'Sự dung hợp tột đỉnh của củ sen và hạt sen sinh ra từ cùng một rễ, hoa nở chung cuống.'
   },
   {
     id: 'fire_sesame',
-    name: '火麻仁',
+    name: 'Hỏa Ma Nhân',
     seedId: 'seed_fire_sesame',
     season: ['summer'],
     growthDays: 6,
     sellPrice: 160,
     seedPrice: 0,
     deepWatering: false,
-    description: '辣椒的火与芝麻的香完美结合，又辣又香。'
+    description: 'Lửa của ớt và hương thơm của hạt mè kết hợp hoàn hảo, vừa cay vừa thơm.'
   },
   {
     id: 'silk_corn',
-    name: '丝穗',
+    name: 'Tơ Tuệ',
     seedId: 'seed_silk_corn',
     season: ['summer', 'autumn'],
     growthDays: 8,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '丝瓜的丝滑与玉米的穗实交融，丝缕金黄。',
+    description: 'Sự trơn mượt của mướp hương hòa quyện với bắp ngô trĩu hạt, từng sợi vàng óng.',
     regrowth: true,
     regrowthDays: 4,
     maxHarvests: 3
   },
   {
     id: 'purple_lotus',
-    name: '紫莲茄',
+    name: 'Cà Tử Liên',
     seedId: 'seed_purple_lotus',
     season: ['summer'],
     growthDays: 8,
     sellPrice: 210,
     seedPrice: 0,
     deepWatering: true,
-    description: '茄子的紫韵与莲藕的清润结合，亭亭如莲。'
+    description: 'Sự thanh tao màu tím của cà tím kết hợp với độ thanh mát của củ sen, đứng thẳng tắp như hoa sen.'
   },
   {
     id: 'chrysanthemum_melon',
-    name: '菊瓜',
+    name: 'Dưa Cúc',
     seedId: 'seed_chrysanthemum_melon',
     season: ['summer', 'autumn'],
     growthDays: 7,
     sellPrice: 195,
     seedPrice: 0,
     deepWatering: false,
-    description: '西瓜的甜与菊花的清雅交融，瓜中带花香。'
+    description: 'Vị ngọt của dưa hấu hòa quyện với sự thanh nhã của hoa cúc, trong dưa có hương hoa.'
   },
   {
     id: 'pumpkin_rice',
-    name: '南瓜稻',
+    name: 'Lúa Bí Đỏ',
     seedId: 'seed_pumpkin_rice',
     season: ['summer', 'autumn'],
     growthDays: 8,
     sellPrice: 200,
     seedPrice: 0,
     deepWatering: false,
-    description: '稻谷与南瓜的田园联姻，米饭带有南瓜甜香。'
+    description: 'Sự kết duyên điền viên giữa lúa gạo và bí đỏ, cơm nấu ra mang theo hương vị ngọt ngào của bí đỏ.'
   },
   {
     id: 'mountain_lotus',
-    name: '山莲',
+    name: 'Sơn Liên',
     seedId: 'seed_mountain_lotus',
     season: ['summer', 'autumn'],
     growthDays: 9,
     sellPrice: 240,
     seedPrice: 0,
     deepWatering: true,
-    description: '莲藕的清润与山药的滋补交融，山水相依。'
+    description: 'Độ thanh mát của củ sen hòa quyện với tính bồi bổ của hoài sơn, tựa non nước hữu tình.'
   },
   {
     id: 'double_nut',
-    name: '双果仁',
+    name: 'Song Quả Nhân',
     seedId: 'seed_double_nut',
     season: ['summer', 'autumn'],
     growthDays: 6,
     sellPrice: 165,
     seedPrice: 0,
     deepWatering: false,
-    description: '花生与芝麻双仁合一，香气浓郁。'
+    description: 'Hạt đậu phộng và hạt mè hợp nhất làm một, hương thơm đậm đà.'
   },
   {
     id: 'sweet_gourd',
-    name: '甜丝瓜',
+    name: 'Mướp Ngọt',
     seedId: 'seed_sweet_gourd',
     season: ['summer', 'autumn'],
     growthDays: 7,
     sellPrice: 170,
     seedPrice: 0,
     deepWatering: false,
-    description: '丝瓜的嫩滑与红薯的甜蜜碰撞，瓜肉甘甜。',
+    description: 'Sự non mượt của mướp hương va chạm với sự ngọt ngào của khoai lang, ruột quả ngọt lịm.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 3
   },
   {
     id: 'purple_persimmon',
-    name: '紫柿',
+    name: 'Hồng Tím',
     seedId: 'seed_purple_persimmon',
     season: ['summer', 'autumn'],
     growthDays: 8,
     sellPrice: 210,
     seedPrice: 0,
     deepWatering: false,
-    description: '茄子的紫润与柿子的甜蜜融合，果实紫红。'
+    description: 'Sắc tím bóng của cà tím dung hợp với sự ngọt ngào của quả hồng, quả có màu đỏ tía.'
   },
   {
     id: 'fire_ginger',
-    name: '火姜',
+    name: 'Hỏa Khương',
     seedId: 'seed_fire_ginger',
     season: ['summer', 'autumn', 'winter'],
     growthDays: 6,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '辣椒的火辣与生姜的辛暖交汇，暖意十足。'
+    description: 'Vị cay nồng của ớt giao thoa với vị cay ấm của gừng, tràn đầy hơi ấm.'
   },
   {
     id: 'osmanthus_lotus',
-    name: '桂莲',
+    name: 'Quế Liên',
     seedId: 'seed_osmanthus_lotus',
     season: ['summer', 'autumn'],
     growthDays: 9,
     sellPrice: 270,
     seedPrice: 0,
     deepWatering: true,
-    description: '莲子的清心与桂花的芬芳共鸣，如入仙境。'
+    description: 'Sự thanh tâm của hạt sen cộng hưởng với hương thơm của hoa quế, tựa như bước vào cõi tiên.'
   },
   {
     id: 'golden_sweet',
-    name: '金薯',
+    name: 'Khoai Vàng',
     seedId: 'seed_golden_sweet',
     season: ['summer', 'autumn'],
     growthDays: 7,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '玉米的金色与红薯的甜蜜合一，通体金黄。'
+    description: 'Màu vàng của ngô hợp nhất với sự ngọt ngào của khoai lang, toàn thân vàng óng.'
   },
   {
     id: 'ruby_melon',
-    name: '红宝瓜',
+    name: 'Dưa Hồng Ngọc',
     seedId: 'seed_ruby_melon',
     season: ['summer', 'autumn'],
     growthDays: 7,
     sellPrice: 195,
     seedPrice: 0,
     deepWatering: false,
-    description: '西瓜的多汁与红枣的甜蜜碰撞，果肉红如宝石。'
+    description: 'Dưa hấu mọng nước va chạm với sự ngọt ngào của táo đỏ, ruột quả đỏ như viên đá quý.'
   },
   {
     id: 'chrysanthemum_rice',
-    name: '菊稻',
+    name: 'Lúa Cúc',
     seedId: 'seed_chrysanthemum_rice',
     season: ['summer', 'autumn'],
     growthDays: 8,
     sellPrice: 190,
     seedPrice: 0,
     deepWatering: false,
-    description: '稻谷与菊花的田园融合，米饭带着淡淡菊香。'
+    description: 'Sự dung hợp điền viên giữa lúa gạo và hoa cúc, cơm nấu ra mang hương cúc thoang thoảng.'
   },
   {
     id: 'nut_corn',
-    name: '花生玉米',
+    name: 'Ngô Đậu Phộng',
     seedId: 'seed_nut_corn',
     season: ['summer', 'autumn'],
     growthDays: 8,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '玉米与花生的粗粮结合，每穗夹带花生香。',
+    description: 'Sự kết hợp lương thực thô giữa ngô và đậu phộng, mỗi bắp ngô đều mang theo hương đậu phộng.',
     regrowth: true,
     regrowthDays: 4,
     maxHarvests: 3
   },
   {
     id: 'frost_melon',
-    name: '霜甜瓜',
+    name: 'Dưa Sương Ngọt',
     seedId: 'seed_frost_melon',
     season: ['summer', 'winter'],
     growthDays: 7,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '西瓜的甜与白菜的耐寒交融，冬日也能品尝的甜蜜。'
+    description: 'Vị ngọt của dưa hấu hòa quyện với tính chịu rét của cải thảo, sự ngọt ngào có thể thưởng thức ngay cả trong ngày đông.'
   },
   {
     id: 'twin_grain',
-    name: '双谷',
+    name: 'Song Cốc',
     seedId: 'seed_twin_grain',
     season: ['summer', 'winter'],
     growthDays: 9,
     sellPrice: 180,
     seedPrice: 0,
     deepWatering: false,
-    description: '稻谷与冬小麦的谷物联姻，南北交融。'
+    description: 'Cuộc hôn nhân ngũ cốc giữa lúa gạo và lúa mì đông, sự giao thoa nam bắc.'
   },
   {
     id: 'lotus_cabbage',
-    name: '莲白菜',
+    name: 'Cải Thảo Sen',
     seedId: 'seed_lotus_cabbage',
     season: ['summer', 'winter'],
     growthDays: 8,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '莲藕的清润与白菜的质朴合一，冬日清补。'
+    description: 'Độ thanh mát của củ sen hợp nhất với sự mộc mạc của cải thảo, món thanh bổ ngày đông.'
   },
   {
     id: 'garlic_sesame',
-    name: '蒜芝',
+    name: 'Tỏi Mè',
     seedId: 'seed_garlic_sesame',
     season: ['summer', 'winter'],
     growthDays: 6,
     sellPrice: 160,
     seedPrice: 0,
     deepWatering: false,
-    description: '芝麻的香浓与大蒜的辛辣碰撞，调味圣品。'
+    description: 'Sự thơm nồng của hạt mè va chạm với độ cay của tỏi, thánh phẩm dùng để điều vị.'
   },
   {
     id: 'chive_gourd',
-    name: '韭丝瓜',
+    name: 'Mướp Hẹ',
     seedId: 'seed_chive_gourd',
     season: ['summer', 'winter', 'spring'],
     growthDays: 6,
     sellPrice: 160,
     seedPrice: 0,
     deepWatering: false,
-    description: '丝瓜的嫩滑与韭菜的浓郁交织，三季可种。',
+    description: 'Sự non mượt của mướp hương đan xen với vị nồng của hẹ, có thể trồng trong ba mùa.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 4
   },
   {
     id: 'mustard_eggplant',
-    name: '芥茄',
+    name: 'Cà Mù Tạt',
     seedId: 'seed_mustard_eggplant',
     season: ['summer', 'winter'],
     growthDays: 7,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '茄子的紫韵裹上芥菜的微辣，别有风味。'
+    description: 'Sắc tím của cà tím bọc trong vị cay nhẹ của cải bẹ, mang phong vị rất riêng.'
   },
   {
     id: 'snow_fire_pepper',
-    name: '冰火椒',
+    name: 'Ớt Băng Hỏa',
     seedId: 'seed_snow_fire_pepper',
     season: ['summer', 'winter'],
     growthDays: 9,
     sellPrice: 285,
     seedPrice: 0,
     deepWatering: true,
-    description: '辣椒的火焰与雪莲的冰霜碰撞，冰火两重天。'
+    description: 'Ngọn lửa của ớt va chạm với lớp sương giá của tuyết liên, tạo nên cảnh băng hỏa lưỡng trùng thiên.'
   },
   {
     id: 'winter_corn',
-    name: '冬玉米',
+    name: 'Ngô Đông',
     seedId: 'seed_winter_corn',
     season: ['summer', 'autumn', 'winter'],
     growthDays: 8,
     sellPrice: 180,
     seedPrice: 0,
     deepWatering: false,
-    description: '玉米不畏严寒，叶绿如冬日常青松。',
+    description: 'Bắp ngô không sợ giá rét, lá xanh như cây tùng thường xanh giữa mùa đông.',
     regrowth: true,
     regrowthDays: 4,
     maxHarvests: 3
   },
   {
     id: 'amber_yam',
-    name: '琥珀薯',
+    name: 'Khoai Hổ Phách',
     seedId: 'seed_amber_yam',
     season: ['autumn'],
     growthDays: 7,
     sellPrice: 195,
     seedPrice: 0,
     deepWatering: false,
-    description: '山药的滋补与红薯的甜糯交融，色如琥珀。'
+    description: 'Tính bồi bổ của hoài sơn hòa quyện với độ dẻo ngọt của khoai lang, màu sắc như hổ phách.'
   },
   {
     id: 'twin_blossom',
-    name: '双花',
+    name: 'Song Hoa',
     seedId: 'seed_twin_blossom',
     season: ['autumn'],
     growthDays: 8,
     sellPrice: 240,
     seedPrice: 0,
     deepWatering: false,
-    description: '菊花与桂花竞相绽放，双花争艳。'
+    description: 'Hoa cúc và hoa quế thi nhau nở rộ, hai đóa hoa tranh sắc.'
   },
   {
     id: 'mountain_nut',
-    name: '山花生',
+    name: 'Đậu Phộng Núi',
     seedId: 'seed_mountain_nut',
     season: ['autumn'],
     growthDays: 7,
     sellPrice: 180,
     seedPrice: 0,
     deepWatering: false,
-    description: '山药的绵密与花生的香脆碰撞，山中奇珍。'
+    description: 'Độ xốp mịn của hoài sơn va chạm với sự giòn thơm của đậu phộng, kỳ trân trong núi.'
   },
   {
     id: 'autumn_gem',
-    name: '秋桂南瓜',
+    name: 'Bí Đỏ Thu Quế',
     seedId: 'seed_autumn_gem',
     season: ['autumn'],
     growthDays: 8,
     sellPrice: 230,
     seedPrice: 0,
     deepWatering: false,
-    description: '南瓜的丰满与桂花的馨香融合，金秋瑰宝。',
+    description: 'Sự tròn trịa của bí đỏ dung hợp với hương thơm của hoa quế, báu vật của mùa thu vàng.',
     giantCropEligible: true
   },
   {
     id: 'ginger_yam',
-    name: '姜山药',
+    name: 'Hoài Sơn Gừng',
     seedId: 'seed_ginger_yam',
     season: ['autumn', 'winter'],
     growthDays: 8,
     sellPrice: 200,
     seedPrice: 0,
     deepWatering: false,
-    description: '生姜的辛暖与山药的滋补合一，冬日滋补圣品。'
+    description: 'Tính ấm cay của gừng hợp nhất với tính bồi bổ của hoài sơn, thánh phẩm bồi bổ ngày đông.'
   },
   {
     id: 'golden_persimmon',
-    name: '金柿',
+    name: 'Hồng Vàng',
     seedId: 'seed_golden_persimmon',
     season: ['autumn'],
     growthDays: 8,
     sellPrice: 220,
     seedPrice: 0,
     deepWatering: false,
-    description: '柿子的甜软与南瓜的金黄交融，如金似蜜。'
+    description: 'Độ mềm ngọt của quả hồng hòa quyện với màu vàng óng của bí đỏ, như vàng tựa mật.'
   },
   {
     id: 'chrysanthemum_jujube',
-    name: '菊枣',
+    name: 'Táo Cúc',
     seedId: 'seed_chrysanthemum_jujube',
     season: ['autumn'],
     growthDays: 7,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '菊花的清雅与红枣的甜蜜合一，花中带果。'
+    description: 'Sự thanh nhã của hoa cúc hợp nhất với vị ngọt của táo đỏ, trong hoa mang theo quả.'
   },
   {
     id: 'osmanthus_yam',
-    name: '桂薯',
+    name: 'Khoai Quế',
     seedId: 'seed_osmanthus_yam',
     season: ['autumn'],
     growthDays: 8,
     sellPrice: 210,
     seedPrice: 0,
     deepWatering: false,
-    description: '桂花的馨香渗入红薯的甜糯，满口桂香。'
+    description: 'Hương thơm của hoa quế thấm vào độ dẻo ngọt của khoai lang, cả khuôn miệng ngập tràn hương quế.'
   },
   {
     id: 'winter_pumpkin',
-    name: '冬南瓜',
+    name: 'Bí Đỏ Mùa Đông',
     seedId: 'seed_winter_pumpkin',
     season: ['autumn', 'winter'],
     growthDays: 8,
     sellPrice: 195,
     seedPrice: 0,
     deepWatering: false,
-    description: '南瓜的丰硕与白菜的耐寒结合，冬日暖食。',
+    description: 'Sự sung túc của bí đỏ kết hợp với tính chịu rét của cải thảo, món ăn ấm áp ngày đông.',
     giantCropEligible: true
   },
   {
     id: 'emerald_yam',
-    name: '翡翠山药',
+    name: 'Hoài Sơn Phỉ Thúy',
     seedId: 'seed_emerald_yam',
     season: ['autumn', 'winter'],
     growthDays: 8,
     sellPrice: 195,
     seedPrice: 0,
     deepWatering: false,
-    description: '山药的滋补与菠菜的翠绿交融，切面翡翠般碧绿。'
+    description: 'Tính bồi bổ của hoài sơn hòa quyện với màu xanh của cải bó xôi, mặt cắt xanh biếc như ngọc phỉ thúy.'
   },
   {
     id: 'snow_chrysanthemum',
-    name: '雪菊',
+    name: 'Tuyết Cúc',
     seedId: 'seed_snow_chrysanthemum',
     season: ['autumn', 'winter'],
     growthDays: 10,
     sellPrice: 310,
     seedPrice: 0,
     deepWatering: true,
-    description: '菊花的清雅与雪莲的纯净合一，花瓣如雪。'
+    description: 'Sự thanh nhã của hoa cúc hợp nhất với sự tinh khiết của tuyết liên, cánh hoa trắng như tuyết.'
   },
   {
     id: 'osmanthus_garlic',
-    name: '桂蒜',
+    name: 'Tỏi Quế',
     seedId: 'seed_osmanthus_garlic',
     season: ['autumn', 'winter'],
     growthDays: 7,
     sellPrice: 195,
     seedPrice: 0,
     deepWatering: false,
-    description: '桂花的馨香中和大蒜的辛辣，芳香四溢。'
+    description: 'Hương thơm của hoa quế trung hòa đi độ cay nồng của tỏi, tỏa hương ngào ngạt.'
   },
   {
     id: 'wheat_yam',
-    name: '麦山药',
+    name: 'Hoài Sơn Mạch',
     seedId: 'seed_wheat_yam',
     season: ['autumn', 'winter'],
     growthDays: 9,
     sellPrice: 190,
     seedPrice: 0,
     deepWatering: false,
-    description: '山药与冬小麦的跨季联姻，营养丰富。'
+    description: 'Cuộc hôn nhân trái mùa giữa hoài sơn và lúa mì đông, dinh dưỡng vô cùng phong phú.'
   },
   {
     id: 'cream_peanut',
-    name: '白花生',
+    name: 'Đậu Phộng Trắng',
     seedId: 'seed_cream_peanut',
     season: ['autumn', 'winter'],
     growthDays: 7,
     sellPrice: 170,
     seedPrice: 0,
     deepWatering: false,
-    description: '花生的香脆与白菜的素净合一，壳白如雪。'
+    description: 'Độ giòn thơm của đậu phộng hợp nhất với sự thanh bạch của cải thảo, vỏ trắng như tuyết.'
   },
   {
     id: 'garlic_jujube',
-    name: '蒜枣',
+    name: 'Táo Tỏi',
     seedId: 'seed_garlic_jujube',
     season: ['autumn', 'winter'],
     growthDays: 7,
     sellPrice: 180,
     seedPrice: 0,
     deepWatering: false,
-    description: '红枣的甜与大蒜的辛碰撞，味道出人意料。'
+    description: 'Vị ngọt của táo đỏ va chạm với vị cay của tỏi, mùi vị vượt ngoài dự đoán.'
   },
   {
     id: 'chive_persimmon',
-    name: '韭柿',
+    name: 'Hồng Hẹ',
     seedId: 'seed_chive_persimmon',
     season: ['autumn', 'winter', 'spring'],
     growthDays: 7,
     sellPrice: 185,
     seedPrice: 0,
     deepWatering: false,
-    description: '柿子的甜蜜与韭菜的浓郁交融，三季可收。',
+    description: 'Sự ngọt ngào của quả hồng hòa quyện với vị nồng của hẹ, có thể thu hoạch trong ba mùa.',
     regrowth: true,
     regrowthDays: 4,
     maxHarvests: 3
   },
   {
     id: 'mustard_ginger',
-    name: '芥姜',
+    name: 'Gừng Mù Tạt',
     seedId: 'seed_mustard_ginger',
     season: ['autumn', 'winter'],
     growthDays: 6,
     sellPrice: 170,
     seedPrice: 0,
     deepWatering: false,
-    description: '生姜的辛暖与芥菜的微辣合一，驱寒神品。'
+    description: 'Vị cay ấm của gừng hợp nhất với vị cay nhẹ của cải bẹ, thần phẩm xua tan giá rét.'
   },
   {
     id: 'snow_pumpkin',
-    name: '雪南瓜',
+    name: 'Bí Đỏ Tuyết',
     seedId: 'seed_snow_pumpkin',
     season: ['autumn', 'winter'],
     growthDays: 10,
     sellPrice: 320,
     seedPrice: 0,
     deepWatering: true,
-    description: '南瓜的丰硕与雪莲的纯净交融，白色巨瓜传说。',
+    description: 'Sự sung túc của bí đỏ hòa quyện với sự tinh khiết của tuyết liên, truyền thuyết về quả bí khổng lồ màu trắng.',
     giantCropEligible: true
   },
   {
     id: 'jade_white',
-    name: '碧白菜',
+    name: 'Cải Thảo Bích',
     seedId: 'seed_jade_white',
     season: ['winter'],
     growthDays: 6,
     sellPrice: 150,
     seedPrice: 0,
     deepWatering: false,
-    description: '白菜的质朴与菠菜的翠绿融合，叶片碧绿晶莹。',
+    description: 'Sự mộc mạc của cải thảo dung hợp với màu xanh của cải bó xôi, phiến lá xanh biếc long lanh.',
     giantCropEligible: true
   },
   {
     id: 'garlic_cabbage',
-    name: '蒜白菜',
+    name: 'Cải Thảo Tỏi',
     seedId: 'seed_garlic_cabbage',
     season: ['winter'],
     growthDays: 7,
     sellPrice: 155,
     seedPrice: 0,
     deepWatering: false,
-    description: '大蒜的辛与白菜的甜合一，冬储佳品。'
+    description: 'Vị cay của tỏi hợp nhất với vị ngọt của cải thảo, món ngon dữ trữ mùa đông.'
   },
   {
     id: 'evergreen_herb',
-    name: '长青菜',
+    name: 'Rau Thường Thanh',
     seedId: 'seed_evergreen_herb',
     season: ['winter'],
     growthDays: 6,
     sellPrice: 150,
     seedPrice: 0,
     deepWatering: false,
-    description: '菠菜与芥菜不畏严寒，四季常青。'
+    description: 'Cải bó xôi và cải bẹ không sợ giá lạnh, bốn mùa xanh tươi.'
   },
   {
     id: 'wheat_mustard',
-    name: '麦芥菜',
+    name: 'Cải Mạch',
     seedId: 'seed_wheat_mustard',
     season: ['winter'],
     growthDays: 8,
     sellPrice: 160,
     seedPrice: 0,
     deepWatering: false,
-    description: '冬小麦的醇厚与芥菜的辛辣交融，面中带辛。'
+    description: 'Vị đậm đà của lúa mì đông hòa quyện với vị cay của cải bẹ, trong bột có vị cay nhẹ.'
   },
   {
     id: 'allium_king',
-    name: '百蒜王',
+    name: 'Bách Toán Vương',
     seedId: 'seed_allium_king',
     season: ['winter', 'spring'],
     growthDays: 6,
     sellPrice: 165,
     seedPrice: 0,
     deepWatering: false,
-    description: '大蒜与韭菜的葱属之王，辛香无敌。',
+    description: 'Vị vua của họ hành tỏi sinh ra từ tỏi và hẹ, hương cay vô địch.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 4
   },
   {
     id: 'green_wheat',
-    name: '翠麦',
+    name: 'Thúy Mạch',
     seedId: 'seed_green_wheat',
     season: ['winter'],
     growthDays: 9,
     sellPrice: 165,
     seedPrice: 0,
     deepWatering: false,
-    description: '菠菜的翠绿渗入冬小麦，青翠麦穗随风摇。'
+    description: 'Màu xanh biếc của cải bó xôi thấm vào lúa mì đông, bông lúa xanh tươi đung đưa theo gió.'
   },
   {
     id: 'chive_mustard',
-    name: '韭芥',
+    name: 'Hẹ Mù Tạt',
     seedId: 'seed_chive_mustard',
     season: ['winter', 'spring'],
     growthDays: 5,
     sellPrice: 155,
     seedPrice: 0,
     deepWatering: false,
-    description: '韭菜与芥菜的辛辣同盟，开胃下饭。',
+    description: 'Liên minh cay nồng của hẹ và cải bẹ, rất kích thích vị giác đưa cơm.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 4
   },
   {
     id: 'jade_bamboo_corn',
-    name: '玉笋棒',
+    name: 'Bắp Măng Ngọc',
     seedId: 'seed_jade_bamboo_corn',
     season: ['spring', 'summer'],
     growthDays: 6,
     sellPrice: 170,
     seedPrice: 0,
     deepWatering: false,
-    description: '春笋的鲜脆与玉米的甜糯交融，翠玉般的穗棒清甜可口。'
+    description: 'Độ tươi giòn của măng xuân hòa quyện với vị dẻo ngọt của ngô, bắp ngô như ngọc phỉ thúy thanh ngọt ngon miệng.'
   },
   {
     id: 'ginger_jade_green',
-    name: '姜翠菜',
+    name: 'Cải Gừng Xanh',
     seedId: 'seed_ginger_jade_green',
     season: ['spring', 'summer'],
     growthDays: 5,
     sellPrice: 155,
     seedPrice: 0,
     deepWatering: false,
-    description: '青菜的清爽与生姜的暖辣相遇，暖胃又解腻。'
+    description: 'Sự thanh mát của cải xanh gặp gỡ vị cay ấm của gừng, ấm dạ dày lại giải ngấy.'
   },
   {
     id: 'spicy_sesame',
-    name: '麻辣仁',
+    name: 'Hạt Ma Lạt',
     seedId: 'seed_spicy_sesame',
     season: ['summer', 'autumn'],
     growthDays: 7,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '辣椒的火热与芝麻的醇香碰撞，一口入魂。'
+    description: 'Sự nóng bỏng của ớt va chạm với hương thơm nồng của hạt mè, cắn một miếng là nhớ mãi.'
   },
   {
     id: 'honey_gourd',
-    name: '蜜丝瓜',
+    name: 'Mướp Mật',
     seedId: 'seed_honey_gourd',
     season: ['summer'],
     growthDays: 7,
     sellPrice: 165,
     seedPrice: 0,
     deepWatering: false,
-    description: '丝瓜的柔滑与花生的醇甜相逢，蜜意绵绵。'
+    description: 'Sự mềm trượt của mướp hương gặp gỡ vị ngọt bùi của đậu phộng, ngọt ngào miên man.'
   },
   {
     id: 'golden_peanut_yam',
-    name: '花薯',
+    name: 'Khoai Đậu Phộng',
     seedId: 'seed_golden_peanut_yam',
     season: ['summer', 'autumn'],
     growthDays: 6,
     sellPrice: 170,
     seedPrice: 0,
     deepWatering: false,
-    description: '花生的酥香与红薯的绵密交融，香甜可口。'
+    description: 'Sự xốp thơm của đậu phộng hòa quyện với độ mịn của khoai lang, thơm ngọt ngon miệng.'
   },
   {
     id: 'spice_jujube',
-    name: '辛枣',
+    name: 'Táo Cay',
     seedId: 'seed_spice_jujube',
     season: ['autumn', 'winter'],
     growthDays: 8,
     sellPrice: 180,
     seedPrice: 0,
     deepWatering: false,
-    description: '红枣的甜蜜与大蒜的辛辣奇异融合，回味无穷。'
+    description: 'Sự ngọt ngào của táo đỏ dung hợp kỳ lạ với vị cay nồng của tỏi, dư vị khôn nguôi.'
   },
   {
     id: 'bean_eggplant',
-    name: '豆茄',
+    name: 'Cà Đậu',
     seedId: 'seed_bean_eggplant',
     season: ['summer', 'autumn'],
     growthDays: 6,
     sellPrice: 160,
     seedPrice: 0,
     deepWatering: false,
-    description: '豆角的鲜嫩与茄子的绵软合一，田间双宝。'
+    description: 'Sự tươi non của đậu đũa hợp nhất với sự mềm dẻo của cà tím, song bảo trên đồng.'
   },
   {
     id: 'chrysanthemum_persimmon',
-    name: '菊柿',
+    name: 'Hồng Cúc',
     seedId: 'seed_chrysanthemum_persimmon',
     season: ['autumn'],
     growthDays: 8,
     sellPrice: 190,
     seedPrice: 0,
     deepWatering: false,
-    description: '柿子的甘甜与菊花的清香交融，秋日极品。'
+    description: 'Vị ngọt của quả hồng hòa quyện với hương thanh tao của hoa cúc, cực phẩm ngày thu.'
   },
   {
     id: 'purple_yam',
-    name: '紫玉薯',
+    name: 'Khoai Tử Ngọc',
     seedId: 'seed_purple_yam',
     season: ['autumn', 'winter'],
     growthDays: 7,
     sellPrice: 175,
     seedPrice: 0,
     deepWatering: false,
-    description: '山药的润滑与茄子的紫韵交融，通体泛紫光泽。'
+    description: 'Độ trơn bóng của hoài sơn hòa quyện với sắc tím của cà tím, toàn thân tỏa ra vầng sáng màu tím.'
   },
   {
     id: 'snow_lotus_pearl',
-    name: '雪莲子',
+    name: 'Hạt Tuyết Liên',
     seedId: 'seed_snow_lotus_pearl',
     season: ['winter'],
     growthDays: 9,
     sellPrice: 200,
     seedPrice: 0,
     deepWatering: true,
-    description: '莲子的清心与雪莲的纯净合一，寒冬明珠。'
+    description: 'Sự thanh tâm của hạt sen hợp nhất với sự tinh khiết của tuyết liên, minh châu giữa mùa đông giá rét.'
   },
   // === 二代杂交作物 ===,
   {
     id: 'melon_tea_fruit',
-    name: '蜜茶果',
+    name: 'Mật Trà Quả',
     seedId: 'seed_melon_tea_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 480,
     seedPrice: 0,
     deepWatering: false,
-    description: '金蜜瓜的甘甜与茶叶的清雅在最高境界融合，传说中的仙果！'
+    description: 'Sự ngọt ngào của dưa kim mật và sự thanh nhã của lá trà dung hợp ở cảnh giới cao nhất, tiên quả trong truyền thuyết!'
   },
   {
     id: 'dragon_fire',
-    name: '龙火椒',
+    name: 'Ớt Long Hỏa',
     seedId: 'seed_dragon_fire',
     season: ['summer', 'autumn', 'winter'],
     growthDays: 8,
     sellPrice: 450,
     seedPrice: 0,
     deepWatering: false,
-    description: '凤凰椒的烈焰与生姜的辛暖碰撞，如龙息般灼热！'
+    description: 'Ngọn lửa của ớt phượng hoàng va chạm với độ cay ấm của gừng, rực cháy như hơi thở của rồng!'
   },
   {
     id: 'celestial_rice',
-    name: '天香稻',
+    name: 'Lúa Thiên Hương',
     seedId: 'seed_celestial_rice',
     season: ['summer', 'autumn'],
     growthDays: 10,
     sellPrice: 500,
     seedPrice: 0,
     deepWatering: false,
-    description: '月光稻的银辉与桂花的馨香交融，天上仙稻！'
+    description: 'Ánh bạc của lúa nguyệt quang hòa quyện với hương thơm của hoa quế, tiên đạo chốn thiên đình!'
   },
   {
     id: 'ice_lotus',
-    name: '冰莲',
+    name: 'Băng Liên',
     seedId: 'seed_ice_lotus',
     season: ['summer', 'autumn', 'winter'],
     growthDays: 10,
     sellPrice: 520,
     seedPrice: 0,
     deepWatering: true,
-    description: '霜雪蒜的冰霜与莲子的清心合一，冰莲花开永不凋！'
+    description: 'Sương giá của tỏi sương tuyết hợp nhất với sự thanh tâm của hạt sen, hoa băng liên nở mãi không tàn!'
   },
   {
     id: 'jade_peach_tea',
-    name: '翠桃茶',
+    name: 'Trà Thúy Đào',
     seedId: 'seed_jade_peach_tea',
     season: ['spring', 'autumn'],
     growthDays: 9,
     sellPrice: 470,
     seedPrice: 0,
     deepWatering: false,
-    description: '翡翠茶的碧绿与蜜桃的甜润交融，茶中极品！'
+    description: 'Màu xanh biếc của trà phỉ thúy hòa quyện với độ ngọt dịu của quả đào, cực phẩm trong các loại trà!'
   },
   {
     id: 'golden_dragon',
-    name: '金龙果',
+    name: 'Quả Kim Long',
     seedId: 'seed_golden_dragon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 550,
     seedPrice: 0,
     deepWatering: false,
-    description: '金蜜瓜的尊贵与凤凰椒的烈焰碰撞，果中之龙！',
+    description: 'Sự tôn quý của dưa kim mật va chạm với ngọn lửa của ớt phượng hoàng, vua của các loài quả!',
     giantCropEligible: true
   },
   {
     id: 'moonlight_frost',
-    name: '月霜稻',
+    name: 'Lúa Nguyệt Sương',
     seedId: 'seed_moonlight_frost',
     season: ['summer', 'autumn', 'winter'],
     growthDays: 10,
     sellPrice: 530,
     seedPrice: 0,
     deepWatering: false,
-    description: '月光稻的银辉与霜雪蒜的冰霜交织，月下霜华！'
+    description: 'Ánh bạc của lúa nguyệt quang đan xen với sương giá của tỏi sương tuyết, sương lạnh dưới trăng!'
   },
   {
     id: 'jade_golden_melon',
-    name: '翡翠金瓜',
+    name: 'Dưa Phỉ Thúy Kim',
     seedId: 'seed_jade_golden_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 560,
     seedPrice: 0,
     deepWatering: false,
-    description: '翡翠茶的碧绿与金蜜瓜的金黄交融，翡翠包金！',
+    description: 'Màu xanh của trà phỉ thúy hòa quyện với màu vàng của dưa kim mật, phỉ thúy bọc vàng!',
     giantCropEligible: true
   },
   {
     id: 'immortal_flower',
-    name: '仙人花',
+    name: 'Hoa Tiên Nhân',
     seedId: 'seed_immortal_flower',
     season: ['spring', 'autumn', 'winter'],
     growthDays: 11,
     sellPrice: 580,
     seedPrice: 0,
     deepWatering: true,
-    description: '霜雪蒜的冰霜与翡翠茶的碧绿交融，传说中的仙人之花！'
+    description: 'Sương giá của tỏi sương tuyết hòa quyện với màu xanh của trà phỉ thúy, loài hoa của tiên nhân trong truyền thuyết!'
   },
   {
     id: 'dragon_pearl',
-    name: '龙珠',
+    name: 'Long Châu',
     seedId: 'seed_dragon_pearl',
     season: ['summer', 'autumn'],
     growthDays: 11,
     sellPrice: 600,
     seedPrice: 0,
     deepWatering: false,
-    description: '凤凰椒的烈焰与月光稻的银辉碰撞，果实圆润如龙珠，至宝！'
+    description: 'Ngọn lửa của ớt phượng hoàng va chạm với ánh bạc của lúa nguyệt quang, quả tròn trịa như long châu, chí bảo!'
   },
   // --- 新增二代杂交 ---
   {
     id: 'emerald_jade_tea',
-    name: '翠玉茗',
+    name: 'Thúy Ngọc Mính',
     seedId: 'seed_emerald_jade_tea',
     season: ['spring', 'summer'],
     growthDays: 8,
     sellPrice: 420,
     seedPrice: 0,
     deepWatering: false,
-    description: '翡翠萝卜的碧绿与茶叶的清雅相融，翠色茗香沁人心脾。'
+    description: 'Màu xanh của củ cải phỉ thúy hòa quyện với sự thanh nhã của lá trà, hương trà xanh mướt làm say đắm lòng người.'
   },
   {
     id: 'pearl_osmanthus',
-    name: '桂珠谷',
+    name: 'Lúa Quế Châu',
     seedId: 'seed_pearl_osmanthus',
     season: ['autumn'],
     growthDays: 9,
     sellPrice: 460,
     seedPrice: 0,
     deepWatering: false,
-    description: '珍珠谷的晶莹与桂花的芬芳合一，颗颗桂香满溢。'
+    description: 'Sự trong trẻo của lúa trân châu hợp nhất với hương thơm của hoa quế, từng hạt tràn ngập hương quế.'
   },
   {
     id: 'ruby_fire',
-    name: '红宝椒',
+    name: 'Ớt Hồng Ngọc',
     seedId: 'seed_ruby_fire',
     season: ['spring', 'summer'],
     growthDays: 8,
     sellPrice: 430,
     seedPrice: 0,
     deepWatering: false,
-    description: '红宝豆的红润与辣椒的火热碰撞，如烈焰红宝石。'
+    description: 'Màu đỏ hồng của đậu hồng ngọc va chạm với sức nóng của ớt, tựa như viên hồng ngọc rực lửa.'
   },
   {
     id: 'golden_corn_king',
-    name: '金穗王',
+    name: 'Kim Tuệ Vương',
     seedId: 'seed_golden_corn_king',
     season: ['summer', 'autumn'],
     growthDays: 9,
     sellPrice: 470,
     seedPrice: 0,
     deepWatering: false,
-    description: '金穗玉米的丰硕与稻谷的质朴融合，五谷之王！'
+    description: 'Sự sung túc của ngô bông vàng dung hợp với sự mộc mạc của lúa gạo, vua của ngũ cốc!'
   },
   {
     id: 'jade_melon_tea',
-    name: '碧茗瓜',
+    name: 'Dưa Bích Mính',
     seedId: 'seed_jade_melon_tea',
     season: ['summer'],
     growthDays: 9,
     sellPrice: 450,
     seedPrice: 0,
     deepWatering: false,
-    description: '碧玉瓜的翠绿与茶叶的清香交融，清凉消暑。'
+    description: 'Màu xanh biếc của dưa bích ngọc hòa quyện với hương thơm của lá trà, thanh mát giải nhiệt.'
   },
   {
     id: 'twin_golden_bean',
-    name: '金双豆',
+    name: 'Đậu Kim Song',
     seedId: 'seed_twin_golden_bean',
     season: ['spring', 'summer'],
     growthDays: 7,
     sellPrice: 400,
     seedPrice: 0,
     deepWatering: false,
-    description: '双子豆的双生与花生的饱满结合，金灿灿成双成对。'
+    description: 'Tính sinh đôi của đậu song tử kết hợp với sự căng mọng của đậu phộng, vàng ươm lấp lánh thành song thành cặp.'
   },
   {
     id: 'peach_rice',
-    name: '桃花饭',
+    name: 'Cơm Hoa Đào',
     seedId: 'seed_peach_rice',
     season: ['spring', 'summer'],
     growthDays: 9,
     sellPrice: 460,
     seedPrice: 0,
     deepWatering: false,
-    description: '桃花茶的芬芳渗入稻谷，煮出的米饭泛着桃粉。'
+    description: 'Hương thơm của trà hoa đào thấm vào lúa gạo, cơm nấu ra mang sắc hồng đào.'
   },
   {
     id: 'jade_shoot_ginger',
-    name: '玉笋姜',
+    name: 'Gừng Ngọc Duẩn',
     seedId: 'seed_jade_shoot_ginger',
     season: ['spring'],
     growthDays: 8,
     sellPrice: 420,
     seedPrice: 0,
     deepWatering: false,
-    description: '玉竹芽的鲜嫩与生姜的暖辣碰撞，驱寒暖身。'
+    description: 'Sự tươi non của mầm ngọc trúc va chạm với vị cay ấm của gừng, xua tan giá lạnh sưởi ấm cơ thể.'
   },
   {
     id: 'golden_tuber_lotus',
-    name: '金莲薯',
+    name: 'Khoai Kim Liên',
     seedId: 'seed_golden_tuber_lotus',
     season: ['summer', 'autumn'],
     growthDays: 8,
     sellPrice: 440,
     seedPrice: 0,
     deepWatering: false,
-    description: '金油薯的金黄与莲藕的清润交融，甜糯清香。'
+    description: 'Màu vàng của khoai mỡ vàng hòa quyện với độ thanh mát của củ sen, dẻo ngọt thơm tho.'
   },
   {
     id: 'frost_chrysanthemum',
-    name: '霜菊',
+    name: 'Sương Cúc',
     seedId: 'seed_frost_chrysanthemum',
     season: ['autumn', 'winter'],
     growthDays: 10,
     sellPrice: 500,
     seedPrice: 0,
     deepWatering: true,
-    description: '霜雪蒜的寒气与菊花的傲骨合一，霜中怒放。'
+    description: 'Hàn khí của tỏi sương tuyết hợp nhất với sự kiêu ngạo của hoa cúc, nở rộ trong sương giá.'
   },
   {
     id: 'phoenix_sesame',
-    name: '凤仁',
+    name: 'Phượng Nhân',
     seedId: 'seed_phoenix_sesame',
     season: ['summer', 'autumn'],
     growthDays: 9,
     sellPrice: 450,
     seedPrice: 0,
     deepWatering: false,
-    description: '凤凰椒的烈焰与芝麻的醇香熔于一体，麻辣仙果。'
+    description: 'Ngọn lửa của ớt phượng hoàng hòa quyện làm một với hương thơm của hạt mè, tiên quả cay nồng.'
   },
   {
     id: 'moonlight_lotus',
-    name: '月莲',
+    name: 'Nguyệt Liên',
     seedId: 'seed_moonlight_lotus',
     season: ['summer'],
     growthDays: 10,
     sellPrice: 490,
     seedPrice: 0,
     deepWatering: true,
-    description: '月光稻的银辉与莲子的清心交融，月下白莲悄然开放。'
+    description: 'Ánh bạc của lúa nguyệt quang hòa quyện với sự thanh tâm của hạt sen, bạch liên khẽ nở dưới trăng.'
   },
   {
     id: 'jade_snow',
-    name: '翠雪芽',
+    name: 'Mầm Thúy Tuyết',
     seedId: 'seed_jade_snow',
     season: ['winter', 'spring'],
     growthDays: 10,
     sellPrice: 500,
     seedPrice: 0,
     deepWatering: true,
-    description: '翡翠茶的碧绿遇上雪莲的纯白，冰清玉洁。'
+    description: 'Màu xanh biếc của trà phỉ thúy gặp gỡ sự thuần khiết của tuyết liên, băng thanh ngọc khiết.'
   },
   {
     id: 'golden_pumpkin',
-    name: '金瓜王',
+    name: 'Kim Qua Vương',
     seedId: 'seed_golden_pumpkin',
     season: ['autumn'],
     growthDays: 10,
     sellPrice: 510,
     seedPrice: 0,
     deepWatering: false,
-    description: '金蜜瓜的甘甜与南瓜的醇厚碰撞，金色大瓜威风凛凛。',
+    description: 'Vị ngọt của dưa kim mật va chạm với độ bùi của bí đỏ, quả dưa vàng khổng lồ uy phong lẫm liệt.',
     giantCropEligible: true
   },
   {
     id: 'phoenix_corn',
-    name: '火穗',
+    name: 'Hỏa Tuệ',
     seedId: 'seed_phoenix_corn',
     season: ['summer'],
     growthDays: 9,
     sellPrice: 460,
     seedPrice: 0,
     deepWatering: false,
-    description: '凤凰椒的烈焰点燃玉米穗，火红穗粒甜中带辣。'
+    description: 'Ngọn lửa của ớt phượng hoàng thiêu đốt bắp ngô, hạt ngô đỏ rực ngọt xen lẫn cay.'
   },
   {
     id: 'moonlight_yam',
-    name: '月光薯',
+    name: 'Khoai Nguyệt Quang',
     seedId: 'seed_moonlight_yam',
     season: ['autumn', 'winter'],
     growthDays: 9,
     sellPrice: 470,
     seedPrice: 0,
     deepWatering: false,
-    description: '月光稻的银辉照耀红薯，通体泛着月白柔光。'
+    description: 'Ánh bạc của lúa nguyệt quang chiếu rọi củ khoai lang, toàn thân tỏa ra ánh sáng trắng nhu hòa.'
   },
   {
     id: 'jade_peanut',
-    name: '翠仁果',
+    name: 'Quả Thúy Nhân',
     seedId: 'seed_jade_peanut',
     season: ['summer'],
     growthDays: 8,
     sellPrice: 420,
     seedPrice: 0,
     deepWatering: false,
-    description: '翡翠茶的碧绿渗入花生，壳内仁翠如玉。'
+    description: 'Màu xanh biếc của trà phỉ thúy thấm vào đậu phộng, nhân bên trong xanh như ngọc.'
   },
   {
     id: 'frost_radish',
-    name: '霜玉萝卜',
+    name: 'Củ Cải Sương Ngọc',
     seedId: 'seed_frost_radish',
     season: ['winter', 'spring'],
     growthDays: 9,
     sellPrice: 460,
     seedPrice: 0,
     deepWatering: false,
-    description: '霜雪蒜的冰霜渗入萝卜，根茎晶莹如冰玉。'
+    description: 'Sương giá của tỏi sương tuyết thấm vào củ cải, phần củ trong trẻo như ngọc băng.'
   },
   {
     id: 'golden_jujube',
-    name: '金蜜枣',
+    name: 'Táo Kim Mật',
     seedId: 'seed_golden_jujube',
     season: ['autumn'],
     growthDays: 10,
     sellPrice: 530,
     seedPrice: 0,
     deepWatering: false,
-    description: '金蜜瓜的甘甜注入红枣，颗颗蜜汁饱满。'
+    description: 'Vị ngọt của dưa kim mật truyền vào táo đỏ, từng hạt căng mọng mật ngọt.'
   },
   {
     id: 'phoenix_eggplant',
-    name: '火焰茄',
+    name: 'Cà Hỏa Diễm',
     seedId: 'seed_phoenix_eggplant',
     season: ['summer', 'autumn'],
     growthDays: 8,
     sellPrice: 430,
     seedPrice: 0,
     deepWatering: false,
-    description: '凤凰椒的烈焰与茄子的紫韵碰撞，紫皮之下火辣鲜美。'
+    description: 'Ngọn lửa của ớt phượng hoàng va chạm với sắc tím của cà tím, dưới lớp vỏ tím là vị cay nồng tươi ngon.'
   },
   {
     id: 'moonlight_spinach',
-    name: '银叶菜',
+    name: 'Rau Ngân Diệp',
     seedId: 'seed_moonlight_spinach',
     season: ['winter', 'spring'],
     growthDays: 8,
     sellPrice: 440,
     seedPrice: 0,
     deepWatering: false,
-    description: '月光稻的银辉浸润菠菜叶脉，叶片泛着银光。'
+    description: 'Ánh bạc của lúa nguyệt quang tẩm nhuận gân lá cải bó xôi, phiến lá lấp lánh ánh bạc.'
   },
   {
     id: 'jade_loofah',
-    name: '翠丝瓜',
+    name: 'Mướp Thúy',
     seedId: 'seed_jade_loofah',
     season: ['summer'],
     growthDays: 8,
     sellPrice: 430,
     seedPrice: 0,
     deepWatering: false,
-    description: '翡翠茶的碧色融入丝瓜，瓜身翠绿如玉。'
+    description: 'Màu xanh của trà phỉ thúy thấm vào mướp hương, thân mướp xanh biếc như ngọc.'
   },
   {
     id: 'frost_winter_wheat',
-    name: '霜麦',
+    name: 'Sương Mạch',
     seedId: 'seed_frost_winter_wheat',
     season: ['winter'],
     growthDays: 10,
     sellPrice: 470,
     seedPrice: 0,
     deepWatering: false,
-    description: '霜雪蒜的寒冰渗入冬小麦，麦穗挂满霜花。'
+    description: 'Hàn băng của tỏi sương tuyết thấm vào lúa mì đông, bông lúa phủ đầy hoa sương.'
   },
   {
     id: 'golden_sesame',
-    name: '金芝',
+    name: 'Kim Chi',
     seedId: 'seed_golden_sesame',
     season: ['summer'],
     growthDays: 9,
     sellPrice: 480,
     seedPrice: 0,
     deepWatering: false,
-    description: '金蜜瓜的金色光辉注入芝麻，粒粒金灿如砂金。'
+    description: 'Ánh sáng vàng kim của dưa kim mật truyền vào hạt mè, từng hạt lấp lánh như cát vàng.'
   },
   {
     id: 'phoenix_garlic',
-    name: '火蒜',
+    name: 'Hỏa Toán',
     seedId: 'seed_phoenix_garlic',
     season: ['winter', 'spring'],
     growthDays: 9,
     sellPrice: 450,
     seedPrice: 0,
     deepWatering: false,
-    description: '凤凰椒的烈焰灼烧大蒜，辛辣之上更添火意。'
+    description: 'Ngọn lửa của ớt phượng hoàng thiêu đốt tỏi, trên nền vị cay nồng lại thêm một phần hỏa ý.'
   },
   {
     id: 'moonlight_cabbage',
-    name: '月白菜',
+    name: 'Cải Nguyệt Bạch',
     seedId: 'seed_moonlight_cabbage',
     season: ['autumn', 'winter'],
     growthDays: 9,
     sellPrice: 470,
     seedPrice: 0,
     deepWatering: false,
-    description: '月光稻的银辉洒落白菜叶，月白如绢清甜无比。'
+    description: 'Ánh bạc của lúa nguyệt quang rắc lên lá cải thảo, trắng như lụa và vô cùng thanh ngọt.'
   },
   {
     id: 'jade_persimmon',
-    name: '翠柿',
+    name: 'Hồng Thúy',
     seedId: 'seed_jade_persimmon',
     season: ['autumn'],
     growthDays: 9,
     sellPrice: 450,
     seedPrice: 0,
     deepWatering: false,
-    description: '翡翠茶的碧绿渗入柿子，果肉翡翠色泽甘甜馥郁。'
+    description: 'Màu xanh của trà phỉ thúy thấm vào quả hồng, thịt quả mang sắc phỉ thúy ngọt ngào thơm ngát.'
   },
   {
     id: 'frost_bamboo',
-    name: '冰笋',
+    name: 'Băng Duẩn',
     seedId: 'seed_frost_bamboo',
     season: ['winter', 'spring'],
     growthDays: 9,
     sellPrice: 450,
     seedPrice: 0,
     deepWatering: false,
-    description: '霜雪蒜的冰霜封住春笋鲜味，冰镇之鲜。'
+    description: 'Sương giá của tỏi sương tuyết phong ấn lấy vị tươi ngon của măng xuân, sự tươi mát ướp lạnh.'
   },
   {
     id: 'golden_watermelon',
-    name: '帝瓜',
+    name: 'Đế Qua',
     seedId: 'seed_golden_watermelon',
     season: ['summer'],
     growthDays: 11,
     sellPrice: 560,
     seedPrice: 0,
     deepWatering: false,
-    description: '金蜜瓜回归西瓜之源，甜度登峰造极，瓜中帝王。',
+    description: 'Dưa kim mật quay về với bản nguyên của dưa hấu, độ ngọt đạt tới đỉnh cao, bậc đế vương trong các loài dưa.',
     giantCropEligible: true
   },
   {
     id: 'phoenix_peach',
-    name: '火桃',
+    name: 'Hỏa Đào',
     seedId: 'seed_phoenix_peach',
     season: ['spring', 'summer'],
     growthDays: 10,
     sellPrice: 480,
     seedPrice: 0,
     deepWatering: false,
-    description: '凤凰椒的火焰亲吻蜜桃，红如烈焰甜中带辛。'
+    description: 'Ngọn lửa của ớt phượng hoàng hôn lên quả đào, đỏ như hỏa diễm, ngọt xen lẫn cay.'
   },
   {
     id: 'moonlight_corn',
-    name: '月穗',
+    name: 'Nguyệt Tuệ',
     seedId: 'seed_moonlight_corn',
     season: ['summer', 'autumn'],
     growthDays: 9,
     sellPrice: 490,
     seedPrice: 0,
     deepWatering: false,
-    description: '月光稻的银辉照耀玉米穗，月下银穗丰收满仓。'
+    description: 'Ánh bạc của lúa nguyệt quang chiếu sáng bắp ngô, bắp bạc dưới trăng, thu hoạch đầy kho.'
   },
   {
     id: 'jade_chive',
-    name: '翠韭',
+    name: 'Hẹ Thúy',
     seedId: 'seed_jade_chive',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 420,
     seedPrice: 0,
     deepWatering: false,
-    description: '翡翠茶的碧色浸入韭菜，翠色欲滴辛香四溢。',
+    description: 'Sắc xanh của trà phỉ thúy thấm vào cây hẹ, xanh mướt như muốn nhỏ vắt, hương cay nồng ngào ngạt.',
     regrowth: true,
     regrowthDays: 3,
     maxHarvests: 5
   },
   {
     id: 'frost_pumpkin',
-    name: '霜南瓜',
+    name: 'Bí Đỏ Sương',
     seedId: 'seed_frost_pumpkin',
     season: ['autumn', 'winter'],
     growthDays: 10,
     sellPrice: 470,
     seedPrice: 0,
     deepWatering: false,
-    description: '霜雪蒜的寒气凝于南瓜之上，冰镇南瓜甜如蜜。'
+    description: 'Hàn khí của tỏi sương tuyết ngưng tụ trên quả bí đỏ, bí đỏ ướp lạnh ngọt như mật.'
   },
   {
     id: 'emerald_rice',
-    name: '翠粒稻',
+    name: 'Lúa Thúy Lạp',
     seedId: 'seed_emerald_rice',
     season: ['summer'],
     growthDays: 8,
     sellPrice: 400,
     seedPrice: 0,
     deepWatering: false,
-    description: '翡翠萝卜的碧绿渗入稻谷，翠色米粒清香扑鼻。'
+    description: 'Màu xanh của củ cải phỉ thúy thấm vào lúa gạo, hạt gạo màu xanh tỏa hương thơm ngát.'
   },
   {
     id: 'pearl_peach',
-    name: '珠桃',
+    name: 'Đào Châu',
     seedId: 'seed_pearl_peach',
     season: ['spring', 'summer'],
     growthDays: 9,
     sellPrice: 460,
     seedPrice: 0,
     deepWatering: false,
-    description: '珍珠谷的晶莹与蜜桃的红润交融，果实圆润如明珠。'
+    description: 'Sự trong trẻo của lúa trân châu hòa quyện với màu hồng hào của quả đào, quả tròn trịa như viên minh châu.'
   },
   {
     id: 'golden_lotus',
-    name: '金莲',
+    name: 'Kim Liên',
     seedId: 'seed_golden_lotus',
     season: ['summer'],
     growthDays: 10,
     sellPrice: 490,
     seedPrice: 0,
     deepWatering: true,
-    description: '金蜜瓜的金辉照耀莲子，金莲绽放熠熠生辉。'
+    description: 'Ánh sáng của dưa kim mật chiếu rọi hạt sen, đóa kim liên nở rộ tỏa sáng lấp lánh.'
   },
   {
     id: 'phoenix_broad_bean',
-    name: '凤豆',
+    name: 'Đậu Phượng',
     seedId: 'seed_phoenix_broad_bean',
     season: ['spring', 'summer'],
     growthDays: 8,
     sellPrice: 420,
     seedPrice: 0,
     deepWatering: false,
-    description: '凤凰椒的烈焰烤炙蚕豆，火中淬炼的豆中珍品。'
+    description: 'Ngọn lửa của ớt phượng hoàng thiêu nướng hạt đậu tằm, trân phẩm được tôi luyện trong lửa.'
   },
   {
     id: 'moonlight_tea',
-    name: '月芽茶',
+    name: 'Trà Nguyệt Nha',
     seedId: 'seed_moonlight_tea',
     season: ['spring', 'summer'],
     growthDays: 10,
     sellPrice: 500,
     seedPrice: 0,
     deepWatering: false,
-    description: '月光稻的银辉与茶叶的清雅交融，月芽形茶叶清香悠长。'
+    description: 'Ánh bạc của lúa nguyệt quang hòa quyện với sự thanh nhã của lá trà, lá trà hình trăng khuyết mang hương thơm vương vấn.'
   },
   {
     id: 'jade_rapeseed',
-    name: '翠金菜',
+    name: 'Cải Thúy Kim',
     seedId: 'seed_jade_rapeseed',
     season: ['spring'],
     growthDays: 8,
     sellPrice: 430,
     seedPrice: 0,
     deepWatering: false,
-    description: '翡翠茶的碧绿与油菜的金黄交融，翠金相映。'
+    description: 'Màu xanh của trà phỉ thúy hòa quyện với màu vàng của cải dầu, xanh vàng đan xen.'
   },
   {
     id: 'frost_yam',
-    name: '霜山药',
+    name: 'Hoài Sơn Sương',
     seedId: 'seed_frost_yam',
     season: ['autumn', 'winter'],
     growthDays: 10,
     sellPrice: 470,
     seedPrice: 0,
     deepWatering: false,
-    description: '霜雪蒜的寒意渗入山药，冰润滑腻入口即化。'
+    description: 'Hàn khí của tỏi sương tuyết thấm vào hoài sơn, mát lạnh trơn tuột tan ngay trong miệng.'
   },
   // === 三代杂交作物 ===,
   {
     id: 'wind_melon',
-    name: '风瓜',
+    name: 'Phong Qua',
     seedId: 'seed_wind_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 650,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与翡翠茶经风雨淬炼而成的珍品。'
+    description: 'Trân phẩm hình thành từ dưa kim mật và trà phỉ thúy trải qua sự tôi luyện của mưa gió.'
   },
   {
     id: 'cloud_bean',
-    name: '云豆',
+    name: 'Vân Đậu',
     seedId: 'seed_cloud_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 654,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与凤凰椒在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và ớt phượng hoàng hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'rain_rice',
-    name: '雨稻',
+    name: 'Vũ Đạo',
     seedId: 'seed_rain_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 658,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与月光稻沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và lúa nguyệt quang tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'hoar_tuber',
-    name: '霜薯',
+    name: 'Sương Thự',
     seedId: 'seed_hoar_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 662,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与霜雪蒜在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và tỏi sương tuyết lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'thunder_green',
-    name: '雷菜',
+    name: 'Lôi Thái',
     seedId: 'seed_thunder_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 666,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与翡翠萝卜汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và củ cải phỉ thúy hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   {
     id: 'rainbow_fruit',
-    name: '虹果',
+    name: 'Hồng Quả',
     seedId: 'seed_rainbow_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 670,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与碧玉笋经风雨淬炼而成的珍品。'
+    description: 'Dưa kim mật và măng bích ngọc trải qua sự tôi luyện của mưa gió tạo thành trân phẩm.'
   },
   {
     id: 'dew_bloom',
-    name: '露花',
+    name: 'Lộ Hoa',
     seedId: 'seed_dew_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 674,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与金油薯在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và khoai mỡ vàng hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'dawn_tea',
-    name: '晨茶',
+    name: 'Thần Trà',
     seedId: 'seed_dawn_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 679,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与桃花茶沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và trà hoa đào tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'dusk_shoot',
-    name: '暮笋',
+    name: 'Mộ Duẩn',
     seedId: 'seed_dusk_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 7,
     sellPrice: 683,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与红宝豆在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và đậu hồng ngọc lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'star_lotus',
-    name: '星莲',
+    name: 'Tinh Liên',
     seedId: 'seed_star_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 687,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与双子豆汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và đậu song tử hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   {
     id: 'wind_splendor_wheat',
-    name: '风华麦',
+    name: 'Phong Hoa Mạch',
     seedId: 'seed_wind_splendor_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 691,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与碧玉瓜经风雨淬炼而成的珍品。'
+    description: 'Dưa kim mật và dưa bích ngọc trải qua sự tôi luyện của mưa gió tạo thành trân phẩm.'
   },
   {
     id: 'cloud_splendor_sesame',
-    name: '云华芝',
+    name: 'Vân Hoa Chi',
     seedId: 'seed_cloud_splendor_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 695,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与珍珠谷在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và lúa trân châu hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'rain_splendor_pepper',
-    name: '雨华椒',
+    name: 'Vũ Hoa Tiêu',
     seedId: 'seed_rain_splendor_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 699,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与金穗玉米沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và ngô bông vàng tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'hoar_splendor_root',
-    name: '霜华参',
+    name: 'Sương Hoa Sâm',
     seedId: 'seed_hoar_splendor_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 703,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与莲心茶在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và trà liên tâm lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'thunder_splendor_sprout',
-    name: '雷华芽',
+    name: 'Lôi Hoa Nha',
     seedId: 'seed_thunder_splendor_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 707,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与紫竹茄汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và cà tử trúc hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   {
     id: 'rainbow_splendor_vine',
-    name: '虹华藤',
+    name: 'Hồng Hoa Đằng',
     seedId: 'seed_rainbow_splendor_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 711,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与蜜桃瓜经风雨淬炼而成的珍品。'
+    description: 'Dưa kim mật và dưa mật đào trải qua sự tôi luyện của mưa gió tạo thành trân phẩm.'
   },
   {
     id: 'dew_splendor_bud',
-    name: '露华蕾',
+    name: 'Lộ Hoa Lôi',
     seedId: 'seed_dew_splendor_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 715,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与火豆在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và đậu lửa hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'dawn_splendor_orchid',
-    name: '晨华兰',
+    name: 'Thần Hoa Lan',
     seedId: 'seed_dawn_splendor_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 719,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与丝豆沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và đậu tơ tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'dusk_splendor_gourd',
-    name: '暮华葫',
+    name: 'Mộ Hoa Hồ',
     seedId: 'seed_dusk_splendor_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 723,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与双油籽在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và hạt song dầu lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'star_splendor_herb',
-    name: '星华草',
+    name: 'Tinh Hoa Thảo',
     seedId: 'seed_star_splendor_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 728,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与莲花薯汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và khoai hoa sen hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   {
     id: 'wind_jade3_chestnut',
-    name: '风翠栗',
+    name: 'Phong Thúy Lật',
     seedId: 'seed_wind_jade3_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 732,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与翡翠南瓜经风雨淬炼而成的珍品。'
+    description: 'Dưa kim mật và bí đỏ phỉ thúy trải qua sự tôi luyện của mưa gió tạo thành trân phẩm.'
   },
   {
     id: 'cloud_jade3_apricot',
-    name: '云翠杏',
+    name: 'Vân Thúy Hạnh',
     seedId: 'seed_cloud_jade3_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 736,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与水晶山药在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và hoài sơn pha lê hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'rain_jade3_pear',
-    name: '雨翠梨',
+    name: 'Vũ Thúy Lê',
     seedId: 'seed_rain_jade3_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 740,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与桂花茶沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và trà hoa quế tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'hoar_jade3_berry',
-    name: '霜翠莓',
+    name: 'Sương Thúy Môi',
     seedId: 'seed_hoar_jade3_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 744,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与山竹薯在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và khoai sơn trúc lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'thunder_jade3_peach_t',
-    name: '雷翠桃',
+    name: 'Lôi Thúy Đào',
     seedId: 'seed_thunder_jade3_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 748,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与金秋果汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và quả kim thu hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   {
     id: 'rainbow_jade3_melon',
-    name: '虹翠瓜',
+    name: 'Hồng Thúy Qua',
     seedId: 'seed_rainbow_jade3_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 752,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与花生薯经风雨淬炼而成的珍品。'
+    description: 'Dưa kim mật và khoai đậu phộng trải qua sự tôi luyện của mưa gió tạo thành trân phẩm.'
   },
   {
     id: 'dew_jade3_bean',
-    name: '露翠豆',
+    name: 'Lộ Thúy Đậu',
     seedId: 'seed_dew_jade3_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 756,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与秋枣豆在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và đậu táo thu hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'dawn_jade3_rice',
-    name: '晨翠稻',
+    name: 'Thần Thúy Đạo',
     seedId: 'seed_dawn_jade3_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 760,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与枣花桃沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và đào táo hoa tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'dusk_jade3_tuber',
-    name: '暮翠薯',
+    name: 'Mộ Thúy Thự',
     seedId: 'seed_dusk_jade3_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 764,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与姜花菜在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và cải hoa gừng lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'star_jade3_green',
-    name: '星翠菜',
+    name: 'Tinh Thúy Thái',
     seedId: 'seed_star_jade3_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 768,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与仙菊菜汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và cải tiên cúc hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   {
     id: 'wind_aura_fruit',
-    name: '风灵果',
+    name: 'Phong Linh Quả',
     seedId: 'seed_wind_aura_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 772,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与御品白菜经风雨淬炼而成的珍品。'
+    description: 'Dưa kim mật và ngự phẩm cải thảo trải qua sự tôi luyện của mưa gió tạo thành trân phẩm.'
   },
   {
     id: 'cloud_aura_bloom',
-    name: '云灵花',
+    name: 'Vân Linh Hoa',
     seedId: 'seed_cloud_aura_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 777,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与蒜香萝卜在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và củ cải hương tỏi hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'rain_aura_tea',
-    name: '雨灵茶',
+    name: 'Vũ Linh Trà',
     seedId: 'seed_rain_aura_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 781,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与雪茶沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và trà tuyết tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'hoar_aura_shoot',
-    name: '霜灵笋',
+    name: 'Sương Linh Duẩn',
     seedId: 'seed_hoar_aura_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 785,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与春韭菜在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và hẹ xuân lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'thunder_aura_lotus',
-    name: '雷灵莲',
+    name: 'Lôi Linh Liên',
     seedId: 'seed_thunder_aura_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 789,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与麦香薯汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và khoai hương mạch hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   {
     id: 'rainbow_aura_wheat',
-    name: '虹灵麦',
+    name: 'Hồng Linh Mạch',
     seedId: 'seed_rainbow_aura_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 793,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与绿桃经风雨淬炼而成的珍品。'
+    description: 'Dưa kim mật và đào xanh trải qua sự tôi luyện của mưa gió tạo thành trân phẩm.'
   },
   {
     id: 'dew_aura_sesame',
-    name: '露灵芝',
+    name: 'Lộ Linh Chi',
     seedId: 'seed_dew_aura_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 797,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与芥香豆在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và đậu hương mù tạt hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'dawn_aura_pepper',
-    name: '晨灵椒',
+    name: 'Thần Linh Tiêu',
     seedId: 'seed_dawn_aura_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 801,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与霜油菜沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và cải dầu sương tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'dusk_aura_root',
-    name: '暮灵参',
+    name: 'Mộ Linh Sâm',
     seedId: 'seed_dusk_aura_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 805,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与紫晶瓜在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và dưa tử tinh lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'star_aura_sprout',
-    name: '星灵芽',
+    name: 'Tinh Linh Nha',
     seedId: 'seed_star_aura_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 809,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与金芝稻汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và lúa kim chi hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   {
     id: 'wind_glow_vine',
-    name: '风光藤',
+    name: 'Phong Quang Đằng',
     seedId: 'seed_wind_glow_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 813,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与双莲经风雨淬炼而成的珍品。'
+    description: 'Dưa kim mật và song liên trải qua sự tôi luyện của mưa gió tạo thành trân phẩm.'
   },
   {
     id: 'cloud_glow_bud',
-    name: '云光蕾',
+    name: 'Vân Quang Lôi',
     seedId: 'seed_cloud_glow_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 817,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与火麻仁在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và hỏa ma nhân hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'rain_glow_orchid',
-    name: '雨光兰',
+    name: 'Vũ Quang Lan',
     seedId: 'seed_rain_glow_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 821,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与丝穗沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và tơ tuệ tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'hoar_glow_gourd',
-    name: '霜光葫',
+    name: 'Sương Quang Hồ',
     seedId: 'seed_hoar_glow_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 826,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与紫莲茄在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và cà tử liên lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'thunder_glow_herb',
-    name: '雷光草',
+    name: 'Lôi Quang Thảo',
     seedId: 'seed_thunder_glow_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 830,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与菊瓜汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và dưa cúc hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   {
     id: 'rainbow_glow_chestnut',
-    name: '虹光栗',
+    name: 'Hồng Quang Lật',
     seedId: 'seed_rainbow_glow_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 834,
     seedPrice: 0,
     deepWatering: true,
-    description: '金瓜与南瓜稻经风雨淬炼而成的珍品。'
+    description: 'Dưa kim mật và lúa bí đỏ trải qua sự tôi luyện của mưa gió tạo thành trân phẩm.'
   },
   {
     id: 'dew_glow_apricot',
-    name: '露光杏',
+    name: 'Lộ Quang Hạnh',
     seedId: 'seed_dew_glow_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 838,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与山莲在清风中交融，自然之韵。'
+    description: 'Dưa kim mật và sơn liên hòa quyện trong gió mát, mang âm vận của tự nhiên.'
   },
   {
     id: 'dawn_glow_pear',
-    name: '晨光梨',
+    name: 'Thần Quang Lê',
     seedId: 'seed_dawn_glow_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 842,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与双果仁沐浴露霜，天地灵气所化。'
+    description: 'Dưa kim mật và song quả nhân tắm gội sương mai, do linh khí đất trời hóa thành.'
   },
   {
     id: 'dusk_glow_berry',
-    name: '暮光莓',
+    name: 'Mộ Quang Môi',
     seedId: 'seed_dusk_glow_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 846,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与甜丝瓜在星光下蜕变，风物之精。'
+    description: 'Dưa kim mật và mướp ngọt lột xác dưới ánh sao, tinh hoa của vạn vật.'
   },
   {
     id: 'star_glow_peach_t',
-    name: '星光桃',
+    name: 'Tinh Quang Đào',
     seedId: 'seed_star_glow_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 850,
     seedPrice: 0,
     deepWatering: false,
-    description: '金瓜与紫柿汇聚山川之气，化为珍品。'
+    description: 'Dưa kim mật và hồng tím hội tụ linh khí núi sông, hóa thành trân phẩm.'
   },
   // === 四代杂交作物 ===,
   {
     id: 'moon_hua_melon',
-    name: '月华瓜',
+    name: 'Nguyệt Hoa Qua',
     seedId: 'seed_moon_hua_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 800,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与金瓜在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và dưa kim mật hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'sun_hua_bean',
-    name: '日华豆',
+    name: 'Nhật Hoa Đậu',
     seedId: 'seed_sun_hua_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 804,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与翡翠茶承日月精华，辉映四方。'
+    description: 'Mật trà quả và trà phỉ thúy thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'sky_hua_rice',
-    name: '天华稻',
+    name: 'Thiên Hoa Đạo',
     seedId: 'seed_sky_hua_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 808,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与凤凰椒凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và ớt phượng hoàng ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'gem_hua_tuber',
-    name: '玉华薯',
+    name: 'Ngọc Hoa Thự',
     seedId: 'seed_gem_hua_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 812,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与月光稻沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và lúa nguyệt quang tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'prism_hua_green',
-    name: '琉华菜',
+    name: 'Lưu Hoa Thái',
     seedId: 'seed_prism_hua_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 816,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与霜雪蒜在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và tỏi sương tuyết lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   {
     id: 'silver_hua_fruit',
-    name: '银华果',
+    name: 'Ngân Hoa Quả',
     seedId: 'seed_silver_hua_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 820,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与翡翠萝卜在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và củ cải phỉ thúy hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'verdant_hua_bloom',
-    name: '翠华花',
+    name: 'Thúy Hoa Hoa',
     seedId: 'seed_verdant_hua_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 824,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与碧玉笋承日月精华，辉映四方。'
+    description: 'Mật trà quả và măng bích ngọc thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'violet_hua_tea',
-    name: '紫华茶',
+    name: 'Tử Hoa Trà',
     seedId: 'seed_violet_hua_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 829,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与金油薯凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và khoai mỡ vàng ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'scarlet_hua_shoot',
-    name: '丹华笋',
+    name: 'Đan Hoa Duẩn',
     seedId: 'seed_scarlet_hua_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 833,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与桃花茶沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và trà hoa đào tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'azure_hua_lotus',
-    name: '青华莲',
+    name: 'Thanh Hoa Liên',
     seedId: 'seed_azure_hua_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 837,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与红宝豆在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và đậu hồng ngọc lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   {
     id: 'moon_shine_wheat',
-    name: '月辉麦',
+    name: 'Nguyệt Huy Mạch',
     seedId: 'seed_moon_shine_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 841,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与双子豆在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và đậu song tử hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'sun_shine_sesame',
-    name: '日辉芝',
+    name: 'Nhật Huy Chi',
     seedId: 'seed_sun_shine_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 845,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与碧玉瓜承日月精华，辉映四方。'
+    description: 'Mật trà quả và dưa bích ngọc thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'sky_shine_pepper',
-    name: '天辉椒',
+    name: 'Thiên Huy Tiêu',
     seedId: 'seed_sky_shine_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 849,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与珍珠谷凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và lúa trân châu ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'gem_shine_root',
-    name: '玉辉参',
+    name: 'Ngọc Huy Sâm',
     seedId: 'seed_gem_shine_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 853,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与金穗玉米沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và ngô bông vàng tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'prism_shine_sprout',
-    name: '琉辉芽',
+    name: 'Lưu Huy Nha',
     seedId: 'seed_prism_shine_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 857,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与莲心茶在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và trà liên tâm lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   {
     id: 'silver_shine_vine',
-    name: '银辉藤',
+    name: 'Ngân Huy Đằng',
     seedId: 'seed_silver_shine_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 861,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与紫竹茄在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và cà tử trúc hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'verdant_shine_bud',
-    name: '翠辉蕾',
+    name: 'Thúy Huy Lôi',
     seedId: 'seed_verdant_shine_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 865,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与蜜桃瓜承日月精华，辉映四方。'
+    description: 'Mật trà quả và dưa mật đào thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'violet_shine_orchid',
-    name: '紫辉兰',
+    name: 'Tử Huy Lan',
     seedId: 'seed_violet_shine_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 869,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与火豆凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và đậu lửa ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'scarlet_shine_gourd',
-    name: '丹辉葫',
+    name: 'Đan Huy Hồ',
     seedId: 'seed_scarlet_shine_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 873,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与丝豆沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và đậu tơ tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'azure_shine_herb',
-    name: '青辉草',
+    name: 'Thanh Huy Thảo',
     seedId: 'seed_azure_shine_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 878,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与双油籽在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và hạt song dầu lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   {
     id: 'moon_fortune_chestnut',
-    name: '月瑞栗',
+    name: 'Nguyệt Thụy Lật',
     seedId: 'seed_moon_fortune_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 882,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与莲花薯在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và khoai hoa sen hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'sun_fortune_apricot',
-    name: '日瑞杏',
+    name: 'Nhật Thụy Hạnh',
     seedId: 'seed_sun_fortune_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 886,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与翡翠南瓜承日月精华，辉映四方。'
+    description: 'Mật trà quả và bí đỏ phỉ thúy thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'sky_fortune_pear',
-    name: '天瑞梨',
+    name: 'Thiên Thụy Lê',
     seedId: 'seed_sky_fortune_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 890,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与水晶山药凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và hoài sơn pha lê ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'gem_fortune_berry',
-    name: '玉瑞莓',
+    name: 'Ngọc Thụy Môi',
     seedId: 'seed_gem_fortune_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 894,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与桂花茶沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và trà hoa quế tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'prism_fortune_peach_t',
-    name: '琉瑞桃',
+    name: 'Lưu Thụy Đào',
     seedId: 'seed_prism_fortune_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 898,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与山竹薯在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và khoai sơn trúc lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   {
     id: 'silver_fortune_melon',
-    name: '银瑞瓜',
+    name: 'Ngân Thụy Qua',
     seedId: 'seed_silver_fortune_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 902,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与金秋果在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và quả kim thu hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'verdant_fortune_bean',
-    name: '翠瑞豆',
+    name: 'Thúy Thụy Đậu',
     seedId: 'seed_verdant_fortune_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 906,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与花生薯承日月精华，辉映四方。'
+    description: 'Mật trà quả và khoai đậu phộng thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'violet_fortune_rice',
-    name: '紫瑞稻',
+    name: 'Tử Thụy Đạo',
     seedId: 'seed_violet_fortune_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 910,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与秋枣豆凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và đậu táo thu ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'scarlet_fortune_tuber',
-    name: '丹瑞薯',
+    name: 'Đan Thụy Thự',
     seedId: 'seed_scarlet_fortune_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 914,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与枣花桃沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và đào táo hoa tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'azure_fortune_green',
-    name: '青瑞菜',
+    name: 'Thanh Thụy Thái',
     seedId: 'seed_azure_fortune_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 918,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与姜花菜在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và cải hoa gừng lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   {
     id: 'moon_glory_fruit',
-    name: '月祥果',
+    name: 'Nguyệt Tường Quả',
     seedId: 'seed_moon_glory_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 922,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与仙菊菜在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và cải tiên cúc hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'sun_glory_bloom',
-    name: '日祥花',
+    name: 'Nhật Tường Hoa',
     seedId: 'seed_sun_glory_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 927,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与御品白菜承日月精华，辉映四方。'
+    description: 'Mật trà quả và ngự phẩm cải thảo thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'sky_glory_tea',
-    name: '天祥茶',
+    name: 'Thiên Tường Trà',
     seedId: 'seed_sky_glory_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 931,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与蒜香萝卜凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và củ cải hương tỏi ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'gem_glory_shoot',
-    name: '玉祥笋',
+    name: 'Ngọc Tường Duẩn',
     seedId: 'seed_gem_glory_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 935,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与雪茶沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và trà tuyết tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'prism_glory_lotus',
-    name: '琉祥莲',
+    name: 'Lưu Tường Liên',
     seedId: 'seed_prism_glory_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 939,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与春韭菜在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và hẹ xuân lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   {
     id: 'silver_glory_wheat',
-    name: '银祥麦',
+    name: 'Ngân Tường Mạch',
     seedId: 'seed_silver_glory_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 943,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与麦香薯在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và khoai hương mạch hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'verdant_glory_sesame',
-    name: '翠祥芝',
+    name: 'Thúy Tường Chi',
     seedId: 'seed_verdant_glory_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 947,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与绿桃承日月精华，辉映四方。'
+    description: 'Mật trà quả và đào xanh thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'violet_glory_pepper',
-    name: '紫祥椒',
+    name: 'Tử Tường Tiêu',
     seedId: 'seed_violet_glory_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 951,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与芥香豆凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và đậu hương mù tạt ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'scarlet_glory_root',
-    name: '丹祥参',
+    name: 'Đan Tường Sâm',
     seedId: 'seed_scarlet_glory_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 955,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与霜油菜沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và cải dầu sương tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'azure_glory_sprout',
-    name: '青祥芽',
+    name: 'Thanh Tường Nha',
     seedId: 'seed_azure_glory_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 959,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与紫晶瓜在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và dưa tử tinh lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   {
     id: 'moon_prism4_vine',
-    name: '月彩藤',
+    name: 'Nguyệt Thải Đằng',
     seedId: 'seed_moon_prism4_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 963,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与金芝稻在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và lúa kim chi hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'sun_prism4_bud',
-    name: '日彩蕾',
+    name: 'Nhật Thải Lôi',
     seedId: 'seed_sun_prism4_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 967,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与双莲承日月精华，辉映四方。'
+    description: 'Mật trà quả và song liên thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'sky_prism4_orchid',
-    name: '天彩兰',
+    name: 'Thiên Thải Lan',
     seedId: 'seed_sky_prism4_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 971,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与火麻仁凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và hỏa ma nhân ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'gem_prism4_gourd',
-    name: '玉彩葫',
+    name: 'Ngọc Thải Hồ',
     seedId: 'seed_gem_prism4_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 976,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与丝穗沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và tơ tuệ tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'prism_prism4_herb',
-    name: '琉彩草',
+    name: 'Lưu Thải Thảo',
     seedId: 'seed_prism_prism4_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 980,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与紫莲茄在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và cà tử liên lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   {
     id: 'silver_prism4_chestnut',
-    name: '银彩栗',
+    name: 'Ngân Thải Lật',
     seedId: 'seed_silver_prism4_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 984,
     seedPrice: 0,
     deepWatering: true,
-    description: '蜜茶果与菊瓜在天光下交融，绽放华彩。'
+    description: 'Mật trà quả và dưa cúc hòa quyện dưới ánh sáng thiên nhiên, nở rộ hào quang lộng lẫy.'
   },
   {
     id: 'verdant_prism4_apricot',
-    name: '翠彩杏',
+    name: 'Thúy Thải Hạnh',
     seedId: 'seed_verdant_prism4_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 988,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与南瓜稻承日月精华，辉映四方。'
+    description: 'Mật trà quả và lúa bí đỏ thừa hưởng tinh hoa nhật nguyệt, tỏa sáng rực rỡ bốn phương.'
   },
   {
     id: 'violet_prism4_pear',
-    name: '紫彩梨',
+    name: 'Tử Thải Lê',
     seedId: 'seed_violet_prism4_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 992,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与山莲凝天地灵气，瑞光盈盈。'
+    description: 'Mật trà quả và sơn liên ngưng tụ linh khí đất trời, thụy quang lấp lánh.'
   },
   {
     id: 'scarlet_prism4_berry',
-    name: '丹彩莓',
+    name: 'Đan Thải Môi',
     seedId: 'seed_scarlet_prism4_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 996,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与双果仁沐浴星辉，祥瑞之兆。'
+    description: 'Mật trà quả và song quả nhân tắm gội ánh sao, điềm báo tường thụy.'
   },
   {
     id: 'azure_prism4_peach_t',
-    name: '青彩桃',
+    name: 'Thanh Thải Đào',
     seedId: 'seed_azure_prism4_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1000,
     seedPrice: 0,
     deepWatering: false,
-    description: '蜜茶果与甜丝瓜在月华中蜕变，天赐之品。'
+    description: 'Mật trà quả và mướp ngọt lột xác trong ánh nguyệt hoa, tuyệt phẩm trời ban.'
   },
   // === 五代杂交作物 ===,
   {
     id: 'precious_light5_melon',
-    name: '瑶光瓜',
+    name: 'Dao Quang Qua',
     seedId: 'seed_precious_light5_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 1000,
     seedPrice: 0,
     deepWatering: true,
-    description: '风瓜与蜜茶果的精华凝结，珍贵异常。'
+    description: 'Tinh hoa của phong qua và mật trà quả ngưng kết, trân quý dị thường.'
   },
   {
     id: 'rare_light5_bean',
-    name: '琼光豆',
+    name: 'Quỳnh Quang Đậu',
     seedId: 'seed_rare_light5_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 1010,
     seedPrice: 0,
     deepWatering: false,
-    description: '风瓜与龙火椒在晨曦中绽放瑶光。'
+    description: 'Phong qua và ớt long hỏa nở rộ ánh dao quang trong nắng sớm.'
   },
   {
     id: 'magnif_light5_rice',
-    name: '瑰光稻',
+    name: 'Côi Quang Đạo',
     seedId: 'seed_magnif_light5_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 1021,
     seedPrice: 0,
     deepWatering: false,
-    description: '风瓜与天香稻汇聚琼露，锦绣天成。'
+    description: 'Phong qua và lúa thiên hương hội tụ quỳnh lộ, cẩm tú thiên thành.'
   },
   {
     id: 'radiant_light5_tuber',
-    name: '曦光薯',
+    name: 'Hi Quang Thự',
     seedId: 'seed_radiant_light5_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 8,
     sellPrice: 1031,
     seedPrice: 0,
     deepWatering: false,
-    description: '风瓜与冰莲璃光交映，绮丽非凡。'
+    description: 'Phong qua và băng liên giao thoa ánh lưu ly, kỳ lệ phi phàm.'
   },
   {
     id: 'lustrous_light5_green',
-    name: '璃光菜',
+    name: 'Ly Quang Thái',
     seedId: 'seed_lustrous_light5_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1042,
     seedPrice: 0,
     deepWatering: false,
-    description: '风瓜与翠桃茶凝珊瑚之精，琳琅之品。'
+    description: 'Phong qua và trà thúy đào ngưng tụ tinh túy san hô, tuyệt phẩm lâm lang.'
   },
   {
     id: 'precious_hua5_fruit',
-    name: '瑶华果',
+    name: 'Dao Hoa Quả',
     seedId: 'seed_precious_hua5_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1052,
     seedPrice: 0,
     deepWatering: true,
-    description: '风瓜与金龙果的精华凝结，珍贵异常。'
+    description: 'Tinh hoa của phong qua và quả kim long ngưng kết, trân quý dị thường.'
   },
   {
     id: 'rare_hua5_bloom',
-    name: '琼华花',
+    name: 'Quỳnh Hoa Hoa',
     seedId: 'seed_rare_hua5_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1063,
     seedPrice: 0,
     deepWatering: false,
-    description: '风瓜与月霜稻在晨曦中绽放瑶光。'
+    description: 'Phong qua và lúa nguyệt sương nở rộ ánh dao quang trong nắng sớm.'
   },
   {
     id: 'magnif_hua5_tea',
-    name: '瑰华茶',
+    name: 'Côi Hoa Trà',
     seedId: 'seed_magnif_hua5_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1073,
     seedPrice: 0,
     deepWatering: false,
-    description: '风瓜与翡翠金瓜汇聚琼露，锦绣天成。'
+    description: 'Phong qua và dưa phỉ thúy kim hội tụ quỳnh lộ, cẩm tú thiên thành.'
   },
   {
     id: 'radiant_hua5_shoot',
-    name: '曦华笋',
+    name: 'Hi Hoa Duẩn',
     seedId: 'seed_radiant_hua5_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1083,
     seedPrice: 0,
     deepWatering: false,
-    description: '风瓜与仙人花璃光交映，绮丽非凡。'
+    description: 'Phong qua và hoa tiên nhân giao thoa ánh lưu ly, kỳ lệ phi phàm.'
   },
   {
     id: 'lustrous_hua5_lotus',
-    name: '璃华莲',
+    name: 'Ly Hoa Liên',
     seedId: 'seed_lustrous_hua5_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1094,
     seedPrice: 0,
     deepWatering: false,
-    description: '风瓜与龙珠凝珊瑚之精，琳琅之品。'
+    description: 'Phong qua và long châu ngưng tụ tinh túy san hô, tuyệt phẩm lâm lang.'
   },
   {
     id: 'precious_dewdrop_wheat',
-    name: '瑶露麦',
+    name: 'Dao Lộ Mạch',
     seedId: 'seed_precious_dewdrop_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1104,
     seedPrice: 0,
     deepWatering: true,
-    description: '云豆与冰莲的精华凝结，珍贵异常。'
+    description: 'Tinh hoa của vân đậu và băng liên ngưng kết, trân quý dị thường.'
   },
   {
     id: 'rare_dewdrop_sesame',
-    name: '琼露芝',
+    name: 'Quỳnh Lộ Chi',
     seedId: 'seed_rare_dewdrop_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1115,
     seedPrice: 0,
     deepWatering: false,
-    description: '云豆与翠桃茶在晨曦中绽放瑶光。'
+    description: 'Vân đậu và trà thúy đào nở rộ ánh dao quang trong nắng sớm.'
   },
   {
     id: 'magnif_dewdrop_pepper',
-    name: '瑰露椒',
+    name: 'Côi Lộ Tiêu',
     seedId: 'seed_magnif_dewdrop_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1125,
     seedPrice: 0,
     deepWatering: false,
-    description: '云豆与金龙果汇聚琼露，锦绣天成。'
+    description: 'Vân đậu và quả kim long hội tụ quỳnh lộ, cẩm tú thiên thành.'
   },
   {
     id: 'radiant_dewdrop_root',
-    name: '曦露参',
+    name: 'Hi Lộ Sâm',
     seedId: 'seed_radiant_dewdrop_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1135,
     seedPrice: 0,
     deepWatering: false,
-    description: '云豆与月霜稻璃光交映，绮丽非凡。'
+    description: 'Vân đậu và lúa nguyệt sương giao thoa ánh lưu ly, kỳ lệ phi phàm.'
   },
   {
     id: 'lustrous_dewdrop_sprout',
-    name: '璃露芽',
+    name: 'Ly Lộ Nha',
     seedId: 'seed_lustrous_dewdrop_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1146,
     seedPrice: 0,
     deepWatering: false,
-    description: '云豆与翡翠金瓜凝珊瑚之精，琳琅之品。'
+    description: 'Vân đậu và dưa phỉ thúy kim ngưng tụ tinh túy san hô, tuyệt phẩm lâm lang.'
   },
   {
     id: 'precious_soul_vine',
-    name: '瑶灵藤',
+    name: 'Dao Linh Đằng',
     seedId: 'seed_precious_soul_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1156,
     seedPrice: 0,
     deepWatering: true,
-    description: '云豆与仙人花的精华凝结，珍贵异常。'
+    description: 'Tinh hoa của vân đậu và hoa tiên nhân ngưng kết, trân quý dị thường.'
   },
   {
     id: 'rare_soul_bud',
-    name: '琼灵蕾',
+    name: 'Quỳnh Linh Lôi',
     seedId: 'seed_rare_soul_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1167,
     seedPrice: 0,
     deepWatering: false,
-    description: '云豆与龙珠在晨曦中绽放瑶光。'
+    description: 'Vân đậu và long châu nở rộ ánh dao quang trong nắng sớm.'
   },
   {
     id: 'magnif_soul_orchid',
-    name: '瑰灵兰',
+    name: 'Côi Linh Lan',
     seedId: 'seed_magnif_soul_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1177,
     seedPrice: 0,
     deepWatering: false,
-    description: '云豆与蜜茶果汇聚琼露，锦绣天成。'
+    description: 'Vân đậu và mật trà quả hội tụ quỳnh lộ, cẩm tú thiên thành.'
   },
   {
     id: 'radiant_soul_gourd',
-    name: '曦灵葫',
+    name: 'Hi Linh Hồ',
     seedId: 'seed_radiant_soul_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1188,
     seedPrice: 0,
     deepWatering: false,
-    description: '云豆与龙火椒璃光交映，绮丽非凡。'
+    description: 'Vân đậu và ớt long hỏa giao thoa ánh lưu ly, kỳ lệ phi phàm.'
   },
   {
     id: 'lustrous_soul_herb',
-    name: '璃灵草',
+    name: 'Ly Linh Thảo',
     seedId: 'seed_lustrous_soul_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1198,
     seedPrice: 0,
     deepWatering: false,
-    description: '云豆与天香稻凝珊瑚之精，琳琅之品。'
+    description: 'Vân đậu và lúa thiên hương ngưng tụ tinh túy san hô, tuyệt phẩm lâm lang.'
   },
   {
     id: 'precious_silk5_chestnut',
-    name: '瑶锦栗',
+    name: 'Dao Cẩm Lật',
     seedId: 'seed_precious_silk5_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1208,
     seedPrice: 0,
     deepWatering: true,
-    description: '雨稻与月霜稻的精华凝结，珍贵异常。'
+    description: 'Tinh hoa của vũ đạo và lúa nguyệt sương ngưng kết, trân quý dị thường.'
   },
   {
     id: 'rare_silk5_apricot',
-    name: '琼锦杏',
+    name: 'Quỳnh Cẩm Hạnh',
     seedId: 'seed_rare_silk5_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1219,
     seedPrice: 0,
     deepWatering: false,
-    description: '雨稻与翡翠金瓜在晨曦中绽放瑶光。'
+    description: 'Vũ đạo và dưa phỉ thúy kim nở rộ ánh dao quang trong nắng sớm.'
   },
   {
     id: 'magnif_silk5_pear',
-    name: '瑰锦梨',
+    name: 'Côi Cẩm Lê',
     seedId: 'seed_magnif_silk5_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1229,
     seedPrice: 0,
     deepWatering: false,
-    description: '雨稻与仙人花汇聚琼露，锦绣天成。'
+    description: 'Vũ đạo và hoa tiên nhân hội tụ quỳnh lộ, cẩm tú thiên thành.'
   },
   {
     id: 'radiant_silk5_berry',
-    name: '曦锦莓',
+    name: 'Hi Cẩm Môi',
     seedId: 'seed_radiant_silk5_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1240,
     seedPrice: 0,
     deepWatering: false,
-    description: '雨稻与龙珠璃光交映，绮丽非凡。'
+    description: 'Vũ đạo và long châu giao thoa ánh lưu ly, kỳ lệ phi phàm.'
   },
   {
     id: 'lustrous_silk5_peach_t',
-    name: '璃锦桃',
+    name: 'Ly Cẩm Đào',
     seedId: 'seed_lustrous_silk5_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1250,
     seedPrice: 0,
     deepWatering: false,
-    description: '雨稻与蜜茶果凝珊瑚之精，琳琅之品。'
+    description: 'Vũ đạo và mật trà quả ngưng tụ tinh túy san hô, tuyệt phẩm lâm lang.'
   },
   // === 六代杂交作物 ===,
   {
     id: 'spirit_wonder_melon',
-    name: '灵妙瓜',
+    name: 'Linh Diệu Qua',
     seedId: 'seed_spirit_wonder_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1200,
     seedPrice: 0,
     deepWatering: true,
-    description: '月华瓜与风瓜灵气交汇，仙韵天成。'
+    description: 'Nguyệt hoa qua và phong qua giao hội linh khí, tiên vận thiên thành.'
   },
   {
     id: 'fairy_wonder_bean',
-    name: '仙妙豆',
+    name: 'Tiên Diệu Đậu',
     seedId: 'seed_fairy_wonder_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1213,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与云豆圣华流转，超凡入圣。'
+    description: 'Nguyệt hoa qua và vân đậu lưu chuyển thánh hoa, siêu phàm nhập thánh.'
   },
   {
     id: 'holy_wonder_rice',
-    name: '圣妙稻',
+    name: 'Thánh Diệu Đạo',
     seedId: 'seed_holy_wonder_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1225,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与雨稻神妙莫测，真灵之品。'
+    description: 'Nguyệt hoa qua và vũ đạo thần diệu khôn lường, chân linh chi phẩm.'
   },
   {
     id: 'divine_wonder_tuber',
-    name: '神妙薯',
+    name: 'Thần Diệu Thự',
     seedId: 'seed_divine_wonder_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1238,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与霜薯幻梦交织，禅意盎然。'
+    description: 'Nguyệt hoa qua và sương thự đan xen mộng ảo, thiền ý dạt dào.'
   },
   {
     id: 'trueth_wonder_green',
-    name: '真妙菜',
+    name: 'Chân Diệu Thái',
     seedId: 'seed_trueth_wonder_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1250,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与雷菜仙灵缭绕，不染尘埃。'
+    description: 'Nguyệt hoa qua và lôi thái quấn quýt tiên linh, không vương bụi trần.'
   },
   {
     id: 'spirit_grace6_fruit',
-    name: '灵华果',
+    name: 'Linh Hoa Quả',
     seedId: 'seed_spirit_grace6_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1263,
     seedPrice: 0,
     deepWatering: true,
-    description: '月华瓜与虹果灵气交汇，仙韵天成。'
+    description: 'Nguyệt hoa qua và hồng quả giao hội linh khí, tiên vận thiên thành.'
   },
   {
     id: 'fairy_grace6_bloom',
-    name: '仙华花',
+    name: 'Tiên Hoa Hoa',
     seedId: 'seed_fairy_grace6_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1275,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与露花圣华流转，超凡入圣。'
+    description: 'Nguyệt hoa qua và lộ hoa lưu chuyển thánh hoa, siêu phàm nhập thánh.'
   },
   {
     id: 'holy_grace6_tea',
-    name: '圣华茶',
+    name: 'Thánh Hoa Trà',
     seedId: 'seed_holy_grace6_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1288,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与晨茶神妙莫测，真灵之品。'
+    description: 'Nguyệt hoa qua và thần trà thần diệu khôn lường, chân linh chi phẩm.'
   },
   {
     id: 'divine_grace6_shoot',
-    name: '神华笋',
+    name: 'Thần Hoa Duẩn',
     seedId: 'seed_divine_grace6_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1300,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与暮笋幻梦交织，禅意盎然。'
+    description: 'Nguyệt hoa qua và mộ duẩn đan xen mộng ảo, thiền ý dạt dào.'
   },
   {
     id: 'trueth_grace6_lotus',
-    name: '真华莲',
+    name: 'Chân Hoa Liên',
     seedId: 'seed_trueth_grace6_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1313,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与星莲仙灵缭绕，不染尘埃。'
+    description: 'Nguyệt hoa qua và tinh liên quấn quýt tiên linh, không vương bụi trần.'
   },
   {
     id: 'spirit_phantom_wheat',
-    name: '灵幻麦',
+    name: 'Linh Huyễn Mạch',
     seedId: 'seed_spirit_phantom_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1325,
     seedPrice: 0,
     deepWatering: true,
-    description: '月华瓜与风华麦灵气交汇，仙韵天成。'
+    description: 'Nguyệt hoa qua và phong hoa mạch giao hội linh khí, tiên vận thiên thành.'
   },
   {
     id: 'fairy_phantom_sesame',
-    name: '仙幻芝',
+    name: 'Tiên Huyễn Chi',
     seedId: 'seed_fairy_phantom_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1338,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与云华芝圣华流转，超凡入圣。'
+    description: 'Nguyệt hoa qua và vân hoa chi lưu chuyển thánh hoa, siêu phàm nhập thánh.'
   },
   {
     id: 'holy_phantom_pepper',
-    name: '圣幻椒',
+    name: 'Thánh Huyễn Tiêu',
     seedId: 'seed_holy_phantom_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1350,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与雨华椒神妙莫测，真灵之品。'
+    description: 'Nguyệt hoa qua và vũ hoa tiêu thần diệu khôn lường, chân linh chi phẩm.'
   },
   {
     id: 'divine_phantom_root',
-    name: '神幻参',
+    name: 'Thần Huyễn Sâm',
     seedId: 'seed_divine_phantom_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1363,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与霜华参幻梦交织，禅意盎然。'
+    description: 'Nguyệt hoa qua và sương hoa sâm đan xen mộng ảo, thiền ý dạt dào.'
   },
   {
     id: 'trueth_phantom_sprout',
-    name: '真幻芽',
+    name: 'Chân Huyễn Nha',
     seedId: 'seed_trueth_phantom_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1375,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与雷华芽仙灵缭绕，不染尘埃。'
+    description: 'Nguyệt hoa qua và lôi hoa nha quấn quýt tiên linh, không vương bụi trần.'
   },
   {
     id: 'spirit_dream_vine',
-    name: '灵梦藤',
+    name: 'Linh Mộng Đằng',
     seedId: 'seed_spirit_dream_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1388,
     seedPrice: 0,
     deepWatering: true,
-    description: '月华瓜与虹华藤灵气交汇，仙韵天成。'
+    description: 'Nguyệt hoa qua và hồng hoa đằng giao hội linh khí, tiên vận thiên thành.'
   },
   {
     id: 'fairy_dream_bud',
-    name: '仙梦蕾',
+    name: 'Tiên Mộng Lôi',
     seedId: 'seed_fairy_dream_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1400,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与露华蕾圣华流转，超凡入圣。'
+    description: 'Nguyệt hoa qua và lộ hoa lôi lưu chuyển thánh hoa, siêu phàm nhập thánh.'
   },
   {
     id: 'holy_dream_orchid',
-    name: '圣梦兰',
+    name: 'Thánh Mộng Lan',
     seedId: 'seed_holy_dream_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1413,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与晨华兰神妙莫测，真灵之品。'
+    description: 'Nguyệt hoa qua và thần hoa lan thần diệu khôn lường, chân linh chi phẩm.'
   },
   {
     id: 'divine_dream_gourd',
-    name: '神梦葫',
+    name: 'Thần Mộng Hồ',
     seedId: 'seed_divine_dream_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1425,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与暮华葫幻梦交织，禅意盎然。'
+    description: 'Nguyệt hoa qua và mộ hoa hồ đan xen mộng ảo, thiền ý dạt dào.'
   },
   {
     id: 'trueth_dream_herb',
-    name: '真梦草',
+    name: 'Chân Mộng Thảo',
     seedId: 'seed_trueth_dream_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1438,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与星华草仙灵缭绕，不染尘埃。'
+    description: 'Nguyệt hoa qua và tinh hoa thảo quấn quýt tiên linh, không vương bụi trần.'
   },
   {
     id: 'spirit_zen_chestnut',
-    name: '灵禅栗',
+    name: 'Linh Thiền Lật',
     seedId: 'seed_spirit_zen_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1450,
     seedPrice: 0,
     deepWatering: true,
-    description: '月华瓜与风翠栗灵气交汇，仙韵天成。'
+    description: 'Nguyệt hoa qua và phong thúy lật giao hội linh khí, tiên vận thiên thành.'
   },
   {
     id: 'fairy_zen_apricot',
-    name: '仙禅杏',
+    name: 'Tiên Thiền Hạnh',
     seedId: 'seed_fairy_zen_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1463,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与云翠杏圣华流转，超凡入圣。'
+    description: 'Nguyệt hoa qua và vân thúy hạnh lưu chuyển thánh hoa, siêu phàm nhập thánh.'
   },
   {
     id: 'holy_zen_pear',
-    name: '圣禅梨',
+    name: 'Thánh Thiền Lê',
     seedId: 'seed_holy_zen_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1475,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与雨翠梨神妙莫测，真灵之品。'
+    description: 'Nguyệt hoa qua và vũ thúy lê thần diệu khôn lường, chân linh chi phẩm.'
   },
   {
     id: 'divine_zen_berry',
-    name: '神禅莓',
+    name: 'Thần Thiền Môi',
     seedId: 'seed_divine_zen_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1488,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与霜翠莓幻梦交织，禅意盎然。'
+    description: 'Nguyệt hoa qua và sương thúy môi đan xen mộng ảo, thiền ý dạt dào.'
   },
   {
     id: 'trueth_zen_peach_t',
-    name: '真禅桃',
+    name: 'Chân Thiền Đào',
     seedId: 'seed_trueth_zen_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1500,
     seedPrice: 0,
     deepWatering: false,
-    description: '月华瓜与雷翠桃仙灵缭绕，不染尘埃。'
+    description: 'Nguyệt hoa qua và lôi thúy đào quấn quýt tiên linh, không vương bụi trần.'
   },
   // === 七代杂交作物 ===,
   {
     id: 'draco_song_melon',
-    name: '龙吟瓜',
+    name: 'Long Ngâm Qua',
     seedId: 'seed_draco_song_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1500,
     seedPrice: 0,
     deepWatering: true,
-    description: '瑶光瓜与月华瓜的神力融合，有神兽之威。'
+    description: 'Thần lực của dao quang qua và nguyệt hoa qua dung hợp, mang thần uy của thần thú.'
   },
   {
     id: 'fenghuang_song_bean',
-    name: '凤吟豆',
+    name: 'Phượng Ngâm Đậu',
     seedId: 'seed_fenghuang_song_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1513,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与日华豆龙吟凤鸣，瑞兽降世。'
+    description: 'Dao quang qua và nhật hoa đậu hòa quyện tạo tiếng long ngâm phượng minh, thụy thú giáng thế.'
   },
   {
     id: 'qilin_song_rice',
-    name: '麟吟稻',
+    name: 'Lân Ngâm Đạo',
     seedId: 'seed_qilin_song_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1525,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与天华稻虎啸山林，鹤舞九天。'
+    description: 'Dao quang qua và thiên hoa đạo tựa hổ gầm sơn lâm, hạc múa cửu thiên.'
   },
   {
     id: 'crane_song_tuber',
-    name: '鹤吟薯',
+    name: 'Hạc Ngâm Thự',
     seedId: 'seed_crane_song_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 9,
     sellPrice: 1538,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与玉华薯麟光闪耀，百兽朝拜。'
+    description: 'Dao quang qua và ngọc hoa thự lấp lánh ánh lân quang, bách thú triều bái.'
   },
   {
     id: 'tiger_song_green',
-    name: '虎吟菜',
+    name: 'Hổ Ngâm Thái',
     seedId: 'seed_tiger_song_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1550,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与琉华菜蛟龙出水，威震八方。'
+    description: 'Dao quang qua và lưu hoa thái như giao long xuất thủy, uy chấn bát phương.'
   },
   {
     id: 'draco_dance_fruit',
-    name: '龙舞果',
+    name: 'Long Vũ Quả',
     seedId: 'seed_draco_dance_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1563,
     seedPrice: 0,
     deepWatering: true,
-    description: '瑶光瓜与银华果的神力融合，有神兽之威。'
+    description: 'Thần lực của dao quang qua và ngân hoa quả dung hợp, mang thần uy của thần thú.'
   },
   {
     id: 'fenghuang_dance_bloom',
-    name: '凤舞花',
+    name: 'Phượng Vũ Hoa',
     seedId: 'seed_fenghuang_dance_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1575,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与翠华花龙吟凤鸣，瑞兽降世。'
+    description: 'Dao quang qua và thúy hoa hoa hòa quyện tạo tiếng long ngâm phượng minh, thụy thú giáng thế.'
   },
   {
     id: 'qilin_dance_tea',
-    name: '麟舞茶',
+    name: 'Lân Vũ Trà',
     seedId: 'seed_qilin_dance_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1588,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与紫华茶虎啸山林，鹤舞九天。'
+    description: 'Dao quang qua và tử hoa trà tựa hổ gầm sơn lâm, hạc múa cửu thiên.'
   },
   {
     id: 'crane_dance_shoot',
-    name: '鹤舞笋',
+    name: 'Hạc Vũ Duẩn',
     seedId: 'seed_crane_dance_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1600,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与丹华笋麟光闪耀，百兽朝拜。'
+    description: 'Dao quang qua và đan hoa duẩn lấp lánh ánh lân quang, bách thú triều bái.'
   },
   {
     id: 'tiger_dance_lotus',
-    name: '虎舞莲',
+    name: 'Hổ Vũ Liên',
     seedId: 'seed_tiger_dance_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1613,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与青华莲蛟龙出水，威震八方。'
+    description: 'Dao quang qua và thanh hoa liên như giao long xuất thủy, uy chấn bát phương.'
   },
   {
     id: 'draco_gleam7_wheat',
-    name: '龙辉麦',
+    name: 'Long Huy Mạch',
     seedId: 'seed_draco_gleam7_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1625,
     seedPrice: 0,
     deepWatering: true,
-    description: '瑶光瓜与月辉麦的神力融合，有神兽之威。'
+    description: 'Thần lực của dao quang qua và nguyệt huy mạch dung hợp, mang thần uy của thần thú.'
   },
   {
     id: 'fenghuang_gleam7_sesame',
-    name: '凤辉芝',
+    name: 'Phượng Huy Chi',
     seedId: 'seed_fenghuang_gleam7_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1638,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与日辉芝龙吟凤鸣，瑞兽降世。'
+    description: 'Dao quang qua và nhật huy chi hòa quyện tạo tiếng long ngâm phượng minh, thụy thú giáng thế.'
   },
   {
     id: 'qilin_gleam7_pepper',
-    name: '麟辉椒',
+    name: 'Lân Huy Tiêu',
     seedId: 'seed_qilin_gleam7_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1650,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与天辉椒虎啸山林，鹤舞九天。'
+    description: 'Dao quang qua và thiên huy tiêu tựa hổ gầm sơn lâm, hạc múa cửu thiên.'
   },
   {
     id: 'crane_gleam7_root',
-    name: '鹤辉参',
+    name: 'Hạc Huy Sâm',
     seedId: 'seed_crane_gleam7_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1663,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与玉辉参麟光闪耀，百兽朝拜。'
+    description: 'Dao quang qua và ngọc huy sâm lấp lánh ánh lân quang, bách thú triều bái.'
   },
   {
     id: 'tiger_gleam7_sprout',
-    name: '虎辉芽',
+    name: 'Hổ Huy Nha',
     seedId: 'seed_tiger_gleam7_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1675,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与琉辉芽蛟龙出水，威震八方。'
+    description: 'Dao quang qua và lưu huy nha như giao long xuất thủy, uy chấn bát phương.'
   },
   {
     id: 'draco_shadow_vine',
-    name: '龙影藤',
+    name: 'Long Ảnh Đằng',
     seedId: 'seed_draco_shadow_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1688,
     seedPrice: 0,
     deepWatering: true,
-    description: '瑶光瓜与银辉藤的神力融合，有神兽之威。'
+    description: 'Thần lực của dao quang qua và ngân huy đằng dung hợp, mang thần uy của thần thú.'
   },
   {
     id: 'fenghuang_shadow_bud',
-    name: '凤影蕾',
+    name: 'Phượng Ảnh Lôi',
     seedId: 'seed_fenghuang_shadow_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1700,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与翠辉蕾龙吟凤鸣，瑞兽降世。'
+    description: 'Dao quang qua và thúy huy lôi hòa quyện tạo tiếng long ngâm phượng minh, thụy thú giáng thế.'
   },
   {
     id: 'qilin_shadow_orchid',
-    name: '麟影兰',
+    name: 'Lân Ảnh Lan',
     seedId: 'seed_qilin_shadow_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1713,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与紫辉兰虎啸山林，鹤舞九天。'
+    description: 'Dao quang qua và tử huy lan tựa hổ gầm sơn lâm, hạc múa cửu thiên.'
   },
   {
     id: 'crane_shadow_gourd',
-    name: '鹤影葫',
+    name: 'Hạc Ảnh Hồ',
     seedId: 'seed_crane_shadow_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1725,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与丹辉葫麟光闪耀，百兽朝拜。'
+    description: 'Dao quang qua và đan huy hồ lấp lánh ánh lân quang, bách thú triều bái.'
   },
   {
     id: 'tiger_shadow_herb',
-    name: '虎影草',
+    name: 'Hổ Ảnh Thảo',
     seedId: 'seed_tiger_shadow_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1738,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与青辉草蛟龙出水，威震八方。'
+    description: 'Dao quang qua và thanh huy thảo như giao long xuất thủy, uy chấn bát phương.'
   },
   {
     id: 'draco_roar_chestnut',
-    name: '龙啸栗',
+    name: 'Long Khiếu Lật',
     seedId: 'seed_draco_roar_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1750,
     seedPrice: 0,
     deepWatering: true,
-    description: '瑶光瓜与月瑞栗的神力融合，有神兽之威。'
+    description: 'Thần lực của dao quang qua và nguyệt thụy lật dung hợp, mang thần uy của thần thú.'
   },
   {
     id: 'fenghuang_roar_apricot',
-    name: '凤啸杏',
+    name: 'Phượng Khiếu Hạnh',
     seedId: 'seed_fenghuang_roar_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1763,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与日瑞杏龙吟凤鸣，瑞兽降世。'
+    description: 'Dao quang qua và nhật thụy hạnh hòa quyện tạo tiếng long ngâm phượng minh, thụy thú giáng thế.'
   },
   {
     id: 'qilin_roar_pear',
-    name: '麟啸梨',
+    name: 'Lân Khiếu Lê',
     seedId: 'seed_qilin_roar_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1775,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与天瑞梨虎啸山林，鹤舞九天。'
+    description: 'Dao quang qua và thiên thụy lê tựa hổ gầm sơn lâm, hạc múa cửu thiên.'
   },
   {
     id: 'crane_roar_berry',
-    name: '鹤啸莓',
+    name: 'Hạc Khiếu Môi',
     seedId: 'seed_crane_roar_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1788,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与玉瑞莓麟光闪耀，百兽朝拜。'
+    description: 'Dao quang qua và ngọc thụy môi lấp lánh ánh lân quang, bách thú triều bái.'
   },
   {
     id: 'tiger_roar_peach_t',
-    name: '虎啸桃',
+    name: 'Hổ Khiếu Đào',
     seedId: 'seed_tiger_roar_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 1800,
     seedPrice: 0,
     deepWatering: false,
-    description: '瑶光瓜与琉瑞桃蛟龙出水，威震八方。'
+    description: 'Dao quang qua và lưu thụy đào như giao long xuất thủy, uy chấn bát phương.'
   },
   // === 八代杂交作物 ===,
   {
     id: 'supreme_origin_melon',
-    name: '太初瓜',
+    name: 'Thái Sơ Qua',
     seedId: 'seed_supreme_origin_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1800,
     seedPrice: 0,
     deepWatering: true,
-    description: '灵妙瓜与瑶光瓜天地之气凝聚，元气充沛。'
+    description: 'Linh diệu qua và dao quang qua ngưng tụ linh khí đất trời, nguyên khí dồi dào.'
   },
   {
     id: 'firmament_origin_bean',
-    name: '乾初豆',
+    name: 'Càn Sơ Đậu',
     seedId: 'seed_firmament_origin_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1817,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与琼光豆乾坤交泰，阴阳和合。'
+    description: 'Linh diệu qua và quỳnh quang đậu giao hòa càn khôn, âm dương hòa hợp.'
   },
   {
     id: 'terra_origin_rice',
-    name: '坤初稻',
+    name: 'Khôn Sơ Đạo',
     seedId: 'seed_terra_origin_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1833,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与瑰光稻太初之力觉醒，混元归一。'
+    description: 'Linh diệu qua và côi quang đạo thức tỉnh sức mạnh thái sơ, hỗn nguyên quy nhất.'
   },
   {
     id: 'primal_origin_tuber',
-    name: '元初薯',
+    name: 'Nguyên Sơ Thự',
     seedId: 'seed_primal_origin_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 1850,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与曦光薯天极之光降临，万物归元。'
+    description: 'Linh diệu qua và hi quang thự giáng hạ ánh sáng thiên cực, vạn vật quy nguyên.'
   },
   {
     id: 'chaos_origin_green',
-    name: '混初菜',
+    name: 'Hỗn Sơ Thái',
     seedId: 'seed_chaos_origin_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1867,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与璃光菜元气混沌初开，太一显化。'
+    description: 'Linh diệu qua và ly quang thái mở ra nguyên khí hỗn độn, thái nhất hiển hóa.'
   },
   {
     id: 'supreme_vital8_fruit',
-    name: '太灵果',
+    name: 'Thái Linh Quả',
     seedId: 'seed_supreme_vital8_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1883,
     seedPrice: 0,
     deepWatering: true,
-    description: '灵妙瓜与瑶华果天地之气凝聚，元气充沛。'
+    description: 'Linh diệu qua và dao hoa quả ngưng tụ linh khí đất trời, nguyên khí dồi dào.'
   },
   {
     id: 'firmament_vital8_bloom',
-    name: '乾灵花',
+    name: 'Càn Linh Hoa',
     seedId: 'seed_firmament_vital8_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1900,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与琼华花乾坤交泰，阴阳和合。'
+    description: 'Linh diệu qua và quỳnh hoa hoa giao hòa càn khôn, âm dương hòa hợp.'
   },
   {
     id: 'terra_vital8_tea',
-    name: '坤灵茶',
+    name: 'Khôn Linh Trà',
     seedId: 'seed_terra_vital8_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1917,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与瑰华茶太初之力觉醒，混元归一。'
+    description: 'Linh diệu qua và côi hoa trà thức tỉnh sức mạnh thái sơ, hỗn nguyên quy nhất.'
   },
   {
     id: 'primal_vital8_shoot',
-    name: '元灵笋',
+    name: 'Nguyên Linh Duẩn',
     seedId: 'seed_primal_vital8_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1933,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与曦华笋天极之光降临，万物归元。'
+    description: 'Linh diệu qua và hi hoa duẩn giáng hạ ánh sáng thiên cực, vạn vật quy nguyên.'
   },
   {
     id: 'chaos_vital8_lotus',
-    name: '混灵莲',
+    name: 'Hỗn Linh Liên',
     seedId: 'seed_chaos_vital8_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1950,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与璃华莲元气混沌初开，太一显化。'
+    description: 'Linh diệu qua và ly hoa liên mở ra nguyên khí hỗn độn, thái nhất hiển hóa.'
   },
   {
     id: 'supreme_glory8_wheat',
-    name: '太华麦',
+    name: 'Thái Hoa Mạch',
     seedId: 'seed_supreme_glory8_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1967,
     seedPrice: 0,
     deepWatering: true,
-    description: '灵妙瓜与瑶露麦天地之气凝聚，元气充沛。'
+    description: 'Linh diệu qua và dao lộ mạch ngưng tụ linh khí đất trời, nguyên khí dồi dào.'
   },
   {
     id: 'firmament_glory8_sesame',
-    name: '乾华芝',
+    name: 'Càn Hoa Chi',
     seedId: 'seed_firmament_glory8_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 1983,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与琼露芝乾坤交泰，阴阳和合。'
+    description: 'Linh diệu qua và quỳnh lộ chi giao hòa càn khôn, âm dương hòa hợp.'
   },
   {
     id: 'terra_glory8_pepper',
-    name: '坤华椒',
+    name: 'Khôn Hoa Tiêu',
     seedId: 'seed_terra_glory8_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2000,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与瑰露椒太初之力觉醒，混元归一。'
+    description: 'Linh diệu qua và côi lộ tiêu thức tỉnh sức mạnh thái sơ, hỗn nguyên quy nhất.'
   },
   {
     id: 'primal_glory8_root',
-    name: '元华参',
+    name: 'Nguyên Hoa Sâm',
     seedId: 'seed_primal_glory8_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2017,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与曦露参天极之光降临，万物归元。'
+    description: 'Linh diệu qua và hi lộ sâm giáng hạ ánh sáng thiên cực, vạn vật quy nguyên.'
   },
   {
     id: 'chaos_glory8_sprout',
-    name: '混华芽',
+    name: 'Hỗn Hoa Nha',
     seedId: 'seed_chaos_glory8_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2033,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与璃露芽元气混沌初开，太一显化。'
+    description: 'Linh diệu qua và ly lộ nha mở ra nguyên khí hỗn độn, thái nhất hiển hóa.'
   },
   {
     id: 'supreme_zenith_vine',
-    name: '太极藤',
+    name: 'Thái Cực Đằng',
     seedId: 'seed_supreme_zenith_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2050,
     seedPrice: 0,
     deepWatering: true,
-    description: '灵妙瓜与瑶灵藤天地之气凝聚，元气充沛。'
+    description: 'Linh diệu qua và dao linh đằng ngưng tụ linh khí đất trời, nguyên khí dồi dào.'
   },
   {
     id: 'firmament_zenith_bud',
-    name: '乾极蕾',
+    name: 'Càn Cực Lôi',
     seedId: 'seed_firmament_zenith_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2067,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与琼灵蕾乾坤交泰，阴阳和合。'
+    description: 'Linh diệu qua và quỳnh linh lôi giao hòa càn khôn, âm dương hòa hợp.'
   },
   {
     id: 'terra_zenith_orchid',
-    name: '坤极兰',
+    name: 'Khôn Cực Lan',
     seedId: 'seed_terra_zenith_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2083,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与瑰灵兰太初之力觉醒，混元归一。'
+    description: 'Linh diệu qua và côi linh lan thức tỉnh sức mạnh thái sơ, hỗn nguyên quy nhất.'
   },
   {
     id: 'primal_zenith_gourd',
-    name: '元极葫',
+    name: 'Nguyên Cực Hồ',
     seedId: 'seed_primal_zenith_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2100,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与曦灵葫天极之光降临，万物归元。'
+    description: 'Linh diệu qua và hi linh hồ giáng hạ ánh sáng thiên cực, vạn vật quy nguyên.'
   },
   {
     id: 'chaos_zenith_herb',
-    name: '混极草',
+    name: 'Hỗn Cực Thảo',
     seedId: 'seed_chaos_zenith_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2117,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与璃灵草元气混沌初开，太一显化。'
+    description: 'Linh diệu qua và ly linh thảo mở ra nguyên khí hỗn độn, thái nhất hiển hóa.'
   },
   {
     id: 'supreme_core_chestnut',
-    name: '太元栗',
+    name: 'Thái Nguyên Lật',
     seedId: 'seed_supreme_core_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2133,
     seedPrice: 0,
     deepWatering: true,
-    description: '灵妙瓜与瑶锦栗天地之气凝聚，元气充沛。'
+    description: 'Linh diệu qua và dao cẩm lật ngưng tụ linh khí đất trời, nguyên khí dồi dào.'
   },
   {
     id: 'firmament_core_apricot',
-    name: '乾元杏',
+    name: 'Càn Nguyên Hạnh',
     seedId: 'seed_firmament_core_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2150,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与琼锦杏乾坤交泰，阴阳和合。'
+    description: 'Linh diệu qua và quỳnh cẩm hạnh giao hòa càn khôn, âm dương hòa hợp.'
   },
   {
     id: 'terra_core_pear',
-    name: '坤元梨',
+    name: 'Khôn Nguyên Lê',
     seedId: 'seed_terra_core_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2167,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与瑰锦梨太初之力觉醒，混元归一。'
+    description: 'Linh diệu qua và côi cẩm lê thức tỉnh sức mạnh thái sơ, hỗn nguyên quy nhất.'
   },
   {
     id: 'primal_core_berry',
-    name: '元元莓',
+    name: 'Nguyên Nguyên Môi',
     seedId: 'seed_primal_core_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2183,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与曦锦莓天极之光降临，万物归元。'
+    description: 'Linh diệu qua và hi cẩm môi giáng hạ ánh sáng thiên cực, vạn vật quy nguyên.'
   },
   {
     id: 'chaos_core_peach_t',
-    name: '混元桃',
+    name: 'Hỗn Nguyên Đào',
     seedId: 'seed_chaos_core_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2200,
     seedPrice: 0,
     deepWatering: false,
-    description: '灵妙瓜与璃锦桃元气混沌初开，太一显化。'
+    description: 'Linh diệu qua và ly cẩm đào mở ra nguyên khí hỗn độn, thái nhất hiển hóa.'
   },
   // === 九代杂交作物 ===,
   {
     id: 'vast_meng_melon',
-    name: '鸿蒙瓜',
+    name: 'Hồng Mông Qua',
     seedId: 'seed_vast_meng_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 2200,
     seedPrice: 0,
     deepWatering: true,
-    description: '龙吟瓜与灵妙瓜鸿蒙之力交汇，通灵化境。'
+    description: 'Long ngâm qua và linh diệu qua giao hội sức mạnh hồng mông, thông linh hóa cảnh.'
   },
   {
     id: 'ancient_meng_bean',
-    name: '古蒙豆',
+    name: 'Cổ Mông Đậu',
     seedId: 'seed_ancient_meng_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 2225,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与仙妙豆太古洪荒之气，开天辟地。'
+    description: 'Long ngâm qua và tiên diệu đậu tỏa ra thái cổ hồng hoang chi khí, khai thiên lập địa.'
   },
   {
     id: 'infinite_meng_rice',
-    name: '无蒙稻',
+    name: 'Vô Mông Đạo',
     seedId: 'seed_infinite_meng_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 2250,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与圣妙稻无极之道显现，玄之又玄。'
+    description: 'Long ngâm qua và thánh diệu đạo hiển hiện vô cực chi đạo, huyền diệu vô cùng.'
   },
   {
     id: 'primeval_meng_tuber',
-    name: '洪蒙薯',
+    name: 'Hồng Mông Thự',
     seedId: 'seed_primeval_meng_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 10,
     sellPrice: 2275,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与神妙薯洪荒大力，超越万物。'
+    description: 'Long ngâm qua và thần diệu thự bùng nổ sức mạnh hồng hoang, siêu việt vạn vật.'
   },
   {
     id: 'genesis_meng_green',
-    name: '开蒙菜',
+    name: 'Khai Mông Thái',
     seedId: 'seed_genesis_meng_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2300,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与真妙菜鸿蒙初判，天地为之变色。'
+    description: 'Long ngâm qua và chân diệu thái phán định thuở hồng mông, đất trời vì thế mà biến sắc.'
   },
   {
     id: 'vast_apex9_fruit',
-    name: '鸿极果',
+    name: 'Hồng Cực Quả',
     seedId: 'seed_vast_apex9_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2325,
     seedPrice: 0,
     deepWatering: true,
-    description: '龙吟瓜与灵华果鸿蒙之力交汇，通灵化境。'
+    description: 'Long ngâm qua và linh hoa quả giao hội sức mạnh hồng mông, thông linh hóa cảnh.'
   },
   {
     id: 'ancient_apex9_bloom',
-    name: '古极花',
+    name: 'Cổ Cực Hoa',
     seedId: 'seed_ancient_apex9_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2350,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与仙华花太古洪荒之气，开天辟地。'
+    description: 'Long ngâm qua và tiên hoa hoa tỏa ra thái cổ hồng hoang chi khí, khai thiên lập địa.'
   },
   {
     id: 'infinite_apex9_tea',
-    name: '无极茶',
+    name: 'Vô Cực Trà',
     seedId: 'seed_infinite_apex9_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2375,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与圣华茶无极之道显现，玄之又玄。'
+    description: 'Long ngâm qua và thánh hoa trà hiển hiện vô cực chi đạo, huyền diệu vô cùng.'
   },
   {
     id: 'primeval_apex9_shoot',
-    name: '洪极笋',
+    name: 'Hồng Cực Duẩn',
     seedId: 'seed_primeval_apex9_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2400,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与神华笋洪荒大力，超越万物。'
+    description: 'Long ngâm qua và thần hoa duẩn bùng nổ sức mạnh hồng hoang, siêu việt vạn vật.'
   },
   {
     id: 'genesis_apex9_lotus',
-    name: '开极莲',
+    name: 'Khai Cực Liên',
     seedId: 'seed_genesis_apex9_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2425,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与真华莲鸿蒙初判，天地为之变色。'
+    description: 'Long ngâm qua và chân hoa liên phán định thuở hồng mông, đất trời vì thế mà biến sắc.'
   },
   {
     id: 'vast_wilder_wheat',
-    name: '鸿荒麦',
+    name: 'Hồng Hoang Mạch',
     seedId: 'seed_vast_wilder_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2450,
     seedPrice: 0,
     deepWatering: true,
-    description: '龙吟瓜与灵幻麦鸿蒙之力交汇，通灵化境。'
+    description: 'Long ngâm qua và linh huyễn mạch giao hội sức mạnh hồng mông, thông linh hóa cảnh.'
   },
   {
     id: 'ancient_wilder_sesame',
-    name: '古荒芝',
+    name: 'Cổ Hoang Chi',
     seedId: 'seed_ancient_wilder_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2475,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与仙幻芝太古洪荒之气，开天辟地。'
+    description: 'Long ngâm qua và tiên huyễn chi tỏa ra thái cổ hồng hoang chi khí, khai thiên lập địa.'
   },
   {
     id: 'infinite_wilder_pepper',
-    name: '无荒椒',
+    name: 'Vô Hoang Tiêu',
     seedId: 'seed_infinite_wilder_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2500,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与圣幻椒无极之道显现，玄之又玄。'
+    description: 'Long ngâm qua và thánh huyễn tiêu hiển hiện vô cực chi đạo, huyền diệu vô cùng.'
   },
   {
     id: 'primeval_wilder_root',
-    name: '洪荒参',
+    name: 'Hồng Hoang Sâm',
     seedId: 'seed_primeval_wilder_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2525,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与神幻参洪荒大力，超越万物。'
+    description: 'Long ngâm qua và thần huyễn sâm bùng nổ sức mạnh hồng hoang, siêu việt vạn vật.'
   },
   {
     id: 'genesis_wilder_sprout',
-    name: '开荒芽',
+    name: 'Khai Hoang Nha',
     seedId: 'seed_genesis_wilder_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2550,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与真幻芽鸿蒙初判，天地为之变色。'
+    description: 'Long ngâm qua và chân huyễn nha phán định thuở hồng mông, đất trời vì thế mà biến sắc.'
   },
   {
     id: 'vast_empyrean_vine',
-    name: '鸿天藤',
+    name: 'Hồng Thiên Đằng',
     seedId: 'seed_vast_empyrean_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2575,
     seedPrice: 0,
     deepWatering: true,
-    description: '龙吟瓜与灵梦藤鸿蒙之力交汇，通灵化境。'
+    description: 'Long ngâm qua và linh mộng đằng giao hội sức mạnh hồng mông, thông linh hóa cảnh.'
   },
   {
     id: 'ancient_empyrean_bud',
-    name: '古天蕾',
+    name: 'Cổ Thiên Lôi',
     seedId: 'seed_ancient_empyrean_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2600,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与仙梦蕾太古洪荒之气，开天辟地。'
+    description: 'Long ngâm qua và tiên mộng lôi tỏa ra thái cổ hồng hoang chi khí, khai thiên lập địa.'
   },
   {
     id: 'infinite_empyrean_orchid',
-    name: '无天兰',
+    name: 'Vô Thiên Lan',
     seedId: 'seed_infinite_empyrean_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2625,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与圣梦兰无极之道显现，玄之又玄。'
+    description: 'Long ngâm qua và thánh mộng lan hiển hiện vô cực chi đạo, huyền diệu vô cùng.'
   },
   {
     id: 'primeval_empyrean_gourd',
-    name: '洪天葫',
+    name: 'Hồng Thiên Hồ',
     seedId: 'seed_primeval_empyrean_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2650,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与神梦葫洪荒大力，超越万物。'
+    description: 'Long ngâm qua và thần mộng hồ bùng nổ sức mạnh hồng hoang, siêu việt vạn vật.'
   },
   {
     id: 'genesis_empyrean_herb',
-    name: '开天草',
+    name: 'Khai Thiên Thảo',
     seedId: 'seed_genesis_empyrean_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2675,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与真梦草鸿蒙初判，天地为之变色。'
+    description: 'Long ngâm qua và chân mộng thảo phán định thuở hồng mông, đất trời vì thế mà biến sắc.'
   },
   {
     id: 'vast_spirit9_chestnut',
-    name: '鸿灵栗',
+    name: 'Hồng Linh Lật',
     seedId: 'seed_vast_spirit9_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2700,
     seedPrice: 0,
     deepWatering: true,
-    description: '龙吟瓜与灵禅栗鸿蒙之力交汇，通灵化境。'
+    description: 'Long ngâm qua và linh thiền lật giao hội sức mạnh hồng mông, thông linh hóa cảnh.'
   },
   {
     id: 'ancient_spirit9_apricot',
-    name: '古灵杏',
+    name: 'Cổ Linh Hạnh',
     seedId: 'seed_ancient_spirit9_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2725,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与仙禅杏太古洪荒之气，开天辟地。'
+    description: 'Long ngâm qua và tiên thiền hạnh tỏa ra thái cổ hồng hoang chi khí, khai thiên lập địa.'
   },
   {
     id: 'infinite_spirit9_pear',
-    name: '无灵梨',
+    name: 'Vô Linh Lê',
     seedId: 'seed_infinite_spirit9_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2750,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与圣禅梨无极之道显现，玄之又玄。'
+    description: 'Long ngâm qua và thánh thiền lê hiển hiện vô cực chi đạo, huyền diệu vô cùng.'
   },
   {
     id: 'primeval_spirit9_berry',
-    name: '洪灵莓',
+    name: 'Hồng Linh Môi',
     seedId: 'seed_primeval_spirit9_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2775,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与神禅莓洪荒大力，超越万物。'
+    description: 'Long ngâm qua và thần thiền môi bùng nổ sức mạnh hồng hoang, siêu việt vạn vật.'
   },
   {
     id: 'genesis_spirit9_peach_t',
-    name: '开灵桃',
+    name: 'Khai Linh Đào',
     seedId: 'seed_genesis_spirit9_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 2800,
     seedPrice: 0,
     deepWatering: false,
-    description: '龙吟瓜与真禅桃鸿蒙初判，天地为之变色。'
+    description: 'Long ngâm qua và chân thiền đào phán định thuở hồng mông, đất trời vì thế mà biến sắc.'
   },
   // === 十代杂交作物 ===,
   {
     id: 'creation_change_melon',
-    name: '造化瓜',
+    name: 'Tạo Hóa Qua',
     seedId: 'seed_creation_change_melon',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2800,
     seedPrice: 0,
     deepWatering: true,
-    description: '太初瓜与龙吟瓜造化之力成就，永恒不朽之品。'
+    description: 'Thái sơ qua và long ngâm qua mượn tạo hóa chi lực thành tựu, tuyệt phẩm vĩnh hằng bất hủ.'
   },
   {
     id: 'eternal_change_bean',
-    name: '永化豆',
+    name: 'Vĩnh Hóa Đậu',
     seedId: 'seed_eternal_change_bean',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2829,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与凤吟豆天命所归，万象更新。'
+    description: 'Thái sơ qua và phượng ngâm đậu thiên mệnh sở quy, vạn tượng canh tân.'
   },
   {
     id: 'undying_change_rice',
-    name: '不化稻',
+    name: 'Bất Hóa Đạo',
     seedId: 'seed_undying_change_rice',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2858,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与麟吟稻不朽轮回，涅槃重生。'
+    description: 'Thái sơ qua và lân ngâm đạo luân hồi bất hủ, niết bàn trọng sinh.'
   },
   {
     id: 'heavenly_change_tuber',
-    name: '天化薯',
+    name: 'Thiên Hóa Thự',
     seedId: 'seed_heavenly_change_tuber',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 11,
     sellPrice: 2888,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与鹤吟薯造化弄人，终成至宝。'
+    description: 'Thái sơ qua và hạc ngâm thự mượn tạo hóa trêu người, cuối cùng thành chí bảo.'
   },
   {
     id: 'myriad_change_green',
-    name: '万化菜',
+    name: 'Vạn Hóa Thái',
     seedId: 'seed_myriad_change_green',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2917,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与虎吟菜永恒不灭之光，照耀天地。'
+    description: 'Ánh sáng vĩnh hằng bất diệt của thái sơ qua và hổ ngâm thái, chiếu rọi khắp đất trời.'
   },
   {
     id: 'creation_lasting_fruit',
-    name: '造恒果',
+    name: 'Tạo Hằng Quả',
     seedId: 'seed_creation_lasting_fruit',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2946,
     seedPrice: 0,
     deepWatering: true,
-    description: '太初瓜与龙舞果造化之力成就，永恒不朽之品。'
+    description: 'Thái sơ qua và long vũ quả mượn tạo hóa chi lực thành tựu, tuyệt phẩm vĩnh hằng bất hủ.'
   },
   {
     id: 'eternal_lasting_bloom',
-    name: '永恒花',
+    name: 'Vĩnh Hằng Hoa',
     seedId: 'seed_eternal_lasting_bloom',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 2975,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与凤舞花天命所归，万象更新。'
+    description: 'Thái sơ qua và phượng vũ hoa thiên mệnh sở quy, vạn tượng canh tân.'
   },
   {
     id: 'undying_lasting_tea',
-    name: '不恒茶',
+    name: 'Bất Hằng Trà',
     seedId: 'seed_undying_lasting_tea',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 3004,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与麟舞茶不朽轮回，涅槃重生。'
+    description: 'Thái sơ qua và lân vũ trà luân hồi bất hủ, niết bàn trọng sinh.'
   },
   {
     id: 'heavenly_lasting_shoot',
-    name: '天恒笋',
+    name: 'Thiên Hằng Duẩn',
     seedId: 'seed_heavenly_lasting_shoot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 3033,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与鹤舞笋造化弄人，终成至宝。'
+    description: 'Thái sơ qua và hạc vũ duẩn mượn tạo hóa trêu người, cuối cùng thành chí bảo.'
   },
   {
     id: 'myriad_lasting_lotus',
-    name: '万恒莲',
+    name: 'Vạn Hằng Liên',
     seedId: 'seed_myriad_lasting_lotus',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 3063,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与虎舞莲永恒不灭之光，照耀天地。'
+    description: 'Ánh sáng vĩnh hằng bất diệt của thái sơ qua và hổ vũ liên, chiếu rọi khắp đất trời.'
   },
   {
     id: 'creation_timeless_wheat',
-    name: '造朽麦',
+    name: 'Tạo Hủ Mạch',
     seedId: 'seed_creation_timeless_wheat',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 3092,
     seedPrice: 0,
     deepWatering: true,
-    description: '太初瓜与龙辉麦造化之力成就，永恒不朽之品。'
+    description: 'Thái sơ qua và long huy mạch mượn tạo hóa chi lực thành tựu, tuyệt phẩm vĩnh hằng bất hủ.'
   },
   {
     id: 'eternal_timeless_sesame',
-    name: '永朽芝',
+    name: 'Vĩnh Hủ Chi',
     seedId: 'seed_eternal_timeless_sesame',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 12,
     sellPrice: 3121,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与凤辉芝天命所归，万象更新。'
+    description: 'Thái sơ qua và phượng huy chi thiên mệnh sở quy, vạn tượng canh tân.'
   },
   {
     id: 'undying_timeless_pepper',
-    name: '不朽椒',
+    name: 'Bất Hủ Tiêu',
     seedId: 'seed_undying_timeless_pepper',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 3150,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与麟辉椒不朽轮回，涅槃重生。'
+    description: 'Thái sơ qua và lân huy tiêu luân hồi bất hủ, niết bàn trọng sinh.'
   },
   {
     id: 'heavenly_timeless_root',
-    name: '天朽参',
+    name: 'Thiên Hủ Sâm',
     seedId: 'seed_heavenly_timeless_root',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 3179,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与鹤辉参造化弄人，终成至宝。'
+    description: 'Thái sơ qua và hạc huy sâm mượn tạo hóa trêu người, cuối cùng thành chí bảo.'
   },
   {
     id: 'myriad_timeless_sprout',
-    name: '万朽芽',
+    name: 'Vạn Hủ Nha',
     seedId: 'seed_myriad_timeless_sprout',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 3208,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与虎辉芽永恒不灭之光，照耀天地。'
+    description: 'Ánh sáng vĩnh hằng bất diệt của thái sơ qua và hổ huy nha, chiếu rọi khắp đất trời.'
   },
   {
     id: 'creation_destiny_vine',
-    name: '造命藤',
+    name: 'Tạo Mệnh Đằng',
     seedId: 'seed_creation_destiny_vine',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 3238,
     seedPrice: 0,
     deepWatering: true,
-    description: '太初瓜与龙影藤造化之力成就，永恒不朽之品。'
+    description: 'Thái sơ qua và long ảnh đằng mượn tạo hóa chi lực thành tựu, tuyệt phẩm vĩnh hằng bất hủ.'
   },
   {
     id: 'eternal_destiny_bud',
-    name: '永命蕾',
+    name: 'Vĩnh Mệnh Lôi',
     seedId: 'seed_eternal_destiny_bud',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 3267,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与凤影蕾天命所归，万象更新。'
+    description: 'Thái sơ qua và phượng ảnh lôi thiên mệnh sở quy, vạn tượng canh tân.'
   },
   {
     id: 'undying_destiny_orchid',
-    name: '不命兰',
+    name: 'Bất Mệnh Lan',
     seedId: 'seed_undying_destiny_orchid',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 3296,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与麟影兰不朽轮回，涅槃重生。'
+    description: 'Thái sơ qua và lân ảnh lan luân hồi bất hủ, niết bàn trọng sinh.'
   },
   {
     id: 'heavenly_destiny_gourd',
-    name: '天命葫',
+    name: 'Thiên Mệnh Hồ',
     seedId: 'seed_heavenly_destiny_gourd',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 3325,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与鹤影葫造化弄人，终成至宝。'
+    description: 'Thái sơ qua và hạc ảnh hồ mượn tạo hóa trêu người, cuối cùng thành chí bảo.'
   },
   {
     id: 'myriad_destiny_herb',
-    name: '万命草',
+    name: 'Vạn Mệnh Thảo',
     seedId: 'seed_myriad_destiny_herb',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 13,
     sellPrice: 3354,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与虎影草永恒不灭之光，照耀天地。'
+    description: 'Ánh sáng vĩnh hằng bất diệt của thái sơ qua và hổ ảnh thảo, chiếu rọi khắp đất trời.'
   },
   {
     id: 'creation_form_chestnut',
-    name: '造象栗',
+    name: 'Tạo Tượng Lật',
     seedId: 'seed_creation_form_chestnut',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 14,
     sellPrice: 3383,
     seedPrice: 0,
     deepWatering: true,
-    description: '太初瓜与龙啸栗造化之力成就，永恒不朽之品。'
+    description: 'Thái sơ qua và long khiếu lật mượn tạo hóa chi lực thành tựu, tuyệt phẩm vĩnh hằng bất hủ.'
   },
   {
     id: 'eternal_form_apricot',
-    name: '永象杏',
+    name: 'Vĩnh Tượng Hạnh',
     seedId: 'seed_eternal_form_apricot',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 14,
     sellPrice: 3413,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与凤啸杏天命所归，万象更新。'
+    description: 'Thái sơ qua và phượng khiếu hạnh thiên mệnh sở quy, vạn tượng canh tân.'
   },
   {
     id: 'undying_form_pear',
-    name: '不象梨',
+    name: 'Bất Tượng Lê',
     seedId: 'seed_undying_form_pear',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 14,
     sellPrice: 3442,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与麟啸梨不朽轮回，涅槃重生。'
+    description: 'Thái sơ qua và lân khiếu lê luân hồi bất hủ, niết bàn trọng sinh.'
   },
   {
     id: 'heavenly_form_berry',
-    name: '天象莓',
+    name: 'Thiên Tượng Môi',
     seedId: 'seed_heavenly_form_berry',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 14,
     sellPrice: 3471,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与鹤啸莓造化弄人，终成至宝。'
+    description: 'Thái sơ qua và hạc khiếu môi mượn tạo hóa trêu người, cuối cùng thành chí bảo.'
   },
   {
     id: 'myriad_form_peach_t',
-    name: '万象桃',
+    name: 'Vạn Tượng Đào',
     seedId: 'seed_myriad_form_peach_t',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 14,
     sellPrice: 3500,
     seedPrice: 0,
     deepWatering: false,
-    description: '太初瓜与虎啸桃永恒不灭之光，照耀天地。'
+    description: 'Ánh sáng vĩnh hằng bất diệt của thái sơ qua và hổ khiếu đào, chiếu rọi khắp đất trời.'
   },
   // === 远古作物 ===
   // 远古种子只能从矿洞深层宝箱/博物馆奖励获得，且刻意未收录进种子制造机配方——
   // 一旦可以量产，多茬收获会直接击穿经济平衡。单价按「多茬 6 次」的总产出反推定价。
   {
     id: 'ancient_fruit',
-    name: '远古水果',
+    name: 'Trái Cây Viễn Cổ',
     seedId: 'ancient_seed',
     season: ['spring', 'summer', 'autumn'],
     growthDays: 28,
     sellPrice: 1500,
     seedPrice: 0,
     deepWatering: false,
-    description: '远古种子孕育的神秘果实，蕴含亘古生命力，四季皆可生长。',
+    description: 'Trái cây bí ẩn được thai nghén từ hạt giống viễn cổ, chứa đựng sinh mệnh lực từ thuở hồng hoang, có thể sinh trưởng cả bốn mùa.',
     regrowth: true,
     regrowthDays: 7,
     maxHarvests: 6
@@ -4918,28 +4918,28 @@ export const CROPS: CropDef[] = [
   // === 瀚海作物 ===
   {
     id: 'hanhai_cactus',
-    name: '仙人掌',
+    name: 'Xương Rồng',
     seedId: 'hanhai_cactus_seed',
     season: ['summer'],
     growthDays: 12,
     sellPrice: 750,
     seedPrice: 0,
     deepWatering: false,
-    description: '来自西域的奇特植物，耐旱耐热，夏季可种植。',
+    description: 'Loài thực vật kỳ lạ đến từ Tây Vực, chịu hạn chịu nhiệt tốt, có thể trồng vào mùa hè.',
     regrowth: true,
     regrowthDays: 5,
     maxHarvests: 3
   },
   {
     id: 'hanhai_date',
-    name: '椰枣',
+    name: 'Chà Là',
     seedId: 'hanhai_date_seed',
     season: ['summer', 'autumn'],
     growthDays: 10,
     sellPrice: 500,
     seedPrice: 0,
     deepWatering: false,
-    description: '丝绸之路带来的西域果实，夏秋可种植。',
+    description: 'Trái cây Tây Vực được mang đến từ Con Đường Tơ Lụa, có thể trồng vào mùa hè và mùa thu.',
     regrowth: true,
     regrowthDays: 4,
     maxHarvests: 4

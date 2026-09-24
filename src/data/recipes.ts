@@ -4,26 +4,26 @@ import type { RecipeDef } from '@/types'
 export const RECIPES: RecipeDef[] = [
   {
     id: 'stir_fried_cabbage',
-    name: '炒青菜',
+    name: 'Rau cải xào',
     ingredients: [{ itemId: 'cabbage', quantity: 2 }],
     effect: { staminaRestore: 15, healthRestore: 5 },
-    unlockSource: '初始自带',
-    description: '简单朴素的家常菜。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Món ăn gia đình đơn giản mộc mạc.'
   },
   {
     id: 'radish_soup',
-    name: '萝卜汤',
+    name: 'Canh củ cải',
     ingredients: [
       { itemId: 'radish', quantity: 2 },
       { itemId: 'firewood', quantity: 1 }
     ],
     effect: { staminaRestore: 25, healthRestore: 10 },
-    unlockSource: '陈伯好感「相识」',
-    description: '热腾腾的萝卜汤，暖身又暖心。'
+    unlockSource: 'Thiện cảm Bác Trần đạt \'Quen biết\'',
+    description: 'Canh củ cải nóng hổi, ấm lòng ấm dạ.'
   },
   {
     id: 'braised_carp',
-    name: '红烧鲤鱼',
+    name: 'Cá chép kho tộ',
     ingredients: [
       { itemId: 'carp', quantity: 1 },
       { itemId: 'sesame', quantity: 2 }
@@ -31,25 +31,25 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 30,
       healthRestore: 15,
-      buff: { type: 'fishing', value: 1, description: '钓鱼技能+1（当天）' }
+      buff: { type: 'fishing', value: 1, description: 'Kỹ năng câu cá +1 (Trong ngày)' }
     },
-    unlockSource: '秋月好感「相识」',
-    description: '鲜香可口的红烧鲤鱼。'
+    unlockSource: 'Thiện cảm Thu Nguyệt đạt \'Quen biết\'',
+    description: 'Món cá chép kho tộ thơm ngon đậm đà.'
   },
   {
     id: 'herbal_porridge',
-    name: '药膳粥',
+    name: 'Cháo dược thiện',
     ingredients: [
       { itemId: 'herb', quantity: 2 },
       { itemId: 'rice', quantity: 1 }
     ],
     effect: { staminaRestore: 40, healthRestore: 20 },
-    unlockSource: '林老好感「相识」',
-    description: '调理身体的药膳粥。'
+    unlockSource: 'Thiện cảm Lâm Lão đạt \'Quen biết\'',
+    description: 'Món cháo dược thiện giúp bồi bổ cơ thể.'
   },
   {
     id: 'osmanthus_cake',
-    name: '桂花糕',
+    name: 'Bánh hoa quế',
     ingredients: [
       { itemId: 'osmanthus', quantity: 3 },
       { itemId: 'rice', quantity: 2 }
@@ -57,14 +57,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 20,
       healthRestore: 5,
-      buff: { type: 'giftBonus', value: 2, description: '送礼好感×2（当天）' }
+      buff: { type: 'giftBonus', value: 2, description: 'Thiện cảm tặng quà x2 (Trong ngày)' }
     },
-    unlockSource: '柳娘好感「相识」',
-    description: '精致的桂花糕，送礼极佳。'
+    unlockSource: 'Thiện cảm Liễu Nương đạt \'Quen biết\'',
+    description: 'Bánh hoa quế tinh tế, thích hợp làm quà tặng.'
   },
   {
     id: 'miner_lunch',
-    name: '矿工便当',
+    name: 'Cơm hộp thợ mỏ',
     ingredients: [
       { itemId: 'potato', quantity: 2 },
       { itemId: 'sweet_potato', quantity: 1 }
@@ -75,15 +75,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'mining',
         value: 20,
-        description: '挖矿体力消耗-20%（当天）'
+        description: 'Thể lực đào mỏ tiêu hao -20% (Trong ngày)'
       }
     },
-    unlockSource: '阿石好感「相识」',
-    description: '实打实的矿工饭。'
+    unlockSource: 'Thiện cảm A Thạch đạt \'Quen biết\'',
+    description: 'Bữa cơm no bụng thực tế của thợ mỏ.'
   },
   {
     id: 'spicy_hotpot',
-    name: '麻辣火锅',
+    name: 'Lẩu ma cay',
     ingredients: [
       { itemId: 'chili', quantity: 2 },
       { itemId: 'cabbage', quantity: 1 },
@@ -92,15 +92,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 40,
-      buff: { type: 'defense', value: 20, description: '受到伤害-20%（当天）' }
+      buff: { type: 'defense', value: 20, description: 'Sát thương gánh chịu -20% (Trong ngày)' }
     },
-    unlockSource: '烹饪等级4',
+    unlockSource: 'Cấp nấu ăn 4',
     requiredSkill: { type: 'farming', level: 4 },
-    description: '火辣辣的麻辣火锅，驱寒暖身。'
+    description: 'Nồi lẩu cay nồng nóng hổi, xua tan giá lạnh.'
   },
   {
     id: 'steamed_bass',
-    name: '清蒸鲈鱼',
+    name: 'Cá vược hấp sả',
     ingredients: [
       { itemId: 'bass', quantity: 1 },
       { itemId: 'ginger', quantity: 1 }
@@ -108,26 +108,26 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'fishing', value: 2, description: '钓鱼技能+2（当天）' }
+      buff: { type: 'fishing', value: 2, description: 'Kỹ năng câu cá +2 (Trong ngày)' }
     },
-    unlockSource: '钓鱼等级3',
+    unlockSource: 'Cấp câu cá 3',
     requiredSkill: { type: 'fishing', level: 3 },
-    description: '鲜嫩的清蒸鲈鱼。'
+    description: 'Món cá vược hấp sả thơm ngọt thịt.'
   },
   {
     id: 'honey_tea',
-    name: '蜂蜜茶',
+    name: 'Trà mật ong',
     ingredients: [
       { itemId: 'honey', quantity: 1 },
       { itemId: 'herb', quantity: 1 }
     ],
     effect: { staminaRestore: 30, healthRestore: 10 },
-    unlockSource: '初始自带',
-    description: '甜蜜温润的蜂蜜茶。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Tách trà mật ong ngọt ngào ấm áp.'
   },
   {
     id: 'ginger_soup',
-    name: '姜汤',
+    name: 'Canh gừng',
     ingredients: [
       { itemId: 'ginger', quantity: 2 },
       { itemId: 'firewood', quantity: 1 }
@@ -135,26 +135,26 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 20,
       healthRestore: 10,
-      buff: { type: 'speed', value: 15, description: '行动速度+15%（当天）' }
+      buff: { type: 'speed', value: 15, description: 'Tốc độ di chuyển +15% (Trong ngày)' }
     },
-    unlockSource: '初始自带',
-    description: '驱寒暖胃的姜汤。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Canh gừng ấm bụng giải cảm.'
   },
   {
     id: 'jujube_cake',
-    name: '红枣糕',
+    name: 'Bánh táo đỏ',
     ingredients: [
       { itemId: 'jujube', quantity: 3 },
       { itemId: 'rice', quantity: 1 }
     ],
     effect: { staminaRestore: 35, healthRestore: 15 },
-    unlockSource: '烹饪等级2',
+    unlockSource: 'Cấp nấu ăn 2',
     requiredSkill: { type: 'farming', level: 2 },
-    description: '香甜软糯的红枣糕。'
+    description: 'Bánh táo đỏ ngọt ngào dẻo thơm.'
   },
   {
     id: 'peach_blossom_cake',
-    name: '桃花饼',
+    name: 'Bánh hoa đào',
     ingredients: [
       { itemId: 'peach', quantity: 2 },
       { itemId: 'rice', quantity: 1 }
@@ -162,27 +162,27 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 25,
       healthRestore: 10,
-      buff: { type: 'giftBonus', value: 2, description: '送礼好感×2（当天）' }
+      buff: { type: 'giftBonus', value: 2, description: 'Thiện cảm tặng quà x2 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级3',
+    unlockSource: 'Cấp nấu ăn 3',
     requiredSkill: { type: 'farming', level: 3 },
-    description: '春日限定的桃花饼。'
+    description: 'Món bánh hoa đào giới hạn ngày xuân.'
   },
   {
     id: 'fish_noodle',
-    name: '鱼汤面',
+    name: 'Mì nước canh cá',
     ingredients: [
       { itemId: 'crucian', quantity: 1 },
       { itemId: 'winter_wheat', quantity: 2 }
     ],
     effect: { staminaRestore: 30, healthRestore: 15 },
-    unlockSource: '钓鱼等级2',
+    unlockSource: 'Cấp câu cá 2',
     requiredSkill: { type: 'fishing', level: 2 },
-    description: '鲜美的鱼汤面。'
+    description: 'Mì nước canh cá thơm ngọt bùi.'
   },
   {
     id: 'miner_iron_pot',
-    name: '矿工铁锅饭',
+    name: 'Cơm niêu thợ mỏ',
     ingredients: [
       { itemId: 'rice', quantity: 2 },
       { itemId: 'copper_ore', quantity: 1 },
@@ -194,35 +194,35 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'mining',
         value: 25,
-        description: '挖矿体力消耗-25%（当天）'
+        description: 'Thể lực đào mỏ tiêu hao -25% (Trong ngày)'
       }
     },
-    unlockSource: '挖矿等级4',
+    unlockSource: 'Cấp khai khoáng 4',
     requiredSkill: { type: 'mining', level: 4 },
-    description: '矿工们的铁锅大杂烩。'
+    description: 'Món cơm trộn thập cẩm bằng nồi sắt của cánh thợ mỏ.'
   },
   {
     id: 'bamboo_shoot_stir_fry',
-    name: '冬笋炒肉',
+    name: 'Măng mùa đông xào thịt',
     ingredients: [
       { itemId: 'winter_bamboo_shoot', quantity: 2 },
       { itemId: 'firewood', quantity: 1 }
     ],
     effect: { staminaRestore: 25, healthRestore: 10 },
-    unlockSource: '初始自带',
-    description: '鲜香的冬笋炒肉片。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Thịt ba chỉ xào măng đông thơm giòn.'
   },
   {
     id: 'dried_persimmon',
-    name: '柿饼',
+    name: 'Hồng sấy dẻo',
     ingredients: [{ itemId: 'persimmon', quantity: 3 }],
     effect: { staminaRestore: 20, healthRestore: 5 },
-    unlockSource: '初始自带',
-    description: '晒干的柿饼，甘甜绵密。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Quả hồng sấy dẻo ngọt lịm.'
   },
   {
     id: 'lotus_seed_soup',
-    name: '莲子羹',
+    name: 'Chè hạt sen',
     ingredients: [
       { itemId: 'lotus_seed', quantity: 2 },
       { itemId: 'honey', quantity: 1 }
@@ -230,26 +230,26 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 20,
-      buff: { type: 'luck', value: 15, description: '幸运+15%（当天）' }
+      buff: { type: 'luck', value: 15, description: 'May mắn +15% (Trong ngày)' }
     },
-    unlockSource: '烹饪等级5',
+    unlockSource: 'Cấp nấu ăn 5',
     requiredSkill: { type: 'farming', level: 5 },
-    description: '清心安神的莲子羹。'
+    description: 'Bát chè hạt sen thanh mát tĩnh tâm.'
   },
   {
     id: 'sesame_paste',
-    name: '芝麻糊',
+    name: 'Chè mè đen',
     ingredients: [
       { itemId: 'sesame', quantity: 3 },
       { itemId: 'rice', quantity: 1 }
     ],
     effect: { staminaRestore: 30, healthRestore: 10 },
-    unlockSource: '初始自带',
-    description: '浓郁香滑的芝麻糊。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Chè mè đen thơm lừng sánh mịn.'
   },
   {
     id: 'ginseng_soup',
-    name: '人参汤',
+    name: 'Canh nhân sâm',
     ingredients: [
       { itemId: 'ginseng', quantity: 1 },
       { itemId: 'herb', quantity: 2 },
@@ -261,27 +261,27 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 20,
-        description: '农耕体力消耗-20%（当天）'
+        description: 'Thể lực làm nông tiêu hao -20% (Trong ngày)'
       }
     },
-    unlockSource: '采集等级5',
+    unlockSource: 'Cấp thu thập 5',
     requiredSkill: { type: 'foraging', level: 5 },
-    description: '滋补元气的人参汤。'
+    description: 'Canh nhân sâm bồi bổ nguyên khí.'
   },
   {
     id: 'corn_pancake',
-    name: '玉米烙',
+    name: 'Bánh ngô chiên giòn',
     ingredients: [
       { itemId: 'corn', quantity: 2 },
       { itemId: 'sesame_oil', quantity: 1 }
     ],
     effect: { staminaRestore: 25, healthRestore: 10 },
-    unlockSource: '初始自带',
-    description: '金黄酥脆的玉米烙。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Bánh ngô chiên giòn rụm vàng óng.'
   },
   {
     id: 'osmanthus_lotus_root',
-    name: '桂花藕粉',
+    name: 'Bột sắn dây hoa quế',
     ingredients: [
       { itemId: 'osmanthus', quantity: 1 },
       { itemId: 'lotus_root', quantity: 1 }
@@ -289,112 +289,112 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'luck', value: 10, description: '幸运+10%（当天）' }
+      buff: { type: 'luck', value: 10, description: 'May mắn +10% (Trong ngày)' }
     },
-    unlockSource: '烹饪等级3',
+    unlockSource: 'Cấp nấu ăn 3',
     requiredSkill: { type: 'farming', level: 3 },
-    description: '清香四溢的桂花藕粉。'
+    description: 'Bát bột sắn dây hương hoa quế thơm ngát.'
   },
 
   // ==================== 新增初始食谱 (8) ====================
   {
     id: 'scrambled_egg_rice',
-    name: '蛋炒饭',
+    name: 'Cơm chiên trứng',
     ingredients: [
       { itemId: 'egg', quantity: 1 },
       { itemId: 'rice', quantity: 1 }
     ],
     effect: { staminaRestore: 20, healthRestore: 10 },
-    unlockSource: '初始自带',
-    description: '简单可口的蛋炒饭。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Đĩa cơm chiên trứng đơn giản mà ngon miệng.'
   },
   {
     id: 'stir_fried_potato',
-    name: '炒土豆丝',
+    name: 'Khoai tây bào sợi xào',
     ingredients: [{ itemId: 'potato', quantity: 2 }],
     effect: { staminaRestore: 18, healthRestore: 5 },
-    unlockSource: '初始自带',
-    description: '酸辣爽脆的炒土豆丝。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Khoai tây bào sợi xào chua cay giòn sần sật.'
   },
   {
     id: 'boiled_egg',
-    name: '水煮蛋',
+    name: 'Trứng luộc',
     ingredients: [{ itemId: 'egg', quantity: 2 }],
     effect: { staminaRestore: 15, healthRestore: 10 },
-    unlockSource: '初始自带',
-    description: '最朴实的营养来源。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Nguồn dinh dưỡng mộc mạc nhất.'
   },
   {
     id: 'congee',
-    name: '白粥',
+    name: 'Cháo trắng',
     ingredients: [{ itemId: 'rice', quantity: 2 }],
     effect: { staminaRestore: 15, healthRestore: 5 },
-    unlockSource: '初始自带',
-    description: '清淡养胃的白粥。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Tố cháo trắng thanh đạm dễ tiêu.'
   },
   {
     id: 'rice_ball',
-    name: '饭团',
+    name: 'Cơm nắm',
     ingredients: [{ itemId: 'rice', quantity: 1 }],
     effect: { staminaRestore: 12, healthRestore: 3 },
-    unlockSource: '初始自带',
-    description: '简单捏制的米饭团子，方便携带。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Cơm nắm giản đơn, tiện mang theo người.'
   },
   {
     id: 'steamed_bun',
-    name: '馒头',
+    name: 'Màn thầu',
     ingredients: [{ itemId: 'wheat_flour', quantity: 1 }],
     effect: { staminaRestore: 12, healthRestore: 3 },
-    unlockSource: '初始自带',
-    description: '松软的白面馒头，最朴素的主食。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Bánh màn thầu bột mì mềm xốp, món ăn chính giản dị.'
   },
   {
     id: 'roasted_sweet_potato',
-    name: '烤红薯',
+    name: 'Khoai lang nướng',
     ingredients: [{ itemId: 'sweet_potato', quantity: 2 }],
     effect: { staminaRestore: 20, healthRestore: 5 },
-    unlockSource: '初始自带',
-    description: '香甜绵软的烤红薯。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Củ khoai lang nướng thơm phức ngọt bùi.'
   },
   {
     id: 'vegetable_soup',
-    name: '田园蔬菜汤',
+    name: 'Canh rau củ điền viên',
     ingredients: [
       { itemId: 'cabbage', quantity: 1 },
       { itemId: 'radish', quantity: 1 },
       { itemId: 'firewood', quantity: 1 }
     ],
     effect: { staminaRestore: 25, healthRestore: 10 },
-    unlockSource: '初始自带',
-    description: '新鲜蔬菜熬制的清汤。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Món canh thanh mát ninh từ rau củ tươi.'
   },
   {
     id: 'chive_egg_stir_fry',
-    name: '韭菜炒蛋',
+    name: 'Hẹ xào trứng',
     ingredients: [
       { itemId: 'chives', quantity: 2 },
       { itemId: 'egg', quantity: 1 }
     ],
     effect: { staminaRestore: 22, healthRestore: 10 },
-    unlockSource: '初始自带',
-    description: '韭菜与鸡蛋的经典搭配。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Sự kết hợp kinh điển giữa hẹ và trứng.'
   },
   {
     id: 'peanut_candy',
-    name: '花生糖',
+    name: 'Kẹo đậu phộng',
     ingredients: [
       { itemId: 'peanut', quantity: 3 },
       { itemId: 'honey', quantity: 1 }
     ],
     effect: { staminaRestore: 18, healthRestore: 5 },
-    unlockSource: '初始自带',
-    description: '酥脆香甜的花生糖。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Kẹo đậu phộng giòn rụm ngọt ngào.'
   },
 
   // ==================== NPC 好感食谱 — 相识 (1 新) ====================
   {
     id: 'sweet_osmanthus_tea',
-    name: '桂花甜茶',
+    name: 'Trà ngọt hoa quế',
     ingredients: [
       { itemId: 'osmanthus', quantity: 1 },
       { itemId: 'honey', quantity: 1 }
@@ -402,27 +402,27 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 20,
       healthRestore: 5,
-      buff: { type: 'luck', value: 10, description: '幸运+10%（当天）' }
+      buff: { type: 'luck', value: 10, description: 'May mắn +10% (Trong ngày)' }
     },
-    unlockSource: '小满好感「相识」',
-    description: '芬芳甜蜜的桂花甜茶。'
+    unlockSource: 'Thiện cảm Tiểu Mãn đạt \'Quen biết\'',
+    description: 'Trà ngọt hoa quế thơm ngát dịu dàng.'
   },
 
   // ==================== NPC 好感食谱 — 相知 (6) ====================
   {
     id: 'aged_radish_stew',
-    name: '老萝卜炖肉',
+    name: 'Thịt kho củ cải già',
     ingredients: [
       { itemId: 'radish', quantity: 3 },
       { itemId: 'firewood', quantity: 2 }
     ],
     effect: { staminaRestore: 40, healthRestore: 25 },
-    unlockSource: '陈伯好感「相知」',
-    description: '陈伯秘传的萝卜炖肉，入味三分。'
+    unlockSource: 'Thiện cảm Bác Trần đạt \'Tri kỷ\'',
+    description: 'Món thịt kho củ cải bí truyền của Bác Trần, đậm đà thấm vị.'
   },
   {
     id: 'maple_grilled_fish',
-    name: '枫叶烤鱼',
+    name: 'Cá nướng lá phong',
     ingredients: [
       { itemId: 'mandarin_fish', quantity: 1 },
       { itemId: 'firewood', quantity: 1 }
@@ -430,25 +430,25 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 40,
       healthRestore: 20,
-      buff: { type: 'fishing', value: 2, description: '钓鱼技能+2（当天）' }
+      buff: { type: 'fishing', value: 2, description: 'Kỹ năng câu cá +2 (Trong ngày)' }
     },
-    unlockSource: '秋月好感「相知」',
-    description: '秋月独创的枫叶烤鱼法。'
+    unlockSource: 'Thiện cảm Thu Nguyệt đạt \'Tri kỷ\'',
+    description: 'Phương pháp nướng cá bằng lá phong độc quyền của Thu Nguyệt.'
   },
   {
     id: 'herbal_pill',
-    name: '百草丹',
+    name: 'Bách Thảo Đan',
     ingredients: [
       { itemId: 'herb', quantity: 3 },
       { itemId: 'ginseng', quantity: 1 }
     ],
     effect: { staminaRestore: 60, healthRestore: 30 },
-    unlockSource: '林老好感「相知」',
-    description: '林老配方的百草良药。'
+    unlockSource: 'Thiện cảm Lâm Lão đạt \'Tri kỷ\'',
+    description: 'Linh dược bách thảo rèn từ phương thuốc của Lâm Lão.'
   },
   {
     id: 'embroidered_cake',
-    name: '绣囊糕',
+    name: 'Bánh túi gấm thêu',
     ingredients: [
       { itemId: 'rice', quantity: 2 },
       { itemId: 'osmanthus', quantity: 2 }
@@ -456,14 +456,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 30,
       healthRestore: 15,
-      buff: { type: 'giftBonus', value: 2, description: '送礼好感×2（当天）' }
+      buff: { type: 'giftBonus', value: 2, description: 'Thiện cảm tặng quà x2 (Trong ngày)' }
     },
-    unlockSource: '柳娘好感「相知」',
-    description: '柳娘精心制作的绣囊糕。'
+    unlockSource: 'Thiện cảm Liễu Nương đạt \'Tri kỷ\'',
+    description: 'Món bánh tạo hình túi gấm do chính tay Liễu Nương làm.'
   },
   {
     id: 'deep_mine_stew',
-    name: '深矿炖菜',
+    name: 'Canh hầm mỏ sâu',
     ingredients: [
       { itemId: 'potato', quantity: 2 },
       { itemId: 'copper_ore', quantity: 2 },
@@ -475,15 +475,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'mining',
         value: 30,
-        description: '挖矿体力消耗-30%（当天）'
+        description: 'Thể lực đào mỏ tiêu hao -30% (Trong ngày)'
       }
     },
-    unlockSource: '阿石好感「相知」',
-    description: '阿石在矿洞深处发明的炖菜。'
+    unlockSource: 'Thiện cảm A Thạch đạt \'Tri kỷ\'',
+    description: 'Món canh hầm do A Thạch sáng tạo ra nơi mỏ sâu.'
   },
   {
     id: 'wild_berry_jam',
-    name: '野果酱',
+    name: 'Mứt quả dại',
     ingredients: [
       { itemId: 'wild_berry', quantity: 3 },
       { itemId: 'honey', quantity: 1 }
@@ -491,16 +491,16 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 25,
       healthRestore: 10,
-      buff: { type: 'speed', value: 20, description: '行动速度+20%（当天）' }
+      buff: { type: 'speed', value: 20, description: 'Tốc độ di chuyển +20% (Trong ngày)' }
     },
-    unlockSource: '小满好感「相知」',
-    description: '小满用林中野果做的果酱。'
+    unlockSource: 'Thiện cảm Tiểu Mãn đạt \'Tri kỷ\'',
+    description: 'Mứt ngọt do Tiểu Mãn làm từ quả mọng trong rừng.'
   },
 
   // ==================== NPC 好感食谱 — 挚友 (6) ====================
   {
     id: 'farmers_feast',
-    name: '农家盛宴',
+    name: 'Yến tiệc nhà nông',
     ingredients: [
       { itemId: 'rice', quantity: 2 },
       { itemId: 'cabbage', quantity: 2 },
@@ -513,15 +513,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 25,
-        description: '农耕体力消耗-25%（当天）'
+        description: 'Thể lực làm nông tiêu hao -25% (Trong ngày)'
       }
     },
-    unlockSource: '陈伯好感「挚友」',
-    description: '陈伯压箱底的农家大菜。'
+    unlockSource: 'Thiện cảm Bác Trần đạt \'Chí hữu\'',
+    description: 'Món tủ gia truyền của Bác Trần đãi khách quý.'
   },
   {
     id: 'autumn_moon_feast',
-    name: '秋月宴',
+    name: 'Yến tiệc đêm thu',
     ingredients: [
       { itemId: 'mandarin_fish', quantity: 1 },
       { itemId: 'river_crab', quantity: 1 },
@@ -530,26 +530,26 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 30,
-      buff: { type: 'luck', value: 20, description: '幸运+20%（当天）' }
+      buff: { type: 'luck', value: 20, description: 'May mắn +20% (Trong ngày)' }
     },
-    unlockSource: '秋月好感「挚友」',
-    description: '秋月为挚友备的秋夜佳宴。'
+    unlockSource: 'Thiện cảm Thu Nguyệt đạt \'Chí hữu\'',
+    description: 'Bữa tiệc đêm thu thịnh soạn Thu Nguyệt chuẩn bị cho chí hữu.'
   },
   {
     id: 'longevity_soup',
-    name: '长生汤',
+    name: 'Canh Trường Sinh',
     ingredients: [
       { itemId: 'ginseng', quantity: 2 },
       { itemId: 'herb', quantity: 3 },
       { itemId: 'honey', quantity: 1 }
     ],
     effect: { staminaRestore: 80, healthRestore: 40 },
-    unlockSource: '林老好感「挚友」',
-    description: '林老毕生心血的养生秘方。'
+    unlockSource: 'Thiện cảm Lâm Lão đạt \'Chí hữu\'',
+    description: 'Phương thuốc dưỡng sinh đúc kết cả đời tâm huyết của Lâm Lão.'
   },
   {
     id: 'lovers_pastry',
-    name: '鸳鸯酥',
+    name: 'Bánh Uyên Ương',
     ingredients: [
       { itemId: 'peach', quantity: 2 },
       { itemId: 'rice', quantity: 2 },
@@ -558,14 +558,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 40,
       healthRestore: 20,
-      buff: { type: 'giftBonus', value: 3, description: '送礼好感×3（当天）' }
+      buff: { type: 'giftBonus', value: 3, description: 'Thiện cảm tặng quà x3 (Trong ngày)' }
     },
-    unlockSource: '柳娘好感「挚友」',
-    description: '柳娘专为有情人做的鸳鸯酥。'
+    unlockSource: 'Thiện cảm Liễu Nương đạt \'Chí hữu\'',
+    description: 'Món bánh Uyên Ương Liễu Nương làm riêng cho những người có tình.'
   },
   {
     id: 'forgemasters_meal',
-    name: '锻造师套餐',
+    name: 'Combo thợ rèn',
     ingredients: [
       { itemId: 'iron_ore', quantity: 2 },
       { itemId: 'potato', quantity: 3 },
@@ -574,14 +574,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 50,
-      buff: { type: 'defense', value: 25, description: '受到伤害-25%（当天）' }
+      buff: { type: 'defense', value: 25, description: 'Sát thương gánh chịu -25% (Trong ngày)' }
     },
-    unlockSource: '阿石好感「挚友」',
-    description: '阿石独创的锻造师能量餐。'
+    unlockSource: 'Thiện cảm A Thạch đạt \'Chí hữu\'',
+    description: 'Khẩu phần ăn giàu năng lượng độc quyền của thợ rèn A Thạch.'
   },
   {
     id: 'spirit_fruit_wine',
-    name: '灵果酒',
+    name: 'Rượu quả tiên',
     ingredients: [
       { itemId: 'wild_berry', quantity: 3 },
       { itemId: 'honey', quantity: 2 }
@@ -589,16 +589,16 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 25,
-      buff: { type: 'luck', value: 25, description: '幸运+25%（当天）' }
+      buff: { type: 'luck', value: 25, description: 'May mắn +25% (Trong ngày)' }
     },
-    unlockSource: '小满好感「挚友」',
-    description: '小满用灵果酿的幸运酒。'
+    unlockSource: 'Thiện cảm Tiểu Mãn đạt \'Chí hữu\'',
+    description: 'Rượu may mắn do Tiểu Mãn ủ từ quả tiên trong rừng.'
   },
 
   // ==================== NPC 结婚食谱 (12) ====================
   {
     id: 'phoenix_cake',
-    name: '凤凰糕',
+    name: 'Bánh Phượng Hoàng',
     ingredients: [
       { itemId: 'rice', quantity: 3 },
       { itemId: 'osmanthus', quantity: 2 },
@@ -608,14 +608,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 25,
-      buff: { type: 'giftBonus', value: 3, description: '送礼好感×3（当天）' }
+      buff: { type: 'giftBonus', value: 3, description: 'Thiện cảm tặng quà x3 (Trong ngày)' }
     },
-    unlockSource: '与柳娘结婚后',
-    description: '柳娘婚后传授的凤凰糕秘方。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Liễu Nương',
+    description: 'Công thức bánh Phượng Hoàng do Liễu Nương truyền lại sau khi cưới.'
   },
   {
     id: 'molten_hotpot',
-    name: '熔岩铁锅',
+    name: 'Lẩu sắt dung nham',
     ingredients: [
       { itemId: 'iron_ore', quantity: 3 },
       { itemId: 'chili', quantity: 2 },
@@ -627,15 +627,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'mining',
         value: 35,
-        description: '挖矿体力消耗-35%（当天）'
+        description: 'Thể lực đào mỏ tiêu hao -35% (Trong ngày)'
       }
     },
-    unlockSource: '与阿石结婚后',
-    description: '阿石婚后教你的熔岩铁锅料理。'
+    unlockSource: 'Mở khóa sau khi kết hôn with A Thạch',
+    description: 'Món lẩu nồi sắt nóng bỏng do A Thạch dạy sau khi thành gia lập thất.'
   },
   {
     id: 'moonlight_sashimi',
-    name: '月下刺身',
+    name: 'Lát cá tươi dưới trăng',
     ingredients: [
       { itemId: 'sturgeon', quantity: 1 },
       { itemId: 'ginger', quantity: 1 }
@@ -643,14 +643,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 20,
-      buff: { type: 'fishing', value: 3, description: '钓鱼技能+3（当天）' }
+      buff: { type: 'fishing', value: 3, description: 'Kỹ năng câu cá +3 (Trong ngày)' }
     },
-    unlockSource: '与秋月结婚后',
-    description: '秋月婚后分享的月下刺身。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Thu Nguyệt',
+    description: 'Món gỏi cá tươi thưởng trăng do Thu Nguyệt chia sẻ sau khi cưới.'
   },
   {
     id: 'tea_banquet',
-    name: '茶宴八珍',
+    name: 'Bát Trân Trà Yến',
     ingredients: [
       { itemId: 'tea', quantity: 3 },
       { itemId: 'lotus_seed', quantity: 2 },
@@ -659,14 +659,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 55,
       healthRestore: 30,
-      buff: { type: 'giftBonus', value: 2, description: '送礼好感×2（当天）' }
+      buff: { type: 'giftBonus', value: 2, description: 'Thiện cảm tặng quà x2 (Trong ngày)' }
     },
-    unlockSource: '与春兰结婚后',
-    description: '春兰婚后传授的茶宴配方，以茶入馔。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Xuân Lan',
+    description: 'Công thức trà yến nấu kèm lá trà do Xuân Lan truyền dạy sau khi cưới.'
   },
   {
     id: 'snow_plum_soup',
-    name: '雪梅羹',
+    name: 'Chè mai tuyết',
     ingredients: [
       { itemId: 'snow_lotus', quantity: 1 },
       { itemId: 'honey', quantity: 2 }
@@ -674,14 +674,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 65,
       healthRestore: 35,
-      buff: { type: 'luck', value: 3, description: '幸运+3（当天）' }
+      buff: { type: 'luck', value: 3, description: 'May mắn +3 (Trong ngày)' }
     },
-    unlockSource: '与雪芹结婚后',
-    description: '雪芹婚后分享的画室私房羹汤。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Tuyết Cần',
+    description: 'Món canh ngọt chốn phòng tranh Tuyết Cần chia sẻ sau khi cưới.'
   },
   {
     id: 'silk_dumpling',
-    name: '锦囊玉饺',
+    name: 'Sủi cảo túi ngọc',
     ingredients: [
       { itemId: 'silk', quantity: 1 },
       { itemId: 'rice', quantity: 2 },
@@ -690,14 +690,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 20,
-      buff: { type: 'giftBonus', value: 2, description: '送礼好感×2（当天）' }
+      buff: { type: 'giftBonus', value: 2, description: 'Thiện cảm tặng quà x2 (Trong ngày)' }
     },
-    unlockSource: '与素素结婚后',
-    description: '素素婚后教你包的精致饺子，形如锦囊。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Tố Tố',
+    description: 'Món sủi cảo tinh tế hình túi gấm do Tố Tố dạy sau khi kết hôn.'
   },
   {
     id: 'drunken_chicken',
-    name: '醉仙鸡',
+    name: 'Gà Túy Tiên',
     ingredients: [
       { itemId: 'egg', quantity: 3 },
       { itemId: 'peach_wine', quantity: 1 },
@@ -709,15 +709,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 30,
-        description: '农作体力消耗-30%（当天）'
+        description: 'Thể lực làm nông tiêu hao -30% (Trong ngày)'
       }
     },
-    unlockSource: '与红豆结婚后',
-    description: '红豆婚后传授的酒香名菜。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Hồng Đậu',
+    description: 'Món gà hầm rượu thơm nồng do Hồng Đậu truyền dạy sau khi cưới.'
   },
   {
     id: 'scholars_porridge',
-    name: '文曲星粥',
+    name: 'Cháo Văn Khúc Tinh',
     ingredients: [
       { itemId: 'rice', quantity: 3 },
       { itemId: 'tea', quantity: 1 },
@@ -726,14 +726,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 30,
-      buff: { type: 'speed', value: 2, description: '移动速度+2（当天）' }
+      buff: { type: 'speed', value: 2, description: 'Tốc độ di chuyển +2 (Trong ngày)' }
     },
-    unlockSource: '与丹青结婚后',
-    description: '丹青婚后按古方熬煮的养心粥。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Đan Thanh',
+    description: 'Món cháo dưỡng tâm nấu theo cổ phương Đan Thanh chuẩn bị sau khi cưới.'
   },
   {
     id: 'ironforge_stew',
-    name: '铁匠炖',
+    name: 'Món hầm thợ rèn',
     ingredients: [
       { itemId: 'potato', quantity: 3 },
       { itemId: 'corn', quantity: 2 },
@@ -745,15 +745,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'mining',
         value: 40,
-        description: '挖矿体力消耗-40%（当天）'
+        description: 'Thể lực đào mỏ tiêu hao -40% (Trong ngày)'
       }
     },
-    unlockSource: '与阿铁结婚后',
-    description: '阿铁婚后做的粗犷炖菜，量大管饱。'
+    unlockSource: 'Mở khóa sau khi kết hôn với A Thiết',
+    description: 'Món hầm đậm đà đầy đặn do A Thiết nấu sau khi kết hôn.'
   },
   {
     id: 'hunters_roast',
-    name: '猎人烤',
+    name: 'Món nướng thợ săn',
     ingredients: [
       { itemId: 'wild_mushroom', quantity: 3 },
       { itemId: 'herb', quantity: 2 },
@@ -762,14 +762,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 45,
-      buff: { type: 'defense', value: 3, description: '防御+3（当天）' }
+      buff: { type: 'defense', value: 3, description: 'Phòng ngự +3 (Trong ngày)' }
     },
-    unlockSource: '与云飞结婚后',
-    description: '云飞婚后教你的山野烤法。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Vân Phi',
+    description: 'Phương pháp nướng thịt thú rừng do Vân Phi truyền dạy sau khi cưới.'
   },
   {
     id: 'ranch_milk_soup',
-    name: '牧场鲜奶汤',
+    name: 'Canh sữa tươi mục trường',
     ingredients: [
       { itemId: 'milk', quantity: 2 },
       { itemId: 'corn', quantity: 2 },
@@ -781,15 +781,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 25,
-        description: '农作体力消耗-25%（当天）'
+        description: 'Thể lực làm nông tiêu hao -25% (Trong ngày)'
       }
     },
-    unlockSource: '与大牛结婚后',
-    description: '大牛婚后常做的香浓奶汤。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Đại Ngưu',
+    description: 'Món canh sữa thơm ngậy Đại Ngưu hay nấu sau khi kết hôn.'
   },
   {
     id: 'moonlit_tea_rice',
-    name: '月下茶泡饭',
+    name: 'Cơm chan trà dưới trăng',
     ingredients: [
       { itemId: 'rice', quantity: 2 },
       { itemId: 'tea', quantity: 2 },
@@ -798,16 +798,16 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 40,
       healthRestore: 20,
-      buff: { type: 'luck', value: 2, description: '幸运+2（当天）' }
+      buff: { type: 'luck', value: 2, description: 'May mắn +2 (Trong ngày)' }
     },
-    unlockSource: '与墨白结婚后',
-    description: '墨白婚后常在月下泡的清淡茶饭。'
+    unlockSource: 'Mở khóa sau khi kết hôn với Mặc Bạch',
+    description: 'Món cơm chan trà thanh đạm Mặc Bạch hay làm dưới trăng sau khi cưới.'
   },
 
   // ==================== 农耕技能食谱 (3 新) ====================
   {
     id: 'pumpkin_pie',
-    name: '南瓜饼',
+    name: 'Bánh bí đỏ',
     ingredients: [
       { itemId: 'pumpkin', quantity: 2 },
       { itemId: 'rice', quantity: 1 }
@@ -818,16 +818,16 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 15,
-        description: '农耕体力消耗-15%（当天）'
+        description: 'Thể lực làm nông tiêu hao -15% (Trong ngày)'
       }
     },
-    unlockSource: '农耕等级6',
+    unlockSource: 'Cấp trồng trọt 6',
     requiredSkill: { type: 'farming', level: 6 },
-    description: '金黄松软的南瓜饼。'
+    description: 'Chiếc bánh bí đỏ vàng ươm mềm xốp.'
   },
   {
     id: 'golden_fried_rice',
-    name: '黄金炒饭',
+    name: 'Cơm chiên hoàng kim',
     ingredients: [
       { itemId: 'rice', quantity: 2 },
       { itemId: 'egg', quantity: 2 },
@@ -839,16 +839,16 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 20,
-        description: '农耕体力消耗-20%（当天）'
+        description: 'Thể lực làm nông tiêu hao -20% (Trong ngày)'
       }
     },
-    unlockSource: '农耕等级7',
+    unlockSource: 'Cấp trồng trọt 7',
     requiredSkill: { type: 'farming', level: 7 },
-    description: '粒粒金黄的炒饭。'
+    description: 'Món cơm chiên hạt vàng bóng bẩy.'
   },
   {
     id: 'supreme_farm_feast',
-    name: '田园盛筵',
+    name: 'Đại tiệc điền viên',
     ingredients: [
       { itemId: 'pumpkin', quantity: 1 },
       { itemId: 'watermelon', quantity: 1 },
@@ -861,18 +861,18 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 30,
-        description: '农耕体力消耗-30%（当天）'
+        description: 'Thể lực làm nông tiêu hao -30% (Trong ngày)'
       }
     },
-    unlockSource: '农耕等级9',
+    unlockSource: 'Cấp trồng trọt 9',
     requiredSkill: { type: 'farming', level: 9 },
-    description: '集四季精华的田园盛筵。'
+    description: 'Bàn tiệc điền viên hội tụ tinh túy bốn mùa.'
   },
 
   // ==================== 钓鱼技能食谱 (5 新) ====================
   {
     id: 'braised_catfish',
-    name: '红烧鲶鱼',
+    name: 'Cá trê kho cay',
     ingredients: [
       { itemId: 'catfish', quantity: 1 },
       { itemId: 'chili', quantity: 1 }
@@ -880,15 +880,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'fishing', value: 1, description: '钓鱼技能+1（当天）' }
+      buff: { type: 'fishing', value: 1, description: 'Kỹ năng câu cá +1 (Trong ngày)' }
     },
-    unlockSource: '钓鱼等级4',
+    unlockSource: 'Cấp câu cá 4',
     requiredSkill: { type: 'fishing', level: 4 },
-    description: '辣味十足的红烧鲶鱼。'
+    description: 'Cá trê om cay.'
   },
   {
     id: 'grilled_eel',
-    name: '烤鳗鱼',
+    name: 'Lươn nướng',
     ingredients: [
       { itemId: 'eel', quantity: 1 },
       { itemId: 'sesame', quantity: 1 },
@@ -897,15 +897,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 20,
-      buff: { type: 'fishing', value: 2, description: '钓鱼技能+2（当天）' }
+      buff: { type: 'fishing', value: 2, description: 'Kỹ năng câu cá +2 (Trong ngày)' }
     },
-    unlockSource: '钓鱼等级5',
+    unlockSource: 'Cấp câu cá 5',
     requiredSkill: { type: 'fishing', level: 5 },
-    description: '外焦里嫩的烤鳗鱼。'
+    description: 'Món lươn nướng ngoài giòn trong mềm ngọt.'
   },
   {
     id: 'crab_soup',
-    name: '蟹黄汤',
+    name: 'Súp gạch cua',
     ingredients: [
       { itemId: 'river_crab', quantity: 2 },
       { itemId: 'ginger', quantity: 1 }
@@ -913,15 +913,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 25,
-      buff: { type: 'luck', value: 15, description: '幸运+15%（当天）' }
+      buff: { type: 'luck', value: 15, description: 'May mắn +15% (Trong ngày)' }
     },
-    unlockSource: '钓鱼等级6',
+    unlockSource: 'Cấp câu cá 6',
     requiredSkill: { type: 'fishing', level: 6 },
-    description: '鲜美浓郁的蟹黄汤。'
+    description: 'Bát súp gạch cua béo ngậy thơm lừng.'
   },
   {
     id: 'sturgeon_stew',
-    name: '鲟鱼羹',
+    name: 'Canh súp cá tầm',
     ingredients: [
       { itemId: 'sturgeon', quantity: 1 },
       { itemId: 'herb', quantity: 1 },
@@ -930,15 +930,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 55,
       healthRestore: 30,
-      buff: { type: 'fishing', value: 3, description: '钓鱼技能+3（当天）' }
+      buff: { type: 'fishing', value: 3, description: 'Kỹ năng câu cá +3 (Trong ngày)' }
     },
-    unlockSource: '钓鱼等级7',
+    unlockSource: 'Cấp câu cá 7',
     requiredSkill: { type: 'fishing', level: 7 },
-    description: '珍贵的鲟鱼炖羹。'
+    description: 'Món canh ninh từ cá tầm quý hiếm.'
   },
   {
     id: 'dragon_sashimi',
-    name: '龙鱼刺身',
+    name: 'Gỏi cá rồng',
     ingredients: [
       { itemId: 'dragonfish', quantity: 1 },
       { itemId: 'ginger', quantity: 2 }
@@ -946,30 +946,30 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 70,
       healthRestore: 35,
-      buff: { type: 'fishing', value: 4, description: '钓鱼技能+4（当天）' }
+      buff: { type: 'fishing', value: 4, description: 'Kỹ năng câu cá +4 (Trong ngày)' }
     },
-    unlockSource: '钓鱼等级8',
+    unlockSource: 'Cấp câu cá 8',
     requiredSkill: { type: 'fishing', level: 8 },
-    description: '传说龙鱼制成的极品刺身。'
+    description: 'Món gỏi cực phẩm làm từ cá Long Ngư truyền thuyết.'
   },
 
   // ==================== 采矿技能食谱 (5 新) ====================
   {
     id: 'stone_soup',
-    name: '矿石汤',
+    name: 'Canh khoáng thạch',
     ingredients: [
       { itemId: 'copper_ore', quantity: 2 },
       { itemId: 'radish', quantity: 1 },
       { itemId: 'firewood', quantity: 1 }
     ],
     effect: { staminaRestore: 25, healthRestore: 20 },
-    unlockSource: '采矿等级3',
+    unlockSource: 'Cấp khai khoáng 3',
     requiredSkill: { type: 'mining', level: 3 },
-    description: '矿洞中就地取材的汤。'
+    description: 'Món canh nấu từ nguyên liệu thô sơ nhặt ngay trong mỏ.'
   },
   {
     id: 'crystal_jelly',
-    name: '水晶冻',
+    name: 'Thạch pha lê',
     ingredients: [
       { itemId: 'crystal_ore', quantity: 1 },
       { itemId: 'honey', quantity: 1 }
@@ -980,16 +980,16 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'mining',
         value: 25,
-        description: '挖矿体力消耗-25%（当天）'
+        description: 'Thể lực đào mỏ tiêu hao -25% (Trong ngày)'
       }
     },
-    unlockSource: '采矿等级5',
+    unlockSource: 'Cấp khai khoáng 5',
     requiredSkill: { type: 'mining', level: 5 },
-    description: '晶莹剔透的水晶冻。'
+    description: 'Món thạch pha lê trong suốt đẹp mắt.'
   },
   {
     id: 'iron_tonic',
-    name: '铁骨汤',
+    name: 'Canh hầm cốt sắt',
     ingredients: [
       { itemId: 'iron_ore', quantity: 2 },
       { itemId: 'herb', quantity: 2 },
@@ -998,15 +998,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 35,
-      buff: { type: 'defense', value: 20, description: '受到伤害-20%（当天）' }
+      buff: { type: 'defense', value: 20, description: 'Sát thương gánh chịu -20% (Trong ngày)' }
     },
-    unlockSource: '采矿等级6',
+    unlockSource: 'Cấp khai khoáng 6',
     requiredSkill: { type: 'mining', level: 6 },
-    description: '强筋健骨的铁骨汤。'
+    description: 'Canh hầm cốt sắt giúp gân cốt dẻo dai.'
   },
   {
     id: 'gold_dumpling',
-    name: '金矿饺',
+    name: 'Sủi cảo quặng vàng',
     ingredients: [
       { itemId: 'gold_ore', quantity: 1 },
       { itemId: 'winter_wheat', quantity: 2 }
@@ -1017,16 +1017,16 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'mining',
         value: 30,
-        description: '挖矿体力消耗-30%（当天）'
+        description: 'Thể lực đào mỏ tiêu hao -30% (Trong ngày)'
       }
     },
-    unlockSource: '采矿等级7',
+    unlockSource: 'Cấp khai khoáng 7',
     requiredSkill: { type: 'mining', level: 7 },
-    description: '金粉入馅的矿工饺子。'
+    description: 'Món sủi cảo thợ mỏ có rắc chút bụi vàng lấp lánh.'
   },
   {
     id: 'void_essence_soup',
-    name: '虚空精华汤',
+    name: 'Canh tinh túy hư không',
     ingredients: [
       { itemId: 'void_ore', quantity: 1 },
       { itemId: 'ginseng', quantity: 1 },
@@ -1038,30 +1038,30 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'mining',
         value: 35,
-        description: '挖矿体力消耗-35%（当天）'
+        description: 'Thể lực đào mỏ tiêu hao -35% (Trong ngày)'
       }
     },
-    unlockSource: '采矿等级8',
+    unlockSource: 'Cấp khai khoáng 8',
     requiredSkill: { type: 'mining', level: 8 },
-    description: '虚空矿石炼制的神秘汤剂。'
+    description: 'Thang thuốc thần bí chưng cất từ quặng hư không.'
   },
 
   // ==================== 采集技能食谱 (4 新) ====================
   {
     id: 'wild_salad',
-    name: '野菜沙拉',
+    name: 'Salad rau dại',
     ingredients: [
       { itemId: 'herb', quantity: 2 },
       { itemId: 'wild_berry', quantity: 1 }
     ],
     effect: { staminaRestore: 20, healthRestore: 10 },
-    unlockSource: '采集等级3',
+    unlockSource: 'Cấp thu thập 3',
     requiredSkill: { type: 'foraging', level: 3 },
-    description: '山间新鲜野菜拌成的沙拉。'
+    description: 'Đĩa rau dại tươi non trộn dầu giấm.'
   },
   {
     id: 'mushroom_stew',
-    name: '蘑菇炖',
+    name: 'Nấm hầm',
     ingredients: [
       { itemId: 'wild_mushroom', quantity: 3 },
       { itemId: 'firewood', quantity: 1 }
@@ -1069,15 +1069,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 20,
-      buff: { type: 'speed', value: 15, description: '行动速度+15%（当天）' }
+      buff: { type: 'speed', value: 15, description: 'Tốc độ di chuyển +15% (Trong ngày)' }
     },
-    unlockSource: '采集等级4',
+    unlockSource: 'Cấp thu thập 4',
     requiredSkill: { type: 'foraging', level: 4 },
-    description: '野生蘑菇慢炖的浓汤。'
+    description: 'Món canh nấm rừng ninh nhừ thơm ngậy.'
   },
   {
     id: 'forest_tonic',
-    name: '林间补药',
+    name: 'Thuốc bổ thảo mộc',
     ingredients: [
       { itemId: 'ginseng', quantity: 1 },
       { itemId: 'wild_mushroom', quantity: 2 },
@@ -1089,16 +1089,16 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 20,
-        description: '农耕体力消耗-20%（当天）'
+        description: 'Thể lực làm nông tiêu hao -20% (Trong ngày)'
       }
     },
-    unlockSource: '采集等级7',
+    unlockSource: 'Cấp thu thập 7',
     requiredSkill: { type: 'foraging', level: 7 },
-    description: '林中珍材熬制的补药。'
+    description: 'Thuốc bổ sắc từ các loại thảo dược quý hiếm trong rừng.'
   },
   {
     id: 'spirit_herb_elixir',
-    name: '灵草秘药',
+    name: 'Bí dược linh thảo',
     ingredients: [
       { itemId: 'ginseng', quantity: 2 },
       { itemId: 'herb', quantity: 3 },
@@ -1107,29 +1107,29 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 80,
       healthRestore: 40,
-      buff: { type: 'luck', value: 25, description: '幸运+25%（当天）' }
+      buff: { type: 'luck', value: 25, description: 'May mắn +25% (Trong ngày)' }
     },
-    unlockSource: '采集等级9',
+    unlockSource: 'Cấp thu thập 9',
     requiredSkill: { type: 'foraging', level: 9 },
-    description: '采集大师秘传的灵草药剂。'
+    description: 'Bí dược điều chế theo phương pháp gia truyền của bậc thầy thu thập.'
   },
 
   // ==================== 战斗技能食谱 (5 新) ====================
   {
     id: 'warrior_ration',
-    name: '战士口粮',
+    name: 'Khẩu phần chiến sĩ',
     ingredients: [
       { itemId: 'potato', quantity: 2 },
       { itemId: 'egg', quantity: 1 }
     ],
     effect: { staminaRestore: 25, healthRestore: 25 },
-    unlockSource: '战斗等级3',
+    unlockSource: 'Cấp chiến đấu 3',
     requiredSkill: { type: 'combat', level: 3 },
-    description: '简单实用的战士口粮。'
+    description: 'Lương khô đơn giản tiện lợi của chiến binh.'
   },
   {
     id: 'battle_stew',
-    name: '战斗炖菜',
+    name: 'Món hầm chiến đấu',
     ingredients: [
       { itemId: 'chili', quantity: 1 },
       { itemId: 'potato', quantity: 1 },
@@ -1138,15 +1138,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 30,
-      buff: { type: 'defense', value: 15, description: '受到伤害-15%（当天）' }
+      buff: { type: 'defense', value: 15, description: 'Sát thương gánh chịu -15% (Trong ngày)' }
     },
-    unlockSource: '战斗等级4',
+    unlockSource: 'Cấp chiến đấu 4',
     requiredSkill: { type: 'combat', level: 4 },
-    description: '提升战斗力的辛辣炖菜。'
+    description: 'Món canh hầm cay nồng kích thích đấu chí.'
   },
   {
     id: 'iron_fist_soup',
-    name: '铁拳汤',
+    name: 'Canh Thiết Quyền',
     ingredients: [
       { itemId: 'iron_ore', quantity: 1 },
       { itemId: 'chili', quantity: 2 },
@@ -1155,15 +1155,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 40,
       healthRestore: 35,
-      buff: { type: 'defense', value: 20, description: '受到伤害-20%（当天）' }
+      buff: { type: 'defense', value: 20, description: 'Sát thương gánh chịu -20% (Trong ngày)' }
     },
-    unlockSource: '战斗等级5',
+    unlockSource: 'Cấp chiến đấu 5',
     requiredSkill: { type: 'combat', level: 5 },
-    description: '拳师专用的铁拳汤。'
+    description: 'Món canh dưỡng khí chuyên dùng của các võ sư.'
   },
   {
     id: 'shadow_brew',
-    name: '暗影酿',
+    name: 'Mỹ tửu bóng tối',
     ingredients: [
       { itemId: 'shadow_ore', quantity: 1 },
       { itemId: 'herb', quantity: 2 },
@@ -1172,15 +1172,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 55,
       healthRestore: 40,
-      buff: { type: 'defense', value: 25, description: '受到伤害-25%（当天）' }
+      buff: { type: 'defense', value: 25, description: 'Sát thương gánh chịu -25% (Trong ngày)' }
     },
-    unlockSource: '战斗等级7',
+    unlockSource: 'Cấp chiến đấu 7',
     requiredSkill: { type: 'combat', level: 7 },
-    description: '暗影矿石酿制的神秘饮品。'
+    description: 'Thức uống bí ẩn ủ từ quặng hắc ám.'
   },
   {
     id: 'void_elixir',
-    name: '虚空药剂',
+    name: 'Dược tề hư không',
     ingredients: [
       { itemId: 'void_ore', quantity: 1 },
       { itemId: 'ginseng', quantity: 1 },
@@ -1189,17 +1189,17 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 70,
       healthRestore: 50,
-      buff: { type: 'defense', value: 30, description: '受到伤害-30%（当天）' }
+      buff: { type: 'defense', value: 30, description: 'Sát thương gánh chịu -30% (Trong ngày)' }
     },
-    unlockSource: '战斗等级9',
+    unlockSource: 'Cấp chiến đấu 9',
     requiredSkill: { type: 'combat', level: 9 },
-    description: '战斗大师炼制的终极药剂。'
+    description: 'Dược tề tối cao do chiến thần bào chế.'
   },
 
   // ==================== 季节节日食谱 (4) ====================
   {
     id: 'spring_roll',
-    name: '春卷',
+    name: 'Bánh chả giò xuân',
     ingredients: [
       { itemId: 'cabbage', quantity: 2 },
       { itemId: 'bamboo_shoot', quantity: 1 },
@@ -1208,14 +1208,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 30,
       healthRestore: 15,
-      buff: { type: 'speed', value: 15, description: '行动速度+15%（当天）' }
+      buff: { type: 'speed', value: 15, description: 'Tốc độ di chuyển +15% (Trong ngày)' }
     },
-    unlockSource: '春耕祭奖励',
-    description: '春耕祭传统的春卷。'
+    unlockSource: 'Thưởng Lễ hội Xuân Cày',
+    description: 'Món chả giò truyền thống trong Lễ hội Xuân Cày.'
   },
   {
     id: 'lotus_lantern_cake',
-    name: '荷灯糕',
+    name: 'Bánh đèn sen',
     ingredients: [
       { itemId: 'lotus_seed', quantity: 2 },
       { itemId: 'rice', quantity: 2 },
@@ -1224,14 +1224,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 40,
       healthRestore: 20,
-      buff: { type: 'luck', value: 15, description: '幸运+15%（当天）' }
+      buff: { type: 'luck', value: 15, description: 'May mắn +15% (Trong ngày)' }
     },
-    unlockSource: '荷灯节奖励',
-    description: '荷灯节限定的荷灯糕。'
+    unlockSource: 'Thưởng Lễ hội Hoa Đăng',
+    description: 'Bánh ngọt tạo hình đèn sen chỉ có vào Lễ hội Hoa Đăng.'
   },
   {
     id: 'harvest_feast',
-    name: '丰收盛宴',
+    name: 'Đại tiệc mùa màng',
     ingredients: [
       { itemId: 'pumpkin', quantity: 1 },
       { itemId: 'sweet_potato', quantity: 1 },
@@ -1244,15 +1244,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 20,
-        description: '农耕体力消耗-20%（当天）'
+        description: 'Thể lực làm nông tiêu hao -20% (Trong ngày)'
       }
     },
-    unlockSource: '丰收宴奖励',
-    description: '丰收宴上的传统大菜。'
+    unlockSource: 'Thưởng Lễ hội Thu Hoạch',
+    description: 'Món ăn truyền thống chủ đạo trong yến tiệc mùa màng.'
   },
   {
     id: 'new_year_dumpling',
-    name: '年夜饺',
+    name: 'Sủi cảo giao thừa',
     ingredients: [
       { itemId: 'winter_wheat', quantity: 3 },
       { itemId: 'napa_cabbage', quantity: 2 },
@@ -1261,16 +1261,16 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 30,
-      buff: { type: 'luck', value: 20, description: '幸运+20%（当天）' }
+      buff: { type: 'luck', value: 20, description: 'May mắn +20% (Trong ngày)' }
     },
-    unlockSource: '除夕守岁奖励',
-    description: '除夕夜包的幸运饺子。'
+    unlockSource: 'Thưởng Đêm Giao Thừa',
+    description: 'Sủi cảo may mắn được gói vào đêm giao thừa.'
   },
 
   // ==================== 新增节日食谱 (10) ====================
   {
     id: 'nian_gao',
-    name: '年糕',
+    name: 'Bánh tổ',
     ingredients: [
       { itemId: 'rice', quantity: 3 },
       { itemId: 'honey', quantity: 1 }
@@ -1281,15 +1281,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 10,
-        description: '农耕体力消耗-10%（当天）'
+        description: 'Thể lực làm nông tiêu hao -10% (Trong ngày)'
       }
     },
-    unlockSource: '元日奖励',
-    description: '「年年高」的吉祥年糕。'
+    unlockSource: 'Thưởng Ngày Tết Nguyên Đán',
+    description: 'Bánh tổ mang ý nghĩa tốt lành \'năm năm thăng tiến\'.'
   },
   {
     id: 'hua_gao',
-    name: '花糕',
+    name: 'Bánh hoa xuân',
     ingredients: [
       { itemId: 'peach', quantity: 2 },
       { itemId: 'rice', quantity: 1 },
@@ -1298,14 +1298,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 10,
-      buff: { type: 'luck', value: 10, description: '幸运+10%（当天）' }
+      buff: { type: 'luck', value: 10, description: 'May mắn +10% (Trong ngày)' }
     },
-    unlockSource: '花朝节奖励',
-    description: '以鲜花入馅的精致糕点。'
+    unlockSource: 'Thưởng Lễ hội Trăm Hoa',
+    description: 'Món bánh ngọt nhân cánh hoa xuân tinh tế.'
   },
   {
     id: 'qing_tuan',
-    name: '青团',
+    name: 'Bánh ngải cứu',
     ingredients: [
       { itemId: 'herb', quantity: 2 },
       { itemId: 'rice', quantity: 2 }
@@ -1316,15 +1316,15 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'farming',
         value: 15,
-        description: '农耕体力消耗-15%（当天）'
+        description: 'Thể lực làm nông tiêu hao -15% (Trong ngày)'
       }
     },
-    unlockSource: '上巳踏青奖励',
-    description: '草药清香的踏青小食。'
+    unlockSource: 'Thưởng Lễ hội Tảo Thanh',
+    description: 'Món bánh nếp ngải cứu thơm ngát hương đồng cỏ nội.'
   },
   {
     id: 'yue_bing',
-    name: '月饼',
+    name: 'Bánh trung thu',
     ingredients: [
       { itemId: 'lotus_seed', quantity: 2 },
       { itemId: 'sesame_oil', quantity: 1 },
@@ -1333,14 +1333,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 20,
-      buff: { type: 'luck', value: 15, description: '幸运+15%（当天）' }
+      buff: { type: 'luck', value: 15, description: 'May mắn +15% (Trong ngày)' }
     },
-    unlockSource: '中秋赏月奖励',
-    description: '月圆之夜的莲蓉月饼。'
+    unlockSource: 'Thưởng Lễ hội Trung Thu',
+    description: 'Bánh trung thu nhân hạt sen lòng đỏ trứng muối đêm rằm.'
   },
   {
     id: 'la_ba_zhou',
-    name: '腊八粥',
+    name: 'Cháo Lạp Bát',
     ingredients: [
       { itemId: 'rice', quantity: 2 },
       { itemId: 'peanut', quantity: 1 },
@@ -1350,12 +1350,12 @@ export const RECIPES: RecipeDef[] = [
       staminaRestore: 50,
       healthRestore: 25
     },
-    unlockSource: '腊八粥会奖励',
-    description: '暖胃驱寒的腊八粥。'
+    unlockSource: 'Thưởng Lễ hội Cháo Lạp Bát',
+    description: 'Bát cháo Lạp Bát bổ dưỡng xua tan giá lạnh.'
   },
   {
     id: 'dragon_boat_zongzi',
-    name: '粽子',
+    name: 'Bánh chưng bánh tét',
     ingredients: [
       { itemId: 'rice', quantity: 3 },
       { itemId: 'bamboo_shoot', quantity: 1 }
@@ -1363,14 +1363,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'speed', value: 10, description: '行动速度+10%（当天）' }
+      buff: { type: 'speed', value: 10, description: 'Tốc độ di chuyển +10% (Trong ngày)' }
     },
-    unlockSource: '端午赛龙舟奖励',
-    description: '竹叶清香的端午粽子。'
+    unlockSource: 'Thưởng Lễ hội Đoan Ngọ',
+    description: 'Chiếc bánh nếp thơm mùi lá tre ngày Tết Đoan Ngọ.'
   },
   {
     id: 'qiao_guo',
-    name: '巧果',
+    name: 'Bánh Thất Tịch',
     ingredients: [
       { itemId: 'winter_wheat', quantity: 2 },
       { itemId: 'honey', quantity: 1 },
@@ -1379,14 +1379,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 30,
       healthRestore: 10,
-      buff: { type: 'fishing', value: 1, description: '钓鱼技能+1（当天）' }
+      buff: { type: 'fishing', value: 1, description: 'Kỹ năng câu cá +1 (Trong ngày)' }
     },
-    unlockSource: '七夕猜灯谜奖励',
-    description: '七夕乞巧的传统小点。'
+    unlockSource: 'Thưởng Lễ Thất Tịch',
+    description: 'Món bánh ngọt truyền thống cầu duyên đêm Thất Tịch.'
   },
   {
     id: 'chrysanthemum_wine',
-    name: '菊花酒',
+    name: 'Rượu hoa cúc',
     ingredients: [
       { itemId: 'chrysanthemum', quantity: 3 },
       { itemId: 'rice', quantity: 1 }
@@ -1394,14 +1394,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 40,
       healthRestore: 20,
-      buff: { type: 'luck', value: 12, description: '幸运+12%（当天）' }
+      buff: { type: 'luck', value: 12, description: 'May mắn +12% (Trong ngày)' }
     },
-    unlockSource: '重阳投壶奖励',
-    description: '重阳佳节的菊花酿。'
+    unlockSource: 'Thưởng Lễ Trùng Cửu',
+    description: 'Rượu cúc ấm nồng nhân ngày Tết Trùng Cửu.'
   },
   {
     id: 'jiaozi',
-    name: '冬至饺',
+    name: 'Sủi cảo đông chí',
     ingredients: [
       { itemId: 'winter_wheat', quantity: 2 },
       { itemId: 'napa_cabbage', quantity: 2 }
@@ -1409,14 +1409,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 20,
-      buff: { type: 'mining', value: 1, description: '矿工技能+1（当天）' }
+      buff: { type: 'mining', value: 1, description: 'Kỹ năng thợ mỏ +1 (Trong ngày)' }
     },
-    unlockSource: '冬至包饺子奖励',
-    description: '冬至时节包的暖心饺子。'
+    unlockSource: 'Thưởng Ngày Lễ Đông Chí',
+    description: 'Sủi cảo nóng hổi giữ ấm cơ thể ngày Đông Chí.'
   },
   {
     id: 'tangyuan',
-    name: '汤圆',
+    name: 'Bánh trôi nước',
     ingredients: [
       { itemId: 'rice', quantity: 3 },
       { itemId: 'honey', quantity: 1 },
@@ -1425,14 +1425,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 25,
-      buff: { type: 'all_skills', value: 1, description: '全技能+1（当天）' }
+      buff: { type: 'all_skills', value: 1, description: 'Tất cả kỹ năng +1 (Trong ngày)' }
     },
-    unlockSource: '年末烟花会奖励',
-    description: '团团圆圆的花生汤圆。'
+    unlockSource: 'Thưởng Lễ hội Pháo Hoa Cuối Năm',
+    description: 'Bát bánh trôi nước nhân đậu phộng mang ý nghĩa sum vầy.'
   },
   {
     id: 'dou_cha_yin',
-    name: '斗茶饮',
+    name: 'Trà đấu hội',
     ingredients: [
       { itemId: 'tea', quantity: 2 },
       { itemId: 'honey', quantity: 1 }
@@ -1440,14 +1440,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'all_skills', value: 1, description: '全技能+1（当天）' }
+      buff: { type: 'all_skills', value: 1, description: 'Tất cả kỹ năng +1 (Trong ngày)' }
     },
-    unlockSource: '斗茶大会奖励',
-    description: '斗茶会上的经典茶饮，清香沁脾。'
+    unlockSource: 'Thưởng Đại hội Đấu Trà',
+    description: 'Thức uống hảo hạng đoạt giải hội đấu trà, hương thanh mát rượi.'
   },
   {
     id: 'zhi_yuan_gao',
-    name: '纸鸢糕',
+    name: 'Bánh diều giấy',
     ingredients: [
       { itemId: 'rice', quantity: 2 },
       { itemId: 'peach', quantity: 1 },
@@ -1456,38 +1456,38 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'speed', value: 12, description: '行动速度+12%（当天）' }
+      buff: { type: 'speed', value: 12, description: 'Tốc độ di chuyển +12% (Trong ngày)' }
     },
-    unlockSource: '秋风筝会奖励',
-    description: '风筝节上的应景糕点，形如纸鸢。'
+    unlockSource: 'Thưởng Lễ hội Thả Diều Mùa Thu',
+    description: 'Món bánh ngọt tạo hình diều giấy xính xắn ngày hội thả diều.'
   },
 
   // ==================== 成就里程碑食谱 (9) ====================
   {
     id: 'first_catch_soup',
-    name: '初钓鱼汤',
+    name: 'Canh cá kỷ niệm',
     ingredients: [
       { itemId: 'crucian', quantity: 2 },
       { itemId: 'ginger', quantity: 1 }
     ],
     effect: { staminaRestore: 20, healthRestore: 10 },
-    unlockSource: '成就：初次钓鱼',
-    description: '第一次钓鱼的纪念汤。'
+    unlockSource: 'Thành tựu: Lần đầu câu cá',
+    description: 'Bát canh cá nóng hổi kỷ niệm chú cá đầu tiên câu được.'
   },
   {
     id: 'bountiful_porridge',
-    name: '百收粥',
+    name: 'Cháo bách thu',
     ingredients: [
       { itemId: 'rice', quantity: 3 },
       { itemId: 'jujube', quantity: 2 }
     ],
     effect: { staminaRestore: 40, healthRestore: 20 },
-    unlockSource: '成就：收获100次作物',
-    description: '庆祝百次丰收的粥。'
+    unlockSource: 'Thành tựu: Thu hoạch 100 lần cây trồng',
+    description: 'Món cháo ấm lòng chúc mừng nông trại đạt mốc 100 lần thu hoạch.'
   },
   {
     id: 'miners_glory',
-    name: '矿工荣光',
+    name: 'Vinh quang thợ mỏ',
     ingredients: [
       { itemId: 'gold_ore', quantity: 1 },
       { itemId: 'egg', quantity: 2 },
@@ -1499,27 +1499,27 @@ export const RECIPES: RecipeDef[] = [
       buff: {
         type: 'mining',
         value: 25,
-        description: '挖矿体力消耗-25%（当天）'
+        description: 'Thể lực đào mỏ tiêu hao -25% (Trong ngày)'
       }
     },
-    unlockSource: '成就：到达矿洞30层',
-    description: '矿工荣耀的象征。'
+    unlockSource: 'Thành tựu: Xuống tới tầng 30 hang mỏ',
+    description: 'Món ăn vinh danh lòng quả cảm của người thợ mỏ.'
   },
   {
     id: 'chef_special',
-    name: '大厨特供',
+    name: 'Món ngon đặc chế',
     ingredients: [
       { itemId: 'egg', quantity: 2 },
       { itemId: 'honey', quantity: 1 },
       { itemId: 'sesame', quantity: 2 }
     ],
     effect: { staminaRestore: 45, healthRestore: 20 },
-    unlockSource: '成就：烹饪20道菜',
-    description: '大厨才能做出的特供菜。'
+    unlockSource: 'Thành tựu: Nấu 20 món ăn',
+    description: 'Món ăn đặc biệt chỉ có đầu bếp thượng thừa mới làm được.'
   },
   {
     id: 'social_tea',
-    name: '交际花茶',
+    name: 'Trà hoa giao tế',
     ingredients: [
       { itemId: 'osmanthus', quantity: 2 },
       { itemId: 'honey', quantity: 1 }
@@ -1527,14 +1527,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 30,
       healthRestore: 15,
-      buff: { type: 'giftBonus', value: 2, description: '送礼好感×2（当天）' }
+      buff: { type: 'giftBonus', value: 2, description: 'Thiện cảm tặng quà x2 (Trong ngày)' }
     },
-    unlockSource: '成就：3位NPC达到相知',
-    description: '社交达人的特调花茶。'
+    unlockSource: 'Thành tựu: Đạt tri kỷ với 3 NPC',
+    description: 'Tách trà hoa thơm ngát chuyên dùng tiếp đãi hảo hữu phương xa.'
   },
   {
     id: 'anglers_platter',
-    name: '渔夫拼盘',
+    name: 'Mâm hải vị ngư phủ',
     ingredients: [
       { itemId: 'bass', quantity: 1 },
       { itemId: 'creek_shrimp', quantity: 1 },
@@ -1543,14 +1543,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 25,
-      buff: { type: 'fishing', value: 2, description: '钓鱼技能+2（当天）' }
+      buff: { type: 'fishing', value: 2, description: 'Kỹ năng câu cá +2 (Trong ngày)' }
     },
-    unlockSource: '成就：钓到20条鱼',
-    description: '渔夫才能拼出的海鲜拼盘。'
+    unlockSource: 'Thành tựu: Câu được 20 con cá',
+    description: 'Mâm hải vị thịnh soạn của một ngư phủ thực thụ.'
   },
   {
     id: 'legendary_feast',
-    name: '传说盛宴',
+    name: 'Yến tiệc truyền thuyết',
     ingredients: [
       { itemId: 'jade_dragon', quantity: 1 },
       { itemId: 'ginger', quantity: 2 }
@@ -1558,14 +1558,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 80,
       healthRestore: 40,
-      buff: { type: 'fishing', value: 4, description: '钓鱼技能+4（当天）' }
+      buff: { type: 'fishing', value: 4, description: 'Kỹ năng câu cá +4 (Trong ngày)' }
     },
-    unlockSource: '成就：钓到传说鱼',
-    description: '用传说之鱼做的极品盛宴。'
+    unlockSource: 'Thành tựu: Câu được cá truyền thuyết',
+    description: 'Bàn tiệc trân quý nấu từ loài cá linh thiêng trong truyền thuyết.'
   },
   {
     id: 'abyss_stew',
-    name: '深渊炖菜',
+    name: 'Canh hầm vực thẳm',
     ingredients: [
       { itemId: 'shadow_ore', quantity: 1 },
       { itemId: 'crystal_shrimp', quantity: 1 },
@@ -1574,14 +1574,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 35,
-      buff: { type: 'defense', value: 20, description: '受到伤害-20%（当天）' }
+      buff: { type: 'defense', value: 20, description: 'Sát thương gánh chịu -20% (Trong ngày)' }
     },
-    unlockSource: '成就：到达矿洞50层',
-    description: '深渊探索者的秘制炖菜。'
+    unlockSource: 'Thành tựu: Xuống tới tầng 50 hang mỏ',
+    description: 'Món hầm tăng lực của những nhà thám hiểm vực thẳm.'
   },
   {
     id: 'collectors_banquet',
-    name: '收藏家宴',
+    name: 'Yến tiệc nhà sưu tầm',
     ingredients: [
       { itemId: 'ginseng', quantity: 1 },
       { itemId: 'sturgeon', quantity: 1 },
@@ -1591,37 +1591,37 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 80,
       healthRestore: 40,
-      buff: { type: 'luck', value: 25, description: '幸运+25%（当天）' }
+      buff: { type: 'luck', value: 25, description: 'May mắn +25% (Trong ngày)' }
     },
-    unlockSource: '成就：发现50种物品',
-    description: '用珍稀食材做的收藏家宴。'
+    unlockSource: 'Thành tựu: Phát hiện 50 vật phẩm',
+    description: 'Bữa tiệc nấu hoàn toàn từ những kỳ hoa dị thảo quý hiếm.'
   },
   // ===== 新增：动物产品食谱 =====
   {
     id: 'silkie_egg_soup',
-    name: '乌鸡蛋羹',
+    name: 'Trứng hấp ác vy',
     ingredients: [
       { itemId: 'silkie_egg', quantity: 2 },
       { itemId: 'ginger', quantity: 1 }
     ],
     effect: { staminaRestore: 50, healthRestore: 30 },
-    unlockSource: '初始自带',
-    description: '滋补养生的乌鸡蛋羹。'
+    unlockSource: 'Có sẵn ban đầu',
+    description: 'Món trứng hấp ác vy bồi bổ sinh lực cực tốt.'
   },
   {
     id: 'goat_milk_soup',
-    name: '羊奶汤',
+    name: 'Canh sữa dê',
     ingredients: [
       { itemId: 'goat_milk', quantity: 2 },
       { itemId: 'herb', quantity: 1 }
     ],
     effect: { staminaRestore: 45, healthRestore: 25 },
-    unlockSource: '大牛好感「挚友」',
-    description: '温热醇厚的羊奶汤。'
+    unlockSource: 'Thiện cảm Đại Ngưu đạt \'Chí hữu\'',
+    description: 'Canh sữa dê ấm nóng béo ngậy.'
   },
   {
     id: 'truffle_fried_rice',
-    name: '松露炒饭',
+    name: 'Cơm chiên nấm Truffle',
     ingredients: [
       { itemId: 'truffle', quantity: 1 },
       { itemId: 'rice', quantity: 1 },
@@ -1630,14 +1630,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 30,
-      buff: { type: 'farming', value: 1, description: '农耕技能+1（当天）' }
+      buff: { type: 'farming', value: 1, description: 'Kỹ năng trồng trọt +1 (Trong ngày)' }
     },
-    unlockSource: '大牛好感「知己」',
-    description: '奢侈的松露炒饭，香气四溢。'
+    unlockSource: 'Thiện cảm Đại Ngưu đạt \'Tri kỷ\'',
+    description: 'Đĩa cơm chiên nấm Truffle xa xỉ, thơm lừng quyến rũ.'
   },
   {
     id: 'antler_soup',
-    name: '鹿茸汤',
+    name: 'Canh lộc nhung',
     ingredients: [
       { itemId: 'antler_velvet', quantity: 1 },
       { itemId: 'herb', quantity: 2 },
@@ -1646,14 +1646,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 80,
       healthRestore: 40,
-      buff: { type: 'stamina', value: 100, description: '体力全恢复' }
+      buff: { type: 'stamina', value: 100, description: 'Hồi phục hoàn toàn thể lực' }
     },
-    unlockSource: '林老好感「知己」',
-    description: '大补之物，一碗下去神清气爽。'
+    unlockSource: 'Thiện cảm Lâm Lão đạt \'Tri kỷ\'',
+    description: 'Thang thuốc đại bổ, một bát sảng khoái tinh thần.'
   },
   {
     id: 'camel_milk_tea',
-    name: '驼奶茶',
+    name: 'Trà sữa lạc đà',
     ingredients: [
       { itemId: 'camel_milk', quantity: 1 },
       { itemId: 'tea', quantity: 1 }
@@ -1661,14 +1661,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'speed', value: 15, description: '行动速度+15%（当天）' }
+      buff: { type: 'speed', value: 15, description: 'Tốc độ di chuyển +15% (Trong ngày)' }
     },
-    unlockSource: '陈伯好感「挚友」',
-    description: '丝滑醇香的驼奶茶。'
+    unlockSource: 'Thiện cảm Bác Trần đạt \'Chí hữu\'',
+    description: 'Ly trà sữa lạc đà béo ngậy thơm ngon.'
   },
   {
     id: 'peacock_feast',
-    name: '孔雀宴',
+    name: 'Khổng Tước Yến',
     ingredients: [
       { itemId: 'peacock_feather', quantity: 1 },
       { itemId: 'rice', quantity: 2 },
@@ -1677,15 +1677,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 90,
       healthRestore: 50,
-      buff: { type: 'all_skills', value: 1, description: '全技能+1（当天）' }
+      buff: { type: 'all_skills', value: 1, description: 'Tất cả kỹ năng +1 (Trong ngày)' }
     },
-    unlockSource: '结婚后解锁',
-    description: '传说中的孔雀宴，尊贵无比。'
+    unlockSource: 'Mở khóa sau khi kết hôn',
+    description: 'Yến tiệc Khổng Tước trong truyền thuyết, tôn quý vô ngần.'
   },
   // === 瀚海食谱 ===
   {
     id: 'spiced_lamb',
-    name: '香料烤羊',
+    name: 'Thịt cừu nướng hương liệu',
     ingredients: [
       { itemId: 'hanhai_spice', quantity: 1 },
       { itemId: 'goat_milk', quantity: 1 }
@@ -1693,14 +1693,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 30,
-      buff: { type: 'mining', value: 2, description: '采矿技能+2（当天）' }
+      buff: { type: 'mining', value: 2, description: 'Kỹ năng khai khoáng +2 (Trong ngày)' }
     },
-    unlockSource: '瀚海驿站购买香料后解锁',
-    description: '西域风味的烤羊肉，香气扑鼻，力量倍增。'
+    unlockSource: 'Mở khóa sau khi mua hương liệu tại Trạm Hãn Hải',
+    description: 'Thịt cừu nướng đậm phong vị Tây Vực, thơm nức mũi, tăng cường thể chất.'
   },
   {
     id: 'silk_dumpling_deluxe',
-    name: '丝路饺子',
+    name: 'Sủi cảo Con Đường Tơ Lụa',
     ingredients: [
       { itemId: 'hanhai_silk', quantity: 1 },
       { itemId: 'rice', quantity: 2 },
@@ -1709,14 +1709,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 70,
       healthRestore: 35,
-      buff: { type: 'giftBonus', value: 3, description: '送礼好感×3（当天）' }
+      buff: { type: 'giftBonus', value: 3, description: 'Thiện cảm tặng quà x3 (Trong ngày)' }
     },
-    unlockSource: '瀚海驿站购买丝绸后解锁',
-    description: '用丝绸包裹的精致饺子，配以西域香料，送礼佳品。'
+    unlockSource: 'Mở khóa sau khi mua tơ lụa tại Trạm Hãn Hải',
+    description: 'Sủi cảo gói lộng lẫy bằng lụa mỏng, nêm hương liệu Tây Vực dâng lên quý nhân.'
   },
   {
     id: 'desert_cactus_soup',
-    name: '仙人掌汤',
+    name: 'Canh xương rồng',
     ingredients: [
       { itemId: 'hanhai_cactus', quantity: 2 },
       { itemId: 'hanhai_spice', quantity: 1 }
@@ -1724,14 +1724,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 40,
-      buff: { type: 'stamina', value: 30, description: '体力上限+30（当天）' }
+      buff: { type: 'stamina', value: 30, description: 'Tăng giới hạn thể lực +30 (Trong ngày)' }
     },
-    unlockSource: '收获仙人掌后解锁',
-    description: '清凉解暑的仙人掌汤，沙漠旅人的续命良方。'
+    unlockSource: 'Mở khóa sau khi thu hoạch xương rồng',
+    description: 'Canh xương rồng thanh nhiệt giải độc, phương thuốc cứu mạng khách lữ hành sa mạc.'
   },
   {
     id: 'date_cake',
-    name: '枣糕',
+    name: 'Bánh chà là',
     ingredients: [
       { itemId: 'hanhai_date', quantity: 3 },
       { itemId: 'rice', quantity: 2 }
@@ -1739,26 +1739,26 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 20,
-      buff: { type: 'farming', value: 2, description: '种植技能+2（当天）' }
+      buff: { type: 'farming', value: 2, description: 'Kỹ năng trồng trọt +2 (Trong ngày)' }
     },
-    unlockSource: '收获椰枣后解锁',
-    description: '甜蜜软糯的枣糕，补气养血。'
+    unlockSource: 'Mở khóa sau khi thu hoạch chà là',
+    description: 'Món bánh chà là dẻo ngọt, bổ khí dưỡng huyết.'
   },
   // === 瀚海拓展食谱 ===
   {
     id: 'cactus_salad',
-    name: '仙人掌沙拉',
+    name: 'Salad xương rồng',
     ingredients: [
       { itemId: 'hanhai_cactus', quantity: 1 },
       { itemId: 'hanhai_spice', quantity: 1 }
     ],
     effect: { staminaRestore: 40, healthRestore: 20 },
-    unlockSource: '解锁瀚海后自动获得',
-    description: '清爽可口的仙人掌沙拉，搭配西域香料别有风味。'
+    unlockSource: 'Tự động nhận sau khi mở khóa Hãn Hải',
+    description: 'Đĩa salad xương rồng thanh mát, kết hợp hương liệu Tây Vực độc đáo.'
   },
   {
     id: 'spice_fried_rice',
-    name: '香料炒饭',
+    name: 'Cơm chiên hương liệu',
     ingredients: [
       { itemId: 'hanhai_spice', quantity: 1 },
       { itemId: 'rice', quantity: 3 }
@@ -1766,14 +1766,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 55,
       healthRestore: 25,
-      buff: { type: 'farming', value: 1, description: '种植技能+1（当天）' }
+      buff: { type: 'farming', value: 1, description: 'Kỹ năng trồng trọt +1 (Trong ngày)' }
     },
-    unlockSource: '解锁瀚海后自动获得',
-    description: '西域香料翻炒的米饭，粒粒喷香，干活有劲。'
+    unlockSource: 'Tự động nhận sau khi mở khóa Hãn Hải',
+    description: 'Cơm chiên đượm vị hương liệu Tây Vực, dẻo thơm chắc hạt, làm việc không biết mệt.'
   },
   {
     id: 'turquoise_tea',
-    name: '绿松石养生茶',
+    name: 'Trà dưỡng sinh ngọc lục bảo',
     ingredients: [
       { itemId: 'hanhai_turquoise', quantity: 1 },
       { itemId: 'tea', quantity: 1 }
@@ -1781,14 +1781,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 30,
-      buff: { type: 'mining', value: 2, description: '采矿技能+2（当天）' }
+      buff: { type: 'mining', value: 2, description: 'Kỹ năng khai khoáng +2 (Trong ngày)' }
     },
-    unlockSource: '解锁瀚海后自动获得',
-    description: '以绿松石粉入茶，据说能增强矿石感应力。'
+    unlockSource: 'Tự động nhận sau khi mở khóa Hãn Hải',
+    description: 'Tách trà pha chút bột ngọc lục bảo, tương truyền tăng khả năng cảm ứng quặng đá.'
   },
   {
     id: 'silk_tofu',
-    name: '丝绸豆腐',
+    name: 'Đậu hũ tơ lụa',
     ingredients: [
       { itemId: 'hanhai_silk', quantity: 1 },
       { itemId: 'tofu', quantity: 2 }
@@ -1796,25 +1796,25 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 20,
-      buff: { type: 'fishing', value: 1, description: '钓鱼技能+1（当天）' }
+      buff: { type: 'fishing', value: 1, description: 'Kỹ năng câu cá +1 (Trong ngày)' }
     },
-    unlockSource: '解锁瀚海后自动获得',
-    description: '用丝绸包裹蒸制的嫩滑豆腐，口感如丝绸般细腻。'
+    unlockSource: 'Tự động nhận sau khi mở khóa Hãn Hải',
+    description: 'Đậu hũ non hấp bọc trong lụa mỏng, kết cấu mịn màng như tơ lụa.'
   },
   {
     id: 'date_porridge',
-    name: '枣泥粥',
+    name: 'Cháo táo đỏ nghiền',
     ingredients: [
       { itemId: 'hanhai_date', quantity: 2 },
       { itemId: 'rice', quantity: 2 }
     ],
     effect: { staminaRestore: 50, healthRestore: 25 },
-    unlockSource: '解锁瀚海后自动获得',
-    description: '温热滋补的枣泥粥，暖胃养身。'
+    unlockSource: 'Tự động nhận sau khi mở khóa Hãn Hải',
+    description: 'Cháo táo đỏ nhuyễn mịn, giữ ấm dạ dày bồi bổ thân thể.'
   },
   {
     id: 'desert_feast',
-    name: '西域盛宴',
+    name: 'Đại tiệc Tây Vực',
     ingredients: [
       { itemId: 'hanhai_cactus', quantity: 2 },
       { itemId: 'hanhai_spice', quantity: 2 },
@@ -1823,14 +1823,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 80,
       healthRestore: 50,
-      buff: { type: 'all_skills', value: 1, description: '全技能+1（当天）' }
+      buff: { type: 'all_skills', value: 1, description: 'Tất cả kỹ năng +1 (Trong ngày)' }
     },
-    unlockSource: '通商等级3解锁',
-    description: '集西域精华于一桌的豪华宴席，食之精力充沛。'
+    unlockSource: 'Cấp độ thương mại3Mở khóa',
+    description: 'Bữa tiệc sang trọng kết hợp tinh hoa miền Tây trong một bàn tiệc, mang đến cho bạn tràn đầy năng lượng.'
   },
   {
     id: 'brocade_dumpling',
-    name: '锦缎御饺',
+    name: 'Há Cảo Gấm Ngự Ban',
     ingredients: [
       { itemId: 'brocade', quantity: 1 },
       { itemId: 'rice', quantity: 2 },
@@ -1839,29 +1839,29 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 75,
       healthRestore: 40,
-      buff: { type: 'giftBonus', value: 5, description: '送礼好感×5（当天）' }
+      buff: { type: 'giftBonus', value: 5, description: 'Thiện cảm tặng quà ×5 (Trong ngày)' }
     },
-    unlockSource: '通商等级5解锁',
-    description: '以锦缎为皮的极品饺子，御赐级别的送礼佳品。'
+    unlockSource: 'Mở khóa khi cấp Thông Thương đạt 5',
+    description: 'Món há cảo cực phẩm có vỏ như gấm vóc, là món quà thượng hạng cấp ngự ban.'
   },
 
   // === 加工品菜谱 ===
 
   {
     id: 'vinegar_cabbage',
-    name: '醋溜白菜',
+    name: 'Cải thảo xào giấm chua',
     ingredients: [
       { itemId: 'rice_vinegar', quantity: 1 },
       { itemId: 'cabbage', quantity: 2 }
     ],
     effect: { staminaRestore: 30, healthRestore: 10 },
-    unlockSource: '烹饪等级3',
+    unlockSource: 'Cấp nấu ăn 3',
     requiredSkill: { type: 'farming', level: 3 },
-    description: '酸爽开胃的家常菜，米醋的妙用。'
+    description: 'Món ăn gia đình chua thanh kích thích vị giác, sự kết hợp kỳ diệu của giấm gạo.'
   },
   {
     id: 'cheese_baked_rice',
-    name: '奶酪焗饭',
+    name: 'Cơm nướng phô mai',
     ingredients: [
       { itemId: 'cheese', quantity: 1 },
       { itemId: 'rice', quantity: 2 }
@@ -1869,15 +1869,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 20,
-      buff: { type: 'farming', value: 1, description: '农耕技能+1（当天）' }
+      buff: { type: 'farming', value: 1, description: 'Kỹ năng trồng trọt +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级5',
+    unlockSource: 'Cấp nấu ăn 5',
     requiredSkill: { type: 'farming', level: 5 },
-    description: '浓郁奶酪与米饭的完美融合。'
+    description: 'Sự hòa quyện hoàn hảo giữa phô mai béo ngậy và cơm.'
   },
   {
     id: 'goat_cheese_salad',
-    name: '山羊奶酪沙拉',
+    name: 'Salad phô mai dê',
     ingredients: [
       { itemId: 'goat_cheese', quantity: 1 },
       { itemId: 'wild_berry', quantity: 2 }
@@ -1885,27 +1885,27 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'luck', value: 1, description: '幸运+1（当天）' }
+      buff: { type: 'luck', value: 1, description: 'May mắn +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级6',
+    unlockSource: 'Cấp nấu ăn 6',
     requiredSkill: { type: 'farming', level: 6 },
-    description: '清爽酸甜，搭配山羊奶酪恰到好处。'
+    description: 'Chua ngọt thanh mát, kết hợp với phô mai dê ngon tuyệt hảo.'
   },
   {
     id: 'mayo_noodles',
-    name: '蛋黄酱拌面',
+    name: 'Mì trộn sốt mayonnaise',
     ingredients: [
       { itemId: 'mayonnaise', quantity: 1 },
       { itemId: 'wheat_flour', quantity: 2 }
     ],
     effect: { staminaRestore: 25, healthRestore: 10 },
-    unlockSource: '烹饪等级2',
+    unlockSource: 'Cấp nấu ăn 2',
     requiredSkill: { type: 'farming', level: 2 },
-    description: '简单却美味的拌面，蛋黄酱的浓郁令人回味。'
+    description: 'Món mì trộn đơn giản mà ngon miệng, hương vị béo ngậy của sốt mayonnaise khiến người ta nhớ mãi.'
   },
   {
     id: 'smoked_fish_platter',
-    name: '烟熏鱼拼盘',
+    name: 'Mâm cá xông khói',
     ingredients: [
       { itemId: 'smoked_carp', quantity: 1 },
       { itemId: 'smoked_bass', quantity: 1 }
@@ -1913,14 +1913,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 25,
-      buff: { type: 'fishing', value: 2, description: '钓鱼技能+2（当天）' }
+      buff: { type: 'fishing', value: 2, description: 'Kỹ năng câu cá +2 (Trong ngày)' }
     },
-    unlockSource: '秋月好感「知己」',
-    description: '精心摆盘的双色烟熏鱼，鲜香四溢。'
+    unlockSource: 'Thiện cảm Thu Nguyệt đạt \'Tri kỷ\'',
+    description: 'Cá hun khói hai màu được bày trí tinh tế, hương thơm ngào ngạt.'
   },
   {
     id: 'dried_fruit_mix',
-    name: '果脯什锦',
+    name: 'Mứt hoa quả thập cẩm',
     ingredients: [
       { itemId: 'dried_peach', quantity: 1 },
       { itemId: 'dried_hawthorn', quantity: 1 },
@@ -1929,28 +1929,28 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 40,
       healthRestore: 15,
-      buff: { type: 'luck', value: 2, description: '幸运+2（当天）' }
+      buff: { type: 'luck', value: 2, description: 'May mắn +2 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级4',
+    unlockSource: 'Cấp nấu ăn 4',
     requiredSkill: { type: 'farming', level: 4 },
-    description: '三种果脯的酸甜组合，行路必备干粮。'
+    description: 'Sự kết hợp chua ngọt của ba loại mứt hoa quả, lương khô không thể thiếu khi đi đường.'
   },
   {
     id: 'pickled_veggie_fried_rice',
-    name: '腌菜炒饭',
+    name: 'Cơm chiên dưa cải muối',
     ingredients: [
       { itemId: 'pickled_cabbage', quantity: 1 },
       { itemId: 'rice', quantity: 2 },
       { itemId: 'egg', quantity: 1 }
     ],
     effect: { staminaRestore: 35, healthRestore: 15 },
-    unlockSource: '烹饪等级3',
+    unlockSource: 'Cấp nấu ăn 3',
     requiredSkill: { type: 'farming', level: 3 },
-    description: '腌白菜的咸香与蛋炒饭完美结合。'
+    description: 'Vị mặn thơm của cải thảo muối hòa quyện hoàn hảo với cơm chiên trứng.'
   },
   {
     id: 'pickled_chili_fish',
-    name: '泡椒鱼',
+    name: 'Cá nấu ớt ngâm',
     ingredients: [
       { itemId: 'pickled_chili', quantity: 2 },
       { itemId: 'crucian', quantity: 1 }
@@ -1958,15 +1958,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 40,
       healthRestore: 30,
-      buff: { type: 'defense', value: 15, description: '受到伤害-15%（当天）' }
+      buff: { type: 'defense', value: 15, description: 'Sát thương gánh chịu -15% (Trong ngày)' }
     },
-    unlockSource: '烹饪等级5',
+    unlockSource: 'Cấp nấu ăn 5',
     requiredSkill: { type: 'farming', level: 5 },
-    description: '麻辣鲜香的泡椒鱼，吃了浑身充满力量。'
+    description: 'Món cá ớt ngâm tê cay thơm nức, ăn vào khiến cơ thể tràn đầy sức mạnh.'
   },
   {
     id: 'honey_cake',
-    name: '花蜜糕',
+    name: 'Bánh mật hoa',
     ingredients: [
       { itemId: 'osmanthus_honey', quantity: 1 },
       { itemId: 'wheat_flour', quantity: 2 }
@@ -1974,14 +1974,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 30,
       healthRestore: 10,
-      buff: { type: 'giftBonus', value: 3, description: '送礼好感×3（当天）' }
+      buff: { type: 'giftBonus', value: 3, description: 'Thiện cảm tặng quà x3 (Trong ngày)' }
     },
-    unlockSource: '柳娘好感「知己」',
-    description: '桂花蜜制成的精致糕点，送礼上佳。'
+    unlockSource: 'Thiện cảm Liễu Nương đạt \'Tri kỷ\'',
+    description: 'Món bánh tinh tế làm từ mật hoa quế, thích hợp làm quà tặng.'
   },
   {
     id: 'antler_tonic',
-    name: '鹿茸补汤',
+    name: 'Canh bổ lộc nhung',
     ingredients: [
       { itemId: 'antler_powder', quantity: 1 },
       { itemId: 'jujube', quantity: 2 }
@@ -1989,14 +1989,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 40,
-      buff: { type: 'mining', value: 2, description: '采矿技能+2（当天）' }
+      buff: { type: 'mining', value: 2, description: 'Kỹ năng khai khoáng +2 (Trong ngày)' }
     },
-    unlockSource: '林老好感「知己」',
-    description: '珍贵的滋补汤品，喝后精力充沛。'
+    unlockSource: 'Thiện cảm Lâm Lão đạt \'Tri kỷ\'',
+    description: 'Canh bồi bổ trân quý, uống vào giúp tinh lực dồi dào.'
   },
   {
     id: 'tea_oil_fried_egg',
-    name: '茶油煎蛋',
+    name: 'Trứng rán dầu trà',
     ingredients: [
       { itemId: 'tea_oil', quantity: 1 },
       { itemId: 'egg', quantity: 2 }
@@ -2004,15 +2004,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'speed', value: 1, description: '旅行加速+1（当天）' }
+      buff: { type: 'speed', value: 1, description: 'Tốc độ di chuyển +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级4',
+    unlockSource: 'Cấp nấu ăn 4',
     requiredSkill: { type: 'farming', level: 4 },
-    description: '山茶油煎出的金黄蛋饼，清香扑鼻。'
+    description: 'Bánh trứng vàng chiên dầu hoa trà thơm lừng.'
   },
   {
     id: 'truffle_oil_risotto',
-    name: '松露油炒饭',
+    name: 'Cơm chiên dầu Truffle',
     ingredients: [
       { itemId: 'truffle_oil', quantity: 1 },
       { itemId: 'rice', quantity: 2 },
@@ -2021,15 +2021,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 70,
       healthRestore: 30,
-      buff: { type: 'all_skills', value: 1, description: '全技能+1（当天）' }
+      buff: { type: 'all_skills', value: 1, description: 'Tất cả kỹ năng +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级8',
+    unlockSource: 'Cấp nấu ăn 8',
     requiredSkill: { type: 'farming', level: 8 },
-    description: '奢侈的松露油炒饭，每一口都是享受。'
+    description: 'Cơm chiên dầu Truffle xa xỉ, mỗi một miếng đều là sự tận hưởng.'
   },
   {
     id: 'sesame_paste_noodles',
-    name: '麻酱凉面',
+    name: 'Mì lạnh sốt mè',
     ingredients: [
       { itemId: 'sesame_paste', quantity: 1 },
       { itemId: 'wheat_flour', quantity: 2 }
@@ -2037,15 +2037,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 30,
       healthRestore: 10,
-      buff: { type: 'stamina', value: 15, description: '体力消耗-15%（当天）' }
+      buff: { type: 'stamina', value: 15, description: 'Thể lực tiêu hao -15% (Trong ngày)' }
     },
-    unlockSource: '烹饪等级3',
+    unlockSource: 'Cấp nấu ăn 3',
     requiredSkill: { type: 'farming', level: 3 },
-    description: '浓香麻酱配上劲道凉面，夏日消暑佳品。'
+    description: 'Sốt mè thơm đậm đà rưới lên mì lạnh dai ngon, món giải nhiệt tuyệt hảo ngày hè.'
   },
   {
     id: 'peanut_tofu_soup',
-    name: '花生豆腐羹',
+    name: 'Canh đậu hũ đậu phộng',
     ingredients: [
       { itemId: 'peanut_tofu', quantity: 1 },
       { itemId: 'peanut', quantity: 2 }
@@ -2053,15 +2053,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 40,
       healthRestore: 20,
-      buff: { type: 'defense', value: 15, description: '受到伤害-15%（当天）' }
+      buff: { type: 'defense', value: 15, description: 'Sát thương gánh chịu -15% (Trong ngày)' }
     },
-    unlockSource: '烹饪等级5',
+    unlockSource: 'Cấp nấu ăn 5',
     requiredSkill: { type: 'farming', level: 5 },
-    description: '绵密顺滑的花生豆腐羹，暖胃养身。'
+    description: 'Canh đậu hũ đậu phộng sánh mịn mượt mà, ấm bụng dưỡng thân.'
   },
   {
     id: 'pumpkin_preserve_cake',
-    name: '南瓜酱饼',
+    name: 'Bánh nhân mứt bí đỏ',
     ingredients: [
       { itemId: 'pumpkin_preserve', quantity: 1 },
       { itemId: 'wheat_flour', quantity: 2 }
@@ -2069,15 +2069,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'farming', value: 1, description: '农耕技能+1（当天）' }
+      buff: { type: 'farming', value: 1, description: 'Kỹ năng trồng trọt +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级4',
+    unlockSource: 'Cấp nấu ăn 4',
     requiredSkill: { type: 'farming', level: 4 },
-    description: '香甜的南瓜酱夹心饼，田间劳作的好伙伴。'
+    description: 'Bánh kẹp nhân mứt bí đỏ ngọt ngào, người bạn đồng hành tốt khi làm lụng trên đồng.'
   },
   {
     id: 'dried_mushroom_stew',
-    name: '干蘑菇炖鸡',
+    name: 'Gà hầm nấm khô',
     ingredients: [
       { itemId: 'dried_mushroom', quantity: 2 },
       { itemId: 'egg', quantity: 2 }
@@ -2085,15 +2085,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 55,
       healthRestore: 30,
-      buff: { type: 'mining', value: 1, description: '采矿技能+1（当天）' }
+      buff: { type: 'mining', value: 1, description: 'Kỹ năng khai khoáng +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级6',
+    unlockSource: 'Cấp nấu ăn 6',
     requiredSkill: { type: 'farming', level: 6 },
-    description: '干蘑菇的鲜味在慢炖中完全释放。'
+    description: 'Vị ngọt thanh của nấm khô được giải phóng hoàn toàn qua quá trình hầm chậm.'
   },
   {
     id: 'ginger_green_tea',
-    name: '姜茶',
+    name: 'Trà gừng',
     ingredients: [
       { itemId: 'pickled_ginger', quantity: 1 },
       { itemId: 'green_tea_drink', quantity: 1 }
@@ -2101,15 +2101,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 25,
       healthRestore: 10,
-      buff: { type: 'speed', value: 1, description: '旅行加速+1（当天）' }
+      buff: { type: 'speed', value: 1, description: 'Tốc độ di chuyển +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级3',
+    unlockSource: 'Cấp nấu ăn 3',
     requiredSkill: { type: 'farming', level: 3 },
-    description: '腌姜与绿茶的搭配，暖身又提神。'
+    description: 'Sự kết hợp giữa gừng muối và trà xanh, vừa ấm người vừa tỉnh táo.'
   },
   {
     id: 'snow_lotus_honey_paste',
-    name: '雪莲蜜膏',
+    name: 'Cao mật tuyết liên',
     ingredients: [
       { itemId: 'snow_lotus_honey', quantity: 1 },
       { itemId: 'ginseng_extract', quantity: 1 }
@@ -2118,12 +2118,12 @@ export const RECIPES: RecipeDef[] = [
       staminaRestore: 80,
       healthRestore: 50
     },
-    unlockSource: '林老好感「挚友」',
-    description: '极品滋补圣品，雪莲蜜与人参精的至高结合。'
+    unlockSource: 'Thiện cảm Lâm Lão đạt \'Chí hữu\'',
+    description: 'Thần dược bồi bổ cực phẩm, sự kết hợp tối cao giữa mật tuyết liên và tinh chất nhân sâm.'
   },
   {
     id: 'buffalo_cheese_pizza',
-    name: '水牛奶酪烤饼',
+    name: 'Bánh nướng phô mai sữa trâu',
     ingredients: [
       { itemId: 'buffalo_cheese', quantity: 1 },
       { itemId: 'wheat_flour', quantity: 2 },
@@ -2132,15 +2132,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 55,
       healthRestore: 35,
-      buff: { type: 'defense', value: 20, description: '受到伤害-20%（当天）' }
+      buff: { type: 'defense', value: 20, description: 'Sát thương gánh chịu -20% (Trong ngày)' }
     },
-    unlockSource: '烹饪等级7',
+    unlockSource: 'Cấp nấu ăn 7',
     requiredSkill: { type: 'farming', level: 7 },
-    description: '厚实的水牛奶酪配上辣椒，战斗前的最佳选择。'
+    description: 'Phô mai sữa trâu béo ngậy kết hợp với ớt, lựa chọn tốt nhất trước khi chiến đấu.'
   },
   {
     id: 'yak_cheese_hotpot',
-    name: '牦牛奶酪锅',
+    name: 'Lẩu phô mai sữa bò Tây Tạng',
     ingredients: [
       { itemId: 'yak_cheese', quantity: 1 },
       { itemId: 'potato', quantity: 2 },
@@ -2149,15 +2149,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 65,
       healthRestore: 35,
-      buff: { type: 'defense', value: 25, description: '受到伤害-25%（当天）' }
+      buff: { type: 'defense', value: 25, description: 'Sát thương gánh chịu -25% (Trong ngày)' }
     },
-    unlockSource: '烹饪等级8',
+    unlockSource: 'Cấp nấu ăn 8',
     requiredSkill: { type: 'farming', level: 8 },
-    description: '浓厚的牦牛奶酪与萝卜干炖煮，冬日暖食。'
+    description: 'Phô mai sữa bò Tây Tạng béo ngậy ninh cùng củ cải khô, món ăn ấm áp ngày đông.'
   },
   {
     id: 'herbal_healing_soup',
-    name: '草药疗伤汤',
+    name: 'Canh thảo dược trị thương',
     ingredients: [
       { itemId: 'herbal_paste', quantity: 1 },
       { itemId: 'herb', quantity: 2 }
@@ -2166,12 +2166,12 @@ export const RECIPES: RecipeDef[] = [
       staminaRestore: 50,
       healthRestore: 45
     },
-    unlockSource: '林老好感「相熟」',
-    description: '草药膏熬成的汤剂，恢复力极强。'
+    unlockSource: 'Thiện cảm Lâm Lão đạt \'Thân thiết\'',
+    description: 'Thang thuốc sắc từ cao thảo dược, khả năng hồi phục cực mạnh.'
   },
   {
     id: 'chrysanthemum_jelly',
-    name: '菊花冻',
+    name: 'Thạch hoa cúc',
     ingredients: [
       { itemId: 'chrysanthemum_honey', quantity: 1 },
       { itemId: 'chrysanthemum_tea', quantity: 1 }
@@ -2179,15 +2179,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 30,
       healthRestore: 10,
-      buff: { type: 'luck', value: 2, description: '幸运+2（当天）' }
+      buff: { type: 'luck', value: 2, description: 'May mắn +2 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级5',
+    unlockSource: 'Cấp nấu ăn 5',
     requiredSkill: { type: 'farming', level: 5 },
-    description: '清凉透亮的菊花冻，吃后心旷神怡。'
+    description: 'Thạch hoa cúc thanh mát trong vắt, ăn vào tinh thần sảng khoái.'
   },
   {
     id: 'watermelon_wine_sorbet',
-    name: '西瓜酒冰沙',
+    name: 'Đá bào rượu dưa hấu',
     ingredients: [
       { itemId: 'watermelon_wine', quantity: 1 },
       { itemId: 'watermelon', quantity: 1 }
@@ -2195,15 +2195,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 35,
       healthRestore: 15,
-      buff: { type: 'speed', value: 2, description: '旅行加速+2（当天）' }
+      buff: { type: 'speed', value: 2, description: 'Tốc độ di chuyển +2 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级5',
+    unlockSource: 'Cấp nấu ăn 5',
     requiredSkill: { type: 'farming', level: 5 },
-    description: '冰爽的西瓜酒冰沙，夏日消暑极品。'
+    description: 'Đá bào rượu dưa hấu mát lạnh, cực phẩm giải nhiệt ngày hè.'
   },
   {
     id: 'jujube_wine_stew',
-    name: '红枣酒炖梨',
+    name: 'Lê hầm rượu táo đỏ',
     ingredients: [
       { itemId: 'jujube_wine', quantity: 1 },
       { itemId: 'jujube', quantity: 2 }
@@ -2211,14 +2211,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 25,
-      buff: { type: 'stamina', value: 20, description: '体力消耗-20%（当天）' }
+      buff: { type: 'stamina', value: 20, description: 'Thể lực tiêu hao -20% (Trong ngày)' }
     },
-    unlockSource: '红豆好感「知己」',
-    description: '红枣酒炖煮的甜品，补气养血。'
+    unlockSource: 'Thiện cảm Hồng Đậu đạt \'Tri kỷ\'',
+    description: 'Món tráng miệng hầm với rượu táo đỏ, giúp bổ khí dưỡng huyết.'
   },
   {
     id: 'osmanthus_wine_chicken',
-    name: '桂花酒蒸鸡',
+    name: 'Gà hấp rượu hoa quế',
     ingredients: [
       { itemId: 'osmanthus_wine', quantity: 1 },
       { itemId: 'egg', quantity: 2 },
@@ -2227,14 +2227,14 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 55,
       healthRestore: 30,
-      buff: { type: 'giftBonus', value: 2, description: '送礼好感×2（当天）' }
+      buff: { type: 'giftBonus', value: 2, description: 'Thiện cảm tặng quà x2 (Trong ngày)' }
     },
-    unlockSource: '柳娘好感「相熟」',
-    description: '桂花酒的幽香渗入鸡肉，雅致非凡。'
+    unlockSource: 'Thiện cảm Liễu Nương đạt \'Thân thiết\'',
+    description: 'Hương thơm dịu nhẹ của rượu hoa quế thấm đượm vào thịt gà, vô cùng thanh tao.'
   },
   {
     id: 'smoked_eel_rice',
-    name: '烟熏鳗鱼饭',
+    name: 'Cơm lươn xông khói',
     ingredients: [
       { itemId: 'smoked_eel', quantity: 1 },
       { itemId: 'rice', quantity: 2 },
@@ -2243,15 +2243,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 60,
       healthRestore: 25,
-      buff: { type: 'fishing', value: 1, description: '钓鱼技能+1（当天）' }
+      buff: { type: 'fishing', value: 1, description: 'Kỹ năng câu cá +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级6',
+    unlockSource: 'Cấp nấu ăn 6',
     requiredSkill: { type: 'farming', level: 6 },
-    description: '烟熏鳗鱼铺在热饭上，淋上麻油，鲜美无比。'
+    description: 'Lươn xông khói phủ lên cơm nóng, rưới thêm dầu mè, ngon ngọt vô ngần.'
   },
   {
     id: 'rapeseed_honey_bread',
-    name: '菜花蜜面包',
+    name: 'Bánh mì mật hoa cải',
     ingredients: [
       { itemId: 'rapeseed_honey', quantity: 1 },
       { itemId: 'wheat_flour', quantity: 2 }
@@ -2259,15 +2259,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 30,
       healthRestore: 10,
-      buff: { type: 'luck', value: 1, description: '幸运+1（当天）' }
+      buff: { type: 'luck', value: 1, description: 'May mắn +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级3',
+    unlockSource: 'Cấp nấu ăn 3',
     requiredSkill: { type: 'farming', level: 3 },
-    description: '菜花蜜香甜的面包，出门采集前来一块。'
+    description: 'Bánh mì mật hoa cải ngọt ngào, hãy ăn một miếng trước khi ra ngoài thu thập.'
   },
   {
     id: 'corn_wine_braised_pork',
-    name: '玉米酒烧肉',
+    name: 'Thịt kho rượu ngô',
     ingredients: [
       { itemId: 'corn_wine', quantity: 1 },
       { itemId: 'corn', quantity: 2 }
@@ -2275,15 +2275,15 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 50,
       healthRestore: 30,
-      buff: { type: 'defense', value: 15, description: '受到伤害-15%（当天）' }
+      buff: { type: 'defense', value: 15, description: 'Sát thương gánh chịu -15% (Trong ngày)' }
     },
-    unlockSource: '烹饪等级5',
+    unlockSource: 'Cấp nấu ăn 5',
     requiredSkill: { type: 'farming', level: 5 },
-    description: '玉米酒焖出的浓香肉菜，力气十足。'
+    description: 'Món thịt kho om với rượu ngô thơm nức, ăn vào tràn đầy sức lực.'
   },
   {
     id: 'ginseng_tea_rice',
-    name: '参茶泡饭',
+    name: 'Cơm chan trà sâm',
     ingredients: [
       { itemId: 'ginseng_tea', quantity: 1 },
       { itemId: 'rice', quantity: 1 }
@@ -2291,11 +2291,11 @@ export const RECIPES: RecipeDef[] = [
     effect: {
       staminaRestore: 45,
       healthRestore: 20,
-      buff: { type: 'mining', value: 1, description: '采矿技能+1（当天）' }
+      buff: { type: 'mining', value: 1, description: 'Kỹ năng khai khoáng +1 (Trong ngày)' }
     },
-    unlockSource: '烹饪等级6',
+    unlockSource: 'Cấp nấu ăn 6',
     requiredSkill: { type: 'farming', level: 6 },
-    description: '用人参茶泡饭，简单却元气满满。'
+    description: 'Cơm chan nước trà sâm, đơn giản mà tràn đầy nguyên khí.'
   }
 ]
 

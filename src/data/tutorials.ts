@@ -15,108 +15,108 @@ export const MORNING_TIPS: MorningTipDef[] = [
     id: 'tip_welcome',
     priority: 1,
     conditionKey: 'earlyFirstDay',
-    message: '柳村长说：「欢迎来到桃源乡！背包里有白菜种子，去农场面板开垦土地、播种吧。」'
+    message: 'Trưởng thôn Liễu nói: 「Chào mừng đến với Đào Nguyên Hương! Trong ba lô có hạt giống cải thảo, hãy vào bảng nông trại để khai khẩn đất và gieo hạt nhé.」'
   },
   {
     id: 'tip_first_till',
     priority: 2,
     conditionKey: 'allWasteland',
-    message: '柳村长说：「田地要先开垦才能种东西。在农场面板点击「一键操作」→「一键开垦」。」'
+    message: 'Trưởng thôn Liễu nói: 「Ruộng đất phải khai khẩn trước mới trồng trọt được. Trong bảng nông trại nhấn \'Thao tác nhanh\' → \'Khai khẩn nhanh\'.」'
   },
   {
     id: 'tip_first_plant',
     priority: 3,
     conditionKey: 'tilledNoPlanted',
-    message: '柳村长说：「地开垦好了，去农场面板播种吧。「一键种植」可以批量播种。」'
+    message: 'Trưởng thôn Liễu nói: 「Đất đã khai khẩn xong, vào bảng nông trại gieo hạt thôi. \'Trồng nhanh\' có thể gieo hạt hàng loạt.」'
   },
   {
     id: 'tip_first_water',
     priority: 4,
     conditionKey: 'plantedUnwatered',
-    message: '柳村长说：「种子种下后记得浇水，不浇水作物不会生长。试试「一键浇水」。」'
+    message: 'Trưởng thôn Liễu nói: 「Gieo hạt xong nhớ tưới nước, không tưới nước cây sẽ không lớn đâu. Thử \'Tưới nước nhanh\' xem.」'
   },
   {
     id: 'tip_first_harvest',
     priority: 5,
     conditionKey: 'hasHarvestable',
-    message: '柳村长说：「作物成熟了！去农场面板收获吧，金色地块就是成熟的作物。」'
+    message: 'Trưởng thôn Liễu nói: 「Cây trồng chín rồi! Vào bảng nông trại thu hoạch đi, ô đất màu vàng là cây đã chín.」'
   },
   {
     id: 'tip_sell_crops',
     priority: 6,
     conditionKey: 'harvestedNeverSold',
-    message: '柳村长说：「收获的作物放进农场面板底部的出货箱，次日就能换钱了。」'
+    message: 'Trưởng thôn Liễu nói: 「Bỏ cây trồng thu hoạch được vào thùng xuất hàng ở dưới cùng bảng nông trại, qua ngày hôm sau là có tiền rồi.」'
   },
   {
     id: 'tip_check_weather',
     priority: 7,
     conditionKey: 'earlyGame',
-    message: '柳村长说：「每天注意看天气预报，提前安排一天的活计会事半功倍。」'
+    message: 'Trưởng thôn Liễu nói: 「Mỗi ngày nhớ xem dự báo thời tiết, sắp xếp trước công việc trong ngày sẽ làm ít công to.」'
   },
   {
     id: 'tip_stamina',
     priority: 8,
     conditionKey: 'staminaWasLow',
-    message: '柳村长说：「体力不够就早点休息，熬夜会影响次日恢复。吃东西也能补充体力。」'
+    message: 'Trưởng thôn Liễu nói: 「Không đủ thể lực thì nghỉ ngơi sớm, thức khuya sẽ ảnh hưởng đến việc hồi phục ngày hôm sau. Ăn uống cũng có thể bổ sung thể lực.」'
   },
   {
     id: 'tip_visit_shop',
     priority: 9,
     conditionKey: 'neverVisitedShop',
-    message: '柳村长说：「商圈有各种种子和道具出售，有空去逛逛吧。」'
+    message: 'Trưởng thôn Liễu nói: 「Khu thương mại có bán các loại hạt giống và đạo cụ, có thời gian thì ghé xem sao.」'
   },
   {
     id: 'tip_try_fishing',
     priority: 10,
     conditionKey: 'neverFished',
-    message: '柳村长说：「村东的清溪鱼虾丰美，带上鱼竿去试试钓鱼吧。」'
+    message: 'Trưởng thôn Liễu nói: 「Dòng suối trong ở phía đông làng nhiều cá tôm lắm, mang cần câu ra đó thử câu xem.」'
   },
   {
     id: 'tip_try_mining',
     priority: 11,
     conditionKey: 'neverMined',
-    message: '柳村长说：「村北的矿洞里有矿石和宝物，不过也有怪物，小心些。」'
+    message: 'Trưởng thôn Liễu nói: 「Hang mỏ ở phía bắc làng có quặng và báu vật, nhưng cũng có quái vật, hãy cẩn thận.」'
   },
   {
     id: 'tip_talk_npc',
     priority: 12,
     conditionKey: 'neverTalkedNpc',
-    message: '柳村长说：「乡里乡亲的，多和大家聊聊天，送礼也能增进交情。」'
+    message: 'Trưởng thôn Liễu nói: 「Hàng xóm láng giềng với nhau, hãy trò chuyện với mọi người nhiều hơn, tặng quà cũng giúp tăng thêm tình cảm.」'
   },
   {
     id: 'tip_quest_board',
     priority: 13,
     conditionKey: 'neverCheckedQuests',
-    message: '柳村长说：「告示栏上有乡亲们的委托，帮忙做做能赚点钱和人情。」'
+    message: 'Trưởng thôn Liễu nói: 「Trên bảng thông báo có ủy thác của bà con, giúp đỡ họ cũng kiếm được chút tiền và sự mang ơn.」'
   },
   {
     id: 'tip_try_cooking',
     priority: 14,
     conditionKey: 'neverCooked',
-    message: '柳村长说：「学了食谱可以做菜，做出来的饭能恢复体力。去灶台试试。」'
+    message: 'Trưởng thôn Liễu nói: 「Học công thức nấu ăn rồi thì có thể nấu nướng, thức ăn làm ra giúp hồi thể lực. Ra bếp thử xem sao.」'
   },
   {
     id: 'tip_rain',
     priority: 15,
     conditionKey: 'firstRainyDay',
-    message: '柳村长说：「下雨天作物会自动浇水，省了力气。正好可以去做别的事。」'
+    message: 'Trưởng thôn Liễu nói: 「Trời mưa cây trồng sẽ tự được tưới, đỡ tốn sức. Nhân tiện có thể đi làm việc khác.」'
   },
   {
     id: 'tip_season_change',
     priority: 16,
     conditionKey: 'justChangedSeason',
-    message: '柳村长说：「换季了，不同季节能种的作物不一样，去商圈看看新种子吧。」'
+    message: 'Trưởng thôn Liễu nói: 「Chuyển mùa rồi, các mùa khác nhau thì cây trồng cũng khác, ra khu thương mại xem hạt giống mới đi.」'
   },
   {
     id: 'tip_sprinkler',
     priority: 17,
     conditionKey: 'hasCropNoSprinkler',
-    message: '柳村长说：「种地面积大了浇水很累，加工坊或铁匠铺可以做洒水器自动浇水。」'
+    message: 'Trưởng thôn Liễu nói: 「Diện tích đất trồng lớn thì tưới nước rất mệt, xưởng mộc hoặc tiệm rèn có thể chế tạo vòi phun nước tự động.」'
   },
   {
     id: 'tip_try_animal',
     priority: 18,
     conditionKey: 'neverHadAnimal',
-    message: '柳村长说：「养些鸡鸭牛羊也不错，先去商铺建个鸡舍或牧场吧。」'
+    message: 'Trưởng thôn Liễu nói: 「Nuôi thêm gà vịt bò cừu cũng không tệ, ra cửa hàng xây chuồng gà hoặc bãi chăn thả trước đi.」'
   }
 ]

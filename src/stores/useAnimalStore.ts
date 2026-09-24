@@ -101,13 +101,13 @@ export const useAnimalStore = defineStore('animal', () => {
   /** 升级马匹品种（稀有渠道获得更好的马） */
   const setHorseBreed = (breed: HorseBreed): { success: boolean; message: string } => {
     const horse = getHorse.value
-    if (!horse) return { success: false, message: '你还没有马。' }
+    if (!horse) return { success: false, message: 'Bạn chưa có ngựa.' }
     const def = getHorseBreed(breed)
-    if (horse.horseBreed === breed) return { success: false, message: `${horse.name}已经是${def.name}了。` }
+    if (horse.horseBreed === breed) return { success: false, message: `${horse.name} đã là ${def.name}.` }
     horse.horseBreed = breed
     return {
       success: true,
-      message: `${horse.name}成为了${def.name}！${def.description}`
+      message: `${horse.name} đã trở thành ${def.name}! ${def.description}`
     }
   }
 
@@ -276,19 +276,19 @@ export const useAnimalStore = defineStore('animal', () => {
   const startIncubation = (itemId: string): { success: boolean; message: string } => {
     const coopBuilding = buildings.value.find(b => b.type === 'coop')
     if (!coopBuilding?.built || coopBuilding.level < 2) {
-      return { success: false, message: '需要大型鸡舍（2级）才能使用孵化器。' }
+      return { success: false, message: 'Cần chuồng gà lớn (cấp 2) để dùng máy ấp.' }
     }
     if (incubating.value) {
-      return { success: false, message: '孵化器中已有蛋在孵化。' }
+      return { success: false, message: 'Máy ấp đã có trứng đang ấp.' }
     }
     const mapping = INCUBATION_MAP[itemId]
     if (!mapping || mapping.building !== 'coop') {
-      return { success: false, message: '这个物品不能在鸡舍孵化。' }
+      return { success: false, message: 'Vật phẩm này không thể ấp trong chuồng gà.' }
     }
 
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.removeItem(itemId, 1)) {
-      return { success: false, message: '背包中没有这个物品。' }
+      return { success: false, message: 'Túi đồ không có vật phẩm này.' }
     }
 
     // coopmaster 专精减半孵化时间
@@ -304,7 +304,7 @@ export const useAnimalStore = defineStore('animal', () => {
     const animalDef = ANIMAL_DEFS.find(d => d.type === mapping.animalType)
     return {
       success: true,
-      message: `开始孵化${animalDef?.name ?? '动物'}，预计${days}天后孵出。`
+      message: `Bắt đầu ấp ${animalDef?.name ?? 'động vật'}, dự kiến nở sau ${days} ngày.`
     }
   }
 
@@ -333,7 +333,7 @@ export const useAnimalStore = defineStore('animal', () => {
       }
 
       const count = animals.value.filter(a => a.type === animalType).length
-      const name = `${def?.name ?? '动物'}${count + 1}`
+      const name = `${def?.name ?? 'Động vật'}${count + 1}`
       animals.value.push({
         id: `${animalType}_${Date.now()}`,
         type: animalType,
@@ -362,20 +362,20 @@ export const useAnimalStore = defineStore('animal', () => {
     if (!barnBuilding?.built || barnBuilding.level < 2) {
       return {
         success: false,
-        message: '需要大型牲口棚（2级）才能使用孵化器。'
+        message: 'Cần chuồng gia súc lớn (cấp 2) để dùng máy ấp.'
       }
     }
     if (barnIncubating.value) {
-      return { success: false, message: '牲口棚孵化器中已有蛋在孵化。' }
+      return { success: false, message: 'Máy ấp trong chuồng gia súc đã có trứng đang ấp.' }
     }
     const mapping = INCUBATION_MAP[itemId]
     if (!mapping || mapping.building !== 'barn') {
-      return { success: false, message: '这个物品不能在牲口棚孵化。' }
+      return { success: false, message: 'Vật phẩm này không thể ấp trong chuồng gia súc.' }
     }
 
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.removeItem(itemId, 1)) {
-      return { success: false, message: '背包中没有这个物品。' }
+      return { success: false, message: 'Túi đồ không có vật phẩm này.' }
     }
 
     const skillStore = useSkillStore()
@@ -390,7 +390,7 @@ export const useAnimalStore = defineStore('animal', () => {
     const animalDef = ANIMAL_DEFS.find(d => d.type === mapping.animalType)
     return {
       success: true,
-      message: `开始在牲口棚孵化${animalDef?.name ?? '动物'}，预计${days}天后孵出。`
+      message: `Bắt đầu ấp ${animalDef?.name ?? 'động vật'} trong chuồng gia súc, dự kiến nở sau ${days} ngày.`
     }
   }
 
@@ -417,7 +417,7 @@ export const useAnimalStore = defineStore('animal', () => {
       }
 
       const count = animals.value.filter(a => a.type === animalType).length
-      const name = `${def?.name ?? '动物'}${count + 1}`
+      const name = `${def?.name ?? 'Động vật'}${count + 1}`
       animals.value.push({
         id: `${animalType}_${Date.now()}`,
         type: animalType,
@@ -490,12 +490,12 @@ export const useAnimalStore = defineStore('animal', () => {
     bonusProducts?: { itemId: string; quality: Quality }[]
   } => {
     if (grazedToday.value) {
-      return { success: false, count: 0, message: '今天已经放牧过了。' }
+      return { success: false, count: 0, message: 'Hôm nay đã chăn thả rồi.' }
     }
 
     const gameStore = useGameStore()
     if (gameStore.isRainy) {
-      return { success: false, count: 0, message: '雨天不能放牧。' }
+      return { success: false, count: 0, message: 'Ngày mưa không thể chăn thả.' }
     }
 
     // 只有喂食过的动物可放牧（排除马）
@@ -507,7 +507,7 @@ export const useAnimalStore = defineStore('animal', () => {
         return {
           success: false,
           count: 0,
-          message: '冬天只有牦牛可以放牧，且需先喂食。'
+          message: 'Mùa đông chỉ bò Tây Tạng được chăn thả và phải cho ăn trước.'
         }
       }
     } else {
@@ -516,7 +516,7 @@ export const useAnimalStore = defineStore('animal', () => {
         return {
           success: false,
           count: 0,
-          message: '没有已喂食的动物可放牧。'
+          message: 'Không có động vật đã được cho ăn để chăn thả.'
         }
       }
     }
@@ -562,12 +562,12 @@ export const useAnimalStore = defineStore('animal', () => {
     }
 
     const pigCount = bonusProducts.length - horseHelped
-    let message = `${grazeable.length}只动物在草地上愉快地觅食。`
+    let message = `${grazeable.length} động vật đang vui vẻ kiếm ăn trên đồng cỏ.`
     if (pigCount > 0) {
-      message += `猪找到了${pigCount}个松露！`
+      message += `Lợn tìm thấy ${pigCount} nấm cục!`
     }
     if (horseHelped > 0) {
-      message += `${getHorse.value?.name ?? '马'}帮着照看畜群，多收了${horseHelped}份产物。`
+      message += `${getHorse.value?.name ?? 'ngựa'} giúp trông đàn, thu thêm ${horseHelped} sản phẩm.`
     }
 
     return {
@@ -838,15 +838,15 @@ export const useAnimalStore = defineStore('animal', () => {
 
   /** 安装自动抚摸机到指定建筑 */
   const installAutoPetter = (buildingType: AnimalBuildingType): { success: boolean; message: string } => {
-    if (buildingType === 'stable') return { success: false, message: '马厩不能安装自动抚摸机。' }
+    if (buildingType === 'stable') return { success: false, message: 'Chuồng ngựa không thể lắp máy vuốt ve tự động.' }
     const building = buildings.value.find(b => b.type === buildingType)
-    if (!building || !building.built) return { success: false, message: '需要先建造畜舍。' }
-    if (building.level < 2) return { success: false, message: '需要大型畜舍（2级）才能安装。' }
-    if (autoPetterBuildings.value.includes(buildingType)) return { success: false, message: '该畜舍已安装自动抚摸机。' }
+    if (!building || !building.built) return { success: false, message: 'Cần xây chuồng trước.' }
+    if (building.level < 2) return { success: false, message: 'Cần chuồng lớn (cấp 2) mới có thể lắp.' }
+    if (autoPetterBuildings.value.includes(buildingType)) return { success: false, message: 'Chuồng này đã lắp máy vuốt ve tự động.' }
     autoPetterBuildings.value.push(buildingType)
     return {
       success: true,
-      message: `自动抚摸机已安装到${buildingType === 'coop' ? '鸡舍' : '牧场'}。`
+      message: `Máy vuốt ve tự động đã lắp vào ${buildingType === 'coop' ? 'chuồng gà' : 'đồng cỏ'}.`
     }
   }
 

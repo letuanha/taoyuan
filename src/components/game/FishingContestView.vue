@@ -2,33 +2,33 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <Fish :size="14" />
-      <span>钓鱼大赛</span>
+      <span>Cuộc thi câu cá</span>
     </h3>
 
     <!-- 准备 -->
     <div v-if="phase === 'ready'">
       <p class="text-xs text-muted mb-3">
-        钓鱼大赛共3轮！抛竿后等待鱼上钩，然后注意张力条——在绿色区域时收竿能钓到最好的鱼！张力太高鱼线会断！
+        Cuộc thi câu cá gồm 3 vòng! Sau khi quăng cần, chờ cá cắn câu rồi chú ý thanh lực căng — thu cần trong vùng xanh sẽ câu được cá tốt nhất! Lực căng quá cao sẽ làm đứt dây!
       </p>
 
       <div v-if="catches.length > 0" class="border border-accent/20 p-2 mb-3">
-        <p class="text-xs text-muted mb-1">你的收获：</p>
+        <p class="text-xs text-muted mb-1">Thu hoạch của bạn:</p>
         <div
           v-for="(c, i) in catches"
           :key="i"
           class="flex items-center justify-between text-xs py-0.5 border-b border-accent/10 last:border-0"
         >
           <span class="text-accent">{{ c.name }}</span>
-          <span class="text-muted">{{ c.weight }}斤 · +{{ c.score }}分</span>
+          <span class="text-muted">{{ c.weight }}cân · +{{ c.score }}điểm</span>
         </div>
         <div class="flex items-center justify-between text-xs mt-1.5 pt-1">
-          <span class="text-muted">当前总分</span>
-          <span class="text-accent">{{ playerTotal }} 分</span>
+          <span class="text-muted">Tổng điểm hiện tại</span>
+          <span class="text-accent">{{ playerTotal }} điểm</span>
         </div>
       </div>
 
-      <p class="text-xs text-muted mb-2">第 {{ currentRound }} / 3 轮</p>
-      <Button class="w-full" @click="castLine">下竿！</Button>
+      <p class="text-xs text-muted mb-2">lượt {{ currentRound }} / 3 vòng</p>
+      <Button class="w-full" @click="castLine">Thả cần!</Button>
     </div>
 
     <!-- 抛竿动画 -->
@@ -36,7 +36,7 @@
       <div class="cast-anim">
         <Fish :size="28" class="text-accent" />
       </div>
-      <p class="text-xs text-muted mt-3">抛竿中...</p>
+      <p class="text-xs text-muted mt-3">Đang quăng cần...</p>
     </div>
 
     <!-- 等待上钩 -->
@@ -44,7 +44,7 @@
       <div class="float-bob mb-2">
         <Waves :size="28" class="text-accent/50" />
       </div>
-      <p class="text-xs text-muted">等待鱼上钩...</p>
+      <p class="text-xs text-muted">Chờ cá cắn câu...</p>
       <div class="flex justify-center space-x-1.5 mt-2">
         <span class="w-1.5 h-1.5 bg-accent/40 dot-loading" />
         <span class="w-1.5 h-1.5 bg-accent/40 dot-loading" style="animation-delay: 0.2s" />
@@ -54,7 +54,7 @@
 
     <!-- 鱼上钩了! 张力游戏 -->
     <div v-else-if="phase === 'tension'">
-      <p class="text-xs text-center mb-2 text-accent bite-flash">鱼上钩了！注意张力！</p>
+      <p class="text-xs text-center mb-2 text-accent bite-flash">Cá cắn câu! Chú ý lực căng!</p>
 
       <div class="flex space-x-3 items-stretch mb-3">
         <!-- 张力条 (竖条) -->
@@ -70,8 +70,8 @@
             :style="{ height: `${tensionPct}%` }"
           />
           <!-- 标签 -->
-          <span class="absolute text-center w-full" style="bottom: 65%; font-size: 8px; color: var(--color-success)">佳</span>
-          <span class="absolute text-center w-full" style="bottom: 88%; font-size: 8px; color: var(--color-danger)">断</span>
+          <span class="absolute text-center w-full" style="bottom: 65%; font-size: 8px; color: var(--color-success)">Tốt</span>
+          <span class="absolute text-center w-full" style="bottom: 88%; font-size: 8px; color: var(--color-danger)">Đứt</span>
         </div>
 
         <!-- 水域 (鱼移动区) -->
@@ -81,12 +81,12 @@
           <div class="absolute transition-none" :style="{ top: `${fishVisualY}%`, left: `${fishVisualX}%` }">
             <Fish :size="18" class="text-accent fish-thrash" />
           </div>
-          <span class="absolute bottom-0.5 right-1 text-muted" style="font-size: 9px">第{{ currentRound }}轮</span>
+          <span class="absolute bottom-0.5 right-1 text-muted" style="font-size: 9px">lượt{{ currentRound }}vòng</span>
         </div>
       </div>
 
-      <Button class="w-full py-2.5" :icon="ArrowUp" @click="pullRod">收竿！</Button>
-      <p class="text-xs text-muted text-center mt-1">绿色区域收竿效果最佳，红色区域鱼线会断！</p>
+      <Button class="w-full py-2.5" :icon="ArrowUp" @click="pullRod">Thu cần!</Button>
+      <p class="text-xs text-muted text-center mt-1">Thu cần trong vùng xanh cho hiệu quả tốt nhất, vùng đỏ sẽ làm đứt dây!</p>
     </div>
 
     <!-- 单轮结果 -->
@@ -107,20 +107,20 @@
           <p class="text-accent text-xs">
             {{ catches[catches.length - 1]?.name }}
           </p>
-          <p class="text-xs text-muted">{{ catches[catches.length - 1]?.weight }}斤 · +{{ catches[catches.length - 1]?.score }}分</p>
+          <p class="text-xs text-muted">{{ catches[catches.length - 1]?.weight }}cân · +{{ catches[catches.length - 1]?.score }}điểm</p>
         </div>
         <div v-else class="mt-2">
-          <p class="text-xs text-danger">张力太大，鱼线断了！</p>
+          <p class="text-xs text-danger">Lực căng quá lớn, dây câu đứt!</p>
         </div>
       </div>
     </div>
 
     <!-- 比赛结束 -->
     <div v-else>
-      <p class="text-xs text-muted mb-2">比赛结束！</p>
+      <p class="text-xs text-muted mb-2">Cuộc thi kết thúc!</p>
 
       <div class="border border-accent/20 p-2 mb-3">
-        <p class="text-xs text-muted mb-1">最终排名：</p>
+        <p class="text-xs text-muted mb-1">Xếp hạng cuối cùng:</p>
         <div
           v-for="(entry, i) in rankings"
           :key="entry.name"
@@ -131,37 +131,37 @@
               class="mr-2"
               :class="{
                 'text-accent': i === 0,
-                'text-success': entry.name === '你'
+                'text-success': entry.name === 'Bạn'
               }"
             >
-              第{{ i + 1 }}名
+              thứ{{ i + 1 }}tên
             </span>
-            <span :class="{ 'text-success': entry.name === '你' }">{{ entry.name }}</span>
+            <span :class="{ 'text-success': entry.name === 'Bạn' }">{{ entry.name }}</span>
           </div>
-          <span class="text-muted">{{ entry.score }} 分</span>
+          <span class="text-muted">{{ entry.score }} điểm</span>
         </div>
       </div>
 
       <div v-if="catches.length > 0" class="border border-accent/20 p-2 mb-3">
-        <p class="text-xs text-muted mb-1">你的收获：</p>
+        <p class="text-xs text-muted mb-1">Thu hoạch của bạn:</p>
         <div
           v-for="(c, i) in catches"
           :key="i"
           class="flex items-center justify-between text-xs py-0.5 border-b border-accent/10 last:border-0"
         >
           <span class="text-accent">{{ c.name }}</span>
-          <span class="text-muted">{{ c.weight }}斤 · +{{ c.score }}分</span>
+          <span class="text-muted">{{ c.weight }}cân · +{{ c.score }}điểm</span>
         </div>
       </div>
 
       <div class="mb-3 text-xs text-center border border-accent/20 p-2">
-        <span v-if="playerRank === 1" class="text-accent">恭喜你获得冠军！奖金 500文</span>
-        <span v-else-if="playerRank === 2" class="text-success">你获得了亚军！奖金 200文</span>
-        <span v-else-if="playerRank === 3" class="text-success">你获得了季军！奖金 100文</span>
-        <span v-else class="text-muted">很遗憾，没有获得名次。下次再努力吧！</span>
+        <span v-if="playerRank === 1" class="text-accent">chúcmừngbạnnhận vô địchba！thưởngvàng 500văn</span>
+        <span v-else-if="playerRank === 2" class="text-success">bạnnhận đãá quânba！thưởngvàng 200văn</span>
+        <span v-else-if="playerRank === 3" class="text-success">Bạn giành hạng ba! Thưởng 100 văn</span>
+        <span v-else class="text-muted">Rất tiếc, bạn không đạt thứ hạng. Lần sau cố gắng hơn nhé!</span>
       </div>
 
-      <Button class="w-full" @click="handleClaim">领取奖励</Button>
+      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
     </div>
   </div>
 </template>
@@ -189,21 +189,21 @@
   type Phase = 'ready' | 'casting' | 'waiting' | 'tension' | 'round_result' | 'finished'
   type CatchGrade = 'perfect' | 'good' | 'poor' | 'escaped'
 
-  /** 鱼的三个等级池 */
+  /** cá的三cáiđợicấpao */
   const FISH_TIERS = {
     perfect: [
-      { name: '锦鲤', minW: 2.0, maxW: 5.0, baseScore: 50 },
-      { name: '桂花鱼', minW: 1.5, maxW: 4.0, baseScore: 45 },
-      { name: '鲟鱼', minW: 3.0, maxW: 8.0, baseScore: 55 }
+      { name: 'Chép Koi', minW: 2.0, maxW: 5.0, baseScore: 50 },
+      { name: 'Cá Quế', minW: 1.5, maxW: 4.0, baseScore: 45 },
+      { name: 'Cá Tầm', minW: 3.0, maxW: 8.0, baseScore: 55 }
     ],
     good: [
-      { name: '鲈鱼', minW: 1.5, maxW: 4.0, baseScore: 30 },
-      { name: '鲶鱼', minW: 2.0, maxW: 5.0, baseScore: 25 },
-      { name: '鲤鱼', minW: 1.0, maxW: 3.5, baseScore: 20 }
+      { name: 'Cá vược', minW: 1.5, maxW: 4.0, baseScore: 30 },
+      { name: 'Cá trê', minW: 2.0, maxW: 5.0, baseScore: 25 },
+      { name: 'Cá chép', minW: 1.0, maxW: 3.5, baseScore: 20 }
     ],
     poor: [
-      { name: '鲫鱼', minW: 0.5, maxW: 2.0, baseScore: 8 },
-      { name: '草鱼', minW: 1.0, maxW: 3.0, baseScore: 12 }
+      { name: 'Cá diếc', minW: 0.5, maxW: 2.0, baseScore: 8 },
+      { name: 'Cá trắm cỏ', minW: 1.0, maxW: 3.0, baseScore: 12 }
     ]
   }
 
@@ -224,7 +224,7 @@
   const rankings = ref<Participant[]>([])
   const lastGrade = ref<CatchGrade>('poor')
 
-  // 张力游戏状态
+  // lálựcchơitrò chơitrạng tháitrạng thái
   const tensionPct = ref(0)
   const fishVisualX = ref(40)
   const fishVisualY = ref(40)
@@ -236,20 +236,20 @@
   const playerTotal = computed(() => catches.value.reduce((sum, c) => sum + c.score, 0))
 
   const playerRank = computed(() => {
-    const idx = rankings.value.findIndex(e => e.name === '你')
+    const idx = rankings.value.findIndex(e => e.name === 'Bạn')
     return idx === -1 ? 99 : idx + 1
   })
 
   const gradeText = computed(() => {
     switch (lastGrade.value) {
       case 'perfect':
-        return '完美收竿！大鱼上钩！'
+        return 'Thu cần hoàn hảo! Cá lớn cắn câu!'
       case 'good':
-        return '不错的收获！'
+        return 'Một mẻ khá ngon!'
       case 'poor':
-        return '鱼太小了…'
+        return 'Cá nhỏ quá…'
       case 'escaped':
-        return '鱼线断了！'
+        return 'Dây câu đứt rồi!'
     }
   })
 
@@ -264,12 +264,12 @@
     }
   })
 
-  /** 根据等级随机生成一条鱼 */
+  /** căntheođợicấptheomáysinh成mộtmụccá */
   const randomFish = (grade: 'perfect' | 'good' | 'poor'): CatchRecord => {
     const pool = FISH_TIERS[grade]
     const fish = pool[Math.floor(Math.random() * pool.length)]!
     const weight = +(fish.minW + Math.random() * (fish.maxW - fish.minW)).toFixed(1)
-    // 权重乘数封顶1.8，避免极端高分
+    // quyềnlạinhânsốđóngđỉnh1.8，tránhmiễncựcđầucaođiểm
     const weightMult = Math.min(1.8, weight / fish.minW)
     const score = Math.round(fish.baseScore * weightMult)
     return { name: fish.name, weight, score }
@@ -281,7 +281,7 @@
     phase.value = 'casting'
     phaseTimeout = setTimeout(() => {
       phase.value = 'waiting'
-      // 1-3秒后鱼上钩
+      // 1-3giâysaucálênmóc
       const waitTime = 1000 + Math.random() * 2000
       phaseTimeout = setTimeout(() => {
         startTension()
@@ -296,17 +296,17 @@
     fishVisualX.value = 30 + Math.random() * 40
     fishVisualY.value = 20 + Math.random() * 60
 
-    // 张力上升速度随轮次大幅增加
+    // lálựclêntăngtốcđộtheovònglầnlớnbiên độtăngthêm
     const baseSpeed = [1.2, 1.8, 2.6][currentRound.value - 1] ?? 1.2
     let tickCount = 0
 
     tensionTimer = setInterval(() => {
       tickCount++
-      // 大幅随机波动模拟鱼的挣扎（偏正向）
+      // lớnbiên độtheomáysóngtácmô hìnhdự kiếncá的giãybuộc（lệchđúnghướng）
       const fluctuation = (Math.random() - 0.25) * 0.8
       let speed = Math.max(0.3, baseSpeed + fluctuation)
 
-      // 随机张力突刺：每隔一段时间可能出现突然的张力飙升
+      // theomáylálựcđột ngộtđâm：mỗicáchmộtđoạnthờigian可năngrahiệnđột ngộtnhiên的lálựcgió mạnhtăng
       if (tickCount % 20 === 0 && Math.random() < 0.4) {
         speed += 2.0 + Math.random() * 2.0
       }
@@ -321,7 +321,7 @@
       }
     }, 50)
 
-    // 鱼的视觉移动
+    // cá的xemcảmchuyểntác
     fishMoveTimer = setInterval(() => {
       fishVisualX.value = Math.max(5, Math.min(75, fishVisualX.value + (Math.random() - 0.5) * 15))
       fishVisualY.value = Math.max(5, Math.min(75, fishVisualY.value + (Math.random() - 0.5) * 15))
@@ -347,7 +347,7 @@
 
     lastGrade.value = grade
 
-    // 按等级播放不同音效
+    // nhấnđợicấpphátđặtkhôngcùngâm thanhhiệu
     if (grade === 'perfect') sfxMiniPerfect()
     else if (grade === 'good') sfxMiniGood()
     else if (grade === 'poor') sfxMiniPoor()
@@ -375,11 +375,11 @@
   }
 
   const finishContest = () => {
-    // 每个NPC有不同实力：秋月是高手，陈伯经验丰富，小满运气型
+    // mỗicáiNPCcókhôngcùngthậtlực：thuthánglàcaotay，Trầnbácquakiểm traphong phúgiàu，nhỏđầyvậnkhíloại
     const npcProfiles: { name: string; perfectRate: number; goodRate: number }[] = [
-      { name: '秋月', perfectRate: 0.55, goodRate: 0.9 },
-      { name: '陈伯', perfectRate: 0.45, goodRate: 0.85 },
-      { name: '小满', perfectRate: 0.35, goodRate: 0.8 }
+      { name: 'Thu Nguyệt', perfectRate: 0.55, goodRate: 0.9 },
+      { name: 'Bác Trần', perfectRate: 0.45, goodRate: 0.85 },
+      { name: 'Tiểu Mãn', perfectRate: 0.35, goodRate: 0.8 }
     ]
     const npcScores = npcProfiles.map(({ name, perfectRate, goodRate }) => {
       let total = 0
@@ -393,7 +393,7 @@
       return { name, score: total }
     })
 
-    const player: Participant = { name: '你', score: playerTotal.value }
+    const player: Participant = { name: 'Bạn', score: playerTotal.value }
     const all = [...npcScores, player]
     all.sort((a, b) => b.score - a.score)
     rankings.value = all

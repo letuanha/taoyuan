@@ -71,17 +71,17 @@ export const useHanhaiStore = defineStore('hanhai', () => {
 
   /** 解锁瀚海 */
   const unlockHanhai = (): { success: boolean; message: string } => {
-    if (unlocked.value) return { success: false, message: '瀚海已经解锁。' }
+    if (unlocked.value) return { success: false, message: 'Hãn Hải đã được mở khóa.' }
     const playerStore = usePlayerStore()
     if (!playerStore.spendMoney(HANHAI_UNLOCK_COST)) {
       return {
         success: false,
-        message: `金钱不足（需要${HANHAI_UNLOCK_COST}文）。`
+        message: `Không đủ tiền (cần ${HANHAI_UNLOCK_COST} văn).`
       }
     }
     unlocked.value = true
-    addLog('修通了前往瀚海的商路！新的冒险等待着你。')
-    return { success: true, message: '瀚海商路已开通！' }
+    addLog('Đã khai thông con đường thương mại tới Hãn Hải! Cuộc phiêu lưu mới đang chờ bạn.')
+    return { success: true, message: 'Con đường thương mại Hãn Hải đã mở!' }
   }
 
   /** 查询某商品本周剩余可购买数量 */
@@ -97,21 +97,21 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     // 从固定商品和当前轮换商品中查找
     const allAvailable = [...HANHAI_FIXED_ITEMS, ...weeklyRotatingStock.value]
     const item = allAvailable.find(i => i.itemId === itemId)
-    if (!item) return { success: false, message: '商品不存在。' }
+    if (!item) return { success: false, message: 'Hàng hóa không tồn tại.' }
     if (item.weeklyLimit && (weeklyPurchases.value[itemId] ?? 0) >= item.weeklyLimit) {
-      return { success: false, message: `${item.name}本周限购已达上限。` }
+      return { success: false, message: `${item.name} đã đạt giới hạn mua trong tuần.` }
     }
     const playerStore = usePlayerStore()
     if (!playerStore.spendMoney(item.price)) {
-      return { success: false, message: '金钱不足。' }
+      return { success: false, message: 'Không đủ tiền.' }
     }
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.addItem(item.itemId, 1)) {
       playerStore.earnMoney(item.price)
-      return { success: false, message: '背包已满，无法购买。' }
+      return { success: false, message: 'Balo đã đầy, không thể mua.' }
     }
     weeklyPurchases.value[itemId] = (weeklyPurchases.value[itemId] ?? 0) + 1
-    return { success: true, message: `购买了${item.name}。` }
+    return { success: true, message: `Đã mua ${item.name}.` }
   }
 
   /** 使用藏宝图寻宝 */
@@ -122,7 +122,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
   } => {
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.removeItem('hanhai_map')) {
-      return { success: false, message: '没有藏宝图。', rewards: [] }
+      return { success: false, message: 'Không có bản đồ kho báu.', rewards: [] }
     }
     const playerStore = usePlayerStore()
     // 随机奖励池
@@ -131,29 +131,29 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (roll < 0.05) {
       // 5% 大奖：金钱+稀有物品
       playerStore.earnMoney(5000)
-      rewards.push({ itemId: '', name: '5000文', quantity: 1 })
-      rewards.push({ itemId: 'hanhai_turquoise', name: '绿松石', quantity: 2 })
+      rewards.push({ itemId: '', name: '5000 văn', quantity: 1 })
+      rewards.push({ itemId: 'hanhai_turquoise', name: 'Ngọc Lục Bảo', quantity: 2 })
       inventoryStore.addItem('hanhai_turquoise', 2)
     } else if (roll < 0.2) {
       // 15% 中奖：金钱+材料
       playerStore.earnMoney(2000)
-      rewards.push({ itemId: '', name: '2000文', quantity: 1 })
-      rewards.push({ itemId: 'hanhai_spice', name: '西域香料', quantity: 3 })
+      rewards.push({ itemId: '', name: '2000 Xu', quantity: 1 })
+      rewards.push({ itemId: 'hanhai_spice', name: 'Hương Liệu Tây Vực', quantity: 3 })
       inventoryStore.addItem('hanhai_spice', 3)
     } else if (roll < 0.45) {
       // 25% 小奖：金钱
       playerStore.earnMoney(1000)
-      rewards.push({ itemId: '', name: '1000文', quantity: 1 })
-      rewards.push({ itemId: 'hanhai_silk', name: '丝绸', quantity: 1 })
+      rewards.push({ itemId: '', name: '1000 Xu', quantity: 1 })
+      rewards.push({ itemId: 'hanhai_silk', name: 'Tơ Lụa', quantity: 1 })
       inventoryStore.addItem('hanhai_silk', 1)
     } else {
       // 55% 安慰奖
       playerStore.earnMoney(500)
-      rewards.push({ itemId: '', name: '500文', quantity: 1 })
+      rewards.push({ itemId: '', name: '500 văn', quantity: 1 })
     }
     const rewardText = rewards.map(r => r.name + (r.quantity > 1 ? `×${r.quantity}` : '')).join('、')
-    addLog(`使用藏宝图寻宝，发现了：${rewardText}！`)
-    return { success: true, message: `寻宝成功！获得：${rewardText}`, rewards }
+    addLog(`Dùng bản đồ kho báu và tìm thấy: ${rewardText}!`)
+    return { success: true, message: `Tìm kho báu thành công! Nhận được: ${rewardText}`, rewards }
   }
 
   /** 玩幸运轮盘 */
@@ -168,14 +168,14 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!canBet.value)
       return {
         success: false,
-        message: '今天的赌博次数已用完。',
+        message: 'Hôm nay đã hết lượt đánh bạc.',
         multiplier: 0,
         winnings: 0
       }
     if (!ROULETTE_BET_TIERS.includes(betTier as (typeof ROULETTE_BET_TIERS)[number])) {
       return {
         success: false,
-        message: '无效的投注金额。',
+        message: 'Số tiền cược không hợp lệ.',
         multiplier: 0,
         winnings: 0
       }
@@ -184,7 +184,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!playerStore.spendMoney(betTier)) {
       return {
         success: false,
-        message: '金钱不足。',
+        message: 'Không đủ tiền.',
         multiplier: 0,
         winnings: 0
       }
@@ -196,13 +196,13 @@ export const useHanhaiStore = defineStore('hanhai', () => {
       playerStore.earnMoney(winnings)
     }
     if (outcome.multiplier === 0) {
-      addLog(`轮盘停在了"${outcome.label}"，损失了${betTier}文。`)
+      addLog(`Vòng quay dừng ở "${outcome.label}", mất ${betTier} văn.`)
     } else {
-      addLog(`轮盘停在了"${outcome.label}"！赢得${winnings}文！`)
+      addLog(`Vòng quay dừng ở "${outcome.label}"! Thắng ${winnings} văn!`)
     }
     return {
       success: true,
-      message: `轮盘停在了"${outcome.label}"`,
+      message: `Vòng quay dừng ở "${outcome.label}"`,
       multiplier: outcome.multiplier,
       winnings
     }
@@ -222,7 +222,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!canBet.value)
       return {
         success: false,
-        message: '今天的赌博次数已用完。',
+        message: 'Hôm nay đã hết lượt đánh bạc.',
         dice1: 0,
         dice2: 0,
         won: false,
@@ -232,7 +232,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!playerStore.spendMoney(DICE_BET_AMOUNT)) {
       return {
         success: false,
-        message: '金钱不足。',
+        message: 'Không đủ tiền.',
         dice1: 0,
         dice2: 0,
         won: false,
@@ -246,16 +246,16 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (won) {
       playerStore.earnMoney(winnings)
     }
-    const guessText = guessBig ? '大' : '小'
-    const resultText = result.isBig ? '大' : '小'
+    const guessText = guessBig ? 'Lớn' : 'Nhỏ'
+    const resultText = result.isBig ? 'Lớn' : 'Nhỏ'
     if (won) {
-      addLog(`骰子${result.dice1}+${result.dice2}=${result.total}（${resultText}），你猜${guessText}——赢了${winnings}文！`)
+      addLog(`Xúc xắc ${result.dice1}+${result.dice2}=${result.total} (${resultText}), bạn đoán ${guessText} — thắng ${winnings} văn!`)
     } else {
-      addLog(`骰子${result.dice1}+${result.dice2}=${result.total}（${resultText}），你猜${guessText}——输了${DICE_BET_AMOUNT}文。`)
+      addLog(`Xúc xắc ${result.dice1}+${result.dice2}=${result.total} (${resultText}), bạn đoán ${guessText} — thua ${DICE_BET_AMOUNT} văn.`)
     }
     return {
       success: true,
-      message: won ? '赢了！' : '输了…',
+      message: won ? 'Thắng!' : 'Thua…',
       dice1: result.dice1,
       dice2: result.dice2,
       won,
@@ -276,7 +276,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!canBet.value)
       return {
         success: false,
-        message: '今天的赌博次数已用完。',
+        message: 'Hôm nay đã hết lượt đánh bạc.',
         correctCup: 0,
         won: false,
         winnings: 0
@@ -285,7 +285,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!playerStore.spendMoney(CUP_BET_AMOUNT)) {
       return {
         success: false,
-        message: '金钱不足。',
+        message: 'Không đủ tiền.',
         correctCup: 0,
         won: false,
         winnings: 0
@@ -297,13 +297,13 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     const winnings = won ? Math.floor(CUP_BET_AMOUNT * CUP_WIN_MULTIPLIER) : 0
     if (won) {
       playerStore.earnMoney(winnings)
-      addLog(`猜杯猜中了第${guess + 1}号杯！赢得${winnings}文！`)
+      addLog(`Đoán cốc đúng cốc số ${guess + 1}! Thắng ${winnings} văn!`)
     } else {
-      addLog(`猜杯猜错了，球在第${result.correctCup + 1}号杯下，损失了${CUP_BET_AMOUNT}文。`)
+      addLog(`Đoán cốc sai, viên bi ở dưới cốc số ${result.correctCup + 1}, mất ${CUP_BET_AMOUNT} văn.`)
     }
     return {
       success: true,
-      message: won ? '猜中了！' : '猜错了…',
+      message: won ? 'Đoán đúng!' : 'Đoán sai…',
       correctCup: result.correctCup,
       won,
       winnings
@@ -325,7 +325,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!canBet.value)
       return {
         success: false,
-        message: '今天的赌博次数已用完。',
+        message: 'Hôm nay đã hết lượt đánh bạc.',
         playerPower: 0,
         opponentPower: 0,
         won: false,
@@ -336,7 +336,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!playerStore.spendMoney(CRICKET_BET_AMOUNT)) {
       return {
         success: false,
-        message: '金钱不足。',
+        message: 'Không đủ tiền.',
         playerPower: 0,
         opponentPower: 0,
         won: false,
@@ -353,15 +353,15 @@ export const useHanhaiStore = defineStore('hanhai', () => {
       playerStore.earnMoney(winnings)
     }
     if (won) {
-      addLog(`斗蛐蛐（${cricketId}）：力量${result.playerPower}对${result.opponentPower}，大获全胜！赢得${winnings}文！`)
+      addLog(`Chọi dế (${cricketId}): sức mạnh ${result.playerPower} đấu ${result.opponentPower}, thắng áp đảo! Nhận ${winnings} văn!`)
     } else if (draw) {
-      addLog(`斗蛐蛐（${cricketId}）：力量${result.playerPower}对${result.opponentPower}，平局，退还${CRICKET_BET_AMOUNT}文。`)
+      addLog(`Chọi dế (${cricketId}): sức mạnh ${result.playerPower} đấu ${result.opponentPower}, hòa, hoàn ${CRICKET_BET_AMOUNT} văn.`)
     } else {
-      addLog(`斗蛐蛐（${cricketId}）：力量${result.playerPower}对${result.opponentPower}，败下阵来，损失${CRICKET_BET_AMOUNT}文。`)
+      addLog(`Chọi dế (${cricketId}): sức mạnh ${result.playerPower} đấu ${result.opponentPower}, thua trận, mất ${CRICKET_BET_AMOUNT} văn.`)
     }
     return {
       success: true,
-      message: won ? '赢了！' : draw ? '平局' : '输了…',
+      message: won ? 'Thắng!' : draw ? 'Hòa' : 'Thua…',
       playerPower: result.playerPower,
       opponentPower: result.opponentPower,
       won,
@@ -383,7 +383,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!canBet.value)
       return {
         success: false,
-        message: '今天的赌博次数已用完。',
+        message: 'Hôm nay đã hết lượt đánh bạc.',
         treasures: [],
         won: false,
         winnings: 0
@@ -392,7 +392,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (!playerStore.spendMoney(CARD_BET_AMOUNT)) {
       return {
         success: false,
-        message: '金钱不足。',
+        message: 'Không đủ tiền.',
         treasures: [],
         won: false,
         winnings: 0
@@ -404,13 +404,13 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     const winnings = won ? Math.floor(CARD_BET_AMOUNT * CARD_WIN_MULTIPLIER) : 0
     if (won) {
       playerStore.earnMoney(winnings)
-      addLog(`翻牌寻宝翻到了宝牌！赢得${winnings}文！`)
+      addLog(`Lật bài tìm kho báu trúng lá báu! Thắng ${winnings} văn!`)
     } else {
-      addLog(`翻牌寻宝翻到了空牌，损失了${CARD_BET_AMOUNT}文。`)
+      addLog(`Lật bài tìm kho báu trúng lá trống, mất ${CARD_BET_AMOUNT} văn.`)
     }
     return {
       success: true,
-      message: won ? '翻到宝了！' : '空牌…',
+      message: won ? 'Lật trúng báu vật!' : 'Lá bài trống…',
       treasures: result.treasures,
       won,
       winnings
@@ -419,24 +419,24 @@ export const useHanhaiStore = defineStore('hanhai', () => {
 
   /** 开始瀚海扑克（扣入场费+抽水，发牌） */
   const startTexas = (tierId: TexasTierId): { success: boolean; message: string } & Partial<TexasSetup> => {
-    if (!canBet.value) return { success: false, message: '今天的赌博次数已用完。' }
+    if (!canBet.value) return { success: false, message: 'Hôm nay đã hết lượt đánh bạc.' }
     const tier = getTexasTier(tierId)
     const playerStore = usePlayerStore()
     if (playerStore.money < tier.minMoney) {
       return {
         success: false,
-        message: `需要至少持有${tier.minMoney}文才能入场。`
+        message: `Cần có ít nhất ${tier.minMoney} văn mới được vào.`
       }
     }
     const totalCost = tier.entryFee + tier.rake
     if (!playerStore.spendMoney(totalCost)) {
-      return { success: false, message: '金钱不足。' }
+      return { success: false, message: 'Không đủ tiền.' }
     }
     casinoBetsToday.value++
     const deal = dealTexas()
     return {
       success: true,
-      message: `${tier.name}开始！`,
+      message: `${tier.name} bắt đầu!`,
       playerHole: deal.playerHole,
       dealerHole: deal.dealerHole,
       community: deal.community,
@@ -450,7 +450,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (finalChips > 0) {
       playerStore.earnMoney(finalChips)
     }
-    addLog(`瀚海扑克（${tierName}）结束，收回筹码${finalChips}文。`)
+    addLog(`Poker Hãn Hải (${tierName}) kết thúc, thu hồi ${finalChips} văn tiền cược.`)
   }
 
   /** 开始恶魔轮盘（下注+生成初始状态） */
@@ -458,15 +458,15 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     success: boolean
     message: string
   } & Partial<BuckshotSetup> => {
-    if (!canBet.value) return { success: false, message: '今天的赌博次数已用完。' }
+    if (!canBet.value) return { success: false, message: 'Hôm nay đã hết lượt đánh bạc.' }
     const playerStore = usePlayerStore()
     if (!playerStore.spendMoney(BUCKSHOT_BET_AMOUNT)) {
-      return { success: false, message: '金钱不足。' }
+      return { success: false, message: 'Không đủ tiền.' }
     }
     casinoBetsToday.value++
     return {
       success: true,
-      message: '恶魔轮盘开始！',
+      message: 'Vòng quay quỷ bắt đầu!',
       shells: loadShotgun(),
       playerHP: BUCKSHOT_PLAYER_HP,
       dealerHP: BUCKSHOT_DEALER_HP
@@ -478,12 +478,12 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     const playerStore = usePlayerStore()
     if (won) {
       playerStore.earnMoney(BUCKSHOT_BET_AMOUNT * BUCKSHOT_WIN_MULTIPLIER)
-      addLog(`恶魔轮盘胜利！赢得${BUCKSHOT_BET_AMOUNT * BUCKSHOT_WIN_MULTIPLIER}文！`)
+      addLog(`Vòng quay quỷ chiến thắng! Nhận ${BUCKSHOT_BET_AMOUNT * BUCKSHOT_WIN_MULTIPLIER} văn!`)
     } else if (draw) {
       playerStore.earnMoney(BUCKSHOT_BET_AMOUNT)
-      addLog(`恶魔轮盘平局，退还${BUCKSHOT_BET_AMOUNT}文。`)
+      addLog(`Vòng quay quỷ hòa, hoàn ${BUCKSHOT_BET_AMOUNT} văn.`)
     } else {
-      addLog(`恶魔轮盘落败，损失了${BUCKSHOT_BET_AMOUNT}文。`)
+      addLog(`Vòng quay quỷ thất bại, mất ${BUCKSHOT_BET_AMOUNT} văn.`)
     }
   }
 
@@ -497,16 +497,16 @@ export const useHanhaiStore = defineStore('hanhai', () => {
 
   /** 放入物品到通商售货槽 */
   const addTradeSlot = (itemId: string, quality: string, quantity: number): { success: boolean; message: string } => {
-    if (quantity <= 0) return { success: false, message: '数量必须为正整数。' }
+    if (quantity <= 0) return { success: false, message: 'Số lượng phải là số nguyên dương.' }
     const config = tradeShopConfig.value
     if (tradeSlots.value.length >= config.maxSlots) {
-      return { success: false, message: '售货槽位已满。' }
+      return { success: false, message: 'Ô bán hàng đã đầy.' }
     }
     const itemDef = getItemById(itemId)
-    if (!itemDef) return { success: false, message: '物品不存在。' }
+    if (!itemDef) return { success: false, message: 'Vật phẩm không tồn tại.' }
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.removeItem(itemId, quantity, quality as Quality)) {
-      return { success: false, message: '物品不足。' }
+      return { success: false, message: 'Không đủ vật phẩm.' }
     }
     // 计算积分奖励
     const basePoints = calcTradePoints(itemDef.sellPrice * quantity, quality)
@@ -522,8 +522,8 @@ export const useHanhaiStore = defineStore('hanhai', () => {
       daysRemaining: config.sellDays,
       pointsReward
     })
-    addLog(`在通商摊位上架了${itemDef.name}×${quantity}，预计${config.sellDays}天后获得${pointsReward}积分。`)
-    return { success: true, message: `已上架${itemDef.name}×${quantity}。` }
+    addLog(`Đã bày bán ${itemDef.name}×${quantity} tại sạp giao thương, dự kiến nhận ${pointsReward} điểm sau ${config.sellDays} ngày.`)
+    return { success: true, message: `Đã đưa ${itemDef.name}×${quantity} lên quầy.` }
   }
 
   /** 每日通商结算：减少剩余天数，到期的发放积分 */
@@ -538,7 +538,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
         tradePoints.value += slot.pointsReward
         completed.push({ itemId: slot.itemId, points: slot.pointsReward })
         const itemDef = getItemById(slot.itemId)
-        addLog(`通商售出${itemDef?.name ?? slot.itemId}×${slot.quantity}，获得${slot.pointsReward}通商积分。`)
+        addLog(`Đã bán ${itemDef?.name ?? slot.itemId}×${slot.quantity} qua giao thương, nhận ${slot.pointsReward} điểm giao thương.`)
       } else {
         remaining.push(slot)
       }
@@ -550,10 +550,10 @@ export const useHanhaiStore = defineStore('hanhai', () => {
   /** 升级通商店铺 */
   const upgradeTradeShop = (): { success: boolean; message: string } => {
     const next = nextTradeShopUpgrade.value
-    if (!next) return { success: false, message: '店铺已满级。' }
+    if (!next) return { success: false, message: 'Cửa hàng đã đạt cấp tối đa.' }
     const playerStore = usePlayerStore()
     if (playerStore.money < next.cost) {
-      return { success: false, message: `金钱不足（需要${next.cost}文）。` }
+      return { success: false, message: `Không đủ tiền (cần ${next.cost} văn).` }
     }
     // 检查材料
     for (const mat of next.materialCost) {
@@ -562,7 +562,7 @@ export const useHanhaiStore = defineStore('hanhai', () => {
         const itemDef = getItemById(mat.itemId)
         return {
           success: false,
-          message: `材料不足：${itemDef?.name ?? mat.itemId} 需要${mat.quantity}个。`
+          message: `Không đủ nguyên liệu: ${itemDef?.name ?? mat.itemId} cần ${mat.quantity} cái.`
         }
       }
     }
@@ -572,21 +572,21 @@ export const useHanhaiStore = defineStore('hanhai', () => {
       removeCombinedItem(mat.itemId, mat.quantity)
     }
     tradeShopLevel.value = next.level
-    addLog(`通商店铺升级为「${next.name}」！槽位${next.maxSlots}个，售卖周期${next.sellDays}天。`)
-    return { success: true, message: `店铺升级为「${next.name}」！` }
+    addLog(`Cửa hàng giao thương đã nâng cấp thành 「${next.name}」! Có ${next.maxSlots} ô, chu kỳ bán ${next.sellDays} ngày.`)
+    return { success: true, message: `Cửa hàng đã nâng cấp thành 「${next.name}」!` }
   }
 
   /** 积分兑换物品 */
   const exchangeItem = (itemId: string): { success: boolean; message: string } => {
     const exchangeDef = TRADE_EXCHANGE_ITEMS.find(e => e.itemId === itemId)
-    if (!exchangeDef) return { success: false, message: '兑换物品不存在。' }
+    if (!exchangeDef) return { success: false, message: 'Vật phẩm đổi không tồn tại.' }
     // 检查周限购
     if (exchangeDef.weeklyLimit) {
       const weeklyCount = weeklyExchangePurchases.value[itemId] ?? 0
       if (weeklyCount >= exchangeDef.weeklyLimit) {
         return {
           success: false,
-          message: `${exchangeDef.name}本周兑换已达上限。`
+          message: `${exchangeDef.name} đã đạt giới hạn đổi trong tuần.`
         }
       }
     }
@@ -594,14 +594,14 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (exchangeDef.totalLimit) {
       const totalCount = totalExchangePurchases.value[itemId] ?? 0
       if (totalCount >= exchangeDef.totalLimit) {
-        return { success: false, message: `${exchangeDef.name}已达兑换上限。` }
+        return { success: false, message: `${exchangeDef.name} đã đạt giới hạn đổi.` }
       }
     }
     // 检查积分
     if (tradePoints.value < exchangeDef.pointsCost) {
       return {
         success: false,
-        message: `积分不足（需要${exchangeDef.pointsCost}积分）。`
+        message: `Không đủ điểm (cần ${exchangeDef.pointsCost} điểm).`
       }
     }
     // 扣除积分
@@ -617,10 +617,10 @@ export const useHanhaiStore = defineStore('hanhai', () => {
     if (exchangeDef.isWalletItem) {
       const walletStore = useWalletStore()
       walletStore.unlock(itemId)
-      addLog(`兑换了${exchangeDef.name}，已加入钱袋！`)
+      addLog(`Đã đổi ${exchangeDef.name}, vật phẩm đã được thêm vào túi tiền!`)
       return {
         success: true,
-        message: `兑换了${exchangeDef.name}，已加入钱袋！`
+        message: `Đã đổi ${exchangeDef.name}, vật phẩm đã được thêm vào túi tiền!`
       }
     }
     // 香料礼包特殊处理：直接给5个西域香料
@@ -631,10 +631,10 @@ export const useHanhaiStore = defineStore('hanhai', () => {
         if (exchangeDef.weeklyLimit) {
           weeklyExchangePurchases.value[itemId] = (weeklyExchangePurchases.value[itemId] ?? 0) - 1
         }
-        return { success: false, message: '背包已满，无法兑换。' }
+        return { success: false, message: 'Túi đồ đã đầy, không thể đổi.' }
       }
-      addLog(`用${exchangeDef.pointsCost}积分兑换了${exchangeDef.name}，获得西域香料×5。`)
-      return { success: true, message: '获得西域香料×5！' }
+      addLog(`Dùng ${exchangeDef.pointsCost} điểm đổi ${exchangeDef.name}, nhận Gia vị Tây Vực ×5.`)
+      return { success: true, message: 'Nhận 5× gia vị Tây Vực!' }
     }
     // 马匹升级：把现有的马换成更好的品种
     if (exchangeDef.isHorseUpgrade) {
@@ -683,13 +683,13 @@ export const useHanhaiStore = defineStore('hanhai', () => {
         if (exchangeDef.totalLimit) {
           totalExchangePurchases.value[itemId] = (totalExchangePurchases.value[itemId] ?? 0) - 1
         }
-        return { success: false, message: '兑换失败，请稍后再试。' }
+        return { success: false, message: 'Đổi thất bại, hãy thử lại sau.' }
       }
 
-      addLog(`用${exchangeDef.pointsCost}积分兑换了${exchangeDef.name}，已放入装备栏。`)
+      addLog(`Dùng ${exchangeDef.pointsCost} điểm đổi ${exchangeDef.name}, đã đưa vào ô trang bị.`)
       return {
         success: true,
-        message: `兑换了${exchangeDef.name}，可在背包的「装备」页签中装备。`
+        message: `Đã đổi ${exchangeDef.name}, có thể trang bị trong tab 「Trang bị」 của túi.`
       }
     }
 
@@ -704,10 +704,10 @@ export const useHanhaiStore = defineStore('hanhai', () => {
       if (exchangeDef.totalLimit) {
         totalExchangePurchases.value[itemId] = (totalExchangePurchases.value[itemId] ?? 0) - 1
       }
-      return { success: false, message: '背包已满，无法兑换。' }
+      return { success: false, message: 'Túi đồ đã đầy, không thể đổi.' }
     }
-    addLog(`用${exchangeDef.pointsCost}积分兑换了${exchangeDef.name}。`)
-    return { success: true, message: `兑换了${exchangeDef.name}！` }
+    addLog(`Dùng ${exchangeDef.pointsCost} điểm đổi ${exchangeDef.name}.`)
+    return { success: true, message: `Đã đổi ${exchangeDef.name}!` }
   }
 
   /** 每日重置赌博次数，每周重置商店限购 */

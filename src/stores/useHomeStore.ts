@@ -49,10 +49,10 @@ export const useHomeStore = defineStore('home', () => {
 
   const farmhouseName = computed(() => {
     const names: Record<FarmhouseLevel, string> = {
-      0: '茅屋',
-      1: '砖房',
-      2: '宅院',
-      3: '酒窖宅院'
+      0: 'Túp lều tranh',
+      1: 'Nhà gạch',
+      2: 'Nhà sân vườn',
+      3: 'Trang viện có hầm rượu'
     }
     return names[farmhouseLevel.value]
   })
@@ -80,7 +80,7 @@ export const useHomeStore = defineStore('home', () => {
 
   const caveName = computed(() => {
     const def = getCaveUpgrade(caveLevel.value)
-    return def?.name ?? '山洞'
+    return def?.name ?? 'Hang động'
   })
 
   const caveQuality = computed(() => getCaveQuality(caveDaysActive.value))

@@ -5,263 +5,263 @@ export const MUSEUM_ITEMS: MuseumItemDef[] = [
   // ===== 矿石 (7) =====
   {
     id: 'copper_ore',
-    name: '铜矿',
+    name: 'Quặng đồng',
     category: 'ore',
-    sourceHint: '矿洞浅层采集'
+    sourceHint: 'Thu thập tầng nông hầm mỏ'
   },
   {
     id: 'iron_ore',
-    name: '铁矿',
+    name: 'Quặng sắt',
     category: 'ore',
-    sourceHint: '矿洞冰霜层采集'
+    sourceHint: 'Thu thập tầng băng giá hầm mỏ'
   },
   {
     id: 'gold_ore',
-    name: '金矿',
+    name: 'Quặng vàng',
     category: 'ore',
-    sourceHint: '矿洞熔岩层采集'
+    sourceHint: 'Thu thập tầng dung nham hầm mỏ'
   },
   {
     id: 'crystal_ore',
-    name: '水晶矿',
+    name: 'Quặng pha lê',
     category: 'ore',
-    sourceHint: '矿洞水晶层采集'
+    sourceHint: 'Thu thập tầng pha lê hầm mỏ'
   },
   {
     id: 'shadow_ore',
-    name: '暗影矿',
+    name: 'Quặng bóng tối',
     category: 'ore',
-    sourceHint: '矿洞暗影层采集'
+    sourceHint: 'Thu thập tầng bóng tối hầm mỏ'
   },
   {
     id: 'void_ore',
-    name: '虚空矿',
+    name: 'Quặng hư không',
     category: 'ore',
-    sourceHint: '矿洞深渊层采集'
+    sourceHint: 'Thu thập tầng vực sâu hầm mỏ'
   },
   {
     id: 'iridium_ore',
-    name: '铱矿',
+    name: 'Quặng Iridium',
     category: 'ore',
-    sourceHint: '骷髅矿穴采集'
+    sourceHint: 'Thu thập Hang Mỏ Xương'
   },
 
   // ===== 宝石 (7) =====
-  { id: 'quartz', name: '石英', category: 'gem', sourceHint: '矿洞各层采集' },
-  { id: 'jade', name: '翡翠', category: 'gem', sourceHint: '矿洞冰霜层以下' },
-  { id: 'ruby', name: '红宝石', category: 'gem', sourceHint: '矿洞熔岩层以下' },
+  { id: 'quartz', name: 'Thạch anh', category: 'gem', sourceHint: 'Thu thập ở các tầng hầm mỏ' },
+  { id: 'jade', name: 'Phỉ thúy', category: 'gem', sourceHint: 'Dưới tầng băng giá hầm mỏ' },
+  { id: 'ruby', name: 'Hồng ngọc', category: 'gem', sourceHint: 'Dưới tầng dung nham hầm mỏ' },
   {
     id: 'moonstone',
-    name: '月光石',
+    name: 'Đá Nguyệt Quang',
     category: 'gem',
-    sourceHint: '矿洞水晶层'
+    sourceHint: 'Tầng pha lê hầm mỏ'
   },
-  { id: 'obsidian', name: '黑曜石', category: 'gem', sourceHint: '矿洞暗影层' },
+  { id: 'obsidian', name: 'Đá hắc diện', category: 'gem', sourceHint: 'Tầng bóng tối hầm mỏ' },
   {
     id: 'dragon_jade',
-    name: '龙玉',
+    name: 'Long Ngọc',
     category: 'gem',
-    sourceHint: '矿洞深渊层'
+    sourceHint: 'Tầng vực sâu hầm mỏ'
   },
   {
     id: 'prismatic_shard',
-    name: '五彩碎片',
+    name: 'Mảnh Vỡ Ngũ Sắc',
     category: 'gem',
-    sourceHint: '极其稀有，深层宝箱'
+    sourceHint: 'Cực kỳ hiếm, rương báu tầng sâu'
   },
 
   // ===== 金属锭 (4) =====
   {
     id: 'copper_bar',
-    name: '铜锭',
+    name: 'Thỏi Đồng',
     category: 'bar',
-    sourceHint: '熔炉冶炼铜矿'
+    sourceHint: 'Luyện quặng đồng bằng lò'
   },
-  { id: 'iron_bar', name: '铁锭', category: 'bar', sourceHint: '熔炉冶炼铁矿' },
-  { id: 'gold_bar', name: '金锭', category: 'bar', sourceHint: '熔炉冶炼金矿' },
+  { id: 'iron_bar', name: 'Thỏi Sắt', category: 'bar', sourceHint: 'Luyện quặng sắt bằng lò' },
+  { id: 'gold_bar', name: 'Thỏi Vàng', category: 'bar', sourceHint: 'Luyện quặng vàng bằng lò' },
   {
     id: 'iridium_bar',
-    name: '铱锭',
+    name: 'Thỏi Iridium',
     category: 'bar',
-    sourceHint: '熔炉冶炼铱矿'
+    sourceHint: 'Luyện quặng iridi bằng lò'
   },
 
   // ===== 化石 (8) =====
   {
     id: 'trilobite_fossil',
-    name: '三叶虫化石',
+    name: 'Hóa thạch bọ ba thùy',
     category: 'fossil',
-    sourceHint: '矿洞浅层/冰霜层宝箱'
+    sourceHint: 'Rương báu tầng nông/tầng băng giá'
   },
   {
     id: 'amber',
-    name: '琥珀',
+    name: 'Hổ phách',
     category: 'fossil',
-    sourceHint: '矿洞暗河层掉落'
+    sourceHint: 'Vật phẩm rơi ở tầng sông ngầm'
   },
   {
     id: 'ammonite_fossil',
-    name: '菊石化石',
+    name: 'Hóa thạch cúc đá',
     category: 'fossil',
-    sourceHint: '矿洞熔岩/水晶层宝箱'
+    sourceHint: 'Rương báu tầng dung nham / pha lê'
   },
   {
     id: 'fern_fossil',
-    name: '蕨叶化石',
+    name: 'Hóa thạch lá dương xỉ',
     category: 'fossil',
-    sourceHint: '竹林稀有采集'
+    sourceHint: 'Thu thập hiếm ở rừng trúc'
   },
   {
     id: 'shell_fossil',
-    name: '螺壳化石',
+    name: 'Hóa thạch vỏ ốc',
     category: 'fossil',
-    sourceHint: '矿洞浅层/冰霜层宝箱'
+    sourceHint: 'Rương báu tầng nông/tầng băng giá'
   },
   {
     id: 'bone_fragment',
-    name: '骨骸碎片',
+    name: 'Mảnh vụn xương cốt',
     category: 'fossil',
-    sourceHint: '深层怪物稀有掉落'
+    sourceHint: 'Rơi hiếm từ quái vật tầng sâu'
   },
   {
     id: 'petrified_wood',
-    name: '石化木',
+    name: 'Gỗ hóa đá',
     category: 'fossil',
-    sourceHint: '竹林稀有采集'
+    sourceHint: 'Thu thập hiếm ở rừng trúc'
   },
   {
     id: 'dragon_tooth',
-    name: '龙牙化石',
+    name: 'Hóa thạch nanh rồng',
     category: 'fossil',
-    sourceHint: '深渊层宝箱或骨龙掉落'
+    sourceHint: 'Rương tầng vực sâu hoặc rơi từ rồng xương'
   },
 
   // ===== 古物 (10) =====
   {
     id: 'ancient_pottery',
-    name: '古陶片',
+    name: 'Mảnh gốm cổ',
     category: 'artifact',
-    sourceHint: '竹林稀有采集'
+    sourceHint: 'Thu thập hiếm ở rừng trúc'
   },
   {
     id: 'jade_disc',
-    name: '玉璧残片',
+    name: 'Mảnh vỡ ngọc bích',
     category: 'artifact',
-    sourceHint: '水晶层宝箱'
+    sourceHint: 'Rương tầng pha lê'
   },
   {
     id: 'bronze_mirror',
-    name: '铜镜',
+    name: 'Gương đồng',
     category: 'artifact',
-    sourceHint: '熔岩层宝箱'
+    sourceHint: 'Rương báu tầng dung nham'
   },
   {
     id: 'ancient_coin',
-    name: '远古铜钱',
+    name: 'Đồng tiền cổ',
     category: 'artifact',
-    sourceHint: '矿洞暗河层掉落'
+    sourceHint: 'Vật phẩm rơi ở tầng sông ngầm'
   },
   {
     id: 'oracle_bone',
-    name: '甲骨片',
+    name: 'Mảnh giáp cốt',
     category: 'artifact',
-    sourceHint: '暗影层宝箱'
+    sourceHint: 'Rương tầng bóng tối'
   },
   {
     id: 'jade_pendant',
-    name: '玉佩',
+    name: 'Ngọc bội',
     category: 'artifact',
-    sourceHint: '水晶层掉落'
+    sourceHint: 'Rơi ở tầng pha lê'
   },
   {
     id: 'ancient_seed',
-    name: '远古种子',
+    name: 'Hạt giống viễn cổ',
     category: 'artifact',
-    sourceHint: '深层宝箱极稀有'
+    sourceHint: 'Cực hiếm từ rương tầng sâu'
   },
   {
     id: 'bamboo_scroll',
-    name: '竹简',
+    name: 'Thẻ tre',
     category: 'artifact',
-    sourceHint: '竹林稀有采集'
+    sourceHint: 'Thu thập hiếm ở rừng trúc'
   },
   {
     id: 'stone_axe_head',
-    name: '石斧头',
+    name: 'Rìu đá',
     category: 'artifact',
-    sourceHint: '竹林稀有采集'
+    sourceHint: 'Thu thập hiếm ở rừng trúc'
   },
   {
     id: 'painted_pottery',
-    name: '彩陶碎片',
+    name: 'Mảnh gốm màu',
     category: 'artifact',
-    sourceHint: '熔岩层宝箱'
+    sourceHint: 'Rương báu tầng dung nham'
   },
 
   // ===== 仙灵 (4) =====
   {
     id: 'fox_bead',
-    name: '狐珠',
+    name: 'Hồ châu',
     category: 'spirit',
-    sourceHint: '矿洞深处（与狐仙有关的线索）'
+    sourceHint: 'Sâu trong hầm mỏ (manh mối hồ ly)'
   },
   {
     id: 'spirit_peach',
-    name: '灵桃',
+    name: 'Linh đào',
     category: 'spirit',
-    sourceHint: '桃夭赐福的桃树概率产出'
+    sourceHint: 'Có xác suất nhận được từ cây đào sau khi được Đào Yêu ban phúc'
   },
   {
     id: 'moon_herb',
-    name: '月草',
+    name: 'Nguyệt thảo',
     category: 'spirit',
-    sourceHint: '月兔赐福后采集概率获得'
+    sourceHint: 'Có xác suất nhận được khi thu thập sau khi được Thỏ Nguyệt ban phúc'
   },
   {
     id: 'dream_silk',
-    name: '梦丝',
+    name: 'Mộng ty',
     category: 'spirit',
-    sourceHint: '归女赐福后织布机概率产出'
+    sourceHint: 'Có xác suất nhận được từ máy dệt sau khi được Quy Nữ ban phúc'
   }
 ]
 
 /** 博物馆分类标签 */
 export const MUSEUM_CATEGORIES = [
-  { key: 'ore' as const, label: '矿石' },
-  { key: 'gem' as const, label: '宝石' },
-  { key: 'bar' as const, label: '金属锭' },
-  { key: 'fossil' as const, label: '化石' },
-  { key: 'artifact' as const, label: '古物' },
-  { key: 'spirit' as const, label: '仙灵' }
+  { key: 'ore' as const, label: 'Quặng' },
+  { key: 'gem' as const, label: 'Đá quý' },
+  { key: 'bar' as const, label: 'Thỏi kim loại' },
+  { key: 'fossil' as const, label: 'Hóa thạch' },
+  { key: 'artifact' as const, label: 'Cổ vật' },
+  { key: 'spirit' as const, label: 'Tiên linh' }
 ]
 
 /** 博物馆里程碑奖励 */
 export const MUSEUM_MILESTONES: MuseumMilestone[] = [
-  { count: 5, name: '初窥门径', reward: { money: 300 } },
+  { count: 5, name: 'Mới nhập môn', reward: { money: 300 } },
   {
     count: 10,
-    name: '小有收藏',
+    name: 'Có chút sưu tầm',
     reward: { money: 500, items: [{ itemId: 'ancient_seed', quantity: 1 }] }
   },
-  { count: 15, name: '矿石鉴赏家', reward: { money: 1000 } },
+  { count: 15, name: 'Nhà thưởng thức quặng', reward: { money: 1000 } },
   {
     count: 20,
-    name: '博古通今',
+    name: 'Thông kim bác cổ',
     reward: {
       money: 1500,
       items: [{ itemId: 'prismatic_shard', quantity: 1 }]
     }
   },
-  { count: 25, name: '文物守护者', reward: { money: 3000 } },
+  { count: 25, name: 'Người bảo vệ cổ vật', reward: { money: 3000 } },
   {
     count: 30,
-    name: '远古探秘',
+    name: 'Khám phá thời viễn cổ',
     reward: { money: 5000, items: [{ itemId: 'iridium_bar', quantity: 3 }] }
   },
-  { count: 36, name: '博物馆之星', reward: { money: 10000 } },
+  { count: 36, name: 'Ngôi sao bảo tàng', reward: { money: 10000 } },
   {
     count: 40,
-    name: '灵物全鉴',
+    name: 'Linh vật toàn giám',
     reward: { money: 8000, items: [{ itemId: 'moonstone', quantity: 3 }] }
   }
 ]

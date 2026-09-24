@@ -13,13 +13,13 @@ export const BEDTIME_PROMPT_HOUR = 25
 export const WEEKDAYS: Weekday[] = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 
 export const WEEKDAY_NAMES: Record<Weekday, string> = {
-  mon: '周一',
-  tue: '周二',
-  wed: '周三',
-  thu: '周四',
-  fri: '周五',
-  sat: '周六',
-  sun: '周日'
+  mon: 'Thứ Hai',
+  tue: 'Thứ Ba',
+  wed: 'Thứ Tư',
+  thu: 'Thứ Năm',
+  fri: 'Thứ Sáu',
+  sat: 'Thứ Bảy',
+  sun: 'Chủ Nhật'
 }
 
 /** 第1天=周一, 第7天=周日, 第8天=周一 ... */
@@ -39,11 +39,11 @@ export const getTimePeriod = (hour: number): TimePeriod => {
 // === 时间显示 ===
 export const formatHour = (hour: number): string => {
   const realHour = hour >= 24 ? hour - 24 : hour
-  if (hour >= 6 && hour < 12) return `上午 ${realHour}:00`
-  if (hour === 12) return `中午 12:00`
-  if (hour > 12 && hour < 18) return `下午 ${realHour}:00`
-  if (hour >= 18 && hour < 24) return `晚上 ${realHour}:00`
-  return `凌晨 ${realHour}:00`
+  if (hour >= 6 && hour < 12) return `Buổi sáng ${realHour}:00`
+  if (hour === 12) return `Buổi trưa 12:00`
+  if (hour > 12 && hour < 18) return `Buổi chiều ${realHour}:00`
+  if (hour >= 18 && hour < 24) return `Buổi tối ${realHour}:00`
+  return `Rạng sáng ${realHour}:00`
 }
 
 /** 更精细的时间显示（支持小数小时） */
@@ -54,11 +54,11 @@ export const formatTime = (hour: number): string => {
   const realH = h >= 24 ? h - 24 : h
   const mm = m.toString().padStart(2, '0')
 
-  if (h >= 6 && h < 12) return `上午 ${realH}:${mm}`
-  if (h === 12 && m === 0) return `中午 12:00`
-  if (h >= 12 && h < 18) return `下午 ${realH}:${mm}`
-  if (h >= 18 && h < 24) return `晚上 ${realH}:${mm}`
-  return `凌晨 ${realH}:${mm}`
+  if (h >= 6 && h < 12) return `Buổi sáng ${realH}:${mm}`
+  if (h === 12 && m === 0) return `Buổi trưa 12:00`
+  if (h >= 12 && h < 18) return `Buổi chiều ${realH}:${mm}`
+  if (h >= 18 && h < 24) return `Buổi tối ${realH}:${mm}`
+  return `Rạng sáng ${realH}:${mm}`
 }
 
 // === 行动时间开销 (单位：小时) ===
@@ -210,11 +210,11 @@ export const TRAVEL_STAMINA: Record<string, number> = {
 }
 
 const LOCATION_GROUP_NAMES: Record<LocationGroup, string> = {
-  farm: '农场',
-  village_area: '桃源村',
-  nature: '野外',
-  mine: '矿洞',
-  hanhai: '瀚海'
+  farm: 'Nông trại',
+  village_area: 'Làng Đào Nguyên',
+  nature: 'Ngoài đồng',
+  mine: 'Hang mỏ',
+  hanhai: 'Hãn Hải'
 }
 
 export const getLocationGroupName = (group: LocationGroup): string => {
@@ -233,14 +233,14 @@ export interface ShopSchedule {
 export const SHOP_SCHEDULES: ShopSchedule[] = [
   {
     tabKey: 'shop',
-    name: '桃源商圈',
+    name: 'Khu thương mại Đào Nguyên',
     closedDays: [],
     openHour: 6,
     closeHour: 24
   },
   {
     tabKey: 'upgrade',
-    name: '工坊',
+    name: 'Xưởng',
     closedDays: ['sun'],
     openHour: 8,
     closeHour: 20
@@ -254,19 +254,19 @@ export const isShopOpen = (tabKey: string, day: number, hour: number): { open: b
   if (schedule.closedDays.includes(weekday)) {
     return {
       open: false,
-      reason: `${schedule.name}今天（${WEEKDAY_NAMES[weekday]}）休息。`
+      reason: `${schedule.name} hôm nay (${WEEKDAY_NAMES[weekday]}) nghỉ.`
     }
   }
   if (hour < schedule.openHour) {
     return {
       open: false,
-      reason: `${schedule.name}还没开门（${formatHour(schedule.openHour)}开门）。`
+      reason: `${schedule.name} chưa mở cửa (${formatHour(schedule.openHour)} mở cửa).`
     }
   }
   if (hour >= schedule.closeHour) {
     return {
       open: false,
-      reason: `${schedule.name}已经打烊了（${formatHour(schedule.closeHour)}关门）。`
+      reason: `${schedule.name} đã đóng cửa (${formatHour(schedule.closeHour)} đóng cửa).`
     }
   }
   return { open: true }
@@ -464,10 +464,10 @@ export const getNpcUnavailableReason = (npcId: string, day: number, hour: number
   const isBday = season ? isNpcBirthday(npcId, season, day) : false
   const weekday = getWeekday(day)
   if (!isBday && schedule.availableDays !== 'all' && !schedule.availableDays.includes(weekday)) {
-    return '今天不在村里'
+    return 'Hôm nay không ở trong làng'
   }
-  if (hour < schedule.availableHours.from) return '还没出门'
-  if (hour >= schedule.availableHours.to) return '已经回家了'
+  if (hour < schedule.availableHours.from) return 'Chưa ra khỏi nhà'
+  if (hour >= schedule.availableHours.to) return 'Đã về nhà'
   return null
 }
 

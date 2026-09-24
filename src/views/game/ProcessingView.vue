@@ -8,7 +8,7 @@
         :icon="Boxes"
         @click="activeTab = 'process'"
       >
-        加工区
+        Khu chế biến
         <span class="text-[10px] ml-0.5 opacity-70">{{ processingStore.machineCount }}/{{ processingStore.maxMachines }}</span>
       </Button>
       <Button
@@ -17,7 +17,7 @@
         :icon="Hammer"
         @click="activeTab = 'craft'"
       >
-        制造
+        chếxây
       </Button>
     </div>
 
@@ -26,7 +26,7 @@
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center space-x-1.5 text-sm text-accent">
           <Boxes :size="14" />
-          <span>加工区</span>
+          <span>gia côngkhu</span>
           <span class="text-[10px] text-muted font-normal">{{ processingStore.machineCount }}/{{ processingStore.maxMachines }}</span>
         </div>
         <button
@@ -36,7 +36,7 @@
           @click="showUpgradeModal = true"
         >
           <ArrowUpCircle :size="10" class="inline mr-0.5" />
-          工坊 Lv.{{ processingStore.workshopLevel }}
+          Xưởng Lv.{{ processingStore.workshopLevel }}
         </button>
       </div>
 
@@ -44,10 +44,10 @@
       <div class="flex items-center justify-between mb-2">
         <label class="flex items-center space-x-1 cursor-pointer select-none">
           <input type="checkbox" v-model="onlyAvailable" class="accent-accent" />
-          <span class="text-[10px] text-muted">只显示有材料的配方</span>
+          <span class="text-[10px] text-muted">conhiểnhiển thịcónguyên liệu của phốiphương</span>
         </label>
         <Button v-if="totalReady > 0" class="py-0 px-1.5 text-[10px]" :icon="Package" :icon-size="10" @click="handleCollectAll()">
-          一键收取全部（{{ totalReady }}）
+          mộtphímthulấyTất cả（{{ totalReady }}）
         </Button>
       </div>
 
@@ -60,7 +60,7 @@
           }"
           @click="processingStore.viewMode = 'station'"
         >
-          加工站视图
+          Xem xưởng chế biến
         </Button>
         <Button
           class="flex-1 justify-center py-0 text-[10px]"
@@ -69,15 +69,15 @@
           }"
           @click="processingStore.viewMode = 'individual'"
         >
-          单台视图
+          đơnbànxembộ sưu tập
         </Button>
       </div>
 
       <!-- 空状态 -->
       <div v-if="processingStore.machines.length === 0" class="flex flex-col items-center justify-center py-8">
         <Boxes :size="36" class="text-accent/20 mb-2" />
-        <p class="text-xs text-muted">还没有加工设备</p>
-        <p class="text-[10px] text-muted/50 mt-0.5">切换到「制造」标签建造设备，同类设备会自动合并为一座加工站</p>
+        <p class="text-xs text-muted">Chưa có thiết bị chế biến</p>
+        <p class="text-[10px] text-muted/50 mt-0.5">chuyểnđổiđến「Chế tạo」nhãnthẻxâyxâythiếtbị，cùngloàithiếtbịhộitự độnghợpvàlàmộttòagia côngtrạm</p>
       </div>
 
       <!-- 加工站列表：同类设备合并为一座工站，设备数 = 并行槽位数 -->
@@ -96,29 +96,29 @@
                   @keyup.enter="confirmRename"
                   @keyup.escape="renamingType = null"
                 />
-                <Button class="py-0 px-1 text-[10px]" @click.stop="confirmRename">确定</Button>
-                <Button class="py-0 px-1 text-[10px]" @click.stop="renamingType = null">取消</Button>
+                <Button class="py-0 px-1 text-[10px]" @click.stop="confirmRename">Xác nhận</Button>
+                <Button class="py-0 px-1 text-[10px]" @click.stop="renamingType = null">Hủy</Button>
               </template>
               <template v-else>
                 <span class="text-xs text-accent truncate">{{ station.name }}</span>
                 <span v-if="station.name !== station.baseName" class="text-[10px] text-muted/50">({{ station.baseName }})</span>
                 <span class="text-[10px] text-muted">&times;{{ station.stats.total }}</span>
-                <span v-if="station.stats.ready > 0" class="text-[10px] text-success">{{ station.stats.ready }}可收</span>
+                <span v-if="station.stats.ready > 0" class="text-[10px] text-success">{{ station.stats.ready }}có thể thu</span>
               </template>
             </div>
             <div class="flex items-center space-x-1 flex-shrink-0">
               <button
                 v-if="renamingType !== station.machineType"
                 class="text-muted hover:text-accent"
-                title="重命名"
+                title="Đổi tên"
                 @click.stop="startRename(station.machineType, station.name, station.baseName)"
               >
                 <Pencil :size="10" />
               </button>
-              <button class="text-muted hover:text-accent" title="上移" @click.stop="handleMoveStation(station.machineType, -1)">
+              <button class="text-muted hover:text-accent" title="Di chuyển lên" @click.stop="handleMoveStation(station.machineType, -1)">
                 <ChevronUp :size="12" />
               </button>
-              <button class="text-muted hover:text-accent" title="下移" @click.stop="handleMoveStation(station.machineType, 1)">
+              <button class="text-muted hover:text-accent" title="Di chuyển xuống" @click.stop="handleMoveStation(station.machineType, 1)">
                 <ChevronDown :size="12" />
               </button>
               <span class="text-[10px] text-muted cursor-pointer" @click="toggleGroup(station.machineType)">
@@ -126,7 +126,7 @@
               </span>
             </div>
           </div>
-          <p class="text-[10px] text-muted px-2 -mt-1 mb-1">运行{{ station.stats.running }} · 空闲{{ station.stats.idle }}</p>
+          <p class="text-[10px] text-muted px-2 -mt-1 mb-1">Đang chạy{{ station.stats.running }} · Rảnh{{ station.stats.idle }}</p>
 
           <!-- 展开内容 -->
           <div v-if="!processingStore.collapsedGroups.has(station.machineType)" class="px-2 pb-2">
@@ -155,7 +155,7 @@
                 :icon-size="10"
                 @click="openTaskModal(station.machineType)"
               >
-                投料（{{ station.stats.idle }}个空槽）
+                némliệu（{{ station.stats.idle }}cáilépô）
               </Button>
               <Button
                 v-if="station.stats.ready > 0"
@@ -164,7 +164,7 @@
                 :icon-size="10"
                 @click="handleCollectAll(station.machineType)"
               >
-                收取{{ station.stats.ready }}份
+                thulấy{{ station.stats.ready }}phần
               </Button>
               <Button
                 v-if="station.stats.running > 0"
@@ -173,7 +173,7 @@
                 :icon-size="10"
                 @click="handleCancelAll(station.machineType)"
               >
-                全部停工
+                Dừng tất cả
               </Button>
               <Button
                 class="py-0 px-1.5 text-[10px] mr-1 mb-1 text-danger"
@@ -181,7 +181,7 @@
                 :icon-size="10"
                 @click="handleRemoveOne(station.machineType)"
               >
-                拆除一台
+                tháoxóamộtbàn
               </Button>
             </div>
 
@@ -196,11 +196,11 @@
                 <span class="text-[10px] text-muted/50 mr-1 flex-shrink-0">{{ si + 1 }}</span>
                 <!-- 空闲 -->
                 <template v-if="!entry.slot.recipeId">
-                  <span class="text-[10px] text-muted flex-1">空闲</span>
+                  <span class="text-[10px] text-muted flex-1">Rảnh</span>
                 </template>
                 <!-- 已完成 -->
                 <template v-else-if="entry.slot.ready">
-                  <span class="text-[10px] text-success flex-1 truncate">{{ getRecipeOutputName(entry.slot.recipeId) }} 已完成</span>
+                  <span class="text-[10px] text-success flex-1 truncate">{{ getRecipeOutputName(entry.slot.recipeId) }} đã Hoàn thành</span>
                   <button class="text-success hover:text-accent flex-shrink-0" @click="handleCollect(entry.originalIndex)">
                     <Package :size="12" />
                   </button>
@@ -209,7 +209,7 @@
                 <template v-else>
                   <span class="text-[10px] flex-1 truncate">
                     {{ getRecipeName(entry.slot.recipeId) }}
-                    <span class="text-muted">剩{{ Math.max(0, entry.slot.totalDays - entry.slot.daysProcessed) }}天</span>
+                    <span class="text-muted">còn {{ Math.max(0, entry.slot.totalDays - entry.slot.daysProcessed) }}ngày</span>
                   </span>
                   <button class="text-muted hover:text-danger flex-shrink-0" @click="handleCancelProcessing(entry.originalIndex)">
                     <X :size="12" />
@@ -232,7 +232,7 @@
             <div class="flex items-center space-x-1">
               <span class="text-xs text-accent">{{ station.name }}</span>
               <span class="text-[10px] text-muted">&times;{{ station.stats.total }}</span>
-              <span v-if="station.stats.ready > 0" class="text-[10px] text-success">（{{ station.stats.ready }}可收取）</span>
+              <span v-if="station.stats.ready > 0" class="text-[10px] text-success">（{{ station.stats.ready }}có thể thu）</span>
             </div>
             <span class="text-[10px] text-muted">{{ processingStore.collapsedGroups.has(station.machineType) ? '▸' : '▾' }}</span>
           </div>
@@ -278,7 +278,7 @@
                     </Button>
                   </div>
                   <p v-else class="text-xs text-muted">
-                    {{ onlyAvailable ? '没有材料足够的配方' : '无可用配方' }}
+                    {{ onlyAvailable ? 'Không có công thức đủ nguyên liệu' : 'Không có công thức khả dụng' }}
                   </p>
                 </template>
                 <!-- 其他机器：普通配方列表 -->
@@ -297,7 +297,7 @@
                     </Button>
                   </div>
                   <p v-else class="text-xs text-muted">
-                    {{ onlyAvailable ? '没有材料足够的配方' : '无可用配方' }}
+                    {{ onlyAvailable ? 'Không có công thức đủ nguyên liệu' : 'Không có công thức khả dụng' }}
                   </p>
                 </template>
               </div>
@@ -306,7 +306,7 @@
               <div v-else-if="!slot.ready">
                 <div class="flex items-center justify-between text-xs mb-1">
                   <span class="text-muted">{{ getRecipeName(slot.recipeId) }}</span>
-                  <span class="text-muted">{{ slot.daysProcessed }}/{{ slot.totalDays }}天</span>
+                  <span class="text-muted">{{ slot.daysProcessed }}/{{ slot.totalDays }}ngày</span>
                 </div>
                 <div class="h-1 bg-bg rounded-xs border border-accent/10 mb-1.5">
                   <div
@@ -317,7 +317,7 @@
                   />
                 </div>
                 <Button class="w-full justify-center" :icon="X" :icon-size="10" @click="handleCancelProcessing(originalIndex)">
-                  取消加工
+                  Tiêu hao xưởng
                 </Button>
               </div>
 
@@ -329,7 +329,7 @@
                   :icon-size="12"
                   @click="handleCollect(originalIndex)"
                 >
-                  收取 {{ getRecipeOutputName(slot.recipeId) }}
+                  thulấy {{ getRecipeOutputName(slot.recipeId) }}
                 </Button>
               </div>
             </div>
@@ -346,8 +346,8 @@
             <X :size="14" />
           </button>
 
-          <p class="text-sm text-accent mb-1">{{ getMachineName(taskModal.machineType) }} 投料</p>
-          <p class="text-[10px] text-muted mb-2">空闲槽位 {{ taskIdleSlots }} 个，选好配方后按数量分配。</p>
+          <p class="text-sm text-accent mb-1">{{ getMachineName(taskModal.machineType) }} némliệu</p>
+          <p class="text-[10px] text-muted mb-2">Rảnhôvị trí {{ taskIdleSlots }} cái，chọntốtphốiphươngsaunhấnSố lượngđiểmphối。</p>
 
           <!-- 第一步：选配方 -->
           <template v-if="!taskModal.recipeId">
@@ -376,7 +376,7 @@
                 <span class="text-muted">{{ qr.count }}/{{ qr.recipe.inputQuantity }}</span>
               </Button>
               <p v-if="getSeedMakerQualityRecipes(taskModal.machineType).length === 0" class="text-xs text-muted text-center py-4">
-                {{ onlyAvailable ? '没有材料足够的配方' : '无可用配方' }}
+                {{ onlyAvailable ? 'Không có công thức đủ nguyên liệu' : 'Không có công thức khả dụng' }}
               </p>
             </div>
             <!-- 其他设备 -->
@@ -394,7 +394,7 @@
                 </span>
               </Button>
               <p v-if="getFilteredRecipes(taskModal.machineType).length === 0" class="text-xs text-muted text-center py-4">
-                {{ onlyAvailable ? '没有材料足够的配方' : '无可用配方' }}
+                {{ onlyAvailable ? 'Không có công thức đủ nguyên liệu' : 'Không có công thức khả dụng' }}
               </p>
             </div>
           </template>
@@ -404,17 +404,17 @@
             <div class="border border-accent/10 rounded-xs p-2 mb-2">
               <div class="flex items-center justify-between">
                 <span class="text-xs text-accent">{{ getRecipeName(taskModal.recipeId) }}</span>
-                <span class="text-[10px] text-muted">{{ taskRecipe?.processingDays ?? '?' }}天/份</span>
+                <span class="text-[10px] text-muted">{{ taskRecipe?.processingDays ?? '?' }}ngày/phần</span>
               </div>
               <div v-if="taskRecipe?.inputItemId" class="flex items-center justify-between mt-0.5">
-                <span class="text-[10px] text-muted">每份消耗</span>
+                <span class="text-[10px] text-muted">Mỗi phần tiêu hao</span>
                 <span class="text-[10px] text-muted">{{ getItemName(taskRecipe.inputItemId) }} &times;{{ taskRecipe.inputQuantity }}</span>
               </div>
             </div>
 
             <div class="border border-accent/10 rounded-xs p-2 mb-2">
               <div class="flex items-center justify-between mb-1.5">
-                <span class="text-xs text-muted">投料份数</span>
+                <span class="text-xs text-muted">Số phần nguyên liệu</span>
                 <div class="flex items-center space-x-1">
                   <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="taskQty <= 1" @click="addTaskQty(-1)">-</Button>
                   <input
@@ -431,17 +431,17 @@
                 </div>
               </div>
               <div class="flex space-x-1">
-                <Button class="flex-1 justify-center" :disabled="taskQty <= 1" @click="setTaskQty(1)">最少</Button>
+                <Button class="flex-1 justify-center" :disabled="taskQty <= 1" @click="setTaskQty(1)">Ít nhất</Button>
                 <Button class="flex-1 justify-center" :disabled="taskQty >= maxTaskQty" @click="setTaskQty(maxTaskQty)">
-                  排满（{{ maxTaskQty }}）
+                  xếpđầy（{{ maxTaskQty }}）
                 </Button>
               </div>
             </div>
 
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" @click="taskModal.recipeId = null">重选配方</Button>
+              <Button class="flex-1 justify-center" @click="taskModal.recipeId = null">Chọn lại công thức</Button>
               <Button class="flex-1 justify-center !bg-accent !text-bg" :icon="Play" :icon-size="12" @click="confirmTask">
-                开工 &times;{{ taskQty }}
+                Bắt đầu ×{{ taskQty }}
               </Button>
             </div>
           </template>
@@ -454,9 +454,9 @@
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center space-x-1.5 text-sm text-accent">
           <Hammer :size="14" />
-          <span>制造</span>
+          <span>Chế tạo</span>
         </div>
-        <span class="text-xs text-muted">机器 {{ processingStore.machineCount }}/{{ processingStore.maxMachines }}</span>
+        <span class="text-xs text-muted">Máy {{ processingStore.machineCount }}/{{ processingStore.maxMachines }}</span>
       </div>
 
       <div v-for="cat in craftCategories" :key="cat.label" class="mb-3 last:mb-0">
@@ -472,7 +472,7 @@
               {{ item.name }}
               <span v-if="item.badge" class="text-muted ml-1">[{{ item.badge }}]</span>
             </div>
-            <span v-if="item.cost > 0" class="text-xs text-accent whitespace-nowrap">{{ item.cost }}文</span>
+            <span v-if="item.cost > 0" class="text-xs text-accent whitespace-nowrap">{{ item.cost }}văn</span>
           </div>
         </div>
       </div>
@@ -492,34 +492,34 @@
 
           <p class="text-sm text-accent mb-2">
             <ArrowUpCircle :size="14" class="inline mr-0.5" />
-            工坊信息
+            Thông tin xưởng
           </p>
 
           <!-- 当前状态 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">当前等级</span>
+              <span class="text-xs text-muted">Cấp hiện tại</span>
               <span class="text-xs text-accent">Lv.{{ processingStore.workshopLevel }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">机器上限</span>
-              <span class="text-xs text-text">{{ processingStore.maxMachines }} 台</span>
+              <span class="text-xs text-muted">Số máy tối đa</span>
+              <span class="text-xs text-text">{{ processingStore.maxMachines }} bàn</span>
             </div>
           </div>
 
           <!-- 下一级升级 -->
           <template v-if="nextUpgrade">
             <div class="border border-accent/10 rounded-xs p-2 mb-2">
-              <p class="text-xs text-muted mb-1">升级至 Lv.{{ processingStore.workshopLevel + 1 }}</p>
+              <p class="text-xs text-muted mb-1">Nâng cấpđến Lv.{{ processingStore.workshopLevel + 1 }}</p>
               <div class="flex items-center justify-between">
-                <span class="text-xs text-muted">机器上限</span>
+                <span class="text-xs text-muted">Số máy tối đa</span>
                 <span class="text-xs text-text">{{ processingStore.maxMachines }} → {{ processingStore.maxMachines + 5 }}</span>
               </div>
             </div>
 
             <!-- 所需材料 -->
             <div class="border border-accent/10 rounded-xs p-2 mb-2">
-              <p class="text-xs text-muted mb-1">所需材料</p>
+              <p class="text-xs text-muted mb-1">Nguyên liệu cần thiết</p>
               <div v-for="mat in nextUpgrade.materials" :key="mat.itemId" class="mb-1 last:mb-0">
                 <div class="flex items-center justify-between">
                   <span class="text-xs text-muted">{{ getItemById(mat.itemId)?.name }}</span>
@@ -528,12 +528,12 @@
                   </span>
                 </div>
                 <p v-if="getCombinedItemCount(mat.itemId) < mat.quantity" class="text-[10px] text-accent/60">
-                  获取：{{ getItemSource(mat.itemId) }}
+                  nhậnlấy：{{ getItemSource(mat.itemId) }}
                 </p>
               </div>
               <div class="flex items-center justify-between mt-0.5">
-                <span class="text-xs text-muted">铜钱</span>
-                <span class="text-xs" :class="playerStore.money >= nextUpgrade.cost ? '' : 'text-danger'">{{ nextUpgrade.cost }}文</span>
+                <span class="text-xs text-muted">Tiền đồng</span>
+                <span class="text-xs" :class="playerStore.money >= nextUpgrade.cost ? '' : 'text-danger'">{{ nextUpgrade.cost }}văn</span>
               </div>
             </div>
 
@@ -547,24 +547,24 @@
               :disabled="!canUpgrade"
               @click="showUpgradeConfirm = true"
             >
-              扩建工坊
+              Mở rộng xưởng
             </Button>
 
             <!-- 确认 -->
             <div v-else class="flex space-x-1">
-              <Button class="flex-1 justify-center" @click="showUpgradeConfirm = false">取消</Button>
+              <Button class="flex-1 justify-center" @click="showUpgradeConfirm = false">Hủy</Button>
               <Button
                 class="flex-1 justify-center !bg-accent !text-bg"
                 :icon="ArrowUpCircle"
                 :icon-size="12"
                 @click="handleUpgradeFromModal"
               >
-                确认扩建
+                xácxác nhậnmở rộngxây
               </Button>
             </div>
           </template>
 
-          <p v-else class="text-[10px] text-muted text-center">工坊已达到最高等级。</p>
+          <p v-else class="text-[10px] text-muted text-center">Xưởng đã đạt cấp tối đa.</p>
         </div>
       </div>
     </Transition>
@@ -581,11 +581,11 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <p class="text-xs text-muted">{{ craftModal.description }}</p>
-            <p v-if="craftModal.badge" class="text-xs text-muted mt-0.5">当前：{{ craftModal.badge }}</p>
+            <p v-if="craftModal.badge" class="text-xs text-muted mt-0.5">hiện tại ：{{ craftModal.badge }}</p>
           </div>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-xs text-muted mb-1">所需材料</p>
+            <p class="text-xs text-muted mb-1">Nguyên liệu cần thiết</p>
             <!-- 材料不足时直接标出哪儿能弄到，省得玩家满世界找 -->
             <div v-for="mat in craftModal.materials" :key="mat.itemId" class="mb-1 last:mb-0">
               <div class="flex items-center justify-between">
@@ -595,13 +595,13 @@
                 </span>
               </div>
               <p v-if="getCombinedItemCount(mat.itemId) < mat.quantity * displayQty" class="text-[10px] text-accent/60">
-                获取：{{ getItemSource(mat.itemId) }}
+                nhậnlấy：{{ getItemSource(mat.itemId) }}
               </p>
             </div>
             <div v-if="craftModal.cost > 0" class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">铜钱</span>
+              <span class="text-xs text-muted">Tiền đồng</span>
               <span class="text-xs" :class="playerStore.money >= craftModal.cost * displayQty ? '' : 'text-danger'">
-                {{ craftModal.cost * displayQty }}文
+                {{ craftModal.cost * displayQty }}văn
               </span>
             </div>
           </div>
@@ -609,7 +609,7 @@
           <!-- 批量数量控制 -->
           <div v-if="craftModal.batchable && maxCraftable > 1" class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">数量</span>
+              <span class="text-xs text-muted">Số lượng</span>
               <div class="flex items-center space-x-1">
                 <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="craftQuantity <= 1" @click="addCraftQuantity(-1)">
                   -
@@ -632,14 +632,14 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="craftQuantity <= 1" @click="setCraftQuantity(1)">最少</Button>
+              <Button class="flex-1 justify-center" :disabled="craftQuantity <= 1" @click="setCraftQuantity(1)">Ít nhất</Button>
               <Button class="flex-1 justify-center" :disabled="craftQuantity >= maxCraftable" @click="setCraftQuantity(maxCraftable)">
-                最多
+                nhấtnhiều
               </Button>
             </div>
             <div v-if="craftModal.cost > 0" class="flex items-center justify-between mt-1.5">
-              <span class="text-xs text-muted">合计</span>
-              <span class="text-xs text-accent">{{ craftModal.cost * craftQuantity }}文</span>
+              <span class="text-xs text-muted">Tổng cộng</span>
+              <span class="text-xs text-accent">{{ craftModal.cost * craftQuantity }}văn</span>
             </div>
           </div>
 
@@ -651,7 +651,7 @@
             :disabled="!craftModal.canCraft()"
             @click="handleCraftFromModal"
           >
-            {{ craftModal.batchable && craftQuantity > 1 ? `制造 ×${craftQuantity}` : '制造' }}
+            {{ craftModal.batchable && craftQuantity > 1 ? `Chế tạo ×${craftQuantity}` : 'Chế tạo' }}
           </Button>
         </div>
       </div>
@@ -715,7 +715,7 @@
 
   const QUALITY_ORDER: Quality[] = ['normal', 'fine', 'excellent', 'supreme']
 
-  /** 种子制造机：按品质展开配方列表 */
+  /** giốngconchếxâymáy：nhấnphẩmchấttriển lãmmởphốiphươngdanh sáchbảng */
   const getSeedMakerQualityRecipes = (machineType: MachineType) => {
     const recipes = processingStore.getAvailableRecipes(machineType)
     const result: {
@@ -739,7 +739,7 @@
           })
         }
       }
-      // 无任何品质库存时，仅在非筛选模式下显示一条（普通品质，不可用）
+      // khôngbất kỳnàophẩmchấtkholưuthời，chỉđangkhông phảilọcchọnmô hìnhkiểu下hiểnhiển thịmộtmục（phổ thônggiaophẩmchất，không可dùng）
       if (!hasAny && !onlyAvailable.value) {
         result.push({
           recipe,
@@ -752,13 +752,13 @@
     return result
   }
 
-  // === 加工站（同类设备合并，设备数 = 并行槽位数） ===
+  // === thêm工trạm（cùngloàithiếtbịhợpvà，thiếtbịsố = vàhànhôvị trísố） ===
 
   interface MachineStation {
     machineType: MachineType
-    /** 玩家自定义名（未改名则等于 baseName） */
+    /** chơinhàtựđịnhnghĩatên（chưacảitênthìđợitại baseName） */
     name: string
-    /** 设备原名 */
+    /** thiếtbịnguyêntên */
     baseName: string
     stats: { total: number; idle: number; running: number; ready: number }
     slots: {
@@ -769,7 +769,7 @@
 
   const stations = computed((): MachineStation[] => {
     const map = new Map<MachineType, MachineStation>()
-    // 按 PROCESSING_MACHINES 定义顺序作为默认排序基准
+    // nhấn PROCESSING_MACHINES địnhnghĩathuậnthứ tựlàmlàim lặngxác nhậnxếpthứ tựcơ bảnchuẩn
     const typeOrder = new Map(PROCESSING_MACHINES.map((m, i) => [m.id as MachineType, i]))
     for (let i = 0; i < processingStore.machines.length; i++) {
       const slot = processingStore.machines[i]!
@@ -788,12 +788,12 @@
       station.slots.push({ slot, originalIndex: i })
     }
     const list = [...map.values()].sort((a, b) => (typeOrder.get(a.machineType) ?? 99) - (typeOrder.get(b.machineType) ?? 99))
-    // 玩家自定义顺序优先
+    // chơinhàtựđịnhnghĩathuậnthứ tựưutrước
     const ordered = processingStore.sortStationTypes(list.map(s => s.machineType))
     return ordered.map(t => list.find(s => s.machineType === t)!).filter(Boolean)
   })
 
-  // === 加工站改名与排序 ===
+  // === thêm工trạmcảitênvớixếpthứ tự ===
 
   const renamingType = ref<MachineType | null>(null)
   const renameInput = ref('')
@@ -817,10 +817,10 @@
     )
   }
 
-  /** 全部工站累计可收取份数 */
+  /** Tất cả工trạmtích lũytính可thulấyphầnsố */
   const totalReady = computed(() => processingStore.machines.filter(m => m.ready).length)
 
-  /** 槽位占用条的百分比宽度 */
+  /** ôvị tríchiếmdùngmục的trămđiểmso sánhrộngđộ */
   const pct = (part: number, total: number): string => {
     if (total <= 0) return '0%'
     return `${Math.round((part / total) * 100)}%`
@@ -830,12 +830,12 @@
     processingStore.toggleGroup(type)
   }
 
-  /** 获取某类型机器的已有数量 */
+  /** nhậnlấymộtloàiloạimáydụng cụ的đãcósốlượng */
   const getMachineCountByType = (type: MachineType): number => {
     return processingStore.machines.filter(m => m.machineType === type).length
   }
 
-  // === 投料弹窗 ===
+  // === némliệuđạncửa sổ ===
 
   interface TaskModalState {
     machineType: MachineType
@@ -863,13 +863,13 @@
 
   const taskRecipe = computed(() => (taskModal.value?.recipeId ? getProcessingRecipeById(taskModal.value.recipeId) : null))
 
-  /** 当前工站的空闲槽位数 */
+  /** khitrước工trạm的léprảnhôvị trísố */
   const taskIdleSlots = computed(() => {
     if (!taskModal.value) return 0
     return processingStore.getStationStats(taskModal.value.machineType).idle
   })
 
-  /** 可投料份数上限 = min(空闲槽位, 材料够做几份) */
+  /** 可némliệuphầnsốlêngiới hạn = min(léprảnhôvị trí, nguyên liệuliệuđủlàmmấyphần) */
   const maxTaskQty = computed(() => {
     const recipe = taskRecipe.value
     if (!recipe) return 1
@@ -901,38 +901,38 @@
       const recipe = getProcessingRecipeById(modal.recipeId)
       const qualityLabel = modal.quality && modal.quality !== 'normal' ? `(${QUALITY_NAMES[modal.quality]})` : ''
       addLog(
-        `${getMachineName(modal.machineType)}开工${started}份${recipe?.name ?? ''}${qualityLabel}，${recipe?.processingDays ?? '?'}天后完成。`
+        `${getMachineName(modal.machineType)} bắt đầu ${started} phần ${recipe?.name ?? ''}${qualityLabel}, hoàn thành sau ${recipe?.processingDays ?? '?'} ngày.`
       )
     } else {
-      addLog('原料不足或没有空闲槽位。')
+      addLog('Thiếu nguyên liệu hoặc không còn ô trống.')
     }
     taskModal.value = null
   }
 
-  // === 工站批量操作 ===
+  // === 工trạmlôlượngthao táclàm ===
 
   const handleCollectAll = (machineType?: MachineType) => {
     const count = processingStore.collectAllReady(machineType)
     if (count > 0) {
       sfxClick()
-      addLog(`收取了${count}份加工成品。`)
+      addLog(`Đã thu ${count} sản phẩm chế biến.`)
     }
   }
 
   const handleCancelAll = (machineType: MachineType) => {
     const count = processingStore.cancelAllProcessing(machineType)
     if (count > 0) {
-      addLog(`${getMachineName(machineType)}停工${count}个槽位，原料已退回。`)
+      addLog(`${getMachineName(machineType)} dừng ${count} ô, nguyên liệu đã được hoàn lại.`)
     }
   }
 
   const handleRemoveOne = (machineType: MachineType) => {
     if (processingStore.removeOneFromStation(machineType)) {
-      addLog(`拆除了一台${getMachineName(machineType)}，制作材料已退还。`)
+      addLog(`Đã tháo một ${getMachineName(machineType)}, nguyên liệu chế tạo đã được hoàn lại.`)
     }
   }
 
-  // === 工坊升级 ===
+  // === 工xưởngtăngcấp ===
 
   const showUpgradeModal = ref(false)
   const showUpgradeConfirm = ref(false)
@@ -958,7 +958,7 @@
     showUpgradeModal.value = false
   }
 
-  // === 制造弹窗 ===
+  // === chếxâyđạncửa sổ ===
 
   interface CraftableItem {
     id: string
@@ -1035,7 +1035,7 @@
 
   const craftCategories = computed((): { label: string; items: CraftableItem[] }[] => [
     {
-      label: '加工机器',
+      label: 'Máy chế biến',
       items: PROCESSING_MACHINES.map(m => ({
         id: m.id as string,
         name: m.name,
@@ -1044,13 +1044,13 @@
         cost: m.craftMoney,
         onCraft: () => handleCraftMachine(m.id),
         canCraft: () => processingStore.canCraft(m.craftCost, m.craftMoney) && processingStore.machineCount < processingStore.maxMachines,
-        badge: `已有${getMachineCountByType(m.id)}`,
+        badge: `Đã có ${getMachineCountByType(m.id)}`,
         batchable: true,
         maxBatch: () => processingStore.maxMachines - processingStore.machineCount
       }))
     },
     {
-      label: '农场设施',
+      label: 'Công trình nông trại',
       items: [
         ...SPRINKLERS.map(s => ({
           id: s.id,
@@ -1090,7 +1090,7 @@
           cost: LIGHTNING_ROD.craftMoney,
           onCraft: () => handleCraftLightningRod(),
           canCraft: () => processingStore.canCraft(LIGHTNING_ROD.craftCost, LIGHTNING_ROD.craftMoney),
-          badge: `已有${farmStore.lightningRods}`,
+          badge: `Đã có ${farmStore.lightningRods}`,
           batchable: true
         },
         {
@@ -1101,21 +1101,21 @@
           cost: SCARECROW.craftMoney,
           onCraft: () => handleCraftScarecrow(),
           canCraft: () => processingStore.canCraft(SCARECROW.craftCost, SCARECROW.craftMoney),
-          badge: `已有${farmStore.scarecrows}`,
+          badge: `Đã có ${farmStore.scarecrows}`,
           batchable: true
         },
         ...((animalStore.buildings.find(b => b.type === 'coop')?.level ?? 0) >= 2
           ? [
               {
                 id: 'auto_petter_coop',
-                name: `${AUTO_PETTER.name}（鸡舍）`,
+                name: `${AUTO_PETTER.name} (chuồng gà)`,
                 description: AUTO_PETTER.description,
                 materials: AUTO_PETTER.craftCost,
                 cost: AUTO_PETTER.craftMoney,
                 onCraft: () => handleCraftAutoPetter('coop'),
                 canCraft: () =>
                   !animalStore.hasAutoPetter('coop') && processingStore.canCraft(AUTO_PETTER.craftCost, AUTO_PETTER.craftMoney),
-                badge: animalStore.hasAutoPetter('coop') ? '已安装' : undefined
+                badge: animalStore.hasAutoPetter('coop') ? 'Đã lắp đặt' : undefined
               }
             ]
           : []),
@@ -1123,21 +1123,21 @@
           ? [
               {
                 id: 'auto_petter_barn',
-                name: `${AUTO_PETTER.name}（牧场）`,
+                name: `${AUTO_PETTER.name} (đồng cỏ)`,
                 description: AUTO_PETTER.description,
                 materials: AUTO_PETTER.craftCost,
                 cost: AUTO_PETTER.craftMoney,
                 onCraft: () => handleCraftAutoPetter('barn'),
                 canCraft: () =>
                   !animalStore.hasAutoPetter('barn') && processingStore.canCraft(AUTO_PETTER.craftCost, AUTO_PETTER.craftMoney),
-                badge: animalStore.hasAutoPetter('barn') ? '已安装' : undefined
+                badge: animalStore.hasAutoPetter('barn') ? 'Đã lắp đặt' : undefined
               }
             ]
           : [])
       ]
     },
     {
-      label: '渔具',
+      label: 'Dụng cụ câu cá',
       items: [
         ...BAITS.map(b => ({
           id: b.id,
@@ -1172,7 +1172,7 @@
       ]
     },
     {
-      label: '其他',
+      label: 'Khác',
       items: [
         ...BOMBS.map(b => ({
           id: b.id,
@@ -1187,8 +1187,8 @@
         })),
         {
           id: 'jade_ring',
-          name: '翡翠戒指',
-          description: '用翡翠和金矿制成的戒指，可以用来求婚。',
+          name: 'Nhẫn Phỉ Thúy',
+          description: 'Nhẫn làm từ ngọc lục bảo và vàng, dùng để cầu hôn.',
           materials: JADE_RING_COST,
           cost: JADE_RING_MONEY,
           onCraft: () => handleCraftJadeRing(),
@@ -1198,13 +1198,13 @@
           ? [
               {
                 id: 'stamina_fruit',
-                name: '仙桃',
-                description: '蕴含远古灵气的果实，食用后永久提升体力上限。需要种植/觅食/钓鱼/采矿全部≥8级。',
+                name: 'Tiên Đào',
+                description: 'Trái cây chứa linh khí cổ xưa, ăn vào tăng vĩnh viễn giới hạn thể lực. Cần trồng trọt/hái lượm/câu cá/khai mỏ đều đạt ≥8 cấp.',
                 materials: STAMINA_FRUIT_COST,
                 cost: STAMINA_FRUIT_MONEY,
                 onCraft: () => handleCraftStaminaFruit(),
                 canCraft: () => canCraftStaminaFruit.value,
-                badge: playerStore.staminaCapLevel >= 4 ? '已满级' : `${playerStore.staminaCapLevel}/4`
+                badge: playerStore.staminaCapLevel >= 4 ? 'Đã đạt cấp tối đa' : `${playerStore.staminaCapLevel}/4`
               }
             ]
           : [])
@@ -1213,7 +1213,7 @@
     ...(warehouseStore.unlocked
       ? [
           {
-            label: '箱子',
+            label: 'Rương',
             items: CHEST_TIER_ORDER.map(tier => {
               const def = CHEST_DEFS[tier]
               return {
@@ -1268,13 +1268,13 @@
     return getItemById(recipe.outputItemId)?.name ?? recipe.name
   }
 
-  // === 制造处理 ===
+  // === chếxâynơiquản lý ===
 
   const handleCraftMachine = (machineType: MachineType) => {
     if (processingStore.craftMachine(machineType)) {
       sfxClick()
       const count = getMachineCountByType(machineType)
-      addLog(`建造了一台${getMachineName(machineType)}，加工站并行槽位增至${count}个。`)
+      addLog(`Đã xây ${getMachineName(machineType)}, số ô chế biến song song tăng lên ${count}.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1282,7 +1282,7 @@
         return
       }
     } else {
-      addLog('材料不足或已达上限。')
+      addLog('Thiếu nguyên liệu hoặc đã đạt giới hạn.')
     }
   }
 
@@ -1290,7 +1290,7 @@
     if (processingStore.craftSprinkler(sprinklerId)) {
       sfxClick()
       const name = SPRINKLERS.find(s => s.id === sprinklerId)?.name ?? sprinklerId
-      addLog(`制造了${name}，已放入背包。去农场放置吧。`)
+      addLog(`Đã chế tạo ${name}, bỏ vào túi. Hãy tới nông trại để đặt.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1298,7 +1298,7 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
@@ -1306,7 +1306,7 @@
     if (processingStore.craftFertilizer(fertilizerId)) {
       sfxClick()
       const name = FERTILIZERS.find(f => f.id === fertilizerId)?.name ?? fertilizerId
-      addLog(`制造了${name}，已放入背包。`)
+      addLog(`Đã chế tạo ${name}, vật phẩm đã được đưa vào túi.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1314,7 +1314,7 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
@@ -1322,7 +1322,7 @@
     if (processingStore.craftBait(baitId)) {
       sfxClick()
       const name = BAITS.find(b => b.id === baitId)?.name ?? baitId
-      addLog(`制造了${name}，已放入背包。`)
+      addLog(`Đã chế tạo ${name}, vật phẩm đã được đưa vào túi.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1330,7 +1330,7 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
@@ -1338,7 +1338,7 @@
     if (processingStore.craftTackle(tackleId)) {
       sfxClick()
       const name = TACKLES.find(t => t.id === tackleId)?.name ?? tackleId
-      addLog(`制造了${name}，已放入背包。`)
+      addLog(`Đã chế tạo ${name}, vật phẩm đã được đưa vào túi.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1346,14 +1346,14 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
   const handleCraftCrabPot = () => {
     if (processingStore.craftCrabPot()) {
       sfxClick()
-      addLog(`制造了${CRAB_POT_CRAFT.name}，已放入背包。`)
+      addLog(`Đã chế tạo ${CRAB_POT_CRAFT.name}, bỏ vào túi.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1361,14 +1361,14 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
   const handleCraftTapper = () => {
     if (processingStore.craftTapper()) {
       sfxClick()
-      addLog(`制造了采脂器，已放入背包。去农场安装到野树上吧。`)
+      addLog(`Đã chế tạo dụng cụ lấy nhựa, bỏ vào túi. Hãy tới nông trại lắp vào cây hoang.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1376,7 +1376,7 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
@@ -1384,7 +1384,7 @@
     if (processingStore.consumeCraftMaterials(LIGHTNING_ROD.craftCost, LIGHTNING_ROD.craftMoney)) {
       sfxClick()
       farmStore.lightningRods++
-      addLog(`制造了避雷针，已安装到农场。(共${farmStore.lightningRods}根)`)
+      addLog(`Đã chế tạo cột thu lôi và lắp tại nông trại. (Tổng ${farmStore.lightningRods} cột)`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1392,7 +1392,7 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
@@ -1400,7 +1400,7 @@
     if (processingStore.consumeCraftMaterials(SCARECROW.craftCost, SCARECROW.craftMoney)) {
       sfxClick()
       farmStore.scarecrows++
-      addLog(`制造了稻草人，已安装到农场。(共${farmStore.scarecrows}个)`)
+      addLog(`Đã chế tạo bù nhìn và lắp tại nông trại. (Tổng ${farmStore.scarecrows} chiếc)`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1408,13 +1408,13 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
   const handleCraftAutoPetter = (buildingType: AnimalBuildingType) => {
     if (animalStore.hasAutoPetter(buildingType)) {
-      addLog('该畜舍已安装自动抚摸机。')
+      addLog('Chuồng này đã lắp máy vuốt ve tự động.')
       return
     }
     if (processingStore.consumeCraftMaterials(AUTO_PETTER.craftCost, AUTO_PETTER.craftMoney)) {
@@ -1428,7 +1428,7 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
@@ -1436,7 +1436,7 @@
     if (processingStore.craftBomb(bombId)) {
       sfxClick()
       const name = BOMBS.find(b => b.id === bombId)?.name ?? bombId
-      addLog(`制造了${name}，已放入背包。`)
+      addLog(`Đã chế tạo ${name}, vật phẩm đã được đưa vào túi.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1444,7 +1444,7 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
@@ -1459,7 +1459,7 @@
     }
     inventoryStore.addItem('jade_ring')
     sfxClick()
-    addLog('制造了翡翠戒指！可以用来求婚。')
+    addLog('Đã chế tạo nhẫn ngọc lục bảo! Có thể dùng để cầu hôn.')
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) {
@@ -1473,7 +1473,7 @@
     if (processingStore.consumeCraftMaterials(STAMINA_FRUIT_COST, STAMINA_FRUIT_MONEY)) {
       sfxClick()
       inventoryStore.addItem('stamina_fruit')
-      addLog('制造了仙桃！在背包中使用可永久提升体力上限。')
+      addLog('Đã chế tạo Đào Tiên! Dùng trong túi để tăng vĩnh viễn giới hạn thể lực.')
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1481,20 +1481,20 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
   const handleCraftChest = (tier: ChestTier) => {
     const def = CHEST_DEFS[tier]
     if (warehouseStore.chests.length >= warehouseStore.maxChests) {
-      addLog('箱子槽位已满，请先扩建仓库。')
+      addLog('Ô rương đã đầy, hãy mở rộng kho trước.')
       return
     }
     if (processingStore.consumeCraftMaterials(def.craftCost, def.craftMoney)) {
       sfxClick()
       warehouseStore.addChest(tier)
-      addLog(`制造了${def.name}，已放入仓库。`)
+      addLog(`Đã chế tạo ${def.name}, bỏ vào kho.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.craftMachine)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) {
@@ -1502,31 +1502,31 @@
         return
       }
     } else {
-      addLog('材料不足。')
+      addLog('Không đủ nguyên liệu.')
     }
   }
 
-  // === 加工处理 ===
+  // === thêm工nơiquản lý ===
 
-  /** 单台视图：给指定机器投一份料 */
+  /** đơnbànxembộ sưu tập：chochỉđịnhmáydụng cụnémmộtphầnliệu */
   const handleStartProcessing = (slotIndex: number, recipeId: string, quality?: Quality) => {
     if (processingStore.startProcessing(slotIndex, recipeId, quality)) {
       sfxClick()
       const recipe = getProcessingRecipeById(recipeId)
       const qualityLabel = quality && quality !== 'normal' ? `(${QUALITY_NAMES[quality]})` : ''
-      addLog(`开始加工${recipe?.name ?? recipeId}${qualityLabel}，需要${recipe?.processingDays ?? '?'}天。`)
+      addLog(`Bắt đầu chế biến ${recipe?.name ?? recipeId}${qualityLabel}, cần ${recipe?.processingDays ?? '?'} ngày.`)
     } else {
-      addLog('原料不足或该设备正在使用。')
+      addLog('Thiếu nguyên liệu hoặc thiết bị đang được sử dụng.')
     }
   }
 
-  /** 单台视图：拆除指定的那一台 */
+  /** đơnbànxembộ sưu tập：tháoxóachỉđịnh的đómộtbàn */
   const handleRemoveMachine = (slotIndex: number) => {
     const slot = processingStore.machines[slotIndex]
     if (!slot) return
     const name = getMachineName(slot.machineType)
     if (processingStore.removeMachine(slotIndex)) {
-      addLog(`拆除了${name}，制作材料已退还。`)
+      addLog(`Đã tháo ${name}, nguyên liệu chế tạo đã hoàn lại.`)
     }
   }
 
@@ -1535,7 +1535,7 @@
     if (outputId) {
       sfxClick()
       const name = getItemById(outputId)?.name ?? outputId
-      addLog(`收取了${name}！`)
+      addLog(`Đã thu ${name}!`)
     }
   }
 
@@ -1544,7 +1544,7 @@
     if (!slot) return
     const name = getMachineName(slot.machineType)
     if (processingStore.cancelProcessing(slotIndex)) {
-      addLog(`${name}的一个槽位已停工，原料已退回。`)
+      addLog(`Một ô của ${name} đã dừng, nguyên liệu đã được hoàn lại.`)
     }
   }
 </script>

@@ -38,40 +38,40 @@ import type { MorningEffect } from '@/data/farmEvents'
 import router from '@/router'
 
 const NPC_NAME_MAP: Record<string, string> = {
-  chen_bo: '陈伯',
-  liu_niang: '柳娘',
-  a_shi: '阿石',
-  qiu_yue: '秋月',
-  lin_lao: '林老',
-  xiao_man: '小满',
-  chun_lan: '春兰',
-  xue_qin: '雪芹',
-  su_su: '素素',
-  hong_dou: '红豆',
-  dan_qing: '丹青',
-  a_tie: '阿铁',
-  yun_fei: '云飞',
-  da_niu: '大牛',
-  mo_bai: '墨白',
-  wang_dashen: '王大婶',
-  zhao_mujiang: '赵木匠',
-  sun_tiejiang: '孙铁匠',
-  zhang_popo: '张婆婆',
-  li_yu: '李渔翁',
-  zhou_xiucai: '周秀才',
-  wu_shen: '吴婶',
-  ma_liu: '马六',
-  lao_song: '老宋',
-  pang_shen: '胖婶',
-  a_hua: '阿花',
-  shi_tou: '石头',
-  hui_niang: '慧娘',
-  lao_lu: '老陆',
-  liu_cunzhang: '柳村长',
-  qian_niang: '钱娘',
-  he_zhanggui: '何掌柜',
-  qin_dashu: '秦大叔',
-  a_fu: '阿福'
+  chen_bo: 'Bác Trần',
+  liu_niang: 'Liễu Nương',
+  a_shi: 'A Thạch',
+  qiu_yue: 'Thu Nguyệt',
+  lin_lao: 'Lâm Lão',
+  xiao_man: 'Tiểu Mãn',
+  chun_lan: 'Xuân Lan',
+  xue_qin: 'Tuyết Cần',
+  su_su: 'Tố Tố',
+  hong_dou: 'Hồng Đậu',
+  dan_qing: 'Đan Thanh',
+  a_tie: 'A Thiết',
+  yun_fei: 'Vân Phi',
+  da_niu: 'Đại Ngưu',
+  mo_bai: 'Mặc Bạch',
+  wang_dashen: 'Thím Vương',
+  zhao_mujiang: 'Triệu thợ mộc',
+  sun_tiejiang: 'Thợ rèn Tôn',
+  zhang_popo: 'Bà cụ Trương',
+  li_yu: 'Lão ngư họ Lý',
+  zhou_xiucai: 'Chu tú tài',
+  wu_shen: 'Thím Ngô',
+  ma_liu: 'Mã Lục',
+  lao_song: 'Lão Tống',
+  pang_shen: 'Thím Mập',
+  a_hua: 'A Hoa',
+  shi_tou: 'Thạch Đầu',
+  hui_niang: 'Huệ Nương',
+  lao_lu: 'Lão Lục',
+  liu_cunzhang: 'Trưởng thôn Liễu',
+  qian_niang: 'Tiền Nương',
+  he_zhanggui: 'Chưởng quầy Hà',
+  qin_dashu: 'Chú Tần',
+  a_fu: 'A Phúc'
 }
 
 const getNpcName = (npcId: string): string => {
@@ -170,8 +170,8 @@ const checkRecipeUnlocks = () => {
     const level = npcStore.getFriendshipLevel(entry.npcId)
     if (meetsLevel(level, entry.level)) {
       if (cookingStore.unlockRecipe(entry.recipeId)) {
-        const levelName = entry.level === 'acquaintance' ? '相识' : entry.level === 'friendly' ? '相知' : '挚友'
-        addLog(`${getNpcName(entry.npcId)}（${levelName}）寄来了新食谱！`)
+        const levelName = entry.level === 'acquaintance' ? 'Làm quen' : entry.level === 'friendly' ? 'Tri kỷ' : 'Bạn thân'
+        addLog(`${getNpcName(entry.npcId)} (${levelName}) gửi đến một công thức mới!`)
       }
     }
   }
@@ -183,12 +183,12 @@ const checkRecipeUnlocks = () => {
     if (marriageRecipe) {
       if (cookingStore.unlockRecipe(marriageRecipe)) {
         const spouseName = getNpcName(spouse.npcId)
-        addLog(`${spouseName}教你了新的料理秘方！`)
+        addLog(`${spouseName} đã dạy bạn một bí quyết nấu ăn mới!`)
       }
     }
     // 通用结婚食谱：孔雀宴
     if (cookingStore.unlockRecipe('peacock_feast')) {
-      addLog(`婚后生活解锁了新食谱：孔雀宴！`)
+      addLog(`Cuộc sống sau hôn nhân đã mở khóa công thức mới: Tiệc công!`)
     }
   }
 
@@ -198,7 +198,7 @@ const checkRecipeUnlocks = () => {
       const skill = skillStore.getSkill(recipe.requiredSkill.type)
       if (skill.level >= recipe.requiredSkill.level) {
         if (cookingStore.unlockRecipe(recipe.id)) {
-          addLog(`技能提升解锁了新食谱：${recipe.name}！`)
+          addLog(`Tăng kỹ năng đã mở khóa công thức mới: ${recipe.name}!`)
         }
       }
     }
@@ -207,23 +207,23 @@ const checkRecipeUnlocks = () => {
   // 物品获取解锁食谱（瀚海）
   const inventoryStore = useInventoryStore()
   const ITEM_RECIPE_MAP: { itemId: string; recipeId: string; name: string }[] = [
-    { itemId: 'hanhai_spice', recipeId: 'spiced_lamb', name: '香料烤羊' },
+    { itemId: 'hanhai_spice', recipeId: 'spiced_lamb', name: 'Thịt cừu nướng hương liệu' },
     {
       itemId: 'hanhai_silk',
       recipeId: 'silk_dumpling_deluxe',
-      name: '丝路饺子'
+      name: 'Sủi cảo Con Đường Tơ Lụa'
     },
     {
       itemId: 'hanhai_cactus',
       recipeId: 'desert_cactus_soup',
-      name: '仙人掌汤'
+      name: 'Canh xương rồng'
     },
-    { itemId: 'hanhai_date', recipeId: 'date_cake', name: '枣糕' }
+    { itemId: 'hanhai_date', recipeId: 'date_cake', name: 'Bánh chà là' }
   ]
   for (const entry of ITEM_RECIPE_MAP) {
     if (inventoryStore.hasItem(entry.itemId)) {
       if (cookingStore.unlockRecipe(entry.recipeId)) {
-        addLog(`获得了新食谱：${entry.name}！`)
+        addLog(`Nhận được công thức mới: ${entry.name}!`)
       }
     }
   }
@@ -240,22 +240,22 @@ const checkAchievementRecipes = () => {
     {
       condition: s.totalFishCaught >= 1,
       recipeId: 'first_catch_soup',
-      message: '初次钓鱼'
+      message: 'Lần đầu câu cá'
     },
     {
       condition: s.totalCropsHarvested >= 100,
       recipeId: 'bountiful_porridge',
-      message: '收获百次作物'
+      message: 'Thu hoạch 100 cây trồng'
     },
     {
       condition: s.highestMineFloor >= 30,
       recipeId: 'miners_glory',
-      message: '矿洞探索'
+      message: 'Thám hiểm hầm mỏ'
     },
     {
       condition: s.totalRecipesCooked >= 20,
       recipeId: 'chef_special',
-      message: '烹饪达人'
+      message: 'Bậc thầy nấu ăn'
     },
     {
       condition:
@@ -263,34 +263,34 @@ const checkAchievementRecipes = () => {
           meetsLevel(npcStore.getFriendshipLevel(id), 'friendly')
         ).length >= 3,
       recipeId: 'social_tea',
-      message: '社交达人'
+      message: 'Bậc thầy giao tiếp'
     },
     {
       condition: s.totalFishCaught >= 20,
       recipeId: 'anglers_platter',
-      message: '钓鱼好手'
+      message: 'Tay câu cá giỏi'
     },
     {
       condition: LEGENDARY_FISH_IDS.some(id => achievementStore.isDiscovered(id)),
       recipeId: 'legendary_feast',
-      message: '传说猎人'
+      message: 'Thợ săn huyền thoại'
     },
     {
       condition: s.highestMineFloor >= 50,
       recipeId: 'abyss_stew',
-      message: '深渊探索'
+      message: 'Thám hiểm vực sâu'
     },
     {
       condition: achievementStore.discoveredCount >= 50,
       recipeId: 'collectors_banquet',
-      message: '收藏达人'
+      message: 'Bậc thầy sưu tầm'
     }
   ]
 
   for (const check of checks) {
     if (check.condition) {
       if (cookingStore.unlockRecipe(check.recipeId)) {
-        addLog(`【成就食谱】${check.message}解锁了新食谱！`)
+        addLog(`【Công thức thành tựu】${check.message} đã mở khóa công thức mới!`)
       }
     }
   }
@@ -310,11 +310,11 @@ const applyEventEffects = (event: { id: string; name: string; description: strin
   }
   if (effects.moneyReward) {
     playerStore.earnMoney(effects.moneyReward)
-    showFloat(`+${effects.moneyReward}文`, 'accent')
+    showFloat(`+${effects.moneyReward} văn`, 'accent')
   }
   if (effects.staminaBonus) {
     playerStore.restoreStamina(effects.staminaBonus)
-    showFloat(`+${effects.staminaBonus}体力`, 'success')
+    showFloat(`+${effects.staminaBonus} thể lực`, 'success')
   }
   if (effects.itemReward) {
     for (const item of effects.itemReward) {
@@ -328,7 +328,7 @@ const applyEventEffects = (event: { id: string; name: string; description: strin
   const festivalRecipe = FESTIVAL_RECIPE_MAP[event.id]
   if (festivalRecipe) {
     if (cookingStore.unlockRecipe(festivalRecipe)) {
-      addLog(`节日活动解锁了新食谱！`)
+      addLog(`Sự kiện lễ hội đã mở khóa công thức mới!`)
     }
   }
 }
@@ -348,14 +348,14 @@ const applyMorningEffect = (effect?: MorningEffect) => {
       const growing = farmStore.plots.filter(p => p.state === 'growing' || p.state === 'harvestable')
       if (growing.length > 0) {
         const target = growing[Math.floor(Math.random() * growing.length)]!
-        const cropName = getCropById(target.cropId ?? '')?.name ?? '作物'
+        const cropName = getCropById(target.cropId ?? '')?.name ?? 'Nông sản'
         target.state = 'tilled'
         target.cropId = null
         target.growthDays = 0
         target.watered = false
         target.harvestCount = 0
         target.seedGenetics = null
-        addLog(`一株${cropName}被糟蹋了。`)
+        addLog(`Một cây ${cropName} đã bị phá hoại.`)
       }
       break
     }
@@ -499,39 +499,39 @@ export const handleEndDay = () => {
         tree.growthDays += 1
       }
     }
-    addLog('绿雨滋润了大地，作物和树木生长加速！')
+    addLog('Mưa xanh tưới mát đất đai, cây trồng và cây cối sinh trưởng nhanh hơn!')
   }
 
   // 工具升级进度
   const upgradeResult = inventoryStore.dailyUpgradeUpdate()
   if (upgradeResult?.completed) {
-    addLog(`小满完成了${TOOL_NAMES[upgradeResult.toolType]}的升级！现在是${TIER_NAMES[upgradeResult.targetTier]}级。`)
+    addLog(`Tiểu Mãn đã hoàn tất nâng cấp ${TOOL_NAMES[upgradeResult.toolType]}! Hiện tại là cấp ${TIER_NAMES[upgradeResult.targetTier]}.`)
   }
 
   // 乌鸦袭击（在其他日常处理前）
   const crowResult = farmStore.crowAttack()
   if (crowResult.attacked) {
-    addLog(`乌鸦袭击了你的农场，一株${crowResult.cropName}被吃掉了！放个稻草人保护作物吧。`)
+    addLog(`Quạ đã tấn công nông trại, một cây ${crowResult.cropName} đã bị ăn mất! Hãy đặt bù nhìn để bảo vệ cây trồng.`)
   }
 
   // 虫害日志
   if (pestResult.newInfestations > 0) {
     addLog(
-      `虫害来袭！${pestResult.newInfestations}块地遭到了虫害侵袭。${farmStore.scarecrows > 0 ? '稻草人降低了虫害风险。' : '放置稻草人可以降低虫害概率。'}`
+      `Sâu bệnh tấn công! ${pestResult.newInfestations} ô đất bị nhiễm. ${farmStore.scarecrows > 0 ? 'Bù nhìn đã giảm nguy cơ sâu bệnh.' : 'Đặt bù nhìn để giảm nguy cơ sâu bệnh.'}`
     )
   }
   if (pestResult.pestDeaths > 0) {
-    addLog(`${pestResult.pestDeaths}株作物因虫害持续太久而枯死了！及时除虫可以拯救作物。`)
+    addLog(`${pestResult.pestDeaths} cây trồng đã héo chết vì sâu bệnh kéo dài! Bắt sâu kịp thời có thể cứu cây.`)
   }
 
   // 杂草日志
   if (pestResult.newWeeds > 0) {
     addLog(
-      `杂草蔓延！${pestResult.newWeeds}块地长出了杂草。${farmStore.scarecrows > 0 ? '稻草人抑制了杂草蔓延。' : '放置稻草人可以减少杂草。'}`
+      `Cỏ dại lan rộng! ${pestResult.newWeeds} ô đất mọc cỏ. ${farmStore.scarecrows > 0 ? 'Bù nhìn đã hạn chế cỏ dại.' : 'Đặt bù nhìn để giảm cỏ dại.'}`
     )
   }
   if (pestResult.weedDeaths > 0) {
-    addLog(`${pestResult.weedDeaths}株作物被杂草覆盖窒息而死！及时除草可以拯救作物。`)
+    addLog(`${pestResult.weedDeaths} cây trồng đã chết ngạt vì cỏ dại! Nhổ cỏ kịp thời có thể cứu cây.`)
   }
 
   // 晨间随机事件（偷菜旁白）
@@ -548,7 +548,7 @@ export const handleEndDay = () => {
   // 巨型作物检查
   const giantCrops = farmStore.checkGiantCrops()
   for (const gc of giantCrops) {
-    addLog(`巨型${gc.cropName}出现了！3×3的作物合体成了巨型作物！`)
+    addLog(`Cây khổng lồ ${gc.cropName} xuất hiện! Cây trồng 3×3 đã hợp thành một cây khổng lồ!`)
   }
 
   // 雇工喂食结算（必须在 animalStore.dailyUpdate 之前，确保喂食状态生效）
@@ -565,11 +565,11 @@ export const handleEndDay = () => {
       const result = animalStore.feedAll()
       if (result.fedCount > 0) {
         const spouseDefEve = getNpcById(spouse.npcId)
-        addLog(`${spouseDefEve?.name ?? '配偶'}帮你喂了所有牲畜。`)
+        addLog(`${spouseDefEve?.name ?? 'Bạn đời'} đã giúp bạn cho toàn bộ gia súc ăn.`)
         spouseFedSuccess = result.noFeedCount === 0
       } else if (result.noFeedCount > 0) {
         const spouseDefEve = getNpcById(spouse.npcId)
-        addLog(`${spouseDefEve?.name ?? '配偶'}想帮你喂牲畜，但草料不足。`)
+        addLog(`${spouseDefEve?.name ?? 'Bạn đời'} muốn giúp bạn cho gia súc ăn nhưng không đủ thức ăn.`)
       }
     }
   }
@@ -578,7 +578,7 @@ export const handleEndDay = () => {
   const zhiji = npcStore.getZhiji()
   if (zhiji) {
     const zhijiDef = getNpcById(zhiji.npcId)
-    const zhijiName = zhijiDef?.name ?? '知己'
+    const zhijiName = zhijiDef?.name ?? 'Tri Kỷ'
     const bonusChance2 = zhiji.friendship >= 2500 ? 0.15 : 0
 
     switch (zhiji.npcId) {
@@ -588,7 +588,7 @@ export const handleEndDay = () => {
           const ore = ores[Math.floor(Math.random() * ores.length)]!
           const qty = 1 + Math.floor(Math.random() * 3)
           inventoryStore.addItem(ore, qty)
-          addLog(`${zhijiName}送来了${qty}个${getItemById(ore)?.name ?? '矿石'}。`)
+          addLog(`${zhijiName} mang đến ${qty} ${getItemById(ore)?.name ?? 'quặng'}.`)
         }
         break
       case 'dan_qing':
@@ -596,7 +596,7 @@ export const handleEndDay = () => {
           for (const s of npcStore.npcStates) {
             if (s.npcId !== zhiji.npcId) s.friendship += 5
           }
-          addLog(`${zhijiName}在村里替你美言了几句。(全村+5好感)`)
+          addLog(`${zhijiName} đã nói vài lời tốt đẹp về bạn trong làng. (Toàn làng +5 hảo cảm)`)
         }
         break
       case 'a_tie':
@@ -604,7 +604,7 @@ export const handleEndDay = () => {
           const mats = ['iron_ore', 'copper_ore', 'charcoal']
           const mat = mats[Math.floor(Math.random() * mats.length)]!
           inventoryStore.addItem(mat, 2)
-          addLog(`${zhijiName}送来了一些打铁的材料。`)
+          addLog(`${zhijiName} mang đến một số nguyên liệu rèn.`)
         }
         break
       case 'yun_fei':
@@ -612,19 +612,19 @@ export const handleEndDay = () => {
           const items2 = ['wild_mushroom', 'herb', 'pine_cone']
           const item2 = items2[Math.floor(Math.random() * items2.length)]!
           inventoryStore.addItem(item2)
-          addLog(`${zhijiName}从山里带回了${getItemById(item2)?.name ?? '东西'}。`)
+          addLog(`${zhijiName} mang từ núi về ${getItemById(item2)?.name ?? 'một món đồ'}.`)
         }
         break
       case 'da_niu':
         if (Math.random() < 0.3 + bonusChance2) {
           const result2 = animalStore.feedAll()
-          if (result2.fedCount > 0) addLog(`${zhijiName}帮你喂了所有牲畜。`)
+          if (result2.fedCount > 0) addLog(`${zhijiName} đã giúp bạn cho toàn bộ gia súc ăn.`)
         }
         break
       case 'mo_bai':
         if (Math.random() < 0.25 + bonusChance2) {
           playerStore.restoreStamina(15)
-          addLog(`${zhijiName}弹了一曲舒缓的琴音，你感觉精神好了些。(+15体力)`)
+          addLog(`${zhijiName} đàn một khúc nhạc êm dịu, bạn cảm thấy tinh thần khá hơn. (+15 thể lực)`)
         }
         break
       case 'liu_niang':
@@ -632,7 +632,7 @@ export const handleEndDay = () => {
           for (const s of npcStore.npcStates) {
             if (s.npcId !== zhiji.npcId) s.friendship += 5
           }
-          addLog(`${zhijiName}在村里替你说了好话。(全村+5好感)`)
+          addLog(`${zhijiName} nói tốt về bạn trong làng. (Toàn làng +5 hảo cảm)`)
         }
         break
       case 'qiu_yue':
@@ -640,19 +640,19 @@ export const handleEndDay = () => {
           const fish = ['crucian', 'carp', 'grass_carp', 'bass']
           const f = fish[Math.floor(Math.random() * fish.length)]!
           inventoryStore.addItem(f)
-          addLog(`${zhijiName}送来了一条${getItemById(f)?.name ?? '鱼'}。`)
+          addLog(`${zhijiName} mang đến một ${getItemById(f)?.name ?? 'con cá'}.`)
         }
         break
       case 'chun_lan':
         if (Math.random() < 0.25 + bonusChance2) {
           inventoryStore.addItem('green_tea_drink')
-          addLog(`${zhijiName}送来了一壶好茶。`)
+          addLog(`${zhijiName} mang đến một ấm trà ngon.`)
         }
         break
       case 'xue_qin':
         if (Math.random() < 0.15 + bonusChance2) {
           inventoryStore.addItem('bamboo')
-          addLog(`${zhijiName}送来了一捆竹子。`)
+          addLog(`${zhijiName} mang đến một bó tre.`)
         }
         break
       case 'su_su':
@@ -660,7 +660,7 @@ export const handleEndDay = () => {
           const cloths = ['cloth', 'silk_cloth', 'felt']
           const c = cloths[Math.floor(Math.random() * cloths.length)]!
           inventoryStore.addItem(c)
-          addLog(`${zhijiName}送来了一匹${getItemById(c)?.name ?? '布料'}。`)
+          addLog(`${zhijiName} mang đến ${getItemById(c)?.name ?? 'một tấm vải'}.`)
         }
         break
       case 'hong_dou':
@@ -668,7 +668,7 @@ export const handleEndDay = () => {
           const wines = ['peach_wine', 'jujube_wine', 'corn_wine']
           const w = wines[Math.floor(Math.random() * wines.length)]!
           inventoryStore.addItem(w)
-          addLog(`${zhijiName}送来了一壶${getItemById(w)?.name ?? '酒'}。`)
+          addLog(`${zhijiName} mang đến một vò ${getItemById(w)?.name ?? 'rượu'}.`)
         }
         break
     }
@@ -693,7 +693,7 @@ export const handleEndDay = () => {
   hiddenNpcStore.dailyReset()
   const newAbilities = hiddenNpcStore.checkAbilityUnlocks()
   for (const a of newAbilities) {
-    addLog(`【仙缘】${a.name}：${a.description}`)
+    addLog(`【Tiên duyên】${a.name}: ${a.description}`)
     // 永久效果：最大体力+20
     if (a.id === 'shan_weng_3') {
       playerStore.addBonusMaxStamina(20)
@@ -714,13 +714,13 @@ export const handleEndDay = () => {
   const shippingIncome = shopStore.processShippingBox()
   if (shippingIncome > 0) {
     playerStore.earnMoney(shippingIncome)
-    addLog(`出货箱结算：收入${shippingIncome}文。`)
+    addLog(`Quyết toán thùng hàng: thu nhập ${shippingIncome} văn.`)
   }
 
   // 委托每日更新（当天结算：倒计时递减、过期处理）
   const expiredQuests = questStore.dailyUpdate()
   for (const eq of expiredQuests) {
-    addLog(`委托「${eq.description}」已过期。`)
+    addLog(`Ủy thác 「${eq.description}」 đã hết hạn.`)
   }
 
   // 主线任务进度检查
@@ -742,16 +742,16 @@ export const handleEndDay = () => {
     for (const p of animalResult.products) {
       inventoryStore.addItem(p.itemId, 1, p.quality)
     }
-    addLog(`动物们产出了${animalResult.products.length}件产品。`)
+    addLog(`Động vật đã tạo ra ${animalResult.products.length} sản phẩm.`)
   }
   if (animalResult.died.length > 0) {
-    addLog(`${animalResult.died.join('、')}因长期饥饿或病重不治而死亡了……`)
+    addLog(`${animalResult.died.join(', ')} đã chết vì đói lâu ngày hoặc bệnh nặng…`)
   }
   if (animalResult.gotSick.length > 0) {
-    addLog(`${animalResult.gotSick.join('、')}因饥饿而生病了！请尽快喂食。`)
+    addLog(`${animalResult.gotSick.join(', ')} bị bệnh vì đói! Hãy cho ăn sớm.`)
   }
   if (animalResult.healed.length > 0) {
-    addLog(`${animalResult.healed.join('、')}吃饱后恢复了健康。`)
+    addLog(`${animalResult.healed.join(', ')} đã khỏe lại sau khi được ăn no.`)
   }
 
   // 晨间标记：dailyUpdate 已重置 wasFed，若有喂食雇工或配偶喂食成功则标记新一天已喂食（不再消耗草料）
@@ -767,7 +767,7 @@ export const handleEndDay = () => {
   // 晨间工作：配偶浇水/做饭/收获
   if (spouse) {
     const spouseDef = getNpcById(spouse.npcId)
-    const spouseName = spouseDef?.name ?? '配偶'
+    const spouseName = spouseDef?.name ?? 'Bạn đời'
     const bonusChance = spouse.friendship >= 2500 ? 0.1 : 0
     const highBond = spouse.friendship >= 3000 ? 0.15 : 0
 
@@ -776,7 +776,7 @@ export const handleEndDay = () => {
       const unwatered = farmStore.plots.filter(p => (p.state === 'planted' || p.state === 'growing') && !p.watered)
       const count = Math.min(unwatered.length, 3 + Math.floor(Math.random() * 4))
       for (let i = 0; i < count; i++) farmStore.waterPlot(unwatered[i]!.id)
-      if (count > 0) addLog(`${spouseName}一早帮你浇了${count}块地。`)
+      if (count > 0) addLog(`${spouseName} sáng sớm đã giúp bạn tưới ${count} ô đất.`)
     }
 
     // 做饭：30% + bonus（好感>=2000）
@@ -784,7 +784,7 @@ export const handleEndDay = () => {
       const foods = ['food_rice_ball', 'food_congee', 'food_steamed_bun', 'food_honey_tea', 'food_stir_fry', 'food_dumpling']
       const food = foods[Math.floor(Math.random() * foods.length)]!
       inventoryStore.addItem(food)
-      addLog(`${spouseName}一早做了一份${getItemById(food)?.name ?? '食物'}。`)
+      addLog(`${spouseName} sáng sớm đã làm ${getItemById(food)?.name ?? 'một món ăn'}.`)
     }
 
     // 收获：30%（好感>=3000），最多3块，背包满时不收
@@ -800,28 +800,28 @@ export const handleEndDay = () => {
           harvested++
         }
       }
-      if (harvested > 0) addLog(`${spouseName}一早帮你收了${harvested}块地的庄稼。`)
+      if (harvested > 0) addLog(`${spouseName} sáng sớm đã giúp bạn thu hoạch ${harvested} ô ruộng.`)
     }
   }
 
   // 孵化器更新
   const incubatorResult = animalStore.dailyIncubatorUpdate()
   if (incubatorResult.hatched) {
-    addLog(`鸡舍孵化器中的蛋孵出了一只${incubatorResult.hatched.name}！`)
+    addLog(`Một quả trứng trong máy ấp chuồng gà đã nở thành ${incubatorResult.hatched.name}!`)
   }
 
   // 牲口棚孵化器更新
   const barnIncubatorResult = animalStore.dailyBarnIncubatorUpdate()
   if (barnIncubatorResult.hatched) {
-    addLog(`牲口棚孵化器中的蛋孵出了一只${barnIncubatorResult.hatched.name}！`)
+    addLog(`Một quả trứng trong máy ấp chuồng gia súc đã nở thành ${barnIncubatorResult.hatched.name}!`)
   }
 
   // 宠物每日更新
   const petResult = animalStore.dailyPetUpdate()
   if (petResult.item) {
-    const petName = animalStore.pet?.name ?? '宠物'
+    const petName = animalStore.pet?.name ?? 'Thú nuôi'
     const itemDef2 = getItemById(petResult.item)
-    addLog(`${petName}叼回来一个${itemDef2?.name ?? petResult.item}。`)
+    addLog(`${petName} tha về ${itemDef2?.name ?? petResult.item}.`)
   }
 
   // 鱼塘每日更新
@@ -832,16 +832,16 @@ export const handleEndDay = () => {
       inventoryStore.addItem(p.itemId, 1, p.quality)
     }
     if (pondResult.products.length > 0) {
-      addLog(`鱼塘产出了${pondResult.products.length}件水产品。`)
+      addLog(`Ao cá tạo ra ${pondResult.products.length} sản phẩm thủy sản.`)
     }
     if (pondResult.died.length > 0) {
-      addLog(`${pondResult.died.join('、')}因病重不治而死亡了……`)
+      addLog(`${pondResult.died.join(', ')} đã chết vì bệnh nặng…`)
     }
     if (pondResult.gotSick.length > 0) {
-      addLog(`${pondResult.gotSick.join('、')}生病了！请及时治疗。`)
+      addLog(`${pondResult.gotSick.join(', ')} bị bệnh! Hãy điều trị kịp thời.`)
     }
     if (pondResult.bred) {
-      addLog(`鱼塘繁殖成功，新的${pondResult.bred}出生了！`)
+      addLog(`Ao cá sinh sản thành công, ${pondResult.bred} mới đã ra đời!`)
     }
     if (pondResult.breedingFailed) {
       addLog(`${pondResult.breedingFailed}。`)
@@ -857,7 +857,7 @@ export const handleEndDay = () => {
   const crabPotHarvest = fishingStore.collectCrabPots()
   if (crabPotHarvest.length > 0) {
     const names = crabPotHarvest.map(c => c.name).join('、')
-    addLog(`蟹笼捕获了${names}。`)
+    addLog(`Bẫy cua bắt được ${names}.`)
   }
 
   // 洞穴产出
@@ -869,9 +869,9 @@ export const handleEndDay = () => {
     inventoryStore.addItem(p.itemId, p.quantity, p.quality)
     const itemDef = getItemById(p.itemId)
     const qualityLabel =
-      p.quality === 'normal' ? '' : p.quality === 'fine' ? '（优质）' : p.quality === 'excellent' ? '（精品）' : '（极品）'
-    const qtyText = p.quantity > 1 ? `${p.quantity}个` : ''
-    addLog(`山洞中发现了${qtyText}${itemDef?.name ?? p.itemId}${qualityLabel}。`)
+      p.quality === 'normal' ? '' : p.quality === 'fine' ? '(Chất lượng tốt)' : p.quality === 'excellent' ? '(Tinh phẩm)' : '(Cực phẩm)'
+    const qtyText = p.quantity > 1 ? `${p.quantity} cái` : ''
+    addLog(`Trong hang phát hiện ${qtyText}${itemDef?.name ?? p.itemId}${qualityLabel}.`)
   }
 
   // 果树更新
@@ -880,7 +880,7 @@ export const handleEndDay = () => {
     inventoryStore.addItem(f.fruitId, 1, f.quality)
   }
   if (fruitResult.fruits.length > 0) {
-    addLog(`果树产出了${fruitResult.fruits.length}个水果。`)
+    addLog(`Cây ăn quả cho ${fruitResult.fruits.length} trái.`)
   }
 
   // 野生树木更新
@@ -889,7 +889,7 @@ export const handleEndDay = () => {
     inventoryStore.addItem(p.productId)
   }
   if (wildTreeResult.products.length > 0) {
-    addLog(`采脂器收获了${wildTreeResult.products.map(p => p.productName).join('、')}。`)
+    addLog(`Dụng cụ lấy nhựa thu được ${wildTreeResult.products.map(p => p.productName).join(', ')}.`)
   }
 
   // 温室更新
@@ -902,9 +902,9 @@ export const handleEndDay = () => {
     const cellarResult = homeStore.dailyCellarUpdate()
     for (const r of cellarResult.upgraded) {
       const name = getItemById(r.itemId)?.name ?? r.itemId
-      addLog(`酒窖中的${name}价值提升了+${homeStore.cellarValuePerCycle}文（共+${r.addedValue}文）`)
+      addLog(`${name} trong hầm rượu tăng giá +${homeStore.cellarValuePerCycle} văn (tổng +${r.addedValue} văn)`)
       if (r.upgradeCount >= 16 && r.upgradeCount % 16 === 0) {
-        addLog(`${name}已成为陈酿${r.upgradeCount / 16}年！`)
+        addLog(`${name} đã trở thành rượu ủ ${r.upgradeCount / 16} năm!`)
       }
     }
   }
@@ -913,14 +913,14 @@ export const handleEndDay = () => {
   const walletStore = useWalletStore()
   const newWalletItems = walletStore.checkAndUnlock()
   for (const name of newWalletItems) {
-    addLog(`解锁了钱袋物品：${name}！`)
+    addLog(`Đã mở khóa vật phẩm túi tiền: ${name}!`)
   }
 
   // 婚礼倒计时
   const weddingResult = npcStore.dailyWeddingUpdate()
   if (weddingResult.weddingToday && weddingResult.npcId) {
     const weddingNpcDef = getNpcById(weddingResult.npcId)
-    addLog(`今天是你和${weddingNpcDef?.name ?? '心上人'}的大喜之日！`)
+    addLog(`Hôm nay là ngày đại hỷ của bạn và ${weddingNpcDef?.name ?? 'người thương'}!`)
     triggerWeddingEvent(weddingResult.npcId)
   }
 
@@ -928,20 +928,20 @@ export const handleEndDay = () => {
   const pregResult = npcStore.dailyPregnancyUpdate()
   if (pregResult.born) {
     const qMsg =
-      pregResult.born.quality === 'healthy' ? '健健康康的！' : pregResult.born.quality === 'premature' ? '虽然早产了一些，但平安无事。' : ''
-    addLog(`${pregResult.born.name}出生了！恭喜！${qMsg}`)
+      pregResult.born.quality === 'healthy' ? 'Khỏe mạnh!' : pregResult.born.quality === 'premature' ? 'Dù sinh non một chút nhưng vẫn bình an.' : ''
+    addLog(`${pregResult.born.name} đã chào đời! Chúc mừng! ${qMsg}`)
   }
   if (pregResult.stageChanged) {
     const stageLabels: Record<string, string> = {
-      early: '初期',
-      mid: '中期',
-      late: '后期',
-      ready: '待产期'
+      early: 'Giai đoạn đầu',
+      mid: 'Giai đoạn giữa',
+      late: 'Giai đoạn cuối',
+      ready: 'Thời kỳ chờ sinh'
     }
-    addLog(`孕期进入${stageLabels[pregResult.stageChanged.to]}。记得多多照顾配偶。`)
+    addLog(`Thai kỳ bước vào ${stageLabels[pregResult.stageChanged.to]}. Nhớ chăm sóc bạn đời nhiều hơn.`)
   }
   if (pregResult.miscarriage) {
-    addLog('很遗憾……这次没能迎来新生命。双方都需要一段时间来恢复。')
+    addLog('Thật đáng tiếc… lần này chưa thể đón thêm thành viên mới. Cả hai cần thời gian để hồi phục.')
   }
 
   // 子女成长（已出生的子女）
@@ -951,7 +951,7 @@ export const handleEndDay = () => {
   if (npcStore.checkChildProposal()) {
     npcStore.triggerChildProposal()
     const spouseDef2 = getNpcById(npcStore.getSpouse()?.npcId ?? '')
-    addLog(`${spouseDef2?.name ?? '配偶'}似乎有话想和你说……`)
+    addLog(`${spouseDef2?.name ?? 'Bạn đời'} dường như có điều muốn nói với bạn…`)
   }
 
   // 为新的一天生成委托（在 nextDay 之后，使用新季节和新日期）
@@ -990,15 +990,15 @@ export const handleEndDay = () => {
   if (recoveryMode === 'passout') {
     summary =
       moneyLost > 0
-        ? `你体力耗尽倒下了……有人把你送回家。丢失了${moneyLost}文。次日仅恢复50%体力。`
-        : `你体力耗尽倒下了……次日仅恢复50%体力。`
-    // 记录昏倒说明，由 GameLayout 弹窗告知玩家，避免"一觉醒来莫名其妙少了钱"
+        ? `Bạn kiệt sức và ngã xuống… Có người đưa bạn về nhà. Mất ${moneyLost} văn. Ngày hôm sau chỉ hồi 50% thể lực.`
+        : `Bạn kiệt sức và ngã xuống… Ngày hôm sau chỉ hồi 50% thể lực.`
+    // 记录昏倒说明，由 GameLayout 弹窗告知玩家，避免"Tỉnh dậy sau một giấc ngủ, tiền tự nhiên bị thiếu mất"
     lastPassOutNotice.value = summary
   } else if (recoveryMode === 'late') {
     const pct = Math.round(recoveryPct * 100)
-    summary = `你熬夜到很晚才睡……次日仅恢复${pct}%体力。`
+    summary = `Bạn thức rất khuya mới ngủ… Ngày hôm sau chỉ hồi ${pct}% thể lực.`
   } else {
-    summary = '美好的一天结束了。'
+    summary = 'Một ngày tuyệt vời đã kết thúc.'
   }
 
   addLog(summary)
@@ -1006,15 +1006,15 @@ export const handleEndDay = () => {
   // 换季处理
   if (seasonChanged) {
     const { witheredCount, reclaimedCount } = farmStore.onSeasonChange(gameStore.season)
-    addLog(`—— 季节更替：${SEASON_NAMES[oldSeason]}→${SEASON_NAMES[gameStore.season]} ——`)
+    addLog(`—— Đổi mùa: ${SEASON_NAMES[oldSeason]}→${SEASON_NAMES[gameStore.season]} ——`)
     if (witheredCount > 0) {
-      addLog(`${witheredCount}株不适应新季节的作物枯萎了……`)
+      addLog(`${witheredCount} cây không hợp mùa mới đã héo…`)
     }
     if (reclaimedCount > 0) {
-      addLog(`${reclaimedCount}块荒废的耕地被杂草覆盖了。`)
+      addLog(`${reclaimedCount} ô đất bỏ hoang đã bị cỏ dại phủ kín.`)
     }
     if (oldSeason === 'winter' && gameStore.season === 'spring') {
-      addLog('新的一年开始了！农场经过一冬有些荒废，需要重新开垦。')
+      addLog('Năm mới bắt đầu! Nông trại sau mùa đông đã hoang hóa phần nào, cần khai hoang lại.')
     }
     farmStore.fruitTreeSeasonUpdate(oldSeason === 'winter')
 
@@ -1022,7 +1022,7 @@ export const handleEndDay = () => {
     if (gameStore.farmMapType === 'standard' && useSettingsStore().autoFertilizeOnSeasonChange) {
       const { count: fertCount, fertilizerName } = farmStore.applyFertileSoil(skillStore.getSkill('farming').level)
       if (fertCount > 0) {
-        addLog(`桃源沃土滋养大地，${fertCount}块耕地获得了${fertilizerName}。`)
+        addLog(`Đất màu mỡ Đào Nguyên nuôi dưỡng ruộng đất, ${fertCount} ô ruộng nhận ${fertilizerName}.`)
       }
     }
 
@@ -1035,18 +1035,18 @@ export const handleEndDay = () => {
     const strike = farmStore.lightningStrike()
     if (strike.absorbed) {
       inventoryStore.addItem('battery')
-      addLog('避雷针吸收了一道闪电！获得了电池组。')
+      addLog('Cột thu lôi hấp thụ một tia sét! Nhận được bộ pin.')
     } else if (strike.hit) {
-      addLog(`雷暴中一道闪电击中了你的农场，一株${strike.cropName}被毁了！建造避雷针可以防护。`)
+      addLog(`Một tia sét trong cơn giông đánh trúng nông trại, một cây ${strike.cropName} bị phá hủy! Xây cột thu lôi để phòng vệ.`)
     }
   }
 
   if (gameStore.isRainy) {
-    addLog('今天下雨，作物自动浇水。')
+    addLog('Hôm nay mưa, cây trồng được tự động tưới.')
   }
 
   // 天气预报
-  addLog(`明日天气预报：${WEATHER_NAMES[gameStore.tomorrowWeather]}`)
+  addLog(`Dự báo thời tiết ngày mai: ${WEATHER_NAMES[gameStore.tomorrowWeather]}`)
 
   // 换季倒计时提醒（第25-27天早晨）
   if (!seasonChanged && gameStore.day >= 25 && gameStore.day <= 27) {
@@ -1061,10 +1061,10 @@ export const handleEndDay = () => {
       }
     }
     if (cropAtRisk > 0) {
-      addLog(`距离换季还有${daysLeft}天，${cropAtRisk}株作物不适应${SEASON_NAMES[nextSeason]}季，届时将会枯萎。`)
-      showFloat(`换季倒计时${daysLeft}天！${cropAtRisk}株作物将枯萎`, 'danger')
+      addLog(`Còn ${daysLeft} ngày nữa đổi mùa, ${cropAtRisk} cây không hợp ${SEASON_NAMES[nextSeason]} sẽ héo.`)
+      showFloat(`Còn ${daysLeft} ngày đổi mùa! ${cropAtRisk} cây sẽ héo`, 'danger')
     } else {
-      addLog(`距离换季还有${daysLeft}天。`)
+      addLog(`Còn ${daysLeft} ngày nữa đổi mùa.`)
     }
   }
 
@@ -1073,10 +1073,10 @@ export const handleEndDay = () => {
   const booms = marketInfo.filter(m => m.trend === 'boom')
   const crashes = marketInfo.filter(m => m.trend === 'crash')
   if (booms.length > 0) {
-    addLog(`今日行情：${booms.map(b => MARKET_CATEGORY_NAMES[b.category]).join('、')}价格大涨！`)
+    addLog(`Thị trường hôm nay: giá ${booms.map(b => MARKET_CATEGORY_NAMES[b.category]).join(', ')} tăng mạnh!`)
   }
   if (crashes.length > 0) {
-    addLog(`今日行情：${crashes.map(c => MARKET_CATEGORY_NAMES[c.category]).join('、')}价格暴跌。`)
+    addLog(`Thị trường hôm nay: giá ${crashes.map(c => MARKET_CATEGORY_NAMES[c.category]).join(', ')} giảm mạnh.`)
   }
 
   // 新手引导：晨间提示（仅第1年）
@@ -1137,7 +1137,7 @@ export const handleEndDay = () => {
       startFestivalBgm(gameStore.season)
     }
     // 替换 narrative 中的动态占位符
-    const ORDINALS = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
+    const ORDINALS = ['Một', 'Hai', 'Ba', 'Bốn', 'Năm', 'Sáu', 'Bảy', 'Tám', 'Chín', 'Mười']
     const yearStr = gameStore.year <= 10 ? ORDINALS[gameStore.year - 1]! : String(gameStore.year)
     const resolved = {
       ...event,
@@ -1149,8 +1149,8 @@ export const handleEndDay = () => {
   // 成就检查
   const newAchievements = achievementStore.checkAchievements()
   for (const a of newAchievements) {
-    addLog(`【成就达成】${a.name}！${a.reward.money ? `获得${a.reward.money}文` : ''}`)
-    showFloat(`成就: ${a.name}`, 'accent')
+    addLog(`【Thành tựu đạt được】${a.name}!${a.reward.money ? `Nhận ${a.reward.money} văn` : ''}`)
+    showFloat(`Thành tựu: ${a.name}`, 'accent')
   }
 
   // 成就食谱解锁
@@ -1159,7 +1159,7 @@ export const handleEndDay = () => {
   // 洞穴解锁检查
   if (!homeStore.caveUnlocked && achievementStore.stats.totalMoneyEarned >= CAVE_UNLOCK_EARNINGS) {
     homeStore.unlockCave()
-    addLog('你的累计收入引起了注意……村后的山洞已为你开放！去设施面板选择山洞用途吧。')
+    addLog('Tổng thu nhập của bạn đã gây chú ý… Hang động phía sau làng đã mở! Hãy vào bảng công trình để chọn công dụng.')
   }
 
   // ===== 田庄特殊效果 =====
@@ -1171,7 +1171,7 @@ export const handleEndDay = () => {
     const qty = 2 + Math.floor(Math.random() * 2) // 2-3
     inventoryStore.addItem(randomOre, qty)
     const oreDef = getItemById(randomOre)
-    addLog(`荒野中发现了${qty}个${oreDef?.name ?? randomOre}。`)
+    addLog(`Ngoài hoang dã phát hiện ${qty} ${oreDef?.name ?? randomOre}.`)
 
     // 夜间野兽遭遇（25%概率）
     if (Math.random() < 0.25) {
@@ -1184,18 +1184,18 @@ export const handleEndDay = () => {
         inventoryStore.addItem(loot, lootQty)
         skillStore.addExp('combat', 15)
         const lootName = getItemById(loot)?.name ?? loot
-        addLog(`夜间有野兽入侵！你奋力击退了它，缴获了${lootQty}个${lootName}。`)
+        addLog(`Ban đêm thú dữ xâm nhập! Bạn chiến đấu đẩy lùi chúng và thu được ${lootQty} ${lootName}.`)
       } else {
         const damage = 5 + Math.floor(Math.random() * 11) // 5-15
         playerStore.takeDamage(damage)
         const crops = farmStore.plots.filter(p => p.state === 'growing' || p.state === 'harvestable')
         if (crops.length > 0) {
           const target = crops[Math.floor(Math.random() * crops.length)]!
-          const cropName = getCropById(target.cropId ?? '')?.name ?? '作物'
+          const cropName = getCropById(target.cropId ?? '')?.name ?? 'Nông sản'
           farmStore.removeCrop(target.id)
-          addLog(`夜间有野兽入侵！你没能挡住它，受了${damage}点伤，一株${cropName}被破坏了。`)
+          addLog(`Ban đêm thú dữ xâm nhập! Bạn không chặn được, chịu ${damage} sát thương và một cây ${cropName} bị phá hủy.`)
         } else {
-          addLog(`夜间有野兽入侵！你没能挡住它，受了${damage}点伤。`)
+          addLog(`Ban đêm thú dữ xâm nhập! Bạn không chặn được và chịu ${damage} sát thương.`)
         }
       }
     }
@@ -1215,7 +1215,7 @@ export const handleEndDay = () => {
         skillStore.addExp('foraging', item.expReward)
         gathered.push(getItemById(item.itemId)?.name ?? item.itemId)
       }
-      addLog(`竹林间发现了${gathered.join('和')}。`)
+      addLog(`Trong rừng trúc phát hiện ${gathered.join(' và ')}.`)
     }
   }
 
@@ -1227,8 +1227,8 @@ export const handleEndDay = () => {
       const oreId = orePool[Math.floor(Math.random() * orePool.length)]!
       const qty = 3 + Math.floor(Math.random() * 3) // 3-5
       gameStore.surfaceOrePatch = { oreId, quantity: qty }
-      const oreName = getItemById(oreId)?.name ?? '矿石'
-      addLog(`山丘上发现了一处${oreName}脉！`)
+      const oreName = getItemById(oreId)?.name ?? 'Quặng'
+      addLog(`Phát hiện một mạch ${oreName} trên đồi!`)
     }
   }
 
@@ -1250,7 +1250,7 @@ export const handleEndDay = () => {
       const MAX_CREEK_CATCH = 10
       const merged = [...gameStore.creekCatch, ...catches].slice(0, MAX_CREEK_CATCH)
       gameStore.creekCatch = merged
-      addLog(`溪流中有鱼儿在跳跃，去农场面板收取鱼获吧。`)
+      addLog(`Cá đang nhảy trong suối, hãy vào bảng nông trại để thu cá.`)
     }
   }
 

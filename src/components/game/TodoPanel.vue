@@ -9,22 +9,22 @@
         <div class="flex items-center justify-between mb-2 pr-6">
           <p class="text-sm text-accent">
             <ListChecks :size="14" class="inline" />
-            今日待办
+            hôm nayngàychờlàm
           </p>
           <span class="text-[10px] text-muted">
             <template v-if="urgentCount > 0">
-              <span class="text-danger">{{ urgentCount }} 项要紧</span>
+              <span class="text-danger">{{ urgentCount }} mụcmuốn gấp</span>
               ·
             </template>
-            共 {{ todos.length }} 条
+            tổng {{ todos.length }} mục
           </span>
         </div>
 
         <div class="flex-1 overflow-y-auto min-h-0">
           <div v-if="todos.length === 0" class="flex flex-col items-center justify-center py-10 text-muted">
             <ListChecks :size="32" class="mb-2 text-success/40" />
-            <p class="text-xs">今天的事都办妥了</p>
-            <p class="text-[10px] text-muted/50 mt-0.5">可以安心去睡了</p>
+            <p class="text-xs">Việc hôm nay đã xong hết</p>
+            <p class="text-[10px] text-muted/50 mt-0.5">Có thể yên tâm đi ngủ</p>
           </div>
 
           <div v-for="group in groupedTodos" :key="group.category" class="mb-2 last:mb-0">
@@ -49,7 +49,7 @@
           </div>
         </div>
 
-        <p class="text-[10px] text-muted/40 mt-2">点任意一条可直接前往对应的地方。</p>
+        <p class="text-[10px] text-muted/40 mt-2">Nhấn vào bất kỳ mục nào để đi thẳng đến địa điểm tương ứng.</p>
       </div>
     </div>
   </Transition>

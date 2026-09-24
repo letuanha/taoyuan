@@ -8,11 +8,11 @@
         >
           <X :size="14" />
         </button>
-        <p class="text-accent text-sm text-center mb-3 tracking-widest">桃源乡地图</p>
+        <p class="text-accent text-sm text-center mb-3 tracking-widest">Bản đồ Đào Nguyên Hương</p>
 
         <!-- 田庄 -->
         <div class="map-area">
-          <p class="map-area-title">田庄</p>
+          <p class="map-area-title">Nông trại</p>
           <div class="map-area-grid">
             <button v-for="t in farmGroup" :key="t.key" class="map-loc" :class="{ 'map-loc-active': current === t.key }" @click="go(t.key)">
               <component :is="t.getIcon ? t.getIcon() : t.icon" :size="18" />
@@ -26,7 +26,7 @@
         <!-- 野外 -->
         <div class="flex space-x-2">
           <div class="map-area flex-1">
-            <p class="map-area-title">村落</p>
+            <p class="map-area-title">Làng</p>
             <div class="map-area-grid">
               <button
                 v-for="t in villageGroup"
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="map-area flex-1">
-            <p class="map-area-title">野外</p>
+            <p class="map-area-title">Ngoài đồng</p>
             <div class="map-area-grid">
               <button
                 v-for="t in wildGroup"
@@ -61,7 +61,7 @@
 
         <!-- 工坊 -->
         <div class="map-area">
-          <p class="map-area-title">工坊</p>
+          <p class="map-area-title">Xưởng</p>
           <div class="map-area-grid">
             <button
               v-for="t in craftGroup"
@@ -80,7 +80,7 @@
 
         <!-- 随身 -->
         <div class="map-area">
-          <p class="map-area-title">随身</p>
+          <p class="map-area-title">Mang theo</p>
           <div class="map-area-grid">
             <button
               v-for="t in personalGroup"
@@ -129,7 +129,7 @@
 </script>
 
 <style scoped>
-  /* 地图菜单 */
+  /* đấtbộ sưu tậprauđơn */
   .map-area {
     border: 1px dashed rgba(200, 164, 92, 0.3);
     border-radius: 2px;

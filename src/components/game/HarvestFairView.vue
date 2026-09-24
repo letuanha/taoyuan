@@ -2,54 +2,54 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <Wheat :size="14" />
-      <span>农展会</span>
+      <span>Hội triển lãm nông sản</span>
     </h3>
 
     <!-- 选择展品阶段 -->
     <div v-if="!submitted">
       <p class="text-xs text-muted mb-3">
-        从背包中选择最多
+        từlưnggóitrongchọnchọnnhấtnhiều
         <span class="text-accent">5</span>
-        件展品参展。品质越高、价值越高的物品得分越多！
+        Chọn tối đa các vật phẩm từ túi để tham gia triển lãm. Vật phẩm càng chất lượng và giá trị cao thì điểm càng nhiều!
       </p>
 
       <!-- 已选展品 -->
       <div class="mb-3">
-        <p class="text-xs text-muted mb-1">已选展品（{{ selectedItems.length }} / 5）：</p>
+        <p class="text-xs text-muted mb-1">Vật phẩm đã chọn ({{ selectedItems.length }} / 5):</p>
         <div v-if="selectedItems.length === 0" class="flex flex-col items-center py-4 text-muted">
           <Package :size="28" class="mb-1.5 opacity-40" />
-          <p class="text-xs">尚未选择任何物品</p>
-          <p class="text-xs opacity-60">从下方列表中选取展品</p>
+          <p class="text-xs">Chưa chọn vật phẩm nào</p>
+          <p class="text-xs opacity-60">Chọn vật phẩm triển lãm từ danh sách bên dưới</p>
         </div>
         <div v-else class="flex flex-col space-y-1.5">
           <button
             v-for="(sel, i) in selectedItems"
             :key="i"
             class="border border-accent/20 rounded-xs px-2 py-1.5 text-xs flex items-center justify-between hover:border-danger/50 transition-colors"
-            :title="'点击移除'"
+            :title="'nhấn Xóa'"
             @click="removeSelection(i)"
           >
             <span class="truncate" :class="qualityClass(sel.quality)">{{ getItemById(sel.itemId)?.name }}</span>
             <span class="flex items-center space-x-2 shrink-0 ml-2">
-              <span class="text-muted">{{ getItemById(sel.itemId)?.sellPrice }}文</span>
-              <span class="text-danger">移除</span>
+              <span class="text-muted">{{ getItemById(sel.itemId)?.sellPrice }}văn</span>
+              <span class="text-danger">Xóa</span>
             </span>
           </button>
         </div>
       </div>
 
       <p class="text-xs text-muted mb-1">
-        预计总分：
+        dự kiếntínhtổngđiểm：
         <span class="text-accent">{{ previewScore }}</span>
       </p>
 
       <!-- 背包物品选择 -->
       <div class="mb-3">
-        <p class="text-xs text-muted mb-1">可选物品：</p>
+        <p class="text-xs text-muted mb-1">Vật phẩm có thể chọn:</p>
         <div v-if="selectableItems.length === 0" class="flex flex-col items-center py-4 text-muted">
           <Package :size="28" class="mb-1.5 opacity-40" />
-          <p class="text-xs">背包中没有可参展的物品</p>
-          <p class="text-xs opacity-60">农产品、鱼获、宝石等均可参展</p>
+          <p class="text-xs">Trong túi không có vật phẩm để triển lãm</p>
+          <p class="text-xs opacity-60">Có thể triển lãm nông sản, cá, đá quý và nhiều vật phẩm khác</p>
         </div>
         <div v-else class="flex flex-col space-y-1.5 max-h-48 overflow-y-auto pr-1">
           <button
@@ -62,24 +62,24 @@
             <span class="truncate" :class="qualityClass(item.quality)">{{ getItemById(item.itemId)?.name }}</span>
             <span class="flex items-center space-x-2 shrink-0 ml-2">
               <span class="text-muted">×{{ item.quantity }}</span>
-              <span class="text-muted">{{ getItemById(item.itemId)?.sellPrice }}文</span>
+              <span class="text-muted">{{ getItemById(item.itemId)?.sellPrice }}văn</span>
             </span>
           </button>
         </div>
       </div>
 
       <div class="flex space-x-2">
-        <Button class="flex-1" :disabled="selectedItems.length === 0" @click="handleSubmit">参展！</Button>
-        <Button class="flex-1 opacity-60 hover:opacity-100" @click="handleQuit">放弃参赛</Button>
+        <Button class="flex-1" :disabled="selectedItems.length === 0" @click="handleSubmit">Tham gia triển lãm!</Button>
+        <Button class="flex-1 opacity-60 hover:opacity-100" @click="handleQuit">Bỏ cuộc</Button>
       </div>
     </div>
 
     <!-- 结果阶段 -->
     <div v-else>
-      <p class="text-xs text-muted mb-2">评审结束！</p>
+      <p class="text-xs text-muted mb-2">Chấm điểm kết thúc!</p>
 
       <div class="border border-accent/20 p-2 mb-3">
-        <p class="text-xs text-muted mb-1">最终排名：</p>
+        <p class="text-xs text-muted mb-1">Xếp hạng cuối cùng:</p>
         <div
           v-for="(entry, i) in rankings"
           :key="entry.name"
@@ -90,42 +90,42 @@
               class="mr-2"
               :class="{
                 'text-accent': i === 0,
-                'text-success': entry.name === '你'
+                'text-success': entry.name === 'Bạn'
               }"
             >
-              第{{ i + 1 }}名
+              thứ{{ i + 1 }}tên
             </span>
-            <span :class="{ 'text-success': entry.name === '你' }">{{ entry.name }}</span>
+            <span :class="{ 'text-success': entry.name === 'Bạn' }">{{ entry.name }}</span>
           </div>
-          <span class="text-muted">{{ entry.score }} 分</span>
+          <span class="text-muted">{{ entry.score }} điểm</span>
         </div>
       </div>
 
       <!-- 展品明细 -->
       <div class="border border-accent/20 p-2 mb-3">
-        <p class="text-xs text-muted mb-1">你的展品明细：</p>
+        <p class="text-xs text-muted mb-1">Chi tiết vật phẩm triển lãm của bạn:</p>
         <div
           v-for="(d, i) in scoreDetails"
           :key="i"
           class="flex items-center justify-between text-xs py-0.5 border-b border-accent/10 last:border-0"
         >
           <span :class="qualityClass(d.quality) || 'text-accent'">{{ d.name }}</span>
-          <span class="text-muted">{{ d.basePrice }}文 × {{ d.multiplier }} = {{ d.score }}分</span>
+          <span class="text-muted">{{ d.basePrice }}văn × {{ d.multiplier }} = {{ d.score }}điểm</span>
         </div>
         <div class="flex items-center justify-between text-xs mt-1.5 pt-1 border-t border-accent/20">
-          <span class="text-muted">总分</span>
-          <span class="text-accent">{{ playerScore }} 分</span>
+          <span class="text-muted">Tổng điểm</span>
+          <span class="text-accent">{{ playerScore }} điểm</span>
         </div>
       </div>
 
       <div class="mb-3 text-xs text-center border border-accent/20 p-2">
-        <span v-if="playerRank === 1" class="text-accent">恭喜你荣获金奖！奖金 1000文</span>
-        <span v-else-if="playerRank === 2" class="text-success">你获得了银奖！奖金 500文</span>
-        <span v-else-if="playerRank === 3" class="text-success">你获得了铜奖！奖金 200文</span>
-        <span v-else class="text-muted">很遗憾，没有获得名次。明年再来吧！</span>
+        <span v-if="playerRank === 1" class="text-accent">Chúc mừng bạn giành giải Vàng! Thưởng 1000 văn</span>
+        <span v-else-if="playerRank === 2" class="text-success">Bạn giành giải Bạc! Thưởng 500 văn</span>
+        <span v-else-if="playerRank === 3" class="text-success">Bạn giành giải Đồng! Thưởng 200 văn</span>
+        <span v-else class="text-muted">Rất tiếc, bạn không đạt thứ hạng. Năm sau hãy thử lại!</span>
       </div>
 
-      <Button class="w-full" @click="handleClaim">领取奖励</Button>
+      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
     </div>
   </div>
 </template>
@@ -185,7 +185,7 @@
   const scoreDetails = ref<ScoreDetail[]>([])
   const playerScore = ref(0)
 
-  /** 可参展的背包物品（排除种子、机器等非展示类物品） */
+  /** 可tham giatriển lãm的lưnggóivậtphẩm（xếpxóagiốngcon、máydụng cụđợikhông phảitriển lãmhiển thịloàivậtphẩm） */
   const selectableItems = computed(() => {
     const exhibitCategories = ['crop', 'fish', 'food', 'processed', 'gem', 'misc']
     return inventoryStore.items.filter(item => {
@@ -194,7 +194,7 @@
     })
   })
 
-  /** 预览当前选择的总分 */
+  /** dự kiếnxemkhitrướcchọnchọn的tổngđiểm */
   const previewScore = computed(() => {
     return selectedItems.value.reduce((sum, sel) => {
       const def = getItemById(sel.itemId)
@@ -205,7 +205,7 @@
   })
 
   const playerRank = computed(() => {
-    const idx = rankings.value.findIndex(e => e.name === '你')
+    const idx = rankings.value.findIndex(e => e.name === 'Bạn')
     return idx === -1 ? 99 : idx + 1
   })
 
@@ -234,7 +234,7 @@
     if (selectedItems.value.length === 0) return
     sfxJudging()
 
-    // 计算玩家分数明细
+    // tínhtínhchơinhàđiểmsốngày maichi tiết
     const details: ScoreDetail[] = []
     let total = 0
     for (const sel of selectedItems.value) {
@@ -254,21 +254,21 @@
     scoreDetails.value = details
     playerScore.value = total
 
-    // 生成NPC分数（600-1200范围）
+    // sinh成NPCđiểmsố（600-1200phạm vivùng）
     const npcs: Participant[] = [
-      { name: '秋月', score: Math.round(600 + Math.random() * 600) },
-      { name: '陈伯', score: Math.round(600 + Math.random() * 600) },
-      { name: '小满', score: Math.round(600 + Math.random() * 600) }
+      { name: 'Thu Nguyệt', score: Math.round(600 + Math.random() * 600) },
+      { name: 'Bác Trần', score: Math.round(600 + Math.random() * 600) },
+      { name: 'Tiểu Mãn', score: Math.round(600 + Math.random() * 600) }
     ]
 
-    const player: Participant = { name: '你', score: total }
+    const player: Participant = { name: 'Bạn', score: total }
     const all = [...npcs, player]
     all.sort((a, b) => b.score - a.score)
     rankings.value = all
     submitted.value = true
 
-    // 排名音效
-    const rank = all.findIndex(e => e.name === '你') + 1
+    // xếptênâm thanhhiệu
+    const rank = all.findIndex(e => e.name === 'Bạn') + 1
     setTimeout(() => {
       if (rank === 1) sfxRankFirst()
       else if (rank === 2) sfxRankSecond()

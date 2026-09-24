@@ -8,11 +8,11 @@
       @click.self="showExitConfirm = false"
     >
       <div class="game-panel max-w-xs w-full text-center">
-        <p class="text-sm text-accent mb-3">确定要退出游戏吗？</p>
-        <p class="text-xs text-muted mb-4">未保存的进度将会丢失。</p>
+        <p class="text-sm text-accent mb-3">Bạn có chắc muốn thoát game không?</p>
+        <p class="text-xs text-muted mb-4">Tiến trình chưa lưu sẽ bị mất.</p>
         <div class="flex justify-center space-x-3">
-          <button class="btn" @click="showExitConfirm = false">取消</button>
-          <button class="btn btn-danger" @click="exitApp">退出</button>
+          <button class="btn" @click="showExitConfirm = false">Hủy</button>
+          <button class="btn btn-danger" @click="exitApp">Thoát</button>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
       document.body.classList.add('select-none')
     }
 
-    // Capacitor Android 返回键拦截
+    // Capacitor Android trả lạivềphímchặncắt
     if (Capacitor.isNativePlatform()) {
       CapApp.addListener('backButton', () => {
         if (showExitConfirm.value) {

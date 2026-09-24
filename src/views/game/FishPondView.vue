@@ -4,7 +4,7 @@
     <div class="flex items-center justify-between mb-1">
       <div class="flex items-center space-x-1.5 text-sm text-accent">
         <Waves :size="14" />
-        <span>鱼塘</span>
+        <span>Ao cá</span>
       </div>
       <span v-if="!fishPondStore.pond.built" class="text-xs text-muted">{{ fishPondStore.fishCount }}/{{ fishPondStore.capacity }}</span>
     </div>
@@ -12,9 +12,9 @@
     <!-- 未建造 -->
     <div v-if="!fishPondStore.pond.built" class="border border-accent/10 rounded-xs py-6 flex flex-col items-center space-y-2">
       <Waves :size="32" class="text-muted/30" />
-      <p class="text-xs text-muted">尚未建造鱼塘</p>
-      <p class="text-xs text-muted/60">建造鱼塘后可养殖鱼类、繁殖收获</p>
-      <Button :icon="Hammer" :icon-size="12" @click="pondModal = 'build'">建造鱼塘</Button>
+      <p class="text-xs text-muted">vẫnchưa xâyxâyAo cá</p>
+      <p class="text-xs text-muted/60">xâyxâyAo cásaucó thể nuôicáloài、Sinh sảnthu hoạch</p>
+      <Button :icon="Hammer" :icon-size="12" @click="pondModal = 'build'">xâyxâyAo cá</Button>
     </div>
 
     <!-- 已建造 -->
@@ -22,14 +22,14 @@
       <!-- 两栏切换 -->
       <div class="flex space-x-1 mb-3">
         <Button class="flex-1 justify-center" :class="{ '!bg-accent !text-bg': currentTab === 'pond' }" @click="currentTab = 'pond'">
-          鱼塘
+          cáao
         </Button>
         <Button
           class="flex-1 justify-center"
           :class="{ '!bg-accent !text-bg': currentTab === 'compendium' }"
           @click="currentTab = 'compendium'"
         >
-          图鉴 {{ fishPondStore.discoveredBreeds.size }}/{{ totalBreedCount }}
+          bộ sưu tậpgiám {{ fishPondStore.discoveredBreeds.size }}/{{ totalBreedCount }}
         </Button>
       </div>
 
@@ -38,17 +38,17 @@
         <!-- 状态总览 -->
         <div class="mb-3">
           <div class="flex items-center justify-between mb-1.5">
-            <Divider>鱼塘 Lv.{{ fishPondStore.pond.level }}</Divider>
+            <Divider>Ao cá Lv.{{ fishPondStore.pond.level }}</Divider>
             <div class="flex items-center space-x-2">
               <span class="text-xs text-muted">{{ fishPondStore.fishCount }}/{{ fishPondStore.capacity }}</span>
-              <Button v-if="fishPondStore.pond.level < 3" :icon="ArrowUp" :icon-size="12" @click="pondModal = 'upgrade'">升级</Button>
+              <Button v-if="fishPondStore.pond.level < 3" :icon="ArrowUp" :icon-size="12" @click="pondModal = 'upgrade'">Nâng cấp</Button>
             </div>
           </div>
 
           <!-- 水质条 -->
           <div class="border border-accent/20 rounded-xs px-3 py-2">
             <div class="flex items-center space-x-2 mb-1.5">
-              <span class="text-xs text-muted shrink-0">水质</span>
+              <span class="text-xs text-muted shrink-0">nướcchất</span>
               <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
                 <div
                   class="h-full rounded-xs transition-all"
@@ -66,11 +66,11 @@
                 :disabled="fishPondStore.pond.fedToday || fishPondStore.pond.fish.length === 0"
                 @click="handleFeed"
               >
-                {{ fishPondStore.pond.fedToday ? '已喂食' : '喂食' }}
+                {{ fishPondStore.pond.fedToday ? 'Đã cho ăn' : 'Cho ăn' }}
               </Button>
-              <Button :icon="Sparkles" :icon-size="12" @click="handleClean">改良水质</Button>
+              <Button :icon="Sparkles" :icon-size="12" @click="handleClean">cảithiệnnướcchất</Button>
               <Button v-if="fishPondStore.sickFish.length > 0" :icon="HeartPulse" :icon-size="12" @click="handleTreat">
-                治疗 ({{ fishPondStore.sickFish.length }})
+                Điều trị ({{ fishPondStore.sickFish.length }})
               </Button>
               <Button
                 v-if="fishPondStore.pendingProducts.length > 0"
@@ -79,7 +79,7 @@
                 :disabled="fishPondStore.pond.collectedToday"
                 @click="handleCollect"
               >
-                收获 ({{ fishPondStore.pendingProducts.length }})
+                thunhận ({{ fishPondStore.pendingProducts.length }})
               </Button>
             </div>
           </div>
@@ -87,7 +87,7 @@
 
         <!-- 塘中鱼类 -->
         <div class="mb-3">
-          <Divider label="塘中鱼类" />
+          <Divider label="Cá trong ao" />
 
           <!-- 空状态 -->
           <div
@@ -95,8 +95,8 @@
             class="border border-accent/10 rounded-xs py-6 flex flex-col items-center space-y-2"
           >
             <Fish :size="32" class="text-muted/30" />
-            <p class="text-xs text-muted">鱼塘空空如也</p>
-            <p class="text-xs text-muted/60">从背包中放入鱼苗开始养殖</p>
+            <p class="text-xs text-muted">Ao cá trống</p>
+            <p class="text-xs text-muted/60">từTúi đồtrongđặt vàocácây giốngbắt đầu nuôi</p>
           </div>
 
           <!-- 鱼列表 -->
@@ -118,14 +118,14 @@
                   <span class="text-xs" :class="fish.sick ? 'text-danger' : fish.mature ? 'text-text' : 'text-muted'">
                     {{ fish.name }}
                   </span>
-                  <span v-if="fish.sick" class="text-[10px] text-danger">[病]</span>
-                  <span v-if="!fish.mature" class="text-[10px] text-muted">[幼]</span>
+                  <span v-if="fish.sick" class="text-[10px] text-danger">[Bệnh]</span>
+                  <span v-if="!fish.mature" class="text-[10px] text-muted">[Con non]</span>
                 </div>
                 <div class="flex items-center space-x-2">
                   <span class="text-[10px] text-accent flex items-center space-x-px">
                     <Star v-for="n in fishPondStore.getGeneticStarRating(fish.genetics)" :key="n" :size="10" />
                   </span>
-                  <span class="text-[10px] text-muted">{{ fish.daysInPond }}天</span>
+                  <span class="text-[10px] text-muted">{{ fish.daysInPond }}ngày</span>
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@
 
         <!-- 放入鱼苗 -->
         <div class="mb-3">
-          <Divider label="放入鱼苗" />
+          <Divider label="Thả cá giống" />
           <div v-if="pondableFishInBag.length > 0" class="flex flex-col space-y-1.5 max-h-80 overflow-auto">
             <div
               v-for="item in pondableFishInBag"
@@ -145,32 +145,32 @@
                 {{ item.name }}
                 <span class="text-muted">&times;{{ item.count }}</span>
               </span>
-              <Button :icon-size="12" @click="handleAddFish(item.itemId)">放入</Button>
+              <Button :icon-size="12" @click="handleAddFish(item.itemId)">đặt vào</Button>
             </div>
           </div>
           <div v-else class="border border-accent/10 rounded-xs py-6 flex flex-col items-center space-y-2">
             <Package :size="32" class="text-muted/30" />
-            <p class="text-xs text-muted">背包中没有可养殖的鱼</p>
-            <p class="text-xs text-muted/60">在清溪钓鱼后可放入鱼塘养殖</p>
+            <p class="text-xs text-muted">Túi đồtrongkhông cócó thể nuôi của cá</p>
+            <p class="text-xs text-muted/60">đangthanhsuốiCâu cásaucó thể đặt vàoAo cánuôi</p>
           </div>
         </div>
 
         <!-- 繁殖 -->
         <div class="mb-3">
-          <Divider label="繁殖" />
+          <Divider label="Sinh sản" />
           <!-- 繁殖中 -->
           <div v-if="fishPondStore.pond.breeding" class="border border-accent/20 rounded-xs px-3 py-2">
             <div class="flex items-center justify-between mb-1">
               <div class="flex items-center space-x-1.5">
                 <Heart :size="12" class="text-accent" />
-                <span class="text-xs text-accent">繁殖中</span>
+                <span class="text-xs text-accent">Sinh sảntrong</span>
               </div>
-              <span class="text-xs text-muted">{{ fishPondStore.pond.breeding.daysLeft }}/{{ breedingTotalDays }}天</span>
+              <span class="text-xs text-muted">{{ fishPondStore.pond.breeding.daysLeft }}/{{ breedingTotalDays }}ngày</span>
             </div>
             <div class="h-1 bg-bg rounded-xs border border-accent/10">
               <div class="h-full rounded-xs bg-accent transition-all" :style="{ width: breedingProgress + '%' }" />
             </div>
-            <p class="text-[10px] text-muted mt-1">品种：{{ getPondableFishName(fishPondStore.pond.breeding.fishId) }}</p>
+            <p class="text-[10px] text-muted mt-1">phẩmloại：{{ getPondableFishName(fishPondStore.pond.breeding.fishId) }}</p>
           </div>
           <!-- 已选择一条 -->
           <div v-else-if="selectedBreedingFish" class="border border-accent/20 rounded-xs px-3 py-2">
@@ -178,21 +178,21 @@
               <div class="flex items-center space-x-1.5">
                 <Heart :size="12" class="text-muted/40" />
                 <span class="text-xs">
-                  已选：{{ selectedBreedingFish.name }}
+                  đãchọn：{{ selectedBreedingFish.name }}
                   <span class="text-accent inline-flex items-center space-x-px">
                     <Star v-for="n in fishPondStore.getGeneticStarRating(selectedBreedingFish.genetics)" :key="n" :size="10" />
                   </span>
                 </span>
               </div>
-              <Button @click="selectedBreedingFish = null">取消</Button>
+              <Button @click="selectedBreedingFish = null">Hủy</Button>
             </div>
-            <p class="text-[10px] text-muted">请从鱼列表中点击同种成熟鱼进行配对</p>
+            <p class="text-[10px] text-muted">Hãy chọn hai con cá trưởng thành cùng loài trong danh sách để ghép đôi</p>
           </div>
           <!-- 空状态 -->
           <div v-else class="border border-accent/10 rounded-xs py-6 flex flex-col items-center space-y-2">
             <Heart :size="32" class="text-muted/30" />
-            <p class="text-xs text-muted">选择两条同种成熟鱼开始繁殖</p>
-            <p class="text-xs text-muted/60">需要鱼塘有空余容量</p>
+            <p class="text-xs text-muted">Chọn hai con cá trưởng thành cùng loài để bắt đầu sinh sản</p>
+            <p class="text-xs text-muted/60">Ao cá cần còn chỗ trống</p>
           </div>
         </div>
       </template>
@@ -208,20 +208,20 @@
             :class="{ '!bg-accent !text-bg': compendiumGen === g }"
             @click="compendiumGen = g as 1 | 2 | 3 | 4 | 5"
           >
-            {{ g }}代
+            {{ g }}đời
           </Button>
         </div>
 
         <!-- 进度 -->
-        <p class="text-xs text-muted mb-2">已发现 {{ discoveredCountByGen(compendiumGen) }}/{{ BREED_COUNTS[compendiumGen] }}</p>
+        <p class="text-xs text-muted mb-2">đã Phát hiện {{ discoveredCountByGen(compendiumGen) }}/{{ BREED_COUNTS[compendiumGen] }}</p>
 
         <!-- 提示 -->
         <div v-if="compendiumGen > 1" class="border border-accent/10 rounded-xs p-2 mb-2">
           <p class="text-xs text-muted leading-relaxed">
-            <span class="text-accent">{{ compendiumGen }}代</span>
-            品种需要配对特定的
-            <span class="text-accent">{{ compendiumGen - 1 }}代</span>
-            品种繁殖获得。
+            <span class="text-accent">{{ compendiumGen }}đời</span>
+            Giống cá cần ghép đúng với
+            <span class="text-accent">{{ compendiumGen - 1 }}đời</span>
+            phẩmgiốngphồnsinh sảnnhậnđược。
           </p>
         </div>
 
@@ -241,7 +241,7 @@
         <!-- 完成度 -->
         <div class="mt-3 border border-accent/20 rounded-xs p-2">
           <div class="flex items-center space-x-2 text-xs mb-1.5">
-            <span class="text-xs text-muted shrink-0">完成度</span>
+            <span class="text-xs text-muted shrink-0">Tiến độ hoàn thành</span>
             <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
               <div class="h-full bg-accent rounded-xs transition-all" :style="{ width: completionPercent + '%' }" />
             </div>
@@ -249,7 +249,7 @@
           </div>
           <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
             <div v-for="g in 5" :key="g" class="flex items-center justify-between">
-              <span class="text-xs text-muted">{{ g }}代</span>
+              <span class="text-xs text-muted">{{ g }}đời</span>
               <span class="text-xs">{{ discoveredCountByGen(g) }}/{{ BREED_COUNTS[g] }}</span>
             </div>
           </div>
@@ -271,9 +271,9 @@
               <Star v-for="n in fishPondStore.getGeneticStarRating(detailFish.genetics)" :key="n" :size="10" />
             </span>
             <span class="text-muted">·</span>
-            <span class="text-muted">第{{ detailFish.daysInPond }}天</span>
-            <span v-if="detailFish.sick" class="text-danger">· 生病中</span>
-            <span v-if="!detailFish.mature" class="text-muted">· 未成熟</span>
+            <span class="text-muted">lượt{{ detailFish.daysInPond }}ngày</span>
+            <span v-if="detailFish.sick" class="text-danger">· sinhBệnhtrong</span>
+            <span v-if="!detailFish.mature" class="text-muted">· Chưa trưởng thành</span>
           </p>
 
           <!-- 基因条 -->
@@ -298,9 +298,9 @@
               :disabled="!!fishPondStore.pond.breeding"
               @click="handleDetailBreed"
             >
-              选为繁殖亲本
+              chọnlàphồnsinh sảnhọ hàngbản
             </Button>
-            <Button class="w-full justify-center" :icon="ArrowUp" :icon-size="12" @click="handleDetailRemove">取出到背包</Button>
+            <Button class="w-full justify-center" :icon="ArrowUp" :icon-size="12" @click="handleDetailRemove">Lấy rađếnTúi đồ</Button>
           </div>
         </div>
       </div>
@@ -319,11 +319,11 @@
           <!-- 等级信息 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">{{ pondModal === 'build' ? '等级' : '当前等级' }}</span>
+              <span class="text-xs text-muted">{{ pondModal === 'build' ? 'Cấp' : 'Cấp hiện tại' }}</span>
               <span class="text-xs">Lv.{{ modalCurrentLevel }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">{{ pondModal === 'build' ? '初始容量' : '当前容量' }}</span>
+              <span class="text-xs text-muted">{{ pondModal === 'build' ? 'Sức chứa ban đầu' : 'Sức chứa hiện tại' }}</span>
               <span class="text-xs">{{ modalCurrentCapacity }}</span>
             </div>
           </div>
@@ -331,18 +331,18 @@
           <!-- 升级后信息（仅升级时显示） -->
           <div v-if="pondModal === 'upgrade'" class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">升级至</span>
+              <span class="text-xs text-muted">Nâng cấpđến</span>
               <span class="text-xs text-accent">Lv.{{ modalTargetLevel }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">升级后容量</span>
+              <span class="text-xs text-muted">Nâng cấpsauSức chứa</span>
               <span class="text-xs text-accent">{{ modalTargetCapacity }}</span>
             </div>
           </div>
 
           <!-- 所需材料 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
-            <p class="text-xs text-muted mb-1">所需材料</p>
+            <p class="text-xs text-muted mb-1">Nguyên liệu cần thiết</p>
             <div v-for="mat in modalMaterials" :key="mat.itemId" class="flex items-center justify-between mt-0.5">
               <span class="text-xs">{{ mat.name }}</span>
               <span class="text-xs" :class="mat.enough ? 'text-success' : 'text-danger'">{{ mat.owned }}/{{ mat.required }}</span>
@@ -352,12 +352,12 @@
           <!-- 费用 -->
           <div class="border border-accent/10 rounded-xs p-2 mb-3">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">费用</span>
-              <span class="text-xs" :class="playerStore.money >= modalMoney ? 'text-accent' : 'text-danger'">{{ modalMoney }}文</span>
+              <span class="text-xs text-muted">Chi phí</span>
+              <span class="text-xs" :class="playerStore.money >= modalMoney ? 'text-accent' : 'text-danger'">{{ modalMoney }}văn</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">当前持有</span>
-              <span class="text-xs">{{ playerStore.money }}文</span>
+              <span class="text-xs text-muted">Đang sở hữu</span>
+              <span class="text-xs">{{ playerStore.money }}văn</span>
             </div>
           </div>
 
@@ -369,7 +369,7 @@
             :disabled="!canConfirmModal"
             @click="handleModalConfirm"
           >
-            {{ pondModal === 'build' ? '确认建造' : '确认升级' }}
+            {{ pondModal === 'build' ? 'Xác nhận xây' : 'Xác nhận nâng cấp' }}
           </Button>
         </div>
       </div>
@@ -404,7 +404,7 @@
   const detailFish = ref<PondFish | null>(null)
   const compendiumGen = ref<1 | 2 | 3 | 4 | 5>(1)
 
-  /** 建造/升级统一弹窗 */
+  /** xâyxây/tăngcấphệ thốngmộtđạncửa sổ */
   const pondModal = ref<'build' | 'upgrade' | null>(null)
 
   const getItemName = (itemId: string): string => getItemById(itemId)?.name ?? itemId
@@ -421,12 +421,12 @@
 
   const currentGenBreeds = computed(() => getBreedsByGeneration(compendiumGen.value))
 
-  /** 图鉴完成度 */
+  /** bộ sưu tậpgiámhoàn成độ */
   const completionPercent = computed(() => {
     return Math.floor((fishPondStore.discoveredBreeds.size / totalBreedCount) * 100)
   })
 
-  /** 代数颜色 */
+  /** đờisốmàu sắcmàu */
   const genColor = (gen: number): string => {
     if (gen >= 5) return 'text-quality-supreme'
     if (gen >= 4) return 'text-quality-excellent'
@@ -434,7 +434,7 @@
     return 'text-accent'
   }
 
-  /** 水质条颜色 */
+  /** nướcchấtmụcmàu sắcmàu */
   const waterQualityColor = computed(() => {
     const wq = fishPondStore.pond.waterQuality
     if (wq >= 70) return 'bg-success'
@@ -442,7 +442,7 @@
     return 'bg-danger'
   })
 
-  /** 水质文字颜色 */
+  /** nướcchấtvănchữmàu sắcmàu */
   const waterQualityTextColor = computed(() => {
     const wq = fishPondStore.pond.waterQuality
     if (wq >= 70) return 'text-success'
@@ -450,18 +450,18 @@
     return 'text-danger'
   })
 
-  /** 繁殖进度 */
+  /** phồnsinh sảntiếnđộ */
   const breedingTotalDays = FISH_BREEDING_DAYS
   const breedingProgress = computed(() => {
     if (!fishPondStore.pond.breeding) return 0
     return ((breedingTotalDays - fishPondStore.pond.breeding.daysLeft) / breedingTotalDays) * 100
   })
 
-  // === 建造/升级统一弹窗 ===
+  // === xâyxây/tăngcấphệ thốngmộtđạncửa sổ ===
 
   const upgradeNextLevel = computed(() => Math.min(fishPondStore.pond.level + 1, 3) as 2 | 3)
 
-  const modalTitle = computed(() => (pondModal.value === 'build' ? '建造鱼塘' : '鱼塘升级'))
+  const modalTitle = computed(() => (pondModal.value === 'build' ? 'Xây ao cá' : 'Nâng cấp ao cá'))
 
   const modalCurrentLevel = computed(() => (pondModal.value === 'build' ? 1 : fishPondStore.pond.level))
 
@@ -494,25 +494,25 @@
   const handleModalConfirm = () => {
     if (pondModal.value === 'build') {
       if (fishPondStore.buildPond()) {
-        addLog('鱼塘建造完成！')
-        showFloat('鱼塘建造完成！', 'success')
+        addLog('Đã xây xong ao cá!')
+        showFloat('Đã xây xong ao cá!', 'success')
         pondModal.value = null
       } else {
-        addLog('材料或铜钱不足，无法建造鱼塘。')
+        addLog('Thiếu nguyên liệu hoặc tiền, không thể xây ao cá.')
       }
     } else {
       const nextLevel = (fishPondStore.pond.level + 1) as 2 | 3
       if (fishPondStore.upgradePond()) {
-        addLog(`鱼塘升级到 Lv.${nextLevel}！容量提升。`)
-        showFloat(`鱼塘升级 Lv.${nextLevel}`, 'success')
+        addLog(`Ao cá nâng lên Lv.${nextLevel}! Sức chứa tăng.`)
+        showFloat(`Nâng cấp ao cá Lv.${nextLevel}`, 'success')
         pondModal.value = null
       } else {
-        addLog('材料或铜钱不足，无法升级。')
+        addLog('Thiếu nguyên liệu hoặc tiền, không thể nâng cấp.')
       }
     }
   }
 
-  /** 背包中可放入鱼塘的鱼 */
+  /** lưnggóitrong可đặtvàocáao的cá */
   const pondableFishInBag = computed(() => {
     const result: { itemId: string; name: string; count: number }[] = []
     for (const def of PONDABLE_FISH) {
@@ -524,92 +524,92 @@
     return result
   })
 
-  /** 鱼详情弹窗属性条 */
+  /** cáchi tiếthìnhđạncửa sổthuộc tínhtínhmục */
   const fishAttributes = computed(() => {
     if (!detailFish.value) return []
     const g = detailFish.value.genetics
     return [
-      { key: 'weight', label: '体重', value: g.weight, barClass: 'bg-accent' },
+      { key: 'weight', label: 'Cân nặng', value: g.weight, barClass: 'bg-accent' },
       {
         key: 'growthRate',
-        label: '生长',
+        label: 'Sinh trưởng',
         value: g.growthRate,
         barClass: 'bg-success'
       },
       {
         key: 'diseaseRes',
-        label: '抗病',
+        label: 'Kháng bệnh',
         value: g.diseaseRes,
         barClass: 'bg-water'
       },
       {
         key: 'qualityGene',
-        label: '品质',
+        label: 'Phẩm chất',
         value: g.qualityGene,
         barClass: 'bg-quality-fine'
       },
       {
         key: 'mutationRate',
-        label: '变异',
+        label: 'Đột biến',
         value: g.mutationRate,
         barClass: 'bg-danger'
       }
     ]
   })
 
-  /** 打开鱼详情 */
+  /** đánhmởcáchi tiếthình */
   const openFishDetail = (fish: PondFish) => {
     detailFish.value = fish
   }
 
-  /** 弹窗内选为繁殖亲本 */
+  /** đạncửa sổtrongchọnlàphồnsinh sảnhọ hàngbản */
   const handleDetailBreed = () => {
     if (!detailFish.value) return
     handleSelectForBreeding(detailFish.value)
     detailFish.value = null
   }
 
-  /** 弹窗内取出到背包 */
+  /** đạncửa sổtronglấyrađếnlưnggói */
   const handleDetailRemove = () => {
     if (!detailFish.value) return
     handleRemoveFish(detailFish.value.id)
     detailFish.value = null
   }
 
-  // === 操作 ===
+  // === thao táclàm ===
 
   const handleFeed = () => {
     if (fishPondStore.feedFish()) {
-      addLog('喂食了鱼塘中的鱼。')
+      addLog('Đã cho cá trong ao ăn.')
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.feedFish)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) handleEndDay()
     } else if (fishPondStore.pond.fedToday) {
-      addLog('今天已经喂过了。')
+      addLog('Hôm nay đã cho ăn rồi.')
     } else {
-      addLog('没有鱼饲料，无法喂食。')
+      addLog('Không có thức ăn cá, không thể cho ăn.')
     }
   }
 
   const handleClean = () => {
     if (fishPondStore.cleanPond()) {
-      addLog('使用水质改良剂清理了鱼塘。')
-      showFloat('+水质', 'success')
+      addLog('Dùng chất cải tạo nước để làm sạch ao cá.')
+      showFloat('+Chất lượng nước', 'success')
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.cleanPond)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) handleEndDay()
     } else {
-      addLog('没有水质改良剂。')
+      addLog('Không có chất cải tạo nước.')
     }
   }
 
   const handleTreat = () => {
     const count = fishPondStore.treatSickFish()
     if (count > 0) {
-      addLog(`治疗了${count}条生病的鱼。`)
-      showFloat(`治疗${count}条鱼`, 'success')
+      addLog(`Đã chữa ${count} con cá bệnh.`)
+      showFloat(`Chữa ${count} con cá`, 'success')
     } else {
-      addLog('没有兽药或没有生病的鱼。')
+      addLog('Không có thuốc thú y hoặc không có cá bệnh.')
     }
   }
 
@@ -620,13 +620,13 @@
         inventoryStore.addItem(p.itemId, 1, p.quality)
       }
       const names = products.map(p => getItemName(p.itemId)).join('、')
-      addLog(`收获了${names}。`)
-      showFloat(`+${products.length}件水产`, 'success')
+      addLog(`Đã thu hoạch ${names}.`)
+      showFloat(`+${products.length} sản phẩm thủy sản`, 'success')
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.collectFishProducts)
       if (tr.message) addLog(tr.message)
       if (tr.passedOut) handleEndDay()
     } else {
-      addLog('没有可收获的产出。')
+      addLog('Không có sản phẩm để thu hoạch.')
     }
   }
 
@@ -634,20 +634,20 @@
     const added = fishPondStore.addFish(fishId, 1)
     if (added > 0) {
       const name = getPondableFishName(fishId)
-      addLog(`放入了${added}条${name}。`)
+      addLog(`Đã thả ${added} con ${name}.`)
     } else if (fishPondStore.isFull) {
-      addLog('鱼塘已满，无法放入更多鱼。')
+      addLog('Ao cá đã đầy, không thể thả thêm cá.')
     } else {
-      addLog('背包中没有这种鱼。')
+      addLog('Túi không có loài cá này.')
     }
   }
 
   const handleRemoveFish = (pondFishId: string) => {
     if (fishPondStore.removeFish(pondFishId)) {
-      addLog('取出了一条鱼。')
+      addLog('Đã lấy một con cá ra.')
       selectedBreedingFish.value = null
     } else {
-      addLog('背包已满，无法取出。')
+      addLog('Balo đã đầy, không thể lấy ra.')
     }
   }
 
@@ -662,18 +662,18 @@
       return
     }
 
-    // 尝试配对
+    // thửthửphốiđúng
     if (fishPondStore.startBreeding(selectedBreedingFish.value.id, fish.id)) {
-      addLog(`${fish.name}开始繁殖，${fishPondStore.pond.breeding!.daysLeft}天后出结果。`)
-      showFloat('开始繁殖', 'success')
+      addLog(`${fish.name} bắt đầu sinh sản, sau ${fishPondStore.pond.breeding!.daysLeft} ngày sẽ có kết quả.`)
+      showFloat('Bắt đầu sinh sản', 'success')
       selectedBreedingFish.value = null
     } else {
       if (selectedBreedingFish.value.fishId !== fish.fishId) {
-        addLog('只能配对同种鱼。')
+        addLog('Chỉ có thể ghép đôi cùng loài cá.')
       } else if (fishPondStore.isFull) {
-        addLog('鱼塘已满，无法繁殖。')
+        addLog('Ao cá đã đầy, không thể sinh sản.')
       } else {
-        addLog('无法配对，请确认鱼已成熟且未生病。')
+        addLog('Không thể ghép đôi, hãy đảm bảo cá đã trưởng thành và không bệnh.')
       }
       selectedBreedingFish.value = null
     }

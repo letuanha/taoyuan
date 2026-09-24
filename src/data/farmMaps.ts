@@ -10,38 +10,38 @@ export interface FarmMapDef {
 export const FARM_MAP_DEFS: FarmMapDef[] = [
   {
     type: 'standard',
-    name: '桃源田庄',
-    description: '广阔的平原，最适合大规模种植。',
-    bonus: '初始6×6，可扩至10×10，换季自动施肥（随种植等级升级），15%额外收获'
+    name: 'Trang trại Đào Nguyên',
+    description: 'Đồng bằng rộng lớn, thích hợp trồng trọt quy mô lớn.',
+    bonus: 'Ban đầu 6×6, mở rộng tới 10×10, tự động bón phân khi đổi mùa (nâng theo cấp trồng trọt), thu hoạch thêm 15%.'
   },
   {
     type: 'riverland',
-    name: '溪流田庄',
-    description: '小河环绕的田地，水产丰富。',
-    bonus: '钓鱼经验+25%，鱼售价+10%，每日溪流鱼获，雨天鱼品质提升'
+    name: 'Trang trại Suối Khê',
+    description: 'Ruộng được bao quanh bởi dòng suối, thủy sản phong phú.',
+    bonus: 'Kinh nghiệm câu cá +25%, giá cá +10%, mỗi ngày có cá suối, ngày mưa chất lượng cá tăng.'
   },
   {
     type: 'forest',
-    name: '竹林田庄',
-    description: '林间空地，采集物种类繁多。',
-    bonus: '采集经验+25%，20%双倍采集，每日林中拾遗'
+    name: 'Trang trại Rừng Trúc',
+    description: 'Khoảng đất giữa rừng, có nhiều loại vật phẩm hái lượm.',
+    bonus: 'Kinh nghiệm thu thập +25%, 20% cơ hội thu thập gấp đôi, mỗi ngày có vật nhặt trong rừng.'
   },
   {
     type: 'hilltop',
-    name: '山丘田庄',
-    description: '山腰的梯田，蕴含矿脉。',
-    bonus: '挖矿经验+25%，矿石+1，农场地表矿脉'
+    name: 'Trang trại Đồi Núi',
+    description: 'Ruộng bậc thang trên sườn núi, ẩn chứa mạch quặng.',
+    bonus: 'Kinh nghiệm khai mỏ +25%, quặng +1, có mạch quặng trên mặt đất nông trại.'
   },
   {
     type: 'wilderness',
-    name: '荒野田庄',
-    description: '偏远荒地，夜间有野兽出没。',
-    bonus: '战斗经验+50%，每日获矿石，夜间野兽遭遇'
+    name: 'Trang trại Hoang Dã',
+    description: 'Vùng đất hoang xa xôi, ban đêm có thú dữ.',
+    bonus: 'Kinh nghiệm chiến đấu +50%, mỗi ngày nhận quặng, ban đêm có thể gặp thú dữ.'
   },
   {
     type: 'meadowlands',
-    name: '草甸田庄',
-    description: '开阔牧场，适合饲养牲畜。',
-    bonus: '开局鸡舍+2鸡，友好度+50%，动物不生病，额外产出'
+    name: 'Trang trại Đồng Cỏ',
+    description: 'Đồng cỏ rộng, thích hợp nuôi gia súc.',
+    bonus: 'Bắt đầu với chuồng gà +2 gà, thân thiện +50%, động vật không mắc bệnh, sản lượng thêm.'
   }
 ]

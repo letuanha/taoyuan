@@ -56,11 +56,11 @@ export const useQuestStore = defineStore('quest', () => {
     if (activeQuests.value.length >= MAX_ACTIVE_QUESTS) {
       return {
         success: false,
-        message: `最多同时接取${MAX_ACTIVE_QUESTS}个任务。`
+        message: `Có thể nhận tối đa ${MAX_ACTIVE_QUESTS} nhiệm vụ cùng lúc.`
       }
     }
     const idx = boardQuests.value.findIndex(q => q.id === questId)
-    if (idx === -1) return { success: false, message: '任务不存在。' }
+    if (idx === -1) return { success: false, message: 'Nhiệm vụ không tồn tại.' }
 
     const quest = boardQuests.value[idx]!
     quest.accepted = true
@@ -72,16 +72,16 @@ export const useQuestStore = defineStore('quest', () => {
 
     activeQuests.value.push(quest)
     boardQuests.value.splice(idx, 1)
-    return { success: true, message: `接取了任务：${quest.description}` }
+    return { success: true, message: `Đã nhận nhiệm vụ: ${quest.description}` }
   }
 
   /** 接取特殊订单 */
   const acceptSpecialOrder = (): { success: boolean; message: string } => {
-    if (!specialOrder.value) return { success: false, message: '没有可接取的特殊订单。' }
+    if (!specialOrder.value) return { success: false, message: 'Không có đơn đặc biệt nào để nhận.' }
     if (activeQuests.value.length >= MAX_ACTIVE_QUESTS) {
       return {
         success: false,
-        message: `最多同时接取${MAX_ACTIVE_QUESTS}个任务。`
+        message: `Có thể nhận tối đa ${MAX_ACTIVE_QUESTS} nhiệm vụ cùng lúc.`
       }
     }
 
@@ -91,13 +91,13 @@ export const useQuestStore = defineStore('quest', () => {
 
     activeQuests.value.push(order)
     specialOrder.value = null
-    return { success: true, message: `接取了特殊订单：${order.description}` }
+    return { success: true, message: `Đã nhận đơn đặc biệt: ${order.description}` }
   }
 
   /** 提交完成的任务 */
   const submitQuest = (questId: string): { success: boolean; message: string } => {
     const idx = activeQuests.value.findIndex(q => q.id === questId)
-    if (idx === -1) return { success: false, message: '任务不存在。' }
+    if (idx === -1) return { success: false, message: 'Nhiệm vụ không tồn tại.' }
 
     const quest = activeQuests.value[idx]!
 
@@ -106,7 +106,7 @@ export const useQuestStore = defineStore('quest', () => {
       if (!inventoryStore.hasItem(quest.targetItemId, quest.targetQuantity)) {
         return {
           success: false,
-          message: `背包中${quest.targetItemName}不足。`
+          message: `Trong túi không đủ ${quest.targetItemName}.`
         }
       }
       inventoryStore.removeItem(quest.targetItemId, quest.targetQuantity)
@@ -116,7 +116,7 @@ export const useQuestStore = defineStore('quest', () => {
       if (effectiveProgress < quest.targetQuantity) {
         return {
           success: false,
-          message: `${quest.targetItemName}收集进度不足（${effectiveProgress}/${quest.targetQuantity}）。`
+          message: `Tiến độ thu thập ${quest.targetItemName} chưa đủ (${effectiveProgress}/${quest.targetQuantity}).`
         }
       }
     }
@@ -138,10 +138,10 @@ export const useQuestStore = defineStore('quest', () => {
     // 从活跃列表移除
     activeQuests.value.splice(idx, 1)
 
-    let message = `完成了${quest.npcName}的委托！获得${quest.moneyReward}文，${quest.npcName}好感+${quest.friendshipReward}。`
+    let message = `Đã hoàn thành ủy thác của ${quest.npcName}! Nhận ${quest.moneyReward} văn, hảo cảm với ${quest.npcName} +${quest.friendshipReward}.`
     if (quest.itemReward && quest.itemReward.length > 0) {
-      const itemNames = quest.itemReward.map(i => `${i.quantity}个物品`).join('、')
-      message += ` 额外获得${itemNames}。`
+      const itemNames = quest.itemReward.map(i => `${i.quantity} vật phẩm`).join('、')
+      message += ` Nhận thêm ${itemNames}.`
     }
 
     return { success: true, message }
@@ -311,11 +311,11 @@ export const useQuestStore = defineStore('quest', () => {
 
   /** 接取主线任务 */
   const acceptMainQuest = (): { success: boolean; message: string } => {
-    if (!mainQuest.value) return { success: false, message: '没有可接取的主线任务。' }
-    if (mainQuest.value.accepted) return { success: false, message: '主线任务已接取。' }
+    if (!mainQuest.value) return { success: false, message: 'Không có nhiệm vụ chính tuyến nào để nhận.' }
+    if (mainQuest.value.accepted) return { success: false, message: 'Đã nhận nhiệm vụ chính tuyến.' }
 
     const def = getStoryQuestById(mainQuest.value.questId)
-    if (!def) return { success: false, message: '主线任务数据异常。' }
+    if (!def) return { success: false, message: 'Dữ liệu nhiệm vụ chính bị lỗi.' }
 
     mainQuest.value.accepted = true
 
@@ -328,7 +328,7 @@ export const useQuestStore = defineStore('quest', () => {
     const npcName = npcDef?.name ?? def.npcId
     return {
       success: true,
-      message: `接取了主线任务：${def.title}（${npcName}）`
+      message: `Đã nhận nhiệm vụ chính tuyến: ${def.title} (${npcName})`
     }
   }
 
@@ -366,25 +366,25 @@ export const useQuestStore = defineStore('quest', () => {
   /** 提交主线任务 */
   const submitMainQuest = (): { success: boolean; message: string } => {
     if (!mainQuest.value || !mainQuest.value.accepted) {
-      return { success: false, message: '没有可提交的主线任务。' }
+      return { success: false, message: 'Không có nhiệm vụ chính tuyến nào để nộp.' }
     }
 
     const def = getStoryQuestById(mainQuest.value.questId)
-    if (!def) return { success: false, message: '主线任务数据异常。' }
+    if (!def) return { success: false, message: 'Dữ liệu nhiệm vụ chính bị lỗi.' }
 
     // 最终验证所有目标
     for (let i = 0; i < def.objectives.length; i++) {
       mainQuest.value.objectiveProgress[i] = evaluateObjective(def.objectives[i]!)
     }
     if (!mainQuest.value.objectiveProgress.every(p => p)) {
-      return { success: false, message: '主线任务目标尚未全部完成。' }
+      return { success: false, message: 'Mục tiêu nhiệm vụ chính tuyến chưa hoàn thành hết.' }
     }
 
     // deliverItem 类型扣除背包物品
     for (const obj of def.objectives) {
       if (obj.type === 'deliverItem' && obj.itemId && obj.itemQuantity) {
         if (!inventoryStore.removeItem(obj.itemId, obj.itemQuantity)) {
-          return { success: false, message: `背包中物品不足，无法提交。` }
+          return { success: false, message: `Không đủ vật phẩm trong túi, không thể nộp.` }
         }
       }
     }
@@ -415,13 +415,13 @@ export const useQuestStore = defineStore('quest', () => {
 
     const npcDef = getNpcById(def.npcId)
     const npcName = npcDef?.name ?? def.npcId
-    let message = `【主线完成】${def.title}！${npcName}：获得${def.moneyReward}文。`
+    let message = `【Hoàn thành chính tuyến】${def.title}! ${npcName}: nhận ${def.moneyReward} văn.`
     if (def.itemReward && def.itemReward.length > 0) {
-      message += ` 额外获得物品奖励。`
+      message += ` Nhận thêm phần thưởng vật phẩm.`
     }
     if (!mainQuest.value) {
       if (completedMainQuests.value.length >= STORY_QUESTS.length) {
-        message += ` 恭喜！你已完成桃源乡全部主线任务！`
+        message += ` Chúc mừng! Bạn đã hoàn thành toàn bộ nhiệm vụ chính tuyến của Đào Nguyên Hương!`
       }
     }
 

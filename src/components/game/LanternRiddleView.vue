@@ -2,13 +2,13 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <Lightbulb :size="14" />
-      <span>七夕猜灯谜</span>
+      <span>Đoán đố đèn Thất Tịch</span>
     </h3>
 
     <!-- 准备 -->
     <div v-if="phase === 'ready'">
-      <p class="text-xs text-muted mb-3">广场上挂满了灯笼，每个灯笼下都有一条灯谜。共5题，每题限时，答对有奖！</p>
-      <Button class="w-full" @click="startGame">开始猜谜！</Button>
+      <p class="text-xs text-muted mb-3">Quảng trường treo đầy đèn lồng, dưới mỗi đèn có một câu đố. Có 5 câu, mỗi câu có thời gian giới hạn, trả lời đúng có thưởng!</p>
+      <Button class="w-full" @click="startGame">Bắt đầu giải đố!</Button>
     </div>
 
     <!-- 展示灯笼 -->
@@ -16,7 +16,7 @@
       <div class="lantern-drop mb-3">
         <div class="inline-block border-2 border-accent/50 px-6 py-3">
           <Lamp :size="20" class="text-accent mx-auto mb-1" />
-          <p class="text-accent text-xs">第 {{ currentIndex + 1 }} 题</p>
+          <p class="text-accent text-xs">lượt {{ currentIndex + 1 }} câu</p>
         </div>
       </div>
       <!-- 进度点 -->
@@ -49,7 +49,7 @@
 
       <!-- 谜面 -->
       <div class="border border-accent/30 p-3 mb-3 text-center">
-        <p class="text-xs text-muted mb-1">谜面</p>
+        <p class="text-xs text-muted mb-1">Câu đố</p>
         <p class="text-xs text-text leading-relaxed">
           {{ currentRiddle.question }}
         </p>
@@ -65,7 +65,7 @@
           :class="{ 'opacity-50': answered }"
           @click="answer(i)"
         >
-          <span class="text-accent mr-1">{{ ['甲', '乙', '丙', '丁'][i] }}.</span>
+          <span class="text-accent mr-1">{{ ['A', 'B', 'C', 'D'][i] }}.</span>
           {{ opt }}
         </Button>
       </div>
@@ -80,23 +80,23 @@
 
       <div :class="lastCorrect ? 'correct-flash' : 'wrong-shake'" class="mb-3 py-3 border border-accent/20">
         <p class="text-sm mb-1" :class="lastCorrect ? 'text-success' : 'text-danger'">
-          {{ lastCorrect ? '答对了！+100文' : '答错了…' }}
+          {{ lastCorrect ? 'Đúng rồi! +100 văn' : 'Sai rồi…' }}
         </p>
         <p class="text-xs text-muted mt-1">
-          正确答案：
+          đúngxáctrả lờián：
           <span class="text-accent">{{ currentRiddle.options[currentRiddle.answer] }}</span>
         </p>
       </div>
       <p class="text-xs text-muted">
-        当前得分：
+        khitrướcđượcđiểm：
         <span class="text-accent">{{ score }}</span>
-        文
+        xu
       </p>
     </div>
 
     <!-- 最终结果 -->
     <div v-else>
-      <p class="text-xs text-muted mb-2">灯谜会结束！</p>
+      <p class="text-xs text-muted mb-2">Hội đố đèn kết thúc!</p>
 
       <!-- 进度点（最终状态） -->
       <div class="flex justify-center space-x-1.5 mb-3">
@@ -105,18 +105,18 @@
 
       <div class="border border-accent/20 p-3 mb-3 text-center">
         <p class="text-xs mb-1">
-          答对：
+          trả lờiđúng：
           <span class="text-success">{{ correctCount }}</span>
-          / 5 题
+          / 5 câu
         </p>
         <p class="text-xs">
-          总奖金：
+          tổngthưởngvàng：
           <span class="text-accent">{{ score }}</span>
-          文
-          <span v-if="correctCount === 5" class="text-accent finish-flash">（全对+300文！）</span>
+          xu
+          <span v-if="correctCount === 5" class="text-accent finish-flash">(Đúng hết +300 văn!)</span>
         </p>
       </div>
-      <Button class="w-full" @click="handleClaim">领取奖励</Button>
+      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
     </div>
   </div>
 </template>
@@ -148,192 +148,192 @@
   }
 
   const RIDDLE_POOL: Riddle[] = [
-    // === 传统灯谜 ===
+    // === truyềnhệ thốngđènđố ===
     {
-      question: '有面无口，有脚无手，听人讲话，陪人吃酒。（打一日用品）',
-      options: ['桌子', '椅子', '茶壶', '灯笼'],
+      question: 'Có mặt không miệng, có chân không tay, nghe người nói chuyện, cùng người uống rượu. (Đố đồ dùng)',
+      options: ['Bàn', 'Ghế', 'Ấm trà', 'Đèn lồng'],
       answer: 0
     },
     {
-      question: '千条线，万条线，掉到水里看不见。（打一自然现象）',
-      options: ['风', '雨', '雪', '雾'],
+      question: 'Ngàn sợi, vạn sợi, rơi xuống nước thì không thấy. (Đố hiện tượng tự nhiên)',
+      options: ['Gió', 'Mưa', 'Tuyết', 'Sương mù'],
       answer: 1
     },
     {
-      question: '身穿绿衣裳，肚里水汪汪，生的子儿多，个个黑脸膛。（打一水果）',
-      options: ['葡萄', '西瓜', '石榴', '荔枝'],
+      question: 'Mặc áo xanh, bụng đầy nước, nhiều hạt, hạt nào cũng đen. (Đố trái cây)',
+      options: ['Nho', 'Dưa hấu', 'Lựu', 'Vải'],
       answer: 1
     },
     {
-      question: '红公鸡，绿尾巴，身体钻到地底下。（打一蔬菜）',
-      options: ['胡萝卜', '白萝卜', '红薯', '花生'],
+      question: 'Gà trống đỏ, đuôi xanh, thân chui xuống đất. (Đố rau củ)',
+      options: ['Cà rốt', 'Củ cải trắng', 'Khoai lang', 'Đậu Phộng'],
       answer: 0
     },
     {
-      question: '弟兄七八个，围着柱子坐，大家一分手，衣服全扯破。（打一食物）',
-      options: ['饺子', '包子', '蒜', '橘子'],
+      question: 'Bảy tám anh em ngồi quanh một cột, vừa tách nhau ra thì áo quần đều rách. (Đố món ăn)',
+      options: ['Há cảo', 'Bánh bao', 'Tỏi', 'Cam'],
       answer: 2
     },
     {
-      question: '头戴红帽子，身穿白袍子，走路摆架子，说话伸脖子。（打一动物）',
-      options: ['鸡', '鹅', '鹤', '鹦鹉'],
+      question: 'Đội mũ đỏ, mặc áo trắng, đi đứng oai vệ, nói chuyện thì vươn cổ. (Đố con vật)',
+      options: ['Gà', 'Ngỗng', 'Hạc', 'Vẹt'],
       answer: 1
     },
     {
-      question: '一物三口，有腿无手，谁要没它，难见亲友。（打一服饰）',
-      options: ['帽子', '裤子', '鞋子', '手套'],
+      question: 'Một vật ba miệng, có chân không tay; ai không có nó thì khó gặp người thân. (Đố trang phục)',
+      options: ['Mũ', 'Quần', 'Giày', 'Găng tay'],
       answer: 1
     },
     {
-      question: '小小一姑娘，坐在水中央，身穿粉红袄，阵阵放清香。（打一植物）',
-      options: ['睡莲', '荷花', '菊花', '兰花'],
+      question: 'Một cô gái nhỏ ngồi giữa nước, mặc áo hồng, tỏa hương thơm. (Đố thực vật)',
+      options: ['Hoa súng', 'Hoa sen', 'Hoa Cúc', 'Hoa lan'],
       answer: 1
     },
     {
-      question: '一个老头，不跑不走，请他睡觉，他就摇头。（打一物品）',
-      options: ['钟摆', '不倒翁', '秋千', '风车'],
+      question: 'Một ông già không chạy không đi, bảo ông ngủ thì ông lắc đầu. (Đố đồ vật)',
+      options: ['Quả lắc đồng hồ', 'Con lật đật', 'Xích đu', 'Cối xay gió'],
       answer: 1
     },
     {
-      question: '有头无颈，有眼无眉，无脚能走，有翅难飞。（打一动物）',
-      options: ['蛇', '鱼', '蚕', '蜗牛'],
+      question: 'Có đầu không cổ, có mắt không mày, không chân vẫn đi, có cánh khó bay. (Đố con vật)',
+      options: ['Rắn', 'Cá', 'Tằm', 'Ốc Sên'],
       answer: 1
     },
     {
-      question: '驼背公公，力大无穷，爱驮什么？车水马龙。（打一物）',
-      options: ['桥', '路', '船', '车'],
+      question: 'Ông già lưng gù, sức mạnh vô cùng, thích cõng gì? Xe cộ ngựa xe. (Đố đồ vật)',
+      options: ['Cầu', 'Đường', 'Thuyền', 'Xe'],
       answer: 0
     },
     {
-      question: '上不怕水，下不怕火，家家厨房，都有一个。（打一厨具）',
-      options: ['菜刀', '锅', '碗', '案板'],
+      question: 'Trên không sợ nước, dưới không sợ lửa, nhà bếp nào cũng có một cái. (Đố dụng cụ bếp)',
+      options: ['Dao bếp', 'Nồi', 'Bát', 'Thớt'],
       answer: 1
     },
-    // === 中国文化/节日/诗词 ===
+    // === trongquốcvănhóa/lễngày/thơtừ ===
     {
-      question: '「但愿人长久，千里共婵娟」中的「婵娟」指什么？',
-      options: ['美人', '月亮', '太阳', '星辰'],
+      question: 'Trong câu “Chỉ mong người lâu dài, ngàn dặm cùng thiền quyên”, “thiền quyên” chỉ gì?',
+      options: ['Mỹ nhân', 'Mặt trăng', 'Mặt trời', 'Tinh tú'],
       answer: 1
     },
     {
-      question: '七夕节又叫什么节？',
-      options: ['元宵节', '花朝节', '乞巧节', '上巳节'],
+      question: 'Lễ Thất Tịch còn gọi là lễ gì?',
+      options: ['Tết Nguyên Tiêu', 'Lễ Hội Trăm Hoa', 'Lễ Khất Xảo', 'Tết Thượng Tỵ'],
       answer: 2
     },
     {
-      question: '「爆竹声中一岁除」出自哪位诗人？',
-      options: ['李白', '杜甫', '苏轼', '王安石'],
+      question: 'Câu “Trong tiếng pháo, một năm qua đi” của nhà thơ nào?',
+      options: ['Lý Bạch', 'Đỗ Phủ', 'Tô Thức', 'Vương An Thạch'],
       answer: 3
     },
     {
-      question: '古代「五谷」中不包括以下哪一种？',
-      options: ['稻', '麦', '棉', '黍'],
+      question: 'Trong “ngũ cốc” cổ đại, loại nào không bao gồm?',
+      options: ['Lúa', 'Lúa mì', 'Bông', 'Kê'],
       answer: 2
     },
     {
-      question: '「清明时节雨纷纷」的下一句是？',
-      options: ['路上行人欲断魂', '牧童遥指杏花村', '借问酒家何处有', '独在异乡为异客'],
+      question: 'Câu tiếp theo của “Thanh Minh tiết trời mưa rả rích” là?',
+      options: ['Người đi đường muốn đứt hồn', 'Mục đồng từ xa chỉ làng hoa hạnh', 'Xin hỏi quán rượu ở đâu', 'Một mình nơi đất khách làm khách lạ'],
       answer: 0
     },
     {
-      question: '农历五月初五是什么节日？',
-      options: ['中秋节', '重阳节', '端午节', '七夕节'],
+      question: 'Mùng năm tháng năm âm lịch là lễ gì?',
+      options: ['Tết Trung Thu', 'Tết Trùng Dương', 'Tết Đoan Ngọ', 'Lễ Thất Tịch'],
       answer: 2
     },
     {
-      question: '「举头望明月」的下一句是？',
-      options: ['疑是地上霜', '低头思故乡', '月是故乡明', '对影成三人'],
+      question: 'Câu tiếp theo của “Ngẩng đầu ngắm trăng sáng” là?',
+      options: ['Ngỡ là sương trên mặt đất', 'Cúi đầu nhớ quê hương', 'Trăng quê hương sáng hơn', 'Đối bóng thành ba người'],
       answer: 1
     },
     {
-      question: '古代的「文房四宝」不包括以下哪项？',
-      options: ['笔', '墨', '纸', '尺'],
+      question: '“Bốn báu vật văn phòng” cổ đại không gồm món nào?',
+      options: ['Bút', 'Mực', 'Giấy', 'Thước'],
       answer: 3
     },
     {
-      question: '「春眠不觉晓」的下一句是？',
-      options: ['处处闻啼鸟', '花落知多少', '夜来风雨声', '春风花草香'],
+      question: 'Câu tiếp theo của “Xuân miên bất giác hiểu” là?',
+      options: ['Nơi nơi nghe chim hót', 'Hoa rơi biết bao nhiêu', 'Đêm qua tiếng gió mưa', 'Gió xuân hương hoa cỏ'],
       answer: 0
     },
     {
-      question: '二十四节气中，立春之后是哪个节气？',
-      options: ['惊蛰', '雨水', '春分', '清明'],
+      question: 'Trong 24 tiết khí, sau Lập Xuân là tiết khí nào?',
+      options: ['Kinh Trập', 'Vũ Thủy', 'Xuân Phân', 'Thanh Minh'],
       answer: 1
     },
     {
-      question: '古人说「岁寒三友」，指的是哪三种植物？',
-      options: ['梅兰竹', '松竹梅', '兰菊梅', '松兰竹'],
+      question: '“Ba người bạn mùa lạnh” chỉ ba loài cây nào?',
+      options: ['Mai Lan Trúc', 'Tùng Trúc Mai', 'Lan Cúc Mai', 'Tùng Lan Trúc'],
       answer: 1
     },
     {
-      question: '「床前明月光」中的「床」最可能指什么？',
-      options: ['睡床', '井栏', '胡床', '窗台'],
+      question: '“Giường trước ánh trăng sáng” — “giường” có khả năng chỉ gì?',
+      options: ['Giường ngủ', 'Thành giếng', 'Ghế Hồ', 'Bệ cửa sổ'],
       answer: 1
     },
     {
-      question: '重阳节有什么传统习俗？',
-      options: ['吃汤圆', '登高望远', '放河灯', '踏青'],
+      question: 'Tết Trùng Dương có phong tục gì?',
+      options: ['Ăn bánh trôi', 'Lên cao ngắm cảnh', 'Thả đèn hoa đăng', 'Du xuân'],
       answer: 1
     },
     {
-      question: '「人面不知何处去」的下一句是？',
-      options: ['桃花依旧笑春风', '春风不度玉门关', '花开花落两由之', '落花时节又逢君'],
+      question: 'Câu tiếp theo của “Mặt người không biết đi đâu” là?',
+      options: ['Hoa đào vẫn cười trong gió xuân', 'Gió xuân không qua ải Ngọc Môn', 'Hoa nở hoa tàn mặc cho tự nhiên', 'Mùa hoa rụng lại gặp người'],
       answer: 0
     },
     {
-      question: '端午节吃粽子是为了纪念谁？',
-      options: ['孔子', '屈原', '李白', '诸葛亮'],
+      question: 'Tết Đoan Ngọ ăn bánh ú để tưởng niệm ai?',
+      options: ['Khổng Tử', 'Khuất Nguyên', 'Lý Bạch', 'Gia Cát Lượng'],
       answer: 1
     },
     {
-      question: '「采菊东篱下」的下一句是？',
-      options: ['悠然见南山', '把酒问青天', '独钓寒江雪', '春来江水绿如蓝'],
+      question: 'Câu tiếp theo của “Hái cúc dưới hàng rào phía đông” là?',
+      options: ['Thảnh thơi ngắm Nam Sơn', 'Nâng chén hỏi trời xanh', 'Một mình câu cá giữa tuyết sông lạnh', 'Xuân về nước sông xanh như lam'],
       answer: 0
     },
-    // === 自然/农耕/动物 ===
+    // === tựnhiên/nôngcanh tác/tácvật ===
     {
-      question: '圆圆脸儿像苹果，又酸又甜营养多，既能做菜吃，又能当水果。（打一蔬果）',
-      options: ['番茄', '苹果', '桃子', '杏子'],
+      question: 'Mặt tròn như táo, chua ngọt và giàu dinh dưỡng, vừa làm rau vừa làm trái. (Đố rau quả)',
+      options: ['Cà chua', 'Táo', 'Đào', 'Mơ'],
       answer: 0
     },
     {
-      question: '看看圆，摸摸麻，包着一肚小月牙。（打一食物）',
-      options: ['核桃', '花生', '橘子', '石榴'],
+      question: 'Nhìn tròn, sờ sần, bên trong đầy những “mặt trăng nhỏ”. (Đố món ăn)',
+      options: ['Quả óc chó', 'Đậu Phộng', 'Cam', 'Lựu'],
       answer: 2
     },
     {
-      question: '白嫩小宝宝，洗澡吹泡泡，洗洗身体小，再洗不见了。（打一日用品）',
-      options: ['毛巾', '肥皂', '牙膏', '香囊'],
+      question: 'Em bé trắng nõn, tắm rửa tạo bọt, càng rửa càng nhỏ rồi biến mất. (Đố đồ dùng)',
+      options: ['Khăn mặt', 'Xà phòng', 'Kem đánh răng', 'Túi thơm'],
       answer: 1
     },
     {
-      question: '一根竹管二尺长，开了七个小圆窗，对准一个窗口吹，悠悠乐声传四方。（打一乐器）',
-      options: ['箫', '笛子', '埙', '琵琶'],
+      question: 'Ống tre dài hai thước, có bảy lỗ tròn, thổi vào một lỗ thì tiếng nhạc vang xa. (Đố nhạc cụ)',
+      options: ['Tiêu', 'Sáo', 'Huân', 'Tỳ bà'],
       answer: 1
     },
     {
-      question: '说它是头牛，不能拉犁走，说它力气小，却能背屋走。（打一动物）',
-      options: ['蜗牛', '犀牛', '水牛', '蚂蚁'],
+      question: 'Nói là con bò nhưng không kéo cày, sức nhỏ mà có thể “cõng cả ngôi nhà”. (Đố con vật)',
+      options: ['Ốc Sên', 'Tê giác', 'Trâu nước', 'Kiến'],
       answer: 0
     },
     {
-      question: '有翅不是鸟，有腿不会跑，无巢住树上，鸣叫赛百鸟。（打一昆虫）',
-      options: ['蜜蜂', '蝴蝶', '蝉', '蟋蟀'],
+      question: 'Có cánh không phải chim, có chân không biết chạy, không làm tổ mà sống trên cây, tiếng kêu hơn trăm loài chim. (Đố côn trùng)',
+      options: ['Ong', 'Bướm', 'Ve sầu', 'Dế'],
       answer: 2
     },
     {
-      question: '两叶花四朵，颜色白又黄，一年开一次，八月放清香。（打一植物）',
-      options: ['兰花', '菊花', '桂花', '荷花'],
+      question: 'Hai lá bốn hoa, màu trắng pha vàng, mỗi năm nở một lần, tháng tám tỏa hương. (Đố thực vật)',
+      options: ['Hoa lan', 'Hoa Cúc', 'Hoa Quế', 'Hoa sen'],
       answer: 2
     },
     {
-      question: '四四方方一座城，城里住着十万兵，派出将军去攻打，万马奔腾杀敌人。（打一物品）',
-      options: ['棋盘', '算盘', '印章', '砚台'],
+      question: 'Một tòa thành vuông vức, bên trong có trăm nghìn binh lính, phái tướng quân đi đánh trận. (Đố đồ vật)',
+      options: ['Bàn cờ', 'Bàn tính', 'Con dấu', 'Nghiên mực'],
       answer: 0
     }
   ]
 
-  /** 前2题7秒，后3题6秒 */
+  /** trước2câu7giây，sau3câu6giây */
   const currentTimeLimit = ref(7)
 
   const gameRiddles = ref<Riddle[]>([])

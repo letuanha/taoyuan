@@ -24,84 +24,84 @@ export const WEATHER_FORAGE_MODIFIER: Record<Weather, number> = {
 export const FORAGE_ITEMS: ForageItemDef[] = [
   {
     itemId: 'bamboo',
-    name: '竹子',
+    name: 'Tre trúc',
     season: ['spring', 'summer', 'autumn'],
     chance: 0.5,
     expReward: 3
   },
   {
     itemId: 'wood',
-    name: '木材',
+    name: 'Gỗ',
     season: ['spring', 'summer', 'autumn', 'winter'],
     chance: 0.6,
     expReward: 2
   },
   {
     itemId: 'herb',
-    name: '草药',
+    name: 'Thảo dược',
     season: ['spring', 'summer', 'autumn'],
     chance: 0.3,
     expReward: 5
   },
   {
     itemId: 'firewood',
-    name: '柴火',
+    name: 'Củi khô',
     season: ['spring', 'summer', 'autumn', 'winter'],
     chance: 0.7,
     expReward: 1
   },
   {
     itemId: 'winter_bamboo_shoot',
-    name: '冬笋',
+    name: 'Măng Đông',
     season: ['winter'],
     chance: 0.35,
     expReward: 8
   },
   {
     itemId: 'wintersweet',
-    name: '腊梅',
+    name: 'Hoa Mai',
     season: ['winter'],
     chance: 0.2,
     expReward: 10
   },
   {
     itemId: 'wild_mushroom',
-    name: '野蘑菇',
+    name: 'Nấm rừng',
     season: ['autumn'],
     chance: 0.35,
     expReward: 6
   },
   {
     itemId: 'ginseng',
-    name: '人参',
+    name: 'Nhân Sâm',
     season: ['autumn', 'winter'],
     chance: 0.1,
     expReward: 15
   },
   {
     itemId: 'wild_berry',
-    name: '野果',
+    name: 'Quả dại',
     season: ['summer'],
     chance: 0.4,
     expReward: 4
   },
   {
     itemId: 'pine_cone',
-    name: '松果',
+    name: 'Quả thông',
     season: ['autumn', 'winter'],
     chance: 0.3,
     expReward: 5
   },
   {
     itemId: 'camphor_seed',
-    name: '樟树种子',
+    name: 'Hạt Giống Cây Long Não',
     season: ['spring', 'summer'],
     chance: 0.15,
     expReward: 5
   },
   {
     itemId: 'mulberry',
-    name: '桑葚',
+    name: 'Quả Dâu Tằm',
     season: ['summer', 'autumn'],
     chance: 0.2,
     expReward: 4
@@ -110,35 +110,35 @@ export const FORAGE_ITEMS: ForageItemDef[] = [
   // ===== 稀有采集物（博物馆化石/古物） =====
   {
     itemId: 'ancient_pottery',
-    name: '古陶片',
+    name: 'Mảnh gốm cổ',
     season: ['spring', 'summer', 'autumn', 'winter'],
     chance: 0.03,
     expReward: 12
   },
   {
     itemId: 'bamboo_scroll',
-    name: '竹简',
+    name: 'Thẻ tre',
     season: ['spring', 'summer', 'autumn'],
     chance: 0.03,
     expReward: 12
   },
   {
     itemId: 'stone_axe_head',
-    name: '石斧头',
+    name: 'Rìu đá',
     season: ['spring', 'summer', 'autumn', 'winter'],
     chance: 0.04,
     expReward: 10
   },
   {
     itemId: 'fern_fossil',
-    name: '蕨叶化石',
+    name: 'Hóa thạch lá dương xỉ',
     season: ['spring', 'summer', 'autumn'],
     chance: 0.03,
     expReward: 12
   },
   {
     itemId: 'petrified_wood',
-    name: '石化木',
+    name: 'Gỗ hóa đá',
     season: ['autumn', 'winter'],
     chance: 0.04,
     expReward: 10
@@ -169,7 +169,7 @@ export interface FriendlyAnimalDef {
 export const FRIENDLY_ANIMALS: FriendlyAnimalDef[] = [
   {
     id: 'wild_chicken',
-    name: '野鸡',
+    name: 'Gà Rừng',
     productItemId: 'egg',
     collectExp: 5,
     chaseExp: 8,
@@ -178,7 +178,7 @@ export const FRIENDLY_ANIMALS: FriendlyAnimalDef[] = [
   },
   {
     id: 'wild_cow',
-    name: '野牛',
+    name: 'Bò Rừng',
     productItemId: 'milk',
     collectExp: 5,
     chaseExp: 8,
@@ -187,7 +187,7 @@ export const FRIENDLY_ANIMALS: FriendlyAnimalDef[] = [
   },
   {
     id: 'wild_rabbit',
-    name: '野兔',
+    name: 'Thỏ Rừng',
     productItemId: 'rabbit_fur',
     collectExp: 5,
     chaseExp: 8,
@@ -196,7 +196,7 @@ export const FRIENDLY_ANIMALS: FriendlyAnimalDef[] = [
   },
   {
     id: 'wild_goat',
-    name: '野山羊',
+    name: 'Dê Rừng',
     productItemId: 'goat_milk',
     collectExp: 5,
     chaseExp: 8,
@@ -209,7 +209,7 @@ export const FRIENDLY_ANIMALS: FriendlyAnimalDef[] = [
 export const HOSTILE_ANIMALS: MonsterDef[] = [
   {
     id: 'forest_wolf',
-    name: '竹林狼',
+    name: 'Sói Rừng Trúc',
     hp: 40,
     attack: 12,
     defense: 3,
@@ -218,11 +218,11 @@ export const HOSTILE_ANIMALS: MonsterDef[] = [
       { itemId: 'wolf_pelt', chance: 0.6 },
       { itemId: 'wolf_fang', chance: 0.3 }
     ],
-    description: '在竹林中游荡的灰狼，警觉而凶猛。'
+    description: 'Sói xám lảng vảng trong rừng trúc, cảnh giác và hung dữ.'
   },
   {
     id: 'forest_bear',
-    name: '黑熊',
+    name: 'Gấu Đen',
     hp: 70,
     attack: 18,
     defense: 5,
@@ -232,11 +232,11 @@ export const HOSTILE_ANIMALS: MonsterDef[] = [
       { itemId: 'bear_gall', chance: 0.2 },
       { itemId: 'honey', chance: 0.4 }
     ],
-    description: '体型庞大的黑熊，力量惊人。'
+    description: 'Gấu đen có thân hình to lớn, sức mạnh kinh người.'
   },
   {
     id: 'forest_tiger',
-    name: '猛虎',
+    name: 'Mãnh Hổ',
     hp: 100,
     attack: 25,
     defense: 8,
@@ -246,7 +246,7 @@ export const HOSTILE_ANIMALS: MonsterDef[] = [
       { itemId: 'tiger_bone', chance: 0.25 },
       { itemId: 'tiger_fang', chance: 0.3 }
     ],
-    description: '竹林之王，极其危险的猛兽。'
+    description: 'Vua của rừng trúc, dã thú cực kỳ nguy hiểm.'
   }
 ]
 

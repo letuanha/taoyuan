@@ -9,24 +9,24 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'long_ling_heart_1',
     npcId: 'long_ling',
     requiredFriendship: 800,
-    title: '鳞光下的低语',
+    title: 'Lời thì thầm dưới ánh vảy sáng',
     scenes: [
       {
-        text: '你来到瀑布边打坐，水雾中一道翠色鳞光若隐若现。龙灵的声音在水声中响起：'
+        text: 'Bạn đến bên thác nước để ngồi thiền, trong làn sương mù mờ ảo một tia sáng vảy xanh thoắt ẩn thoắt hiện. Giọng nói của Long Linh vang lên giữa tiếng nước chảy:'
       },
-      { text: '「你是第一个能听见我声音的凡人……已有百年无人走近这潭水了。」' },
+      { text: '「Ngươi là phàm nhân đầu tiên có thể nghe được tiếng nói của ta... Đã cả trăm năm rồi không có ai bước tới gần đầm nước này.」' },
       {
-        text: '龙灵的目光落在你身上，似乎在审视什么。',
+        text: 'Ánh mắt của Long Linh dừng lại trên người bạn, dường như đang xem xét điều gì đó.',
         choices: [
           {
-            text: '「为什么选择在这里栖息？」',
+            text: '「Tại sao lại chọn nương mình ở nơi này?」',
             friendshipChange: 30,
-            response: '「此处灵脉交汇，是桃源乡气运所在。我守护的……不只是这潭水。」'
+            response: '「Nơi này là giao điểm của các linh mạch, là nơi hội tụ khí vận của Đào Nguyên Hương. Thứ ta bảo vệ... không chỉ là đầm nước này.」'
           },
           {
-            text: '「你一定很寂寞吧。」',
+            text: '「Cô nhất định là rất cô đơn nhỉ.」',
             friendshipChange: 50,
-            response: '龙灵沉默了很久，最终轻声说：「……寂寞是有的。」水面泛起微微涟漪。'
+            response: 'Long Linh im lặng hồi lâu, cuối cùng cất giọng nhè nhẹ: 「... Cô đơn thì cũng có.」 Mặt nước gợn lên những vòng sóng lăn tăn.'
           }
         ]
       }
@@ -36,25 +36,25 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'long_ling_heart_2',
     npcId: 'long_ling',
     requiredFriendship: 1600,
-    title: '龙珠之忆',
+    title: 'Ký ức của Long Châu',
     scenes: [
       {
-        text: '今夜月色格外明亮，瀑布潭水中映出一轮完整的月亮。龙灵的身形在月光下完整显现——一条通体翠绿的灵龙，优雅而威严。'
+        text: 'Đêm nay ánh trăng đặc biệt vằng vặc, trong đầm nước dưới thác phản chiếu vầng trăng tròn vành vạnh. Thân ảnh của Long Linh hiện ra trọn vẹn dưới ánh trăng —— một con linh long toàn thân xanh biếc, thanh tao mà uy nghiêm.'
       },
-      { text: '「你可知我的真名吗？」龙灵问道，声音中带着一丝期待。' },
-      { text: '「千年前，我化形时曾有一个名字……沧澜。意为沧海微澜。」' },
+      { text: '「Ngươi có biết tên thật của ta không?」 Long Linh hỏi, trong giọng nói mang theo một tia chờ mong.' },
+      { text: '「Ngàn năm trước, khi ta mới hóa hình từng có một cái tên... Thương Lan. Có nghĩa là những gợn sóng nhỏ trên biển xanh bao la.」' },
       {
-        text: '龙灵从水中托出一颗微微发光的珠子。「这是我的逆鳞下曾藏过的旧物。」',
+        text: 'Long Linh từ dưới nước nâng lên một viên minh châu tỏa sáng nhè nhẹ. 「Đây là kỷ vật từng cất giấu dưới mảnh nghịch lân của ta.」',
         choices: [
           {
-            text: '「我会好好珍惜的。」',
+            text: '「Tôi sẽ trân trọng nó thật tốt.」',
             friendshipChange: 50,
-            response: '龙灵点头，水面泛起温柔的光：「你是唯一让我愿意取出它的人。」'
+            response: 'Long Linh gật đầu, mặt nước ánh lên luồng sáng dịu dàng: 「Ngươi là người duy nhất khiến ta sẵn lòng mang nó ra.」'
           },
           {
-            text: '小心翼翼地接过珠子。',
+            text: 'Cẩn thận từng li từng tí nhận lấy viên ngọc.',
             friendshipChange: 30,
-            response: '珠子入手温凉，内有微弱的脉动，如同心跳。'
+            response: 'Viên châu cầm vào ấm mát, bên trong có tiếng đập nhè nhẹ, giống như nhịp tim vậy.'
           }
         ]
       }
@@ -64,31 +64,31 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'long_ling_heart_3',
     npcId: 'long_ling',
     requiredFriendship: 2400,
-    title: '沧澜之约',
+    title: 'Lời hẹn ước Thương Lan',
     scenes: [
       {
-        text: '暴风雨夜，瀑布水量暴涨。你冒雨赶来，发现龙灵正以灵力稳住即将决堤的潭水。'
+        text: 'Đêm giông bão, lượng nước của thác chảy xiết dữ dội. Bạn đội mưa chạy tới, phát hiện Long Linh đang dùng linh lực để giữ vững đầm nước sắp vỡ bờ.'
       },
       {
-        text: '「走开！」龙灵喝道，但声音中满是疲惫，「今夜灵脉紊乱……我撑不了多久。」'
+        text: '「Tránh ra!」 Long Linh hét lên, nhưng trong giọng nói ngập tràn sự mệt mỏi, 「Đêm nay linh mạch hỗn loạn... ta không trụ được bao lâu nữa đâu.」'
       },
       {
-        text: '你看到龙灵的鳞片开始暗淡，她的力量正在消耗殆尽。',
+        text: 'Bạn thấy vảy của Long Linh bắt đầu mờ đi, sức mạnh của nàng đang bị tiêu hao đến kiệt quệ.',
         choices: [
           {
-            text: '冲进水中，将灵力供奉递给龙灵。',
+            text: 'Lao vào dòng nước, đưa Đồ Cúng Linh Lực cho Long Linh.',
             friendshipChange: 80,
-            response: '你的行动让龙灵一愣。她接过供奉，灵力缓缓恢复。风雨渐息后，她轻声道：「……谢谢你。」'
+            response: 'Hành động của bạn làm Long Linh sững sờ. Nàng nhận lấy đồ cúng, linh lực chầm chậm khôi phục lại. Sau khi gió mưa ngớt đi, nàng khẽ nói: 「... Cảm ơn ngươi.」'
           },
           {
-            text: '在岸边为她祈祷，集中精神传递念头。',
+            text: 'Đứng trên bờ chắp tay cầu nguyện cho nàng, tập trung tinh thần truyền đi tâm niệm.',
             friendshipChange: 60,
-            response: '一股温暖的力量从你心中涌出，龙灵感应到了。「你的心意……我收到了。」暴雨渐停。'
+            response: 'Một luồng sức mạnh ấm áp trào ra từ trong tim bạn, Long Linh đã cảm ứng được nó. 「Tâm ý của ngươi... ta đã nhận được rồi.」 Cơn mưa lớn từ từ tạnh hẳn.'
           }
         ]
       },
       {
-        text: '风雨过后，龙灵第一次以人形出现在你面前——一位身着翠衣的女子。「从今往后，唤我沧澜便好。」'
+        text: 'Sau cơn mưa bão, Long Linh lần đầu tiên xuất hiện dưới hình người trước mặt bạn —— một nữ tử khoác y phục xanh biếc. 「Từ nay về sau, cứ gọi ta là Thương Lan.」'
       }
     ]
   },
@@ -100,26 +100,26 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'tao_yao_heart_1',
     npcId: 'tao_yao',
     requiredFriendship: 800,
-    title: '花语',
+    title: 'Hoa Ngữ',
     scenes: [
       {
-        text: '清晨，你发现农场的桃树下多了一圈不知名的小花。花瓣上还带着露水，散发着淡淡的甜香。'
+        text: 'Buổi sáng, bạn phát hiện dưới gốc đào trong nông trại mọc thêm một vòng những bông hoa nhỏ vô danh. Trên cánh hoa vẫn còn đọng sương mai, tỏa ra hương thơm ngọt ngào nhè nhẹ.'
       },
       {
-        text: '桃夭从花丛中探出头来：「这些是我种的，好看吗？」她的笑容像春天本身。'
+        text: 'Đào Yêu thò đầu ra từ giữa khóm hoa: 「Hoa này là ta trồng đấy, đẹp không?」 Nụ cười của nàng trông như chính mùa xuân vậy.'
       },
       {
-        text: '她摘下一朵小花递给你。',
+        text: 'Nàng hái một bông hoa nhỏ đưa cho bạn.',
         choices: [
           {
-            text: '「很美，谢谢你。」',
+            text: '「Rất đẹp, cảm ơn cô nhé.」',
             friendshipChange: 40,
-            response: '桃夭笑得更灿烂了：「你喜欢就好。以后我每天都种一朵。」'
+            response: 'Đào Yêu cười rạng rỡ hơn hẳn: 「Ngươi thích là được rồi. Sau này ngày nào ta cũng trồng một bông.」'
           },
           {
-            text: '把花别在她耳边。',
+            text: 'Cài bông hoa lên mang tai nàng.',
             friendshipChange: 60,
-            response: '桃夭愣了一下，脸颊泛起桃花般的红晕：「你……你做什么呀……」但她没有取下那朵花。'
+            response: 'Đào Yêu sững sờ mất một lúc, đôi gò má ửng lên một ráng hồng như hoa đào: 「Ngươi... ngươi làm cái gì vậy...」 Nhưng nàng cũng không tháo bông hoa đó xuống.'
           }
         ]
       }
@@ -129,26 +129,26 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'tao_yao_heart_2',
     npcId: 'tao_yao',
     requiredFriendship: 1600,
-    title: '落花有意',
+    title: 'Lạc Hoa Hữu Ý',
     scenes: [
       {
-        text: '你发现桃夭独自坐在最古老的那棵桃树下，花瓣如雨般落下，她的身形在花雨中若隐若现。'
+        text: 'Bạn thấy Đào Yêu ngồi thui thủi một mình dưới gốc đào cổ thụ già nhất, những cánh hoa rơi rụng như mưa, thân ảnh của nàng thoắt ẩn thoắt hiện giữa cơn mưa hoa ấy.'
       },
       {
-        text: '「这棵树……是我出生的地方。」她的声音很轻，「已经三百年了。每到春天，我都会回到这里。」'
+        text: '「Cái cây này... là nơi ta sinh ra.」 Giọng nàng rất khẽ, 「Đã ba trăm năm rồi. Cứ mỗi độ xuân về, ta đều quay lại nơi này.」'
       },
       {
-        text: '你注意到她的手中捧着一片枯叶——桃树唯一枯黄的叶子。',
+        text: 'Bạn để ý thấy trong tay nàng đang nâng một chiếc lá khô —— chiếc lá héo úa duy nhất của cây đào.',
         choices: [
           {
-            text: '「树生病了吗？」',
+            text: '「Cây bị bệnh rồi sao?」',
             friendshipChange: 30,
-            response: '「不是……是我的根基在衰弱。」她看向你，「但自从你来了之后，这片土地又有了生机。」'
+            response: '「Không phải... là do căn cơ của ta đang suy yếu.」 Nàng nhìn về phía bạn, 「Nhưng từ khi ngươi tới đây, mảnh đất này lại tràn đầy sức sống.」'
           },
           {
-            text: '默默坐到她身边。',
+            text: 'Lặng lẽ ngồi xuống bên cạnh nàng.',
             friendshipChange: 50,
-            response: '桃夭靠过来，将头轻轻倚在你肩上。花瓣落在你们的头顶，像一场无声的祝福。'
+            response: 'Đào Yêu tựa sát lại gần, khẽ ngả đầu lên vai bạn. Những cánh hoa rơi lả tả trên đỉnh đầu hai người, tựa như một lời cầu phúc không thành tiếng.'
           }
         ]
       }
@@ -158,32 +158,32 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'tao_yao_heart_3',
     npcId: 'tao_yao',
     requiredFriendship: 2400,
-    title: '灵桃之心',
+    title: 'Trái Tim Linh Đào',
     scenes: [
       {
-        text: '春末最后一天，你发现桃夭站在老桃树前，双手合十，全身散发着柔和的光芒。'
+        text: 'Ngày cuối cùng của mùa xuân, bạn phát hiện Đào Yêu đang đứng trước cây đào già, hai tay chắp lại, toàn thân tỏa ra luồng ánh sáng dịu nhẹ.'
       },
       {
-        text: '「我在做一件很重要的事。」她说，声音有些颤抖。「把我最后的灵力注入这棵树……这样它就能再活三百年。」'
+        text: '「Ta đang làm một việc rất quan trọng.」 Nàng nói, giọng nói hơi run rẩy. 「Truyền chút linh lực cuối cùng của ta vào cái cây này... như vậy nó có thể sống thêm ba trăm năm nữa.」'
       },
-      { text: '「但代价是……我可能会沉睡很久。」' },
+      { text: '「Nhưng cái giá phải trả là... ta có thể sẽ rơi vào giấc ngủ say rất dài.」' },
       {
-        text: '你感到心中一紧。',
+        text: 'Bạn cảm thấy tim mình thắt lại.',
         choices: [
           {
-            text: '握住她的手：「让我帮你分担。」',
+            text: 'Nắm lấy tay nàng: 「Hãy để tôi chia sẻ gánh nặng cùng cô.」',
             friendshipChange: 80,
-            response: '你的体温透过指尖传递给她。桃夭睁大了眼睛——灵力不减反增。「原来……人的心意也可以成为灵力。」'
+            response: 'Hơi ấm của bạn truyền qua những đầu ngón tay chạm vào nàng. Đào Yêu mở to hai mắt —— linh lực chẳng những không giảm mà còn tăng lên. 「Hóa ra... tâm ý của con người cũng có thể biến thành linh lực.」'
           },
           {
-            text: '「我会每天照顾这棵树的。」',
+            text: '「Tôi sẽ chăm sóc cái cây này mỗi ngày.」',
             friendshipChange: 60,
-            response: '桃夭微笑着点头：「有你在，我放心了。」她从树上摘下一颗金色的桃子递给你，「这是灵桃，是我的心意。」'
+            response: 'Đào Yêu mỉm cười gật đầu: 「Có ngươi ở đây, ta yên tâm rồi.」 Nàng hái một quả đào màu vàng ươm từ trên cây đưa cho bạn, 「Đây là Linh Đào, là tấm lòng của ta.」'
           }
         ]
       },
       {
-        text: '老桃树重新焕发生机，枝头缀满了花苞。桃夭看着这一切，脸上是满足的笑容：「谢谢你，让我不再孤单。」'
+        text: 'Cây đào già bừng bừng sức sống trở lại, trên cành chi chít những nụ hoa. Đào Yêu nhìn tất thảy mọi thứ, trên mặt là nụ cười thỏa mãn: 「Cảm ơn ngươi, đã giúp ta không còn cô đơn nữa.」'
       }
     ]
   },
@@ -195,26 +195,26 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'yue_tu_heart_1',
     npcId: 'yue_tu',
     requiredFriendship: 800,
-    title: '药杵的节拍',
+    title: 'Nhịp Điệu Chày Giã Thuốc',
     scenes: [
       {
-        text: '月光下的竹林里传来叮叮当当的声响。循声而去，你发现月兔正用玉杵捣着什么。'
+        text: 'Dưới ánh trăng, trong rừng trúc truyền ra tiếng lanh canh loảng xoảng. Đi theo âm thanh, bạn phát hiện Nguyệt Thỏ đang cầm chiếc chày ngọc giã thứ gì đó.'
       },
       {
-        text: '「嘘——别吵！」她竖起耳朵（真的有兔耳朵在帽子下面），「我在配一种特殊的药。」'
+        text: '「Suỵt —— Đừng ồn!」 Nàng dựng đứng hai tai lên (bên dưới mũ thực sự có hai cái tai thỏ), 「Ta đang bào chế một loại thuốc đặc biệt.」'
       },
       {
-        text: '她手忙脚乱地把各种草药扔进臼中，节拍越来越快。',
+        text: 'Nàng luống cuống tay chân ném đủ loại thảo dược vào cối, nhịp điệu ngày càng nhanh hơn.',
         choices: [
           {
-            text: '帮她稳住药臼。',
+            text: 'Giúp nàng giữ chặt cối giã thuốc.',
             friendshipChange: 40,
-            response: '「诶？你的手好稳啊！」月兔感激地笑了，「有你帮忙，这药一定能成。」'
+            response: '「Ế? Tay ngươi vững thật đấy!」 Nguyệt Thỏ cười đầy biết ơn, 「Có ngươi hỗ trợ, mẻ thuốc này chắc chắn sẽ thành công.」'
           },
           {
-            text: '跟着节拍一起打拍子。',
+            text: 'Bắt nhịp hòa cùng tiếng chày giã thuốc.',
             friendshipChange: 50,
-            response: '月兔一愣，随即咯咯笑起来：「你跟着一起捣的样子好有趣！」药杵发出的声响竟变成了悦耳的旋律。'
+            response: 'Nguyệt Thỏ sửng sốt một chút, sau đó cười khanh khách: 「Dáng vẻ ngươi giả vờ giã thuốc chung buồn cười quá đi!」 Tiếng chày giã thuốc phát ra thế mà lại biến thành một giai điệu êm tai.'
           }
         ]
       }
@@ -224,26 +224,26 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'yue_tu_heart_2',
     npcId: 'yue_tu',
     requiredFriendship: 1600,
-    title: '月宫的秘密',
+    title: 'Bí Mật Của Nguyệt Cung',
     scenes: [
       {
-        text: '你发现月兔蹲在河边，盯着水中的月亮发呆。她的兔耳朵耷拉着，看起来很沮丧。'
+        text: 'Bạn thấy Nguyệt Thỏ đang ngồi xổm bên bờ sông, thẫn thờ nhìn bóng trăng dưới nước. Đôi tai thỏ của nàng rũ xuống, trông có vẻ rất phiền muộn.'
       },
       {
-        text: '「其实……我是偷跑下来的。」她小声说，「月宫里太无聊了，每天只有捣药、捣药、捣药……」'
+        text: '「Thực ra... ta là lén lút trốn xuống đây.」 Nàng lí nhí nói, 「Ở Nguyệt Cung chán ngắt, ngày nào cũng chỉ giã thuốc, giã thuốc, giã thuốc...」'
       },
       {
-        text: '她抬头看着天上的月亮：「可是有时候……我也会想念那里。」',
+        text: 'Nàng ngẩng đầu nhìn vầng trăng trên trời: 「Nhưng mà đôi khi... ta cũng thấy nhớ nơi đó.」',
         choices: [
           {
-            text: '「这里不好吗？」',
+            text: '「Ở đây không tốt sao?」',
             friendshipChange: 30,
-            response: '「这里很好！有花有草有好吃的！」她的耳朵竖了起来，「还有……你。」她赶紧低下头，耳朵尖红了。'
+            response: '「Ở đây rất tốt! Có hoa có cỏ có đồ ăn ngon!」 Lỗ tai nàng dựng đứng lên, 「Còn có... ngươi.」 Nàng vội vàng cúi gằm mặt xuống, vành tai ửng đỏ.'
           },
           {
-            text: '「你可以随时回去看看啊。」',
+            text: '「Cô có thể về thăm bất cứ lúc nào mà.」',
             friendshipChange: 50,
-            response: '「嗯……但是回去了就不容易再下来了。」她看向你，「所以我选择留在这里。」'
+            response: '「Ừm... nhưng quay về rồi thì rất khó để xuống lại nữa.」 Nàng nhìn bạn, 「Vì thế ta chọn cách ở lại nơi này.」'
           }
         ]
       }
@@ -253,29 +253,29 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'yue_tu_heart_3',
     npcId: 'yue_tu',
     requiredFriendship: 2400,
-    title: '不归的月兔',
+    title: 'Nguyệt Thỏ Không Về',
     scenes: [
       {
-        text: '中秋夜，一道金光从天而降落在村外的山丘上。月兔紧张地抓住你的袖子：「他们来找我了……」'
+        text: 'Đêm Trung Thu, một luồng kim quang từ trên trời giáng xuống ngọn đồi bên ngoài thôn. Nguyệt Thỏ căng thẳng tóm chặt lấy ống tay áo của bạn: 「Bọn họ tới tìm ta rồi...」'
       },
-      { text: '天空中传来庄严的声音：「玉兔，月宫需要你归位。」' },
+      { text: 'Từ trên bầu trời vọng xuống giọng nói uy nghiêm: 「Ngọc Thỏ, Nguyệt Cung cần ngươi quy vị.」' },
       {
-        text: '月兔浑身发抖，但她看向你的眼神中充满了不舍。',
+        text: 'Toàn thân Nguyệt Thỏ run bần bật, nhưng ánh mắt nàng nhìn bạn lại chan chứa sự quyến luyến không nỡ rời xa.',
         choices: [
           {
-            text: '「她已经找到了归处。」',
+            text: '「Cô ấy đã tìm được chốn để đi về rồi.」',
             friendshipChange: 80,
-            response: '你的声音坚定而清晰。天空沉默了片刻，最终金光缓缓消散。月兔紧紧抱住你：「谢谢你……」'
+            response: 'Giọng nói của bạn vô cùng kiên định rõ ràng. Bầu trời rơi vào khoảng lặng chốc lát, cuối cùng kim quang chầm chậm tan đi. Nguyệt Thỏ ôm chầm lấy bạn: 「Cảm ơn ngươi...」'
           },
           {
-            text: '握住她的手，不说话。',
+            text: 'Chỉ nắm chặt tay nàng, không nói một lời.',
             friendshipChange: 60,
-            response: '月兔感受到你掌心的温度，深吸一口气，对着天空喊道：「我不回去了！」金光渐渐消散。'
+            response: 'Nguyệt Thỏ cảm nhận được hơi ấm từ lòng bàn tay bạn, hít sâu một hơi rồi hét lên với bầu trời: 「Ta không về nữa đâu!」 Kim quang nhạt dần rồi tan đi mất.'
           }
         ]
       },
       {
-        text: '月光重归平静。月兔擦了擦眼角：「从今以后，这里就是我的月宫了。」'
+        text: 'Ánh trăng đã khôi phục lại vẻ bình yên vốn có. Nguyệt Thỏ đưa tay lau khóe mi: 「Từ nay về sau, nơi này chính là Nguyệt Cung của ta.」'
       }
     ]
   },
@@ -287,26 +287,26 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'hu_xian_heart_1',
     npcId: 'hu_xian',
     requiredFriendship: 800,
-    title: '狐火谜题',
+    title: 'Câu Đố Hồ Hỏa',
     scenes: [
       {
-        text: '黄昏时分，村口出现了几团飘忽不定的蓝色火焰。村民们纷纷回避，只有你好奇地靠近。'
+        text: 'Lúc hoàng hôn, đầu thôn xuất hiện vài khối hỏa diễm màu xanh lam cứ trôi nổi bất định. Dân làng ai nấy đều né tránh, chỉ có bạn là tò mò tiến lại gần.'
       },
       {
-        text: '「哟，胆子不小嘛。」狐仙从火焰后走出，手中把玩着一颗琉璃珠。「来玩个游戏如何？」'
+        text: '「Yo, gan cũng lớn đấy chứ.」 Hồ Tiên bước ra từ sau ngọn lửa, trong tay đùa nghịch một viên lưu ly. 「Đến chơi một trò chơi nhé?」'
       },
       {
-        text: '他伸出三只手——等等，三只？你揉了揉眼睛，确实只有两只手。一只手心里有珠子，另一只空的。「猜猜珠子在哪？」',
+        text: 'Hắn chìa ra ba cái tay —— khoan đã, ba cái? Bạn dụi dụi mắt, quả thực chỉ có hai cái tay thôi. Một tay cầm viên ngọc, tay kia thì trống không. 「Đoán xem viên ngọc ở đâu nào?」',
         choices: [
           {
-            text: '指向他的左手。',
+            text: 'Chỉ vào tay trái của hắn.',
             friendshipChange: 20,
-            response: '他摊开左手——空的。摊开右手——也是空的。珠子不知何时已经出现在你的口袋里。「下次再来玩呀。」'
+            response: 'Hắn xòe tay trái ra —— trống không. Xòe nốt tay phải —— cũng trống không luôn. Viên ngọc không biết từ lúc nào đã yên vị trong túi áo bạn rồi. 「Lần sau lại chơi tiếp nhé.」'
           },
           {
-            text: '「珠子在你袖子里。」',
+            text: '「Viên ngọc ở trong ống tay áo của ngươi ấy.」',
             friendshipChange: 50,
-            response: '狐仙一愣，随即大笑：「有意思！你是第一个不按规矩猜的人。」他抖了抖袖子，珠子真的掉了出来。'
+            response: 'Hồ Tiên sững sờ, ngay sau đó lại cười phá lên: 「Thú vị lắm! Ngươi là kẻ đầu tiên không đoán theo quy củ đấy.」 Hắn rũ rũ tay áo, viên ngọc quả nhiên rơi ra ngoài.'
           }
         ]
       }
@@ -316,29 +316,29 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'hu_xian_heart_2',
     npcId: 'hu_xian',
     requiredFriendship: 1600,
-    title: '千年之约',
+    title: 'Lời Hẹn Ngàn Năm',
     scenes: [
       {
-        text: '你在矿洞深处发现了一面古老的铜镜。当你擦去灰尘时，镜中映出的不是你的脸——而是一只九尾金狐。'
+        text: 'Bạn phát hiện ra một chiếc gương đồng cổ xưa sâu trong hang mỏ. Khi bạn lau đi lớp bụi bẩn, bóng phản chiếu trong gương không phải là khuôn mặt của bạn —— mà là một con hồ ly vàng chín đuôi.'
       },
       {
-        text: '「看到了？那是千年前的我。」狐仙的声音从身后传来。他今天没有笑容，「那时候我还不会说人话。」'
+        text: '「Thấy rồi chứ? Đó là ta của một ngàn năm về trước.」 Tiếng của Hồ Tiên truyền đến từ phía sau. Hôm nay trên môi hắn không có nụ cười, 「Lúc đó ta còn chưa biết nói tiếng người.」'
       },
       {
-        text: '「千年修行，化人形，学人语，品人情。」他看着镜子，「可越像人，就越孤独。」'
+        text: '「Tu hành ngàn năm, hóa hình người, học tiếng người, nếm trải nhân tình thế thái.」 Hắn nhìn vào trong gương, 「Nhưng càng giống người, lại càng cô độc hơn.」'
       },
       {
-        text: '你从未见过他这样认真的表情。',
+        text: 'Bạn chưa từng thấy hắn mang biểu cảm nghiêm túc đến thế bao giờ.',
         choices: [
           {
-            text: '「孤独不是坏事。」',
+            text: '「Cô độc không hẳn là chuyện xấu.」',
             friendshipChange: 30,
-            response: '「哦？」他挑起眉毛，「说来听听。」你把自己初来桃源乡时的孤独告诉了他。他听完，轻声笑了：「看来我们是同类。」'
+            response: '「Ồ?」 Hắn nhướng mày lên, 「Nói nghe thử xem.」 Bạn kể cho hắn nghe về sự cô độc của mình lúc mới đặt chân đến Đào Nguyên Hương. Nghe xong, hắn khẽ cười: 「Xem ra chúng ta là đồng loại rồi.」'
           },
           {
-            text: '「你现在不孤独了。」',
+            text: '「Bây giờ ngươi không còn cô độc nữa rồi.」',
             friendshipChange: 50,
-            response: '狐仙沉默了很久，最终露出一个不同于以往的、真诚的微笑：「嗯，现在不了。」'
+            response: 'Hồ Tiên trầm mặc rất lâu, cuối cùng cũng nở một nụ cười không giống như mọi khi, một nụ cười thật lòng: 「Ừm, bây giờ không thế nữa.」'
           }
         ]
       }
@@ -348,27 +348,27 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'hu_xian_heart_3',
     npcId: 'hu_xian',
     requiredFriendship: 2400,
-    title: '幻与真',
+    title: 'Ảo Và Thật',
     scenes: [
       {
-        text: '一天夜里，你梦见了一片金色的旷野。狐仙站在远处，身后九条尾巴完全展开，金光灿烂。'
+        text: 'Vào một đêm nọ, bạn mơ thấy một cánh đồng hoang rộng lớn màu vàng óng. Hồ Tiên đứng ở phía xa, chín cái đuôi xòe tung hoàn toàn ở sau lưng, kim quang xán lạn rực rỡ.'
       },
-      { text: '「这不是梦。」他说，「这是我的本相，我的世界。」' },
+      { text: '「Đây không phải là mộng.」 Hắn nói, 「Đây là bản tướng của ta, là thế giới của ta.」' },
       {
-        text: '他向你走来：「一千年来，我用幻术骗过无数人。但在你面前……我不想再用幻术了。」'
+        text: 'Hắn sải bước tới chỗ bạn: 「Một ngàn năm qua, ta đã dùng huyễn thuật lừa gạt biết bao nhiêu người. Nhưng ở trước mặt ngươi... ta không muốn dùng huyễn thuật nữa.」'
       },
       {
-        text: '他伸出手。你注意到他的手在微微颤抖。',
+        text: 'Hắn đưa tay ra. Bạn để ý thấy tay hắn đang hơi run rẩy.',
         choices: [
           {
-            text: '握住他的手。',
+            text: 'Nắm lấy tay hắn.',
             friendshipChange: 80,
-            response: '幻境碎裂，你回到了现实。但狐仙的手仍在你手中——温暖而真实。「这是第一次，我在凡人面前露出真容。」'
+            response: 'Ảo cảnh vỡ vụn, bạn đã quay về với hiện tại. Nhưng bàn tay của Hồ Tiên vẫn nằm gọn trong tay bạn —— ấm áp và vô cùng chân thực. 「Đây là lần đầu tiên, ta để lộ chân dung trước mặt một phàm nhân.」'
           },
           {
-            text: '「不管是狐还是人，你都是你。」',
+            text: '「Cho dù là hồ ly hay là con người đi nữa, ngươi vẫn mãi là ngươi.」',
             friendshipChange: 60,
-            response: '他的九尾缓缓收拢，金光消散，变回那个玩世不恭的少年模样。但他的眼中多了一丝从未有过的柔软。'
+            response: 'Chín cái đuôi của hắn từ từ thu lại, kim quang tan biến đi, trở về với dáng vẻ một thiếu niên ngả ngớn bất cần đời. Nhưng trong ánh mắt hắn đã có thêm một nét mềm mại mà trước nay chưa từng có.'
           }
         ]
       }
@@ -382,26 +382,26 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'shan_weng_heart_1',
     npcId: 'shan_weng',
     requiredFriendship: 800,
-    title: '山中一局棋',
+    title: 'Ván Cờ Trong Núi',
     scenes: [
       {
-        text: '你在矿洞深处发现了一个隐秘的石室。山翁盘膝坐在石桌前，面前摆着一盘棋。'
+        text: 'Bạn phát hiện ra một thạch thất bí ẩn ở nơi sâu nhất trong hang mỏ. Sơn Ông đang ngồi xếp bằng trước bàn đá, trên đó bày sẵn một ván cờ.'
       },
       {
-        text: '「来了？坐。」他示意对面的石凳。棋盘上的棋子散发着微弱的灵光。'
+        text: '「Tới rồi à? Ngồi đi.」 Ông ra hiệu chỉ vào chiếc ghế đá đối diện. Những quân cờ trên bàn đang tỏa ra linh quang mờ nhạt.'
       },
       {
-        text: '「这盘棋我已经下了三百年。」他看着棋盘说道。',
+        text: '「Ván cờ này ta đã đánh ròng rã suốt ba trăm năm rồi.」 Ông nhìn bàn cờ nói.',
         choices: [
           {
-            text: '「和谁下的？」',
+            text: '「Là chơi với ai vậy?」',
             friendshipChange: 30,
-            response: '「和自己。」他捋了捋胡须，「修炼修炼，说到底不过是和自己下棋。」'
+            response: '「Là chơi với chính bản thân mình.」 Ông vuốt vuốt chòm râu, 「Tu luyện tu luyện, nói cho cùng cũng chỉ là đánh cờ với chính mình mà thôi.」'
           },
           {
-            text: '尝试落一子。',
+            text: 'Thử hạ xuống một quân cờ.',
             friendshipChange: 50,
-            response: '山翁看着你落子的位置，眼中闪过一丝惊讶：「妙手。三百年来第一次有人在这一处落子。」'
+            response: 'Sơn Ông nhìn vào vị trí bạn vừa đặt quân cờ xuống, trong ánh mắt xẹt qua một tia kinh ngạc: 「Nước cờ hay. Suốt ba trăm năm qua, đây là lần đầu tiên có người đi cờ vào chỗ này.」'
           }
         ]
       }
@@ -411,26 +411,26 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'shan_weng_heart_2',
     npcId: 'shan_weng',
     requiredFriendship: 1600,
-    title: '师徒之缘',
+    title: 'Duyên Phận Thầy Trò',
     scenes: [
       {
-        text: '山翁带你来到山顶。冬日的清晨，云海翻涌在脚下，日出将天边染成金红色。'
+        text: 'Sơn Ông dẫn bạn lên đỉnh núi. Buổi sáng tinh sương mùa đông, biển mây cuồn cuộn ngay dưới chân, mặt trời mọc nhuộm cả chân trời thành một màu đỏ rực ánh kim.'
       },
       {
-        text: '「老夫修行千年，见过无数风景。」他深吸一口气，「但这个日出……每次看都觉得是新的。」'
+        text: '「Lão phu tu hành ngàn năm, đã từng chứng kiến vô vàn cảnh sắc.」 Ông hít sâu một hơi, 「Thế nhưng cảnh mặt trời mọc này... mỗi lần ngắm nhìn đều mang đến một cảm giác hoàn toàn tươi mới.」'
       },
       {
-        text: '他转向你：「小友，老夫有个不情之请。」',
+        text: 'Ông quay sang nhìn bạn: 「Tiểu hữu, lão phu có một yêu cầu quá đáng này.」',
         choices: [
           {
-            text: '「前辈请说。」',
+            text: '「Tiền bối cứ nói.」',
             friendshipChange: 30,
-            response: '「你可愿做老夫的关门弟子？不学仙术，只学养生之道。」他的眼神真诚，「老夫所学，不想失传。」'
+            response: '「Ngươi có nguyện làm đệ tử quan môn của lão phu không? Không cần học tiên thuật, chỉ học đạo dưỡng sinh thôi.」 Ánh mắt của ông vô cùng chân thành, 「Sở học cả đời của lão phu, không muốn bị thất truyền.」'
           },
           {
-            text: '恭敬地行礼。',
+            text: 'Cung kính hành lễ.',
             friendshipChange: 50,
-            response: '山翁欣慰地笑了：「你的心性比许多修行百年的人都好。老夫认你这个徒弟。」'
+            response: 'Sơn Ông nở nụ cười đầy an ủi: 「Tâm tính của ngươi còn tốt hơn cả những kẻ đã tu hành trăm năm. Lão phu nhận đứa đồ đệ này.」'
           }
         ]
       }
@@ -440,29 +440,29 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'shan_weng_heart_3',
     npcId: 'shan_weng',
     requiredFriendship: 2400,
-    title: '传道',
+    title: 'Truyền Đạo',
     scenes: [
       {
-        text: '冬至这天，山翁让你在雪地中打坐。寒风刺骨，但他说：「心静自然暖。」'
+        text: 'Ngày Đông Chí, Sơn Ông bảo bạn ngồi thiền trên nền tuyết. Gió lạnh thấu xương, nhưng ông nói: 「Tâm tĩnh tự khắc sẽ thấy ấm.」'
       },
       {
-        text: '你不知道过了多久。当你睁开眼时，发现周围的雪已经融化了一圈——是你身体散发的热量。'
+        text: 'Bạn không biết thời gian đã trôi qua bao lâu. Khi mở mắt ra, bạn phát hiện tuyết xung quanh mình đã tan chảy thành một vòng tròn —— là do nhiệt lượng từ cơ thể bạn tỏa ra.'
       },
       {
-        text: '「成了。」山翁拍手大笑，「凡人之体，却能引动天地灵气。你是老夫见过最有天赋的。」'
+        text: '「Thành công rồi.」 Sơn Ông vỗ tay cười lớn, 「Chỉ là thân xác phàm nhân, thế mà có thể dẫn động được linh khí của đất trời. Ngươi là người có thiên phú nhất mà lão phu từng gặp.」'
       },
       {
-        text: '他从怀中取出一个古朴的葫芦：「这是老夫的随身宝物。」',
+        text: 'Ông lấy từ trong ngực ra một chiếc hồ lô cổ phác: 「Đây là bảo vật tùy thân của lão phu.」',
         choices: [
           {
-            text: '「弟子不敢受。」',
+            text: '「Đệ tử không dám nhận.」',
             friendshipChange: 60,
-            response: '「让你拿着就拿着！」他塞到你手里，「老夫不需要它了。有你在，比任何宝物都好。」他的眼中有泪光闪过。'
+            response: '「Bảo ngươi cầm thì cứ cầm đi!」 Ông nhét nó vào tay bạn, 「Lão phu không cần nó nữa. Có ngươi ở đây, còn tốt hơn bất kỳ thứ bảo vật nào.」 Trong ánh mắt ông có ánh lệ lóe qua.'
           },
           {
-            text: '双手郑重接过。',
+            text: 'Hai tay trịnh trọng tiếp lấy.',
             friendshipChange: 80,
-            response: '「好。」山翁点头，「从今以后，你就是桃源乡的守山人。老夫……终于可以放心了。」'
+            response: '「Tốt.」 Sơn Ông gật gật đầu, 「Từ nay trở đi, ngươi chính là người gác núi của Đào Nguyên Hương. Lão phu... cuối cùng cũng có thể yên tâm rồi.」'
           }
         ]
       }
@@ -476,26 +476,26 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'gui_nv_heart_1',
     npcId: 'gui_nv',
     requiredFriendship: 800,
-    title: '织机声',
+    title: 'Tiếng Khung Cửi',
     scenes: [
       {
-        text: '深夜，你被一阵若有若无的织机声吸引到村口老井旁。月光下，一台半透明的织机凭空出现。'
+        text: 'Đêm khuya, bạn bị tiếng khung cửi lúc ẩn lúc hiện thu hút đến bên giếng cổ ở đầu thôn. Dưới ánh trăng, một chiếc khung cửi nửa trong suốt thình lình hiện ra từ khoảng không.'
       },
       {
-        text: '归女坐在织机前，纤细的手指穿梭于丝线之间。她织的不是布——是月光本身。'
+        text: 'Quy Nữ đang ngồi trước khung cửi, những ngón tay thon dài đan thoăn thoắt giữa các sợi tơ. Thứ nàng đang dệt không phải là vải —— mà chính là ánh trăng.'
       },
       {
-        text: '她注意到你，手上的动作顿了顿：「你……能看到我在织什么吗？」',
+        text: 'Nàng chú ý tới bạn, động tác trên tay khựng lại: 「Ngươi... có thể nhìn ra ta đang dệt thứ gì sao?」',
         choices: [
           {
-            text: '「月光？」',
+            text: '「Ánh trăng?」',
             friendshipChange: 40,
-            response: '她轻轻笑了：「对。我把月光织成梦。每个月圆之夜，桃源乡的人都能做个好梦……就是我织的。」'
+            response: 'Nàng khẽ bật cười: 「Đúng vậy. Ta dệt ánh trăng thành giấc mộng. Cứ mỗi đêm trăng tròn, người dân Đào Nguyên Hương đều có những giấc mơ đẹp... đó chính là những giấc mơ do ta dệt nên.」'
           },
           {
-            text: '「很美的东西。」',
+            text: '「Một thứ rất tuyệt vời.」',
             friendshipChange: 50,
-            response: '她低下头，声音很轻：「已经很久……没有人说过我织的东西美了。」丝线在她手中发出柔和的光。'
+            response: 'Nàng cúi đầu, giọng nói rất nhẹ: 「Đã lâu lắm rồi... không có ai khen những thứ ta dệt đẹp nữa.」 Những sợi tơ trong tay nàng phát ra ánh sáng thật êm dịu.'
           }
         ]
       }
@@ -505,29 +505,29 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'gui_nv_heart_2',
     npcId: 'gui_nv',
     requiredFriendship: 1600,
-    title: '故乡的方向',
+    title: 'Hướng Về Cố Hương',
     scenes: [
       {
-        text: '归女今天没有在织布。她站在村口，面朝北方，身形比平时更加虚幻。'
+        text: 'Hôm nay Quy Nữ không dệt vải. Nàng đứng ở đầu thôn, hướng mặt về phía bắc, thân hình mờ ảo hơn lúc bình thường rất nhiều.'
       },
       {
-        text: '「我在找故乡的方向。」她说，声音像风中的丝线。「可是……我已经忘了故乡在哪。」'
+        text: '「Ta đang tìm hướng về cố hương.」 Nàng nói, giọng nói mong manh như sợi tơ trong gió. 「Thế nhưng... ta đã quên mất quê hương ở đâu rồi.」'
       },
       {
-        text: '「我只记得那里有一棵很大很大的桑树，树下有一架织机。每天织布、染色、晾晒……那时候我还活着。」'
+        text: '「Ta chỉ nhớ nơi đó có một cây dâu tằm cực kỳ to, dưới gốc cây có đặt một cỗ khung cửi. Mỗi ngày dệt vải, nhuộm màu, phơi nắng... lúc đó ta vẫn còn sống.」'
       },
       {
-        text: '一滴银色的泪珠落在地上，化作一朵银花。',
+        text: 'Một giọt lệ bằng bạc rơi xuống nền đất, hóa thành một đóa hoa bạc.',
         choices: [
           {
-            text: '「这里也可以是故乡。」',
+            text: '「Nơi này cũng có thể là cố hương mà.」',
             friendshipChange: 50,
-            response: '她看向你，银色的眼睛里映出你的身影：「也许……你说得对。有人在的地方，就是故乡。」'
+            response: 'Nàng nhìn bạn, trong đôi mắt màu bạc phản chiếu bóng hình bạn: 「Có lẽ... ngươi nói đúng. Nơi nào có người ở, nơi đó chính là quê hương.」'
           },
           {
-            text: '默默将银花捡起，递给她。',
+            text: 'Lặng lẽ nhặt đóa hoa bạc lên, đưa cho nàng.',
             friendshipChange: 40,
-            response: '她接过银花，捧在手心。花开始发出温暖的光：「原来……被人记住的感觉，是这样的。」'
+            response: 'Nàng nhận lấy đóa hoa bạc, nâng niu trong lòng bàn tay. Đóa hoa bắt đầu tỏa ra ánh sáng ấm áp: 「Hóa ra... cảm giác được người ta nhớ tới, là như thế này đây.」'
           }
         ]
       }
@@ -537,29 +537,29 @@ export const HIDDEN_NPC_HEART_EVENTS: HeartEventDef[] = [
     id: 'gui_nv_heart_3',
     npcId: 'gui_nv',
     requiredFriendship: 2400,
-    title: '归处',
+    title: 'Chốn Về',
     scenes: [
       {
-        text: '冬至深夜，你发现归女的身形比以往任何时候都要清晰。她站在雪地中，手中捧着一匹银色的锦缎。'
+        text: 'Đêm khuya ngày Đông Chí, bạn nhận ra thân hình Quy Nữ hiện rõ hơn bất cứ lúc nào hết. Nàng đứng trên mặt tuyết, trong tay nâng một dải gấm vóc màu bạc.'
       },
       {
-        text: '「这是我用一年时间织成的。」她将锦缎展开——上面织着桃源乡的四季风景，栩栩如生。'
+        text: '「Đây là tấm lụa ta đã dệt suốt một năm qua.」 Nàng trải tấm gấm ra —— bên trên dệt cảnh sắc bốn mùa của Đào Nguyên Hương, sống động như thật.'
       },
       {
-        text: '「春天的桃花，夏天的荷塘，秋天的枫叶，冬天的飞雪……还有，你的身影。」她的脸微微泛红。'
+        text: '「Hoa đào mùa xuân, đầm sen mùa hạ, lá phong mùa thu, tuyết bay mùa đông... và cả, hình bóng của ngươi nữa.」 Khuôn mặt nàng hơi phiếm hồng.'
       },
       {
-        text: '她将锦缎递向你：「这是我所有心意织成的。请你收下。」',
+        text: 'Nàng đưa tấm gấm về phía bạn: 「Tấm lụa này là do toàn bộ tâm ý của ta dệt nên. Xin ngươi hãy nhận lấy.」',
         choices: [
           {
-            text: '「这是我收到过最美的礼物。」',
+            text: '「Đây là món quà đẹp nhất mà tôi từng nhận được.」',
             friendshipChange: 80,
-            response: '归女的眼眶红了，但她在笑：「谢谢你。因为你，我终于找到了……我的归处。」她的身形变得前所未有的清晰而真实。'
+            response: 'Viền mắt Quy Nữ ửng đỏ, nhưng trên môi vẫn nở nụ cười: 「Cảm ơn ngươi. Nhờ có ngươi, cuối cùng ta cũng tìm thấy... chốn về của mình rồi.」 Thân ảnh nàng trở nên rõ ràng và chân thực hơn bao giờ hết.'
           },
           {
-            text: '将锦缎小心地围在她肩上。',
+            text: 'Cẩn thận choàng tấm gấm lên vai nàng.',
             friendshipChange: 60,
-            response: '「你……」她的声音颤抖，「为什么不留给自己？」你摇摇头。归女低声说：「……傻瓜。」但她将锦缎紧紧裹住了自己。'
+            response: '「Ngươi...」 Giọng nàng run rẩy, 「Tại sao không giữ lại cho bản thân?」 Bạn lắc đầu. Quy Nữ khẽ nói: 「... Đồ ngốc.」 Nhưng nàng vẫn quấn chặt tấm gấm quanh người.'
           }
         ]
       }

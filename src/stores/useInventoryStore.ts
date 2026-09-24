@@ -148,9 +148,9 @@ export const useInventoryStore = defineStore('inventory', () => {
 
   /** 卖出武器（不能卖装备中的武器，不能卖唯一武器） */
   const sellWeapon = (index: number): { success: boolean; message: string } => {
-    if (ownedWeapons.value.length <= 1) return { success: false, message: '至少保留一把武器。' }
-    if (index === equippedWeaponIndex.value) return { success: false, message: '不能卖出装备中的武器，请先切换。' }
-    if (index < 0 || index >= ownedWeapons.value.length) return { success: false, message: '无效索引。' }
+    if (ownedWeapons.value.length <= 1) return { success: false, message: 'Phải giữ lại ít nhất một vũ khí.' }
+    if (index === equippedWeaponIndex.value) return { success: false, message: 'Không thể bán vũ khí đang trang bị, hãy đổi sang vũ khí khác trước.' }
+    if (index < 0 || index >= ownedWeapons.value.length) return { success: false, message: 'Chỉ mục không hợp lệ.' }
     const weapon = ownedWeapons.value[index]!
     const price = getWeaponSellPrice(weapon.defId, weapon.enchantmentId)
     const playerStore = usePlayerStore()
@@ -163,7 +163,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     const def = getWeaponById(weapon.defId)
     return {
       success: true,
-      message: `卖出了${def?.name ?? '武器'}，获得${price}文。`
+      message: `Đã bán ${def?.name ?? 'vũ khí'}, nhận ${price} văn.`
     }
   }
 
@@ -242,12 +242,12 @@ export const useInventoryStore = defineStore('inventory', () => {
 
     if (remaining > 0) {
       const name = getItemById(itemId)?.name ?? itemId
-      showFloat(`背包已满！${name}×${remaining}丢失了`, 'danger')
+      showFloat(`Túi đã đầy! Đã mất ${name}×${remaining}`, 'danger')
     } else {
       // 背包快满预警：剩余格数 ≤ 3 时提示一次
       const freeSlots = capacity.value - items.value.length
       if (freeSlots <= 3) {
-        showFloat(`背包快满了！剩余${freeSlots}格`, 'accent')
+        showFloat(`Túi sắp đầy! Còn ${freeSlots} ô trống`, 'accent')
       }
     }
 
@@ -590,7 +590,7 @@ export const useInventoryStore = defineStore('inventory', () => {
 
   /** 卖出戒指（自动卸下已装备的戒指） */
   const sellRing = (index: number): { success: boolean; message: string } => {
-    if (index < 0 || index >= ownedRings.value.length) return { success: false, message: '无效索引。' }
+    if (index < 0 || index >= ownedRings.value.length) return { success: false, message: 'Chỉ mục không hợp lệ.' }
     const ring = ownedRings.value[index]!
     const def = getRingById(ring.defId)
     const price = def?.sellPrice ?? 0
@@ -605,7 +605,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     if (equippedRingSlot2.value > index) equippedRingSlot2.value--
     return {
       success: true,
-      message: `卖出了${def?.name ?? '戒指'}，获得${price}文。`
+      message: `Đã bán ${def?.name ?? 'nhẫn'}, nhận ${price} văn.`
     }
   }
 
@@ -724,13 +724,13 @@ export const useInventoryStore = defineStore('inventory', () => {
   /** 合成戒指 */
   const craftRing = (defId: string): { success: boolean; message: string } => {
     const def = getRingById(defId)
-    if (!def || !def.recipe) return { success: false, message: '该戒指无法合成。' }
+    if (!def || !def.recipe) return { success: false, message: 'Chiếc nhẫn này không thể hợp thành.' }
 
     // 检查材料
     for (const mat of def.recipe) {
       if (getItemCount(mat.itemId) < mat.quantity) {
         const matName = getItemById(mat.itemId)?.name ?? mat.itemId
-        return { success: false, message: `材料不足：${matName}。` }
+        return { success: false, message: `Thiếu nguyên liệu: ${matName}.` }
       }
     }
 
@@ -739,7 +739,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     if (playerStore.money < def.recipeMoney) {
       return {
         success: false,
-        message: `铜钱不足（需要${def.recipeMoney}文）。`
+        message: `Không đủ tiền (cần ${def.recipeMoney} văn).`
       }
     }
 
@@ -751,7 +751,7 @@ export const useInventoryStore = defineStore('inventory', () => {
 
     // 添加戒指
     addRing(defId)
-    return { success: true, message: `合成了${def.name}！` }
+    return { success: true, message: `Đã chế tạo ${def.name}!` }
   }
 
   // ============================================================
@@ -786,7 +786,7 @@ export const useInventoryStore = defineStore('inventory', () => {
 
   /** 卖出帽子 */
   const sellHat = (index: number): { success: boolean; message: string } => {
-    if (index < 0 || index >= ownedHats.value.length) return { success: false, message: '无效索引。' }
+    if (index < 0 || index >= ownedHats.value.length) return { success: false, message: 'Chỉ mục không hợp lệ.' }
     const hat = ownedHats.value[index]!
     const def = getHatById(hat.defId)
     const price = def?.sellPrice ?? 0
@@ -799,25 +799,25 @@ export const useInventoryStore = defineStore('inventory', () => {
     if (equippedHatIndex.value > index) equippedHatIndex.value--
     return {
       success: true,
-      message: `卖出了${def?.name ?? '帽子'}，获得${price}文。`
+      message: `Đã bán ${def?.name ?? 'mũ'}, nhận ${price} văn.`
     }
   }
 
   /** 合成帽子 */
   const craftHat = (defId: string): { success: boolean; message: string } => {
     const def = getHatById(defId)
-    if (!def || !def.recipe) return { success: false, message: '该帽子无法合成。' }
+    if (!def || !def.recipe) return { success: false, message: 'Chiếc mũ này không thể hợp thành.' }
     for (const mat of def.recipe) {
       if (getItemCount(mat.itemId) < mat.quantity) {
         const matName = getItemById(mat.itemId)?.name ?? mat.itemId
-        return { success: false, message: `材料不足：${matName}。` }
+        return { success: false, message: `Thiếu nguyên liệu: ${matName}.` }
       }
     }
     const playerStore = usePlayerStore()
     if (playerStore.money < def.recipeMoney) {
       return {
         success: false,
-        message: `铜钱不足（需要${def.recipeMoney}文）。`
+        message: `Không đủ tiền (cần ${def.recipeMoney} văn).`
       }
     }
     for (const mat of def.recipe) {
@@ -825,7 +825,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     }
     playerStore.spendMoney(def.recipeMoney)
     addHat(defId)
-    return { success: true, message: `合成了${def.name}！` }
+    return { success: true, message: `Đã chế tạo ${def.name}!` }
   }
 
   // ============================================================
@@ -860,7 +860,7 @@ export const useInventoryStore = defineStore('inventory', () => {
 
   /** 卖出鞋子 */
   const sellShoe = (index: number): { success: boolean; message: string } => {
-    if (index < 0 || index >= ownedShoes.value.length) return { success: false, message: '无效索引。' }
+    if (index < 0 || index >= ownedShoes.value.length) return { success: false, message: 'Chỉ mục không hợp lệ.' }
     const shoe = ownedShoes.value[index]!
     const def = getShoeById(shoe.defId)
     const price = def?.sellPrice ?? 0
@@ -873,25 +873,25 @@ export const useInventoryStore = defineStore('inventory', () => {
     if (equippedShoeIndex.value > index) equippedShoeIndex.value--
     return {
       success: true,
-      message: `卖出了${def?.name ?? '鞋子'}，获得${price}文。`
+      message: `Đã bán ${def?.name ?? 'giày'}, nhận ${price} văn.`
     }
   }
 
   /** 合成鞋子 */
   const craftShoe = (defId: string): { success: boolean; message: string } => {
     const def = getShoeById(defId)
-    if (!def || !def.recipe) return { success: false, message: '该鞋子无法合成。' }
+    if (!def || !def.recipe) return { success: false, message: 'Đôi giày này không thể hợp thành.' }
     for (const mat of def.recipe) {
       if (getItemCount(mat.itemId) < mat.quantity) {
         const matName = getItemById(mat.itemId)?.name ?? mat.itemId
-        return { success: false, message: `材料不足：${matName}。` }
+        return { success: false, message: `Thiếu nguyên liệu: ${matName}.` }
       }
     }
     const playerStore = usePlayerStore()
     if (playerStore.money < def.recipeMoney) {
       return {
         success: false,
-        message: `铜钱不足（需要${def.recipeMoney}文）。`
+        message: `Không đủ tiền (cần ${def.recipeMoney} văn).`
       }
     }
     for (const mat of def.recipe) {
@@ -899,7 +899,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     }
     playerStore.spendMoney(def.recipeMoney)
     addShoe(defId)
-    return { success: true, message: `合成了${def.name}！` }
+    return { success: true, message: `Đã chế tạo ${def.name}!` }
   }
 
   // ============================================================
@@ -948,7 +948,7 @@ export const useInventoryStore = defineStore('inventory', () => {
   /** 应用装备方案 */
   const applyEquipmentPreset = (id: string): { success: boolean; message: string } => {
     const preset = equipmentPresets.value.find(p => p.id === id)
-    if (!preset) return { success: false, message: '方案不存在。' }
+    if (!preset) return { success: false, message: 'Phương án không tồn tại.' }
 
     const missing: string[] = []
 
@@ -956,7 +956,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     if (preset.weaponDefId) {
       const idx = ownedWeapons.value.findIndex(w => w.defId === preset.weaponDefId)
       if (idx >= 0) equipWeapon(idx)
-      else missing.push('武器')
+      else missing.push('Vũ khí')
     }
 
     // 戒指槽1
@@ -964,7 +964,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     if (preset.ringSlot1DefId) {
       ring1Idx = ownedRings.value.findIndex(r => r.defId === preset.ringSlot1DefId)
       if (ring1Idx >= 0) equipRing(ring1Idx, 0)
-      else missing.push('戒指1')
+      else missing.push('Nhẫn 1')
     } else {
       unequipRing(0)
     }
@@ -974,11 +974,11 @@ export const useInventoryStore = defineStore('inventory', () => {
       if (preset.ringSlot2DefId === preset.ringSlot1DefId) {
         // 旧方案中两个槽保存了同defId戒指，现已禁止，跳过槽2
         unequipRing(1)
-        missing.push('戒指2（不可与槽1相同）')
+        missing.push('Nhẫn 2 (không thể trùng ô 1)')
       } else {
         const idx = ownedRings.value.findIndex(r => r.defId === preset.ringSlot2DefId)
         if (idx >= 0) equipRing(idx, 1)
-        else missing.push('戒指2')
+        else missing.push('Nhẫn 2')
       }
     } else {
       unequipRing(1)
@@ -988,7 +988,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     if (preset.hatDefId) {
       const idx = ownedHats.value.findIndex(h => h.defId === preset.hatDefId)
       if (idx >= 0) equipHat(idx)
-      else missing.push('帽子')
+      else missing.push('Mũ')
     } else {
       unequipHat()
     }
@@ -997,7 +997,7 @@ export const useInventoryStore = defineStore('inventory', () => {
     if (preset.shoeDefId) {
       const idx = ownedShoes.value.findIndex(s => s.defId === preset.shoeDefId)
       if (idx >= 0) equipShoe(idx)
-      else missing.push('鞋子')
+      else missing.push('Giày')
     } else {
       unequipShoe()
     }
@@ -1007,10 +1007,10 @@ export const useInventoryStore = defineStore('inventory', () => {
     if (missing.length > 0) {
       return {
         success: true,
-        message: `已应用方案「${preset.name}」，但${missing.join('、')}已不在背包中。`
+        message: `Đã áp dụng phương án 「${preset.name}」, nhưng ${missing.join('、')} không còn trong túi.`
       }
     }
-    return { success: true, message: `已应用方案「${preset.name}」。` }
+    return { success: true, message: `Đã áp dụng phương án 「${preset.name}」.` }
   }
 
   // ============================================================

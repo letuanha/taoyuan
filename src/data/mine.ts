@@ -188,7 +188,7 @@ export const MONSTERS: Record<string, MonsterDef> = {
   // 浅矿 (1-20)
   mud_worm: {
     id: 'mud_worm',
-    name: '泥虫',
+    name: 'Trùn đất',
     hp: 15,
     attack: 5,
     defense: 1,
@@ -197,11 +197,11 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'copper_ore', chance: 0.5 },
       { itemId: 'quartz', chance: 0.1 }
     ],
-    description: '蠕动的泥虫，不太危险。'
+    description: 'Trùn đất bò ngoằn ngoèo, không nguy hiểm lắm.'
   },
   stone_crab: {
     id: 'stone_crab',
-    name: '石蟹',
+    name: 'Cua đá',
     hp: 25,
     attack: 6,
     defense: 3,
@@ -210,12 +210,12 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'copper_ore', chance: 0.6 },
       { itemId: 'iron_ore', chance: 0.15 }
     ],
-    description: '硬壳甲虫，防御较高。'
+    description: 'Loài cua nhỏ sống giữa các kẽ đá trong hang mỏ.'
   },
   // 冰霜 (21-40)
   ice_bat: {
     id: 'ice_bat',
-    name: '冰蝠',
+    name: 'Dơi băng',
     hp: 30,
     attack: 8,
     defense: 2,
@@ -224,11 +224,11 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'iron_ore', chance: 0.5 },
       { itemId: 'jade', chance: 0.1 }
     ],
-    description: '寒冰中飞舞的蝙蝠。'
+    description: 'Dơi bay lượn trong hàn băng.'
   },
   ghost: {
     id: 'ghost',
-    name: '幽灵',
+    name: 'U linh',
     hp: 20,
     attack: 10,
     defense: 0,
@@ -237,12 +237,12 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'jade', chance: 0.2 },
       { itemId: 'quartz', chance: 0.3 }
     ],
-    description: '飘忽不定的幽灵，攻高防低。'
+    description: 'U linh trôi nổi bất định, tấn công cao phòng ngự thấp.'
   },
   // 熔岩 (41-60)
   fire_bat: {
     id: 'fire_bat',
-    name: '火蝠',
+    name: 'Dơi lửa',
     hp: 35,
     attack: 9,
     defense: 3,
@@ -251,11 +251,11 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'gold_ore', chance: 0.55 },
       { itemId: 'ruby', chance: 0.15 }
     ],
-    description: '浑身燃烧的蝙蝠。'
+    description: 'Dơi rực lửa toàn thân.'
   },
   shadow_warrior: {
     id: 'shadow_warrior',
-    name: '暗影武士',
+    name: 'Chiến sĩ bóng tối',
     hp: 50,
     attack: 10,
     defense: 4,
@@ -264,12 +264,12 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'gold_ore', chance: 0.65 },
       { itemId: 'ruby', chance: 0.25 }
     ],
-    description: '矿洞深处的强大敌人。'
+    description: 'Kẻ địch mạnh mẽ nơi sâu thẳm hang mỏ.'
   },
   // 水晶 (61-80)
   crystal_golem: {
     id: 'crystal_golem',
-    name: '水晶魔像',
+    name: 'Ma tượng pha lê',
     hp: 110,
     attack: 18,
     defense: 10,
@@ -278,11 +278,11 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'crystal_ore', chance: 0.55 },
       { itemId: 'moonstone', chance: 0.15 }
     ],
-    description: '水晶凝聚成的魔像，闪耀刺眼光芒。'
+    description: 'Ma tượng ngưng tụ từ pha lê, tỏa ra ánh sáng chói mắt.'
   },
   prism_spider: {
     id: 'prism_spider',
-    name: '棱镜蛛',
+    name: 'Nhện lăng kính',
     hp: 75,
     attack: 22,
     defense: 5,
@@ -291,12 +291,12 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'crystal_ore', chance: 0.5 },
       { itemId: 'moonstone', chance: 0.2 }
     ],
-    description: '编织光线的巨型蜘蛛。'
+    description: 'Loài nhện khổng lồ biết dệt nên ánh sáng.'
   },
   // 暗影 (81-100)
   shadow_lurker: {
     id: 'shadow_lurker',
-    name: '暗影潜伏者',
+    name: 'Kẻ rình rập bóng tối',
     hp: 150,
     attack: 28,
     defense: 10,
@@ -305,11 +305,11 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'shadow_ore', chance: 0.55 },
       { itemId: 'obsidian', chance: 0.15 }
     ],
-    description: '藏匿于黑暗中的捕猎者。'
+    description: 'Thợ săn ẩn nấp trong bóng đêm.'
   },
   void_wraith: {
     id: 'void_wraith',
-    name: '虚空幽魂',
+    name: 'U hồn hư không',
     hp: 100,
     attack: 35,
     defense: 4,
@@ -318,12 +318,12 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'shadow_ore', chance: 0.5 },
       { itemId: 'obsidian', chance: 0.2 }
     ],
-    description: '虚空中飘荡的怨灵，攻高防低。'
+    description: 'Oán linh trôi nổi trong hư không, tấn công cao phòng ngự thấp.'
   },
   // 深渊 (101-120)
   abyss_serpent: {
     id: 'abyss_serpent',
-    name: '深渊巨蟒',
+    name: 'Cự mãng vực thẳm',
     hp: 200,
     attack: 35,
     defense: 14,
@@ -332,11 +332,11 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'void_ore', chance: 0.55 },
       { itemId: 'dragon_jade', chance: 0.15 }
     ],
-    description: '盘踞深渊的远古巨蛇。'
+    description: 'Con rắn khổng lồ cổ xưa trấn giữ vực thẳm.'
   },
   bone_dragon: {
     id: 'bone_dragon',
-    name: '骨龙',
+    name: 'Cốt Long',
     hp: 250,
     attack: 40,
     defense: 16,
@@ -345,7 +345,7 @@ export const MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'void_ore', chance: 0.6 },
       { itemId: 'dragon_jade', chance: 0.25 }
     ],
-    description: '龙骨复苏的恐怖存在。'
+    description: 'Sự hiện diện đáng sợ phục sinh từ xương rồng.'
   }
 }
 
@@ -353,7 +353,7 @@ export const MONSTERS: Record<string, MonsterDef> = {
 export const SKULL_CAVERN_MONSTERS: Record<string, MonsterDef> = {
   iridium_golem: {
     id: 'iridium_golem',
-    name: '铱金魔像',
+    name: 'Ma tượng Iridium',
     hp: 400,
     attack: 55,
     defense: 30,
@@ -362,11 +362,11 @@ export const SKULL_CAVERN_MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'iridium_ore', chance: 0.6 },
       { itemId: 'prismatic_shard', chance: 0.03 }
     ],
-    description: '铱金铸就的不朽卫兵。'
+    description: 'Vệ binh bất tử đúc từ Iridium.'
   },
   skull_serpent: {
     id: 'skull_serpent',
-    name: '骷髅飞蛇',
+    name: 'Phi xà đầu lâu',
     hp: 300,
     attack: 65,
     defense: 14,
@@ -375,11 +375,11 @@ export const SKULL_CAVERN_MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'iridium_ore', chance: 0.5 },
       { itemId: 'shadow_ore', chance: 0.2 }
     ],
-    description: '骷髅矿穴中飞舞的毒蛇。'
+    description: 'Rắn độc bay lượn trong huyệt mỏ Đầu Lâu.'
   },
   ancient_mummy: {
     id: 'ancient_mummy',
-    name: '远古木乃伊',
+    name: 'Xác ướp viễn cổ',
     hp: 550,
     attack: 45,
     defense: 35,
@@ -388,7 +388,7 @@ export const SKULL_CAVERN_MONSTERS: Record<string, MonsterDef> = {
       { itemId: 'iridium_ore', chance: 0.65 },
       { itemId: 'prismatic_shard', chance: 0.05 }
     ],
-    description: '远古文明的不死守卫。'
+    description: 'Hộ vệ bất tử của nền văn minh viễn cổ.'
   }
 }
 
@@ -408,7 +408,7 @@ export const ZONE_MONSTERS: Record<MineFloorDef['zone'], MonsterDef[]> = {
 export const BOSS_MONSTERS: Record<number, MonsterDef> = {
   20: {
     id: 'mud_golem',
-    name: '泥岩巨兽',
+    name: 'Cự thú bùn đá',
     hp: 80,
     attack: 8,
     defense: 5,
@@ -417,11 +417,11 @@ export const BOSS_MONSTERS: Record<number, MonsterDef> = {
       { itemId: 'copper_ore', chance: 1.0 },
       { itemId: 'quartz', chance: 1.0 }
     ],
-    description: '浅矿区域的霸主，岩石般的巨大身躯。'
+    description: 'Bá chủ của khu vực mỏ nông, thân hình khổng lồ như đá tảng.'
   },
   40: {
     id: 'frost_queen',
-    name: '冰霜女王',
+    name: 'Nữ hoàng Băng Giá',
     hp: 120,
     attack: 12,
     defense: 6,
@@ -430,11 +430,11 @@ export const BOSS_MONSTERS: Record<number, MonsterDef> = {
       { itemId: 'iron_ore', chance: 1.0 },
       { itemId: 'jade', chance: 1.0 }
     ],
-    description: '冰霜暗河的统治者，寒气逼人。'
+    description: 'Kẻ thống trị sông ngầm băng giá, hàn khí thấu xương.'
   },
   60: {
     id: 'lava_lord',
-    name: '熔岩君主',
+    name: 'Chúa tể Dung Nham',
     hp: 180,
     attack: 16,
     defense: 8,
@@ -443,11 +443,11 @@ export const BOSS_MONSTERS: Record<number, MonsterDef> = {
       { itemId: 'gold_ore', chance: 1.0 },
       { itemId: 'ruby', chance: 1.0 }
     ],
-    description: '熔岩层最深处的存在，烈焰之王。'
+    description: 'Sự hiện diện nơi sâu nhất của tầng dung nham, vị vua của lửa đỏ.'
   },
   80: {
     id: 'crystal_king',
-    name: '水晶之王',
+    name: 'Vua Pha Lê',
     hp: 400,
     attack: 32,
     defense: 16,
@@ -456,11 +456,11 @@ export const BOSS_MONSTERS: Record<number, MonsterDef> = {
       { itemId: 'crystal_ore', chance: 1.0 },
       { itemId: 'moonstone', chance: 1.0 }
     ],
-    description: '万千水晶聚合的意志体，折射光芒致命。'
+    description: 'Thế ý chí tụ họp từ hàng vạn pha lê, khúc xạ ánh sáng chí mạng.'
   },
   100: {
     id: 'shadow_sovereign',
-    name: '暗影君主',
+    name: 'Chúa tể Bóng Tối',
     hp: 600,
     attack: 42,
     defense: 20,
@@ -469,11 +469,11 @@ export const BOSS_MONSTERS: Record<number, MonsterDef> = {
       { itemId: 'shadow_ore', chance: 1.0 },
       { itemId: 'obsidian', chance: 1.0 }
     ],
-    description: '暗影裂隙深处的至高统治者。'
+    description: 'Kẻ thống trị tối cao nơi sâu thẳm khe nứt bóng tối.'
   },
   120: {
     id: 'abyss_dragon',
-    name: '深渊龙王',
+    name: 'Long Vương Vực Thẳm',
     hp: 900,
     attack: 55,
     defense: 25,
@@ -482,7 +482,7 @@ export const BOSS_MONSTERS: Record<number, MonsterDef> = {
       { itemId: 'void_ore', chance: 1.0 },
       { itemId: 'dragon_jade', chance: 1.0 }
     ],
-    description: '沉睡于无底深渊的远古龙王，终极敌人。'
+    description: 'Vua rồng cổ đại đang ngủ trong vực thẳm không đáy, kẻ thù cuối cùng.'
   }
 }
 
@@ -559,12 +559,12 @@ export const getFloor = (floor: number): MineFloorDef | undefined => {
 
 /** 矿洞区域中文名 */
 export const ZONE_NAMES: Record<MineFloorDef['zone'], string> = {
-  shallow: '浅矿·土石洞穴',
-  frost: '冰窟·冰霜暗河',
-  lava: '熔岩层·地火暗涌',
-  crystal: '晶窟·水晶迷宫',
-  shadow: '幽境·暗影裂隙',
-  abyss: '深渊·无底深渊'
+  shallow: 'Mỏ nông·Hang đất và đá',
+  frost: 'hang băng·Sông Sương',
+  lava: 'lớp dung nham·Dòng chảy ngầm lửa đất',
+  crystal: 'hang pha lê·mê cung pha lê',
+  shadow: 'vương quốc hẻo lánh·vết nứt bóng',
+  abyss: 'vực thẳm·vực thẳm không đáy'
 }
 
 // ==================== 骷髅矿穴 ====================

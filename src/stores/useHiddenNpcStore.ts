@@ -183,18 +183,18 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
   ): { success: boolean; message: string; affinityChange: number } => {
     const state = getHiddenNpcState(npcId)
     const def = getHiddenNpcById(npcId)
-    if (!state || !def) return { success: false, message: '找不到此仙灵。', affinityChange: 0 }
+    if (!state || !def) return { success: false, message: 'Không tìm thấy tiên linh này.', affinityChange: 0 }
     if (state.discoveryPhase !== 'revealed')
       return {
         success: false,
-        message: '尚未与此仙灵建立联系。',
+        message: 'Bạn chưa thiết lập liên hệ với tiên linh này.',
         affinityChange: 0
       }
-    if (state.offeredToday) return { success: false, message: '今日已供奉过了。', affinityChange: 0 }
+    if (state.offeredToday) return { success: false, message: 'Hôm nay đã dâng lễ rồi.', affinityChange: 0 }
     if (state.offersThisWeek >= MAX_OFFERS_PER_WEEK)
       return {
         success: false,
-        message: '本周供奉次数已满。',
+        message: 'Đã đủ số lần dâng lễ trong tuần.',
         affinityChange: 0
       }
 
@@ -202,7 +202,7 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
     if (!inventoryStore.removeItem(itemId, 1, quality)) {
       return {
         success: false,
-        message: '背包中没有此物品。',
+        message: 'Túi đồ không có vật phẩm này.',
         affinityChange: 0
       }
     }
@@ -221,10 +221,10 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
     state.offersThisWeek++
 
     let reaction = '……'
-    if (base === OFFERING_RESONANT) reaction = `${def.name}感到灵犀相通。`
-    else if (base === OFFERING_PLEASED) reaction = `${def.name}表示认可。`
-    else if (base === OFFERING_REPELLED) reaction = `${def.name}皱起了眉头。`
-    else reaction = `${def.name}接受了供奉。`
+    if (base === OFFERING_RESONANT) reaction = `${def.name} cảm thấy tâm ý tương thông với bạn.`
+    else if (base === OFFERING_PLEASED) reaction = `${def.name} tỏ ý công nhận.`
+    else if (base === OFFERING_REPELLED) reaction = `${def.name} cau mày.`
+    else reaction = `${def.name} đã nhận lễ vật dâng cúng.`
 
     return { success: true, message: reaction, affinityChange: change }
   }
@@ -233,18 +233,18 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
   const performSpecialInteraction = (npcId: string): { success: boolean; message: string; affinityChange: number } => {
     const state = getHiddenNpcState(npcId)
     const def = getHiddenNpcById(npcId)
-    if (!state || !def) return { success: false, message: '找不到此仙灵。', affinityChange: 0 }
+    if (!state || !def) return { success: false, message: 'Không tìm thấy tiên linh này.', affinityChange: 0 }
     if (state.discoveryPhase !== 'revealed')
       return {
         success: false,
-        message: '尚未与此仙灵建立联系。',
+        message: 'Bạn chưa thiết lập liên hệ với tiên linh này.',
         affinityChange: 0
       }
-    if (state.interactedToday) return { success: false, message: '今日已互动过了。', affinityChange: 0 }
+    if (state.interactedToday) return { success: false, message: 'Hôm nay đã tương tác rồi.', affinityChange: 0 }
     if (state.specialInteractionCooldown > 0)
       return {
         success: false,
-        message: `需要再等${state.specialInteractionCooldown}天。`,
+        message: `Cần chờ thêm ${state.specialInteractionCooldown} ngày.`,
         affinityChange: 0
       }
 
@@ -261,25 +261,25 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
           skillStore.getSkill('fishing').level +
           skillStore.getSkill('mining').level
         affinityGain = totalLevels * 3
-        message = `你与${def.name}在水边静坐参悟。`
+        message = `Bạn và ${def.name} ngồi tĩnh tọa bên nước để tham ngộ.`
         break
       }
       case 'music': {
         // 奏乐：基础30，随机额外 0-20
         affinityGain = 30 + Math.floor(Math.random() * 21)
-        message = `你与${def.name}合奏了一曲。`
+        message = `Bạn và ${def.name} cùng tấu một khúc nhạc.`
         break
       }
       case 'ritual': {
         // 祭仪：固定40
         affinityGain = 40
-        message = `你与${def.name}完成了一次祭仪。`
+        message = `Bạn và ${def.name} hoàn thành một nghi lễ.`
         break
       }
       case 'dreamwalk': {
         // 入梦：固定35
         affinityGain = 35
-        message = `你与${def.name}共游了一段梦境。`
+        message = `Bạn và ${def.name} cùng du ngoạn trong một giấc mộng.`
         break
       }
       case 'cultivation': {
@@ -287,12 +287,12 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
         const successRate = skillStore.getSkill('mining').level * 5 + skillStore.getSkill('foraging').level * 5
         if (Math.random() * 100 < successRate) {
           affinityGain = 40
-          message = `修炼成功！你与${def.name}共同感悟天地灵气。`
+          message = `Tu luyện thành công! Bạn và ${def.name} cùng lĩnh hội linh khí đất trời.`
           const playerStore = usePlayerStore()
           playerStore.restoreStamina(10)
         } else {
           affinityGain = 10
-          message = `修炼未能圆满，但${def.name}点了点头表示认可你的努力。`
+          message = `Tu luyện chưa được viên mãn, nhưng ${def.name} gật đầu công nhận nỗ lực của bạn.`
         }
         break
       }
@@ -310,73 +310,73 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
   const startCourting = (npcId: string): { success: boolean; message: string } => {
     const state = getHiddenNpcState(npcId)
     const def = getHiddenNpcById(npcId)
-    if (!state || !def) return { success: false, message: '找不到此仙灵。' }
-    if (!def.bondable) return { success: false, message: '此仙灵无法结缘。' }
-    if (state.courting) return { success: false, message: '已在求缘中。' }
-    if (state.bonded) return { success: false, message: '已结缘。' }
+    if (!state || !def) return { success: false, message: 'Không tìm thấy tiên linh này.' }
+    if (!def.bondable) return { success: false, message: 'Không thể kết duyên với tiên linh này.' }
+    if (state.courting) return { success: false, message: 'Đang trong quá trình cầu duyên.' }
+    if (state.bonded) return { success: false, message: 'Đã kết duyên.' }
     if (state.affinity < def.courtshipThreshold)
       return {
         success: false,
-        message: `缘分不足（需要${def.courtshipThreshold}）。`
+        message: `Duyên phận chưa đủ (cần ${def.courtshipThreshold}).`
       }
 
     // 检查是否已有结缘对象
     const existingBond = hiddenNpcStates.value.find(s => s.bonded || s.courting)
     if (existingBond && existingBond.npcId !== npcId) {
-      return { success: false, message: '已与其他仙灵有缘分羁绊。' }
+      return { success: false, message: 'Đã có ràng buộc duyên phận với tiên linh khác.' }
     }
 
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.removeItem(def.courtshipItemId, 1)) {
-      return { success: false, message: `需要「${def.courtshipItemId}」。` }
+      return { success: false, message: `Cần 「${def.courtshipItemId}」.` }
     }
 
     state.courting = true
-    return { success: true, message: `${def.name}接受了你的求缘。` }
+    return { success: true, message: `${def.name} chấp nhận lời cầu duyên của bạn.` }
   }
 
   const formBond = (npcId: string): { success: boolean; message: string } => {
     const state = getHiddenNpcState(npcId)
     const def = getHiddenNpcById(npcId)
-    if (!state || !def) return { success: false, message: '找不到此仙灵。' }
-    if (!state.courting) return { success: false, message: '需要先求缘。' }
-    if (state.bonded) return { success: false, message: '已结缘。' }
+    if (!state || !def) return { success: false, message: 'Không tìm thấy tiên linh này.' }
+    if (!state.courting) return { success: false, message: 'Cần cầu duyên trước.' }
+    if (state.bonded) return { success: false, message: 'Đã kết duyên.' }
     if (state.affinity < def.bondThreshold)
       return {
         success: false,
-        message: `缘分不足（需要${def.bondThreshold}）。`
+        message: `Duyên phận chưa đủ (cần ${def.bondThreshold}).`
       }
 
     const inventoryStore = useInventoryStore()
     if (!inventoryStore.removeItem(def.bondItemId, 1)) {
-      return { success: false, message: `需要「${def.bondItemId}」。` }
+      return { success: false, message: `Cần 「${def.bondItemId}」.` }
     }
 
     state.bonded = true
-    return { success: true, message: `你与${def.name}结下了永世仙缘。` }
+    return { success: true, message: `Bạn và ${def.name} kết thành tiên duyên vĩnh thế.` }
   }
 
   const dissolveBond = (npcId: string): { success: boolean; message: string } => {
     const state = getHiddenNpcState(npcId)
     const def = getHiddenNpcById(npcId)
-    if (!state || !def) return { success: false, message: '找不到此仙灵。' }
-    if (!state.bonded && !state.courting) return { success: false, message: '无缘分羁绊可解除。' }
+    if (!state || !def) return { success: false, message: 'Không tìm thấy tiên linh này.' }
+    if (!state.bonded && !state.courting) return { success: false, message: 'Không có ràng buộc duyên phận để tháo bỏ.' }
 
     const playerStore = usePlayerStore()
-    if (playerStore.money < 10000) return { success: false, message: '需要10000文。' }
+    if (playerStore.money < 10000) return { success: false, message: 'Cần 10.000 văn.' }
     playerStore.spendMoney(10000)
 
     state.bonded = false
     state.courting = false
     state.affinity = Math.min(state.affinity, 1000)
-    return { success: true, message: `与${def.name}的缘分已解。` }
+    return { success: true, message: `Duyên phận với ${def.name} đã được tháo bỏ.` }
   }
 
   // ==================== 仙灵物品制作 ====================
 
   const craftSpiritItem = (npcId: string, type: 'courtship' | 'bond'): { success: boolean; message: string } => {
     const def = getHiddenNpcById(npcId)
-    if (!def) return { success: false, message: '找不到此仙灵。' }
+    if (!def) return { success: false, message: 'Không tìm thấy tiên linh này.' }
 
     const costs = type === 'courtship' ? def.courtshipCraftCost : def.bondCraftCost
     const outputItemId = type === 'courtship' ? def.courtshipItemId : def.bondItemId
@@ -386,7 +386,7 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
     // 检查材料
     for (const cost of costs) {
       if (inventoryStore.getItemCount(cost.itemId) < cost.quantity) {
-        return { success: false, message: '材料不足。' }
+        return { success: false, message: 'Không đủ nguyên liệu.' }
       }
     }
 
@@ -397,7 +397,7 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
 
     // 添加产物
     inventoryStore.addItem(outputItemId, 1)
-    return { success: true, message: '制作成功！' }
+    return { success: true, message: 'Chế tạo thành công!' }
   }
 
   // ==================== 心事件 ====================
@@ -545,13 +545,13 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
             // 龙灵控天：将明日天气设为晴天
             const gameStore = useGameStore()
             gameStore.setTomorrowWeather('sunny')
-            messages.push(`${def.name}的灵力拨开了明日的阴云，明日将是晴天。`)
+            messages.push(`Linh lực của ${def.name} xua tan mây mù ngày mai, ngày mai sẽ là ngày nắng.`)
           }
           break
         }
         case 'crop_blessing': {
           if (Math.random() < b.chance) {
-            messages.push(`${def.name}的祝福降临在田地上。`)
+            messages.push(`Phúc lành của ${def.name} giáng xuống ruộng đồng.`)
           }
           break
         }
@@ -562,11 +562,11 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
         case 'stamina_restore': {
           const playerStore = usePlayerStore()
           playerStore.restoreStamina(b.amount)
-          messages.push(`${def.name}为你恢复了${b.amount}点体力。`)
+          messages.push(`${def.name} hồi phục ${b.amount} thể lực cho bạn.`)
           break
         }
         case 'spirit_shield': {
-          messages.push(`${def.name}的灵力护盾环绕着你。`)
+          messages.push(`Lá chắn linh lực của ${def.name} bao quanh bạn.`)
           break
         }
         case 'sell_bonus': {
@@ -575,7 +575,7 @@ export const useHiddenNpcStore = defineStore('hiddenNpc', () => {
         }
         case 'fish_attraction': {
           if (Math.random() < b.chance) {
-            messages.push(`${def.name}引来了灵鱼的气息。`)
+            messages.push(`${def.name} thu hút khí tức của linh ngư.`)
           }
           break
         }

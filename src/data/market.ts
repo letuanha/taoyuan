@@ -38,11 +38,11 @@ const SUPPLY_THRESHOLDS: Record<MarketCategory, { low: number; mid: number; high
 }
 
 export const TREND_NAMES: Record<MarketTrend, string> = {
-  boom: '大涨',
-  rising: '上涨',
-  stable: '平稳',
-  falling: '下跌',
-  crash: '暴跌'
+  boom: 'Tăng mạnh',
+  rising: 'Tăng',
+  stable: 'Ổn định',
+  falling: 'Giảm',
+  crash: 'Giảm mạnh'
 }
 
 export const TREND_COLORS: Record<MarketTrend, string> = {
@@ -54,13 +54,13 @@ export const TREND_COLORS: Record<MarketTrend, string> = {
 }
 
 export const MARKET_CATEGORY_NAMES: Record<MarketCategory, string> = {
-  crop: '农产品',
-  fish: '鱼类',
-  animal_product: '畜产品',
-  processed: '加工品',
-  fruit: '水果',
-  ore: '矿石',
-  gem: '宝石'
+  crop: 'Nông sản',
+  fish: 'Cá',
+  animal_product: 'Sản phẩm chăn nuôi',
+  processed: 'Đồ chế biến',
+  fruit: 'Trái cây',
+  ore: 'Quặng',
+  gem: 'Đá quý'
 }
 
 // === 伪随机 ===

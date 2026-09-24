@@ -37,19 +37,19 @@ export const useWalletStore = defineStore('wallet', () => {
     // 商人印鉴：累计赚钱10000文
     if (!has('merchant_seal') && achievementStore.stats.totalMoneyEarned >= 10000) {
       unlock('merchant_seal')
-      newlyUnlocked.push('商人印章')
+      newlyUnlocked.push('Ấn Chương Thương Nhân')
     }
 
     // 草药图鉴：采集等级8
     if (!has('herb_guide') && skillStore.getSkill('foraging').level >= 8) {
       unlock('herb_guide')
-      newlyUnlocked.push('神农本草')
+      newlyUnlocked.push('Thần Nông Bản Thảo')
     }
 
     // 矿工护符：矿洞50层
     if (!has('miners_charm') && miningStore.safePointFloor >= 50) {
       unlock('miners_charm')
-      newlyUnlocked.push('矿工护符')
+      newlyUnlocked.push('Bùa Thợ Mỏ')
     }
 
     // 垂钓者令牌：钓到30种鱼
@@ -58,20 +58,20 @@ export const useWalletStore = defineStore('wallet', () => {
       const fishCount = achievementStore.discoveredItems.filter(id => fishIdSet.has(id)).length
       if (fishCount >= 30) {
         unlock('anglers_token')
-        newlyUnlocked.push('钓翁令牌')
+        newlyUnlocked.push('Lệnh Bài Lão Ngư')
       }
     }
 
     // 厨师帽：烹饪10道不同食谱
     if (!has('chefs_hat') && achievementStore.stats.totalRecipesCooked >= 10) {
       unlock('chefs_hat')
-      newlyUnlocked.push('厨师帽')
+      newlyUnlocked.push('Mũ Đầu Bếp')
     }
 
     // 大地图腾：收获100次作物
     if (!has('earth_totem') && achievementStore.stats.totalCropsHarvested >= 100) {
       unlock('earth_totem')
-      newlyUnlocked.push('土地图腾')
+      newlyUnlocked.push('Đồ Đằng Đất')
     }
 
     return newlyUnlocked

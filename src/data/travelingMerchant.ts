@@ -21,21 +21,21 @@ export interface TravelingMerchantStock {
 /** 旅行商人商品池 */
 export const TRAVELING_MERCHANT_POOL: TravelingMerchantItem[] = [
   // 稀有宝石
-  { itemId: 'dragon_jade', name: '龙玉', basePrice: 800 },
-  { itemId: 'prismatic_shard', name: '五彩碎片', basePrice: 1200 },
-  { itemId: 'moonstone', name: '月光石', basePrice: 400 },
+  { itemId: 'dragon_jade', name: 'Long Ngọc', basePrice: 800 },
+  { itemId: 'prismatic_shard', name: 'Mảnh Vỡ Ngũ Sắc', basePrice: 1200 },
+  { itemId: 'moonstone', name: 'Đá Nguyệt Quang', basePrice: 400 },
   // 稀有采集物
-  { itemId: 'ginseng', name: '人参', basePrice: 500 },
-  { itemId: 'wintersweet', name: '腊梅', basePrice: 150 },
+  { itemId: 'ginseng', name: 'Nhân Sâm', basePrice: 500 },
+  { itemId: 'wintersweet', name: 'Hoa Mai', basePrice: 150 },
   // 特殊材料
-  { itemId: 'iridium_ore', name: '铱矿', basePrice: 700 },
-  { itemId: 'cloth', name: '布匹', basePrice: 1000 },
+  { itemId: 'iridium_ore', name: 'Quặng Iridium', basePrice: 700 },
+  { itemId: 'cloth', name: 'Vải Vóc', basePrice: 1000 },
   // 稀有动物产品
-  { itemId: 'rabbit_foot', name: '幸运兔脚', basePrice: 1200 },
-  { itemId: 'truffle', name: '松露', basePrice: 1400 },
+  { itemId: 'rabbit_foot', name: 'Chân Thỏ May Mắn', basePrice: 1200 },
+  { itemId: 'truffle', name: 'Nấm Truffle', basePrice: 1400 },
   // 特殊物品
-  { itemId: 'rain_totem', name: '雨图腾', basePrice: 500 },
-  { itemId: 'silk_ribbon', name: '丝帕', basePrice: 500 }
+  { itemId: 'rain_totem', name: 'Đồ Đằng Mưa', basePrice: 500 },
+  { itemId: 'silk_ribbon', name: 'Khăn Lụa', basePrice: 500 }
 ]
 
 /** 判断某天是否为旅行商人出摊日（周五/周日） */
@@ -87,7 +87,7 @@ export const generateMerchantStock = (year: number, seasonIndex: number, day: nu
       const crop = shuffledCrops[i]!
       stock.push({
         itemId: crop.seedId,
-        name: `${crop.name}种子`,
+        name: `Hạt giống ${crop.name}`,
         price: Math.max(Math.floor(crop.seedPrice * 4), crop.sellPrice * 2), // 4 倍反季溢价，且不低于作物售价×2
         quantity: 3 + Math.floor(rng() * 3) // 3-5 个
       })

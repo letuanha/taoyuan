@@ -63,11 +63,11 @@ export type InteractionType = 'meditation' | 'music' | 'ritual' | 'dreamwalk' | 
 
 /** 互动类型中文名 */
 export const INTERACTION_NAMES: Record<InteractionType, string> = {
-  meditation: '参悟',
-  music: '奏乐',
-  ritual: '祭仪',
-  dreamwalk: '入梦',
-  cultivation: '修炼'
+  meditation: 'Tham ngộ',
+  music: 'Tấu nhạc',
+  ritual: 'Nghi lễ',
+  dreamwalk: 'Nhập mộng',
+  cultivation: 'Tu luyện'
 }
 
 /** 缘分能力 */

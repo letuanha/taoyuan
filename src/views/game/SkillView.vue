@@ -2,7 +2,7 @@
   <div>
     <h3 class="text-accent text-sm mb-3">
       <Star :size="14" class="inline" />
-      技能
+      kỹ thuậtnăng
     </h3>
     <div class="space-y-3">
       <div v-for="skill in skillStore.skills" :key="skill.type" class="game-panel">
@@ -29,7 +29,7 @@
           <p class="text-[10px] text-muted leading-relaxed">
             {{ SKILL_DESCS[skill.type] }}
           </p>
-          <p class="text-[10px] text-muted mt-0.5">每级：体力消耗-1%，{{ SKILL_LEVEL_BONUS[skill.type] }}</p>
+          <p class="text-[10px] text-muted mt-0.5">mỗicấp：thể lựctiêuhao-1%，{{ SKILL_LEVEL_BONUS[skill.type] }}</p>
         </div>
 
         <!-- 天赋 -->
@@ -45,8 +45,8 @@
             <span class="text-[10px] text-muted">{{ PERK_DESCS[skill.perk10] }}</span>
           </div>
         </div>
-        <p v-else-if="skill.level < 5" class="text-[10px] text-muted">Lv5 / Lv10 时可选择专精天赋</p>
-        <p v-else class="text-[10px] text-muted">升级到 Lv{{ !skill.perk5 ? 5 : 10 }} 后可选择天赋</p>
+        <p v-else-if="skill.level < 5" class="text-[10px] text-muted">Lv5 / Lv10 thờicó thể chọn chuyên mônngàythiên phú</p>
+        <p v-else class="text-[10px] text-muted">Nâng cấpđến Lv{{ !skill.perk5 ? 5 : 10 }} saucó thể chọn ngàythiên phú</p>
       </div>
     </div>
   </div>
@@ -69,93 +69,93 @@
   }
 
   const SKILL_NAMES: Record<SkillType, string> = {
-    farming: '农耕',
-    foraging: '采集',
-    fishing: '钓鱼',
-    mining: '挖矿',
-    combat: '战斗'
+    farming: 'Nông nghiệp',
+    foraging: 'Thu thập',
+    fishing: 'Câu cá',
+    mining: 'Khai khoáng',
+    combat: 'Chiến đấu'
   }
 
   const SKILL_DESCS: Record<SkillType, string> = {
-    farming: '种植作物、收获农产品。等级越高，作物品质越好。',
-    foraging: '采集野外资源、伐木。等级越高，采集品质越好。',
-    fishing: '在各水域钓鱼。等级越高，钓鱼成功率越高。',
-    mining: '在矿洞中采矿和战斗。等级越高，矿石产出越多。',
-    combat: '与矿洞中的怪物战斗。等级越高，生命值上限越高。'
+    farming: 'Trồng cây và thu hoạch nông sản. Cấp càng cao, chất lượng cây càng tốt.',
+    foraging: 'Thu thập tài nguyên hoang dã và đốn gỗ. Cấp càng cao, chất lượng thu thập càng tốt.',
+    fishing: 'Câu cá ở các vùng nước. Cấp càng cao, tỷ lệ câu thành công càng cao.',
+    mining: 'Khai mỏ và chiến đấu trong hầm. Cấp càng cao, quặng thu được càng nhiều.',
+    combat: 'Chiến đấu với quái vật trong hầm. Cấp càng cao, giới hạn sinh lực càng cao.'
   }
 
   const SKILL_LEVEL_BONUS: Record<SkillType, string> = {
-    farming: '作物品质概率提升',
-    foraging: '采集品质概率提升',
-    fishing: '钓鱼成功率提升',
-    mining: '矿石产出提升',
-    combat: '生命值上限+5'
+    farming: 'Tăng xác suất chất lượng cây trồng',
+    foraging: 'Tăng xác suất chất lượng thu thập',
+    fishing: 'Tăng tỷ lệ câu cá thành công',
+    mining: 'Tăng sản lượng quặng',
+    combat: 'Giới hạn sinh lực +5'
   }
 
   const PERK_DESCS: Record<SkillPerk5 | SkillPerk10, string> = {
-    harvester: '作物售价+10%',
-    rancher: '畜产品售价+20%',
-    lumberjack: '采集时25%概率额外获得木材',
-    herbalist: '采集物发现概率+20%',
-    fisher: '鱼类售价+25%',
-    trapper: '搏鱼成功率+15%',
-    miner: '50%概率矿石+1',
-    geologist: '稀有矿石概率大幅提升',
-    fighter: '受伤减少15%，生命上限+25',
-    defender: '防御时恢复5点生命',
-    intensive: '20%概率双倍收获',
-    artisan: '加工品售价+25%',
-    coopmaster: '动物亲密度获取+50%',
-    shepherd: '畜产品品质提升一级',
-    forester: '采集时必定额外获得木材',
-    tracker: '每次采集额外+1物品',
-    botanist: '采集物品质必定为精品',
-    alchemist: '食物恢复效果+50%',
-    angler: '传说鱼出现概率大幅提升',
-    aquaculture: '鱼类售价+50%',
-    mariner: '钓到的鱼品质至少为优质',
-    luremaster: '鱼饵效果翻倍',
-    prospector: '15%概率矿石翻倍',
-    blacksmith: '金属矿石售价+50%',
-    excavator: '使用炸弹时30%概率不消耗',
-    mineralogist: '击败怪物额外掉落矿石',
-    warrior: '生命上限+40',
-    brute: '攻击伤害+25%',
-    acrobat: '25%概率闪避并反击',
-    tank: '防御时伤害减免70%'
+    harvester: '+10% giá bán nông sản',
+    rancher: 'Giá bán sản phẩm chăn nuôi +20%',
+    lumberjack: '25% xác suất nhận thêm gỗ khi thu thập',
+    herbalist: 'Tỷ lệ phát hiện vật thu thập +20%',
+    fisher: 'Giá bán cá +25%',
+    trapper: 'Tỷ lệ đấu cá thành công +15%',
+    miner: '50% xác suất Quặng +1',
+    geologist: 'Tăng mạnh xác suất ra quặng hiếm',
+    fighter: 'Giảm sát thương 15%, giới hạn sinh lực +25',
+    defender: 'Khi phòng thủ hồi 5 sinh lực',
+    intensive: '20% cơ hội thu hoạch gấp đôi',
+    artisan: '+25% giá bán sản phẩm gia công',
+    coopmaster: '+50% độ thân thiết với động vật',
+    shepherd: 'Tăng một cấp chất lượng sản phẩm chăn nuôi',
+    forester: 'Khi thu thập chắc chắn nhận thêm gỗ',
+    tracker: 'Mỗi lần thu thập thêm +1 vật phẩm',
+    botanist: 'Vật phẩm thu thập chắc chắn là tinh phẩm',
+    alchemist: 'Hiệu quả hồi phục của thức ăn +50%',
+    angler: 'Tăng mạnh xác suất cá huyền thoại xuất hiện',
+    aquaculture: 'Giá bán cá +50%',
+    mariner: 'Cá câu được ít nhất là chất lượng tốt',
+    luremaster: 'Nhân đôi hiệu quả mồi câu',
+    prospector: '15% cơ hội quặng tăng gấp đôi',
+    blacksmith: '+50% giá bán quặng kim loại',
+    excavator: '30% xác suất không tiêu hao khi dùng bom',
+    mineralogist: 'Rơi thêm quặng khi đánh bại quái vật',
+    warrior: 'Giới hạn sinh lực +40',
+    brute: '+25% sát thương tấn công',
+    acrobat: '25% cơ hội né và phản công',
+    tank: 'Khi phòng thủ giảm 70% sát thương'
   }
 
   const PERK_NAMES: Record<SkillPerk5 | SkillPerk10, string> = {
-    harvester: '丰收者',
-    rancher: '牧人',
-    lumberjack: '樵夫',
-    herbalist: '药师',
-    fisher: '渔夫',
-    trapper: '捕手',
-    miner: '矿工',
-    geologist: '地质学家',
-    fighter: '斗士',
-    defender: '守护者',
-    intensive: '精耕',
-    artisan: '匠人',
-    coopmaster: '牧场主',
-    shepherd: '牧羊人',
-    botanist: '植物学家',
-    alchemist: '炼金师',
-    forester: '伐木工',
-    tracker: '追踪者',
-    angler: '垂钓大师',
-    aquaculture: '水产商',
-    mariner: '水手',
-    luremaster: '诱饵师',
-    prospector: '探矿者',
-    blacksmith: '铁匠',
-    excavator: '挖掘者',
-    mineralogist: '宝石学家',
-    warrior: '武者',
-    brute: '蛮力者',
-    acrobat: '杂技师',
-    tank: '重甲者'
+    harvester: 'Người Thu Hoạch',
+    rancher: 'Mục Đồng',
+    lumberjack: 'Tiều Phu',
+    herbalist: 'Gái Lá',
+    fisher: 'Ngư Dân',
+    trapper: 'Thợ Săn',
+    miner: 'Thợ Mỏ',
+    geologist: 'Nhà Địa Chất',
+    fighter: 'Đấu Sĩ',
+    defender: 'Vệ Binh',
+    intensive: 'Canh Tác Sâu',
+    artisan: 'Nghệ Nhân',
+    coopmaster: 'Chủ Trang Trại',
+    shepherd: 'Người Chăn Cừu',
+    botanist: 'Nhà Thực Vật',
+    alchemist: 'Giả Kim Thuật',
+    forester: 'Thợ Đốn Gỗ',
+    tracker: 'Kẻ Theo Dấu',
+    angler: 'Kiện Tướng Câu Cá',
+    aquaculture: 'Thương Nhân Thủy Sản',
+    mariner: 'Thủy Thủ',
+    luremaster: 'Bậc Thầy Mồi Câu',
+    prospector: 'Người Thăm Dò',
+    blacksmith: 'Thợ rèn',
+    excavator: 'Máy Xúc',
+    mineralogist: 'Nhà Ngọc Học',
+    warrior: 'Võ Giả',
+    brute: 'Kẻ Cục Súc',
+    acrobat: 'Diễn Viên Xiếc',
+    tank: 'Kỵ Sĩ Giáp Nặng'
   }
 
   const expInfo = (type: SkillType) => {

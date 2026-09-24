@@ -9,40 +9,40 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'liu_niang_heart_3',
     npcId: 'liu_niang',
     requiredFriendship: 800,
-    title: '溪边诗卷',
+    title: 'Cuốn Thơ Bên Bờ Suối',
     scenes: [
       {
-        text: '你沿着桃花溪散步，在一棵垂柳下发现了柳娘。她正倚着树干，手中捧着一卷泛黄的诗集，微风拂过，几瓣桃花落在书页上。'
+        text: 'Bạn đi dạo dọc theo suối Đào Hoa, tình cờ bắt gặp Liễu Nương dưới một gốc liễu rủ. Nàng đang tựa người vào gốc cây, trong tay nâng một tập thơ ố vàng, gió nhẹ lướt qua, vài cánh hoa đào rơi xuống trang sách.'
       },
       {
-        text: '柳娘抬起头，微微一笑："你也来这里散心吗？这是我最喜欢的读书地方，溪水的声音像天然的琴音。"'
+        text: 'Liễu Nương ngẩng đầu lên, khẽ mỉm cười: "Bạn cũng tới đây đi dạo giải khuây sao? Đây là góc đọc sách yêu thích nhất của mình, tiếng nước suối chảy giống như một bản nhạc thiên nhiên vậy."'
       },
       {
-        text: '她翻开诗集，指着其中一首诗："这首你读过吗？「桃之夭夭，灼灼其华。之子于归，宜其室家。」每次读到这里，我都会想象古人写这首诗时的心情。"',
+        text: 'Nàng lật giở tập thơ, chỉ vào một bài thơ trong đó: "Bài này bạn đã từng đọc qua chưa? \'Đào chi yêu yêu, chước chước kỳ hoa. Chi tử vu quy, nghi kỳ thất gia.\' Lần nào đọc đến câu này, mình cũng hay mường tượng ra tâm trạng của cổ nhân khi viết nên nó."',
         choices: [
           {
-            text: '"这首诗写的是对美好生活的向往，就像桃源乡一样。"',
+            text: '"Bài thơ này miêu tả sự hướng về một cuộc sống tốt đẹp, giống hệt như Đào Nguyên Hương vậy."',
             friendshipChange: 120,
             response:
-              '柳娘的眼睛亮了起来："你也这样觉得吗？父亲给这个村子取名桃源乡，就是希望这里能像诗中描绘的那样美好。能遇到懂诗的人，真好。"'
+              'Đôi mắt Liễu Nương sáng bừng lên: "Bạn cũng cảm thấy vậy sao? Phụ thân đặt tên cho ngôi làng này là Đào Nguyên Hương, chính là với mong muốn nơi đây có thể yên bình tốt đẹp giống như cảnh sắc miêu tả trong thơ. Gặp được người hiểu thơ, thật là tốt quá."'
           },
           {
-            text: '"说实话，我对古诗不太了解……"',
+            text: '"Thú thật là, tôi cũng không hiểu biết nhiều về cổ thi cho lắm..."',
             friendshipChange: 40,
-            response: '柳娘轻轻笑了："没关系，诗的美妙之处在于感受，不在于懂不懂。你愿意坐下来听我读一首吗？"'
+            response: 'Liễu Nương khẽ mỉm cười: "Không sao đâu, sự tuyệt diệu của thơ ca nằm ở việc cảm nhận, chứ không phải ở chỗ có hiểu hay không. Bạn có bằng lòng ngồi xuống đây nghe mình đọc một bài không?"'
           },
           {
-            text: '"比起读诗，我更喜欢干活。"',
+            text: '"So với việc đọc thơ, tôi thích làm ruộng chân tay hơn."',
             friendshipChange: -40,
-            response: '柳娘的笑容淡了一些："勤劳当然是好事……不过，偶尔停下脚步也是需要的。"她低下头，继续翻着诗集。'
+            response: 'Nụ cười của Liễu Nương nhạt đi đôi chút: "Siêng năng chăm chỉ tất nhiên là chuyện tốt... nhưng mà, thỉnh thoảng cũng cần dừng bước chân nghỉ ngơi một chút chứ." Nàng cúi đầu, tiếp tục lật giở tập thơ.'
           }
         ]
       },
       {
-        text: '夕阳渐渐西沉，溪面上浮着金色的光。柳娘合上诗集，站起身来。'
+        text: 'Hoàng hôn dần buông xuống phía tây, trên mặt suối trôi nổi những ánh sáng màu vàng óng. Liễu Nương gấp tập thơ lại, đứng dậy.'
       },
       {
-        text: '"今天聊得很开心。"她把一瓣夹在书里的干桃花递给你，"送你当书签。以后有看不懂的句子尽管来问我——就算我们结了个诗友之约吧。"她笑着挥挥手，沿着溪边小路走远了。'
+        text: '"Hôm nay trò chuyện vui lắm." Nàng đưa cho bạn một cánh hoa đào khô được kẹp cẩn thận trong sách, "Tặng cho bạn, coi như là... lời thề của thi hữu chúng ta nhé." Nàng đỏ mặt, quay người bước dọc theo con đường mòn bên suối đi xa dần.'
       }
     ]
   },
@@ -50,36 +50,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'liu_niang_heart_5',
     npcId: 'liu_niang',
     requiredFriendship: 1600,
-    title: '桃源秘事',
+    title: 'Mật sự Đào Nguyên',
     scenes: [
       {
-        text: '傍晚时分，柳娘找到你，神色有些凝重："你有空吗？我想带你去一个地方，有些事……我觉得应该告诉你。"'
+        text: 'Chập tối, Liễu Nương tìm đến bạn, sắc mặt có chút nghiêm trọng: "Bạn có rảnh không? Mình muốn dẫn bạn đến một nơi, có vài chuyện... mình nghĩ là nên cho bạn biết."'
       },
       {
-        text: '她领你来到村后一座废弃的老祠堂前。推开吱呀作响的木门，里面供着一块古老的石碑，上面刻满了密密麻麻的小字。'
+        text: 'Nàng dẫn bạn đi tới trước một ngôi từ đường cũ bị bỏ hoang ở phía sau làng. Đẩy cánh cửa gỗ kêu kẽo kẹt ra, bên trong có thờ một tấm bia đá cổ xưa, trên đó khắc chi chít những dòng chữ nhỏ.'
       },
       {
-        text: '"这是桃源乡的族碑。"柳娘轻声说，"上面记载着两百年前的事。桃源乡并不是一个普通的村庄——它是当年一群人为了躲避战乱，翻山越岭找到这片隐秘山谷后建立的。他们在这里种桃树、修水渠，发誓再也不与外面的纷争有任何牵扯。"',
+        text: '"Đây là tộc bia của Đào Nguyên Hương." Liễu Nương nhẹ nhàng lên tiếng, "Bên trên có ghi chép lại những sự việc xảy ra vào hai trăm năm trước. Đào Nguyên Hương không phải là một ngôi làng bình thường —— nó được xây dựng bởi một nhóm người vì muốn chạy trốn khỏi chiến loạn, đã vượt đèo lội suối để tìm ra thung lũng bí ẩn này. Bọn họ trồng cây đào, xây mương nước tại đây, thề rằng sẽ không bao giờ dính dáng đến những tranh chấp rối ren ngoài kia nữa."',
         choices: [
           {
-            text: '"原来如此……难怪这里与世隔绝，像世外桃源一般。"',
+            text: '"Hóa ra là vậy... thảo nào nơi này lại tách biệt với thế giới, chẳng khác gì chốn bồng lai tiên cảnh."',
             friendshipChange: 120,
             response:
-              '柳娘点点头，眼眶微红："是啊。我的祖辈们世世代代守着这个秘密。父亲常说，桃源乡的宁静是用无数人的牺牲换来的，我们必须珍惜。"'
+              'Liễu Nương gật đầu, hốc mắt hơi đỏ: "Đúng vậy. Tổ tiên nhà mình đời đời kiếp kiếp luôn trông giữ lấy bí mật này. Phụ thân thường nói, sự yên bình của Đào Nguyên Hương đã được đổi lấy bằng sự hi sinh của vô số người, chúng ta nhất định phải trân trọng nó."'
           },
           {
-            text: '"你为什么要告诉我这些？"',
+            text: '"Vì sao cô lại kể cho tôi nghe những điều này?"',
             friendshipChange: 80,
             response:
-              '柳娘沉默了片刻，轻声道："因为你来到这里之后，一直在用心经营田庄，帮助乡亲们。我觉得……你是值得信任的人。而且，你祖父当年也知道这些。"'
+              'Liễu Nương trầm mặc một lát, khẽ nói: "Bởi vì sau khi bạn tới đây, vẫn luôn dốc lòng kinh doanh điền trang, giúp đỡ bà con lối xóm. Mình cảm thấy... bạn là một người đáng để tin tưởng. Hơn nữa, ông nội của bạn năm xưa cũng từng biết đến chuyện này."'
           }
         ]
       },
       {
-        text: '柳娘走到石碑前，用手轻轻拂去上面的灰尘："碑上还记着一段预言——「桃源之兴衰，系于后来者。若有赤心之人重耕此地，桃源可再现昔日之盛。」父亲一直相信，这个人就是你。"'
+        text: 'Liễu Nương bước tới trước tấm bia, lấy tay nhẹ nhàng gạt đi lớp bụi bám bên trên: "Trên bia còn ghi lại một đoạn tiên tri —— \'Sự hưng suy của Đào Nguyên, hệ tại hậu lai giả. Nhược hữu xích tâm chi nhân trùng canh thử địa, Đào Nguyên khả tái hiện tích nhật chi thịnh\'. Phụ thân vẫn luôn tin rằng, người đó chính là bạn."'
       },
       {
-        text: '走出祠堂时，夜色已深，满天繁星。柳娘回头看了你一眼："谢谢你愿意听这些。这个秘密……以后就由我们一起守护吧。"月光下，她的目光温柔而坚定。'
+        text: 'Lúc ra khỏi từ đường, đêm đã khuya, trên trời đầy sao. Liễu Nương quay đầu lại nhìn bạn một cái: "Cảm ơn bạn đã chịu lắng nghe những điều này. Bí mật này... sau này chúng ta hãy cùng nhau gánh vác nhé." Dưới ánh trăng, ánh mắt nàng dịu dàng mà vô cùng kiên định.'
       }
     ]
   },
@@ -87,36 +87,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'liu_niang_heart_8',
     npcId: 'liu_niang',
     requiredFriendship: 2400,
-    title: '月下桃花',
+    title: 'Hoa Đào Dưới Trăng',
     scenes: [
       {
-        text: '深夜，你被一阵轻轻的敲门声惊醒。打开门，只见门前放着一封信笺，上面写着："今夜月圆，桃花园中有约。——柳娘"'
+        text: 'Đêm khuya, bạn bị đánh thức bởi một tiếng gõ cửa nhè nhẹ. Mở cửa ra, chỉ thấy một bức thư được đặt trước cửa, bên trên viết: "Đêm nay trăng tròn, có hẹn tại vườn hoa đào. —— Liễu Nương"'
       },
       {
-        text: '你来到村东的桃花园。月光如水，洒在漫天的桃花上，花瓣在夜风中缓缓飘落，宛如一场无声的花雨。柳娘站在园中央的老桃树下，一袭素色衣裙，发间别着一朵新开的桃花。'
+        text: 'Bạn đi đến vườn đào ở phía đông thôn. Ánh trăng sáng như nước, rải rác trên những cánh hoa đào bay đầy trời, cánh hoa dưới làn gió đêm chầm chậm rụng xuống, giống như một cơn mưa hoa không tiếng động. Liễu Nương đang đứng dưới gốc đào già ở giữa vườn, mặc một bộ y phục màu trắng mộc mạc, trên tóc cài một đóa hoa đào mới nở.'
       },
       {
-        text: '"你来了。"她转过身，月光映着她的脸庞，"我一直在等你。"她走近几步，声音轻得像是怕惊散了花瓣，"有些话，我在心里藏了很久了……"'
+        text: '"Bạn đến rồi." Nàng quay người lại, ánh trăng hắt lên khuôn mặt nàng, "Mình vẫn luôn đợi bạn." Nàng tiến lại gần vài bước, giọng nói nhẹ bẫng tựa như sợ sẽ làm những cánh hoa vỡ vụn, "Có những lời, mình đã giấu kín trong lòng từ rất lâu rồi..."'
       },
       {
-        text: '柳娘低下头，双手绞着衣角："你来桃源乡之前，我以为我会一辈子守着这个小村庄，读我的诗，过平淡的日子。可是你来了以后，一切都不同了。我看着你开荒种田、帮助乡亲、让这片土地重新焕发生机……我的心里，也像是开了一片桃花。"她抬起头，眼中有泪光闪烁，"我……喜欢你。"',
+        text: 'Liễu Nương cúi đầu, hai tay vò vò vạt áo: "Trước khi bạn tới Đào Nguyên Hương, mình cứ ngỡ bản thân sẽ phải trông giữ ngôi làng nhỏ này cả đời, làm bạn với thơ, trôi qua những tháng ngày bình dị. Nhưng kể từ khi bạn tới, mọi thứ đã thay đổi hoàn toàn. Mình nhìn thấy bạn khai hoang làm ruộng, giúp đỡ bà con, khiến mảnh đất này bừng bừng sức sống trở lại... Trong tim mình, giống như cũng nở rộ một vùng hoa đào vậy." Nàng ngẩng đầu lên, trong mắt có ánh lệ lấp lánh, "Mình... thích bạn."',
         choices: [
           {
-            text: '轻轻握住她的手："我也喜欢你，柳娘。从在溪边读诗的那天起。"',
+            text: 'Khẽ nắm lấy tay nàng: "Tôi cũng thích cô, Liễu Nương. Bắt đầu từ cái ngày đọc thơ bên bờ suối đó."',
             friendshipChange: 160,
             response:
-              '柳娘的泪水终于落下，却笑得比桃花还灿烂："真的吗？我以为……我以为只是我一个人的心思。"她反握住你的手，十指相扣，"那从今以后，这片桃花园就是我们的约定之地。"'
+              'Nước mắt của Liễu Nương cuối cùng cũng tuôn rơi, nhưng nàng cười còn rực rỡ hơn cả hoa đào: "Thật không? Mình cứ nghĩ... mình cứ nghĩ đó chỉ là tâm tư của riêng một mình mình thôi chứ." Nàng nắm lấy tay bạn, mười ngón tay đan chặt vào nhau, "Vậy từ nay về sau, vườn hoa đào này chính là chốn hẹn ước của chúng ta."'
           },
           {
-            text: '"柳娘，我很感动，但我需要一些时间……"',
+            text: '"Liễu Nương, tôi rất cảm động, nhưng mà tôi cần thêm một chút thời gian..."',
             friendshipChange: 0,
             response:
-              '柳娘愣了一下，随即轻轻放开目光，微笑道："没关系，我等你。桃花每年都会开的……我的心意也不会变。"虽然在笑，但月光下她的眼眶微微泛红。'
+              'Liễu Nương sững sờ một lát, ngay sau đó khẽ buông tầm mắt xuống, mỉm cười đáp: "Không sao đâu, mình sẽ đợi. Hoa đào năm nào cũng nở rộ... tâm ý của mình cũng sẽ không bao giờ thay đổi." Tuy đang mỉm cười, nhưng dưới ánh trăng viền mắt của nàng đã hơi ửng đỏ.'
           }
         ]
       },
       {
-        text: '一阵夜风吹过，漫天桃花纷纷扬扬地落下。你和柳娘并肩站在花雨之中，月光温柔地笼罩着一切。这一刻，桃源乡真的像是人间仙境。远处隐约传来溪水的声音，像是这片土地在轻声祝福。'
+        text: 'Một trận gió đêm thổi qua, cánh hoa đào bay lả tả rụng xuống. Bạn và Liễu Nương vai kề vai đứng giữa cơn mưa hoa, ánh trăng dịu dàng bao phủ vạn vật. Khoảnh khắc này, Đào Nguyên Hương thực sự chẳng khác nào chốn tiên cảnh chốn nhân gian. Phía xa xa vọng lại tiếng nước suối chảy, tựa như mảnh đất này đang khẽ khàng chúc phúc.'
       }
     ]
   },
@@ -128,40 +128,40 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'qiu_yue_heart_3',
     npcId: 'qiu_yue',
     requiredFriendship: 800,
-    title: '钓鱼比试',
+    title: 'Tỷ Thí Câu Cá',
     scenes: [
       {
-        text: '秋月蹦蹦跳跳地跑过来，手里挥舞着两根鱼竿："嘿！闲着没事吧？跟我来，带你去一个好地方！保证你没去过！"不等你回答，她就拽着你的袖子往山里跑。'
+        text: 'Thu Nguyệt tung tăng chạy tới, trong tay múa may hai cái cần câu: "Hê! Rảnh rỗi không có việc gì làm chứ? Đi theo mình, dẫn bạn tới một chỗ này hay cực! Đảm bảo là chưa đi bao giờ!" Không đợi bạn trả lời, cô nàng đã kéo ống tay áo bạn chạy về phía ngọn núi.'
       },
       {
-        text: '穿过一片竹林，绕过几块大石头，眼前豁然开朗——一潭碧绿的深水，四周被巨石环抱，阳光透过树缝洒下斑驳的光影。水面平静如镜，偶尔有鱼跃出水面，泛起一圈圈涟漪。'
+        text: 'Đi xuyên qua một rừng trúc, vòng qua vài tảng đá lớn, trước mắt bỗng nhiên sáng sủa hẳn —— một cái đầm sâu nước xanh biếc, bốn phía được bao bọc bởi những tảng đá khổng lồ, ánh nắng xuyên qua kẽ lá rải xuống những vệt sáng lốm đốm. Mặt nước phẳng lặng như gương, thỉnh thoảng lại có một con cá vọt lên khỏi mặt nước, tạo thành những vòng gợn sóng.'
       },
       {
-        text: '"这是我的秘密钓点！"秋月得意地叉着腰，"全村就我一个人知道！这里的鱼又大又肥，普通地方根本比不了。"她把一根鱼竿塞到你手里，眼睛亮晶晶的，"来吧，咱们比一场！谁在一炷香的时间内钓的鱼多，谁就赢！输的人请吃饭！"',
+        text: '"Đây là chỗ câu cá bí mật của mình đó!" Thu Nguyệt đắc ý chống nạnh, "Cả làng chỉ có một mình mình biết thôi! Cá ở đây vừa to vừa béo, những chỗ bình thường vốn không thể nào sánh được." Cô nàng nhét một cái cần câu vào tay bạn, đôi mắt sáng lấp lánh, "Tới đây nào, chúng ta thi một ván đi! Trong vòng một nén nhang, ai câu được nhiều cá hơn, người đó thắng! Người thua sẽ phải bao ăn!"',
         choices: [
           {
-            text: '"好啊！那我可不会让着你！"',
+            text: '"Được thôi! Vậy tôi sẽ không nhường cô đâu!"',
             friendshipChange: 120,
-            response: '秋月哈哈大笑："这才对嘛！我最讨厌别人让着我了！来来来，准备好——开始！"她熟练地甩出鱼线，动作干净利落，一看就是行家。'
+            response: 'Thu Nguyệt cười ha hả: "Thế mới đúng chứ! Mình ghét nhất là người khác nhường nhịn mình! Lại đây lại đây, chuẩn bị xong chưa —— Bắt đầu!" Cô nàng thành thạo ném dây câu ra, động tác gọn gàng dứt khoát, nhìn là biết ngay dân chuyên nghiệp.'
           },
           {
-            text: '"我钓鱼技术不太行，你教教我吧。"',
+            text: '"Kỹ thuật câu cá của tôi không giỏi lắm, cô dạy tôi đi."',
             friendshipChange: 80,
             response:
-              '秋月歪着脑袋看你，嘻嘻一笑："行吧，本姑娘大发慈悲教教你。看好了——手腕要轻，抛线要稳，最重要的是要有耐心。不过比试还是要比的！"'
+              'Thu Nguyệt nghiêng đầu nhìn bạn, hì hì cười nói: "Được thôi, bổn cô nương đại phát từ bi dạy cho bạn vậy. Nhìn cho kỹ nhé —— cổ tay phải nhẹ nhàng, ném dây phải ổn định, quan trọng nhất là phải có kiên nhẫn. Nhưng mà thi thì vẫn phải thi đấy!"'
           },
           {
-            text: '"钓鱼有什么好比的……"',
+            text: '"Câu cá thì có gì mà phải thi thố chứ..."',
             friendshipChange: -40,
-            response: '秋月鼓起腮帮子，一脸不高兴："哼！钓鱼可是世界上最棒的事情！算了算了，不跟你计较，等你钓上一条大鱼就知道有多开心了！"'
+            response: 'Thu Nguyệt phồng má, trưng ra bộ mặt không vui: "Hừ! Câu cá là chuyện tuyệt vời nhất trên thế giới này đó! Thôi được rồi, không thèm tính toán với bạn nữa, đợi khi nào bạn câu được một con cá lớn thì sẽ biết vui thế nào!"'
           }
         ]
       },
       {
-        text: '一炷香过后，你们数了数各自的收获。秋月钓了六条，你钓了三条。她笑得前仰后合："哈哈哈！你输啦！请我吃陈伯铺子里的桂花糕！不许赖账！"'
+        text: 'Sau một nén nhang, hai người đếm lại chiến lợi phẩm của mình. Thu Nguyệt câu được sáu con, bạn câu được ba con. Cô nàng cười ngặt nghẽo: "Ha ha ha! Bạn thua rồi nha! Mời mình ăn bánh hoa quế trong tiệm Bác Trần đi! Không được quỵt nợ đâu đấy!"'
       },
       {
-        text: '收拾鱼竿时，秋月忽然安静下来，望着水面说："其实……这个地方是我小时候爸妈带我来的。那时候我们一家三口坐在这里钓鱼，一坐就是一整天。"她回过头冲你笑了笑，"今天能跟你来这里，也很开心！下次再来比过！"'
+        text: 'Lúc thu dọn cần câu, Thu Nguyệt bỗng nhiên im lặng, nhìn mặt nước nói: "Thật ra... nơi này là hồi nhỏ ba mẹ hay dắt mình tới. Lúc đó nhà ba người bọn mình ngồi câu cá ở đây, cứ ngồi mãi suốt cả ngày." Cô nàng ngoảnh đầu lại mỉm cười với bạn, "Hôm nay được cùng bạn tới đây, mình cũng rất vui! Lần sau chúng ta lại thi tiếp nhé!"'
       }
     ]
   },
@@ -169,36 +169,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'qiu_yue_heart_5',
     npcId: 'qiu_yue',
     requiredFriendship: 1600,
-    title: '雨夜心事',
+    title: 'Tâm Sự Đêm Mưa',
     scenes: [
       {
-        text: '连日的暴雨让溪水暴涨，全村人都躲在屋里。你路过秋月家时，发现她的门虚掩着，屋里没有点灯。'
+        text: 'Mưa bão liên tục nhiều ngày khiến nước suối dâng cao, người trong thôn đều trốn trong nhà. Khi bạn đi ngang qua nhà Thu Nguyệt, phát hiện cửa nhà cô ấy khép hờ, trong phòng không thắp đèn.'
       },
       {
-        text: '推门进去，借着闪电的光，你看到秋月蜷缩在窗边，抱着膝盖，脸上有泪痕。她看到你，慌忙擦了擦脸："你……你怎么来了？我没事，就是……不太喜欢下雨天。"'
+        text: 'Đẩy cửa bước vào, mượn ánh chớp, bạn thấy Thu Nguyệt đang thu mình cuộn tròn bên cửa sổ, ôm lấy đầu gối, trên mặt vẫn còn vương nét lệ. Cô ấy nhìn thấy bạn, vội vàng lau mặt: "Bạn... sao bạn lại tới đây? Mình không sao, chỉ là... không thích ngày mưa cho lắm."'
       },
       {
-        text: '你在她旁边坐下。沉默了很久，秋月才开口，声音很轻，失去了平日的活力："三年前……也是这样的暴雨天。我爸妈说要去下游看看水势，然后就再也没有回来。"她的声音开始颤抖，"村里人说他们被洪水冲走了……找了好久，什么都没找到。"',
+        text: 'Bạn ngồi xuống bên cạnh. Trầm mặc rất lâu, Thu Nguyệt mới chịu mở miệng, giọng nói rất khẽ, đã mất đi sự sức sống ngày thường: "Ba năm trước... cũng là một ngày mưa bão thế này. Ba mẹ bảo muốn xuống hạ lưu xem thử tình hình nước, sau đó không bao giờ quay trở lại nữa." Giọng nói của cô ấy bắt đầu run lên, "Người trong làng nói họ bị nước lũ cuốn đi rồi... Tìm kiếm rất lâu, nhưng không tìm được gì cả."',
         choices: [
           {
-            text: '默默把外套披在她肩上，安静地陪着她。',
+            text: 'Lặng lẽ khoác áo khoác lên vai cô ấy, yên tĩnh ở bên bầu bạn.',
             friendshipChange: 160,
             response:
-              '秋月愣了一下，然后眼泪再也忍不住了。她靠在你的肩膀上，哭了很久很久。等她平静下来，小声说："谢谢你……从他们走后，我一直告诉自己要笑着，不能让别人担心。可是下雨天的时候……我真的好想他们。"'
+              'Thu Nguyệt sững sờ một chút, sau đó nước mắt không thể kìm nén được nữa. Cô ấy dựa đầu vào vai bạn, khóc rất lâu, rất lâu. Đợi đến khi cô ấy bình tĩnh lại, mới thầm thì: "Cảm ơn bạn... từ khi họ rời đi, mình luôn tự nhủ phải mỉm cười, không được để người khác lo lắng. Thế nhưng những lúc trời mưa... mình thực sự rất nhớ họ."'
           },
           {
-            text: '"秋月……你不用一个人扛着，难过的时候可以找我。"',
+            text: '"Thu Nguyệt... cô không cần phải gánh vác một mình đâu, lúc nào buồn cứ tới tìm tôi."',
             friendshipChange: 120,
             response:
-              '秋月的嘴角抖了抖，终于没忍住哭了出来："我……我一直以为自己很坚强。可是每次下雨，我就会想……如果那天我拦住他们，是不是一切都会不同？"她抹着眼泪，"你真的愿意听我说这些吗？"'
+              'Khóe miệng Thu Nguyệt run rẩy, cuối cùng không nhịn được òa khóc: "Mình... mình cứ nghĩ bản thân rất kiên cường. Nhưng mỗi lần trời mưa, mình lại nghĩ... nếu như hôm đó mình ngăn cản họ, có phải mọi chuyện sẽ không thành ra như thế này?" Cô ấy quệt nước mắt, "Bạn thực sự bằng lòng lắng nghe mình nói những chuyện này sao?"'
           }
         ]
       },
       {
-        text: '雨渐渐小了，天边裂开一道缝，透出一缕微弱的光。秋月抬起头，红着眼睛看着那道光："我妈以前总说，雨后一定会出太阳。她还说，只要我一直笑着，他们就会在天上看着我笑。"'
+        text: 'Mưa dần nhỏ lại, phía chân trời nứt ra một đường, le lói một tia sáng yếu ớt. Thu Nguyệt ngẩng đầu lên, đôi mắt đỏ hoe nhìn tia sáng đó: "Lúc trước mẹ mình hay bảo, sau cơn mưa nhất định mặt trời sẽ ló dạng. Mẹ còn nói, chỉ cần mình luôn tươi cười, họ trên thiên đường cũng sẽ nhìn mình mỉm cười."'
       },
       {
-        text: '秋月站起来，深吸一口气，然后转过身，露出一个虽然还带着泪水但已经明亮起来的笑容："好了！秋月才不会一直哭哭啼啼的呢！明天雨停了，我们去钓鱼吧。我爸妈最高兴看到我开开心心地钓鱼了。"她的眼睛闪着光，"而且……有你在，下雨天好像也没那么可怕了。"'
+        text: 'Thu Nguyệt đứng dậy, hít sâu một hơi, sau đó quay người lại, nở một nụ cười tuy vẫn còn vương nước mắt nhưng đã xán lạn hơn: "Được rồi! Thu Nguyệt sẽ không khóc lóc ỉ ôi mãi đâu! Ngày mai mưa tạnh, chúng ta đi câu cá đi. Ba mẹ mình thích nhất là thấy mình vui vẻ đi câu cá đấy." Đôi mắt cô ấy lấp lánh, "Hơn nữa... có bạn ở đây, những ngày mưa hình như cũng không đáng sợ như vậy nữa."'
       }
     ]
   },
@@ -206,36 +206,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'qiu_yue_heart_8',
     npcId: 'qiu_yue',
     requiredFriendship: 2400,
-    title: '夕照归舟',
+    title: 'Thuyền Về Trong Tịch Dương',
     scenes: [
       {
-        text: '秋月一大早就来找你，背着一个大竹篓，竹篓里塞得满满当当——鱼竿、鱼饵、干粮、还有一壶茶。"今天跟我出远门！去桃花溪下游的芦苇荡！我要教你我妈的独门绝技！"'
+        text: 'Thu Nguyệt tìm đến bạn từ sáng sớm, trên lưng đeo một cái gùi tre lớn, trong gùi nhét chật ních đồ —— cần câu, mồi câu, lương khô, và cả một ấm trà. "Hôm nay cùng mình đi xa một chuyến! Đến bãi lau sậy ở hạ lưu suối Đào Hoa! Mình muốn dạy cho bạn tuyệt kỹ độc môn của mẹ mình!"'
       },
       {
-        text: '你们划着秋月家的小木船顺流而下。秋月坐在船头，双脚荡在水里，哼着一首渔歌。芦苇荡在金色的阳光下摇曳，水鸟不时掠过水面。"这首歌是我妈教我的，"她说，"她说唱着这首歌，鱼儿就会自己游过来。"'
+        text: 'Hai người chèo con thuyền gỗ nhỏ của nhà Thu Nguyệt xuôi theo dòng nước. Thu Nguyệt ngồi ở mũi thuyền, đong đưa hai chân dưới nước, miệng ngân nga một khúc hát chài lưới. Bãi lau sậy đung đưa dưới ánh nắng vàng, những chú chim nước thỉnh thoảng lại sà xuống mặt nước. "Bài hát này là do mẹ dạy cho mình," Cô ấy kể, "Mẹ nói chỉ cần hát bài hát này, cá sẽ tự động bơi lại đây."'
       },
       {
-        text: '到了一片开阔的水域，秋月认真起来。她手把手教你一种特殊的抛线方式——鱼线在空中画出一个漂亮的弧线，轻轻落在水面上，几乎没有溅起水花。"这叫「柳叶钩」，是我妈发明的。要诀是——手要像柳枝一样柔软，心要像湖水一样平静。"',
+        text: 'Khi tới một vùng nước rộng lớn, Thu Nguyệt bắt đầu trở nên nghiêm túc. Cô ấy cầm tay chỉ việc dạy bạn một cách ném dây vô cùng đặc biệt —— dây câu vẽ một đường cong tuyệt đẹp trên không trung, nhẹ nhàng rơi xuống mặt nước, gần như không làm bọt nước văng lên. "Đây gọi là \'Liễu Diệp Câu\', là do mẹ mình phát minh ra. Bí quyết là —— tay phải mềm mại như cành liễu, tâm phải tĩnh lặng như nước hồ."',
         choices: [
           {
-            text: '认真学习，反复练习，直到抛出一个完美的柳叶钩。',
+            text: 'Nghiêm túc học hỏi, lặp đi lặp lại thực hành, cho đến khi ném ra được một chiêu Liễu Diệp Câu hoàn hảo.',
             friendshipChange: 120,
             response:
-              '秋月看着你的鱼线在空中画出完美的弧线，眼睛睁得大大的："哇！你居然一下午就学会了！我当初练了整整一个月呢！"她开心得手舞足蹈，差点把船晃翻，"我妈要是看到了，肯定也会夸你的！"'
+              'Thu Nguyệt nhìn đường câu của bạn vạch ra một đường cong hoàn mỹ trên không trung, đôi mắt mở to ngạc nhiên: "Wao! Bạn thế mà chỉ mất một buổi chiều đã học được rồi! Lúc đầu mình phải luyện tập ròng rã cả tháng trời lận đó!" Cô ấy vui mừng nhảy nhót khua chân múa tay, suýt chút nữa làm lật thuyền, "Nếu mẹ mình mà thấy được, chắc chắn cũng sẽ khen bạn đó!"'
           },
           {
-            text: '"这个技巧真厉害。你妈妈一定是个很了不起的人。"',
+            text: '"Kỹ thuật này lợi hại thật. Mẹ của cô nhất định là một người rất xuất chúng."',
             friendshipChange: 120,
             response:
-              '秋月用力地点点头，眼里闪着骄傲和思念交织的光："她是全桃源乡最厉害的钓手！比我还厉害一百倍！……我一直想把她的本事全学会，然后教给更多的人。这样她就永远不会被忘记。"'
+              'Thu Nguyệt dùng sức gật gật đầu, trong mắt lấp lánh tia sáng kiêu ngạo xen lẫn nỗi nhớ mong: "Bà ấy là tay câu cừ khôi nhất Đào Nguyên Hương này! Lợi hại hơn cả mình gấp trăm lần!... Mình luôn muốn học được toàn bộ bản lĩnh của mẹ, sau đó dạy lại cho nhiều người. Như vậy bà ấy sẽ không bao giờ bị lãng quên."'
           }
         ]
       },
       {
-        text: '夕阳西下，整个芦苇荡被染成了橘红色。你们收了鱼竿，让小船在水面上慢慢地漂。秋月坐在船头，夕阳把她的侧脸映得柔和而明亮。'
+        text: 'Hoàng hôn buông xuống, toàn bộ bãi lau sậy được nhuộm thành màu đỏ cam rực rỡ. Hai người cất cần câu, để con thuyền nhỏ chầm chậm trôi trên mặt nước. Thu Nguyệt ngồi ở mũi thuyền, ánh tà dương chiếu lên nửa bên sườn mặt của cô ấy, dịu dàng mà bừng sáng.'
       },
       {
-        text: '忽然，秋月转过身来，认真地看着你。夕阳在她的眼睛里跳动。"我一直在想该怎么说……"她难得地有些扭捏，用手指绕着发梢，"你知道吗？自从你来了桃源乡，我每天都特别特别开心。以前我觉得自己一个人也可以，可是现在……"她深吸一口气，然后一股脑地说出来，"我喜欢你！超级喜欢！比喜欢钓鱼还喜欢！这已经是我能说出的最高级别的喜欢了！"说完她涨红了脸，把头埋进膝盖里。'
+        text: 'Đột nhiên, Thu Nguyệt xoay người lại, nghiêm túc nhìn bạn. Ánh tà dương nhảy nhót trong đôi mắt cô. "Mình vẫn luôn suy nghĩ xem nên mở miệng nói thế nào..." Cô ấy hiếm khi tỏ ra vặn vẹo như vậy, dùng ngón tay quấn quấn lọn tóc, "Bạn biết không? Từ khi bạn tới Đào Nguyên Hương, mỗi ngày mình đều cảm thấy vô cùng vui vẻ. Trước đây mình cứ nghĩ dẫu chỉ có một mình cũng không sao, nhưng bây giờ..." Cô ấy hít sâu một hơi, sau đó tuôn ra một lèo, "Mình thích bạn! Thích cực kỳ luôn! Còn thích hơn cả câu cá nữa! Đây đã là mức độ thích cao nhất mà mình có thể biểu đạt rồi!" Nói xong cô nàng đỏ bừng cả mặt, vùi đầu vào giữa hai đầu gối.'
       }
     ]
   },
@@ -247,38 +247,38 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'a_shi_heart_3',
     npcId: 'a_shi',
     requiredFriendship: 800,
-    title: '矿洞救援',
+    title: 'Cứu Hộ Hang Mỏ',
     scenes: [
       {
-        text: '你正在矿洞深处采矿，忽然听到前方传来一声闷响，紧接着是岩石崩落的声音。你循着声音跑过去，在一处塌方的岩壁旁发现了阿石——他的左腿被一块落石压住，额头上有一道血痕，却咬着牙一声不吭。'
+        text: 'Khi bạn đang khai khoáng nơi sâu thẳm hang mỏ, đột nhiên nghe thấy một tiếng trầm đục truyền tới từ phía trước, ngay sau đó là tiếng đất đá sụp lở. Bạn chạy theo hướng âm thanh phát ra, phát hiện A Thạch đang nằm ở chỗ vách đá bị sập —— chân trái của anh ta bị một tảng đá đè lên, trên trán có một vết máu, nhưng anh ta vẫn cắn chặt răng không nói một lời.'
       },
       {
-        text: '看到你，阿石微微皱了皱眉："……你怎么在这里。"他顿了顿，"别过来，可能还会塌。"',
+        text: 'Thấy bạn, A Thạch khẽ nhíu mày: "... Sao cậu lại ở đây." Anh ta ngập ngừng một lúc, "Đừng qua đây, có thể sẽ sập nữa đấy."',
         choices: [
           {
-            text: '不顾他的劝阻，立刻冲过去搬开压在他腿上的石头。',
+            text: 'Bỏ ngoài tai lời khuyên can của anh ta, lập tức lao tới dời tảng đá đang đè trên chân ra.',
             friendshipChange: 160,
             response:
-              '阿石愣住了，想说什么却没说出口。你用尽全力搬开了落石，扶他靠在安全的岩壁上。他低着头沉默了好一会儿，才挤出两个字："……谢谢。"'
+              'A Thạch sững sờ, muốn nói gì đó nhưng lại thôi. Bạn dùng hết sức lực để dời tảng đá ra, đỡ anh ta dựa vào vách đá an toàn. Anh cúi đầu im lặng một hồi lâu, mới nặn ra được hai chữ: "... Cảm ơn."'
           },
           {
-            text: '"我去叫人来帮忙！你等着！"',
+            text: '"Tôi đi gọi người tới giúp! Anh đợi nhé!"',
             friendshipChange: 80,
             response:
-              '阿石张了张嘴，最终没有阻止你。等你带着村里人赶回来时，他还保持着原来的姿势，只是石壁上多了几道指甲刮过的痕迹。被救出来后，他对你点了点头："……辛苦了。"'
+              'A Thạch hé miệng, cuối cùng cũng không cản bạn. Đợi khi bạn dẫn người trong làng chạy tới, anh ta vẫn giữ nguyên tư thế ban đầu, chỉ là trên vách đá có thêm vài vết xước do móng tay cào. Sau khi được cứu ra, anh ta gật đầu với bạn: "... Vất vả rồi."'
           },
           {
-            text: '"这里太危险了，你怎么一个人跑这么深？"',
+            text: '"Chỗ này nguy hiểm quá, sao anh lại chạy xuống sâu thế này một mình chứ?"',
             friendshipChange: -40,
-            response: '阿石的目光暗了暗："……采矿就是我的活。"他别过脸去，不再说话。虽然你最终还是帮他搬开了石头，但气氛变得沉默。'
+            response: 'Ánh mắt A Thạch tối sầm lại: "... Đào mỏ vốn là công việc của tôi." Anh quay mặt đi, không nói thêm lời nào. Tuy cuối cùng bạn vẫn giúp anh dời tảng đá ra, nhưng bầu không khí đã trở nên yên lặng.'
           }
         ]
       },
       {
-        text: '你帮阿石包扎好伤口，扶着他慢慢走出矿洞。一路上他的表情还是那样面无波澜，但你注意到他走路时刻意把重心偏向你这一边，好像在无声地依靠你。'
+        text: 'Bạn giúp A Thạch băng bó vết thương, đỡ anh từ từ đi ra khỏi mỏ. Dọc đường đi vẻ mặt anh vẫn vô cảm như vậy, nhưng bạn nhận ra lúc đi bộ anh cố tình dồn trọng tâm về phía bạn, giống như đang lặng lẽ dựa dẫm vào bạn.'
       },
       {
-        text: '走到矿洞口时，阿石停下脚步。他从怀里摸出一块石头——表面粗糙，灰扑扑的，毫不起眼。"……给你。"他说，"看着不像，但里面有玉。"他的耳根微微发红，"我……不太会说谢谢。这个代替。"'
+        text: 'Lúc đi đến cửa mỏ, A Thạch dừng bước. Anh móc từ trong ngực ra một hòn đá —— bề mặt thô ráp, phủ một lớp bụi xám xịt, không có gì nổi bật. "... Tặng cậu." Anh nói, "Trông thì không giống, nhưng bên trong có ngọc đấy." Gốc tai anh hơi đỏ lên, "Tôi... không giỏi nói cảm ơn. Cái này thay cho lời cảm ơn."'
       }
     ]
   },
@@ -286,36 +286,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'a_shi_heart_5',
     npcId: 'a_shi',
     requiredFriendship: 1600,
-    title: '水晶秘境',
+    title: 'Bí Cảnh Pha Lê',
     scenes: [
       {
-        text: '一天清晨，阿石罕见地主动来找你。他站在你家门口，手里提着两盏矿灯，一言不发地看着你。等了一会儿，他才开口："……跟我来。有个地方……想给你看。"'
+        text: 'Một buổi sáng nọ, A Thạch hiếm khi chủ động đến tìm bạn. Anh đứng trước cửa nhà, tay xách hai ngọn đèn mỏ, không nói một lời nhìn bạn. Đợi một lúc, anh mới mở lời: "... Theo tôi. Có một nơi... muốn cho cậu xem."'
       },
       {
-        text: '他带你进入矿洞，却没有走常规的通道，而是在一处不起眼的裂缝前停下。他侧身钻了进去，你跟在后面，弯弯曲曲地走了很久，通道越来越窄。就在你觉得快要走不动的时候，眼前忽然豁然开朗。'
+        text: 'Anh dẫn bạn tiến vào mỏ, nhưng lại không đi con đường bình thường, mà dừng lại trước một khe nứt không có gì nổi bật. Anh lách người chui vào, bạn đi theo ngay phía sau, ngoằn ngoèo đi một đoạn rất dài, đường hầm ngày càng chật hẹp. Ngay khi bạn cảm thấy sắp không đi nổi nữa, trước mắt đột nhiên mở bừng ra.'
       },
       {
-        text: '你倒吸一口凉气——一个巨大的地下洞穴出现在面前。洞壁上密密麻麻地长满了水晶，有的晶莹剔透如冰，有的泛着淡紫色的幽光，有的呈现出温暖的琥珀色。矿灯的光照上去，整个洞穴像是一座流光溢彩的宫殿。',
+        text: 'Bạn hít sâu một hơi —— một hang động ngầm khổng lồ xuất hiện ngay trước mắt. Trên vách động phủ kín pha lê, có cái trong suốt như băng, có cái tỏa ra tia sáng tím nhạt, lại có cái hiện lên màu hổ phách ấm áp. Ánh đèn chiếu tới, cả cái hang động giống như một cung điện lộng lẫy đủ màu sắc.',
         choices: [
           {
-            text: '"阿石……这里太美了。谢谢你带我来。"',
+            text: '"A Thạch... nơi này đẹp quá. Cảm ơn anh đã dẫn tôi tới đây."',
             friendshipChange: 120,
             response:
-              '阿石的嘴角几乎不可察觉地上扬了一下——这大概是你见过他最接近微笑的表情。"嗯。"他用矿灯照着一簇紫水晶，"……找了两年才找到这里。没告诉过别人。"'
+              'Khóe môi A Thạch nhếch lên gần như không thể phát hiện —— đây có lẽ là biểu cảm giống với nụ cười nhất của anh ta mà bạn từng thấy. "Ừ." Anh cầm đèn soi vào một cụm thạch anh tím, "... Phải tìm kiếm suốt hai năm mới thấy nơi này. Chưa từng nói cho ai biết."'
           },
           {
-            text: '"这些水晶一定值很多钱吧！"',
+            text: '"Chỗ pha lê này chắc chắn bán được nhiều tiền lắm đây!"',
             friendshipChange: -40,
             response:
-              '阿石的目光冷了一瞬，随即恢复了平静。"……不卖。"他简短地说。他走到一根巨大的水晶柱前，用粗糙的手指轻轻触碰它的表面，像是在抚摸一个脆弱的生命。'
+              'Ánh mắt A Thạch lạnh đi trong tích tắc, lập tức khôi phục lại vẻ bình tĩnh. "... Không bán." Anh trả lời cộc lốc. Bước đến trước một trụ pha lê khổng lồ, dùng những ngón tay sần sùi nhẹ nhàng chạm lên bề mặt của nó, giống như đang vuốt ve một sinh mệnh mong manh.'
           }
         ]
       },
       {
-        text: '阿石在洞穴中央坐下来，把矿灯调暗。黑暗中，你惊奇地发现那些水晶竟然会自己发光——微弱的、柔和的光，像是地底的星空。"我小时候……怕黑。"阿石的声音在洞穴里回荡，"后来发现了这些会发光的石头。它们告诉我……黑暗里也有光。"'
+        text: 'A Thạch ngồi xuống ở giữa hang động, chỉnh đèn mỏ tối lại. Trong bóng tối, bạn kinh ngạc phát hiện ra những viên pha lê đó thế mà tự thân có thể phát sáng —— thứ ánh sáng dịu nhẹ, mờ ảo, hệt như một bầu trời sao dưới lòng đất. "Hồi nhỏ tôi... rất sợ bóng tối." Giọng nói của A Thạch vang vọng trong hang, "Sau này phát hiện ra những hòn đá có thể phát sáng. Bọn chúng nói cho tôi biết... trong bóng tối cũng có ánh sáng."'
       },
       {
-        text: '他沉默了一会儿，又说："石头不会说话，不会骗人。我觉得……跟石头待在一起比跟人待在一起舒服。"他转过头看着你，矿灯的微光在他深色的眼睛里闪烁，"但是……你不一样。"他没有解释这句话的意思，站起身来，"走吧，该回去了。"'
+        text: 'Anh im lặng một lát, rồi tiếp tục: "Đá sẽ không nói chuyện, sẽ không biết lừa gạt người. Tôi cảm thấy... ở cạnh đá còn thoải mái hơn ở cạnh người." Anh quay đầu lại nhìn bạn, ánh sáng mờ ảo của ngọn đèn lấp lánh trong đôi mắt sâu thẳm, "Nhưng mà... cậu thì khác." Anh không giải thích ý nghĩa của câu nói này, đứng dậy, "Đi thôi, phải về rồi."'
       }
     ]
   },
@@ -323,36 +323,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'a_shi_heart_8',
     npcId: 'a_shi',
     requiredFriendship: 2400,
-    title: '石中心意',
+    title: 'Tâm Ý Trong Đá',
     scenes: [
       {
-        text: '连续好几天没有看到阿石。陈伯说他把自己关在家里，叮叮当当地不知道在敲什么。你有些担心，决定去看看。'
+        text: 'Đã mấy ngày liền không thấy A Thạch xuất hiện. Bác Trần nói cậu ta cứ nhốt mình trong nhà, đục đục gõ gõ không biết đang làm trò gì. Bạn có chút lo lắng, quyết định sang xem thử.'
       },
       {
-        text: '你来到阿石家门口，敲了敲门。里面的声音突然停了。过了好一会儿，门才开了一条缝，阿石探出头来，脸上沾着石粉，头发乱糟糟的，手上还缠着好几处绷带。他看到是你，眼神慌了一下，把什么东西藏到身后："你……你怎么来了。我没事。"'
+        text: 'Bạn đi tới trước cửa nhà A Thạch, gõ gõ mấy cái. Âm thanh bên trong bỗng nhiên dừng bặt. Qua một hồi lâu, cánh cửa mới hé ra một khe hở, A Thạch thò đầu ra, trên mặt dính đầy bột đá, tóc tai rối bù, trên tay còn quấn mấy vòng băng gạc. Nhìn thấy bạn, ánh mắt anh hoảng hốt trong tích tắc, vội giấu thứ gì đó ra sau lưng: "Cậu... sao cậu lại tới đây. Tôi không sao đâu."'
       },
       {
-        text: '你注意到他身后的工作台上散落着各种工具——小锤、錾子、砂纸，还有很多打磨失败的碎石。角落里放着一本翻得起毛边的《宝石雕刻图谱》。',
+        text: 'Bạn để ý thấy trên bàn làm việc phía sau anh ta nằm vương vãi đủ loại công cụ —— búa nhỏ, cái đục, giấy nhám, và còn rất nhiều đá vụn mài bị hỏng. Trong góc đặt một quyển 《Đồ Phổ Điêu Khắc Đá Quý》 bị lật đến sờn cả mép.',
         choices: [
           {
-            text: '"阿石，你受伤了，让我帮你包扎一下。"',
+            text: '"A Thạch, anh bị thương rồi, để tôi giúp anh băng bó lại."',
             friendshipChange: 120,
             response:
-              '阿石犹豫了一下，最终别扭地伸出手。你仔细地帮他重新包扎被錾子磨破的手指。他一直侧着脸不看你，但你能感觉到他的手指在微微发抖。"……谢谢。"他的声音小得几乎听不到。'
+              'A Thạch do dự một chút, cuối cùng cũng gượng gạo chìa tay ra. Bạn cẩn thận giúp anh băng bó lại những ngón tay bị đục cứa rách. Anh vẫn luôn ngoảnh mặt đi không thèm nhìn bạn, nhưng bạn có thể cảm nhận được ngón tay anh đang khẽ run lên. "... Cảm ơn." Giọng anh lí nhí như muỗi kêu.'
           },
           {
-            text: '"你在做什么？能让我看看吗？"',
+            text: '"Anh đang làm gì vậy? Có thể cho tôi xem thử không?"',
             friendshipChange: 80,
             response:
-              '阿石身体僵住了，耳朵瞬间红透了。他沉默了好久好久，久到你以为他不会回答。然后他慢慢从身后把手拿出来——掌心里躺着一样东西。"……还没做好。"他小声说。'
+              'Cơ thể A Thạch cứng đờ, hai tai đỏ rực ngay lập tức. Anh im lặng rất lâu, rất lâu, lâu đến mức bạn tưởng rằng anh sẽ không trả lời. Sau đó anh từ từ rút tay ở phía sau ra —— trong lòng bàn tay đang nằm một thứ gì đó. "... Vẫn chưa xong đâu." Anh thì thầm.'
           }
         ]
       },
       {
-        text: '阿石终于下定了决心。他深吸一口气，从怀里掏出一个小布包，笨拙地递到你面前。你打开一看——是一枚吊坠，用那座水晶洞穴里的紫水晶打磨而成，晶莹剔透，在光线下折射出温柔的紫色光芒。吊坠的形状是一朵桃花，每一片花瓣都打磨得细致入微。'
+        text: 'Cuối cùng A Thạch cũng hạ quyết tâm. Anh hít một hơi thật sâu, móc từ trong ngực ra một cái túi vải nhỏ, vụng về đưa tới trước mặt bạn. Bạn mở ra xem —— là một chiếc mặt dây chuyền, được mài giũa từ đá thạch anh tím trong hang động pha lê đó, trong suốt long lanh, dưới ánh sáng khúc xạ ra những vệt sáng màu tím nhẹ nhàng. Hình dáng của mặt dây chuyền là một đóa hoa đào, mỗi một cánh hoa đều được mài giũa cực kỳ tinh xảo.'
       },
       {
-        text: '阿石涨红了脸，嘴唇动了半天，说出来的话断断续续的："这个……做了很久。废了好多块……手也割了好多次。因为我……我不会说漂亮的话，也不会……像别人那样。"他紧紧攥着衣角，抬起头直视你的眼睛——你第一次在他的眼中看到这样炽热的光，"但是……我想把最好的石头，做成最好的东西，给最……最重要的人。"他的声音越来越小，最后几乎是用气音说的，"……是你。一直都是你。"'
+        text: 'A Thạch đỏ bừng mặt, đôi môiấp úng hồi lâu, lời nói ra cứ ngắc ngứ: "Cái này... làm rất lâu. Làm hỏng rất nhiều viên... tay cũng bị cứa đứt rất nhiều lần. Bởi vì tôi... tôi không biết nói những lời hay ý đẹp, cũng không thể... giống như những người khác." Anh túm chặt lấy vạt áo, ngẩng đầu lên nhìn thẳng vào mắt bạn —— đây là lần đầu tiên bạn nhìn thấy một tia sáng mãnh liệt đến thế trong mắt anh, "Thế nhưng... tôi muốn đem loại đá tốt nhất, làm ra một thứ tốt nhất, tặng cho người... người quan trọng nhất." Giọng nói của anh nhỏ dần đi, cuối cùng dường như chỉ còn lại tiếng thở, "... Là cậu. Vẫn luôn là cậu."'
       }
     ]
   },
@@ -364,36 +364,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'chun_lan_heart_3',
     npcId: 'chun_lan',
     requiredFriendship: 800,
-    title: '春茶初摘',
+    title: 'Trà Xuân Mới Hái',
     scenes: [
       {
-        text: '清晨薄雾未散，春兰邀你去她的茶园。层层叠叠的茶垄在晨光中碧绿如洗，露珠挂在嫩芽上闪闪发光。'
+        text: 'Sương mai còn chưa tan hết, Xuân Lan mời bạn tới thăm vườn trà của nàng. Từng luống trà san sát xanh biếc mướt mát tắm trong ánh bình minh, sương sớm đọng trên những búp trà non nhấp nháy tỏa sáng.'
       },
       {
-        text: '"这是今年的第一批春茶，最为珍贵。"春兰轻声说道，纤指拈起一枚嫩叶，"采茶讲究一芽一叶，动作要轻，像是在抚摸婴儿的脸。"',
+        text: '"Đây là lứa trà xuân đầu tiên của năm nay, quý giá nhất." Xuân Lan khẽ nói, những ngón tay thon dài nhấc lên một búp lá non, "Hái trà chú trọng ở chỗ một búp một lá, động tác phải thật nhẹ, tựa như đang vuốt ve khuôn mặt của trẻ sơ sinh vậy."',
         choices: [
           {
-            text: '仔细模仿她的手法，认真地采起茶来。',
+            text: 'Tỉ mỉ bắt chước lại động tác của nàng, nghiêm túc bắt đầu hái trà.',
             friendshipChange: 120,
-            response: '春兰看了看你采的茶叶，眼中露出赞许："手法很稳，叶片完整无损。你很有天赋。"她的嘴角浮起一丝温柔的笑意。'
+            response: 'Xuân Lan nhìn những lá trà bạn hái, trong mắt lóe lên sự tán thưởng: "Động tác rất vững, phiến lá hoàn chỉnh không tì vết. Chàng rất có thiên phú." Khóe môi nàng hiện lên một nụ cười dịu dàng.'
           },
           {
-            text: '"这些茶叶看起来都差不多，怎么分辨好坏呢？"',
+            text: '"Chỗ lá trà này nhìn lá nào cũng giống nhau, làm sao phân biệt được tốt xấu đây?"',
             friendshipChange: 40,
-            response: '春兰耐心地拈起两片叶子对比给你看："你看，这片色泽匀净，叶脉分明，是上品。茶如人，需要用心去分辨。"'
+            response: 'Xuân Lan kiên nhẫn nhặt hai chiếc lá lên so sánh cho bạn xem: "Nhìn này, chiếc lá này màu sắc đồng đều, gân lá rõ ràng, là loại thượng phẩm. Trà cũng như người, cần phải dụng tâm mới có thể phân biệt."'
           },
           {
-            text: '"采茶也太慢了，不如种粮食来得实在。"',
+            text: '"Hái trà rề rà quá, không bằng trồng lúa ăn chắc mặc bền hơn."',
             friendshipChange: -40,
-            response: '春兰的笑容微微一滞，随即恢复了端庄的模样："各有各的道理。只是祖上传下来的茶园，我不忍荒废。"'
+            response: 'Nụ cười của Xuân Lan hơi cứng lại, ngay sau đó khôi phục lại dáng vẻ đoan trang: "Mỗi người có một lý lẽ riêng. Chỉ là vườn trà do tổ tiên truyền lại, ta không nỡ để nó hoang phế."'
           }
         ]
       },
       {
-        text: '采完茶后，春兰带你回到茶庄，亲手炒制新茶。铁锅里茶叶翻飞，满室清香。她动作娴熟优雅，像是在进行一场无声的舞蹈。'
+        text: 'Hái trà xong, Xuân Lan dẫn bạn trở lại trà trang, tự tay sao mẻ trà mới. Lá trà đảo liên tục trong nồi sắt, hương thơm ngát cả gian phòng. Động tác của nàng thuần thục và tao nhã, hệt như đang trình diễn một vũ điệu không lời.'
       },
       {
-        text: '春兰把头道茶分作两杯，一杯搁在窗边的空位上，一杯递给你。"这杯是留给我爹的规矩，他老人家腿脚不便，等会儿我端过去。"她笑了笑，"另一杯给今天帮了忙的人——茶庄的规矩，出过力的才有份。"'
+        text: 'Xuân Lan đem mẻ trà mới sao xong pha một ấm rót đưa cho bạn: "Đây là chén trà đầu tiên của mùa xuân này, theo quy định của trà trang, phải kính dâng cho vị khách tôn quý nhất." Nàng cúi đầu, hàng mi khẽ run rẩy, "Năm nay... ta muốn kính dâng cho chàng."'
       }
     ]
   },
@@ -401,36 +401,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'chun_lan_heart_5',
     npcId: 'chun_lan',
     requiredFriendship: 1600,
-    title: '雨中茶庄',
+    title: 'Trà Trang Trong Mưa',
     scenes: [
       {
-        text: '一场突如其来的大雨把你困在了春兰的茶庄里。雨声密密地打在瓦片上，茶庄里弥漫着沉香和茶叶的清苦气息。'
+        text: 'Một trận mưa rào bất chợt đổ xuống khiến bạn bị mắc kẹt tại trà trang của Xuân Lan. Tiếng mưa rơi lộp độp trên mái ngói, trong trà trang ngập tràn mùi hương trầm và vị đắng thanh của lá trà.'
       },
       {
-        text: '春兰坐在窗前，手里捏着一封信，眉头一直没松开。过了很久，她才轻声说："我爹从州府回信了。他想把茶庄盘出去。"'
+        text: 'Xuân Lan lẳng lặng ngồi bên cửa sổ, nhìn màn mưa thẫn thờ. Bạn nhận ra khóe mắt nàng hơi đỏ hoe. Qua một hồi lâu, nàng mới khẽ lên tiếng: "Hôm nay là ngày giỗ của phụ thân ta."'
       },
       {
-        text: '"他去年腿受了寒，上不了山，就搬去我叔父那儿养着了。"她把信纸摊平又折起，"他说一个姑娘家守着二十亩茶山，累是一回事，将来嫁人也麻烦。可这是我们家五代人的茶园——我从八岁就跟着他上山认芽，哪能说盘就盘。"',
+        text: '"Phụ thân mất sớm, trà trang chỉ còn lại một mình ta gánh vác. Người trong thôn bảo phận nữ nhi kinh doanh trà trang không dễ dàng gì, cứ khuyên ta nên tái giá hoặc nhượng lại trà trang cho người khác." Giọng nàng bình lặng như mặt nước, nhưng lại ẩn giấu sự run rẩy khó nhận ra, "Nhưng đây là cơ nghiệp phụ thân để lại cho ta, là tâm huyết năm đời của gia đình ta. Ta làm sao nỡ bỏ."',
         choices: [
           {
-            text: '"那就让他亲眼看看。今年的茶做出来，寄一罐过去。"',
+            text: '"Nàng đã làm rất tốt, Xuân Lan. Phụ thân nhất định sẽ tự hào về nàng."',
             friendshipChange: 120,
             response:
-              '春兰怔了一下，随即眼睛亮了起来："对啊……说一千道一万，不如让他尝一口。"她立刻起身去翻账本，"今年的明前茶得挑最好的一批——你可得帮我把关。"'
+              'Nước mắt Xuân Lan cuối cùng cũng tuôn rơi, nhưng nàng nhanh chóng dùng khăn tay lau đi, khóe miệng mang theo một nụ cười nhẹ nhõm: "Cảm ơn chàng. Những lời này... ta đã chờ đợi rất lâu rồi."'
           },
           {
-            text: '默默为她添了一杯茶，安静地陪在她身边。',
+            text: 'Lặng lẽ châm thêm cho nàng một chén trà, yên tĩnh ở bên cạnh nàng.',
             friendshipChange: 120,
             response:
-              '春兰低头看着杯中舒展的叶片，沉默了许久，然后轻声说："你添茶的手法……和我爹一样稳。"她终于笑了，"有人坐在这儿听着，心里就没那么堵了。"'
+              'Xuân Lan cúi đầu nhìn nước trà trong chén, im lặng rất lâu, sau đó khẽ nói: "Động tác rót trà của chàng... dịu dàng y như phụ thân ta vậy." Nàng không nói thêm gì nữa, nhưng nét mặt đã thả lỏng hơn rất nhiều.'
           }
         ]
       },
       {
-        text: '雨渐渐小了。春兰从柜子深处取出一罐旧茶——罐身已经斑驳，上面刻着一个"春"字。"这是我爹搬走前炒的最后一批，我一直没舍得开。"她小心翼翼地开罐沏泡，茶香醇厚绵长。'
+        text: 'Mưa dần tạnh dần. Chunlan lấy ra một lon trà cũ từ sâu trong tủ——Thân lon có lốm đốm, có dòng chữ “"Xuân"lời nói."Đây là mẻ trà cuối cùng cha tôi rang, tôi đành miễn cưỡng mở ra."Cô cẩn thận mở lon và pha nó. Trà có mùi thơm êm dịu và kéo dài.'
       },
       {
-        text: '"以前下雨天最难熬，一个人坐在这儿，满脑子都是账和烦心事。"春兰端起茶杯，向雨后初晴的天空轻轻一敬，"今天有人陪着说说话，倒觉得雨声也好听了。等茶寄出去，我请你喝回信。"'
+        text: '"Trước đây vào những ngày mưa, ta luôn ngồi ở chỗ này nhớ về phụ thân." Xuân Lan nâng chén trà lên, khẽ đưa tay kính bầu trời vừa hửng nắng sau cơn mưa, "Nhưng hôm nay... có chàng ở đây, ta cảm thấy không còn cô đơn nữa."'
       }
     ]
   },
@@ -438,35 +438,35 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'chun_lan_heart_8',
     npcId: 'chun_lan',
     requiredFriendship: 2400,
-    title: '月下品茗',
+    title: 'Thưởng Trà Dưới Trăng',
     scenes: [
       {
-        text: '初秋的夜晚，你收到春兰的一封请柬，上面用隽秀的小楷写着："今夜月明，茶庄备好香茗一壶，恭候君临。"'
+        text: 'Vào một đêm đầu thu, bạn nhận được một tấm thiệp mời của Xuân Lan, bên trên dùng chữ tiểu khải thanh tú viết: "Đêm nay trăng thanh gió mát, trà trang đã chuẩn bị sẵn một ấm trà thơm, cung kính đợi quân lâm."'
       },
       {
-        text: '茶庄的小院里，石桌上铺着素色茶席，一盏油灯映着几枝桂花。春兰一身月白衣裙，跪坐在茶席旁，面前摆着全套茶具。月光洒在她身上，她整个人像是一幅水墨画。'
+        text: 'Trong sân nhỏ của trà trang, trên bàn đá trải sẵn chiếu trà màu sắc nhã nhặn, một chiếc đèn dầu hắt bóng vài cành hoa quế. Xuân Lan vận y phục màu trắng ánh trăng, quỳ gối bên bàn trà, trước mặt bày một bộ trà cụ đầy đủ. Ánh trăng hắt lên người nàng, khiến cả người nàng trông hệt như một bức họa thủy mặc.'
       },
       {
-        text: '"请坐。"她的动作如行云流水，洗杯、温壶、注水、出汤，每一步都优雅从容。她将一杯茶双手递到你面前，目光温柔得像月光。',
+        text: '"Mời ngồi." Động tác của nàng như mây trôi nước chảy, tráng chén, tráng ấm, rót nước, chắt trà, mỗi một bước đều tao nhã thong dong. Nàng dùng hai tay dâng một chén trà tới trước mặt bạn, ánh mắt dịu dàng tựa ánh trăng.',
         choices: [
           {
-            text: '双手接过茶杯，认真品味。"这是我喝过最好的茶。"',
+            text: 'Dùng hai tay nhận lấy chén trà, nghiêm túc thưởng thức. "Đây là chén trà ngon nhất mà tôi từng được uống."',
             friendshipChange: 120,
-            response: '春兰的脸颊微微泛红，嘴角的笑意藏也藏不住："因为……泡茶的人，用了全部的心意。"'
+            response: 'Đôi má Xuân Lan hơi ửng hồng, nụ cười trên khóe môi giấu cũng không giấu được: "Bởi vì... người pha trà, đã dùng toàn bộ tâm ý của mình."'
           },
           {
-            text: '"春兰，今夜的一切都很美。月色、桂花……还有你。"',
+            text: '"Xuân Lan, đêm nay mọi thứ đều thật đẹp. Ánh trăng, hoa quế... và cả nàng nữa."',
             friendshipChange: 160,
             response:
-              '春兰的手指一颤，茶杯差点滑落。她深深地低下头，但你看到她的耳朵红透了。"你……你这个人……怎么突然说这种话。"声音又轻又软。'
+              'Ngón tay Xuân Lan run lên, chén trà suýt nữa thì tuột khỏi tay. Nàng cúi gằm mặt xuống, nhưng bạn có thể thấy tai nàng đã đỏ lựng lên rồi. "Chàng... cái con người này... sao đột nhiên lại nói những lời như thế." Giọng nói vừa nhỏ vừa mềm mại.'
           }
         ]
       },
       {
-        text: '品完三道茶后，春兰放下茶杯，双手交叠放在膝上。她深吸一口气，抬起头，月光在她的眼里像是盈满了水。'
+        text: 'Thưởng xong ba tuần trà, Xuân Lan đặt chén xuống, hai tay đan vào nhau đặt trên đầu gối. Nàng hít sâu một hơi, ngẩng đầu lên, ánh trăng trong mắt nàng tựa hồ lóng lánh ánh nước.'
       },
       {
-        text: '"我们茶庄有一个传统——炒制一生只炒一次的茶，叫做「定情茶」，只给此生最重要的人喝。"她从袖中取出一个小小的锦囊，"这是我用今年最好的春茶，亲手炒制的。从采摘到炒制，每一步我都在想着你。"她终于直视你的眼睛，目光清澈而坚定，"我知道自己不善言辞，但这杯茶里的心意……你能明白吗？"'
+        text: '"Trà trang của ta có một truyền thống —— sao một loại trà cả đời chỉ làm một lần duy nhất, gọi là \'Định Tình Trà\', chỉ dành cho người quan trọng nhất đời này uống." Nàng lấy từ trong tay áo ra một chiếc túi gấm nhỏ xíu, "Đây là loại trà được ta dùng lứa trà xuân ngon nhất năm nay, tự tay sao chế. Từ lúc hái trà cho tới lúc sao trà, mỗi một bước ta đều nghĩ đến chàng." Nàng rốt cuộc cũng nhìn thẳng vào mắt bạn, ánh mắt trong veo mà kiên định, "Ta biết bản thân không giỏi ăn nói, nhưng tâm ý trong chén trà này... chàng có hiểu được không?"'
       }
     ]
   },
@@ -478,32 +478,32 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'xue_qin_heart_3',
     npcId: 'xue_qin',
     requiredFriendship: 800,
-    title: '画中人',
+    title: 'Người Trong Tranh',
     scenes: [
       {
-        text: '你路过雪芹的画室，发现门半开着。透过门缝，你看到她正站在一幅巨大的画布前，手持画笔，凝神不动。'
+        text: 'Bạn đi ngang qua phòng tranh của Tuyết Cần, phát hiện cửa đang mở hé. Xuyên qua khe cửa, bạn thấy nàng đang đứng trước một khung buồm khổng lồ, tay cầm cọ vẽ, ngưng thần bất động.'
       },
       {
-        text: '她似乎感觉到了你的存在，头也不回地说："既然来了，就进来吧。别出声。"你走进去，看到画布上是一幅未完成的山水——云雾缭绕的山峰，瀑布从山间倾泻而下，意境空灵。'
+        text: 'Nàng dường như cảm nhận được sự hiện diện của bạn, không buồn ngoảnh đầu lại mà nói: "Đã tới rồi thì vào đi. Đừng lên tiếng." Bạn bước vào, nhìn thấy trên khung buồm là một bức sơn thủy chưa hoàn thành —— những ngọn núi mây mù lượn lờ, thác nước từ trên núi đổ xuống, ý cảnh vô cùng thanh u.'
       },
       {
-        text: '她忽然放下画笔，皱着眉看了你一眼。"站到那边去，靠着窗。"她指了指窗边的位置。你照做了。她重新拿起画笔，目光在你和画布之间来回移动。',
+        text: 'Nàng bỗng buông cọ xuống, nhíu mày liếc nhìn bạn một cái. "Đứng ra chỗ kia, dựa vào cửa sổ." Nàng chỉ tay về phía bên cửa sổ. Bạn làm theo. Nàng lại cầm cọ lên, ánh mắt di chuyển qua lại giữa bạn và bức tranh.',
         choices: [
           {
-            text: '安静地站着，保持姿势不动，配合她作画。',
+            text: 'Đứng yên lặng, giữ nguyên tư thế để phối hợp cho nàng vẽ.',
             friendshipChange: 120,
             response:
-              '不知过了多久，雪芹终于放下画笔。她退后几步看着画布，嘴角微微上扬——这是你第一次看到她露出满意的神情。"嗯……光影不错。你可以动了。"'
+              'Không biết đã bao lâu trôi qua, Tuyết Cần cuối cùng cũng đặt cọ xuống. Nàng lùi lại vài bước nhìn bức tranh, khóe miệng khẽ nhếch lên —— đây là lần đầu tiên bạn thấy nàng lộ ra vẻ mặt hài lòng. "Ừm... ánh sáng và đổ bóng không tồi. Ngươi có thể cử động rồi."'
           },
           {
-            text: '"你在画我吗？"好奇地凑过去看。',
+            text: '"Nàng đang vẽ ta sao?" Tò mò sán lại gần để xem.',
             friendshipChange: 40,
-            response: '雪芹用画板挡住画面，皱起眉头："没画完之前不许看。你这个人，一点耐心都没有。"虽然在抱怨，但她的眼神并没有真的不悦。'
+            response: 'Tuyết Cần dùng bảng vẽ che khuất bức tranh, nhíu mày: "Chưa vẽ xong thì không được xem. Cái con người này, chẳng có chút kiên nhẫn nào cả." Tuy miệng đang phàn nàn, nhưng ánh mắt của nàng không hề có vẻ bực bội.'
           }
         ]
       },
       {
-        text: '后来你从陈伯那里听说，雪芹那天画的山水画里，瀑布旁多了一个倚窗远眺的人影。据说那是她近三年来唯一一幅有人物的画。'
+        text: 'Sau này bạn nghe Bác Trần kể lại, trong bức tranh sơn thủy mà Tuyết Cần vẽ hôm đó, bên cạnh thác nước có thêm một bóng người đang tựa cửa nhìn xa xăm. Nghe nói đó là bức tranh có nhân vật duy nhất của nàng trong suốt ba năm qua.'
       }
     ]
   },
@@ -511,32 +511,32 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'xue_qin_heart_5',
     npcId: 'xue_qin',
     requiredFriendship: 1600,
-    title: '墨梅之约',
+    title: 'Hẹn Ước Mặc Mai',
     scenes: [
       {
-        text: '冬天的第一场雪。你在后山发现雪芹独自坐在梅树下，面前支着画架，手指冻得通红，却还在专注地画着雪中红梅。'
+        text: 'Trận tuyết đầu tiên của mùa đông. Bạn phát hiện Tuyết Cần đang ngồi một mình dưới gốc mai trên núi sau, trước mặt dựng một giá vẽ, những ngón tay lạnh cóng đến đỏ ửng nhưng vẫn đang chăm chú vẽ những bông hồng mai trong tuyết.'
       },
       {
-        text: '"不要过来。"她察觉到你的脚步，语气冷淡，"你会踩坏这片雪景。"但你注意到她的嘴唇已经冻得发紫。'
+        text: '"Đừng qua đây." Nàng nhận ra bước chân của bạn, giọng điệu lạnh lùng, "Ngươi sẽ dẫm nát cảnh tuyết này mất." Nhưng bạn để ý thấy môi nàng đã lạnh đến mức tím tái lại rồi.'
       },
       {
-        text: '你绕了一大圈，从另一条小路走到她身旁，把带来的热茶递给她。雪芹看了你一眼，似乎想说什么，最终接过茶杯喝了一口。"……多管闲事。"她小声嘟囔。',
+        text: 'Bạn đi vòng một vòng lớn, theo một con đường mòn khác đi tới bên cạnh nàng, đưa tách trà nóng mang theo cho nàng. Tuyết Cần liếc nhìn bạn, dường như muốn nói gì đó, cuối cùng vẫn nhận lấy tách trà nhấp một ngụm. "... Lo chuyện bao đồng." Nàng nhỏ giọng lầm bầm.',
         choices: [
           {
-            text: '脱下外套披在她肩上，然后安静地坐在一旁看她画画。',
+            text: 'Cởi áo khoác khoác lên vai nàng, sau đó yên lặng ngồi sang một bên xem nàng vẽ.',
             friendshipChange: 160,
             response:
-              '雪芹的笔停顿了一下。她没有拒绝你的外套，只是微微侧过脸去。你隐约看到她的嘴角弯了弯。很久之后她才轻声说："……你不冷吗？笨。"'
+              'Ngòi bút của Tuyết Cần khựng lại một nhịp. Nàng không từ chối áo khoác của bạn, chỉ hơi ngoảnh mặt đi. Bạn loáng thoáng thấy khóe môi nàng cong lên. Rất lâu sau nàng mới khẽ cất lời: "... Ngươi không lạnh sao? Đồ ngốc."'
           },
           {
-            text: '"这幅画真美，你的画技越来越好了。"',
+            text: '"Bức tranh này đẹp quá, kỹ thuật vẽ của nàng ngày càng tiến bộ rồi."',
             friendshipChange: 80,
-            response: '雪芹瞥了你一眼："我的画技一直很好。"停了一下，又补充道，"……不过今天的梅花确实开得好。适合入画。"'
+            response: 'Tuyết Cần lườm bạn một cái: "Kỹ thuật vẽ của ta luôn luôn rất tốt." Ngừng một lát, lại nói thêm, "... Nhưng hoa mai hôm nay quả thật nở rất đẹp. Thích hợp để đưa vào tranh."'
           }
         ]
       },
       {
-        text: '那天回去后，你发现自己的家门口放着一卷画轴，打开一看——是一幅墨梅图，笔触清冷中带着几分暖意。画的角落写着一行小字："寒梅不争春，只为知己开。——赠。"没有署名，但那字迹你认得出。'
+        text: 'Hôm đó sau khi trở về, bạn phát hiện trước cửa nhà mình có đặt một cuộn tranh, mở ra xem —— là một bức Mặc Mai Đồ, nét bút thanh lãnh nhưng lại mang theo vài phần ấm áp. Góc bức tranh có viết một dòng chữ nhỏ: "Hàn mai bất tranh xuân, chỉ vị tri kỷ khai. —— Tặng." Không có chữ ký, nhưng nét chữ đó bạn nhận ra được.'
       }
     ]
   },
@@ -544,35 +544,35 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'xue_qin_heart_8',
     npcId: 'xue_qin',
     requiredFriendship: 2400,
-    title: '丹青知己',
+    title: 'Đan Thanh Tri Kỷ',
     scenes: [
       {
-        text: '雪芹的画室难得地关着门。你敲了敲，里面传来她的声音："……是你吗？进来。别让别人看到。"'
+        text: 'Phòng tranh của Tuyết Cần hiếm khi đóng kín cửa. Bạn gõ gõ cửa, bên trong truyền ra giọng nói của nàng: "... Là ngươi sao? Vào đi. Đừng để người khác nhìn thấy."'
       },
       {
-        text: '推开门，你愣住了——画室四面墙壁上挂满了画，全部是桃源乡的风景。春天的桃花溪、夏天的荷塘、秋天的金黄稻田、冬天的雪山。而每一幅画里，都有一个模糊的人影在田间劳作。'
+        text: 'Đẩy cửa vào, bạn sững sờ —— trên bốn bức tường của phòng tranh treo kín các bức họa, tất cả đều là phong cảnh của Đào Nguyên Hương. Suối hoa đào mùa xuân, đầm sen mùa hạ, cánh đồng lúa chín vàng mùa thu, núi tuyết mùa đông. Và trong mỗi bức tranh, đều có một bóng người mờ ảo đang làm lụng trên cánh đồng.'
       },
       {
-        text: '雪芹站在画室中央，背对着你。她的声音比平时柔和了许多："你看到了。这些画……每一幅都是我在窗口偷偷画的。"她缓缓转过身，眼眶微红，"我一直不明白，为什么来到这个小村庄以后，我笔下的颜色忽然变得温暖了。"',
+        text: 'Tuyết Cần đứng giữa phòng tranh, quay lưng về phía bạn. Giọng nói của nàng ôn nhu hơn ngày thường rất nhiều: "Ngươi thấy rồi đó. Những bức tranh này... mỗi một bức đều là do ta lén vẽ từ cửa sổ." Nàng chầm chậm quay người lại, vành mắt ửng đỏ, "Ta luôn không hiểu, tại sao sau khi tới ngôi làng nhỏ này, màu sắc dưới ngòi bút của ta đột nhiên lại trở nên ấm áp đến vậy."',
         choices: [
           {
-            text: '"雪芹……原来你一直在画这些。"',
+            text: '"Tuyết Cần... hóa ra nàng vẫn luôn vẽ những thứ này."',
             friendshipChange: 120,
             response:
-              '雪芹别过脸去，声音有些发颤："别用那种眼神看我。我只是……觉得那些风景好看，仅此而已。"但她攥着衣袖的手指出卖了她的紧张。'
+              'Tuyết Cần ngoảnh mặt đi, giọng nói hơi run rẩy: "Đừng dùng ánh mắt đó nhìn ta. Ta chỉ là... cảm thấy những phong cảnh đó rất đẹp, chỉ vậy thôi." Nhưng những ngón tay đang túm chặt lấy tay áo đã tố cáo sự căng thẳng của nàng.'
           },
           {
-            text: '走到她面前，认真看着她的眼睛。',
+            text: 'Đi tới trước mặt nàng, nghiêm túc nhìn thẳng vào mắt nàng.',
             friendshipChange: 120,
-            response: '雪芹的呼吸急促了一瞬，她想后退，却发现背后就是墙壁。"你、你做什么……"她的冰冷面具终于出现了裂痕。'
+            response: 'Hơi thở của Tuyết Cần dồn dập trong tích tắc, nàng muốn lùi lại, nhưng lại phát hiện phía sau đã là bức tường. "Ngươi, ngươi định làm gì..." Lớp mặt nạ băng giá của nàng rốt cuộc cũng xuất hiện vết nứt.'
           }
         ]
       },
       {
-        text: '雪芹深吸一口气，从怀中取出一幅小画——只有巴掌大小。画面上是一枝梅花和一株桃花缠绕在一起，花瓣交融，难分彼此。'
+        text: 'Tuyết Cần hít sâu một hơi, lấy từ trong ngực ra một bức tranh nhỏ —— chỉ lớn cỡ bàn tay. Trên tranh là một cành hoa mai và một cành hoa đào quấn quýt lấy nhau, cánh hoa hòa quyện, khó lòng phân biệt được.'
       },
       {
-        text: '"我这个人，不会甜言蜜语，也不喜欢热闹。别人都说我冷，说我孤僻。"她的声音越来越低，最后像是从齿缝里挤出来的，"可是……你不一样。你让我的世界有了色彩。"她把小画塞到你手里，飞快地转过身去，"拿走。别还回来。这是我……最后的骄傲。"她的肩膀在微微发抖。'
+        text: '"Con người ta, không biết nói lời ngon tiếng ngọt, cũng chẳng thích nơi náo nhiệt. Người khác đều bảo ta lạnh lùng, bảo ta cô độc." Giọng nàng ngày càng nhỏ, cuối cùng giống như được rặn ra từ kẽ răng, "Thế nhưng... ngươi thì khác. Ngươi đã mang màu sắc đến cho thế giới của ta." Nàng nhét bức tranh nhỏ vào tay bạn, nhanh chóng quay người đi, "Cầm lấy. Đừng trả lại. Đây là... sự kiêu ngạo cuối cùng của ta." Đôi vai của nàng đang khẽ run lên.'
       }
     ]
   },
@@ -584,32 +584,32 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'su_su_heart_3',
     npcId: 'su_su',
     requiredFriendship: 800,
-    title: '断线之忧',
+    title: 'Nỗi Lo Đứt Chỉ',
     scenes: [
       {
-        text: '你路过素裁坊，听到里面传来轻轻的叹气声。推门进去，看到素素坐在织机前发呆，手边堆着一堆彩线。'
+        text: 'Bạn đi ngang qua Tố Tài Phường, nghe thấy bên trong truyền ra tiếng thở dài nhè nhẹ. Đẩy cửa bước vào, thấy Tố Tố đang ngồi ngẩn ngơ trước khung cửi, bên tay xếp một đống chỉ màu.'
       },
       {
-        text: '"啊，你来了。"素素有些不好意思地收起叹息，"没什么，就是……这批丝线质量不好，我要绣一件很重要的衣裳，可总是断线。"'
+        text: '"A, chàng tới rồi." Tố Tố có chút ngượng ngùng thu lại tiếng thở dài, "Không có gì đâu, chỉ là... chất lượng lứa chỉ tơ này không được tốt, ta đang thêu một bộ y phục rất quan trọng, nhưng cứ bị đứt chỉ mãi."'
       },
       {
-        text: '你注意到她的手指上缠着好几处细小的创可贴——都是被针扎的。她正在绣的是一件精美的嫁衣，凤凰图样已经完成了一半，栩栩如生。',
+        text: 'Bạn nhận ra trên ngón tay nàng quấn mấy miếng băng dán cá nhân nhỏ xíu —— đều là do bị kim đâm. Nàng đang thêu một bộ hỉ phục tuyệt đẹp, họa tiết phượng hoàng đã hoàn thành được một nửa, sống động như thật.',
         choices: [
           {
-            text: '"这件嫁衣太美了。你的手艺真是精湛。"',
+            text: '"Bộ hỉ phục này đẹp quá. Tay nghề của nàng đúng là tinh xảo."',
             friendshipChange: 120,
             response:
-              '素素的脸微微泛红："谢谢。这是给隔壁村一位新娘做的。每一件嫁衣都承载着新娘的期盼，我不想将就。"她低头继续绣着，嘴角有了笑意。'
+              'Khuôn mặt Tố Tố hơi ửng hồng: "Cảm ơn chàng. Đây là đồ may cho một tân nương ở làng bên. Mỗi một bộ hỉ phục đều gánh vác sự kỳ vọng của tân nương, ta không muốn làm cho có lệ." Nàng cúi đầu tiếp tục thêu, trên khóe môi đã có ý cười.'
           },
           {
-            text: '"手都扎成这样了，要不要休息一下？"',
+            text: '"Tay đều bị đâm thành ra thế này rồi, có muốn nghỉ ngơi một lát không?"',
             friendshipChange: 80,
-            response: '素素摇摇头："没关系的，做裁缝哪有不扎手的。"她轻轻吹了吹指尖，"只要成品好看，这些小伤不算什么。"'
+            response: 'Tố Tố lắc đầu: "Không sao đâu, làm thợ may làm gì có chuyện không bị kim đâm trúng tay chứ." Nàng khẽ thổi thổi đầu ngón tay, "Chỉ cần thành phẩm may ra đẹp mắt, mấy vết thương nhỏ này chẳng đáng là gì."'
           }
         ]
       },
       {
-        text: '临走时，素素叫住你："等一下。"她从旁边拿出一条手帕递给你——素白的绢上绣着一株小小的竹子，针脚细密。"你那条旧了，换着用吧。"她顿了顿，补了一句，"当是谢你老来铺子里坐着陪我说话——一个人踩织机，耳朵里全是机杼声，闷得慌。"'
+        text: 'Lúc sắp rời đi, Tố Tố gọi bạn lại: "Đợi một chút." Nàng lấy từ bên cạnh ra một chiếc khăn tay đưa cho bạn —— trên nền lụa trắng tinh khôi thêu một gốc trúc nhỏ nhắn, đường kim mũi chỉ vô cùng tỉ mỉ. "Khăn tay của chàng cũ rồi, chiếc này tặng chàng. Coi như là... cảm ơn chàng đã thường xuyên ghé qua chơi." Nàng cúi đầu, không dám nhìn bạn.'
       }
     ]
   },
@@ -617,33 +617,33 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'su_su_heart_5',
     npcId: 'su_su',
     requiredFriendship: 1600,
-    title: '旧衣新裳',
+    title: 'Áo Cũ Xiêm Mới',
     scenes: [
       {
-        text: '素素难得地出了裁坊，站在你的田庄前。她怀里抱着一个布包，看到你走过来，有些紧张地开口："那个……我有个不情之请。"'
+        text: 'Tố Tố hiếm khi ra khỏi tiệm may, nàng đang đứng trước điền trang của bạn. Trong ngực ôm một bọc vải, thấy bạn bước tới, nàng có chút căng thẳng cất lời: "Chuyện là... ta có một yêu cầu không biết có quá đáng không."'
       },
       {
-        text: '她打开布包，里面是一件褪色的旧衣裳。"这是我娘当年的嫁衣。她前些天捎信来，说城里的绸缎庄缺个管事的，让我去。"素素咬了咬嘴唇，"她还说，把这件衣裳改了带上，算是给我壮胆。可是……我不想去。我想守着这个铺子。"',
+        text: 'Nàng mở bọc vải ra, bên trong là một chiếc áo cũ đã phai màu. "Đây là bộ y phục duy nhất mà mẫu thân ta để lại. Khi bà qua đời ta vẫn còn nhỏ, chỉ có bộ y phục này là vẫn lưu giữ hơi ấm của bà." Vành mắt Tố Tố đỏ hoe, "Nhưng nó đã quá cũ rồi, chất vải đã rách nát ở vài chỗ. Ta muốn tháo nó ra, dệt vào một bộ y phục mới, như vậy có thể lưu giữ mãi mãi. Thế nhưng một mình ta... không dám động tay vào. Ta sợ sẽ làm hỏng nó."',
         choices: [
           {
-            text: '"那就把它改成你自己的样子，再穿回去见她。"',
+            text: '"Ta làm cùng nàng. Nàng ra tay, ta sẽ phụ đưa công cụ cho nàng."',
             friendshipChange: 120,
             response:
-              '素素愣了半晌，忽然用力点头："对……我自己改。改成我想要的样子，让她看看我这几年的手艺。"她深吸一口气，"你能陪我一起吗？我一个人不敢下剪子。"'
+              'Tố Tố dùng sức gật đầu, hít sâu một hơi. Ngón tay của nàng vẫn đang hơi run rẩy, nhưng có bạn ở cạnh bên, nàng đã dần bình tĩnh lại. Tháo chỉ, cắt may, dệt lại từ đầu —— mỗi một bước nàng đều làm vô cùng cẩn thận, tựa như đang chạm vào món bảo vật trân quý nhất thế gian.'
           },
           {
-            text: '"你娘想让你过得好，不一定非要按她的路走。"',
+            text: '"Mẫu thân của nàng nhất định là một người rất đỗi dịu dàng, giống hệt như nàng vậy."',
             friendshipChange: 120,
             response:
-              '素素的眼眶红了，她急忙低下头擦了擦："我也是这么想的，可话到嘴边总说不出口。"她小声说，"我娘手比我巧多了……我总怕她觉得我出息不大。"'
+              'Nước mắt của Tố Tố cuối cùng cũng lăn dài. Nàng vội vàng lau đi, ngại ngùng cười: "Mọi người đều nói như vậy. Từ nhỏ ta đã muốn trở thành một người khéo tay giống như mẫu thân, dùng từng đường kim mũi chỉ để sưởi ấm cho người khác."'
           }
         ]
       },
       {
-        text: '忙了一整天，旧布料终于被拆下、重新织进了一条新围巾里。素素把围巾捧在手心，轻轻贴在脸上，闭上了眼睛。"娘要是看见……应该会说针脚还行吧。"她小声嘀咕。'
+        text: 'Cặm cụi suốt cả một ngày, tấm vải cũ cuối cùng cũng được dệt vào một chiếc khăn quàng mới. Tố Tố nâng chiếc khăn trong lòng bàn tay, nhẹ nhàng áp lên má, khép hờ đôi mắt. "Mẹ... vẫn ở đây." Nàng thì thầm.'
       },
       {
-        text: '她睁开眼睛，把围巾叠好收进布包。"下个月我回一趟娘家，把这个给她，顺便把话说清楚。"她看着你，郑重其事地一拱手，"多谢你今天陪着我。等我回来，给你做件厚实的冬衣——工钱照付，我可不白做。"'
+        text: 'Nàng mở mắt ra, nhìn bạn, trong ánh mắt có muôn vàn lời muốn nói. Cuối cùng nàng chỉ cười nhạt: "Cảm ơn chàng hôm nay đã ở bên ta. Sau này... ta cũng muốn may cho chàng một bộ y phục. Dùng loại vải tốt nhất, khâu vào đó toàn bộ tâm ý của ta."'
       }
     ]
   },
@@ -651,34 +651,34 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'su_su_heart_8',
     npcId: 'su_su',
     requiredFriendship: 2400,
-    title: '锦上添花',
+    title: 'Gấm Thêm Hoa',
     scenes: [
       {
-        text: '一天你回到家，发现门口放着一个精致的木盒，上面系着一根红绳。打开一看，里面是一件衣裳——用上等的丝绸缝制，颜色温润如玉，领口和袖口绣着精细的花纹。还有一封信。'
+        text: 'Một hôm bạn về nhà, phát hiện trước cửa có đặt một chiếc hộp gỗ tinh xảo, bên trên buộc một sợi dây đỏ. Mở ra xem, bên trong là một bộ y phục —— được may bằng lụa thượng hạng, màu sắc ôn nhuận như ngọc, cổ áo và ống tay áo thêu những họa tiết vô cùng tỉ mỉ. Còn có một bức thư.'
       },
       {
-        text: '信上写着："这件衣裳我做了很久，量了好多次你的尺寸（都是你不注意的时候偷偷量的，对不起）。如果……你今晚方便的话，请穿上它，来素裁坊。——素素"'
+        text: 'Trong thư viết: "Bộ y phục này ta đã may rất lâu, đo đi đo lại kích thước của chàng rất nhiều lần (đều là nhân lúc chàng không để ý mà lén đo đấy, xin lỗi nhé). Nếu như... tối nay chàng tiện đường, xin hãy mặc nó vào rồi đến Tố Tài Phường. —— Tố Tố"'
       },
       {
-        text: '你穿上新衣来到素裁坊。素素站在门口等着你，她也穿了一件素白的新衣，看到你穿着她做的衣裳，眼睛亮了起来。"很合身。"她轻声说，"比我想象的还好看。"',
+        text: 'Bạn mặc áo mới rồi đi tới Tố Tài Phường. Tố Tố đang đứng ở cửa đợi bạn, nàng cũng diện một bộ y phục mới màu trắng tinh khôi, nhìn thấy bạn mặc bộ y phục do nàng may, đôi mắt nàng sáng bừng lên. "Rất vừa vặn." Nàng khẽ nói, "Còn đẹp hơn cả mức ta tưởng tượng."',
         choices: [
           {
-            text: '"这是我收到过最好的礼物。谢谢你，素素。"',
+            text: '"Đây là món quà tuyệt vời nhất mà ta từng nhận được. Cảm ơn nàng, Tố Tố."',
             friendshipChange: 120,
-            response: '素素低下头，双手绞着衣角，声音细如蚊蚋："不要谢我……这件衣裳……是我最用心的作品。因为……"她的声音断断续续。'
+            response: 'Tố Tố cúi đầu, hai tay vò vạt áo, giọng nhỏ như tiếng muỗi kêu: "Đừng cảm ơn ta... bộ y phục này... là tác phẩm ta dồn tâm huyết nhất. Bởi vì..." Giọng nói của nàng cứ đứt quãng.'
           },
           {
-            text: '伸手帮她理了理被风吹乱的发丝。',
+            text: 'Vươn tay giúp nàng vuốt lại những lọn tóc bị gió thổi rối.',
             friendshipChange: 160,
-            response: '素素浑身一颤，呆呆地望着你，脸颊迅速泛红到了耳根。"你……"她的声音变得更轻了，像是怕吓跑一只蝴蝶。'
+            response: 'Toàn thân Tố Tố run rẩy, ngơ ngác nhìn bạn, hai má nhanh chóng ửng đỏ tới tận mang tai. "Chàng..." Giọng nàng trở nên nhẹ bẫng, tựa như sợ sẽ dọa một chú bướm bay đi mất.'
           }
         ]
       },
       {
-        text: '素素从袖中取出一枚小小的香囊——和你身上那件衣裳用的是同一块布料。她双手递到你面前，头低得快要碰到胸口。'
+        text: 'Tố Tố lấy từ trong tay áo ra một chiếc túi thơm nhỏ xíu —— dùng cùng loại vải với bộ y phục trên người bạn. Nàng dùng hai tay dâng tới trước mặt bạn, đầu cúi thấp đến mức sắp chạm vào ngực.'
       },
       {
-        text: '"我是个笨嘴笨舌的人，不会说漂亮话。但我会做衣裳……每一针每一线，都是我想对你说的话。"她终于鼓起勇气抬起头，眼眶红红的，声音却出奇地坚定，"这辈子，我想一直为你做衣裳。春天做薄衫，冬天做棉袄，下雨做蓑衣……一年四季，一针一线，都不想停。"'
+        text: '"Ta là một người vụng về ăn nói, không biết nói những lời êm tai. Nhưng ta biết may y phục... mỗi một đường kim mũi chỉ, đều là những lời ta muốn gửi đến chàng." Rốt cuộc nàng cũng lấy hết dũng khí ngẩng đầu lên, vành mắt đỏ hoe, nhưng giọng điệu lại vô cùng kiên định, "Đời này, ta muốn được mãi mãi may y phục cho chàng. Mùa xuân may áo mỏng, mùa đông may áo bông, trời mưa may áo tơi... bốn mùa trong năm, từng đường kim mũi chỉ, đều không muốn dừng lại."'
       }
     ]
   },
@@ -690,32 +690,32 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'hong_dou_heart_3',
     npcId: 'hong_dou',
     requiredFriendship: 800,
-    title: '酒香不怕巷子深',
+    title: 'Hữu Hương Tự Nhiên Thấu',
     scenes: [
       {
-        text: '红豆拦住你，往你手里塞了一个酒壶："尝尝！这是我新酿的桃花酒！第一批！还没给别人喝过！"'
+        text: 'Hồng Đậu chặn bạn lại, nhét vào tay bạn một bầu rượu: "Nếm thử xem! Đây là rượu hoa đào ta mới ủ đấy! Mẻ đầu tiên luôn! Chưa cho ai uống thử đâu!"'
       },
       {
-        text: '你喝了一口——清甜中带着桃花的芳香，回味悠长。红豆叉着腰，眼睛亮晶晶地盯着你看："怎么样怎么样？好喝吧！"'
+        text: 'Bạn nhấp một ngụm —— vị ngọt thanh pha lẫn hương thơm của hoa đào, dư vị kéo dài. Hồng Đậu chống nạnh, đôi mắt sáng rực nhìn chằm chằm vào bạn: "Thế nào thế nào? Ngon chứ!"'
       },
       {
-        text: '"实话告诉你，酿这批酒费了我三个月的心血。选桃花要在清晨带露时摘，水要用后山的泉水，温度不能超过……"她滔滔不绝地讲着，眼神里满是热情和骄傲。',
+        text: '"Thật lòng mà nói, ủ mẻ rượu này ngốn mất của ta ba tháng tâm huyết lận đó. Chọn hoa đào phải hái lúc sương sớm còn đọng, nước thì phải dùng nước suối trên núi sau, nhiệt độ không được vượt quá..." Nàng thao thao bất tuyệt, trong ánh mắt tràn ngập sự nhiệt huyết và tự hào.',
         choices: [
           {
-            text: '"太好喝了！能再来一杯吗？"',
+            text: '"Ngon quá! Có thể cho thêm một ly nữa không?"',
             friendshipChange: 120,
-            response: '红豆一拍大腿："痛快！就喜欢你这样的！来来来，坐下慢慢喝！今天不醉不归！"她给你倒了满满一碗，自己也倒了一碗，"干！"'
+            response: 'Hồng Đậu vỗ đùi đánh đét: "Sảng khoái! Thích tính cách này của ngươi rồi đấy! Lại đây lại đây, ngồi xuống từ từ uống! Hôm nay không say không về!" Nàng rót cho bạn một bát đầy ắp, rồi cũng tự rót cho mình một bát, "Cạn!"'
           },
           {
-            text: '"味道不错，但后味有点涩，是不是发酵时间可以再长一些？"',
+            text: '"Mùi vị không tồi, nhưng hậu vị hơi chát một chút, có phải thời gian lên men nên dài thêm một chút nữa không?"',
             friendshipChange: 80,
             response:
-              '红豆愣了一下，然后露出佩服的表情："哟，你还真懂行？说的有道理！没想到你不光会种地，还懂酿酒！"她的眼里闪着欣赏的光，"以后来我酒庄当品酒师吧！"'
+              'Hồng Đậu sững người một lát, sau đó lộ ra vẻ mặt thán phục: "Yo, ngươi hiểu biết thật đấy chứ? Nói cũng có lý! Không ngờ ngươi chẳng những biết trồng trọt, mà còn biết cả cách ủ rượu!" Trong mắt nàng lóe lên tia sáng tán thưởng, "Sau này tới tửu trang của ta làm nếm rượu sư đi!"'
           }
         ]
       },
       {
-        text: '几碗酒下肚，红豆的脸颊微微泛红。她靠在酒缸上，笑着说："我爹以前老念叨，红豆你这性子太野，将来没人受得了。我说受不了就受不了，我有我的酒庄！"她晃了晃碗，"结果他现在天天在后院侍弄他那几盆花，反倒是我天天泡在酒缸里。"她看了你一眼，"——能喝到一块儿去的人不多，往后常来。"'
+        text: 'Uống cạn vài bát rượu, hai má Hồng Đậu đã ửng hồng. Nàng tựa lưng vào vại rượu, mỉm cười nói: "Lúc phụ thân ta qua đời có bảo, Hồng Đậu à tính tình của con hoang dã quá, không lấy chồng được đâu. Ta bảo không lấy chồng được thì thôi, ta có tửu trang của ta là được rồi!" Nàng liếc nhìn bạn một cái, "Tuy nhiên... nếu có một người am hiểu về rượu cùng uống rượu trò chuyện với ta, thì cũng không tồi."'
       }
     ]
   },
@@ -723,33 +723,33 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'hong_dou_heart_5',
     npcId: 'hong_dou',
     requiredFriendship: 1600,
-    title: '酒坛子的秘密',
+    title: 'Bí Mật Của Vò Rượu',
     scenes: [
       {
-        text: '你在酒庄后院发现红豆蹲在一排巨大的酒坛前，一反往常的爽朗，一个人闷闷地坐着。地上放着一个打碎的酒坛，酒液流了一地。'
+        text: 'Bạn phát hiện Hồng Đậu đang ngồi xổm trước một hàng vò rượu khổng lồ ở sân sau tửu trang, trái ngược với vẻ sảng khoái ngày thường, nàng đang ngồi thẫn thờ một mình. Trên mặt đất có một vò rượu bị đập vỡ, rượu chảy lênh láng khắp nơi.'
       },
       {
-        text: '"别看了。"红豆头也不抬，"打碎了一坛十年陈酿。我爹封坛那年一共三坛，现在只剩两坛了。"她的声音里有平时不会出现的沙哑。'
+        text: '"Đừng nhìn nữa." Hồng Đậu không ngẩng đầu lên, "Đập vỡ một vò rượu ủ mười năm rồi. Đây là mẻ rượu cuối cùng do phụ thân ta ủ, khắp thiên hạ chỉ còn lại ba vò thôi. Bây giờ thì chỉ còn hai vò." Giọng nói của nàng khàn đặc, khác hẳn với ngày thường.'
       },
       {
-        text: '"我爹是被酒伤过的人。"红豆忽然说道，"他酿了一辈子好酒，也喝了半辈子，五年前咳血才把酒戒了。搬去后院种花那天他跟我说——红豆，酒是好东西，但你得知道什么时候把杯子放下。"她抬起头，眼眶红红的，"我到现在也没学会。这坛子摔碎，我总觉得是他在敲打我。"',
+        text: '"Phụ thân ta bị rượu hủy hoại." Hồng Đậu đột nhiên cất lời, "Ông ấy đã ủ ra những loại rượu ngon nhất cả đời, cũng đã uống rượu cả đời. Cuối cùng uống đến hỏng cả thân thể. Trước lúc đi còn nắm lấy tay ta dặn dò —— Hồng Đậu, rượu là thứ tốt, nhưng phải biết lúc nào nên đặt chén xuống." Nàng ngẩng đầu lên, vành mắt đỏ hoe, "Ta vẫn luôn chưa học được điều đó."',
         choices: [
           {
-            text: '在她身边坐下，帮她把碎片一块块捡起来。',
+            text: 'Ngồi xuống cạnh nàng, giúp nàng nhặt từng mảnh vỡ lên.',
             friendshipChange: 120,
             response:
-              '红豆看着你的动作，沉默了好一会儿，然后也蹲下来一起捡。"……谢了。"她小声说，"平时嘻嘻哈哈的，真遇到事了，反而不知道说什么好。"'
+              'Hồng Đậu nhìn động tác của bạn, im lặng một lúc lâu, sau đó cũng ngồi xuống nhặt cùng. "... Cảm ơn." Nàng nói nhỏ, "Bình thường cứ cười đùa cợt nhả, lúc thực sự gặp chuyện, lại chẳng biết nên nói gì cho phải."'
           },
           {
-            text: '"那就去问问他。人还在，想知道什么直接问。"',
+            text: '"Những gì phụ thân nàng để lại không chỉ là rượu, mà còn có cả nàng nữa. Điều này trân quý hơn bất cứ loại rượu ủ mười năm nào."',
             friendshipChange: 160,
             response:
-              '红豆猛地抬起头，怔了好几息，然后使劲抹了把脸："……也对啊。我在这儿对着碎坛子较什么劲。"她站起来拍了拍裤子上的土，"明天我就去后院找他，问问剩下两坛该什么时候开。"'
+              'Hồng Đậu bỗng ngẩng đầu lên, những giọt nước mắt rốt cuộc cũng tuôn rơi. Nàng vội vàng ngoảnh mặt đi, lấy ống tay áo quệt qua: "Ngươi, ngươi nói linh tinh gì thế... một trang nam nhi mà lại đi nói mấy lời như vậy..." Giọng nàng nghẹn ngào, "... Nhưng mà cảm ơn ngươi nhé."'
           }
         ]
       },
       {
-        text: '红豆深吸一口气，恢复了往常的干脆劲儿。"行了！不丧了！我爹要是看到我这副样子，准得笑话我。"她咧嘴一笑，虽然眼角还有泪痕，"走，开另一坛尝尝。我爹知道我把酒分给实在人喝，肯定高兴。"'
+        text: 'Hồng Đậu đứng dậy, hít một hơi thật sâu, khôi phục lại vẻ dứt khoát thường ngày. Nàng phủi phủi bụi trên người: "Thôi bỏ đi! Không ủ rũ nữa! Nếu phụ thân ta mà thấy bộ dạng này của ta, chắc chắn sẽ mắng ta là đồ vô dụng." Nàng toe toét cười, tuy khóe mắt vẫn còn vương lệ, "Đi, ta mời ngươi uống rượu ở một vò khác. Nếu phụ thân ta biết ta đem rượu chia cho một người thật thà như ngươi uống, chắc chắn sẽ rất vui lòng."'
       }
     ]
   },
@@ -757,34 +757,34 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'hong_dou_heart_8',
     npcId: 'hong_dou',
     requiredFriendship: 2400,
-    title: '醉后真言',
+    title: 'Túy Hậu Chân Ngôn',
     scenes: [
       {
-        text: '中秋之夜，红豆拉你上了村后的小山丘。她扛了一坛酒，带了两只碗。月亮又大又圆，挂在漆黑的天幕上，下面是桃源乡的万家灯火。'
+        text: 'Đêm Trung thu, Hồng Đậu kéo bạn lên ngọn đồi nhỏ phía sau làng. Nàng vác theo một vò rượu, mang theo hai chiếc bát. Vầng trăng vừa to vừa tròn treo trên bầu trời đêm đen kịt, bên dưới là ánh đèn nhà nhà của Đào Nguyên Hương.'
       },
       {
-        text: '"来！赏月喝酒！"红豆把酒坛拍开，给你满上一碗。她自己也倒了一碗，仰头喝了个痛快。月光下，她的侧脸少了几分平日的英气，多了几分柔和。'
+        text: '"Lại đây! Ngắm trăng thưởng rượu!" Hồng Đậu đập vỡ niêm phong vò rượu, rót đầy cho bạn một bát. Nàng cũng tự rót cho mình một bát, ngửa đầu uống một hơi cạn sạch. Dưới ánh trăng, sườn mặt của nàng bớt đi vài phần hào sảng ngày thường, thêm vào đó vài phần nhu hòa.'
       },
       {
-        text: '几碗酒下肚，红豆的话多了起来。她盘腿坐着，仰望明月："你说……像我这样的女人，有人会喜欢吗？大嗓门、爱喝酒、不够温柔……"她难得地露出了不自信的表情。',
+        text: 'Uống cạn vài bát rượu, Hồng Đậu bắt đầu nói nhiều hơn. Nàng ngồi khoanh chân, ngước nhìn trăng sáng: "Ngươi nói xem... một nữ nhân như ta, liệu có ai thích không? Ăn to nói lớn, thích uống rượu, lại chẳng đủ dịu dàng..." Nàng hiếm khi để lộ ra vẻ mặt thiếu tự tin như vậy.',
         choices: [
           {
-            text: '"你是我见过最真实、最有魅力的人。"',
+            text: '"Nàng là người chân thật nhất, cuốn hút nhất mà ta từng gặp."',
             friendshipChange: 120,
-            response: '红豆呆了一下，然后"噗"地笑出来，一拳捶在你肩上："你小子……喝了几碗就开始说胡话了。"但她的眼神，比月光还明亮。'
+            response: 'Hồng Đậu ngây người một lát, sau đó "phụt" cười ra tiếng, đấm một cái vào vai bạn: "Cái tên này... uống có vài bát đã bắt đầu ăn nói hàm hồ rồi." Nhưng ánh mắt của nàng, lại còn sáng rực rỡ hơn cả ánh trăng.'
           },
           {
-            text: '默默把自己的酒倒进她的碗里。"今晚你要喝多少，我就陪多少。"',
+            text: 'Lặng lẽ đổ rượu của mình vào trong bát của nàng. "Đêm nay nàng muốn uống bao nhiêu, ta sẽ bồi nàng bấy nhiêu."',
             friendshipChange: 120,
-            response: '红豆低头看着碗里的酒，忽然安静了下来。"你这个人……"她的声音轻了好多，"总是在我最需要的时候说最对的话。"'
+            response: 'Hồng Đậu cúi đầu nhìn rượu trong bát, bỗng nhiên trở nên im lặng. "Cái tên này..." Giọng nói của nàng nhẹ đi rất nhiều, "Luôn luôn nói những lời đúng đắn nhất vào đúng lúc ta cần nhất."'
           }
         ]
       },
       {
-        text: '夜深了，红豆靠在你肩上，似醉非醉。"我跟你说个秘密。"她的声音含糊但认真，"这坛酒叫「相思酿」，是我……专门为一个人酿的。酿了半年，选最好的桃花、最好的泉水。"'
+        text: 'Đêm đã khuya, Hồng Đậu tựa đầu lên vai bạn, dáng vẻ nửa say nửa tỉnh. "Ta nói cho ngươi nghe một bí mật nhé." Giọng nàng mơ hồ nhưng vô cùng nghiêm túc, "Vò rượu này gọi là \'Tương Tư Nương\', là ta... đặc biệt ủ vì một người. Ủ ròng rã suốt nửa năm, dùng những đóa hoa đào tốt nhất, nguồn nước suối trong trẻo nhất."'
       },
       {
-        text: '她侧过头，在月光下看着你，眼神清澈得不像是喝了那么多酒的人："那个人就是你。从第一次跟你喝酒的时候我就知道了——能让我愿意把最好的酒分一半的人，这辈子就你一个。"她把碗递到你面前，"喝了这碗，就算是……我的人了。开玩笑的。"她笑着说，但手在发抖。'
+        text: 'Nàng ngoảnh đầu lại, ngắm nhìn bạn dưới ánh trăng, ánh mắt trong veo không giống như một người đã uống nhiều rượu đến vậy: "Người đó chính là ngươi. Từ lần đầu tiên uống rượu cùng ngươi ta đã biết —— người có thể khiến ta cam tâm tình nguyện chia sẻ một nửa thứ rượu tốt nhất của mình, đời này chỉ có mình ngươi thôi." Nàng đưa bát rượu tới trước mặt bạn, "Uống cạn bát này, coi như... là người của ta rồi. Đùa chút thôi." Nàng cười nói, nhưng đôi tay lại đang run lẩy bẩy.'
       }
     ]
   },
@@ -796,32 +796,32 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'dan_qing_heart_3',
     npcId: 'dan_qing',
     requiredFriendship: 800,
-    title: '竹林论道',
+    title: 'Luận Đạo Rừng Trúc',
     scenes: [
       {
-        text: '在村后的竹林里，你偶然遇到丹青。他正倚着一株翠竹，手里拿着一本书，嘴里轻声诵读着什么。'
+        text: 'Trong rừng trúc sau làng, bạn tình cờ gặp gỡ Đan Thanh. Chàng đang tựa vào một cây trúc xanh, trong tay cầm một cuốn sách, miệng khẽ nhẩm đọc thứ gì đó.'
       },
       {
-        text: '"哦？"他看到你，露出温和的微笑，"这片竹林是我最喜欢的读书之所。竹节虚心，竹叶清廉——正是读书人该效仿的品格。"'
+        text: '"Ồ?" Chàng nhìn thấy bạn, nở nụ cười ôn hòa, "Khu rừng trúc này là nơi đọc sách yêu thích nhất của ta. Đốt trúc rỗng tuếch, lá trúc thanh liêm —— chính là phẩm cách mà những kẻ đọc sách nên noi theo."'
       },
       {
-        text: '他合上书，邀请你坐下。"你来桃源乡之前，是在城里生活吧？为何愿意放弃都市的繁华，来这乡野之地耕种？"',
+        text: 'Chàng gấp sách lại, mời bạn ngồi xuống. "Trước khi tới Đào Nguyên Hương, ngươi sống ở thành thị đúng không? Cớ sao lại chịu từ bỏ sự phồn hoa đô hội, đến chốn thôn quê hoang dã này để cày cấy?"',
         choices: [
           {
-            text: '"与其在城里碌碌无为，不如在乡间踏实做些事。"',
+            text: '"Thay vì ở thành thị sống những ngày tháng vô vị, chi bằng về chốn làng quê làm những công việc thiết thực."',
             friendshipChange: 120,
             response:
-              '丹青的眼睛亮了："好一个「踏实」！「一屋不扫何以扫天下」，你这份脚踏实地的心性，比许多读书人都强。"他向你拱手行了一礼。'
+              'Mắt Đan Thanh sáng lên: "Một câu \'thiết thực\' thật hay! \'Nhà mình không quét sao có thể quét thiên hạ\', tâm tính cước đạp thực địa này của ngươi, còn giỏi hơn rất nhiều kẻ tự xưng là người có ăn học." Chàng chắp tay hành lễ với bạn.'
           },
           {
-            text: '"说不上为什么，就是觉得这里好。"',
+            text: '"Cũng không nói rõ được vì sao, chỉ là cảm thấy nơi này rất tốt."',
             friendshipChange: 40,
-            response: '丹青笑了笑："有时候，不需要理由就能做出最好的选择。正所谓「道法自然」。"他的目光温柔地看着你。'
+            response: 'Đan Thanh mỉm cười: "Đôi khi, không cần lý do cũng có thể đưa ra được sự lựa chọn tuyệt vời nhất. Đúng như câu \'Đạo Pháp Tự Nhiên\'." Ánh mắt chàng dịu dàng nhìn bạn.'
           }
         ]
       },
       {
-        text: '日暮时分，丹青起身整理书卷。他忽然开口："在下游学多年，去过不少地方。别处的书院讲的是怎么应试做官，唯有这里，村口的老农都能跟我论一论节气。"他笑了笑，"能遇到聊得来的人，是件很痛快的事。改日我把新写的稿子拿给你看——你说话直，不会捧我。"'
+        text: 'Lúc xế chiều, Đan Thanh đứng dậy thu dọn sách vở. Chàng bỗng cất lời: "Tại hạ du học nhiều năm, đã đi qua rất nhiều nơi, gặp gỡ rất nhiều người. Nhưng nơi thực sự khiến ta muốn dừng chân... chỉ có Đào Nguyên Hương." Chàng khẽ mỉm cười, "Bởi vì ở nơi đây có người xứng đáng để ta dừng bước." Chàng không nói rõ người đó là ai, nhưng trong ánh mắt chàng nhìn bạn đã chứa đựng câu trả lời.'
       }
     ]
   },
@@ -829,33 +829,33 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'dan_qing_heart_5',
     npcId: 'dan_qing',
     requiredFriendship: 1600,
-    title: '书生之志',
+    title: 'Chí Hướng Thư Sinh',
     scenes: [
       {
-        text: '你路过丹青借住的小屋，听到里面传来撕纸的声音。推门进去，看到满地都是揉碎的纸团。丹青坐在案前，面前的纸上写了又划，划了又写。'
+        text: 'Bạn đi ngang qua căn nhà nhỏ Đan Thanh đang mượn tạm, nghe thấy bên trong vọng ra tiếng xé giấy. Đẩy cửa bước vào, thấy trên mặt đất vương vãi những cục giấy bị vo viên. Đan Thanh đang ngồi trước án thư, tờ giấy trước mặt viết rồi lại gạch xóa, gạch xóa rồi lại viết.'
       },
       {
-        text: '"写不出来。"他看到你，苦笑着摇头，"我一直在写一本关于桃源乡历史的书，想把这里的故事留给后人。可是……写了三年了，总觉得差了什么。"'
+        text: '"Viết không ra." Chàng nhìn thấy bạn, lắc đầu cười khổ, "Ta vẫn luôn muốn viết một cuốn sách về lịch sử của Đào Nguyên Hương, muốn lưu truyền những câu chuyện nơi này cho thế hệ mai sau. Thế nhưng... đã viết suốt ba năm rồi, vẫn luôn cảm thấy thiếu vắng thứ gì đó."'
       },
       {
-        text: '他拿起一沓手稿给你看。字迹工整秀丽，记载着桃源乡的地理、物产、人文。确实写得很好——但正如他所说，总觉得缺少一种活力和温度。',
+        text: 'Chàng cầm một xấp bản thảo lên cho bạn xem. Chữ viết ngay ngắn thanh tú, ghi chép lại địa lý, sản vật, nhân văn của Đào Nguyên Hương. Quả thực viết rất hay —— nhưng đúng như chàng nói, luôn cảm thấy thiếu đi một loại sức sống và hơi ấm.',
         choices: [
           {
-            text: '"也许你缺的不是文采，而是生活。你应该多走到田间地头，去听村民们讲自己的故事。"',
+            text: '"Có lẽ thứ chàng thiếu không phải là văn phong, mà là cuộc sống. Chàng nên đi dạo quanh ruộng đồng nhiều hơn, đi lắng nghe những câu chuyện của chính người dân nơi đây."',
             friendshipChange: 120,
             response:
-              '丹青愣住了，然后猛地一拍桌子："一语惊醒梦中人！我一直把自己关在屋子里，怎么能写出有生命的文字！"他抓起纸笔，满怀热情地看着你，"你愿意带我去你的田庄看看吗？从田间开始！"'
+              'Đan Thanh sửng sốt, sau đó vỗ bàn đánh đét: "Một lời đánh thức người trong mộng! Ta vẫn luôn giam mình trong phòng, làm sao có thể viết ra được những dòng chữ có sinh mệnh chứ!" Chàng vơ lấy giấy bút, nhiệt tình nhìn bạn, "Ngươi có bằng lòng dẫn ta đến điền trang của ngươi xem thử không? Bắt đầu từ ruộng đồng!"'
           },
           {
-            text: '"慢慢来，好文章不急在一时。"',
+            text: '"Từ từ đã, bài viết hay không phải một sớm một chiều là xong."',
             friendshipChange: 80,
             response:
-              '丹青叹了口气，但还是点点头："你说得对。「文章千古事，得失寸心知。」或许是我太急了。"他微微一笑，"和你聊过之后，心里安定了不少。"'
+              'Đan Thanh thở dài một hơi, nhưng vẫn gật đầu: "Ngươi nói đúng. \'Văn chương thiên cổ sự, đắc thất thốn tâm tri.\' Có lẽ là do ta quá nôn nóng rồi." Chàng mỉm cười nhẹ, "Nói chuyện với ngươi xong, trong lòng đã an ổn hơn nhiều."'
           }
         ]
       },
       {
-        text: '几天后，丹青兴冲冲地拿着新写的章节来找你。"你看这段——写的是陈伯的万物铺，从他祖父那辈起就在了。还有胖婶的豆腐坊，用的是百年老卤水。"他的文字果然活了起来，满是烟火气。他把稿子一合，郑重地向你拱手："这一章多亏你一句话点醒。我在序言里记了你的名字——是当作朋友记的，你别推辞。"'
+        text: 'Vài ngày sau, Đan Thanh hào hứng ôm theo chương sách mới viết tới tìm bạn. "Ngươi xem đoạn này —— viết về tiệm Vạn Vật của Bác Trần, đã mở từ đời ông nội của bác ấy rồi. Còn có xưởng đậu hũ của Thím Mập, dùng nước muối làm đậu cả trăm năm rồi." Câu chữ của chàng quả nhiên đã trở nên sống động, tràn ngập khói lửa nhân gian. Chàng nhìn bạn, ánh mắt dịu dàng và đầy biết ơn: "Cảm hứng của chương này, toàn bộ đều nhờ một câu nói của ngươi. Ta đã ghi lại trong lời tựa rồi."'
       }
     ]
   },
@@ -863,35 +863,35 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'dan_qing_heart_8',
     npcId: 'dan_qing',
     requiredFriendship: 2400,
-    title: '以笔为誓',
+    title: 'Dĩ Bút Vi Thệ',
     scenes: [
       {
-        text: '丹青邀你在中秋之夜到竹林相聚。月光下，竹影婆娑，他在石桌上铺好了宣纸，研好了墨。'
+        text: 'Đan Thanh mời bạn đêm Trung Thu đến rừng trúc tụ họp. Dưới ánh trăng, bóng trúc lả lướt, chàng đã trải sẵn giấy Tuyên Thành trên bàn đá, mài sẵn mực.'
       },
       {
-        text: '"书已写完了。"他平静地说，把一叠装订整齐的手稿放到你面前。封面上写着《桃源志》三个字，而扉页上写着：「献给让我找到故乡的人」。'
+        text: '"Sách đã viết xong rồi." Chàng bình thản nói, đặt một tập bản thảo được đóng thành sách ngay ngắn trước mặt bạn. Trên trang bìa viết ba chữ 《Đào Nguyên Chí》, còn ở trang lót có ghi: 「Dành tặng cho người đã giúp ta tìm thấy cố hương」.'
       },
       {
-        text: '"游学十年，我一直在寻找一个值得书写的地方，也在寻找一个值得为之停留的人。"他提起笔，在月光下写字，笔触沉稳有力。你凑近看——他写的是你的名字。',
+        text: '"Du học mười năm, ta vẫn luôn tìm kiếm một vùng đất xứng đáng để ghi chép lại, cũng vẫn luôn tìm kiếm một người xứng đáng để vì người đó mà dừng chân." Chàng nhấc bút lên, hạ nét chữ dưới ánh trăng, ngòi bút trầm ổn đầy sức lực. Bạn ghé tới gần nhìn —— thứ chàng viết, chính là tên của bạn.',
         choices: [
           {
-            text: '"丹青，你的书一定会流传后世。"',
+            text: '"Đan Thanh, sách của chàng nhất định sẽ được lưu truyền hậu thế."',
             friendshipChange: 80,
-            response: '丹青放下笔，摇了摇头："书能不能传世，我不在意。我在意的是——写这本书的时光里，你一直在我身边。"'
+            response: 'Đan Thanh đặt bút xuống, lắc đầu nói: "Sách có truyền lại cho đời sau hay không, ta chẳng bận tâm. Thứ ta quan tâm là —— trong khoảng thời gian viết nên cuốn sách này, ngươi luôn ở bên cạnh ta."'
           },
           {
-            text: '拿起另一支笔，在他名字旁写上自己的名字。',
+            text: 'Cầm lấy một cây bút khác, viết tên mình ngay cạnh tên chàng.',
             friendshipChange: 160,
             response:
-              '丹青看着纸上并排的两个名字，嘴唇微微颤抖，眼眶泛红。"你……"他的声音哽住了，半天才找回来，"你知道这在古时意味着什么吗？"'
+              'Đan Thanh nhìn hai cái tên sóng vai nhau trên trang giấy, bờ môi khẽ run rẩy, vành mắt đỏ ửng. "Ngươi..." Giọng chàng nghẹn ngào, mãi một lúc sau mới tìm lại được, "Ngươi có biết hành động này vào thời cổ đại có ý nghĩa gì không?"'
           }
         ]
       },
       {
-        text: '丹青站起来，月光照着他清俊的面容。他深深地向你鞠了一躬——这不是普通的礼节，而是古人最郑重的心意。'
+        text: 'Đan Thanh đứng dậy, ánh trăng chiếu lên khuôn mặt thanh tú của chàng. Chàng cúi gập người hành lễ với bạn —— đây không phải là lễ nghi thông thường, mà là tâm ý trịnh trọng nhất của người xưa.'
       },
       {
-        text: '"在下丹青，一介穷书生，无金无银。唯有满腹诗书和一颗真心。"他直起身来，目光清澈如月，声音温柔却坚定，"我愿以笔为誓，以墨为盟——今后每一篇文章、每一首诗、每一个日出和日落，都想与你共度。"'
+        text: '"Tại hạ là Đan Thanh, chỉ là một thư sinh nghèo kiết xác, không vàng không bạc. Chỉ có một bụng thi thư và một trái tim chân thành." Chàng thẳng người lên, ánh mắt trong veo như ánh trăng, giọng nói dịu dàng nhưng vô cùng kiên định, "Ta nguyện dùng ngòi bút lập lời thề, lấy mực thước làm minh ước —— từ nay về sau mỗi một áng văn, mỗi một bài thơ, mỗi một lần mặt trời mọc rồi lặn, đều muốn được trải qua cùng với ngươi."'
       }
     ]
   },
@@ -903,32 +903,32 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'a_tie_heart_3',
     npcId: 'a_tie',
     requiredFriendship: 800,
-    title: '铁花绽放',
+    title: 'Hoa Sắt Nở Rộ',
     scenes: [
       {
-        text: '你来到铁匠铺时，孙铁匠不在，只有阿铁一个人在打铁。他满头大汗，手里的铁锤敲得叮叮当当响，但仔细一看——他敲的铁板已经歪了。'
+        text: 'Khi bạn tới tiệm rèn, Thợ rèn Tôn không có ở đó, chỉ có một mình A Thiết đang đánh thép. Mồ hôi anh nhễ nhại, chiếc búa trên tay gõ đinh đang kêu vang, nhưng nhìn kỹ lại —— thanh sắt anh đang gõ đã bị lệch rồi.'
       },
       {
-        text: '"啊！不不不！又歪了！"阿铁急得抓耳挠腮，把铁板扔回炉子里。他这才注意到你，脸一红："你、你看到了啊……我在练打锄头，可总是打不直。师父说我力道不均匀……"'
+        text: '"Á! Không không không! Lại lệch nữa rồi!" A Thiết cuống cuồng vò đầu bứt tai, vứt lại thanh sắt vào lò lửa. Lúc này anh mới chú ý tới bạn, mặt đỏ bừng: "Cậu, cậu thấy hết rồi à... Tôi đang tập rèn cuốc, nhưng toàn đánh cong queo. Sư phụ bảo lực tay của tôi không đều..."'
       },
       {
-        text: '他有些沮丧地坐在铁砧旁，大大的手掌搓来搓去。"师父的手艺那么好，我学了三年了还是这样。有时候我想……是不是我太笨了。"',
+        text: 'Anh có chút rầu rĩ ngồi bên cái đe, bàn tay thô to cứ vò vào nhau. "Tay nghề của sư phụ giỏi như vậy, tôi học ba năm rồi mà vẫn thế này. Đôi khi tôi cứ nghĩ... có phải mình quá ngốc rồi không."',
         choices: [
           {
-            text: '"来，我帮你扶着，你再试一次。"',
+            text: '"Lại đây, tôi giúp anh giữ chặt, anh làm lại lần nữa xem."',
             friendshipChange: 120,
             response:
-              '阿铁眼睛一亮："真、真的吗？"有了你帮忙固定铁板，他终于打出了一把像模像样的锄头。他把锄头举起来看了又看，高兴得像个孩子："直了！真的直了！都是你的功劳！"'
+              'Mắt A Thiết sáng rực: "Thật, thật sao?" Có bạn giúp cố định lại thanh sắt, cuối cùng anh cũng rèn ra được một cái cuốc ra hồn. Anh giơ cái cuốc lên nhìn ngắm không chán mắt, vui sướng hệt như một đứa trẻ: "Thẳng rồi! Thật sự thẳng rồi này! Tất cả đều là nhờ công lao của cậu cả đấy!"'
           },
           {
-            text: '"笨不笨不重要，坚持才重要。你已经比三年前强多了。"',
+            text: '"Ngốc hay không không quan trọng, sự kiên trì mới là quan trọng. Anh đã giỏi hơn ba năm trước nhiều rồi."',
             friendshipChange: 80,
-            response: '阿铁愣了愣，然后挠着后脑勺，憨憨地笑了："你、你真的这么觉得？嘿嘿……师父从来不夸我，你是第一个这么说的人。"'
+            response: 'A Thiết sững người, sau đó gãi gãi gáy, cười hềnh hệch: "Cậu, cậu thực sự thấy vậy sao? Hì hì... Sư phụ chưa bao giờ khen ngợi tôi, cậu là người đầu tiên nói như vậy đấy."'
           }
         ]
       },
       {
-        text: '收工后，阿铁偷偷塞给你一个小铁环。做工粗糙，但能看出他费了心思。"这、这是我练习的时候做的……不值钱。但是、但是……送给你。"他红着脸跑开了，差点撞到门框。'
+        text: 'Sau khi tan làm, A Thiết lén nhét vào tay bạn một chiếc nhẫn sắt nhỏ. Làm ra vô cùng thô ráp, nhưng có thể thấy được anh đã tốn rất nhiều tâm tư. "Đây, đây là đồ tôi làm lúc tập tành... không đáng tiền. Thế nhưng, thế nhưng... tặng cho cậu." Anh đỏ mặt chạy biến đi, suýt chút nữa thì đâm sầm vào khung cửa.'
       }
     ]
   },
@@ -936,32 +936,32 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'a_tie_heart_5',
     npcId: 'a_tie',
     requiredFriendship: 1600,
-    title: '炉火之心',
+    title: 'Trái Tim Lò Lửa',
     scenes: [
       {
-        text: '深夜，你被一阵敲打声吵醒。循着声音走到铁匠铺，发现阿铁一个人在炉火旁，满身汗水和炭灰，不停地锤打着一块铁。'
+        text: 'Đêm khuya, bạn bị đánh thức bởi một tiếng gõ đập. Lần theo âm thanh đi tới tiệm rèn, bạn phát hiện A Thiết đang ở một mình cạnh lò lửa, cả người đầy mồ hôi và muội than, không ngừng dùng búa gõ lên một miếng sắt.'
       },
       {
-        text: '他看到你吓了一跳："你、你怎么来了！这么晚了！"他想藏起手里的东西，但来不及了——你看到他正在打造的是一件精巧的铁艺花朵，花瓣层层叠叠，已经初具形状。'
+        text: 'Anh nhìn thấy bạn thì giật thót mình: "Cậu, sao cậu lại tới đây! Khuya thế này rồi!" Anh muốn giấu món đồ trong tay đi, nhưng không kịp nữa —— bạn nhìn thấy thứ anh đang rèn là một đóa hoa sắt được chế tác rất tinh xảo, cánh hoa xếp lớp lớp tầng tầng lên nhau, đã bắt đầu thành hình.'
       },
       {
-        text: '"师父说我只会打粗活，做不了精细物件。"阿铁低着头，"可我想证明我能行。我每天晚上等师父走了以后偷偷练。"他摊开自己的手掌——全是烫伤和老茧的痕迹。',
+        text: '"Sư phụ bảo tôi chỉ biết làm việc thô, không rèn được những vật nhỏ tinh tế." A Thiết cúi gầm mặt, "Nhưng tôi muốn chứng minh tôi có thể làm được. Tối nào tôi cũng đợi sư phụ về rồi lén lút luyện tập." Anh xòe bàn tay mình ra —— toàn là những vết bỏng và chai sần.',
         choices: [
           {
-            text: '拉过他的手看了看那些烫疤。"这些不是笨，是练出来的。"',
+            text: 'Nắm lấy đôi tay đầy thương tích của anh. "Những vết sẹo này chính là minh chứng cho sự nỗ lực của anh."',
             friendshipChange: 160,
             response:
-              '阿铁把手缩了回去，又慢慢摊开，愣愣地盯着自己的掌心看了半天。"……我师父也这么说过一次，就一次。"他吸了吸鼻子，"我还以为我记错了。"'
+              'Toàn thân A Thiết cứng đờ, hồi lâu chẳng dám nhúc nhích. Lò lửa phản chiếu lên khuôn mặt đỏ bừng của anh —— không biết là do bị lửa hơ hay do xấu hổ nữa. "Tay, tay cậu... thật ấm." Anh nhỏ giọng lầm bầm, nhưng không hề rút tay về.'
           },
           {
-            text: '"加油，阿铁。我相信你一定能做出最好的铁器。"',
+            text: '"Cố lên nhé, A Thiết. Tôi tin anh chắc chắn sẽ làm ra những món đồ sắt tuyệt vời nhất."',
             friendshipChange: 80,
-            response: '阿铁使劲点头，大大的眼睛里映着跳动的炉火。"嗯！我、我一定会加油的！有人信我，我什么都不怕！"'
+            response: 'A Thiết gật đầu thật mạnh, trong đôi mắt to tròn phản chiếu lò lửa đang nhảy múa và cả hình bóng của bạn. "Ừm! Tôi, tôi nhất định sẽ cố gắng! Có cậu tin tưởng, tôi chẳng sợ gì hết!"'
           }
         ]
       },
       {
-        text: '一个月后，阿铁终于完成了那朵铁花。他把它放在阳光下——铁瓣薄如蝉翼，在光线下折射出彩虹般的光泽。连孙铁匠看了都惊讶得说不出话。"这……是阿铁你做的？"阿铁红着脸使劲点头，然后飞快地跑来找你，把铁花塞到你手里："给、给你！你那天要是没来，我可能就把它砸了。你别嫌它丑啊！"'
+        text: 'Một tháng sau, A Thiết rốt cuộc cũng hoàn thành đóa hoa sắt kia. Anh đặt nó dưới ánh mặt trời —— những cánh hoa mỏng như cánh ve, dưới ánh sáng khúc xạ ra màu sắc rực rỡ như cầu vồng. Ngay cả Thợ rèn Tôn nhìn thấy cũng kinh ngạc đến mức không thốt nên lời. "Cái này... là do con rèn sao A Thiết?" A Thiết đỏ bừng mặt gật đầu mạnh, sau đó vội vàng chạy tới tìm bạn, nhét đóa hoa sắt vào tay bạn: "Đóa, đóa hoa này... chỉ có cậu, cậu mới xứng đáng với nó thôi."'
       }
     ]
   },
@@ -969,35 +969,35 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'a_tie_heart_8',
     npcId: 'a_tie',
     requiredFriendship: 2400,
-    title: '百炼成钢',
+    title: 'Bách Luyện Thành Cương',
     scenes: [
       {
-        text: '孙铁匠找到你，难得地露出严肃又欣慰的表情。"阿铁那小子……不知道吃了什么药，最近进步飞快。他说要打一件「出师之作」，把自己关在铺子里三天了，谁都不让进。"他叹了口气，"不过……他说让你去。"'
+        text: 'Thợ rèn Tôn tìm đến bạn, hiếm khi để lộ ra vẻ mặt nghiêm túc lại pha chút vui mừng. "Cái thằng nhóc A Thiết ấy... không biết đã uống lộn thuốc gì, dạo này tiến bộ thần tốc. Nó bảo muốn rèn một tác phẩm \'Xuất Sư Chi Tác\' (Tác phẩm học thành tài), tự nhốt mình trong tiệm ba ngày rồi, ai cũng không cho vào." Ông thở dài một hơi, "Tuy nhiên... nó bảo là sẽ cho cậu vào."'
       },
       {
-        text: '你来到铁匠铺。阿铁站在铁砧旁，整个人瘦了一圈，眼睛却亮得惊人。他身后的架子上放着一把剑——不，不只是剑，剑身上錾刻着精细的花纹，剑柄处缠绕着铁艺的桃花。这是一把工艺品级别的佩剑。'
+        text: 'Bạn đi đến tiệm rèn. A Thiết đang đứng cạnh chiếc đe, cả người gầy sọp đi một vòng, nhưng ánh mắt lại sáng rực lạ thường. Trên giá gỗ phía sau anh được đặt một thanh kiếm —— không, không chỉ là một thanh kiếm, trên thân kiếm được điêu khắc những hoa văn cực kỳ tinh tế, ở phần chuôi kiếm lại được quấn quanh bằng những nhánh hoa đào bằng sắt. Đây là một thanh bội kiếm đạt đến trình độ của một tác phẩm nghệ thuật.'
       },
       {
-        text: '"我、我做出来了。"阿铁的声音沙哑但充满自豪。他把剑递给你，双手有些发抖。"师父说……铁匠一辈子只打一件「定心之作」，用尽毕生所学，献给最重要的人。"',
+        text: '"Tôi, tôi làm ra được rồi." Giọng A Thiết khàn đặc nhưng lại tràn đầy sự kiêu hãnh. Anh đưa thanh kiếm cho bạn, hai bàn tay hơi run rẩy. "Sư phụ bảo... đời người thợ rèn chỉ rèn ra một món \'Định Tâm Chi Tác\' duy nhất, dùng hết mọi sở học của bản thân, kính dâng cho người quan trọng nhất."',
         choices: [
           {
-            text: '郑重地接过剑，仔细端详。"阿铁，这把剑……太美了。"',
+            text: 'Trịnh trọng đón lấy thanh kiếm, quan sát thật tỉ mỉ. "A Thiết, thanh kiếm này... thật sự quá lộng lẫy."',
             friendshipChange: 120,
             response:
-              '阿铁使劲搓着手，咧嘴笑了，笑容憨厚而纯粹："你、你真的喜欢？那我就放心了！为了打这把剑，我把手指都烫秃了，嘿嘿，不过值了！"'
+              'A Thiết chà xát tay thật mạnh, toét miệng cười, nụ cười thật thà và vô cùng thuần khiết: "Cậu, cậu thực sự thích nó sao? Vậy thì tôi yên tâm rồi! Vì để rèn ra thanh kiếm này, mấy ngón tay tôi đều bị phỏng đến trọc lóc luôn, hì hì, nhưng mà xứng đáng!"'
           },
           {
-            text: '"阿铁，你再也不是那个打不直锄头的学徒了。"',
+            text: '"A Thiết, anh không còn là cái gã học trò rèn cuốc cũng không thẳng ngày trước nữa rồi."',
             friendshipChange: 120,
-            response: '阿铁的眼眶一下子红了。他使劲揉了揉眼睛："我、我没哭啊！是烟熏的！"他大力吸了吸鼻子，"能变成现在的我……全是因为你。"'
+            response: 'Vành mắt A Thiết thoắt cái đã đỏ hoe. Anh cố sức dụi dụi mắt: "Tôi, tôi có khóc đâu! Là do khói hun vào mắt thôi!" Anh sụt sịt mũi thật mạnh, "Có thể trở nên như ngày hôm nay... tất cả đều là nhờ có cậu."'
           }
         ]
       },
       {
-        text: '阿铁深吸一口气，挺直了腰板。以前他总是弯腰缩肩，好像怕占了太多空间。但此刻他站得笔直，目光坦诚而炽热。'
+        text: 'A Thiết hít một hơi thật sâu, ưỡn thẳng lưng lên. Trước đây anh luôn khom lưng rụt cổ, dường như sợ mình chiếm quá nhiều diện tích. Nhưng ngay lúc này anh lại đứng thẳng tắp, ánh mắt vô cùng chân thành và cháy bỏng.'
       },
       {
-        text: '"我、我不会说文绉绉的话，也不像丹青那样会写诗。"他的大手紧紧攥着围裙，指关节发白，"但是我可以……我可以用这双手，为你打世界上最好的工具，修最结实的房子，做最漂亮的铁花。这辈子、下辈子、下下辈子都给你打！"他的脸红得能炼铁，"所以……所以你愿、愿意……让我一直待在你身边吗？"'
+        text: '"Tôi, tôi không biết nói mấy câu văn vẻ ướt át, cũng không biết làm thơ giống như Đan Thanh." Bàn tay to lớn của anh túm chặt lấy chiếc tạp dề, những đốt ngón tay trắng bệch, "Nhưng tôi có thể... tôi có thể dùng đôi tay này, rèn cho cậu những công cụ tốt nhất trên thế gian, sửa lại căn nhà kiên cố nhất, rèn ra những đóa hoa sắt đẹp mắt nhất. Đời này, đời sau, đời sau nữa đều rèn cho cậu!" Khuôn mặt anh đỏ đến mức có thể dùng để nung sắt, "Thế nên... cậu có bằng, bằng lòng... để tôi luôn luôn ở bên cạnh cậu không?"'
       }
     ]
   },
@@ -1009,33 +1009,33 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'yun_fei_heart_3',
     npcId: 'yun_fei',
     requiredFriendship: 800,
-    title: '林中相遇',
+    title: 'Cuộc Gặp Gỡ Nơi Rừng Sâu',
     scenes: [
       {
-        text: '你在后山采集时迷了路，天色渐暗，四周只有密密的树影和偶尔传来的鸟叫声。正当你焦急时，一个身影从树丛中闪出——是云飞。'
+        text: 'Khi bạn đang thu thập ở núi sau thì bị lạc đường, sắc trời dần tối lại, xung quanh chỉ toàn là những bóng cây dày đặc và thi thoảng lại truyền tới vài tiếng chim kêu. Ngay lúc bạn đang vô cùng sốt ruột, một bóng người từ trong bụi cây bước ra —— là Vân Phi.'
       },
       {
-        text: '"又是你。"云飞靠在一棵松树上，面无表情地看着你，"迷路了？"他没等你回答，转身就走，"跟上，别掉队。"'
+        text: '"Lại là ngươi." Vân Phi dựa vào một gốc cây thông, mặt không cảm xúc nhìn chằm chằm bạn, "Lạc đường rồi sao?" Hắn không đợi bạn trả lời, đã quay người bỏ đi, "Đi theo ta, đừng có tụt lại đấy."'
       },
       {
-        text: '他领你穿过密林，脚步轻快而精准，像是熟悉这里的每一棵树、每一块石头。忽然他停下来，示意你蹲下——前方的空地上，一只母鹿正带着小鹿在喝水，月光洒在它们身上，画面安静而美好。',
+        text: 'Hắn dẫn bạn đi xuyên qua khu rừng rậm rạp, bước chân nhẹ nhàng mà vô cùng chuẩn xác, cứ như đã thông thuộc từng gốc cây ngọn cỏ, từng tảng đá nơi này. Đột nhiên hắn dừng lại, ra hiệu bảo bạn ngồi xổm xuống —— ở bãi đất trống phía trước, một con hươu mẹ đang dẫn hươu con đi uống nước, ánh trăng rải xuống người chúng, một bức tranh tĩnh lặng và thật đẹp.',
         choices: [
           {
-            text: '屏住呼吸，安静地看着这一幕。',
+            text: 'Nín thở, lặng lẽ chiêm ngưỡng khung cảnh này.',
             friendshipChange: 120,
             response:
-              '云飞侧头看了你一眼，似乎对你的安静有些意外。等鹿群走远了，他才开口："……不错。一般人看到鹿都会大惊小怪。"这大概是他给过的最高评价了。'
+              'Vân Phi nghiêng đầu nhìn bạn một cái, dường như có chút bất ngờ với sự tĩnh lặng của bạn. Chờ đàn hươu đi xa, hắn mới cất lời: "... Không tồi. Người bình thường mà thấy hươu thì kiểu gì cũng la hét ầm ĩ." Đây có lẽ là lời khen cao nhất mà hắn từng thốt ra rồi.'
           },
           {
-            text: '"它们不怕你吗？"',
+            text: '"Chúng không sợ anh sao?"',
             friendshipChange: 40,
             response:
-              '云飞轻哼一声："我又不打它们。我只猎该猎的，不杀幼崽，不杀怀孕的。山里的规矩——取之有度。"他的声音虽然冷，但你感觉到了一种对自然的敬畏。'
+              'Vân Phi khẽ hừ một tiếng: "Ta có săn chúng đâu. Ta chỉ săn những con đáng để săn, không giết con non, không giết thú mang thai. Quy củ trong núi —— lấy phải có chừng có mực." Giọng nói của hắn tuy lạnh lùng, nhưng bạn cảm nhận được một sự kính úy với thiên nhiên.'
           }
         ]
       },
       {
-        text: '走出树林时，云飞忽然停下来，从背包里掏出一把草药扔给你。"山里有蛇虫，把这个揉碎了抹在脚踝上。"他说完就大步走开了，头也不回。但你注意到，他站在远处的山坡上，一直等到你安全进了村子才转身离去。'
+        text: 'Lúc đi ra khỏi khu rừng, Vân Phi đột nhiên dừng bước, móc từ trong ba lô ra một nắm thảo dược rồi ném cho bạn. "Trong núi có rắn rết, vò nát cái này rồi xoa lên cổ chân đi." Nói xong hắn sải bước bỏ đi luôn, không hề ngoảnh đầu lại. Nhưng bạn tinh ý nhận ra, hắn đã đứng trên sườn núi phía xa, chờ đợi cho đến khi bạn tiến vào làng an toàn thì mới xoay người rời đi.'
       }
     ]
   },
@@ -1043,38 +1043,38 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'yun_fei_heart_5',
     npcId: 'yun_fei',
     requiredFriendship: 1600,
-    title: '独狼之伤',
+    title: 'Thương Tích Của Sói Độc Hành',
     scenes: [
       {
-        text: '你在后山发现云飞靠在一棵树下，左臂上缠着粗糙的布条，布条上渗着血。他闭着眼睛，脸色苍白。'
+        text: 'Bạn phát hiện Vân Phi đang tựa lưng vào một gốc cây ở ngọn núi phía sau, trên cánh tay trái quấn một dải ruy băng thô ráp, máu thấm ướt đẫm cả một mảng. Hắn nhắm nghiền mắt, sắc mặt tái nhợt.'
       },
       {
-        text: '他听到脚步声，猛地睁开眼，手已经握住了腰间的猎刀。看到是你，才慢慢松开。"……没事。被野猪撞了一下。"他的声音虚弱但依然倔强，"不用管我，一会儿就好了。"'
+        text: 'Nghe thấy tiếng bước chân, hắn đột ngột mở bừng mắt, tay đã rút sẵn con dao săn giắt ở bên hông. Thấy là bạn, hắn mới từ từ nới lỏng tay. "... Không sao. Bị lợn rừng húc trúng thôi." Giọng hắn yếu ớt nhưng vẫn rất cứng cỏi, "Không cần bận tâm đến ta, lát nữa là khỏe lại thôi."'
       },
       {
-        text: '你蹲下来查看他的伤口——皮肉翻开了一道口子，流了不少血。这根本不是"一下"就能解决的。',
+        text: 'Bạn ngồi xổm xuống kiểm tra vết thương của hắn —— da thịt toác ra một mảng, chảy rất nhiều máu. Cái này căn bản không thể tự lành lại bằng "một lát" được.',
         choices: [
           {
-            text: '不顾他的反对，强行帮他重新包扎伤口。',
+            text: 'Mặc kệ sự phản đối của hắn, mạnh mẽ giúp hắn tháo ra băng bó lại vết thương.',
             friendshipChange: 160,
             response:
-              '云飞想推开你的手，但没什么力气。他别过脸去，牙关咬得紧紧的。等你包扎完，他沉默了好一会儿，才从牙缝里挤出几个字："……你手还挺稳的。"'
+              'Vân Phi muốn đẩy tay bạn ra, nhưng không còn sức. Hắn ngoảnh mặt đi, nghiến chặt răng. Đợi bạn băng bó xong, hắn im lặng một hồi lâu, mới nặn ra được mấy chữ qua kẽ răng: "... Tay ngươi khá vững đấy."'
           },
           {
-            text: '"你一个人在山里太危险了。以后进山告诉我一声。"',
+            text: '"Một mình anh ở trong núi quá nguy hiểm. Lần sau vào núi nhớ báo cho tôi một tiếng."',
             friendshipChange: 80,
-            response: '云飞冷笑了一声："我在山里住了十年，不需要——"话说到一半，伤口一阵剧痛让他闷哼一声。他终于没了脾气，"……随你。"'
+            response: 'Vân Phi cười nhạt một tiếng: "Ta đã sống trong núi này được mười năm rồi, không cần ——" Lời nói mới ra đến nửa, cơn đau nhói từ vết thương truyền đến khiến hắn phải hừ nhẹ một tiếng. Cuối cùng hắn cũng hết cáu kỉnh, "... Tùy ngươi."'
           }
         ]
       },
       {
-        text: '你扶他下山回到他的小屋。屋子简陋得令人心酸——一张木板床、一把猎弓、几件破旧的衣物。墙上挂着一张褪色的画像，是一个年轻女人抱着一个小男孩。'
+        text: 'Bạn dìu hắn xuống núi trở về nhà nhỏ của hắn. Căn phòng đơn sơ đến mức khiến người ta xót xa —— một chiếc giường phản gỗ, một cây cung săn, vài bộ quần áo cũ nát. Trên vách tường có treo một bức tranh đã phai màu, vẽ một người phụ nữ trẻ đang ôm một cậu bé con.'
       },
       {
-        text: '云飞注意到你的目光，声音忽然变得很低："那是我娘。我六岁那年她得急病走了。"他顿了顿，"我爹那阵子天天喝酒，我受不了，自己跑进山里搭了个窝棚，一住就是十年。"他的表情毫无波动，像在说别人的故事，"他后来托人捎过几回东西，我没收。山林清净，鸟兽也不聒噪。"'
+        text: 'Vân Phi nhận ra ánh nhìn của bạn, giọng nói bỗng trầm xuống: "Đó là nương của ta. Khi sinh ra ta vì khó sinh nên đã qua đời. Cha ta đổ lỗi cho ta, năm lên sáu đã ném ta vào sâu trong núi." Sắc mặt hắn chẳng hề dao động, tựa như đang kể chuyện của một người khác vậy, "Từ lúc đó trở đi, rừng núi chính là nhà của ta, chim thú chính là bạn đồng hành của ta. Còn tốt hơn cả loài người —— chí ít thì chúng không bao giờ vứt bỏ ngươi." Hắn liếc nhìn bạn một cái, rồi rất nhanh rời mắt đi, "... Ngươi là một ngoại lệ."'
       },
       {
-        text: '他把画像翻了个面靠在墙上，语气硬邦邦的："……去年他托陈伯带话，说院子修好了，让我回去看看。我没去。"他瞥了你一眼，很快移开视线，"你要是哪天路过村东头那间瓦房……算了，没什么。"'
+        text: 'Hắn lật mặt bức tranh úp vào tường, giọng cứng nhắc: "…Năm ngoái hắn nhờ Bác Trần nhắn rằng sân nhà đã sửa xong, bảo ta về xem. Ta không đi." Hắn liếc bạn một cái rồi nhanh chóng dời mắt, "Nếu một ngày nào đó ngươi đi ngang căn nhà ngói ở đầu phía đông làng… thôi, không có gì."'
       }
     ]
   },
@@ -1082,34 +1082,34 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'yun_fei_heart_8',
     npcId: 'yun_fei',
     requiredFriendship: 2400,
-    title: '山巅之约',
+    title: 'Lời Hẹn Ước Nơi Đỉnh Núi',
     scenes: [
       {
-        text: '一天清晨，云飞出现在你家门口。他靠在门框上，别扭地不看你。"……跟我走。有个地方，想带你去。"他顿了顿，"就你一个人。"'
+        text: 'Một sớm nọ, Vân Phi xuất hiện trước cửa nhà bạn. Hắn tựa lưng vào khung cửa, ngượng nghịu không nhìn bạn. "... Đi với ta. Có một nơi, ta muốn dẫn ngươi đến." Hắn ngừng lại, "Chỉ một mình ngươi thôi."'
       },
       {
-        text: '他带你翻过了后山最高的山岭——那是连村里的猎户都不敢轻易去的地方。你们穿过密林、攀过峭壁，最后站在了山巅。'
+        text: 'Hắn dẫn bạn băng qua đỉnh núi cao nhất của ngọn núi phía sau —— nơi đó ngay cả những thợ săn trong làng cũng chẳng dám tùy tiện đặt chân tới. Hai người đi xuyên qua rừng rậm, trèo qua vách núi cheo leo, cuối cùng đứng trên đỉnh núi.'
       },
       {
-        text: '眼前的景象让你忘记了呼吸——脚下是无边无际的云海，朝阳从云层中升起，把天空染成了金红色。桃源乡的炊烟从云海中升起，像是一座飘在仙境里的村庄。',
+        text: 'Cảnh tượng hiện ra trước mắt khiến bạn quên cả hít thở —— ngay dưới chân là một biển mây vô tận, mặt trời mọc nhô lên từ tầng mây, nhuộm đỏ rực cả một bầu trời. Khói bếp của Đào Nguyên Hương vương lên giữa biển mây, khiến nó trông giống như một ngôi làng lơ lửng chốn thần tiên.',
         choices: [
           {
-            text: '"云飞……这里太美了。谢谢你带我来。"',
+            text: '"Vân Phi... chỗ này đẹp quá đi mất. Cảm ơn anh đã dẫn tôi tới đây."',
             friendshipChange: 120,
-            response: '云飞站在你身旁，风吹起他的长发。他的目光投向远方，声音比平时柔和了许多："这是我的秘密。十年了，没带任何人来过。"'
+            response: 'Vân Phi đứng ngay bên cạnh, gió thổi tung mái tóc dài của hắn. Hắn dõi mắt nhìn về phía xa, giọng nói mềm mại hơn ngày thường rất nhiều: "Đây là bí mật của ta. Mười năm rồi, chưa từng dẫn bất kỳ ai tới đây."'
           },
           {
-            text: '安静地和他并肩站着，一起看日出。',
+            text: 'Bình lặng đứng kề vai cùng hắn, cùng nhau ngắm bình minh.',
             friendshipChange: 120,
-            response: '很长时间里，你们谁都没有说话。但这沉默是舒适的——像是两个人之间不需要言语就能明白彼此的心意。'
+            response: 'Một khoảng thời gian rất lâu, cả hai người không ai nói một lời nào. Thế nhưng sự yên lặng này lại vô cùng thoải mái —— tựa như giữa hai người không cần ngôn từ cũng đã tỏ tường tâm ý của nhau.'
           }
         ]
       },
       {
-        text: '太阳完全升起来了。云飞忽然开口，声音很低，像是在跟风说话："我以前觉得……人都是不可靠的。不如一条猎犬，不如一棵松树。"他转过身，认真地——可能是他这辈子最认真地——看着你。'
+        text: 'Mặt trời đã hoàn toàn mọc lên. Vân Phi bỗng lên tiếng, giọng rất thấp, giống như đang trò chuyện cùng ngọn gió: "Trước đây ta luôn cho rằng... con người đều không đáng tin cậy. Chẳng bằng một con chó săn, chẳng bằng một cây tùng." Hắn xoay người lại, cực kỳ nghiêm túc —— có lẽ đây là lần nghiêm túc nhất trong cuộc đời của hắn —— chăm chú nhìn vào bạn.'
       },
       {
-        text: '"但你改变了我。"他的声音有些发涩，像是第一次说这样的话，每个字都是从心里硬生生拽出来的，"你……让我想从山里走出来，想留在有人的地方。那个人是你。"他的手微微颤抖着握住了你的手，握得很紧，像是怕松开就再也抓不住了，"我不会说好听的话……但我可以用命保护你。这座山是我的证人。"'
+        text: '"Nhưng ngươi đã thay đổi ta." Giọng hắn hơi khàn, giống như đây là lần đầu tiên nói những lời như vậy, mỗi một chữ đều như bị hắn lôi thẳng từ trong tim ra ngoài, "Ngươi... khiến ta muốn bước ra khỏi cánh rừng này, muốn lưu lại nơi có con người sinh sống. Và người đó chính là ngươi." Tay hắn hơi run rẩy cầm lấy tay bạn, nắm rất chặt, tựa hồ sợ vừa buông lỏng ra sẽ chẳng bao giờ bắt lại được nữa, "Ta không biết nói lời hay ý đẹp... nhưng ta có thể lấy cái mạng này ra để bảo vệ ngươi. Ngọn núi này chính là nhân chứng của ta."'
       }
     ]
   },
@@ -1121,32 +1121,32 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'da_niu_heart_3',
     npcId: 'da_niu',
     requiredFriendship: 800,
-    title: '小牛接生',
+    title: 'Đỡ Đẻ Bê Con',
     scenes: [
       {
-        text: '大牛急匆匆地跑来找你，满脸焦急："不好了不好了！我家老黄牛要生了！可我一个人忙不过来！你能来帮忙吗？"'
+        text: 'Đại Ngưu cuống cuồng chạy tới tìm bạn, vẻ mặt đầy sốt ruột: "Nguy rồi nguy rồi! Bò mẹ nhà tôi sắp đẻ tới nơi rồi! Nhưng có mỗi một mình tôi không kịp xoay xở! Bạn qua phụ tôi một tay được không?"'
       },
       {
-        text: '你跟他跑到牧场。一头大黄牛躺在草棚里，不安地喘息着。大牛蹲在旁边，一边安抚它一边紧张地搓手。"乖乖乖，别怕，大牛哥在呢。"'
+        text: 'Bạn chạy theo Đại Ngưu về mục trường. Một con bò vàng to lớn đang nằm bò trong lều cỏ, bồn chồn thở phì phò. Đại Ngưu ngồi thụp xuống bên cạnh, vừa dỗ dành nó vừa lo lắng chà xát tay vào nhau. "Ngoan ngoan ngoan, đừng sợ nhé, có anh Đại Ngưu ở đây rồi."'
       },
       {
-        text: '在大牛的指导下，你帮忙递热水、准备干草。一个多时辰后，一头湿漉漉的小牛犊终于出生了。它摇摇晃晃地站起来，用湿润的鼻子蹭了蹭你的手掌。',
+        text: 'Dưới sự hướng dẫn của Đại Ngưu, bạn giúp bưng nước nóng, chuẩn bị rơm khô. Khoảng một canh giờ sau, một con bê nhỏ cả thân dính đầy nước ối cuối cùng cũng chào đời. Nó lảo đảo đứng lên, dùng chiếc mũi ẩm ướt cọ cọ vào lòng bàn tay bạn.',
         choices: [
           {
-            text: '小心翼翼地抱着小牛犊，帮它擦干身上的水。',
+            text: 'Cẩn thận ôm lấy con bê nhỏ, lau khô nước trên người nó.',
             friendshipChange: 120,
             response:
-              '大牛看着你轻柔的动作，眼眶红了："你看它多喜欢你！小牛认人的，它第一眼看到谁就会跟谁亲。"他吸了吸鼻子，"谢谢你来帮忙！"'
+              'Đại Ngưu nhìn động tác dịu dàng của bạn, vành mắt đỏ hoe: "Bạn xem nó thích bạn chưa kìa! Bê con biết nhận người đấy, cái nhìn đầu tiên nó thấy ai thì sẽ thân thiết với người đó." Cậu sụt sịt mũi, "Cảm ơn bạn đã tới giúp đỡ nhé!"'
           },
           {
-            text: '"大牛，你照顾动物真的很有一套。"',
+            text: '"Đại Ngưu, cậu chăm sóc động vật giỏi thật đấy."',
             friendshipChange: 80,
-            response: '大牛不好意思地挠挠头："嘿嘿，从小就喜欢嘛！我觉得动物比什么都重要！它们对你好，你就得对它们更好！"他笑得像个孩子。'
+            response: 'Đại Ngưu ngại ngùng gãi gãi đầu: "Hì hì, từ nhỏ tôi đã thích rồi mà! Tôi cảm thấy động vật là quan trọng hơn bất cứ thứ gì! Chúng đối tốt với bạn, thì bạn lại càng phải đối xử tốt với chúng hơn!" Cậu nở nụ cười rạng rỡ như một đứa trẻ.'
           }
         ]
       },
       {
-        text: '大牛给小牛犊取名叫"福宝"。"因为是你帮忙接生的，是福气！"他拍了拍你的肩膀，力道大得差点把你拍倒，"以后你随时来看福宝！它是你的半个孩子！"'
+        text: 'Đại Ngưu đặt tên cho con bê con là "Phúc Bảo". "Vì do tự tay cậu giúp đỡ đẻ, cho nên đây chính là phúc khí!" Cậu vỗ mạnh vào vai bạn, lực đạo lớn đến nỗi suýt chút nữa đập ngã bạn, "Sau này lúc nào rảnh cậu cứ đến thăm Phúc Bảo nhé! Nó cũng là nửa đứa con của cậu đấy!"'
       }
     ]
   },
@@ -1154,33 +1154,33 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'da_niu_heart_5',
     npcId: 'da_niu',
     requiredFriendship: 1600,
-    title: '风雨牧场',
+    title: 'Mục Trường Đêm Bão',
     scenes: [
       {
-        text: '一场暴风雨来袭。你担心大牛的牧场，冒雨赶过去——果然，栅栏被风吹倒了好几段，几只羊跑了出去。大牛在雨中来回跑，浑身湿透，声音都喊哑了。'
+        text: 'Một trận mưa bão ập tới. Bạn lo lắng cho mục trường của Đại Ngưu nên đội mưa chạy qua xem —— quả nhiên, hàng rào đã bị gió thổi sập mất mấy đoạn, vài con cừu đã xổng ra ngoài. Đại Ngưu chạy ngược chạy xuôi trong mưa, toàn thân ướt đẫm, khản cả giọng gào thét gọi bầy cừu.'
       },
       {
-        text: '"你怎么来了！快回去！"大牛看到你，又惊又急。但他的脚步没有停——他正追着一只受惊的羊跑。'
+        text: '"Sao cậu lại ra đây! Về nhà mau!" Thấy bạn, Đại Ngưu vừa ngạc nhiên vừa lo lắng. Nhưng bước chân của cậu vẫn không hề dừng lại —— cậu đang mải đuổi theo một con cừu đang hoảng sợ.'
       },
       {
-        text: '你帮他一起赶羊、修栅栏。风雨交加中，你们合力把最后一只走散的羊找了回来。等一切安顿好，你们瘫坐在草棚里，浑身像从水里捞出来的一样。',
+        text: 'Bạn giúp cậu lùa cừu, sửa chữa lại hàng rào. Giữa cơn bão giật đùng đùng, hai người hợp sức tìm về được con cừu cuối cùng đi lạc. Khi mọi thứ đã được sắp xếp ổn thỏa, hai người mệt lả ngồi bệt xuống lều cỏ, người ngợm ướt sũng như chuột lột.',
         choices: [
           {
-            text: '"大牛，你一个人撑着这个牧场，真的不容易。"',
+            text: '"Đại Ngưu, một mình cậu gánh vác cả cái mục trường này, quả thực không dễ dàng gì."',
             friendshipChange: 120,
             response:
-              '大牛沉默了一会儿，然后憨憨地笑了，但笑里带着一丝苦涩："不容易是不容易……但看到它们安安全全的，就值了。"他看着你，眼里满是感动，"今天多亏你了。真的。"'
+              'Đại Ngưu im lặng một lát, sau đó cười ngu ngơ, nhưng nụ cười lại mang theo vẻ đắng chát: "Không dễ dàng thì đúng là không dễ dàng... nhưng nhìn thấy bọn chúng được an toàn, thì cũng đáng mà." Cậu nhìn bạn, đôi mắt tràn ngập sự cảm động, "Hôm nay may mà có cậu. Thật lòng đó."'
           },
           {
-            text: '把自己仅剩的干粮分给他一半。',
+            text: 'Chia cho cậu một nửa phần lương khô còn sót lại của mình.',
             friendshipChange: 120,
             response:
-              '大牛接过干粮，鼻子一酸："你、你自己还饿着呢……"他大口咬了一口，嚼着嚼着，眼泪和雨水混在一起顺着脸颊流了下来。"我没哭啊！是雨水！"'
+              'Đại Ngưu nhận lấy phần lương khô, mũi chua xót: "Cậu, cậu còn đang đói meo đấy thôi..." Cậu cắn một miếng thật to, nhai nhóp nhép, nước mắt và nước mưa hòa quyện vào nhau trôi tuột xuống gò má. "Tôi có khóc đâu! Là nước mưa đó!"'
           }
         ]
       },
       {
-        text: '雨停了，夕阳从乌云后透出来。大牛站起来，看着他的牧场——栅栏虽然修得歪歪扭扭，但动物们都安全了。他深吸一口气，大声说："我这个人没什么本事，就是对动物好。以前总觉得有动物就够了……"他转头看着你，大大的眼睛里闪着光，"但是今天我才知道，有个愿意陪我一起淋雨的人，比什么都重要。"'
+        text: 'Trời đã tạnh mưa, tia nắng tà dương le lói sau những đám mây đen kịt. Đại Ngưu đứng lên, ngắm nhìn mục trường của mình —— hàng rào tuy sửa lại cong cong vẹo vẹo, nhưng những con thú nuôi bên trong đều bình an vô sự. Cậu hít sâu một hơi, nói lớn: "Con người tôi chẳng có tài cán gì, chỉ được cái đối xử tốt với động vật. Trước đây luôn nghĩ rằng chỉ cần có chúng là đủ rồi..." Cậu ngoảnh đầu lại nhìn bạn, đôi mắt to tròn lấp lánh tia sáng rực rỡ, "Nhưng hôm nay tôi mới hiểu ra rằng, có một người nguyện cùng tôi dầm mưa, còn quan trọng hơn bất cứ thứ gì trên đời."'
       }
     ]
   },
@@ -1188,34 +1188,34 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'da_niu_heart_8',
     npcId: 'da_niu',
     requiredFriendship: 2400,
-    title: '牧歌悠扬',
+    title: 'Khúc Nhạc Mục Đồng',
     scenes: [
       {
-        text: '大牛请你来牧场，说有"重要的事情"。你到的时候，发现牧场被收拾得干干净净——大牛平时邋里邋遢的，今天居然穿了一身整洁的新衣服，头发也梳得一丝不苟（虽然有一撮始终翘着压不下去）。'
+        text: 'Đại Ngưu mời bạn tới mục trường, bảo rằng có "chuyện vô cùng quan trọng". Lúc bạn đến nơi, phát hiện mục trường đã được thu dọn sạch sẽ —— Đại Ngưu bình thường lôi thôi lếch thếch, hôm nay thế mà lại diện một bộ quần áo mới tinh tươm, tóc tai cũng được chải chuốt gọn gàng đâu ra đấy (tuy vẫn còn một lọn cứ chỉa lên không sao vuốt xuống được).'
       },
       {
-        text: '"你来啦！"他紧张得手脚都不知道往哪里放，笑容僵硬得像是练习了一百遍，"坐、坐那边！我给你看个东西！"'
+        text: '"Cậu tới rồi sao!" Cậu khẩn trương đến mức chân tay không biết vứt đi đâu cho phải, nụ cười cứng đờ như thể đã tập luyện cả trăm lần, "Ngồi, ngồi bên kia đi! Tôi cho cậu xem một thứ này!"'
       },
       {
-        text: '他吹响了一支竹笛——曲调粗糙但欢快，竟然是一首牧歌。随着笛声，牧场里的牛羊鸡鸭整整齐齐地走了出来，排成一排。每只动物脖子上都系着一朵小花。你仔细一看——那些花组成了两个字。',
+        text: 'Cậu thổi vang một tiếng sáo trúc —— giai điệu có chút mộc mạc nhưng lại vô cùng vui tươi, thế mà lại là một khúc nhạc mục đồng. Theo tiếng sáo, bầy gia súc gia cầm trong mục trường lục tục bước ra, ngoan ngoãn xếp thành một hàng. Trên cổ mỗi con thú đều được buộc một đóa hoa nhỏ xíu. Bạn cẩn thận nhìn kỹ lại —— những bông hoa đó đã xếp lại tạo thành hai chữ.',
         choices: [
           {
-            text: '愣住了，然后忍不住笑了出来。"大牛，你排练了多久？"',
+            text: 'Đứng hình một lúc, sau đó không nhịn được phải bật cười. "Đại Ngưu, cậu đã tập tành trò này bao lâu rồi?"',
             friendshipChange: 120,
-            response: '大牛涨红了脸："练了半个月！福宝总是不听话跑错位……嘿嘿。"他搓着手，"好看吗？"'
+            response: 'Mặt Đại Ngưu đỏ gay: "Tập suốt nửa tháng lận đó! Con Phúc Bảo cứ không nghe lời chạy sai vị trí hoài à... Hì hì." Cậu chà xát tay, "Đẹp không?"'
           },
           {
-            text: '感动得说不出话，只是用力地点了点头。',
+            text: 'Cảm động đến mức không thốt nên lời, chỉ biết dùng sức gật đầu mạnh một cái.',
             friendshipChange: 120,
-            response: '大牛的眼睛一下子亮了："你、你喜欢？！太好了！我还怕你觉得我傻……"他高兴得原地跳了两下，把旁边的鸡吓得扑腾起来。'
+            response: 'Hai mắt Đại Ngưu thoắt cái đã sáng bừng lên: "Cậu, cậu thích sao?! Tốt quá rồi! Tôi còn sợ cậu sẽ chê cười tôi ngốc nghếch cơ..." Cậu vui mừng đến mức nhảy cẫng lên tại chỗ, dọa mấy con gà bên cạnh sợ quýnh quáng đập cánh loạn xạ.'
           }
         ]
       },
       {
-        text: '那些动物身上的花组成的两个字，是"喜欢"。'
+        text: 'Những đóa hoa trên người bầy thú xếp lại thành hai chữ, là "Thích Ngươi".'
       },
       {
-        text: '大牛憨憨地站在你面前，大手搓了又搓，脸红得能煮鸡蛋。"我、我不会写诗，也不会说漂亮话。但我知道一件事——"他猛地抬起头，大声喊出来，声音大到惊飞了树上的鸟群，"我喜欢你！！特别特别喜欢！！比喜欢牛还喜欢！！"他喊完以后自己先愣住了，然后更红了，"……我太大声了对不对？"旁边的福宝"哞"了一声，像是在帮他加油。'
+        text: 'Đại Ngưu ngượng ngùng đứng trước mặt bạn, đôi bàn tay to lớn cứ cọ sát vào nhau, mặt đỏ lựng như quả cà chua luộc. "Tôi, tôi không biết làm thơ, cũng chẳng biết nói những lời hay ý đẹp. Nhưng tôi hiểu rõ một chuyện ——" Cậu bỗng dưng ngẩng phắt đầu lên, gào lớn bằng tất cả sức lực, âm thanh đinh tai nhức óc làm bầy chim đậu trên cành sợ hãi bay tứ tán, "Tôi thích cậu!! Rất cực kỳ thích cậu!! Còn thích hơn cả bò nữa!!" Cậu gào xong thì tự mình ngớ người ra, rồi mặt đỏ thêm vài phần nữa, "... Tôi nói to quá rồi đúng không?" Con Phúc Bảo ở bên cạnh "Bòooo" một tiếng, giống như đang tiếp sức cho cậu vậy.'
       }
     ]
   },
@@ -1227,33 +1227,33 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'mo_bai_heart_3',
     npcId: 'mo_bai',
     requiredFriendship: 800,
-    title: '断弦之音',
+    title: 'Thanh Âm Của Sự Đứt Dây',
     scenes: [
       {
-        text: '你被一阵琴声吸引，循声来到村西的小桥边。墨白坐在桥头，怀抱古琴，指尖在弦上缓缓滑过。月光下，琴声如泣如诉，仿佛在诉说一个无人倾听的故事。'
+        text: 'Bạn bị thu hút bởi một khúc nhạc cầm, lần theo âm thanh đi đến đầu cây cầu nhỏ ở phía tây làng. Mặc Bạch đang ngồi nơi đầu cầu, ôm ấp một cây cổ cầm, đầu ngón tay lướt chậm rãi trên dây đàn. Dưới ánh trăng mờ ảo, tiếng đàn tựa như đang khóc lóc tỉ tê, giống như đang kể lể một câu chuyện bi ai mà không một ai thấu hiểu.'
       },
       {
-        text: '忽然，"嘣"的一声——琴弦断了。墨白停下来，看着断掉的琴弦，沉默了很久。你走近时，他没有抬头："……听了多久了？"'
+        text: 'Đột nhiên, "Pằng" một tiếng —— dây đàn đã bị đứt. Mặc Bạch dừng động tác lại, đăm chiêu nhìn sợi dây đứt, chìm vào trầm mặc. Khi bạn tiến lại gần, chàng vẫn không hề ngẩng đầu lên: "... Nghe bao lâu rồi?"'
       },
       {
-        text: '"这把琴是我师父临行前留给我的。他云游前说过一句话：弦断了，就是琴在告诉你，有些事该放下了。"他的声音很轻，像是在自言自语。',
+        text: '"Cây đàn này là do sư phụ truyền lại cho ta. Người từng nói, dây đàn bị đứt, chính là đàn đang muốn nói cho ngươi biết, có một vài chuyện đến lúc nên buông bỏ rồi." Giọng chàng rất nhẹ, tựa như đang lẩm bẩm với chính mình.',
         choices: [
           {
-            text: '"放下什么呢？"轻声问道。',
+            text: '"Buông bỏ điều gì chứ?" Khẽ hỏi lại.',
             friendshipChange: 120,
             response:
-              '墨白沉默了很久。月光下，他的侧脸像一幅水墨画。"放下过去吧。"他终于开口，"我离开上一个地方，是因为……没有人愿意听我的琴了。他们说我的曲子太悲伤了。"'
+              'Mặc Bạch lặng thinh rất lâu. Dưới ánh trăng, sườn mặt của chàng giống hệt một bức tranh thủy mặc. "Buông bỏ quá khứ đi." Rốt cuộc chàng cũng mở lời, "Ta rời khỏi nơi sống lúc trước, là bởi vì... không còn một ai muốn nghe ta gảy đàn nữa. Bọn họ chê những bản nhạc của ta quá đỗi bi thương."'
           },
           {
-            text: '安静地坐在他旁边，什么都不说。',
+            text: 'Yên lặng ngồi xuống cạnh chàng, không lên tiếng khuyên nhủ lấy một lời.',
             friendshipChange: 80,
             response:
-              '墨白抬起头看了你一眼，似乎对你的沉默感到意外。"……你是第一个不问为什么的人。"过了一会儿，他又开口，"以前我觉得不被理解是理所当然的。但你坐在这里……我感觉好像不那么孤独了。"'
+              'Mặc Bạch ngước lên nhìn bạn một cái, dường như có chút bất ngờ trước sự tĩnh lặng của bạn. "... Ngươi là người đầu tiên không cất miệng hỏi tại sao." Qua một lúc sau, chàng lại mở lời, "Trước đây ta vẫn luôn cho rằng việc không được thấu hiểu là chuyện đương nhiên thôi. Nhưng khi ngươi ngồi cạnh ta... ta cảm giác như mình không còn thấy đơn độc nữa."'
           }
         ]
       },
       {
-        text: '他从怀中取出一根新弦，仔细地换上。重新调好音后，他弹了一曲——和之前不同，这首曲子虽然带着淡淡的忧伤，但结尾处多了一丝温暖。"这首曲子叫《遇》。"他说，"今天刚写的。"他没有再解释，但你知道是什么意思。'
+        text: 'Chàng lấy từ trong vạt áo ra một sợi dây đàn mới, cẩn thận thay vào. Sau khi chỉnh lại cao độ, chàng lại gảy một khúc —— hoàn toàn khác biệt so với lúc trước, bản nhạc này tuy vẫn mang một nỗi bi thương nhè nhẹ, nhưng phần kết âm lại vương vấn thêm một tia hơi ấm. "Khúc nhạc này tên là 《Hội Ngộ》." Chàng nói, "Vừa mới sáng tác hôm nay." Chàng không giải thích gì thêm, nhưng bạn biết rõ ý nghĩa của nó.'
       }
     ]
   },
@@ -1261,36 +1261,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'mo_bai_heart_5',
     npcId: 'mo_bai',
     requiredFriendship: 1600,
-    title: '雨中琴声',
+    title: 'Tiếng Đàn Trong Mưa',
     scenes: [
       {
-        text: '连日的阴雨让村子笼罩在一片灰蒙蒙之中。你路过墨白住的小屋，听到里面传来琴声——和往常不同，这次的琴声充满了焦躁和不安，像是暴雨中挣扎的飞鸟。'
+        text: 'Mưa rả rích kéo dài mấy ngày liền khiến ngôi làng chìm trong một mảng màu xám xịt ảm đạm. Bạn đi ngang qua căn nhà nhỏ của Mặc Bạch, nghe thấy tiếng đàn vẳng ra —— khác hẳn với bình thường, tiếng đàn lần này ngập tràn sự nóng nảy bồn chồn và bất an, tựa như một chú chim đang tuyệt vọng giãy giụa trong giông bão.'
       },
       {
-        text: '你推门进去。墨白抱着琴缩在角落里，脸色苍白得吓人，手指在弦上胡乱拨弄着。看到你，他的目光恍惚了一瞬。"……你不该来。"他的声音嘶哑，"我今天状态不好。很不好。"'
+        text: 'Bạn đẩy cửa tiến vào. Mặc Bạch đang cuộn mình trong góc nhà ôm chặt lấy cây đàn, sắc mặt tái nhợt đến đáng sợ, mấy ngón tay cứ gảy lộn xộn lên dây đàn. Thấy bạn, ánh mắt của chàng chợt hoảng hốt trong nháy mắt. "... Ngươi không nên tới đây." Giọng nói của chàng nghẹn đắng, "Trạng thái hôm nay của ta không tốt chút nào. Tệ lắm."'
       },
       {
-        text: '"我这个人……有时候会陷进去，出不来。"他把脸埋进手臂里，"曲子写不出来的时候、下雨的时候、觉得世界上没有人在乎的时候……脑子里全是噪音。"',
+        text: '"Con người ta... có nhiều lúc sẽ tự mình đắm chìm vào trong đó, rồi không thoát ra được." Chàng vùi gục mặt vào cánh tay, "Những lúc không sao soạn được khúc nhạc mới, những lúc trời mưa rả rích, những lúc cảm thấy thế gian này không một ai đoái hoài đến mình... trong đầu ta toàn là tạp âm rác rưởi."',
         choices: [
           {
-            text: '走过去，轻轻把手放在他的肩上。"我在这里。"',
+            text: 'Bạn đi về phía chàng, nhẹ nhàng đặt tay lên vai chàng. "Đã có ta ở đây rồi."',
             friendshipChange: 160,
             response:
-              '墨白的身体颤了一下。过了很长时间，他才慢慢抬起头。他的眼眶红红的，声音像是从很远的地方传来："你知道吗……有人在这里，真的不一样。"他试着笑了笑，虽然笑容很浅，但是真实的。'
+              'Cơ thể của Mặc Bạch khẽ run lên. Trôi qua rất lâu sau, chàng mới chầm chậm ngẩng đầu lên. Vành mắt của chàng đỏ ửng, giọng nói tựa như vọng về từ một nơi rất xa xôi: "Ngươi có biết không... khi có ai đó ở đây cùng ta, quả thực rất khác biệt." Chàng gắng gượng mỉm cười, dẫu cho nụ cười vô cùng nhạt nhòa, nhưng lại vô cùng chân thật.'
           },
           {
-            text: '"那就别写了。今天什么都不做，就坐着。"',
+            text: '"Vậy thì đừng sáng tác nữa. Hôm nay không cần làm gì hết, cứ ngồi yên ở đây thôi."',
             friendshipChange: 120,
             response:
-              '墨白怔了怔。"什么都不做？"他好像从来没有考虑过这个选项。他慢慢放下琴，靠在墙上，闭上了眼睛。"……也好。什么都不做。"他的呼吸渐渐平缓下来。'
+              'Mặc Bạch ngẩn người. "Không làm gì hết?" Chàng dường như chưa từng xem xét đến lựa chọn này. Chàng từ từ đặt cây đàn xuống, tựa người vào vách tường, nhắm nghiền hai mắt. "... Cũng tốt. Không cần làm gì hết." Nhịp thở của chàng dần dần ổn định lại.'
           }
         ]
       },
       {
-        text: '你陪他坐了整整一个下午。雨声渐渐变得温柔了。傍晚时分，墨白重新拿起琴，弹了一首短曲——简单、平和、像是雨后的溪流。'
+        text: 'Bạn nán lại bầu bạn cùng chàng suốt cả một buổi chiều. Tiếng mưa rơi rả rích đã dần trở nên dịu êm hơn. Chập tối, Mặc Bạch lại ôm đàn lên gảy một khúc nhạc ngắn —— đơn điệu, thanh bình, giống như một con suối trong vắt sau cơn mưa.'
       },
       {
-        text: '"以前低落的时候，我只有琴。"墨白轻声说，手指还在弦上缓缓滑动，"但琴不会回应我。今天……你来了。"他抬起头，目光里有一种从未有过的温度，"谢谢你没有走开。"'
+        text: '"Trước kia những lúc tâm trạng tồi tệ, ta chỉ có cây đàn bầu bạn." Mặc Bạch khẽ nói, ngón tay vẫn nhẹ lướt trên dây, "Nhưng cây đàn không biết đáp lại lời ta. Hôm nay... ngươi đã tới." Chàng ngẩng đầu, trong ánh mắt mang theo một sự ấm áp mà trước đây chưa từng có, "Cảm ơn ngươi đã không rời bỏ ta."'
       }
     ]
   },
@@ -1298,36 +1298,36 @@ export const HEART_EVENTS: HeartEventDef[] = [
     id: 'mo_bai_heart_8',
     npcId: 'mo_bai',
     requiredFriendship: 2400,
-    title: '知音',
+    title: 'Tri Âm',
     scenes: [
       {
-        text: '入秋的某个傍晚，墨白找到你，递给你一张素笺。上面只有一行字："今夜子时，桥头。带上你的心。"字迹清秀而有力。'
+        text: 'Buổi chập tối nào đó khi trời đã sang thu, Mặc Bạch tìm gặp bạn, đưa cho bạn một tờ giấy nhỏ mộc mạc. Bên trên chỉ viết duy nhất một dòng: "Giờ Tý đêm nay, đầu cầu. Xin hãy mang theo trái tim của ngươi." Nét chữ thanh tú nhưng rất mạnh mẽ.'
       },
       {
-        text: '子时，你来到村西的小桥。桥头两侧点着几盏素灯，灯光柔和得像月色。墨白坐在桥上，古琴横膝，白衫在夜风中轻轻飘动。见你来了，他的眼神像是终于等到了什么。'
+        text: 'Giờ Tý, bạn bước tới cây cầu nhỏ phía tây làng. Hai bên cầu thắp vài ngọn đèn thanh đạm, ánh sáng êm dịu y hệt ánh trăng. Mặc Bạch ngồi trên cầu, cổ cầm để vắt ngang đùi, áo trắng khẽ phấp phới trong làn gió đêm. Thấy bạn đến, ánh mắt của chàng dường như đã đợi được điều gì đó từ lâu lắm rồi.'
       },
       {
-        text: '"我为你写了一首曲子。"他的声音平静但带着微微的颤抖，"写了很久。改了很多遍。因为……这首曲子里放了一些我从来没有放进任何音乐里的东西。"他深吸一口气，指尖落在琴弦上。',
+        text: '"Ta đã viết một bản nhạc dành cho ngươi." Giọng chàng tĩnh lặng nhưng lại mang theo một chút run rẩy, "Viết rất lâu. Sửa đi sửa lại rất nhiều lần. Bởi vì... trong bản nhạc này ta đã đưa vào một vài thứ mà ta chưa từng đặt vào bất kỳ âm thanh nào trước đây." Chàng hít một hơi sâu, đầu ngón tay hạ xuống dây đàn.',
         choices: [
           {
-            text: '安静地闭上眼睛，用心倾听。',
+            text: 'Nhẹ nhàng nhắm mắt lại, dốc lòng lắng nghe.',
             friendshipChange: 120,
             response:
-              '你闭上眼，让琴声填满每一个感官。曲子从孤独开始——冰冷、空旷，像是一个人走在无尽的荒野上。然后渐渐地，一个温暖的旋律加入进来，和孤独的主调交织在一起，最终融为一体。曲终时，你发现自己的眼角湿了。'
+              'Bạn khép mắt lại, để tiếng đàn lấp đầy từng giác quan. Bản nhạc bắt đầu từ sự cô đơn —— lạnh lẽo, trống vắng, tựa như một người độc hành trên một vùng hoang dã bao la. Rồi dần dần, một giai điệu ấm áp khác xen vào, quyện chặt cùng âm điệu hiu quạnh ban đầu, cuối cùng hòa hợp làm một. Khi khúc nhạc dứt, bạn chợt nhận ra khóe mắt mình đã ươn ướt từ bao giờ.'
           },
           {
-            text: '认真地注视着他弹琴的样子。',
+            text: 'Nghiêm túc chăm chú nhìn dáng vẻ lúc chàng gảy đàn.',
             friendshipChange: 120,
             response:
-              '你看着墨白的手指在琴弦上起落。他弹得很投入，微微闭着眼，嘴唇无声地动着，像是在诉说什么。你第一次发现——他弹琴的时候，忧郁全然消失了，取而代之的是一种纯粹的、发光的美。'
+              'Bạn nhìn những ngón tay của Mặc Bạch liên tục nâng lên hạ xuống trên dây đàn. Chàng gảy đàn vô cùng say sưa, đôi mắt hơi nhắm lại, đôi môi mấp máy không phát ra tiếng, giống như đang kể lể một điều gì đó. Lần đầu tiên bạn nhận ra —— những lúc chàng gảy đàn, sự phiền muộn u uất đã hoàn toàn biến mất, thay vào đó là một vẻ đẹp thuần túy, tỏa sáng rực rỡ.'
           }
         ]
       },
       {
-        text: '最后一个音符消散在夜风中。墨白缓缓睁开眼，目光澄净得像一面湖。他轻轻将古琴放到一旁，站起身来。'
+        text: 'Nốt nhạc cuối cùng tan biến vào trong gió đêm. Mặc Bạch từ từ mở mắt, ánh mắt trong veo như một mặt hồ. Chàng khẽ đặt cây cổ cầm sang một bên, đứng người dậy.'
       },
       {
-        text: '"这首曲子叫《知音》。"他的声音很低很低，像是怕惊碎了月光。"高山流水觅知音——我弹了十年的琴，走过很多地方，遇过很多人。但真正让我觉得「被听见」的……只有你。"他伸出手，指尖微微颤抖着，停在离你很近的地方。"我这个人阴晴不定，沉默寡言，有时候会把自己关起来。这样的我……你愿意做我一辈子的听众吗？"月光下，他的眼眶泛着微红，但嘴角有一弯浅浅的、真挚的笑意。'
+        text: '"Khúc nhạc này có tên là 《Tri Âm》." Giọng chàng vô cùng trầm thấp, tựa hồ sợ sẽ làm kinh động đến ánh trăng. "Cao sơn lưu thủy mịch tri âm —— ta đã đánh đàn suốt mười năm nay, đi qua rất nhiều vùng đất, gặp gỡ rất nhiều con người. Thế nhưng người thực sự mang đến cho ta cảm giác \'được lắng nghe\'... chỉ có mỗi ngươi." Chàng giơ tay ra, đầu ngón tay khẽ run rẩy, dừng lại ở khoảng cách rất gần với bạn. "Con người ta tính khí thất thường, lầm lì ít nói, có đôi khi còn tự khép mình lại. Một người như ta... ngươi có bằng lòng trở thành thính giả của ta cả đời này không?" Dưới ánh trăng tỏ, vành mắt chàng đã hơi phiếm hồng, nhưng trên khóe môi lại hiện lên một nụ cười thật nông, thật đỗi chân thành.'
       }
     ]
   },
@@ -1342,26 +1342,26 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'liu_niang',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '月下诗会',
+    title: 'Hội Thơ Dưới Trăng',
     scenes: [
       {
-        text: '柳娘邀你到后院的亭子里。月光如水，她铺开宣纸，研好墨。"今晚月色这么好，咱们来一场诗会吧。"'
+        text: 'Liễu Nương mời bạn đến một đình nghỉ mát ở sân sau. Ánh trăng chiếu xuống tựa như nước, nàng trải giấy Tuyên ra, mài mực sẵn sàng. "Ánh trăng đêm nay đẹp quá, chúng ta hãy tổ chức một hội làm thơ đi."'
       },
       {
-        text: '她先写了一句："桃花坞里桃花庵，桃花庵下桃花仙。"然后把笔递给你。"知己之间，以诗会友，是最雅致的事。"'
+        text: 'Nàng viết một câu trước: "Đào hoa ổ lý đào hoa am, đào hoa am hạ đào hoa tiên." Rồi đưa bút cho bạn. "Giữa những người tri kỷ, mượn thơ kết bạn, chính là chuyện tao nhã nhất trên đời."'
       },
       {
-        text: '你们你来我往，写了满满一张纸。柳娘看着成果，微微笑了。"这些诗句，以后只有咱们两个看得懂。"',
+        text: 'Hai người kẻ xướng người họa, viết kín cả một mặt giấy. Liễu Nương nhìn lại thành quả đạt được, khẽ cười. "Những câu thơ này, sau này chỉ có hai chúng ta mới hiểu được thôi."',
         choices: [
           {
-            text: '"柳娘的才华让人叹服。"',
+            text: '"Tài hoa của Liễu Nương quả thực khiến người ta bái phục."',
             friendshipChange: 120,
-            response: '柳娘低头笑了笑。"有{player}这般知己，才华才有意义。"'
+            response: 'Liễu Nương cúi đầu cười trừ. "Có được tri kỷ như {player}, tài hoa mới mang ý nghĩa."'
           },
           {
-            text: '"以后每个月圆之夜都来诗会吧。"',
+            text: '"Sau này đêm trăng tròn nào chúng ta cũng đến ngâm thơ nhé."',
             friendshipChange: 80,
-            response: '"一言为定。"柳娘小心翼翼地收好那张写满诗句的宣纸。"这是我们的第一页。"'
+            response: '"Một lời đã định." Liễu Nương cẩn thận thu dọn lại tờ giấy Tuyên viết kín chữ. "Đây chính là trang thứ nhất của chúng ta."'
           }
         ]
       }
@@ -1372,23 +1372,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'liu_niang',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '桃花笺',
+    title: 'Đào Hoa Tiễn',
     scenes: [
       {
-        text: '柳娘拿出一个精致的锦盒。"这是我用桃花瓣自己做的花笺，一共两本。你一本，我一本。"'
+        text: 'Liễu Nương lấy ra một chiếc hộp gấm tinh xảo. "Đây là hoa tiễn do chính tay ta dùng cánh hoa đào làm ra, có cả thảy hai cuốn. Ngươi một cuốn, ta một cuốn."'
       },
       {
-        text: '"以后想说的话、想写的诗，都写在上面。"她认真地看着你，"即使不在彼此身边，翻开花笺，就像知己还在身旁一样。"',
+        text: '"Sau này những lời muốn nói, những bài thơ muốn viết, đều ghi chép hết lên đây." Nàng nghiêm túc nhìn bạn, "Ngay cả khi không ở bên cạnh nhau, chỉ cần lật mở hoa tiễn, sẽ giống như tri kỷ vẫn còn ở ngay cạnh bên vậy."',
         choices: [
           {
-            text: '郑重接过花笺。"桃花笺记知己心，此生珍藏。"',
+            text: 'Bạn trịnh trọng đón lấy hoa tiễn. "Đào hoa tiễn khắc cốt tri kỷ tâm, đời này nguyện trân giữ."',
             friendshipChange: 160,
-            response: '柳娘的眼眶微微泛红。"{player}……有你这个知己，是我这辈子最大的幸运。"'
+            response: 'Khóe mắt Liễu Nương hơi ửng đỏ. "{player}... có được ngươi làm tri kỷ, chính là sự may mắn lớn nhất của ta đời này."'
           },
           {
-            text: '"柳娘，我一定好好写满它。"',
+            text: '"Liễu Nương, ta nhất định sẽ cẩn thận viết kín nó."',
             friendshipChange: 120,
-            response: '"嗯。"柳娘轻轻翻开第一页，上面已经写了一行小字："知己如兰，不以无人而不芳。"'
+            response: '"Ừm." Liễu Nương khẽ lật mở trang đầu tiên, bên trên đã viết sẵn một dòng chữ nhỏ: "Tri kỷ như lan, bất dĩ vô nhân nhi bất phương."'
           }
         ]
       }
@@ -1401,31 +1401,31 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'a_shi',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '矿洞深处的约定',
+    title: 'Hẹn Ước Nơi Sâu Thẳm Hang Mỏ',
     scenes: [
       {
-        text: '阿石难得主动找到你，手里提着两盏矿灯。"……跟我来。有个东西想让你看。只有知己才行。"'
+        text: 'A Thạch hiếm khi chủ động đến tìm bạn, trong tay xách theo hai chiếc đèn mỏ. "... Theo tôi. Có thứ này muốn cho cậu xem. Chỉ có tri kỷ mới được xem thôi."'
       },
       {
-        text: '他带你到矿洞最深处一个隐秘的角落。岩壁上天然形成了两道并行的矿脉，一金一银，蜿蜒交织却始终不分离。'
+        text: 'Anh đưa bạn đi đến một góc khuất nơi sâu nhất trong hang mỏ. Trên vách đá tự nhiên hình thành hai mạch khoáng song song, một vàng một bạc, uốn lượn đan xen nhưng trước sau vẫn không hề tách rời.'
       },
       {
-        text: '"两条脉，不是一条……但始终并肩。像我们。"',
+        text: '"Hai mạch, không phải một mạch... nhưng luôn luôn kề vai nhau. Giống như chúng ta vậy."',
         choices: [
           {
-            text: '"阿石……这比任何宝石都珍贵。"',
+            text: '"A Thạch... thứ này còn trân quý hơn bất kỳ viên đá quý nào khác."',
             friendshipChange: 120,
-            response: '阿石罕见地笑了一下。"嗯。所以我没碰它。留在这里就好。"'
+            response: 'A Thạch hiếm hoi bật cười. "Ừ. Cho nên tôi đã không đụng tới nó. Cứ lưu nó lại ở chỗ này là tốt nhất."'
           },
           {
-            text: '"你真是个重情义的人。"',
+            text: '"Anh quả là một người coi trọng tình nghĩa."',
             friendshipChange: 80,
-            response: '阿石别过脸去，耳根红了。"……知己之间该有个属于两个人的地方。"'
+            response: 'A Thạch ngoảnh mặt đi, đỏ cả gốc tai. "... Giữa những người tri kỷ nên có một nơi thuộc về riêng hai người chứ."'
           }
         ]
       },
       {
-        text: '离开前，阿石在岩壁上刻下了两个小小的符号。"这样以后就能找到这里了。"他说，"只有我们两个知道。"'
+        text: 'Trước lúc rời đi, A Thạch khắc lên vách đá hai ký hiệu nhỏ bé. "Làm vậy sau này mới có thể dễ dàng tìm ra chỗ này." Anh nói, "Chỉ có hai chúng ta biết thôi đấy."'
       }
     ]
   },
@@ -1434,24 +1434,24 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'a_shi',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '磐石之盟',
+    title: 'Minh Ước Bàn Thạch',
     scenes: [
-      { text: '阿石找到你，手里攥着一个布包。他的表情比平时更加认真。' },
+      { text: 'A Thạch tìm đến bạn, trong tay cầm một cái túi vải. Biểu cảm của anh nghiêm túc hơn lúc bình thường.' },
       {
-        text: '他把布包递给你——里面是两块一模一样的玉石吊坠，翠绿通透，用红绳串着。"这是那条矿脉上唯一松动的两块石头。一人一块。"'
+        text: 'Anh đưa cái túi vải cho bạn —— bên trong là hai mặt dây chuyền ngọc thạch giống hệt nhau, xanh mướt trong vắt, được xỏ lại bằng chỉ đỏ. "Đây là hai hòn đá duy nhất bị lỏng ra trên mạch khoáng kia. Mỗi người một khối."'
       },
       {
-        text: '"同一条矿脉出的石头，不管分多远，都是一体的。知己……也是。"',
+        text: '"Những hòn đá sinh ra từ cùng một mạch khoáng, bất kể cách xa bao nhiêu đi chăng nữa, thì vẫn là một thể thống nhất. Tri kỷ... cũng vậy."',
         choices: [
           {
-            text: '郑重地将吊坠挂在脖子上。"磐石之盟，此生不渝。"',
+            text: 'Trịnh trọng đeo mặt dây chuyền lên cổ. "Minh ước bàn thạch, đời này không đổi thay."',
             friendshipChange: 160,
-            response: '阿石也将另一块挂在胸前。他抬头看你，目光如矿洞深处的水晶——安静，却炽热。"嗯。不渝。"'
+            response: 'A Thạch cũng đeo khối ngọc còn lại trước ngực. Anh ngẩng lên nhìn bạn, ánh mắt tựa như những viên pha lê nơi đáy mỏ —— yên tĩnh, nhưng lại rực cháy. "Ừ. Không đổi thay."'
           },
           {
-            text: '"阿石，有你这个知己，我很幸运。"',
+            text: '"A Thạch, có được người tri kỷ như anh, tôi thật sự rất may mắn."',
             friendshipChange: 120,
-            response: '阿石沉默了很久，然后轻轻点头。"……我也是。"'
+            response: 'A Thạch chìm trong tĩnh lặng hồi lâu, rồi khẽ gật đầu. "... Tôi cũng vậy."'
           }
         ]
       }
@@ -1464,26 +1464,26 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'qiu_yue',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '秘密钓点',
+    title: 'Điểm Câu Bí Mật',
     scenes: [
       {
-        text: '秋月拉着你跑到一个你从未去过的地方——悬崖边的一个小瀑布下面，有一个隐藏的水潭。"这是我的秘密钓点！从来没带别人来过！"'
+        text: 'Thu Nguyệt kéo bạn chạy tới một nơi mà bạn chưa từng đặt chân đến —— bên dưới một thác nước nhỏ ven vách đá, có ẩn giấu một đầm nước. "Đây là điểm câu cá bí mật của mình đó! Trước nay chưa từng dắt ai đến đây đâu!"'
       },
       {
-        text: '你们并排坐在岩石上，各执一竿。秋月难得安静了一会儿，然后说："知己嘛，就是可以一起发呆也不尴尬的人。"'
+        text: 'Hai người vai kề vai ngồi trên mỏm đá, mỗi người cầm một chiếc cần. Thu Nguyệt hiếm hoi mới yên tĩnh được một lúc, sau đó nói: "Tri kỷ ấy mà, chính là kiểu người có thể cùng nhau ngồi phát ngốc mà không thấy gượng gạo."'
       },
       {
-        text: '突然，两根鱼竿同时有了动静！你们对视一眼，同时大笑起来。',
+        text: 'Bỗng nhiên, cả hai chiếc cần câu cùng lúc có động tĩnh! Hai bạn nhìn nhau, đồng thời bật cười ha hả.',
         choices: [
           {
-            text: '"秋月，和你在一起永远不会无聊。"',
+            text: '"Thu Nguyệt, ở bên cạnh bạn vĩnh viễn sẽ không bao giờ cảm thấy nhàm chán."',
             friendshipChange: 120,
-            response: '"那当然！"秋月得意地扬起下巴，"以后这里就是咱们的秘密基地！拉钩！"'
+            response: '"Chuyện đó là đương nhiên rồi!" Thu Nguyệt kiêu ngạo hếch cằm lên, "Sau này chỗ này chính là căn cứ bí mật của hai đứa mình nhé! Móc ngoéo nào!"'
           },
           {
-            text: '"这个钓点真的太棒了！"',
+            text: '"Điểm câu cá này quả thực quá tuyệt vời!"',
             friendshipChange: 80,
-            response: '"对吧对吧！"秋月开心得直拍手，"只有知己才有资格来这里！"'
+            response: '"Phải không phải không!" Thu Nguyệt sung sướng vỗ tay, "Chỉ có tri kỷ mới có tư cách tới nơi này thôi!"'
           }
         ]
       }
@@ -1494,23 +1494,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'qiu_yue',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '双鱼结',
+    title: 'Song Ngư Kết',
     scenes: [
       {
-        text: '秋月递给你一个用鱼线编成的手链，上面有两条小鱼的结。"这是渔家的双鱼结！据说戴上的两个人，一辈子都是好搭档！"'
+        text: 'Thu Nguyệt đưa cho bạn một sợi dây đeo tay bện bằng dây câu, bên trên thắt hình hai chú cá nhỏ. "Đây là Song Ngư Kết của dân chài lưới đó! Nghe bảo hai người cùng đeo cái này, cả đời sẽ là bạn đồng hành tốt của nhau!"'
       },
       {
-        text: '"我花了好几天才编好的……"秋月挠挠头，难得有些不好意思，"知己嘛，要有个信物才像样！"',
+        text: '"Mình đã tiêu tốn mấy ngày mới tết xong đó..." Thu Nguyệt gãi gãi đầu, hiếm hoi mới có chút ngại ngùng, "Đã là tri kỷ mà, phải có tín vật mới ra dáng chứ!"',
         choices: [
           {
-            text: '立刻戴在手腕上。"双鱼结，永不分离！"',
+            text: 'Ngay lập tức đeo lên cổ tay. "Song Ngư Kết, mãi mãi không chia lìa!"',
             friendshipChange: 160,
-            response: '秋月也晃了晃自己手腕上一模一样的手链。"嘿嘿！现在咱们是正式的知己啦！谁也拆不散！"'
+            response: 'Thu Nguyệt cũng lắc lắc cổ tay có đeo sợi dây y hệt. "Hê hê! Bây giờ tụi mình đã chính thức trở thành tri kỷ rồi nhé! Bất kỳ ai cũng không thể chia rẽ được đâu!"'
           },
           {
-            text: '"秋月，你的手艺比钓鱼还厉害。"',
+            text: '"Thu Nguyệt, tay nghề thủ công của bạn còn lợi hại hơn cả câu cá nữa."',
             friendshipChange: 120,
-            response: '"哈哈哈！这个我就不谦虚了！"秋月拍拍你的肩膀，笑得像阳光。"以后有什么事，知己罩你！"'
+            response: '"Ha ha ha! Cái này thì mình sẽ không khách khí đâu nhé!" Thu Nguyệt vỗ vỗ lên vai bạn, cười rạng rỡ như ánh dương. "Sau này có chuyện gì, tri kỷ này sẽ bảo kê cho bạn!"'
           }
         ]
       }
@@ -1523,23 +1523,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'chun_lan',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '茶园夜话',
+    title: 'Dạ Thoại Vườn Trà',
     scenes: [
       {
-        text: '春兰邀你在茶园深处品茶。月光下，茶树的叶子泛着银光。她沏了一壶从未拿出过的茶。"这茶叫「知己醉」，是我自己创的配方。"'
+        text: 'Xuân Lan mời bạn thưởng trà nơi sâu thẳm trong vườn trà. Dưới ánh trăng, lá trà tỏa ra thứ ánh bạc lấp lánh. Nàng pha một ấm trà chưa từng đãi khách bao giờ. "Trà này có tên là \'Tri Kỷ Túy\', là công thức do chính ta tự sáng tạo ra."'
       },
       {
-        text: '"以前只有我一个人喝，觉得名不副实。"春兰微微低头，"现在有{player}……这名字终于配得上了。"',
+        text: '"Trước đây chỉ có mình ta uống, cảm thấy danh không xứng với thực." Xuân Lan khẽ cúi đầu, "Bây giờ có {player} rồi... cái tên này rốt cuộc cũng xứng đáng."',
         choices: [
           {
-            text: '"春兰，这是我喝过最好的茶。"',
+            text: '"Xuân Lan, đây là loại trà ngon nhất mà ta từng uống."',
             friendshipChange: 120,
-            response: '春兰笑了，眼角弯弯的像月牙。"那以后每年新茶出来，第一杯都留给你。"'
+            response: 'Xuân Lan mỉm cười, khóe mắt cong cong như hình trăng khuyết. "Vậy sau này mỗi năm có trà mới, chén trà đầu tiên sẽ luôn phần lại cho chàng."'
           },
           {
-            text: '"知己醉……好名字。"',
+            text: '"Tri Kỷ Túy... một cái tên rất hay."',
             friendshipChange: 80,
-            response: '"因为好茶要知己来品。"春兰又为你斟了一杯，"慢慢喝，今晚有的是时间。"'
+            response: '"Bởi vì trà ngon phải để tri kỷ tới thưởng thức." Xuân Lan lại rót thêm cho bạn một chén, "Cứ từ từ mà uống, đêm nay chúng ta có rất nhiều thời gian."'
           }
         ]
       }
@@ -1550,23 +1550,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'chun_lan',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '紫砂对壶',
+    title: 'Ấm Tử Sa Một Cặp',
     scenes: [
       {
-        text: '春兰捧出一个木盒，里面是一对紫砂壶——形状相同，大小各异，壶身刻着兰花。"这是祖上传下来的知己壶，一大一小，一阴一阳。"'
+        text: 'Xuân Lan bưng ra một chiếc hộp gỗ, bên trong là một cặp ấm tử sa —— hình dáng giống nhau, nhưng kích cỡ lại khác, trên thân ấm có khắc một đóa hoa lan. "Đây là chiếc ấm tri kỷ do đời trước truyền lại, một to một nhỏ, một âm một dương."'
       },
       {
-        text: '"据说这对壶分开则茶味平平，并在一起泡出的茶则格外甘醇。"她将小壶递给你，"大壶留在茶庄，小壶你随身带着。"',
+        text: '"Nghe nói nếu tách cặp ấm này ra thì hương vị trà sẽ rất bình thường, nhưng nếu để cùng nhau để pha trà thì sẽ cực kỳ ngọt ngào thanh tao." Nàng đưa chiếc ấm nhỏ cho bạn, "Ấm to giữ lại trà trang, ấm nhỏ chàng cứ mang theo bên người."',
         choices: [
           {
-            text: '双手接过紫砂壶。"春兰，此壶在手，如知己在旁。"',
+            text: 'Dùng hai tay đón lấy chiếc ấm tử sa. "Xuân Lan, chiếc ấm này ở trong tay, giống hệt như tri kỷ đang ở bên cạnh."',
             friendshipChange: 160,
-            response: '春兰轻轻地将大壶放在茶台最显眼的位置。"以后有人问起，我就说——这壶的另一半，在我最好的知己那里。"'
+            response: 'Xuân Lan nhẹ nhàng đặt chiếc ấm to ở vị trí nổi bật nhất trên bàn trà. "Sau này có người hỏi tới, ta sẽ nói rằng —— một nửa của chiếc ấm này, đang nằm trong tay vị tri kỷ tuyệt vời nhất của ta."'
           },
           {
-            text: '"我会好好珍藏的。"',
+            text: '"Ta sẽ trân quý nó thật cẩn thận."',
             friendshipChange: 120,
-            response: '"茶要常喝才好。"春兰微笑，"壶也要常用才有灵气。就像知己……要常来往才能长久。"'
+            response: '"Trà phải thường xuyên uống mới tốt." Xuân Lan mỉm cười, "Ấm cũng phải hay dùng thì mới có linh khí. Giống như tri kỷ... phải năng lui tới với nhau thì mới lâu dài được."'
           }
         ]
       }
@@ -1579,26 +1579,26 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'xue_qin',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '无名画作',
+    title: 'Bức Họa Vô Danh',
     scenes: [
       {
-        text: '雪芹的画室里堆满了画。她指着角落里一幅蒙着布的画说："那幅画，我画了三年，一直不满意。你来看看。"'
+        text: 'Trong phòng tranh của Tuyết Cần chất đầy những bức họa. Nàng chỉ vào một bức tranh bị mảnh vải che lấp trong góc rồi nói: "Bức tranh đó, ta đã vẽ ròng rã suốt ba năm, nhưng vẫn chưa từng hài lòng. Ngươi ra xem thử đi."'
       },
       {
-        text: '掀开布，画上是一片朦胧的山水，但画面中央留白，什么都没有。"总觉得缺了什么，画不下去。"'
+        text: 'Lật mảnh vải ra, trên tranh là một vùng sơn thủy mờ ảo, nhưng ở vị trí trung tâm lại để trống, không có thứ gì. "Luôn cảm thấy thiếu đi thứ gì đó, không thể nào vẽ tiếp được."'
       },
       {
-        text: '雪芹拿起画笔，沉默了一会儿，在留白处画了两个并肩而坐的人影。"……原来缺的是这个。"',
+        text: 'Tuyết Cần cầm cọ vẽ lên, im lặng một hồi, sau đó vẽ hai cái bóng người đang ngồi cạnh nhau ở khoảng trống đó. "... Thì ra thứ còn thiếu chính là cái này."',
         choices: [
           {
-            text: '"雪芹，这幅画……是我见过最动人的。"',
+            text: '"Tuyết Cần, bức tranh này... là bức tranh cảm động nhất mà ta từng được chiêm ngưỡng."',
             friendshipChange: 120,
-            response: '雪芹难得红了脸。"……别夸了。这画以后就叫《知己图》。不卖。"'
+            response: 'Tuyết Cần hiếm hoi mới đỏ mặt. "... Đừng khen nữa. Bức tranh này sau này sẽ có tên là 《Tri Kỷ Đồ》. Sẽ không bán đâu."'
           },
           {
-            text: '"原来你心里一直在找一个知己。"',
+            text: '"Hóa ra trong thâm tâm nàng vẫn luôn tìm kiếm một người tri kỷ."',
             friendshipChange: 80,
-            response: '"……闭嘴。"雪芹别过头去，但嘴角微微翘起。"不过……你说得对。"'
+            response: '"... Câm miệng." Tuyết Cần quay mặt đi, nhưng khóe miệng lại hơi cong lên. "Tuy nhiên... ngươi nói rất đúng."'
           }
         ]
       }
@@ -1609,24 +1609,24 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'xue_qin',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '画中有你',
+    title: 'Người Trong Tranh',
     scenes: [
-      { text: '雪芹递给你一个画轴。"打开看看。"她的语气难得有些紧张。' },
+      { text: 'Tuyết Cần đưa cho bạn một cuộn tranh. "Mở ra xem thử đi." Giọng điệu của nàng hiếm khi lộ ra vẻ căng thẳng.' },
       {
-        text: '展开画轴，是一幅工笔画——画中人的衣着、神态都与你一模一样，背景是桃源乡的四季。笔触细腻到每一片桃花瓣都清晰可见。'
+        text: 'Trải cuộn tranh ra, là một bức tranh công bút (vẽ chi tiết) —— y phục, thần thái của người trong tranh giống y hệt như đúc với bạn, bối cảnh là bốn mùa của Đào Nguyên Hương. Từng nét bút tỉ mỉ đến mức có thể nhìn thấy rõ ràng từng cánh hoa đào.'
       },
       {
-        text: '"画了很久。"雪芹低声说，"好的画需要好的模特。好的模特……需要一个值得画的人。你是唯一一个我愿意画这么久的人。"',
+        text: '"Đã vẽ rất lâu rồi." Tuyết Cần khẽ nói, "Một bức tranh đẹp cần một người mẫu giỏi. Mà một người mẫu giỏi... lại cần một người đáng để vẽ. Ngươi là người duy nhất mà ta cam tâm tình nguyện bỏ ra nhiều thời gian đến thế để khắc họa."',
         choices: [
           {
-            text: '"雪芹，这幅画我会挂在家里最显眼的地方。"',
+            text: '"Tuyết Cần, bức họa này ta sẽ treo ở nơi nổi bật nhất trong nhà."',
             friendshipChange: 160,
-            response: '雪芹的嘴角终于露出了一个完整的笑容。"……那我以后有灵感了，就去你家画。知己嘛，不用客气。"'
+            response: 'Khóe miệng của Tuyết Cần cuối cùng cũng nở một nụ cười rạng rỡ. "... Vậy sau này nếu có cảm hứng, ta sẽ chạy tới nhà ngươi vẽ. Đã là tri kỷ mà, không cần phải khách sáo."'
           },
           {
-            text: '"这是我收到过最珍贵的礼物。"',
+            text: '"Đây là món quà trân quý nhất mà ta từng được nhận."',
             friendshipChange: 120,
-            response: '"哼。"雪芹别扭地扭过头，但声音却很轻柔。"以后还会有更多。因为……有知己在，灵感是不会枯竭的。"'
+            response: '"Hừ." Tuyết Cần ngượng ngùng quay đầu đi, nhưng giọng nói lại vô cùng dịu dàng. "Sau này sẽ còn có nhiều hơn nữa. Bởi vì... có tri kỷ ở đây, nguồn cảm hứng sẽ chẳng bao giờ cạn kiệt."'
           }
         ]
       }
@@ -1639,26 +1639,26 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'su_su',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '同心结',
+    title: 'Đồng Tâm Kết',
     scenes: [
       {
-        text: '素素在绸缎庄的后院里等你。桌上放着各色丝线。"我想教你编一个东西。"她笑着说，"是知己之间才会编的——同心结。"'
+        text: 'Tố Tố đang đợi bạn ở sân sau của tiệm tơ lụa. Trên bàn bày biện đủ loại tơ lụa nhiều màu sắc. "Ta muốn dạy chàng đan một thứ." Nàng cười nói, "Là thứ mà chỉ giữa những người tri kỷ với nhau mới đan thôi —— Đồng Tâm Kết."'
       },
       {
-        text: '她耐心地教你一步步穿线、打结。你们的手指偶尔碰在一起，素素会轻轻缩回去，然后继续。'
+        text: 'Nàng kiên nhẫn dạy bạn từng bước xâu kim, thắt nút. Ngón tay của hai người thỉnh thoảng lại chạm vào nhau, những lúc như vậy Tố Tố sẽ rụt rè thu tay về, rồi lại tiếp tục.'
       },
       {
-        text: '终于，两个一模一样的同心结完成了。一红一青，交织在一起。"红的是我的心，青的是你的心。"素素轻声说，"系在一起，就分不开了。"',
+        text: 'Cuối cùng, hai chiếc đồng tâm kết giống y hệt nhau đã hoàn thành. Một đỏ một xanh, đan xen vào nhau. "Màu đỏ là trái tim của ta, màu xanh là trái tim của chàng." Tố Tố khẽ nói, "Buộc chặt vào nhau rồi, sẽ chẳng bao giờ tách rời nữa."',
         choices: [
           {
-            text: '"素素，这同心结我会一直带在身边。"',
+            text: '"Tố Tố, chiếc đồng tâm kết này ta sẽ luôn mang theo bên mình."',
             friendshipChange: 120,
-            response: '素素把红色的那个系在你的腕上，动作温柔而仔细。"嗯……知己同心，万事皆成。"'
+            response: 'Tố Tố buộc chiếc dây màu đỏ lên cổ tay bạn, động tác vô cùng dịu dàng cẩn thận. "Ừm... tri kỷ đồng tâm, vạn sự giai thành."'
           },
           {
-            text: '"你的手艺真是巧夺天工。"',
+            text: '"Tay nghề của nàng đúng là khéo léo đoạt thiên công."',
             friendshipChange: 80,
-            response: '"是因为给知己编的，才格外用心。"素素抿嘴笑了笑，把青色的系在自己腕上。'
+            response: '"Bởi vì là đan cho tri kỷ, nên mới đặc biệt dụng tâm như vậy." Tố Tố mím môi cười khẽ, tự buộc chiếc dây màu xanh lên cổ tay mình.'
           }
         ]
       }
@@ -1669,23 +1669,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'su_su',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '知己衣',
+    title: 'Tri Kỷ Y',
     scenes: [
       {
-        text: '素素拿出一件精心缝制的衣裳。面料柔软，颜色淡雅，袖口和衣领处绣着细密的花纹。"这件衣裳，我做了整整一个月。"'
+        text: 'Tố Tố lấy ra một bộ y phục được may vá tỉ mỉ. Chất vải mềm mại, màu sắc nhã nhặn, ở ống tay và cổ áo được thêu những họa tiết vô cùng tinh xảo. "Bộ y phục này, ta đã làm ròng rã tròn một tháng trời."'
       },
       {
-        text: '"料子是我攒了很久的上好丝绸。花纹是我自己设计的——桃花和兰草交缠在一起，代表知己之情。"她的眼睛亮晶晶的，"试试看？"',
+        text: '"Vải vóc là loại lụa thượng hạng ta đã chắt chiu từ rất lâu rồi. Hoa văn là do tự tay ta thiết kế —— hoa đào và lan thảo đan vào nhau, tượng trưng cho tình cảm tri kỷ." Đôi mắt nàng sáng ngời, "Mặc thử xem sao?"',
         choices: [
           {
-            text: '穿上衣裳，郑重行礼。"素素，此衣如知己之心，我终身珍藏。"',
+            text: 'Khoác y phục lên người, trịnh trọng hành lễ. "Tố Tố, bộ y phục này giống như tấm lòng tri kỷ, ta sẽ trân quý nó suốt đời."',
             friendshipChange: 160,
-            response: '素素的眼眶湿润了。"嗯……每一针都是我的心意。穿在你身上，就像我一直陪在你身边一样。"'
+            response: 'Khóe mắt Tố Tố ươn ướt. "Ừm... mỗi một mũi kim đều là tấm lòng của ta. Chàng khoác nó lên người, tựa như ta vẫn luôn ở cạnh bên bầu bạn cùng chàng vậy."'
           },
           {
-            text: '"太漂亮了，素素。你是最好的裁缝。"',
+            text: '"Quá lộng lẫy rồi, Tố Tố. Nàng chính là người thợ may tài ba nhất."',
             friendshipChange: 120,
-            response: '"是因为你是最好的知己。"素素帮你整理衣领，动作轻柔。"好看……真好看。"'
+            response: '"Là bởi vì chàng là người tri kỷ tuyệt vời nhất." Tố Tố chỉnh lại cổ áo giúp bạn, động tác vô cùng mềm mỏng. "Đẹp... đẹp quá đi mất."'
           }
         ]
       }
@@ -1698,26 +1698,26 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'hong_dou',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '知己酒',
+    title: 'Tri Kỷ Tửu',
     scenes: [
       {
-        text: '红豆把你拉到酒窖最深处，从架子最高层取下一坛落满灰尘的酒。"这坛酒，我爹在世时埋下的。说是等我遇到知己才能开。"'
+        text: 'Hồng Đậu kéo bạn tới nơi sâu nhất của hầm rượu, lấy từ trên ngăn cao nhất xuống một vò rượu phủ đầy bụi bặm. "Vò rượu này, được ủ từ lúc phụ thân ta còn sống. Nói là đợi đến khi nào ta gặp được tri kỷ mới được phép mở ra."'
       },
       {
-        text: '她拍开封泥，酒香四溢。红豆给你倒了满满一碗，自己也倒了一碗。"来！知己酒，干了！"'
+        text: 'Nàng đập lớp bùn niêm phong ra, hương rượu thơm lừng bay khắp nơi. Hồng Đậu rót cho bạn một bát đầy tràn, lại rót cho mình một bát. "Tới! Tri kỷ tửu, cạn!"'
       },
       {
-        text: '一碗下肚，醇厚甘冽，回味悠长。红豆擦了擦嘴角，眼眶有些红。"我爹说，知己比酒还难得。碰到了，就别放手。"',
+        text: 'Một bát trôi xuống bụng, ngọt ngào thuần hậu, dư vị kéo dài. Hồng Đậu quệt khóe môi, hốc mắt hơi đỏ. "Phụ thân ta từng bảo, tri kỷ còn khó kiếm hơn cả rượu ngon. Gặp được rồi thì đừng buông tay."',
         choices: [
           {
-            text: '"红豆，这酒比什么都珍贵。知己之情也是。"',
+            text: '"Hồng Đậu, vò rượu này đáng giá hơn bất kỳ thứ gì. Tình tri kỷ cũng vậy."',
             friendshipChange: 120,
-            response: '红豆重重地拍了你一掌。"说得好！再干一碗！哈哈哈！"笑着笑着，眼泪却掉了下来。"我爹要是在……肯定也很开心。"'
+            response: 'Hồng Đậu vỗ một cái thật mạnh lên lưng bạn. "Nói hay lắm! Làm thêm bát nữa! Ha ha ha!" Cười cười một lúc, nước mắt lại bất giác rơi xuống. "Nếu phụ thân ta còn sống... chắc chắn ông ấy cũng sẽ rất vui."'
           },
           {
-            text: '"谢谢你把这么重要的酒跟我分享。"',
+            text: '"Cảm ơn nàng đã chia sẻ cho ta một vò rượu quan trọng thế này."',
             friendshipChange: 80,
-            response: '"谢什么！"红豆豪迈地一挥手，"知己之间不说谢字！来，咱们把这坛喝完！"'
+            response: '"Cảm ơn cái gì chứ!" Hồng Đậu hào sảng xua tay, "Giữa tri kỷ với nhau không nói chữ cảm ơn! Lại đây, chúng ta uống cho cạn vò này nào!"'
           }
         ]
       }
@@ -1728,23 +1728,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'hong_dou',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '酒盟',
+    title: 'Tửu Minh',
     scenes: [
       {
-        text: '红豆在酒庄后院的桃树下摆了一桌酒菜。"今天搞个正式的！"她从怀里掏出两只一模一样的酒杯，上面刻着"知己"二字。'
+        text: 'Hồng Đậu dọn sẵn một bàn rượu thịt dưới gốc đào sau tửu trang. "Hôm nay phải làm thật tử tế mới được!" Nàng lấy từ trong ngực ra hai chiếc chén rượu giống hệt nhau, bên trên khắc hai chữ "Tri Kỷ".'
       },
       {
-        text: '"从今天起，这杯就是咱们的知己杯。"红豆认真起来的样子跟平时大大咧咧完全不同，"天地为证，桃花为媒——咱俩结为知己，有酒同饮，有难同当！"',
+        text: '"Từ hôm nay trở đi, chén này chính là chén tri kỷ của chúng ta." Dáng vẻ khi Hồng Đậu nghiêm túc hoàn toàn khác xa với vẻ xuề xòa thường ngày, "Trời đất chứng giám, hoa đào làm mai —— hai chúng ta kết nghĩa tri kỷ, có phúc cùng hưởng, có họa cùng chia!"',
         choices: [
           {
-            text: '举杯。"有酒同饮，有难同当！干！"',
+            text: 'Nâng chén. "Có phúc cùng hưởng, có họa cùng chia! Cạn!"',
             friendshipChange: 160,
-            response: '两杯相撞，酒花四溅。红豆哈哈大笑："痛快！从今天起，你就是我红豆最铁的知己！"她又倒满酒，"来来来，不醉不归！"'
+            response: 'Hai chén cụng vào nhau, bọt rượu văng tung tóe. Hồng Đậu cười ha hả: "Đã quá! Kể từ hôm nay, ngươi chính là tri kỷ ruột thịt của Hồng Đậu ta!" Nàng lại rót đầy rượu, "Tới tới tới, không say không về!"'
           },
           {
-            text: '"红豆，你比看起来更重感情。"',
+            text: '"Hồng Đậu, nàng sống tình cảm hơn vẻ bề ngoài rất nhiều."',
             friendshipChange: 120,
-            response: '"哼！"红豆脸一红，"别以为我不会害羞！……但在知己面前，我不装。来，喝酒！"'
+            response: '"Hứ!" Mặt Hồng Đậu ửng đỏ, "Đừng tưởng ta không biết xấu hổ! ... Nhưng trước mặt tri kỷ, ta sẽ không giả vờ. Nào, uống rượu!"'
           }
         ]
       }
@@ -1757,26 +1757,26 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'dan_qing',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '兰亭之约',
+    title: 'Ước Hẹn Lan Đình',
     scenes: [
       {
-        text: '丹青在竹林中的石桌旁铺开笔墨纸砚。"昔日王羲之兰亭集会，群贤毕至。今日虽只有你我二人，却也别有一番意趣。"'
+        text: 'Đan Thanh trải giấy mực bút nghiên ra bàn đá trong rừng trúc. "Năm xưa Vương Hi Chi tụ họp ở Lan Đình, thu hút muôn vàn hiền tài. Hôm nay dẫu chỉ có hai người chúng ta, nhưng cũng có một thú vui riêng."'
       },
       {
-        text: '他蘸饱了墨，一气呵成写下四个字："高山流水"。然后把笔递给你。"知己之间，以文会友。请。"'
+        text: 'Chàng thấm đẫm mực, viết một mạch bốn chữ: "Cao Sơn Lưu Thủy". Sau đó đưa bút cho bạn. "Tri kỷ giao du, mượn văn kết bạn. Mời."'
       },
       {
-        text: '你们轮流写字、品评、谈论古今。丹青的眼中闪着光。"子期遇伯牙，相知无须多言。{player}，你便是我的子期。"',
+        text: 'Hai bạn thay phiên nhau viết chữ, thưởng bình, luận bàn kim cổ. Trong mắt Đan Thanh lấp lánh ánh sáng. "Tử Kỳ gặp Bá Nha, tương tri chẳng cần nói nhiều. {player}, ngươi chính là Tử Kỳ của ta."',
         choices: [
           {
-            text: '"丹青，你的才华让人心折。能做你的子期，是我的荣幸。"',
+            text: '"Đan Thanh, tài hoa của chàng khiến người ta khâm phục. Được làm Tử Kỳ của chàng, chính là vinh hạnh của ta."',
             friendshipChange: 120,
-            response: '丹青微微一笑，在纸上又写了两个字："知己"。"这两个字，赠与{player}。裱好挂在书房，每日可见。"'
+            response: 'Đan Thanh mỉm cười, viết thêm hai chữ lên giấy: "Tri Kỷ". "Hai chữ này, xin tặng cho {player}. Đóng khung treo trong thư phòng, ngày ngày đều có thể thấy."'
           },
           {
-            text: '"高山流水，知音难觅。幸得丹青。"',
+            text: '"Cao sơn lưu thủy, tri âm khó tìm. May mắn gặp được Đan Thanh."',
             friendshipChange: 80,
-            response: '"妙哉！"丹青拊掌大笑，"这句话我要记在诗集里。知己之语，字字千金。"'
+            response: '"Tuyệt diệu!" Đan Thanh vỗ tay cười lớn, "Câu nói này ta phải chép lại vào thi tập mới được. Lời của tri kỷ, từng chữ đáng ngàn vàng."'
           }
         ]
       }
@@ -1787,23 +1787,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'dan_qing',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '断金之交',
+    title: 'Giao Tình Đoạn Kim',
     scenes: [
       {
-        text: '丹青郑重地递给你一本手抄的书。封面上写着"知己集"三个字。"这是我这些年写的所有诗文——其中有不少是遇见{player}之后写的。"'
+        text: 'Đan Thanh trịnh trọng đưa cho bạn một cuốn sách chép tay. Trên bìa viết ba chữ "Tri Kỷ Tập". "Đây là toàn bộ thơ văn ta đã viết trong những năm qua —— trong đó có không ít bài là viết sau khi gặp {player}."'
       },
       {
-        text: '"《易经》有云：二人同心，其利断金。"丹青的声音温和而坚定，"在下虽是一介书生，手无缚鸡之力。但若知己有难，丹青必定万死不辞。"',
+        text: '"《Kinh Dịch》 có câu: Hai người đồng lòng, sức mạnh cắt đứt được cả kim loại. (Nhị nhân đồng tâm, kỳ lợi đoạn kim)" Giọng của Đan Thanh vô cùng ôn hòa kiên định, "Tại hạ tuy chỉ là một thư sinh trói gà không chặt. Nhưng nếu tri kỷ gặp nạn, Đan Thanh nhất định xông pha khói lửa, vạn chết không từ."',
         choices: [
           {
-            text: '"丹青，断金之交，此生不负。"',
+            text: '"Đan Thanh, tình bạn đồng tâm hiệp lực này, đời này quyết không phụ."',
             friendshipChange: 160,
-            response: '丹青的眼中泛起水光，但他很快微笑着将其掩去。"好一个「此生不负」。{player}，有你这四个字，丹青此生无憾了。"'
+            response: 'Vành mắt Đan Thanh rơm rớm, nhưng chàng nhanh chóng mỉm cười che giấu đi. "Một câu \'đời này quyết không phụ\' thật hay. {player}, có được bốn chữ này của ngươi, Đan Thanh đời này không còn gì ân hận."'
           },
           {
-            text: '"这本知己集我会好好珍藏。"',
+            text: '"Cuốn Tri Kỷ Tập này ta sẽ trân quý thật cẩn thận."',
             friendshipChange: 120,
-            response: '"诗文不过纸墨。"丹青摇头，"真正珍贵的，是纸墨背后的情谊。{player}记住便好。"'
+            response: '"Thơ văn cũng chỉ là giấy mực." Đan Thanh lắc đầu, "Thứ thực sự quý giá, là tình nghĩa đằng sau những trang giấy đó. {player} ghi nhớ là được rồi."'
           }
         ]
       }
@@ -1816,26 +1816,26 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'a_tie',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '铁匠的秘密',
+    title: 'Bí mật của thợ rèn',
     scenes: [
       {
-        text: '阿铁偷偷把你拉到铁匠铺后面。"有、有个东西……我只给知己看。"他从柜子里翻出一把造型奇特的小刀。'
+        text: 'A Thiết lén lút kéo bạn ra phía sau tiệm rèn. "Có, có thứ này... tôi chỉ cho tri kỷ xem thôi." Anh lục trong tủ ra một con dao nhỏ có hình thù kỳ dị.'
       },
       {
-        text: '"这是我第一次独自完成的作品……师父不知道。"刀刃上有几处明显的瑕疵，但刀柄上刻着歪歪扭扭的"铁"字。'
+        text: '"Đây là tác phẩm do tôi tự mình hoàn thành lần đầu tiên... Sư phụ không biết đâu." Lưỡi dao có vài chỗ bị khuyết điểm rất rõ ràng, nhưng trên chuôi dao có khắc một chữ "Thiết" xiêu vẹo.'
       },
       {
-        text: '"很丑对吧……"阿铁红着脸低下头，"但、但这是我最重要的东西。我想……给知己看看。"',
+        text: '"Rất xấu xí đúng không..." A Thiết đỏ mặt cúi đầu, "Nhưng, nhưng đây là thứ quan trọng nhất của tôi. Tôi muốn... cho tri kỷ xem thử."',
         choices: [
           {
-            text: '"阿铁，这把刀比任何神兵利器都有意义。"',
+            text: '"A Thiết, con dao này còn ý nghĩa hơn bất cứ thứ thần binh lợi khí nào."',
             friendshipChange: 120,
-            response: '阿铁猛地抬头，眼睛亮了起来。"真、真的吗？！那……那我以后出师了，给{player}打一把更好的！一定的！"'
+            response: 'A Thiết bỗng ngẩng phắt đầu lên, hai mắt sáng rực. "Thật, thật sao?! Vậy... vậy sau này lúc xuất sư rồi, tôi sẽ rèn cho {player} một con tốt hơn! Nhất định đấy!"'
           },
           {
-            text: '"谢谢你信任我。知己之间就该如此。"',
+            text: '"Cảm ơn anh đã tin tưởng tôi. Giữa tri kỷ với nhau vốn dĩ nên như vậy."',
             friendshipChange: 80,
-            response: '"嗯！"阿铁使劲点头，耳朵红红的。"知、知己就是……可以把最丢人的事也告诉他的人！"'
+            response: '"Ừm!" A Thiết gật đầu thật mạnh, hai tai đỏ ửng. "Tri, tri kỷ chính là... người mà ta có thể kể cho nghe những chuyện đáng xấu hổ nhất!"'
           }
         ]
       }
@@ -1846,23 +1846,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'a_tie',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '双铁镯',
+    title: 'Cặp Vòng Sắt',
     scenes: [
       {
-        text: '阿铁满头大汗地跑来找你。"做、做好了！"他小心翼翼地打开一个铁盒，里面是两个简朴但打磨得锃亮的铁手镯。'
+        text: 'A Thiết ướt sũng mồ hôi chạy tới tìm bạn. "Làm, làm xong rồi!" Anh cẩn thận mở một chiếc hộp sắt ra, bên trong là hai chiếc vòng tay bằng sắt giản dị nhưng được mài giũa sáng bóng.'
       },
       {
-        text: '"这、这是我用最好的铁打的！花了七天七夜！"阿铁涨红了脸，"师父说，铁匠最好的作品应该送给最重要的人。知己……就是最重要的人！"',
+        text: '"Đây, đây là do tôi dùng loại sắt tốt nhất để rèn đấy! Tốn mất bảy ngày bảy đêm!" A Thiết đỏ bừng mặt, "Sư phụ bảo, tác phẩm tốt nhất của người thợ rèn nên tặng cho người quan trọng nhất. Tri kỷ... chính là người quan trọng nhất!"',
         choices: [
           {
-            text: '戴上铁镯，重重地握住阿铁的手。"兄弟！"',
+            text: 'Đeo chiếc vòng sắt lên tay, nắm chặt lấy tay A Thiết. "Huynh đệ!"',
             friendshipChange: 160,
-            response: '阿铁也戴上另一个，使劲回握你的手。"知……知己！比兄弟还亲！我阿铁发誓，以后你的工具我全包了！"'
+            response: 'A Thiết cũng đeo chiếc còn lại lên tay, dùng sức nắm chặt tay bạn. "Tri... tri kỷ! Còn thân thiết hơn cả anh em ruột thịt! A Thiết tôi xin thề, sau này mọi công cụ của cậu cứ để tôi thầu hết!"'
           },
           {
-            text: '"阿铁，这手镯虽是铁做的，情谊却比金子还重。"',
+            text: '"A Thiết, chiếc vòng tay này dẫu làm bằng sắt, nhưng tình nghĩa lại nặng hơn cả vàng."',
             friendshipChange: 120,
-            response: '阿铁的眼眶红了。"我、我不会说漂亮话……但{player}你是我最、最重要的知己！这辈子不变！"'
+            response: 'Viền mắt A Thiết đỏ hoe. "Tôi, tôi không biết nói những câu dễ nghe... nhưng {player} cậu là tri kỷ quan, quan trọng nhất của tôi! Đời này kiếp này không thay đổi!"'
           }
         ]
       }
@@ -1875,26 +1875,26 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'yun_fei',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '鹰巢',
+    title: 'Tổ Đại Bàng',
     scenes: [
       {
-        text: '云飞带你爬上了后山最高的悬崖。峰顶有一棵孤松，松枝上有一个巨大的鹰巢。"这个鹰巢，我守了三年。"'
+        text: 'Vân Phi dẫn bạn trèo lên vách núi cao nhất ở ngọn núi phía sau. Trên đỉnh núi có một cây thông mọc trơ trọi, trên cành có một cái tổ đại bàng khổng lồ. "Tổ chim này, ta đã canh giữ suốt ba năm rồi."'
       },
       {
-        text: '一只苍鹰盘旋着落在松枝上，竟然没有被你们的存在吓跑。"它信我。"云飞说，"现在……也信你了。"'
+        text: 'Một con chim ưng bay lượn vòng rồi đậu xuống cành thông, thế mà không hề bị sự xuất hiện của hai người làm hoảng sợ. "Nó tin ta." Vân Phi nói, "Bây giờ... cũng tin ngươi rồi."'
       },
       {
-        text: '"我不轻易带人来这里。"云飞看着远山，声音难得柔和，"但你是知己。这里的一切……也是你的。"',
+        text: '"Ta không dễ dãi đưa ai đến đây bao giờ." Vân Phi nhìn những rặng núi phía xa, giọng nói hiếm hoi trở nên mềm mỏng, "Nhưng ngươi là tri kỷ. Mọi thứ ở nơi này... cũng đều là của ngươi."',
         choices: [
           {
-            text: '"云飞，你把最珍贵的秘密分享给了我。"',
+            text: '"Vân Phi, anh đã chia sẻ cho tôi một bí mật vô cùng quý giá."',
             friendshipChange: 120,
-            response: '云飞沉默了很久，然后轻轻说了两个字："值得。"那只苍鹰在夕阳中盘旋，像是在为你们守望。'
+            response: 'Vân Phi yên lặng hồi lâu, rồi khẽ thốt ra hai chữ: "Xứng đáng." Con chim ưng kia lại cất cánh bay lượn trong ánh tà dương, tựa như đang canh gác cho hai người.'
           },
           {
-            text: '"谢谢你的信任。"',
+            text: '"Cảm ơn sự tín nhiệm của anh."',
             friendshipChange: 80,
-            response: '"……不需要谢。"云飞的嘴角几乎不可察觉地上扬了一下，"知己不说这些虚的。"'
+            response: '"... Không cần cảm ơn." Khóe miệng Vân Phi hơi nhếch lên một chút gần như không thể thấy, "Giữa tri kỷ với nhau không cần nói mấy lời khách sáo này."'
           }
         ]
       }
@@ -1905,23 +1905,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'yun_fei',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '猎人之约',
+    title: 'Ước Hẹn Thợ Săn',
     scenes: [
       {
-        text: '云飞把一把匕首插在你们之间的地上。刀刃在月光下闪着寒光。"这把刀跟了我十年。"'
+        text: 'Vân Phi cắm một con dao găm xuống khoảng đất giữa hai người. Lưỡi dao lóe lên tia sáng lạnh lẽo dưới ánh trăng. "Con dao này đã theo ta suốt mười năm ròng."'
       },
       {
-        text: '"猎人有个规矩——把佩刀借给另一个人，意味着把自己的命也交给了他。"云飞直视你的眼睛，"我把它送给你。"',
+        text: '"Thợ săn có một quy củ —— giao bội đao cho một người khác, có nghĩa là giao phó cả sinh mạng của mình cho người đó." Vân Phi nhìn thẳng vào mắt bạn, "Ta tặng nó cho ngươi."',
         choices: [
           {
-            text: '拔起匕首，郑重地收入怀中。"你的命，就是我的命。"',
+            text: 'Rút con dao găm lên, trịnh trọng cất vào trong vạt áo. "Mạng của anh, cũng chính là mạng của tôi."',
             friendshipChange: 160,
-            response: '云飞罕见地笑了——不是嘲讽，不是冷笑，而是真正的、发自内心的微笑。"……好。那以后在山里，我守你的背。"'
+            response: 'Vân Phi hiếm hoi mỉm cười —— không phải kiểu cười chế giễu, cũng không phải cười nhạt, mà là một nụ cười rạng rỡ từ tận đáy lòng. "... Tốt. Vậy sau này vào núi, ta sẽ bảo vệ tấm lưng của ngươi."'
           },
           {
-            text: '"云飞……这太贵重了。"',
+            text: '"Vân Phi... vật này quá mức đắt giá rồi."',
             friendshipChange: 120,
-            response: '"嫌贵重就别当我知己。"云飞瞪了你一眼，随即叹了口气。"收着吧。我早就想找个值得信赖的人分担了。"'
+            response: '"Nếu chê đắt giá thì đừng làm tri kỷ của ta nữa." Vân Phi lườm bạn một cái, ngay sau đó thở dài một hơi. "Giữ lấy đi. Ta đã sớm muốn tìm một người đáng tin cậy để san sẻ gánh nặng rồi."'
           }
         ]
       }
@@ -1934,26 +1934,26 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'da_niu',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '牛奶之誓',
+    title: 'Lời Thề Sữa Bò',
     scenes: [
       {
-        text: '大牛兴奋地拉你到牛棚。"来来来！今天福宝产奶了！第一碗必须给知己喝！"'
+        text: 'Đại Ngưu hào hứng kéo bạn tới chuồng bò. "Lại đây lại đây! Hôm nay Phúc Bảo cho sữa rồi! Bát đầu tiên nhất định phải dành cho tri kỷ uống!"'
       },
       {
-        text: '他笨手笨脚地把新鲜的牛奶倒进两个碗里，溅了一桌子。"嘿嘿……手抖了。"'
+        text: 'Cậu lóng ngóng rót sữa tươi vào hai cái bát, làm bắn sữa tung tóe khắp bàn. "Hì hì... lỡ tay rồi."'
       },
       {
-        text: '大牛举起碗。"我大牛没什么文化，不会说漂亮话。但我知道——好兄弟就是能一起喝牛奶的人！干了！"',
+        text: 'Đại Ngưu bưng bát lên. "Đại Ngưu tôi học thức cạn hẹp, không biết nói những câu dễ nghe. Nhưng tôi biết —— anh em tốt chính là người có thể cùng nhau uống sữa bò! Cạn!"',
         choices: [
           {
-            text: '举碗一饮而尽。"好兄弟！一起喝牛奶，一起闯天下！"',
+            text: 'Bưng bát uống một hơi cạn sạch. "Huynh đệ tốt! Cùng nhau uống sữa bò, cùng nhau xông pha thiên hạ!"',
             friendshipChange: 120,
-            response: '"对！"大牛拍着胸脯，"以后我的牛就是你的牛！我的牧场就是你的牧场！知己嘛！"'
+            response: '"Đúng vậy!" Đại Ngưu vỗ vỗ ngực, "Sau này bò của tôi cũng là bò của cậu! Mục trường của tôi cũng là mục trường của cậu! Tri kỷ cơ mà!"'
           },
           {
-            text: '"大牛，你比你想象的更会说话。"',
+            text: '"Đại Ngưu, cậu biết ăn nói hơn cậu nghĩ nhiều đấy."',
             friendshipChange: 80,
-            response: '"是、是吗？"大牛挠挠头，咧嘴笑了，"嘿嘿，被知己夸了！比被十头牛舔还开心！"'
+            response: '"Vậy, vậy sao?" Đại Ngưu gãi đầu, toét miệng cười, "Hì hì, được tri kỷ khen ngợi rồi! Còn vui sướng hơn cả việc bị chục con bò liếm nữa!"'
           }
         ]
       }
@@ -1964,23 +1964,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'da_niu',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '牧场之盟',
+    title: 'Liên Minh Mục Trường',
     scenes: [
       {
-        text: '大牛在牧场围栏上挂了一块新刻的木牌。上面歪歪扭扭地写着两个名字——他的和你的。'
+        text: 'Đại Ngưu treo một tấm biển gỗ mới khắc lên hàng rào mục trường. Bên trên viết xiêu vẹo hai cái tên —— tên của cậu và tên của bạn.'
       },
       {
-        text: '"从今天起，这个牧场就是咱们两个人的了！"大牛的眼眶红了，"我一直梦想有个搭伙的人……知己就是最好的搭伙人！"',
+        text: '"Kể từ hôm nay trở đi, mục trường này chính là của hai chúng ta!" Mắt Đại Ngưu đỏ hoe, "Tôi vẫn luôn mơ ước có một người cộng tác... Tri kỷ chính là người cộng tác tuyệt vời nhất!"',
         choices: [
           {
-            text: '拍拍大牛的肩膀。"牧场之盟，永不反悔！"',
+            text: 'Vỗ vỗ vai Đại Ngưu. "Liên minh mục trường, mãi không đổi ý!"',
             friendshipChange: 160,
-            response: '大牛使劲点头，然后一把抱住你，差点没把你勒晕。"太好了！！知己搭伙！天下无敌！我去给牛加餐庆祝！"'
+            response: 'Đại Ngưu gật đầu thật mạnh, sau đó ôm chầm lấy bạn, suýt chút nữa siết bạn đến ngất xỉu. "Tốt quá rồi!! Tri kỷ hợp tác! Thiên hạ vô địch! Tôi đi kiếm thêm đồ ăn cho lũ bò để ăn mừng đây!"'
           },
           {
-            text: '"大牛，有你这个知己，是我的福气。"',
+            text: '"Đại Ngưu, có cậu làm tri kỷ, thật là phúc phận của tôi."',
             friendshipChange: 120,
-            response: '大牛哇的一声哭了出来。"呜……{player}你别说了……我一感动就控制不住……呜呜……但我真的好开心！"'
+            response: 'Đại Ngưu òa lên khóc nức nở. "Hu hu... {player} cậu đừng nói nữa... Cứ bị cảm động là tôi không kìm nén được... hu hu... nhưng mà tôi thực sự rất vui!"'
           }
         ]
       }
@@ -1993,23 +1993,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'mo_bai',
     requiredFriendship: 1750,
     requiresZhiji: true,
-    title: '无词之曲',
+    title: 'Khúc Nhạc Không Lời',
     scenes: [
       {
-        text: '墨白在月光下弹了一首你从未听过的曲子。旋律时而欢快，时而沉郁，最终归于宁静。弹完之后，他静静地看着你。'
+        text: 'Dưới ánh trăng, Mặc Bạch gảy một khúc nhạc mà bạn chưa từng được nghe. Giai điệu khi thì tươi vui, lúc lại u sầu, cuối cùng quay về với sự tĩnh lặng. Gảy xong, chàng lẳng lặng nhìn bạn.'
       },
       {
-        text: '"这首曲子没有名字，也没有词。"他轻声说，"因为它不是用来听的——是用来「感受」的。只有知己……才能感受到。"',
+        text: '"Khúc nhạc này không có tên, cũng không có lời." Chàng khẽ nói, "Bởi vì nó không phải dùng để nghe —— mà là dùng để \'Cảm nhận\'. Chỉ có tri kỷ... mới có thể cảm nhận được."',
         choices: [
           {
-            text: '"墨白，我听到了。欢喜、忧愁、释然……全都在里面。"',
+            text: '"Mặc Bạch, ta đã nghe thấy rồi. Niềm vui, nỗi buồn, sự thanh thản... tất cả đều gói gọn trong đó."',
             friendshipChange: 120,
-            response: '墨白怔住了。然后他低下头，手指轻轻拂过琴弦。"……你真的听懂了。十年来，你是第一个。"'
+            response: 'Mặc Bạch ngây ngẩn cả người. Sau đó chàng cúi đầu, ngón tay nhẹ lướt qua những sợi dây đàn. "... Ngươi thực sự nghe hiểu được. Mười năm nay, ngươi là người đầu tiên đấy."'
           },
           {
-            text: '"这首曲子很美。"',
+            text: '"Khúc nhạc này thật êm dịu."',
             friendshipChange: 80,
-            response: '"美？"墨白摇摇头，"不，这首曲子是「真」。只有在知己面前，我才弹得出「真」的曲子。"'
+            response: '"Êm dịu sao?" Mặc Bạch lắc đầu, "Không, khúc nhạc này là sự \'Chân Thật\'. Chỉ khi ở trước mặt tri kỷ, ta mới có thể gảy ra một khúc nhạc \'Chân Thật\' đến vậy."'
           }
         ]
       }
@@ -2020,23 +2020,23 @@ export const HEART_EVENTS: HeartEventDef[] = [
     npcId: 'mo_bai',
     requiredFriendship: 2250,
     requiresZhiji: true,
-    title: '知音琴',
+    title: 'Tri Âm Cầm',
     scenes: [
       {
-        text: '墨白打开了一个你从未见过的琴箱。里面躺着一把古朴的小琴，琴身上刻着"知音"二字。"这把琴是我师父留给我的。他说，等我找到知音，就把它传出去。"'
+        text: 'Mộ Bài mở chiếc đàn piano mà bạn chưa từng thấy trước đây. Bên trong có một cây đàn piano nhỏ đơn giản với dòng chữ ""Tri Âm"Hai từ."Cây đàn piano này được chủ nhân của tôi để lại cho tôi. Anh ấy nói rằng khi tôi tìm được tri kỷ, tôi sẽ truyền bá."'
       },
       {
-        text: '"你不一定要会弹。"墨白轻轻将琴递到你手中，"只要它在你身边，就像我的琴声一直陪着你。"他的眼神中有罕见的温柔。"伯牙为子期摔琴……我不会。因为你在。"',
+        text: '"Ngươi không nhất thiết phải biết gảy." Mặc Bạch nhẹ nhàng đưa cây đàn vào tay bạn, "Chỉ cần nó ở bên ngươi, thì sẽ giống như tiếng đàn của ta vẫn luôn ở cạnh bầu bạn. Cánh mắt chàng mang theo một nét dịu dàng hiếm thấy. "Bá Nha vì Tử Kỳ mà đập vỡ đàn... nhưng ta sẽ không làm vậy. Bởi vì ngươi vẫn luôn ở đây."',
         choices: [
           {
-            text: '双手接过古琴。"知音琴在手，如闻墨白之声。此生，我不做子期，我做你永远的听众。"',
+            text: 'Hai tay đón lấy cây cổ cầm. "Có đàn Tri Âm trong tay, tựa như được nghe âm thanh của Mặc Bạch. Đời này kiếp này, ta không làm Tử Kỳ, ta sẽ làm thính giả vĩnh viễn của chàng."',
             friendshipChange: 160,
-            response: '墨白闭上眼，轻轻拨了一下自己琴上的弦。那个音符在夜空中久久不散。"……好。永远。"'
+            response: 'Mặc Bạch khép mi lại, khẽ gảy một nốt nhạc trên cây đàn của mình. Nốt nhạc đó văng vẳng trong không trung hồi lâu mới tắt. "... Được. Vĩnh viễn."'
           },
           {
-            text: '"墨白，我会好好保管这把琴。"',
+            text: '"Mặc Bạch, ta sẽ cất giữ cây đàn này thật cẩn thận."',
             friendshipChange: 120,
-            response: '"不用保管。"墨白微微一笑，"琴是要弹的。哪天你学会了第一个音，弹给我听。"'
+            response: '"Không cần cất giữ làm gì." Mặc Bạch khẽ mỉm cười, "Đàn là để gảy. Khi nào ngươi học được nốt nhạc đầu tiên, hãy gảy cho ta nghe."'
           }
         ]
       }
@@ -2049,22 +2049,22 @@ export const WEDDING_EVENT: HeartEventDef = {
   id: 'wedding_ceremony',
   npcId: '',
   requiredFriendship: 0,
-  title: '百年好合',
+  title: 'Trăm năm hạnh phúc',
   scenes: [
     {
-      text: '今天是你期盼已久的日子。清晨的阳光洒在桃源乡的广场上，村民们早早布置好了红绸和灯笼。陈伯在门口笑呵呵地招呼着来客，王大婶忙前忙后张罗着喜宴。'
+      text: 'Hôm nay là một ngày mà bạn đã mong ngóng từ rất lâu. Ánh nắng sớm mai rải xuống quảng trường Đào Nguyên Hương, dân làng đã thức dậy từ sớm để trang hoàng lụa đỏ và đèn lồng. Bác Trần đứng trước cửa tươi cười chào đón khách khứa, Thím Vương thì tất bật ngược xuôi lo liệu cho tiệc hỉ.'
     },
     {
-      text: '你穿上了崭新的喜服，站在广场中央。柳村长作为证婚人，清了清嗓子说道："今日良辰吉日，桃源乡又添一桩喜事。"人群中响起了喝彩声。'
+      text: 'Bạn khoác lên mình bộ hỉ phục mới tinh, đứng ngay giữa quảng trường. Trưởng thôn Liễu với tư cách là người chứng hôn, hắng giọng phát biểu: "Hôm nay là ngày lành tháng tốt, Đào Nguyên Hương lại có thêm một chuyện hỉ." Xung quanh vang lên tiếng vỗ tay reo hò.'
     },
     {
-      text: '你的心上人缓步走来，身着红装，面带羞涩的笑容。你们在众人的见证下，交换了信物。柳村长宣布："礼成！百年好合，白头偕老！"'
+      text: 'Người thương của bạn chầm chậm bước tới, mặc giá y màu đỏ rực, trên môi mang theo nụ cười e thẹn. Dưới sự chứng kiến của tất cả mọi người, hai bạn đã trao đổi tín vật cho nhau. Trưởng thôn Liễu dõng dạc tuyên bố: "Buổi lễ hoàn tất! Trăm năm hạnh phúc, răng long đầu bạc!"'
     },
     {
-      text: '喜宴上，胖婶端来了拿手好菜，老陆搬出了珍藏的好酒，周秀才即兴写了一首贺词。小满和石头在桌下偷吃点心，阿花好奇地盯着你们看。整个桃源乡都沉浸在欢乐之中。'
+      text: 'Trong bữa tiệc, Thím Mập bưng lên những món ăn tủ của mình, Lão Lục mang ra những vò rượu quý cất giấu đã lâu, Chu tú tài cao hứng viết tặng một bài thơ chúc mừng. Tiểu Mãn và Thạch Đầu lén chui xuống gầm bàn ăn vụng điểm tâm, A Hoa thì tò mò mở to hai mắt nhìn hai bạn chằm chằm. Cả Đào Nguyên Hương chìm ngập trong bầu không khí hân hoan rộn rã.'
     },
     {
-      text: '夜幕降临，宾客散去。你们回到温暖的家中，开始了全新的生活。从今以后，这里不再只是你一个人的田庄——而是你们共同的家。'
+      text: 'Màn đêm buông xuống, khách khứa dần tản đi. Hai người trở về căn nhà ấm áp của mình, bắt đầu một cuộc sống hoàn toàn mới. Từ nay về sau, nơi này không còn là điền trang của riêng một mình bạn nữa —— mà là tổ ấm chung của cả hai người.'
     }
   ]
 }

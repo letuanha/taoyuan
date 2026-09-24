@@ -217,7 +217,7 @@ export const useProcessingStore = defineStore('processing', () => {
       const breedingStore = useBreedingStore()
       const farmingLevel = skillStore.farmingLevel
       if (breedingStore.trySeedMakerGeneticSeed(slot.inputItemId, farmingLevel)) {
-        addLog('种子制造机额外产出了一颗育种种子！')
+        addLog('Máy chế tạo hạt giống tạo thêm một hạt giống lai tạo!')
       }
     }
 
@@ -439,7 +439,7 @@ export const useProcessingStore = defineStore('processing', () => {
           // 仙缘能力：梦织（gui_nv_2）织布机8%概率额外产出梦丝
           if (slot.machineType === 'loom' && useHiddenNpcStore().isAbilityActive('gui_nv_2') && Math.random() < 0.08) {
             inventoryStore.addItem('dream_silk', 1)
-            collected.push('梦丝')
+            collected.push('Mộng ty')
           }
           const machineDef = PROCESSING_MACHINES.find(m => m.id === slot.machineType)
           if (recipe.inputItemId === null || machineDef?.autoCollect) {
@@ -478,7 +478,7 @@ export const useProcessingStore = defineStore('processing', () => {
                 const breedingStore = useBreedingStore()
                 const farmingLevel = skillStore.farmingLevel
                 if (breedingStore.trySeedMakerGeneticSeed(slot.inputItemId, farmingLevel)) {
-                  addLog('种子制造机额外产出了一颗育种种子！')
+                  addLog('Máy chế tạo hạt giống tạo thêm một hạt giống lai tạo!')
                 }
               }
 
@@ -520,7 +520,7 @@ export const useProcessingStore = defineStore('processing', () => {
       const summary = Array.from(counts.entries())
         .map(([name, count]) => (count > 1 ? `${name}x${count}` : name))
         .join('、')
-      addLog(`工坊自动收取了：${summary}。`)
+      addLog(`Xưởng đã tự động thu: ${summary}.`)
     }
     if (readyNames.length > 0) {
       const counts = new Map<string, number>()
@@ -530,7 +530,7 @@ export const useProcessingStore = defineStore('processing', () => {
       const summary = Array.from(counts.entries())
         .map(([name, count]) => (count > 1 ? `${name}x${count}` : name))
         .join('、')
-      addLog(`加工完成：${summary}，去工坊收取吧。`)
+      addLog(`Gia công hoàn tất: ${summary}, hãy đến xưởng nhận hàng.`)
     }
   }
 
@@ -540,12 +540,12 @@ export const useProcessingStore = defineStore('processing', () => {
   const upgradeWorkshop = (): { success: boolean; message: string } => {
     const next = workshopLevel.value + 1
     const upgrade = WORKSHOP_UPGRADES.find(u => u.level === next)
-    if (!upgrade) return { success: false, message: '工坊已达到最高等级。' }
-    if (!consumeCraftMaterials(upgrade.materials, upgrade.cost)) return { success: false, message: '材料或铜钱不足。' }
+    if (!upgrade) return { success: false, message: 'Xưởng đã đạt cấp tối đa.' }
+    if (!consumeCraftMaterials(upgrade.materials, upgrade.cost)) return { success: false, message: 'Không đủ nguyên liệu hoặc tiền.' }
     workshopLevel.value = next
     return {
       success: true,
-      message: `工坊扩建完成！机器上限提升至${maxMachines.value}台。`
+      message: `Mở rộng xưởng hoàn tất! Số máy tối đa tăng lên ${maxMachines.value}.`
     }
   }
 

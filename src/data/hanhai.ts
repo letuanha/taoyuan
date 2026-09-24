@@ -20,30 +20,30 @@ import type {
 export const HANHAI_FIXED_ITEMS: HanhaiShopItemDef[] = [
   {
     itemId: 'hanhai_cactus_seed',
-    name: '仙人掌种子',
+    name: 'Hạt Giống Xương Rồng',
     price: 500,
-    description: '来自西域的奇特植物种子。',
+    description: 'Hạt giống cây lạ từ Tây Vực.',
     weeklyLimit: 5
   },
   {
     itemId: 'hanhai_date_seed',
-    name: '红枣种子',
+    name: 'Hạt giống táo đỏ',
     price: 400,
-    description: '丝绸之路带来的果树种子。',
+    description: 'Hạt giống cây ăn quả từ Con đường Tơ lụa.',
     weeklyLimit: 5
   },
   {
     itemId: 'hanhai_map',
-    name: '藏宝图',
+    name: 'Bản Đồ Kho Báu',
     price: 1000,
-    description: '标记着荒原某处宝藏的地图。',
+    description: 'Bản đồ đánh dấu vị trí kho báu tại hoang mạc.',
     weeklyLimit: 1
   },
   {
     itemId: 'mega_bomb_recipe',
-    name: '巨型炸弹配方',
+    name: 'Công Thức Bom Khổng Lồ',
     price: 5000,
-    description: '据说能炸开整层矿洞的秘方。',
+    description: 'Phương thức bí truyền nghe nói có thể phá nổ cả một tầng hang mỏ.',
     weeklyLimit: 1
   }
 ]
@@ -52,72 +52,72 @@ export const HANHAI_FIXED_ITEMS: HanhaiShopItemDef[] = [
 export const HANHAI_ROTATING_POOL: HanhaiShopItemDef[] = [
   {
     itemId: 'hanhai_spice',
-    name: '西域香料',
+    name: 'Hương Liệu Tây Vực',
     price: 300,
-    description: '异域风情的香料，烹饪佳品。',
+    description: 'Hương liệu mang phong tình dị vực, cực phẩm nấu ăn.',
     weeklyLimit: 3
   },
   {
     itemId: 'hanhai_silk',
-    name: '丝绸',
+    name: 'Tơ Lụa',
     price: 800,
-    description: '细腻光滑的上等丝绸。',
+    description: 'Tơ lụa thượng hạng mềm mịn trơn bóng.',
     weeklyLimit: 2
   },
   {
     itemId: 'hanhai_turquoise',
-    name: '绿松石',
+    name: 'Ngọc Lục Bảo',
     price: 600,
-    description: '西域特产的珍贵宝石。',
+    description: 'Đá quý trân quý đặc sản của Tây Vực.',
     weeklyLimit: 2
   },
   {
     itemId: 'hanhai_incense',
-    name: '瀚海沉香',
+    name: 'Trầm Hương Hãn Hải',
     price: 500,
-    description: '西域珍贵香料，送礼佳品。',
+    description: 'Hương liệu trân quý của Tây Vực, quà tặng tuyệt hảo.',
     weeklyLimit: 2
   },
   {
     itemId: 'hanhai_carpet',
-    name: '飞毯碎片',
+    name: 'Mảnh Thảm Bay',
     price: 1200,
-    description: '传说中飞毯的残片，珍贵的收藏品。',
+    description: 'Mảnh vỡ thảm bay trong truyền thuyết, vật phẩm sưu tầm quý giá.',
     weeklyLimit: 1
   },
   {
     itemId: 'hanhai_amber',
-    name: '戈壁琥珀',
+    name: 'Hổ Phách Gobi',
     price: 450,
-    description: '戈壁滩的天然琥珀。',
+    description: 'Hổ phách tự nhiên trên sa mạc Gobi.',
     weeklyLimit: 3
   },
   {
     itemId: 'hanhai_dried_fruit',
-    name: '西域干果',
+    name: 'Trái Cây Khô Tây Vực',
     price: 200,
-    description: '甜蜜的异域干果，恢复体力。',
+    description: 'Trái cây khô dị vực ngọt ngào, giúp hồi phục thể lực.',
     weeklyLimit: 5
   },
   {
     itemId: 'hanhai_pottery',
-    name: '彩陶',
+    name: 'Gốm Màu',
     price: 350,
-    description: '精致的西域彩陶，送礼佳品。',
+    description: 'Gốm màu Tây Vực tinh xảo, quà tặng tuyệt hảo.',
     weeklyLimit: 2
   },
   {
     itemId: 'hanhai_saddle_leather',
-    name: '鞍具皮革',
+    name: 'Da Yên Ngựa',
     price: 700,
-    description: '上等的西域马具皮革。',
+    description: 'Da thuộc làm yên ngựa Tây Vực thượng hạng.',
     weeklyLimit: 2
   },
   {
     itemId: 'hanhai_lapis',
-    name: '青金石',
+    name: 'Đá Lapis Lazuli',
     price: 550,
-    description: '深蓝色的珍贵宝石。',
+    description: 'Đá quý màu xanh lam đậm trân quý.',
     weeklyLimit: 2
   }
 ]
@@ -142,10 +142,10 @@ export const getWeeklyRotatingItems = (year: number, seasonIndex: number, day: n
 
 /** 轮盘赔率 */
 export const ROULETTE_OUTCOMES: RouletteOutcome[] = [
-  { label: '空', multiplier: 0, chance: 72 },
-  { label: '双倍', multiplier: 2, chance: 18 },
-  { label: '三倍', multiplier: 3, chance: 7 },
-  { label: '五倍', multiplier: 5, chance: 3 }
+  { label: 'Trống', multiplier: 0, chance: 72 },
+  { label: 'Gấp đôi', multiplier: 2, chance: 18 },
+  { label: 'Gấp ba', multiplier: 3, chance: 7 },
+  { label: 'Gấp năm', multiplier: 5, chance: 3 }
 ]
 
 /** 轮盘投注档位 */
@@ -206,9 +206,9 @@ export const CRICKET_WIN_MULTIPLIER = 2.5
 
 /** 可选蛐蛐 */
 export const CRICKETS: CricketDef[] = [
-  { id: 'general', name: '将军', description: '体格健壮，攻守兼备。' },
-  { id: 'ironhead', name: '铁头', description: '头铁如铁，擅长硬碰硬。' },
-  { id: 'dragonfly', name: '青龙', description: '身法灵活，出其不意。' }
+  { id: 'general', name: 'Tướng Quân', description: 'Thể hình cường tráng, công thủ toàn diện.' },
+  { id: 'ironhead', name: 'Đầu Sắt', description: 'Đầu cứng như sắt, giỏi lối đánh trực diện.' },
+  { id: 'dragonfly', name: 'Thanh Long', description: 'Thân pháp linh hoạt, ra đòn bất ngờ.' }
 ]
 
 /** 斗蛐蛐：双方各掷力量，高者胜 */
@@ -252,7 +252,7 @@ export const dealCards = (): { treasures: number[] } => {
 export const TEXAS_TIERS: TexasTierDef[] = [
   {
     id: 'beginner',
-    name: '新手场',
+    name: 'Sân Tân Thủ',
     entryFee: 200,
     blind: 10,
     rake: 20,
@@ -261,7 +261,7 @@ export const TEXAS_TIERS: TexasTierDef[] = [
   },
   {
     id: 'normal',
-    name: '普通场',
+    name: 'Sân Thường',
     entryFee: 500,
     blind: 25,
     rake: 50,
@@ -270,7 +270,7 @@ export const TEXAS_TIERS: TexasTierDef[] = [
   },
   {
     id: 'expert',
-    name: '高手场',
+    name: 'Sân Cao Thủ',
     entryFee: 2000,
     blind: 100,
     rake: 200,
@@ -309,16 +309,16 @@ export const RANK_LABELS: Record<number, string> = {
 
 /** 牌型中文名称 */
 export const HAND_LABELS: Record<PokerHandType, string> = {
-  royal_flush: '皇家同花顺',
-  straight_flush: '同花顺',
-  four_kind: '四条',
-  full_house: '葫芦',
-  flush: '同花',
-  straight: '顺子',
-  three_kind: '三条',
-  two_pair: '两对',
-  one_pair: '一对',
-  high_card: '高牌'
+  royal_flush: 'Sảnh đồng chất hoàng gia',
+  straight_flush: 'Sảnh đồng chất',
+  four_kind: 'Tứ quý',
+  full_house: 'Cù lũ',
+  flush: 'Thùng',
+  straight: 'Sảnh',
+  three_kind: 'Bộ ba',
+  two_pair: 'Hai đôi',
+  one_pair: 'Một đôi',
+  high_card: 'Mậu thầu'
 }
 
 /** 牌型优先级（越大越强） */
@@ -614,7 +614,7 @@ export const dealerDecide = (shells: ShellType[], currentIndex: number, knowsCur
 export const TRADE_SHOP_UPGRADES: TradeShopUpgradeDef[] = [
   {
     level: 1,
-    name: '小摊',
+    name: 'Quầy nhỏ',
     maxSlots: 2,
     sellDays: 3,
     cost: 0,
@@ -622,7 +622,7 @@ export const TRADE_SHOP_UPGRADES: TradeShopUpgradeDef[] = [
   },
   {
     level: 2,
-    name: '商铺',
+    name: 'Cửa hàng',
     maxSlots: 3,
     sellDays: 3,
     cost: 20000,
@@ -633,7 +633,7 @@ export const TRADE_SHOP_UPGRADES: TradeShopUpgradeDef[] = [
   },
   {
     level: 3,
-    name: '大商铺',
+    name: 'Cửa hàng lớn',
     maxSlots: 4,
     sellDays: 2,
     cost: 50000,
@@ -644,7 +644,7 @@ export const TRADE_SHOP_UPGRADES: TradeShopUpgradeDef[] = [
   },
   {
     level: 4,
-    name: '商行',
+    name: 'Thương hành',
     maxSlots: 5,
     sellDays: 2,
     cost: 100000,
@@ -655,7 +655,7 @@ export const TRADE_SHOP_UPGRADES: TradeShopUpgradeDef[] = [
   },
   {
     level: 5,
-    name: '商会',
+    name: 'Thương hội',
     maxSlots: 6,
     sellDays: 1,
     cost: 200000,
@@ -670,57 +670,57 @@ export const TRADE_SHOP_UPGRADES: TradeShopUpgradeDef[] = [
 export const TRADE_EXCHANGE_ITEMS: TradeExchangeItemDef[] = [
   {
     itemId: 'trade_star_fragment',
-    name: '星辰碎片',
+    name: 'Mảnh Vỡ Tinh Thần',
     pointsCost: 50,
-    description: '稀有材料，用于高级制作。',
+    description: 'Nguyên liệu quý hiếm, dùng để chế tạo cao cấp.',
     weeklyLimit: 3
   },
-  // { itemId: 'trade_golden_coconut', name: '金椰子', pointsCost: 80, description: '打开可获得随机稀有物品。', weeklyLimit: 2 },
-  // { itemId: 'trade_desert_totem', name: '沙漠图腾', pointsCost: 30, description: '立即传送至瀚海（不消耗时间）。', weeklyLimit: 5 },
+  // { itemId: 'trade_golden_coconut', name: 'Dừa vàng', pointsCost: 80, description: 'Mở ra để nhận một vật phẩm hiếm ngẫu nhiên.', weeklyLimit: 2 },
+  // { itemId: 'trade_desert_totem', name: 'Tượng vật sa mạc', pointsCost: 30, description: 'Dịch chuyển ngay đến Hãn Hải (không tốn thời gian).', weeklyLimit: 5 },
   {
     itemId: 'trade_spice_bundle',
-    name: '香料礼包',
+    name: 'Gói Quà Hương Liệu',
     pointsCost: 40,
-    description: '获得西域香料×5。',
+    description: 'Nhận 5 gia vị Tây Vực.',
     weeklyLimit: 3
   },
   {
     itemId: 'trade_turquoise_pendant',
-    name: '绿松石吊坠',
+    name: 'Dây chuyền ngọc lục bảo',
     pointsCost: 120,
-    description: '饰品，攻击+2，防御+3%。',
+    description: 'Phụ kiện, tấn công +2, phòng thủ +3%.',
     totalLimit: 1,
     equipType: 'ring'
   },
   {
     itemId: 'trade_silk_robe',
-    name: '丝绸长袍',
+    name: 'Trường Bào Tơ Lụa',
     pointsCost: 150,
-    description: '帽子，攻击+3，HP+20。',
+    description: 'Mũ, tấn công +3, HP +20.',
     totalLimit: 1,
     equipType: 'hat'
   },
   {
     itemId: 'trade_desert_blade',
-    name: '沙漠弯刀',
+    name: 'Loan Đao Sa Mạc',
     pointsCost: 200,
-    description: '武器，攻击40，暴击8%。',
+    description: 'Vũ khí, tấn công 40, chí mạng 8%.',
     totalLimit: 1,
     equipType: 'weapon'
   },
   {
     itemId: 'trade_steppe_horse',
-    name: '草原马',
+    name: 'Ngựa thảo nguyên',
     pointsCost: 400,
-    description: '瀚海良驹。拥有马厩时兑换可将你的马升级为草原马（赶路更快更省力）。',
+    description: 'Tuấn mã Hãn Hải. Khi có chuồng ngựa, đổi vật phẩm này để nâng ngựa thành Ngựa Thảo Nguyên (đi nhanh và đỡ tốn sức hơn).',
     totalLimit: 1,
     isHorseUpgrade: 'steppe'
   },
   {
     itemId: 'trade_prosperity_seal',
-    name: '通商金印',
+    name: 'Kim Ấn Thông Thương',
     pointsCost: 300,
-    description: '钱袋物品，通商积分获取+20%。',
+    description: 'Vật phẩm túi tiền, điểm thương mại nhận được +20%.',
     totalLimit: 1,
     isWalletItem: true
   }

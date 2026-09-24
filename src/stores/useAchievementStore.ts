@@ -25,7 +25,7 @@ export const useAchievementStore = defineStore('achievement', () => {
   /** 已发现的物品ID集合 */
   const discoveredItems = ref<string[]>([])
 
-  /** 物品发现时间记录 { itemId: "第X年 春 第Y天" } */
+  /** 物品发现时间记录 { itemId: "Năm X, Mùa xuân, Ngày Y" } */
   const discoveryTimes = ref<Record<string, string>>({})
 
   /** 已完成的成就ID集合 */
@@ -60,12 +60,12 @@ export const useAchievementStore = defineStore('achievement', () => {
       discoveredItems.value.push(itemId)
       const gameStore = useGameStore()
       const SEASON_NAMES: Record<string, string> = {
-        spring: '春',
-        summer: '夏',
-        autumn: '秋',
-        winter: '冬'
+        spring: 'Xuân',
+        summer: 'Hạ',
+        autumn: 'Thu',
+        winter: 'Đông'
       }
-      discoveryTimes.value[itemId] = `第${gameStore.year}年 ${SEASON_NAMES[gameStore.season] ?? gameStore.season} 第${gameStore.day}天`
+      discoveryTimes.value[itemId] = `Năm ${gameStore.year}, ${SEASON_NAMES[gameStore.season] ?? gameStore.season}, ngày ${gameStore.day}`
     }
   }
 

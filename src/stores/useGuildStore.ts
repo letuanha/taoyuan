@@ -98,7 +98,7 @@ export const useGuildStore = defineStore('guild', () => {
     const bonusPoints = Math.floor((goal.reward.money ?? 0) / 20) + goal.killTarget
     contributionPoints.value += bonusPoints
     claimedGoals.value.push(monsterId)
-    addLog(`领取讨伐奖励，额外获得 ${bonusPoints} 贡献点。`)
+    addLog(`Nhận thưởng chinh phạt, nhận thêm ${bonusPoints} điểm cống hiến.`)
     return true
   }
 
@@ -140,7 +140,7 @@ export const useGuildStore = defineStore('guild', () => {
       const next = GUILD_LEVELS[guildLevel.value]
       if (!next || guildExp.value < next.expRequired) break
       guildLevel.value++
-      addLog(`冒险家公会等级提升到 ${guildLevel.value} 级！`)
+      addLog(`Cấp Công hội Mạo hiểm giả tăng lên cấp ${guildLevel.value}!`)
     }
   }
 
@@ -287,7 +287,7 @@ export const useGuildStore = defineStore('guild', () => {
     if (item.totalLimit) {
       totalPurchases.value[itemId] = (totalPurchases.value[itemId] ?? 0) + 1
     }
-    addLog(`在公会商店购买了「${item.name}」。`)
+    addLog(`Đã mua 「${item.name}」 tại cửa hàng công hội.`)
     return true
   }
 

@@ -2,22 +2,22 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <ChefHat :size="14" />
-      <span>冬至包饺子</span>
+      <span>Gói sủi cảo Đông Chí</span>
     </h3>
 
     <!-- 准备 -->
     <div v-if="phase === 'ready'">
-      <p class="text-xs text-muted mb-3">25秒内包尽可能多的饺子！每个饺子需要三步：擀皮 → 放馅 → 捏合。按顺序点击对应按钮！</p>
-      <Button class="w-full" @click="startGame">开始包饺子！</Button>
+      <p class="text-xs text-muted mb-3">Trong 25 giây hãy gói thật nhiều sủi cảo! Mỗi chiếc cần 3 bước: cán vỏ → cho nhân → gói lại. Nhấn các nút theo đúng thứ tự!</p>
+      <Button class="w-full" @click="startGame">Bắt đầu gói sủi cảo!</Button>
     </div>
 
     <!-- 制作中 -->
     <div v-else-if="phase === 'making'">
       <div class="flex items-center justify-between mb-2">
         <p class="text-xs text-muted">
-          已完成：
+          Đã hoàn thành:
           <span class="text-accent">{{ dumplingCount }}</span>
-          个
+          cái
         </p>
         <p class="text-xs" :class="timeLeft <= 5 ? 'text-danger time-pulse' : 'text-accent'">
           <Timer :size="12" class="inline -mt-0.5" />
@@ -42,7 +42,7 @@
 
       <!-- 当前饺子状态 -->
       <div class="border border-accent/20 p-3 mb-3 text-center">
-        <p class="text-xs text-muted mb-2">第 {{ dumplingCount + 1 }} 个饺子</p>
+        <p class="text-xs text-muted mb-2">lượt {{ dumplingCount + 1 }} cáisủi cảocon</p>
 
         <!-- 步骤指示 -->
         <div class="flex justify-center space-x-1 mb-3">
@@ -68,14 +68,14 @@
             :class="{ 'dough-roll': animating }"
             class="w-12 h-12 border-2 border-accent/50 rounded-full flex items-center justify-center text-sm text-muted"
           >
-            皮
+            vỏ
           </div>
           <div
             v-else-if="currentStep === 1"
             :class="{ 'fill-drop': animating }"
             class="w-12 h-12 border-2 border-success/50 rounded-full flex items-center justify-center text-sm text-muted"
           >
-            馅
+            nhân
           </div>
           <div v-else-if="currentStep === 2" :class="{ 'pinch-close': animating }" class="flex items-center space-x-1">
             <div class="w-6 h-9 border-2 border-accent/50 rounded-l-full" />
@@ -84,17 +84,17 @@
         </div>
 
         <!-- 错误提示 -->
-        <p v-if="showError" class="text-danger text-xs mt-1 wrong-shake">顺序不对！重来！</p>
+        <p v-if="showError" class="text-danger text-xs mt-1 wrong-shake">Sai thứ tự! Làm lại!</p>
 
         <!-- 完成动画 -->
         <div v-if="showComplete" class="dumpling-done text-sm text-success mt-1 flex items-center justify-center space-x-1">
-          饺子完成！
+          Hoàn thành sủi cảo!
           <Cookie :size="14" />
         </div>
       </div>
 
       <!-- 顺序变更提示 -->
-      <p v-if="showShuffle" class="text-accent text-xs mb-2 text-center shuffle-flash">按钮顺序变了！注意看！</p>
+      <p v-if="showShuffle" class="text-accent text-xs mb-2 text-center shuffle-flash">Thứ tự nút đã thay đổi! Chú ý nhé!</p>
 
       <!-- 操作按钮 -->
       <div class="flex space-x-2">
@@ -115,7 +115,7 @@
 
     <!-- 结束 -->
     <div v-else>
-      <p class="text-xs text-muted mb-2">时间到！</p>
+      <p class="text-xs text-muted mb-2">Hết giờ!</p>
 
       <!-- 饺子展示 -->
       <div v-if="dumplingCount > 0" class="flex flex-wrap space-x-1 mb-3 justify-center border border-accent/20 p-2">
@@ -125,17 +125,17 @@
 
       <div class="border border-accent/20 p-2 mb-3 text-center">
         <p class="text-xs mb-1">
-          共包了
+          tổnggóiđã
           <span class="text-accent">{{ dumplingCount }}</span>
-          个饺子！
+          cáisủi cảocon！
         </p>
         <p class="text-xs">
-          奖金：
+          thưởngvàng：
           <span class="text-accent">{{ prize }}</span>
-          文
+          xu
         </p>
       </div>
-      <Button class="w-full" @click="handleClaim">领取奖励</Button>
+      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
     </div>
   </div>
 </template>
@@ -162,9 +162,9 @@
   const phase = ref<Phase>('ready')
 
   const steps = [
-    { label: '擀皮', action: '擀皮' },
-    { label: '放馅', action: '放馅' },
-    { label: '捏合', action: '捏合' }
+    { label: 'Cán vỏ', action: 'Cán vỏ' },
+    { label: 'Cho nhân', action: 'Cho nhân' },
+    { label: 'Gấp bánh', action: 'Gấp bánh' }
   ]
 
   const timeLeft = ref(25)
@@ -184,10 +184,10 @@
 
   const prize = computed(() => Math.min(1000, dumplingCount.value * 100))
 
-  /** 打乱按钮顺序：随机交换1-3个位置 */
+  /** đánhloạnnhấnnútthuậnthứ tự：theomáygiaođổi1-3cáivị tríđặt */
   const shuffleButtons = () => {
     const order = [...buttonOrder.value]
-    const swapCount = 1 + Math.floor(Math.random() * 3) // 1-3次交换
+    const swapCount = 1 + Math.floor(Math.random() * 3) // 1-3lầngiaođổi
     for (let s = 0; s < swapCount; s++) {
       const i = Math.floor(Math.random() * 3)
       let j = Math.floor(Math.random() * 3)
@@ -198,7 +198,7 @@
     }
     // 确保确实变了
     if (order.every((v, idx) => v === buttonOrder.value[idx])) {
-      // 如果没变就强制交换前两个
+      // nhưquảkhôngbiếnthìmạnhchếgiaođổitrướchaicái
       const tmp = order[0]!
       order[0] = order[1]!
       order[1] = tmp
@@ -235,7 +235,7 @@
     if (phase.value !== 'making') return
 
     if (stepIdx !== currentStep.value) {
-      // 错误步骤
+      // saisaibướcđột ngột
       sfxMiniFail()
       showError.value = true
       currentStep.value = 0
@@ -254,7 +254,7 @@
     }, 300)
 
     if (currentStep.value === 2) {
-      // 完成一个饺子
+      // hoàn成mộtcáisủi cảocon
       sfxDumplingDone()
       dumplingCount.value++
       showComplete.value = true
@@ -262,7 +262,7 @@
       completeTimeout = setTimeout(() => {
         showComplete.value = false
         currentStep.value = 0
-        // 包到3个及以上后，每完成一个有概率打乱按钮顺序
+        // góiđến3cáivàdùnglênsau，mỗihoàn成mộtcáicókháisuấtđánhloạnnhấnnútthuậnthứ tự
         if (dumplingCount.value >= 3) {
           shuffleButtons()
         }
@@ -278,7 +278,7 @@
     countdownTimer = null
     phase.value = 'finished'
 
-    // 结算音效
+    // kếttínhâm thanhhiệu
     if (dumplingCount.value >= 8) sfxRankFirst()
     else if (dumplingCount.value >= 5) sfxRankSecond()
   }

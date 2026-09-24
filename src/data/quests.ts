@@ -9,7 +9,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       // 常见作物 — 混合季节
       {
         itemId: 'cabbage',
-        name: '青菜',
+        name: 'Cải xanh',
         minQty: 2,
         maxQty: 5,
         seasons: ['spring'],
@@ -17,7 +17,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'radish',
-        name: '萝卜',
+        name: 'Củ cải',
         minQty: 2,
         maxQty: 4,
         seasons: ['spring'],
@@ -25,7 +25,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'potato',
-        name: '土豆',
+        name: 'Khoai tây',
         minQty: 2,
         maxQty: 4,
         seasons: ['spring'],
@@ -33,7 +33,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'rice',
-        name: '稻米',
+        name: 'Gạo',
         minQty: 2,
         maxQty: 5,
         seasons: ['summer'],
@@ -41,7 +41,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'watermelon',
-        name: '西瓜',
+        name: 'Dưa hấu',
         minQty: 1,
         maxQty: 3,
         seasons: ['summer'],
@@ -49,7 +49,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'chili',
-        name: '辣椒',
+        name: 'Ớt',
         minQty: 2,
         maxQty: 4,
         seasons: ['summer'],
@@ -57,7 +57,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'pumpkin',
-        name: '南瓜',
+        name: 'Bí đỏ',
         minQty: 1,
         maxQty: 3,
         seasons: ['autumn'],
@@ -65,7 +65,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'sweet_potato',
-        name: '红薯',
+        name: 'Khoai lang',
         minQty: 2,
         maxQty: 4,
         seasons: ['autumn'],
@@ -73,7 +73,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'winter_wheat',
-        name: '冬小麦',
+        name: 'Lúa mì mùa đông',
         minQty: 2,
         maxQty: 5,
         seasons: ['winter'],
@@ -81,7 +81,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'garlic',
-        name: '大蒜',
+        name: 'Tỏi',
         minQty: 2,
         maxQty: 4,
         seasons: ['winter'],
@@ -97,7 +97,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
     targets: [
       {
         itemId: 'crucian',
-        name: '鲫鱼',
+        name: 'Cá diếc',
         minQty: 1,
         maxQty: 3,
         seasons: [],
@@ -105,7 +105,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'carp',
-        name: '鲤鱼',
+        name: 'Cá chép',
         minQty: 1,
         maxQty: 2,
         seasons: ['spring', 'summer'],
@@ -113,7 +113,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'grass_carp',
-        name: '草鱼',
+        name: 'Cá trắm cỏ',
         minQty: 1,
         maxQty: 2,
         seasons: ['summer', 'autumn'],
@@ -121,7 +121,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'catfish',
-        name: '鲶鱼',
+        name: 'Cá trê',
         minQty: 1,
         maxQty: 2,
         seasons: ['summer'],
@@ -129,7 +129,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'bass',
-        name: '鲈鱼',
+        name: 'Cá vược',
         minQty: 1,
         maxQty: 2,
         seasons: ['autumn'],
@@ -137,7 +137,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'loach',
-        name: '泥鳅',
+        name: 'Cá chạch',
         minQty: 1,
         maxQty: 3,
         seasons: ['summer', 'autumn'],
@@ -145,7 +145,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'creek_shrimp',
-        name: '溪虾',
+        name: 'Tôm suối',
         minQty: 2,
         maxQty: 4,
         seasons: ['spring', 'summer', 'autumn'],
@@ -153,7 +153,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'silver_carp',
-        name: '白鲢',
+        name: 'Cá mè trắng',
         minQty: 1,
         maxQty: 2,
         seasons: ['summer'],
@@ -169,7 +169,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
     targets: [
       {
         itemId: 'copper_ore',
-        name: '铜矿',
+        name: 'Quặng đồng',
         minQty: 3,
         maxQty: 8,
         seasons: [],
@@ -177,7 +177,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'iron_ore',
-        name: '铁矿',
+        name: 'Quặng sắt',
         minQty: 3,
         maxQty: 6,
         seasons: [],
@@ -185,7 +185,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'gold_ore',
-        name: '金矿',
+        name: 'Quặng vàng',
         minQty: 2,
         maxQty: 4,
         seasons: [],
@@ -193,7 +193,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'quartz',
-        name: '石英',
+        name: 'Thạch anh',
         minQty: 1,
         maxQty: 3,
         seasons: [],
@@ -201,7 +201,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'jade',
-        name: '翡翠',
+        name: 'Phỉ thúy',
         minQty: 1,
         maxQty: 2,
         seasons: [],
@@ -217,7 +217,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
     targets: [
       {
         itemId: 'wood',
-        name: '木材',
+        name: 'Gỗ',
         minQty: 5,
         maxQty: 10,
         seasons: [],
@@ -225,7 +225,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'herb',
-        name: '草药',
+        name: 'Thảo dược',
         minQty: 2,
         maxQty: 5,
         seasons: ['spring', 'summer', 'autumn'],
@@ -233,7 +233,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'firewood',
-        name: '柴火',
+        name: 'Củi khô',
         minQty: 5,
         maxQty: 10,
         seasons: [],
@@ -241,7 +241,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'bamboo',
-        name: '竹子',
+        name: 'Tre trúc',
         minQty: 3,
         maxQty: 6,
         seasons: ['spring', 'summer'],
@@ -249,7 +249,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'pine_cone',
-        name: '松果',
+        name: 'Quả thông',
         minQty: 2,
         maxQty: 4,
         seasons: ['autumn', 'winter'],
@@ -257,7 +257,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'wild_mushroom',
-        name: '野蘑菇',
+        name: 'Nấm rừng',
         minQty: 2,
         maxQty: 4,
         seasons: ['autumn'],
@@ -265,7 +265,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'wild_berry',
-        name: '野果',
+        name: 'Quả dại',
         minQty: 3,
         maxQty: 5,
         seasons: ['summer'],
@@ -273,7 +273,7 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
       },
       {
         itemId: 'ginseng',
-        name: '人参',
+        name: 'Nhân Sâm',
         minQty: 1,
         maxQty: 2,
         seasons: ['autumn', 'winter'],
@@ -288,19 +288,19 @@ export const QUEST_TEMPLATES: QuestTemplateDef[] = [
 
 // 委托类型描述映射（预留）
 export const QUEST_TYPE_LABELS: Record<QuestType, string> = {
-  delivery: '送',
-  fishing: '钓',
-  mining: '采',
-  gathering: '收集',
-  special_order: '特殊'
+  delivery: 'Tặng',
+  fishing: 'Câu',
+  mining: 'Thu thập',
+  gathering: 'Thu thập',
+  special_order: 'Đặc biệt'
 }
 
 const QUEST_TYPE_VERBS: Record<QuestType, string> = {
-  delivery: '送给',
-  fishing: '钓到',
-  mining: '采集',
-  gathering: '收集',
-  special_order: '收集'
+  delivery: 'Tặng cho',
+  fishing: 'Câu được',
+  mining: 'Thu thập',
+  gathering: 'Thu thập',
+  special_order: 'Thu thập'
 }
 
 /** 特殊订单模板 */
@@ -322,9 +322,9 @@ interface SpecialOrderTemplate {
 const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
   // === 第1梯度 (第7天): 简单, 7天时限, 数量少, 奖励适中 ===
   {
-    name: '铜矿采购',
+    name: 'Thu mua quặng đồng',
     targetItemId: 'copper_ore',
-    targetItemName: '铜矿',
+    targetItemName: 'Quặng đồng',
     quantity: 15,
     days: 7,
     moneyReward: 600,
@@ -334,9 +334,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 1
   },
   {
-    name: '鲜鱼征集',
+    name: 'Thu gom cá tươi',
     targetItemId: 'crucian',
-    targetItemName: '鲫鱼',
+    targetItemName: 'Cá diếc',
     quantity: 8,
     days: 7,
     moneyReward: 500,
@@ -346,9 +346,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 1
   },
   {
-    name: '蔬菜采购',
+    name: 'Thu mua rau củ',
     targetItemId: 'cabbage',
-    targetItemName: '青菜',
+    targetItemName: 'Cải xanh',
     quantity: 10,
     days: 7,
     moneyReward: 500,
@@ -358,9 +358,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 1
   },
   {
-    name: '木材备料',
+    name: 'Chuẩn bị gỗ',
     targetItemId: 'wood',
-    targetItemName: '木材',
+    targetItemName: 'Gỗ',
     quantity: 30,
     days: 7,
     moneyReward: 400,
@@ -371,9 +371,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
   },
   // === 第2梯度 (第14天): 普通, 7天时限, 数量中等, 奖励较好 ===
   {
-    name: '铁矿备料',
+    name: 'Chuẩn bị quặng sắt',
     targetItemId: 'iron_ore',
-    targetItemName: '铁矿',
+    targetItemName: 'Quặng sắt',
     quantity: 15,
     days: 7,
     moneyReward: 1200,
@@ -383,9 +383,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 2
   },
   {
-    name: '珍鱼征集令',
+    name: 'Lệnh thu gom cá quý',
     targetItemId: 'catfish',
-    targetItemName: '鲶鱼',
+    targetItemName: 'Cá trê',
     quantity: 5,
     days: 7,
     moneyReward: 1000,
@@ -395,9 +395,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 2
   },
   {
-    name: '冬储备战',
+    name: 'Tích trữ mùa đông',
     targetItemId: 'winter_wheat',
-    targetItemName: '冬小麦',
+    targetItemName: 'Lúa mì mùa đông',
     quantity: 15,
     days: 7,
     moneyReward: 1200,
@@ -407,9 +407,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 2
   },
   {
-    name: '药材收集',
+    name: 'Thu thập dược liệu',
     targetItemId: 'herb',
-    targetItemName: '草药',
+    targetItemName: 'Thảo dược',
     quantity: 15,
     days: 7,
     moneyReward: 800,
@@ -420,9 +420,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
   },
   // === 第3梯度 (第21天): 困难, 7天时限, 数量大, 奖励丰厚 ===
   {
-    name: '丰收计划',
+    name: 'Kế hoạch mùa bội thu',
     targetItemId: 'pumpkin',
-    targetItemName: '南瓜',
+    targetItemName: 'Bí đỏ',
     quantity: 10,
     days: 7,
     moneyReward: 2000,
@@ -432,9 +432,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 3
   },
   {
-    name: '西瓜大丰收',
+    name: 'Đại thu hoạch dưa hấu',
     targetItemId: 'watermelon',
-    targetItemName: '西瓜',
+    targetItemName: 'Dưa hấu',
     quantity: 10,
     days: 7,
     moneyReward: 2200,
@@ -444,9 +444,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 3
   },
   {
-    name: '深层金矿',
+    name: 'Quặng vàng tầng sâu',
     targetItemId: 'gold_ore',
-    targetItemName: '金矿',
+    targetItemName: 'Quặng vàng',
     quantity: 15,
     days: 7,
     moneyReward: 2500,
@@ -456,9 +456,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 3
   },
   {
-    name: '药材囤积',
+    name: 'Tích trữ dược liệu',
     targetItemId: 'ginseng',
-    targetItemName: '人参',
+    targetItemName: 'Nhân Sâm',
     quantity: 6,
     days: 7,
     moneyReward: 2000,
@@ -469,9 +469,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
   },
   // === 第4梯度 (第28天): 极难, 7天时限, 数量极大, 奖励最丰厚 ===
   {
-    name: '矿石大征集',
+    name: 'Đại thu gom quặng',
     targetItemId: 'gold_ore',
-    targetItemName: '金矿',
+    targetItemName: 'Quặng vàng',
     quantity: 25,
     days: 7,
     moneyReward: 4000,
@@ -484,9 +484,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 4
   },
   {
-    name: '丰年盛宴',
+    name: 'Tiệc mùa bội thu',
     targetItemId: 'pumpkin',
-    targetItemName: '南瓜',
+    targetItemName: 'Bí đỏ',
     quantity: 20,
     days: 7,
     moneyReward: 4500,
@@ -499,9 +499,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 4
   },
   {
-    name: '渔王挑战',
+    name: 'Thử thách Vua Câu Cá',
     targetItemId: 'catfish',
-    targetItemName: '鲶鱼',
+    targetItemName: 'Cá trê',
     quantity: 12,
     days: 7,
     moneyReward: 3500,
@@ -511,9 +511,9 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
     tier: 4
   },
   {
-    name: '冬日大囤货',
+    name: 'Đại tích trữ mùa đông',
     targetItemId: 'winter_wheat',
-    targetItemName: '冬小麦',
+    targetItemName: 'Lúa mì mùa đông',
     quantity: 30,
     days: 7,
     moneyReward: 3500,
@@ -527,7 +527,7 @@ const SPECIAL_ORDER_TEMPLATES: SpecialOrderTemplate[] = [
   }
 ]
 
-const TIER_LABELS = ['简单', '普通', '困难', '极难']
+const TIER_LABELS = ['Dễ', 'Thường', 'Khó', 'Cực khó']
 const TIER_FRIENDSHIP = [5, 8, 12, 15]
 
 /** 根据当前季节和梯度生成特殊订单 (tier: 1-4 对应 第7/14/21/28天) */
@@ -548,7 +548,7 @@ export const generateSpecialOrder = (season: Season, tier: number): QuestInstanc
     npcId: template.npcId,
     npcName,
     tierLabel,
-    description: `${npcName}急需${template.quantity}个${template.targetItemName}。`,
+    description: `${npcName} đang rất cần ${template.quantity} ${template.targetItemName}.`,
     targetItemId: template.targetItemId,
     targetItemName: template.targetItemName,
     targetQuantity: template.quantity,
@@ -591,8 +591,8 @@ export const generateQuest = (season: Season, _day: number): QuestInstance | nul
   const verb = QUEST_TYPE_VERBS[template.type]
   const description =
     template.type === 'delivery'
-      ? `${npcName}需要${quantity}个${target.name}，请${verb}${npcName}。`
-      : `${npcName}委托：${verb}${quantity}个${target.name}。`
+      ? `${npcName} cần ${quantity} ${target.name}, hãy ${verb} cho ${npcName}.`
+      : `Ủy thác của ${npcName}: ${verb} ${quantity} ${target.name}.`
 
   return {
     id: `quest_${Date.now()}_${questCounter}`,

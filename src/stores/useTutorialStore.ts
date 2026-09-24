@@ -6,7 +6,7 @@ export const useTutorialStore = defineStore('tutorial', () => {
   const enabled = ref(true)
   /** 已显示过的晨间提示 ID 列表 */
   const shownTipIds = ref<string[]>([])
-  /** 已访问过的面板列表（用于"首次访问"判定） */
+  /** 已访问过的面板列表（用于"Lần đầu ghé thăm"判定） */
   const visitedPanels = ref<string[]>([])
   /** 通用标记（如 staminaWasLow、seenRain 等） */
   const flags = ref<Record<string, boolean>>({})

@@ -353,7 +353,7 @@ export const useFarmStore = defineStore('farm', () => {
 
   const applyFertileSoil = (farmingLevel: number): { count: number; fertilizerName: string } => {
     const fertilizerId = farmingLevel >= 8 ? 'deluxe_speed_gro' : farmingLevel >= 5 ? 'quality_fertilizer' : 'basic_fertilizer'
-    const fertilizerName = farmingLevel >= 8 ? '高级生长激素' : farmingLevel >= 5 ? '优质肥料' : '基础肥料'
+    const fertilizerName = farmingLevel >= 8 ? 'Hoóc-môn tăng trưởng cao cấp' : farmingLevel >= 5 ? 'Phân Bón Chất Lượng' : 'Phân Bón Cơ Bản'
     let count = 0
     for (const plot of plots.value) {
       if (plot.state !== 'wasteland' && !plot.fertilizer) {
@@ -574,7 +574,7 @@ export const useFarmStore = defineStore('farm', () => {
 
     const target = croppedPlots[Math.floor(Math.random() * croppedPlots.length)]!
     const crop = getCropById(target.cropId!)
-    const cropName = crop?.name ?? '作物'
+    const cropName = crop?.name ?? 'Nông sản'
 
     target.state = 'tilled'
     target.cropId = null
@@ -600,7 +600,7 @@ export const useFarmStore = defineStore('farm', () => {
     if (croppedPlots.length === 0) return { attacked: false }
     const target = croppedPlots[Math.floor(Math.random() * croppedPlots.length)]!
     const crop = getCropById(target.cropId!)
-    const cropName = crop?.name ?? '作物'
+    const cropName = crop?.name ?? 'Nông sản'
     target.state = 'tilled'
     target.cropId = null
     target.growthDays = 0

@@ -4,52 +4,52 @@ import type { WalletItemDef } from '@/types'
 export const WALLET_ITEMS: WalletItemDef[] = [
   {
     id: 'merchant_seal',
-    name: '商人印章',
-    description: '商店购物价格降低10%。',
+    name: 'Ấn Chương Thương Nhân',
+    description: 'Giảm 10% giá mua hàng tại cửa hàng.',
     effect: { type: 'shopDiscount', value: 0.1 },
-    unlockCondition: '累计赚取10000文'
+    unlockCondition: 'Tích lũy kiếm được 10000 xu'
   },
   {
     id: 'herb_guide',
-    name: '神农本草',
-    description: '采集物品质提升1档。',
+    name: 'Thần Nông Bản Thảo',
+    description: 'Tăng 1 bậc chất lượng vật phẩm thu thập.',
     effect: { type: 'forageQuality', value: 1 },
-    unlockCondition: '采集等级达到8'
+    unlockCondition: 'Cấp độ thu thập đạt 8'
   },
   {
     id: 'miners_charm',
-    name: '矿工护符',
-    description: '挖矿体力消耗降低15%。',
+    name: 'Bùa Thợ Mỏ',
+    description: 'Giảm 15% thể lực tiêu hao khi đào mỏ.',
     effect: { type: 'miningStamina', value: 0.15 },
-    unlockCondition: '矿洞到达50层'
+    unlockCondition: 'Đạt tầng 50 hang mỏ'
   },
   {
     id: 'anglers_token',
-    name: '钓翁令牌',
-    description: '钓鱼小游戏中鱼移动速度降低10%。',
+    name: 'Lệnh Bài Lão Ngư',
+    description: 'Giảm 10% tốc độ di chuyển của cá trong minigame câu cá.',
     effect: { type: 'fishingCalm', value: 0.1 },
-    unlockCondition: '钓到30种不同的鱼'
+    unlockCondition: 'Câu được 30 loại cá khác nhau'
   },
   {
     id: 'chefs_hat',
-    name: '厨师帽',
-    description: '烹饪食物恢复量+25%。',
+    name: 'Mũ Đầu Bếp',
+    description: 'Lượng hồi phục từ thức ăn nấu ra +25%.',
     effect: { type: 'cookingRestore', value: 0.25 },
-    unlockCondition: '烹饪10道不同的食谱'
+    unlockCondition: 'Nấu 10 công thức món ăn khác nhau'
   },
   {
     id: 'earth_totem',
-    name: '土地图腾',
-    description: '作物生长速度+10%。',
+    name: 'Đồ Đằng Đất',
+    description: 'Tốc độ sinh trưởng của cây trồng +10%.',
     effect: { type: 'cropGrowth', value: 0.1 },
-    unlockCondition: '收获100次作物'
+    unlockCondition: 'Thu hoạch cây trồng 100 lần'
   },
   {
     id: 'trade_prosperity_seal',
-    name: '通商金印',
-    description: '通商积分获取+20%。',
+    name: 'Kim Ấn Thông Thương',
+    description: 'Điểm thông thương nhận được +20%.',
     effect: { type: 'tradeBonus', value: 0.2 },
-    unlockCondition: '通商积分兑换获得'
+    unlockCondition: 'Nhận qua đổi điểm thông thương'
   }
 ]
 

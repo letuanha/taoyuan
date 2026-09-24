@@ -2,18 +2,18 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <Ship :size="14" />
-      <span>端午赛龙舟</span>
+      <span>Đua thuyền rồng Tết Đoan Ngọ</span>
     </h3>
 
     <!-- 准备阶段 -->
     <div v-if="phase === 'ready'">
-      <p class="text-xs text-muted mb-3">三条龙舟蓄势待发！疯狂点击「划桨」按钮让龙舟前进，10秒内看谁划得最远！</p>
-      <Button class="w-full" @click="startCountdown">开始比赛！</Button>
+      <p class="text-xs text-muted mb-3">Ba thuyền rồng đã sẵn sàng! Nhấn liên tục nút 「Chèo」 để thuyền tiến lên, xem ai đi xa nhất trong 10 giây!</p>
+      <Button class="w-full" @click="startCountdown">Bắt đầu thi đấu!</Button>
     </div>
 
     <!-- 倒计时 -->
     <div v-else-if="phase === 'countdown'" class="text-center py-6">
-      <p class="text-xs text-muted mb-3">准备——</p>
+      <p class="text-xs text-muted mb-3">Chuẩn bị——</p>
       <div class="countdown-num text-accent text-2xl">{{ countdownNum }}</div>
     </div>
 
@@ -22,7 +22,7 @@
       <div class="flex items-center justify-between mb-2">
         <p class="text-xs text-muted">
           <Timer :size="12" class="inline -mt-0.5" />
-          剩余时间
+          còncònthờigian
         </p>
         <p class="text-sm font-bold" :class="timeLeft <= 3 ? 'text-danger time-pulse' : 'text-accent'">{{ timeLeft }}s</p>
       </div>
@@ -58,24 +58,24 @@
 
       <!-- 划桨按钮 + 点击计数 -->
       <div class="flex items-center space-x-2">
-        <Button class="flex-1 py-3 text-sm active:!bg-accent active:!text-bg paddle-btn" :icon="Zap" @click="paddle">划桨！</Button>
+        <Button class="flex-1 py-3 text-sm active:!bg-accent active:!text-bg paddle-btn" :icon="Zap" @click="paddle">Chèo!</Button>
         <div class="text-center min-w-12">
           <p class="text-accent text-sm font-bold">{{ clickCount }}</p>
-          <p class="text-xs text-muted leading-none">次</p>
+          <p class="text-xs text-muted leading-none">lần</p>
         </div>
       </div>
     </div>
 
     <!-- 结束 -->
     <div v-else>
-      <p class="text-xs text-muted mb-2">比赛结束！最终排名：</p>
+      <p class="text-xs text-muted mb-2">Cuộc đua kết thúc! Xếp hạng cuối cùng:</p>
 
       <div class="border border-accent/20 mb-3">
         <div
           v-for="(entry, i) in rankings"
           :key="entry.name"
           class="flex items-center justify-between text-xs px-2 py-1.5 border-b border-accent/10 last:border-0"
-          :class="{ 'bg-accent/5': entry.name === '你' }"
+          :class="{ 'bg-accent/5': entry.name === 'Bạn' }"
         >
           <div class="flex items-center space-x-2">
             <span class="w-5 flex justify-center" :class="rankColor(i)">
@@ -83,19 +83,19 @@
               <Medal v-else-if="i === 1" :size="12" />
               <Award v-else :size="12" />
             </span>
-            <span :class="{ 'text-accent': entry.name === '你' }">{{ entry.name }}</span>
+            <span :class="{ 'text-accent': entry.name === 'Bạn' }">{{ entry.name }}</span>
           </div>
           <span class="text-muted">{{ entry.progress }}m</span>
         </div>
       </div>
 
       <div class="border border-accent/20 p-2 mb-3 text-center">
-        <span v-if="playerRank === 1" class="text-accent text-xs finish-flash">恭喜你获得冠军！奖金 800文</span>
-        <span v-else-if="playerRank === 2" class="text-success text-xs">你获得了亚军！奖金 400文</span>
-        <span v-else class="text-muted text-xs">获得了季军。奖金 200文</span>
+        <span v-if="playerRank === 1" class="text-accent text-xs finish-flash">Chúc mừng bạn giành chức vô địch! Thưởng 800 văn</span>
+        <span v-else-if="playerRank === 2" class="text-success text-xs">Bạn giành hạng nhì! Thưởng 400 văn</span>
+        <span v-else class="text-muted text-xs">Giành hạng ba. Thưởng 200 văn</span>
       </div>
 
-      <Button class="w-full" @click="handleClaim">领取奖励</Button>
+      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
     </div>
   </div>
 </template>
@@ -129,9 +129,9 @@
   }
 
   const boats = ref<Boat[]>([
-    { name: '你', progress: 0 },
-    { name: '阿石队', progress: 0 },
-    { name: '小满队', progress: 0 }
+    { name: 'Bạn', progress: 0 },
+    { name: 'Đội A Thạch', progress: 0 },
+    { name: 'Đội Tiểu Mãn', progress: 0 }
   ])
 
   const timeLeft = ref(raceDuration)
@@ -146,7 +146,7 @@
   let cdTimeout: ReturnType<typeof setTimeout> | null = null
 
   const playerRank = computed(() => {
-    const idx = rankings.value.findIndex(b => b.name === '你')
+    const idx = rankings.value.findIndex(b => b.name === 'Bạn')
     return idx === -1 ? 3 : idx + 1
   })
 
@@ -190,13 +190,13 @@
     timeLeft.value = raceDuration
     clickCount.value = 0
 
-    // NPC自动划船
+    // NPCtựtácchèothuyền
     raceTimer = setInterval(() => {
       boats.value[1]!.progress += Math.floor(Math.random() * 4) + 2
       boats.value[2]!.progress += Math.floor(Math.random() * 4) + 2
     }, 500)
 
-    // 倒计时
+    // gụctínhthời
     countdownTimer = setInterval(() => {
       timeLeft.value--
       if (timeLeft.value <= 3 && timeLeft.value > 0) sfxCountdownFinal()
@@ -229,8 +229,8 @@
     rankings.value = sorted
     phase.value = 'finished'
 
-    // 按排名播放音效
-    const rank = rankings.value.findIndex(b => b.name === '你') + 1
+    // nhấnxếptênphátđặtâm thanhhiệu
+    const rank = rankings.value.findIndex(b => b.name === 'Bạn') + 1
     if (rank === 1) sfxRankFirst()
     else if (rank === 2) sfxRankSecond()
     else sfxRankThird()

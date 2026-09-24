@@ -4,9 +4,9 @@
     <div class="flex items-center justify-between mb-1">
       <div class="flex items-center space-x-1.5 text-sm text-accent">
         <User :size="14" />
-        <span>角色信息</span>
+        <span>Thông tin nhân vật</span>
       </div>
-      <span class="text-xs text-muted">第{{ gameStore.year }}年 {{ SEASON_NAMES[gameStore.season] }}</span>
+      <span class="text-xs text-muted">lượt{{ gameStore.year }}năm {{ SEASON_NAMES[gameStore.season] }}</span>
     </div>
 
     <!-- 角色身份 + 属性 -->
@@ -19,7 +19,7 @@
       <div class="flex flex-col space-y-1.5">
         <!-- 体力 -->
         <div class="flex items-center space-x-2">
-          <span class="text-xs text-muted shrink-0">体力</span>
+          <span class="text-xs text-muted shrink-0">Thể lực</span>
           <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
             <div
               class="h-full rounded-xs transition-all"
@@ -31,7 +31,7 @@
         </div>
         <!-- 生命 -->
         <div class="flex items-center space-x-2">
-          <span class="text-xs text-muted shrink-0">生命</span>
+          <span class="text-xs text-muted shrink-0">HP</span>
           <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
             <div
               class="h-full rounded-xs transition-all"
@@ -43,53 +43,53 @@
         </div>
         <!-- 铜钱 -->
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">铜钱</span>
-          <span class="text-xs text-accent">{{ playerStore.money }}文</span>
+          <span class="text-xs text-muted">Tiền đồng</span>
+          <span class="text-xs text-accent">{{ playerStore.money }}văn</span>
         </div>
       </div>
     </div>
 
     <!-- 装备槽位 -->
     <div class="border border-accent/20 rounded-xs p-2 mb-3">
-      <p class="text-xs text-muted mb-1.5">装备</p>
+      <p class="text-xs text-muted mb-1.5">Trang bị</p>
       <div class="grid grid-cols-3 gap-1 mb-1">
         <div
           class="border border-accent/10 rounded-xs px-2 py-1 text-center cursor-pointer hover:bg-accent/5"
           @click="activeSlot = 'weapon'"
         >
-          <p class="text-[10px] text-muted">武器</p>
+          <p class="text-[10px] text-muted">Vũ khí</p>
           <p class="text-xs text-accent truncate">{{ equippedWeaponName }}</p>
         </div>
         <div
           class="border border-accent/10 rounded-xs px-2 py-1 text-center cursor-pointer hover:bg-accent/5"
           @click="activeSlot = 'ring1'"
         >
-          <p class="text-[10px] text-muted">戒指1</p>
+          <p class="text-[10px] text-muted">Nhẫn 1</p>
           <p class="text-xs truncate" :class="equippedRing1 ? 'text-accent' : 'text-muted/40'">
-            {{ equippedRing1?.name ?? '空' }}
+            {{ equippedRing1?.name ?? 'Trống' }}
           </p>
         </div>
         <div
           class="border border-accent/10 rounded-xs px-2 py-1 text-center cursor-pointer hover:bg-accent/5"
           @click="activeSlot = 'ring2'"
         >
-          <p class="text-[10px] text-muted">戒指2</p>
+          <p class="text-[10px] text-muted">Nhẫn 2</p>
           <p class="text-xs truncate" :class="equippedRing2 ? 'text-accent' : 'text-muted/40'">
-            {{ equippedRing2?.name ?? '空' }}
+            {{ equippedRing2?.name ?? 'Trống' }}
           </p>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-1">
         <div class="border border-accent/10 rounded-xs px-2 py-1 text-center cursor-pointer hover:bg-accent/5" @click="activeSlot = 'hat'">
-          <p class="text-[10px] text-muted">帽子</p>
+          <p class="text-[10px] text-muted">Mũ</p>
           <p class="text-xs truncate" :class="equippedHatName ? 'text-accent' : 'text-muted/40'">
-            {{ equippedHatName ?? '空' }}
+            {{ equippedHatName ?? 'Trống' }}
           </p>
         </div>
         <div class="border border-accent/10 rounded-xs px-2 py-1 text-center cursor-pointer hover:bg-accent/5" @click="activeSlot = 'shoe'">
-          <p class="text-[10px] text-muted">鞋子</p>
+          <p class="text-[10px] text-muted">Giày</p>
           <p class="text-xs truncate" :class="equippedShoeName ? 'text-accent' : 'text-muted/40'">
-            {{ equippedShoeName ?? '空' }}
+            {{ equippedShoeName ?? 'Trống' }}
           </p>
         </div>
       </div>
@@ -105,7 +105,7 @@
 
           <!-- 武器弹窗 -->
           <template v-if="activeSlot === 'weapon'">
-            <p class="text-sm text-accent mb-2">选择武器</p>
+            <p class="text-sm text-accent mb-2">Chọn vũ khí</p>
             <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
               <div
                 v-for="(weapon, index) in inventoryStore.ownedWeapons"
@@ -119,18 +119,18 @@
                     {{ getWeaponDisplayName(weapon.defId, weapon.enchantmentId) }}
                   </span>
                   <p class="text-[10px] text-muted truncate">
-                    攻{{ getWeaponStats(weapon).attack }} · 暴击{{ Math.round(getWeaponStats(weapon).critRate * 100) }}%
+                    tấn công{{ getWeaponStats(weapon).attack }} · bạođánh{{ Math.round(getWeaponStats(weapon).critRate * 100) }}%
                     <template v-if="weapon.enchantmentId">· {{ getEnchantName(weapon.enchantmentId) }}</template>
                   </p>
                 </div>
-                <span v-if="index === inventoryStore.equippedWeaponIndex" class="text-[10px] text-accent shrink-0 ml-1">当前</span>
+                <span v-if="index === inventoryStore.equippedWeaponIndex" class="text-[10px] text-accent shrink-0 ml-1">Hiện tại</span>
               </div>
             </div>
           </template>
 
           <!-- 戒指弹窗 -->
           <template v-else-if="activeSlot === 'ring1' || activeSlot === 'ring2'">
-            <p class="text-sm text-accent mb-2">选择{{ activeSlot === 'ring1' ? '戒指1' : '戒指2' }}</p>
+            <p class="text-sm text-accent mb-2">chọn {{ activeSlot === 'ring1' ? 'Nhẫn 1' : 'Nhẫn 2' }}</p>
             <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
               <!-- 卸下按钮 -->
               <div
@@ -138,7 +138,7 @@
                 class="flex items-center border border-danger/20 rounded-xs px-2 py-1.5 cursor-pointer hover:bg-danger/5 mr-1"
                 @click="handleUnequipRingFromPopup"
               >
-                <span class="text-xs text-danger">卸下当前戒指</span>
+                <span class="text-xs text-danger">Tháo nhẫn hiện tại</span>
               </div>
               <!-- 戒指列表 -->
               <template v-if="inventoryStore.ownedRings.length > 0">
@@ -155,26 +155,26 @@
                       {{ ring.effectText }}
                     </p>
                   </div>
-                  <span v-if="isRingInCurrentSlot(idx)" class="text-[10px] text-accent shrink-0 ml-1">当前</span>
+                  <span v-if="isRingInCurrentSlot(idx)" class="text-[10px] text-accent shrink-0 ml-1">Hiện tại</span>
                   <span v-else-if="isRingInOtherSlot(idx)" class="text-[10px] text-muted shrink-0 ml-1">
-                    在{{ activeSlot === 'ring1' ? '槽2' : '槽1' }}
+                    đang{{ activeSlot === 'ring1' ? 'Ô 2' : 'Ô 1' }}
                   </span>
                 </div>
               </template>
-              <p v-else class="text-xs text-muted/40 text-center py-2">暂无戒指</p>
+              <p v-else class="text-xs text-muted/40 text-center py-2">Chưa có nhẫn</p>
             </div>
           </template>
 
           <!-- 帽子弹窗 -->
           <template v-else-if="activeSlot === 'hat'">
-            <p class="text-sm text-accent mb-2">选择帽子</p>
+            <p class="text-sm text-accent mb-2">Chọn mũ</p>
             <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
               <div
                 v-if="inventoryStore.equippedHatIndex >= 0"
                 class="flex items-center border border-danger/20 rounded-xs px-2 py-1.5 cursor-pointer hover:bg-danger/5 mr-1"
                 @click="handleUnequipHatFromPopup"
               >
-                <span class="text-xs text-danger">卸下当前帽子</span>
+                <span class="text-xs text-danger">Tháo mũ hiện tại</span>
               </div>
               <template v-if="inventoryStore.ownedHats.length > 0">
                 <div
@@ -190,23 +190,23 @@
                       {{ hat.effectText }}
                     </p>
                   </div>
-                  <span v-if="hat.index === inventoryStore.equippedHatIndex" class="text-[10px] text-accent shrink-0 ml-1">当前</span>
+                  <span v-if="hat.index === inventoryStore.equippedHatIndex" class="text-[10px] text-accent shrink-0 ml-1">Hiện tại</span>
                 </div>
               </template>
-              <p v-else class="text-xs text-muted/40 text-center py-2">暂无帽子</p>
+              <p v-else class="text-xs text-muted/40 text-center py-2">Chưa có mũ</p>
             </div>
           </template>
 
           <!-- 鞋子弹窗 -->
           <template v-else-if="activeSlot === 'shoe'">
-            <p class="text-sm text-accent mb-2">选择鞋子</p>
+            <p class="text-sm text-accent mb-2">Chọn giày</p>
             <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
               <div
                 v-if="inventoryStore.equippedShoeIndex >= 0"
                 class="flex items-center border border-danger/20 rounded-xs px-2 py-1.5 cursor-pointer hover:bg-danger/5 mr-1"
                 @click="handleUnequipShoeFromPopup"
               >
-                <span class="text-xs text-danger">卸下当前鞋子</span>
+                <span class="text-xs text-danger">Tháo giày hiện tại</span>
               </div>
               <template v-if="inventoryStore.ownedShoes.length > 0">
                 <div
@@ -224,10 +224,10 @@
                       {{ shoe.effectText }}
                     </p>
                   </div>
-                  <span v-if="shoe.index === inventoryStore.equippedShoeIndex" class="text-[10px] text-accent shrink-0 ml-1">当前</span>
+                  <span v-if="shoe.index === inventoryStore.equippedShoeIndex" class="text-[10px] text-accent shrink-0 ml-1">Hiện tại</span>
                 </div>
               </template>
-              <p v-else class="text-xs text-muted/40 text-center py-2">暂无鞋子</p>
+              <p v-else class="text-xs text-muted/40 text-center py-2">Chưa có giày</p>
             </div>
           </template>
         </div>
@@ -237,8 +237,8 @@
     <!-- 工具一览 -->
     <div class="border border-accent/20 rounded-xs p-2 mb-3">
       <div class="flex items-center justify-between mb-1.5">
-        <p class="text-xs text-muted">工具</p>
-        <button class="text-xs text-accent hover:underline" @click="goToUpgrade">前往升级</button>
+        <p class="text-xs text-muted">Công cụ</p>
+        <button class="text-xs text-accent hover:underline" @click="goToUpgrade">Đi nâng cấp</button>
       </div>
       <div class="flex flex-col space-y-1">
         <div
@@ -250,7 +250,7 @@
             <span class="text-xs">{{ TOOL_NAMES[tool.type] }}</span>
             <span class="text-xs text-muted ml-1">{{ TIER_NAMES[tool.tier] }}</span>
           </div>
-          <span class="text-[10px] text-muted">-{{ Math.round((1 - inventoryStore.getToolStaminaMultiplier(tool.type)) * 100) }}%体力</span>
+          <span class="text-[10px] text-muted">-{{ Math.round((1 - inventoryStore.getToolStaminaMultiplier(tool.type)) * 100) }}%thể lực</span>
         </div>
       </div>
     </div>
@@ -258,8 +258,8 @@
     <!-- 技能总览 -->
     <div class="border border-accent/20 rounded-xs p-2 mb-3">
       <div class="flex items-center justify-between mb-1.5">
-        <p class="text-xs text-muted">技能</p>
-        <button class="text-xs text-accent hover:underline" @click="goToSkills">查看详情</button>
+        <p class="text-xs text-muted">Kỹ năng</p>
+        <button class="text-xs text-accent hover:underline" @click="goToSkills">Xem chi tiết</button>
       </div>
       <div class="flex flex-col space-y-0.5">
         <div v-for="skill in skillStore.skills" :key="skill.type" class="flex items-center justify-between">
@@ -275,7 +275,7 @@
 
     <!-- 被动加成 -->
     <div v-if="unlockedWalletItems.length > 0" class="border border-accent/20 rounded-xs p-2 mb-3">
-      <p class="text-xs text-muted mb-1.5">被动加成</p>
+      <p class="text-xs text-muted mb-1.5">Hiệu ứng bị động</p>
       <div class="flex flex-col space-y-0.5">
         <div v-for="item in unlockedWalletItems" :key="item.id" class="flex items-center justify-between">
           <span class="text-xs text-accent">{{ item.name }}</span>
@@ -286,10 +286,10 @@
 
     <!-- 家庭 -->
     <div v-if="spouseInfo" class="border border-accent/20 rounded-xs p-2">
-      <p class="text-xs text-muted mb-1.5">家庭</p>
+      <p class="text-xs text-muted mb-1.5">Gia đình</p>
       <div class="flex flex-col space-y-0.5">
         <div class="flex items-center justify-between">
-          <span class="text-xs text-muted">配偶</span>
+          <span class="text-xs text-muted">Bạn đời</span>
           <span class="text-xs text-accent">{{ spouseInfo.name }}</span>
         </div>
         <div v-for="child in npcStore.children" :key="child.id" class="flex items-center justify-between">
@@ -328,18 +328,18 @@
   const npcStore = useNpcStore()
   const gameStore = useGameStore()
 
-  // === 身份 ===
-  const genderLabel = computed(() => (playerStore.gender === 'male' ? '男' : '女'))
+  // === thânphần ===
+  const genderLabel = computed(() => (playerStore.gender === 'male' ? 'Nam' : 'Nữ'))
 
-  // === 装备槽位 ===
+  // === trang bịbịôvị trí ===
 
   const activeSlot = ref<'weapon' | 'ring1' | 'ring2' | 'hat' | 'shoe' | null>(null)
 
-  // === 武器 ===
+  // === vũdụng cụ ===
 
   const equippedWeaponName = computed(() => {
     const weapon = inventoryStore.ownedWeapons[inventoryStore.equippedWeaponIndex]
-    if (!weapon) return '无'
+    if (!weapon) return 'Không'
     return getWeaponDisplayName(weapon.defId, weapon.enchantmentId)
   })
 
@@ -366,35 +366,35 @@
     if (inventoryStore.equipWeapon(index)) {
       const weapon = inventoryStore.ownedWeapons[index]!
       const name = getWeaponDisplayName(weapon.defId, weapon.enchantmentId)
-      addLog(`装备了${name}。`)
+      addLog(`Đã trang bị ${name}.`)
     }
   }
 
-  // === 戒指 ===
+  // === nhẫnchỉ ===
 
   const RING_EFFECT_SHORT: Record<EquipmentEffectType, string> = {
-    attack_bonus: '攻击',
-    crit_rate_bonus: '暴击',
-    defense_bonus: '减伤',
-    vampiric: '吸血',
-    max_hp_bonus: '生命',
-    stamina_reduction: '体力减免',
-    mining_stamina: '挖矿体力减免',
-    farming_stamina: '农耕体力减免',
-    fishing_stamina: '钓鱼体力减免',
-    crop_quality_bonus: '品质',
-    crop_growth_bonus: '生长加速',
-    fish_quality_bonus: '鱼品质',
-    fishing_calm: '鱼速降低',
-    sell_price_bonus: '售价',
-    shop_discount: '折扣',
-    gift_friendship: '好感',
-    monster_drop_bonus: '掉落',
-    exp_bonus: '经验',
-    treasure_find: '宝箱',
-    ore_bonus: '矿石',
-    luck: '幸运',
-    travel_speed: '旅行加速'
+    attack_bonus: 'Tấn công',
+    crit_rate_bonus: 'Chí mạng',
+    defense_bonus: 'Giảm sát thương',
+    vampiric: 'Hút Máu',
+    max_hp_bonus: 'Sinh lực',
+    stamina_reduction: 'Giảm tiêu hao thể lực',
+    mining_stamina: 'Giảm thể lực khai mỏ',
+    farming_stamina: 'Giảm thể lực làm ruộng',
+    fishing_stamina: 'Giảm thể lực câu cá',
+    crop_quality_bonus: 'Phẩm chất',
+    crop_growth_bonus: 'Tăng tốc sinh trưởng',
+    fish_quality_bonus: 'Chất lượng cá',
+    fishing_calm: 'Giảm tốc độ cá',
+    sell_price_bonus: 'Giá bán',
+    shop_discount: 'Giảm giá',
+    gift_friendship: 'Hảo cảm',
+    monster_drop_bonus: 'Rơi đồ',
+    exp_bonus: 'Kinh nghiệm',
+    treasure_find: 'Rương báu',
+    ore_bonus: 'Quặng',
+    luck: 'May Mắn',
+    travel_speed: 'Tăng tốc hành trình'
   }
 
   const formatRingEffects = (defId: string): string => {
@@ -431,7 +431,7 @@
     const slot: 0 | 1 = activeSlot.value === 'ring1' ? 0 : 1
     if (inventoryStore.equipRing(ringIndex, slot)) {
       const def = getRingById(inventoryStore.ownedRings[ringIndex]!.defId)
-      addLog(`将${def?.name ?? '戒指'}装备到槽位${slot + 1}。`)
+      addLog(`Đã trang bị ${def?.name ?? 'nhẫn'} vào ô ${slot + 1}.`)
       activeSlot.value = null
     }
   }
@@ -441,7 +441,7 @@
     const idx = slot === 0 ? inventoryStore.equippedRingSlot1 : inventoryStore.equippedRingSlot2
     const def = idx >= 0 ? getRingById(inventoryStore.ownedRings[idx]!.defId) : null
     if (inventoryStore.unequipRing(slot)) {
-      addLog(`卸下了${def?.name ?? '戒指'}。`)
+      addLog(`Đã tháo ${def?.name ?? 'nhẫn'}.`)
       activeSlot.value = null
     }
   }
@@ -456,7 +456,7 @@
     return inventoryStore.equippedRingSlot1 === idx
   }
 
-  // === 帽子 ===
+  // === mũcon ===
 
   const equippedHatName = computed(() => {
     const hat = inventoryStore.ownedHats[inventoryStore.equippedHatIndex]
@@ -487,7 +487,7 @@
   const handleEquipHatFromPopup = (index: number) => {
     if (inventoryStore.equipHat(index)) {
       const def = getHatById(inventoryStore.ownedHats[index]!.defId)
-      addLog(`装备了${def?.name ?? '帽子'}。`)
+      addLog(`Đã trang bị ${def?.name ?? 'mũ'}.`)
       activeSlot.value = null
     }
   }
@@ -496,12 +496,12 @@
     const idx = inventoryStore.equippedHatIndex
     const def = idx >= 0 ? getHatById(inventoryStore.ownedHats[idx]!.defId) : null
     if (inventoryStore.unequipHat()) {
-      addLog(`卸下了${def?.name ?? '帽子'}。`)
+      addLog(`Đã tháo ${def?.name ?? 'mũ'}.`)
       activeSlot.value = null
     }
   }
 
-  // === 鞋子 ===
+  // === giàycon ===
 
   const equippedShoeName = computed(() => {
     const shoe = inventoryStore.ownedShoes[inventoryStore.equippedShoeIndex]
@@ -523,7 +523,7 @@
   const handleEquipShoeFromPopup = (index: number) => {
     if (inventoryStore.equipShoe(index)) {
       const def = getShoeById(inventoryStore.ownedShoes[index]!.defId)
-      addLog(`装备了${def?.name ?? '鞋子'}。`)
+      addLog(`Đã trang bị ${def?.name ?? 'giày'}.`)
       activeSlot.value = null
     }
   }
@@ -532,57 +532,57 @@
     const idx = inventoryStore.equippedShoeIndex
     const def = idx >= 0 ? getShoeById(inventoryStore.ownedShoes[idx]!.defId) : null
     if (inventoryStore.unequipShoe()) {
-      addLog(`卸下了${def?.name ?? '鞋子'}。`)
+      addLog(`Đã tháo ${def?.name ?? 'giày'}.`)
       activeSlot.value = null
     }
   }
 
-  // === 技能 ===
+  // === kỹ thuậtnăng ===
   const SKILL_NAMES: Record<SkillType, string> = {
-    farming: '农耕',
-    foraging: '采集',
-    fishing: '钓鱼',
-    mining: '挖矿',
-    combat: '战斗'
+    farming: 'Nông nghiệp',
+    foraging: 'Thu thập',
+    fishing: 'Câu cá',
+    mining: 'Khai khoáng',
+    combat: 'Chiến đấu'
   }
 
   const PERK_NAMES: Record<SkillPerk5 | SkillPerk10, string> = {
-    harvester: '丰收者',
-    rancher: '牧人',
-    lumberjack: '樵夫',
-    herbalist: '药师',
-    fisher: '渔夫',
-    trapper: '捕手',
-    miner: '矿工',
-    geologist: '地质学家',
-    fighter: '斗士',
-    defender: '守护者',
-    intensive: '精耕',
-    artisan: '匠人',
-    coopmaster: '牧场主',
-    shepherd: '牧羊人',
-    botanist: '植物学家',
-    alchemist: '炼金师',
-    forester: '伐木工',
-    tracker: '追踪者',
-    angler: '垂钓大师',
-    aquaculture: '水产商',
-    mariner: '水手',
-    luremaster: '诱饵师',
-    prospector: '探矿者',
-    blacksmith: '铁匠',
-    excavator: '挖掘者',
-    mineralogist: '宝石学家',
-    warrior: '武者',
-    brute: '蛮力者',
-    acrobat: '杂技师',
-    tank: '重甲者'
+    harvester: 'Người Thu Hoạch',
+    rancher: 'Mục Đồng',
+    lumberjack: 'Tiều Phu',
+    herbalist: 'Gái Lá',
+    fisher: 'Ngư Dân',
+    trapper: 'Thợ Săn',
+    miner: 'Thợ Mỏ',
+    geologist: 'Nhà Địa Chất',
+    fighter: 'Đấu Sĩ',
+    defender: 'Vệ Binh',
+    intensive: 'Canh Tác Sâu',
+    artisan: 'Nghệ Nhân',
+    coopmaster: 'Chủ Trang Trại',
+    shepherd: 'Người Chăn Cừu',
+    botanist: 'Nhà Thực Vật',
+    alchemist: 'Giả Kim Thuật',
+    forester: 'Thợ Đốn Gỗ',
+    tracker: 'Kẻ Theo Dấu',
+    angler: 'Kiện Tướng Câu Cá',
+    aquaculture: 'Thương Nhân Thủy Sản',
+    mariner: 'Thủy Thủ',
+    luremaster: 'Bậc Thầy Mồi Câu',
+    prospector: 'Người Thăm Dò',
+    blacksmith: 'Thợ rèn',
+    excavator: 'Máy Xúc',
+    mineralogist: 'Nhà Ngọc Học',
+    warrior: 'Võ Giả',
+    brute: 'Kẻ Cục Súc',
+    acrobat: 'Diễn Viên Xiếc',
+    tank: 'Kỵ Sĩ Giáp Nặng'
   }
 
-  // === 被动 ===
+  // === bịtác ===
   const unlockedWalletItems = computed(() => WALLET_ITEMS.filter(w => walletStore.has(w.id)))
 
-  // === 家庭 ===
+  // === nhàsân ===
   const spouseInfo = computed(() => {
     const spouseState = npcStore.getSpouse()
     if (!spouseState) return null
@@ -591,13 +591,13 @@
   })
 
   const CHILD_STAGE_NAMES: Record<ChildStage, string> = {
-    baby: '婴儿',
-    toddler: '幼童',
-    child: '孩童',
-    teen: '少年'
+    baby: 'Em bé',
+    toddler: 'Trẻ nhỏ',
+    child: 'Trẻ em',
+    teen: 'Thiếu niên'
   }
 
-  // === 导航 ===
+  // === dẫnhàng hải ===
   const goToUpgrade = () => {
     navigateToPanel('upgrade')
   }

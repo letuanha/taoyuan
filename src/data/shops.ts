@@ -18,9 +18,9 @@ export interface ShopDef {
 export const SHOPS: ShopDef[] = [
   {
     id: 'wanwupu',
-    name: '万物铺',
-    description: '陈伯经营的杂货铺，出售种子和日用品。',
-    npcName: '陈伯',
+    name: 'Tiệm Vạn Vật',
+    description: 'Tiệm tạp hóa do Bác Trần kinh doanh, bán hạt giống và nhu yếu phẩm hàng ngày.',
+    npcName: 'Bác Trần',
     closedDays: ['wed'],
     openHour: 8,
     closeHour: 20,
@@ -29,9 +29,9 @@ export const SHOPS: ShopDef[] = [
   },
   {
     id: 'tiejiangpu',
-    name: '铁匠铺',
-    description: '孙铁匠的铁匠铺，出售矿石和金属制品。',
-    npcName: '孙铁匠',
+    name: 'Tiệm Rèn',
+    description: 'Tiệm rèn của Thợ rèn Tôn, bán quặng và các sản phẩm từ kim loại.',
+    npcName: 'Thợ rèn Tôn',
     closedDays: ['sun'],
     openHour: 7,
     closeHour: 18,
@@ -40,9 +40,9 @@ export const SHOPS: ShopDef[] = [
   },
   {
     id: 'biaoju',
-    name: '镖局',
-    description: '云飞开设的镖局，出售武器和战斗用品。',
-    npcName: '云飞',
+    name: 'Tiêu Cục',
+    description: 'Cơ quan hộ tống do Yunfei mở bán vũ khí và vật tư chiến đấu.',
+    npcName: 'Vân Phi',
     closedDays: [],
     openHour: 10,
     closeHour: 22,
@@ -51,9 +51,9 @@ export const SHOPS: ShopDef[] = [
   },
   {
     id: 'yugupu',
-    name: '渔具铺',
-    description: '秋月的渔具小店，出售鱼饵和浮漂。',
-    npcName: '秋月',
+    name: 'Tiệm Đồ Câu',
+    description: 'Cửa hàng đồ câu nhỏ của Thu Nguyệt, bán mồi và phao câu.',
+    npcName: 'Thu Nguyệt',
     closedDays: ['mon', 'tue'],
     openHour: 6,
     closeHour: 17,
@@ -62,9 +62,9 @@ export const SHOPS: ShopDef[] = [
   },
   {
     id: 'yaopu',
-    name: '药铺',
-    description: '林老的药铺，出售肥料和草药。',
-    npcName: '林老',
+    name: 'Tiệm Thuốc',
+    description: 'Tiệm thuốc của Lâm Lão, bán phân bón và thảo dược.',
+    npcName: 'Lâm Lão',
     closedDays: [],
     openHour: 8,
     closeHour: 20,
@@ -73,9 +73,9 @@ export const SHOPS: ShopDef[] = [
   },
   {
     id: 'chouduanzhuang',
-    name: '绸缎庄',
-    description: '素素的绸缎庄，出售布匹和精美礼品。',
-    npcName: '素素',
+    name: 'Trang Viên Tơ Lụa',
+    description: 'Tiệm tơ lụa của Tố Tố, bán vải vóc và quà tặng tinh xảo.',
+    npcName: 'Tố Tố',
     closedDays: ['sat', 'sun'],
     openHour: 9,
     closeHour: 18,
@@ -103,19 +103,19 @@ export const isShopAvailable = (shop: ShopDef, day: number, hour: number, weathe
 export const getShopClosedReason = (shop: ShopDef, day: number, hour: number, weather: Weather, season: Season): string => {
   const weekday = getWeekday(day)
   if (shop.closedSeasons.length > 0 && shop.closedSeasons.includes(season)) {
-    return '本季休业'
+    return 'Mùa này tạm nghỉ'
   }
   if (shop.closedWeathers.length > 0 && shop.closedWeathers.includes(weather)) {
-    return '天气原因休息'
+    return 'Nghỉ do thời tiết'
   }
   if (shop.closedDays.includes(weekday)) {
-    return '今日休息'
+    return 'Hôm nay nghỉ'
   }
   if (hour < shop.openHour) {
-    return `${shop.openHour}点开门`
+    return `Mở cửa lúc ${shop.openHour} giờ`
   }
   if (hour >= shop.closeHour) {
-    return '已打烊'
+    return 'Đã đóng cửa'
   }
   return ''
 }

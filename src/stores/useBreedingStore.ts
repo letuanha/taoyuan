@@ -152,7 +152,7 @@ export const useBreedingStore = defineStore('breeding', () => {
     removeItem: (id: string, qty: number) => void
   ): { success: boolean; message: string } => {
     const upgrade = getNextSeedBoxUpgrade()
-    if (!upgrade) return { success: false, message: '种子箱已达到最高等级。' }
+    if (!upgrade) return { success: false, message: 'Hộp giống đã đạt cấp tối đa.' }
     spendMoney(upgrade.cost)
     for (const mat of upgrade.materials) {
       removeItem(mat.itemId, mat.quantity)
@@ -160,7 +160,7 @@ export const useBreedingStore = defineStore('breeding', () => {
     seedBoxLevel.value++
     return {
       success: true,
-      message: `种子箱扩容完成！容量提升至${maxSeedBox.value}格。`
+      message: `Mở rộng hộp giống hoàn tất! Sức chứa tăng lên ${maxSeedBox.value} ô.`
     }
   }
 
@@ -193,7 +193,7 @@ export const useBreedingStore = defineStore('breeding', () => {
     const result = slot.result
     // 放入种子箱
     if (!addToBox(result)) {
-      addLog('种子箱已满，无法收取。')
+      addLog('Hộp giống đã đầy, không thể thu nhận.')
       return null
     }
 
@@ -274,7 +274,7 @@ export const useBreedingStore = defineStore('breeding', () => {
       resistance = current.resistance
       mutationRate = clampMutationRate(mutationRate + Math.round((Math.random() - 0.5) * 2 * MUTATION_RATE_DRIFT))
 
-      addLog('育种发生了变异！属性产生了大幅波动。')
+      addLog('Quá trình nhân giống đã xảy ra đột biến! Các thuộc tính biến động mạnh.')
     }
 
     const result: SeedGenetics = {
@@ -384,11 +384,11 @@ export const useBreedingStore = defineStore('breeding', () => {
         const lackSweet = Math.max(0, sweetnessNeeded - Math.round(avgSweetness))
         const lackYield = Math.max(0, yieldNeeded - Math.round(avgYield))
         const gaps: string[] = []
-        if (lackSweet > 0) gaps.push(`甜度还差${lackSweet}点（${Math.round(avgSweetness)}/${sweetnessNeeded}）`)
-        if (lackYield > 0) gaps.push(`产量还差${lackYield}点（${Math.round(avgYield)}/${yieldNeeded}）`)
-        addLog(`杂交未成：${gaps.join('，')}。种子已原样返还，先用同种培育把属性顶上去再试。`)
+        if (lackSweet > 0) gaps.push(`Độ ngọt còn thiếu ${lackSweet} điểm (${Math.round(avgSweetness)}/${sweetnessNeeded})`)
+        if (lackYield > 0) gaps.push(`Sản lượng còn thiếu ${lackYield} điểm (${Math.round(avgYield)}/${yieldNeeded})`)
+        addLog(`Lai giống thất bại: ${gaps.join('，')}. Hạt giống đã được hoàn trả nguyên trạng; hãy nhân giống cùng loại để tăng thuộc tính rồi thử lại.`)
       } else {
-        addLog('这两个品种无法杂交，种子已原样返还。')
+        addLog('Hai giống này không thể lai với nhau, hạt giống đã được hoàn trả nguyên trạng.')
       }
 
       return failed
@@ -408,11 +408,11 @@ export const useBreedingStore = defineStore('breeding', () => {
           const crop = getCropById(slot.result.cropId)
           const stars = getStarRating(slot.result)
           if (isCrossBreed && slot.result.isHybrid) {
-            addLog(`杂交成功：${crop?.name ?? slot.result.cropId}（${stars}星）！已记录到图鉴。`)
+            addLog(`Lai giống thành công: ${crop?.name ?? slot.result.cropId} (${stars} sao)! Đã ghi vào bộ sưu tập.`)
           } else if (isCrossBreed) {
-            addLog(`杂交未成功，获得了${crop?.name ?? slot.result.cropId}种子（${stars}星）。`)
+            addLog(`Lai giống chưa thành công, nhận được hạt giống ${crop?.name ?? slot.result.cropId} (${stars} sao).`)
           } else {
-            addLog(`育种完成：${crop?.name ?? slot.result.cropId}（${stars}星）。`)
+            addLog(`Nhân giống hoàn tất: ${crop?.name ?? slot.result.cropId} (${stars} sao).`)
           }
           const achievementStore = useAchievementStore()
           achievementStore.recordBreeding()

@@ -2,23 +2,23 @@
   <div class="game-panel max-w-sm w-full">
     <h3 class="text-accent text-sm mb-3 flex items-center space-x-1">
       <Coffee :size="14" />
-      <span>斗茶大会</span>
+      <span>đấutràlớnhội</span>
     </h3>
 
     <!-- 准备 -->
     <div v-if="phase === 'ready'">
       <p class="text-xs text-muted mb-3">
-        品茗斗茶，考的是功夫！共3轮，每轮需依次完成三步：控温、投茶、出汤。条子会从左往右填充，在目标标记附近按下按钮！越精准得分越高！
+        Thưởng trà đấu trà, thử thách công phu! Có 3 vòng, mỗi vòng hoàn thành lần lượt 3 bước: chỉnh nhiệt, cho trà, rót trà. Thanh tiến trình sẽ đầy từ trái sang phải; nhấn nút khi gần vạch mục tiêu! Càng chính xác càng nhiều điểm!
       </p>
-      <Button class="w-full" @click="startGame">开始斗茶！</Button>
+      <Button class="w-full" @click="startGame">bắt đầu đấutrà！</Button>
     </div>
 
     <!-- 泡茶进行中 -->
     <div v-else-if="phase === 'brewing'">
       <div class="flex items-center justify-between mb-2">
-        <p class="text-xs text-muted">第 {{ roundIndex + 1 }} / 3 轮</p>
+        <p class="text-xs text-muted">lượt {{ roundIndex + 1 }} / 3 vòng</p>
         <p class="text-xs text-muted">
-          总分：
+          tổngđiểm：
           <span class="text-accent">{{ totalScore }}</span>
         </p>
       </div>
@@ -57,7 +57,7 @@
         />
         <div class="absolute top-0 bottom-0 w-1 bg-accent/40" :style="{ left: `${targetPosition}%` }" />
         <!-- 目标标签 -->
-        <span class="absolute -top-3.5 text-success" style="font-size: 8px" :style="{ left: `calc(${targetPosition}% - 6px)` }">目标</span>
+        <span class="absolute -top-3.5 text-success" style="font-size: 8px" :style="{ left: `calc(${targetPosition}% - 6px)` }">Mục tiêu</span>
         <!-- 填充 -->
         <div
           class="absolute top-0 bottom-0 left-0 transition-none"
@@ -90,8 +90,8 @@
             'text-muted': lastStepGrade === 'poor'
           }"
         >
-          {{ lastStepGrade === 'perfect' ? '精准！' : lastStepGrade === 'good' ? '还行。' : '偏了…' }}
-          +{{ lastStepScore }}分
+          {{ lastStepGrade === 'perfect' ? 'Chính xác!' : lastStepGrade === 'good' ? 'Cũng được.' : 'Lệch rồi…' }}
+          +{{ lastStepScore }}điểm
         </p>
       </div>
     </div>
@@ -110,15 +110,15 @@
             'text-danger': lastRoundGrade === 'poor'
           }"
         >
-          {{ lastRoundGrade === 'perfect' ? '绝品好茶！' : lastRoundGrade === 'good' ? '茶味尚可。' : '这泡砸了…' }}
+          {{ lastRoundGrade === 'perfect' ? 'Trà hảo hạng!' : lastRoundGrade === 'good' ? 'Vị trà khá ổn.' : 'Mẻ trà này hỏng rồi…' }}
         </p>
-        <p class="text-xs text-muted">本轮得分：{{ roundScore }}分</p>
+        <p class="text-xs text-muted">bảnvòngđượcđiểm：{{ roundScore }}điểm</p>
       </div>
     </div>
 
     <!-- 最终结果 -->
     <div v-else-if="phase === 'finished'">
-      <p class="text-xs text-muted mb-2">斗茶结束！</p>
+      <p class="text-xs text-muted mb-2">đấutràkết thúc！</p>
 
       <div class="flex justify-center space-x-1.5 mb-3">
         <div v-for="i in 3" :key="i" class="w-2 h-2" :class="roundDotClass(i - 1)" />
@@ -130,7 +130,7 @@
           :key="i"
           class="flex items-center justify-between text-xs py-0.5 border-b border-accent/10 last:border-0"
         >
-          <span class="text-muted">第{{ i + 1 }}泡</span>
+          <span class="text-muted">lượt{{ i + 1 }}ấm</span>
           <span
             :class="{
               'text-accent': r.grade === 'perfect',
@@ -138,25 +138,25 @@
               'text-danger': r.grade === 'poor'
             }"
           >
-            {{ r.grade === 'perfect' ? '绝品' : r.grade === 'good' ? '尚可' : '失手' }}
+            {{ r.grade === 'perfect' ? 'Hảo hạng' : r.grade === 'good' ? 'Khá ổn' : 'Thất bại' }}
           </span>
-          <span class="text-muted">{{ r.score }}分</span>
+          <span class="text-muted">{{ r.score }}điểm</span>
         </div>
       </div>
 
       <div class="border border-accent/20 p-2 mb-3 text-center">
         <p class="text-xs mb-1">
-          总分：
+          tổngđiểm：
           <span class="text-accent">{{ totalScore }}</span>
           / 450
         </p>
         <p class="text-xs">
-          奖金：
+          thưởngvàng：
           <span class="text-accent">{{ prize }}</span>
-          文
+          xu
         </p>
       </div>
-      <Button class="w-full" @click="handleClaim">领取奖励</Button>
+      <Button class="w-full" @click="handleClaim">Nhận phần thưởng</Button>
     </div>
   </div>
 </template>
@@ -185,28 +185,28 @@
 
   const BREW_STEPS = [
     {
-      label: '控制水温',
-      shortLabel: '温',
-      hint: '将水烧到合适温度',
-      action: '定温！',
-      lowLabel: '凉',
-      highLabel: '烫'
+      label: 'Điều chỉnh nhiệt độ nước',
+      shortLabel: 'Ấm',
+      hint: 'Đun nước đến nhiệt độ thích hợp',
+      action: 'Đúng nhiệt!',
+      lowLabel: 'Lạnh',
+      highLabel: 'Nóng'
     },
     {
-      label: '投茶',
-      shortLabel: '茶',
-      hint: '放入适量茶叶',
-      action: '放茶！',
-      lowLabel: '少',
-      highLabel: '多'
+      label: 'Cho trà',
+      shortLabel: 'Trà',
+      hint: 'Cho lượng trà vừa đủ',
+      action: 'Cho trà!',
+      lowLabel: 'Ít',
+      highLabel: 'Nhiều'
     },
     {
-      label: '出汤时机',
-      shortLabel: '汤',
-      hint: '在最佳时机出汤',
-      action: '出汤！',
-      lowLabel: '淡',
-      highLabel: '苦'
+      label: 'Thời điểm rót trà',
+      shortLabel: 'Nước trà',
+      hint: 'Rót trà đúng thời điểm',
+      action: 'Rót trà!',
+      lowLabel: 'Nhạt',
+      highLabel: 'Đắng'
     }
   ]
 
@@ -225,7 +225,7 @@
   let fillTimer: ReturnType<typeof setInterval> | null = null
   let phaseTimeout: ReturnType<typeof setTimeout> | null = null
 
-  // 填充速度随轮次和步骤增加
+  // điềnbổ sungtốcđộtheovònglầnvàbướcđột ngộttăngthêm
   const getFillSpeed = () => {
     const roundBonus = roundIndex.value * 0.4
     const stepBonus = brewStep.value * 0.2
@@ -264,14 +264,14 @@
   const startBrewStep = () => {
     phase.value = 'brewing'
     fillPct.value = 0
-    // 随机目标位置 (25-80范围)
+    // theomáymụcnhãnvị tríđặt (25-80phạm vivùng)
     targetPosition.value = 25 + Math.random() * 55
 
     const speed = getFillSpeed()
     fillTimer = setInterval(() => {
       fillPct.value = Math.min(100, fillPct.value + speed)
       if (fillPct.value >= 100) {
-        // 自动超时，强制结算（最差分数）
+        // tựtácvượtthời，mạnhchếkếttính（nhấtthiếuđiểmsố）
         lockStep()
       }
     }, 50)
@@ -313,7 +313,7 @@
     phaseTimeout = setTimeout(() => {
       brewStep.value++
       if (brewStep.value >= 3) {
-        // 本轮结束
+        // bảnvòngkếtbuộc
         let roundGrade: Grade = 'poor'
         if (roundScore.value >= 120) roundGrade = 'perfect'
         else if (roundScore.value >= 70) roundGrade = 'good'
@@ -321,7 +321,7 @@
         lastRoundGrade.value = roundGrade
         roundResults.value.push({ grade: roundGrade, score: roundScore.value })
 
-        // 轮次结果音效
+        // vònglầnkếtquảâm thanhhiệu
         if (roundGrade === 'perfect') sfxMiniPerfect()
         else if (roundGrade === 'poor') sfxMiniFail()
 

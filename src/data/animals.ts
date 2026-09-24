@@ -10,8 +10,8 @@ export const BUILDING_CAPACITY_PER_LEVEL = 6
 export const ANIMAL_BUILDINGS: AnimalBuildingDef[] = [
   {
     type: 'coop',
-    name: '鸡舍',
-    description: '饲养鸡鸭等小型家禽。',
+    name: 'Chuồng gà',
+    description: 'Nuôi gà, vịt và gia cầm nhỏ.',
     capacity: 6,
     cost: 4000,
     materialCost: [
@@ -21,8 +21,8 @@ export const ANIMAL_BUILDINGS: AnimalBuildingDef[] = [
   },
   {
     type: 'barn',
-    name: '牲口棚',
-    description: '饲养牛羊等大型牲畜。',
+    name: 'Chuồng gia súc',
+    description: 'Nuôi bò, dê và gia súc lớn.',
     capacity: 6,
     cost: 6000,
     materialCost: [
@@ -32,8 +32,8 @@ export const ANIMAL_BUILDINGS: AnimalBuildingDef[] = [
   },
   {
     type: 'stable',
-    name: '马厩',
-    description: '饲养马匹，骑马出行更快。',
+    name: 'Chuồng ngựa',
+    description: 'Nuôi ngựa, cưỡi ngựa đi lại nhanh hơn.',
     capacity: 1,
     cost: 10000,
     materialCost: [
@@ -48,199 +48,199 @@ export const ANIMAL_DEFS: AnimalDef[] = [
   // ===== 鸡舍动物 (8种) =====
   {
     type: 'chicken',
-    name: '鸡',
+    name: 'Gà',
     building: 'coop',
     cost: 800,
     productId: 'egg',
-    productName: '鸡蛋',
+    productName: 'Trứng Gà',
     produceDays: 1,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'duck',
-    name: '鸭',
+    name: 'Vịt',
     building: 'coop',
     cost: 1200,
     productId: 'duck_egg',
-    productName: '鸭蛋',
+    productName: 'Trứng Vịt',
     produceDays: 2,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'rabbit',
-    name: '兔',
+    name: 'Thỏ',
     building: 'coop',
     cost: 2000,
     productId: 'rabbit_fur',
-    productName: '兔毛',
+    productName: 'Lông Thỏ',
     produceDays: 3,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'goose',
-    name: '鹅',
+    name: 'Ngỗng',
     building: 'coop',
     cost: 1500,
     productId: 'goose_egg',
-    productName: '鹅蛋',
+    productName: 'Trứng Ngỗng',
     produceDays: 2,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'quail',
-    name: '鹌鹑',
+    name: 'Chim cút',
     building: 'coop',
     cost: 500,
     productId: 'quail_egg',
-    productName: '鹌鹑蛋',
+    productName: 'Trứng Cút',
     produceDays: 1,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'pigeon',
-    name: '鸽子',
+    name: 'Bồ câu',
     building: 'coop',
     cost: 1000,
     productId: 'pigeon_egg',
-    productName: '鸽子蛋',
+    productName: 'Trứng Bồ Câu',
     produceDays: 2,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'silkie',
-    name: '乌骨鸡',
+    name: 'Gà ác',
     building: 'coop',
     cost: 3000,
     productId: 'silkie_egg',
-    productName: '乌鸡蛋',
+    productName: 'Trứng Gà Ác',
     produceDays: 2,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'peacock',
-    name: '孔雀',
+    name: 'Công',
     building: 'coop',
     cost: 8000,
     productId: 'peacock_feather',
-    productName: '孔雀羽',
+    productName: 'Lông Khổng Tước',
     produceDays: 4,
     friendship: { min: 0, max: 1000 }
   },
   // ===== 牲口棚动物 (11种) =====
   {
     type: 'cow',
-    name: '牛',
+    name: 'Bò',
     building: 'barn',
     cost: 1500,
     productId: 'milk',
-    productName: '牛奶',
+    productName: 'Sữa Bò',
     produceDays: 1,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'sheep',
-    name: '羊',
+    name: 'Cừu',
     building: 'barn',
     cost: 8000,
     productId: 'wool',
-    productName: '羊毛',
+    productName: 'Len Cừu',
     produceDays: 3,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'goat',
-    name: '山羊',
+    name: 'Dê',
     building: 'barn',
     cost: 4000,
     productId: 'goat_milk',
-    productName: '羊奶',
+    productName: 'Sữa Dê',
     produceDays: 2,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'pig',
-    name: '猪',
+    name: 'Lợn',
     building: 'barn',
     cost: 16000,
     productId: 'truffle',
-    productName: '松露',
+    productName: 'Nấm Truffle',
     produceDays: 2,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'buffalo',
-    name: '水牛',
+    name: 'Trâu nước',
     building: 'barn',
     cost: 3000,
     productId: 'buffalo_milk',
-    productName: '水牛奶',
+    productName: 'Sữa Trâu Nước',
     produceDays: 2,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'yak',
-    name: '牦牛',
+    name: 'Bò Tây Tạng',
     building: 'barn',
     cost: 5000,
     productId: 'yak_milk',
-    productName: '牦牛奶',
+    productName: 'Sữa Bò Tây Tạng',
     produceDays: 2,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'alpaca',
-    name: '羊驼',
+    name: 'Lạc đà Alpaca',
     building: 'barn',
     cost: 6000,
     productId: 'alpaca_wool',
-    productName: '羊驼毛',
+    productName: 'Lông Alpaca',
     produceDays: 3,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'deer',
-    name: '鹿',
+    name: 'Hươu',
     building: 'barn',
     cost: 12000,
     productId: 'antler_velvet',
-    productName: '鹿茸',
+    productName: 'Lộc Nhung',
     produceDays: 5,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'donkey',
-    name: '驴',
+    name: 'Lừa',
     building: 'barn',
     cost: 3000,
     productId: 'donkey_milk',
-    productName: '驴奶',
+    productName: 'Sữa Lừa',
     produceDays: 3,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'camel',
-    name: '骆驼',
+    name: 'Lạc đà',
     building: 'barn',
     cost: 7000,
     productId: 'camel_milk',
-    productName: '驼奶',
+    productName: 'Sữa Lạc Đà',
     produceDays: 2,
     friendship: { min: 0, max: 1000 }
   },
   {
     type: 'ostrich',
-    name: '鸵鸟',
+    name: 'Đà điểu',
     building: 'barn',
     cost: 10000,
     productId: 'ostrich_egg',
-    productName: '鸵鸟蛋',
+    productName: 'Trứng Đà Điểu',
     produceDays: 3,
     friendship: { min: 0, max: 1000 }
   },
   // ===== 马厩 (1种) =====
   {
     type: 'horse',
-    name: '马',
+    name: 'Ngựa',
     building: 'stable',
     cost: 5000,
     productId: '',
@@ -267,24 +267,24 @@ export const FEED_DEFS: {
   price: number
   description: string
 }[] = [
-  { id: 'hay', name: '干草', price: 50, description: '基础饲料' },
+  { id: 'hay', name: 'Cỏ Khô', price: 50, description: 'Hay cho chăn nuôi.' },
   {
     id: 'premium_feed',
-    name: '精饲料',
+    name: 'Thức Ăn Tinh Chất',
     price: 200,
-    description: '心情+60，好感度翻倍'
+    description: 'Thức ăn chất lượng cao được phối trộn kỹ lưỡng, tăng rõ rệt tâm trạng và độ thiện cảm của động vật.'
   },
   {
     id: 'nourishing_feed',
-    name: '滋补饲料',
+    name: 'Thức Ăn Bồi Bổ',
     price: 250,
-    description: '产出天数-1'
+    description: 'Thức ăn được thêm thành phần bổ dưỡng, đẩy nhanh chu kỳ sản sinh của động vật.'
   },
   {
     id: 'vitality_feed',
-    name: '活力饲料',
+    name: 'Thức Ăn Sinh Lực',
     price: 300,
-    description: '100%治愈疾病'
+    description: 'Thức ăn chứa tinh chất thảo dược, sau khi cho ăn chắc chắn sẽ chữa khỏi bệnh tật.'
   }
 ]
 
@@ -308,7 +308,7 @@ export const BUILDING_UPGRADES: {
   {
     type: 'coop',
     level: 2,
-    name: '大型鸡舍',
+    name: 'Chuồng gà lớn',
     capacity: 12,
     cost: 10000,
     materialCost: [
@@ -319,7 +319,7 @@ export const BUILDING_UPGRADES: {
   {
     type: 'coop',
     level: 3,
-    name: '豪华鸡舍',
+    name: 'Chuồng gà sang trọng',
     capacity: 18,
     cost: 20000,
     materialCost: [
@@ -330,7 +330,7 @@ export const BUILDING_UPGRADES: {
   {
     type: 'barn',
     level: 2,
-    name: '大型牲口棚',
+    name: 'Chuồng gia súc lớn',
     capacity: 12,
     cost: 12000,
     materialCost: [
@@ -341,7 +341,7 @@ export const BUILDING_UPGRADES: {
   {
     type: 'barn',
     level: 3,
-    name: '豪华牲口棚',
+    name: 'Chuồng gia súc sang trọng',
     capacity: 18,
     cost: 25000,
     materialCost: [

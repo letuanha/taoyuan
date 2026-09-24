@@ -1,20 +1,20 @@
 <template>
   <div class="game-panel max-w-xs w-full">
-    <Divider title class="!mb-1" label="恶魔轮盘" />
+    <Divider title class="!mb-1" label="Roulette Quỷ Dữ" />
 
     <!-- 弹仓信息 -->
     <div class="border border-accent/20 rounded-xs p-2 mb-3">
       <div class="flex items-center justify-between text-xs">
-        <span class="text-muted">弹仓</span>
+        <span class="text-muted">Ổ đạn</span>
         <span>
           <span v-for="i in liveRemaining" :key="'l' + i" class="text-danger">&bull;</span>
           <span v-for="i in blankRemaining" :key="'b' + i" class="text-muted">&bull;</span>
-          <span class="text-muted ml-1">({{ liveRemaining }}实{{ blankRemaining }}空)</span>
+          <span class="text-muted ml-1">({{ liveRemaining }}thật{{ blankRemaining }}lép)</span>
         </span>
       </div>
       <div class="flex items-center justify-between text-xs mt-0.5">
-        <span class="text-muted">进度</span>
-        <span>第{{ shellIndex + 1 }}发 / 共{{ shells.length }}发</span>
+        <span class="text-muted">Tiến độ</span>
+        <span>lượt{{ shellIndex + 1 }}phát / tổng{{ shells.length }}phát</span>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
       <!-- 玩家HP -->
       <div class="flex-1">
         <div class="flex items-center justify-between text-xs mb-0.5">
-          <span :class="isPlayerTurn && !gameOver ? 'text-accent' : 'text-muted'">你</span>
+          <span :class="isPlayerTurn && !gameOver ? 'text-accent' : 'text-muted'">Bạn</span>
           <span class="text-text">{{ playerHP }}/{{ maxPlayerHP }}</span>
         </div>
         <div class="h-1.5 bg-panel rounded-full overflow-hidden" :class="{ 'buckshot-flash-red': playerHit }">
@@ -40,7 +40,7 @@
       <!-- 庄家HP -->
       <div class="flex-1">
         <div class="flex items-center justify-between text-xs mb-0.5">
-          <span :class="!isPlayerTurn && !gameOver ? 'text-danger' : 'text-muted'">庄家</span>
+          <span :class="!isPlayerTurn && !gameOver ? 'text-danger' : 'text-muted'">Nhà cái</span>
           <span class="text-text">{{ dealerHP }}/{{ maxDealerHP }}</span>
         </div>
         <div class="h-1.5 bg-panel rounded-full overflow-hidden" :class="{ 'buckshot-flash-red': dealerHit }">
@@ -55,12 +55,12 @@
 
     <!-- 操作按钮 -->
     <div v-if="isPlayerTurn && !gameOver" class="flex space-x-2 mb-3">
-      <Button class="flex-1 justify-center" :disabled="animating" @click="shootOpponent">射向庄家</Button>
-      <Button class="flex-1 justify-center" :disabled="animating" @click="shootSelf">射向自己</Button>
+      <Button class="flex-1 justify-center" :disabled="animating" @click="shootOpponent">Bắn nhà cái</Button>
+      <Button class="flex-1 justify-center" :disabled="animating" @click="shootSelf">Bắn chính mình</Button>
     </div>
 
     <!-- 庄家回合提示 -->
-    <p v-if="!isPlayerTurn && !gameOver" class="text-xs text-muted/40 text-center mb-3">庄家思考中…</p>
+    <p v-if="!isPlayerTurn && !gameOver" class="text-xs text-muted/40 text-center mb-3">Nhà cái đang suy nghĩ…</p>
 
     <!-- 行动日志 -->
     <div v-if="actionLog.length > 0" class="border border-accent/10 rounded-xs p-2 mb-3 max-h-24 overflow-y-auto">
@@ -78,19 +78,19 @@
     <template v-if="gameOver">
       <div class="border border-accent/10 rounded-xs p-3 text-center mb-3">
         <p class="text-sm" :class="won ? 'text-success' : draw ? 'text-accent' : 'text-danger'">
-          {{ won ? '你赢了！' : draw ? '平局' : '你输了…' }}
+          {{ won ? 'Bạn thắng!' : draw ? 'Hòa' : 'Bạn thua…' }}
         </p>
         <p class="text-xs mt-0.5" :class="won ? 'text-success' : draw ? 'text-accent' : 'text-danger'">
           {{
             won
-              ? '+' + BUCKSHOT_BET_AMOUNT * BUCKSHOT_WIN_MULTIPLIER + '文'
+              ? '+' + BUCKSHOT_BET_AMOUNT * BUCKSHOT_WIN_MULTIPLIER + 'xu'
               : draw
-                ? '退还' + BUCKSHOT_BET_AMOUNT + '文'
-                : '-' + BUCKSHOT_BET_AMOUNT + '文'
+                ? 'Hoàn lại' + BUCKSHOT_BET_AMOUNT + 'xu'
+                : '-' + BUCKSHOT_BET_AMOUNT + 'xu'
           }}
         </p>
       </div>
-      <Button class="w-full justify-center" @click="emit('complete', won, draw)">确定</Button>
+      <Button class="w-full justify-center" @click="emit('complete', won, draw)">Xác nhận</Button>
     </template>
   </div>
 </template>
@@ -106,7 +106,7 @@
   const props = defineProps<{ setup: BuckshotSetup }>()
   const emit = defineEmits<{ complete: [won: boolean, draw: boolean] }>()
 
-  // 游戏状态
+  // chơitrò chơitrạng tháitrạng thái
   const shells = ref<ShellType[]>([...props.setup.shells])
   const shellIndex = ref(0)
   const playerHP = ref(props.setup.playerHP)
@@ -121,7 +121,7 @@
   const actionLog = ref<string[]>([])
   const animating = ref(false)
 
-  // 受击动画
+  // chịuđánhtáctranh
   const playerHit = ref(false)
   const dealerHit = ref(false)
 
@@ -173,33 +173,33 @@
       gameOver.value = true
       won.value = false
       sfxCasinoLose()
-      addActionLog('你倒下了……')
+      addActionLog('Bạn đã gục ngã……')
       return true
     }
     if (dealerHP.value <= 0) {
       gameOver.value = true
       won.value = true
       sfxCasinoWin()
-      addActionLog('庄家倒下了！')
+      addActionLog('Nhà cái đã gục ngã!')
       return true
     }
     if (shellIndex.value >= shells.value.length) {
-      // 弹药用完，比较剩余HP
+      // đạnthuốcdùnghoàn，so sánhso sánhcòncònHP
       if (playerHP.value > dealerHP.value) {
         gameOver.value = true
         won.value = true
         sfxCasinoWin()
-        addActionLog('弹药用尽，你的生命值更高——你赢了！')
+        addActionLog('Hết đạn, bạn còn nhiều HP hơn — bạn thắng!')
       } else if (playerHP.value < dealerHP.value) {
         gameOver.value = true
         won.value = false
         sfxCasinoLose()
-        addActionLog('弹药用尽，庄家生命值更高——你输了…')
+        addActionLog('Hết đạn, nhà cái còn nhiều HP hơn — bạn thua…')
       } else {
         // 平局，退还下注
         gameOver.value = true
         draw.value = true
-        addActionLog('弹药用尽，生命值相同——平局！')
+        addActionLog('Hết đạn, hai bên có cùng HP — hòa!')
       }
       return true
     }
@@ -208,7 +208,7 @@
 
   const delay = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms))
 
-  /** 玩家射击对方 */
+  /** chơinhàbắnđánhđúngphương */
   const shootOpponent = async () => {
     if (animating.value || gameOver.value) return
     animating.value = true
@@ -219,10 +219,10 @@
       sfxGunshot()
       dealerHP.value = Math.max(0, dealerHP.value - 1)
       triggerHitAnim('dealer')
-      addActionLog('你射向庄家——实弹！庄家 -1HP')
+      addActionLog('Bạn bắn nhà cái — đạn thật! Nhà cái -1 HP')
     } else {
       sfxGunEmpty()
-      addActionLog('你射向庄家——空弹，未命中。')
+      addActionLog('Bạn bắn nhà cái — đạn lép, không trúng.')
     }
 
     await nextTick()
@@ -237,7 +237,7 @@
     }
   }
 
-  /** 玩家射击自己 */
+  /** chơinhàbắnđánhtựkỷ */
   const shootSelf = async () => {
     if (animating.value || gameOver.value) return
     animating.value = true
@@ -246,8 +246,8 @@
 
     if (shell === 'blank') {
       sfxGunEmpty()
-      addActionLog('你射向自己——空弹！获得额外回合。')
-      // 额外回合，不切换
+      addActionLog('Bạn bắn chính mình — đạn lép! Được thêm một lượt.')
+      // số tiềnngoàivềhợp，khôngchuyểnđổi
       await delay(400)
       animating.value = false
       if (checkGameEnd()) return
@@ -255,7 +255,7 @@
       sfxGunshot()
       playerHP.value = Math.max(0, playerHP.value - 1)
       triggerHitAnim('player')
-      addActionLog('你射向自己——实弹！你 -1HP')
+      addActionLog('Bạn bắn chính mình — đạn thật! Bạn -1 HP')
       await nextTick()
 
       if (!checkGameEnd()) {
@@ -269,7 +269,7 @@
     }
   }
 
-  /** 庄家回合 */
+  /** trangnhàvềhợp */
   const dealerTurn = async () => {
     if (gameOver.value) return
     animating.value = true
@@ -287,15 +287,15 @@
     consumeShell()
 
     if (decision === 'opponent') {
-      // 射玩家
+      // bắnchơinhà
       if (shell === 'live') {
         sfxGunshot()
         playerHP.value = Math.max(0, playerHP.value - 1)
         triggerHitAnim('player')
-        addActionLog('庄家射向你——实弹！你 -1HP')
+        addActionLog('Nhà cái bắn bạn — đạn thật! Bạn -1 HP')
       } else {
         sfxGunEmpty()
-        addActionLog('庄家射向你——空弹，未命中。')
+        addActionLog('Nhà cái bắn bạn — đạn lép, không trúng.')
       }
       await nextTick()
 
@@ -306,10 +306,10 @@
         animating.value = false
       }
     } else {
-      // 射自己
+      // bắntựkỷ
       if (shell === 'blank') {
         sfxGunEmpty()
-        addActionLog('庄家射向自己——空弹！庄家获得额外回合。')
+        addActionLog('Nhà cái bắn chính mình — đạn lép! Nhà cái được thêm một lượt.')
         await delay(600)
         if (!checkGameEnd()) {
           await dealerTurn()
@@ -320,7 +320,7 @@
         sfxGunshot()
         dealerHP.value = Math.max(0, dealerHP.value - 1)
         triggerHitAnim('dealer')
-        addActionLog('庄家射向自己——实弹！庄家 -1HP')
+        addActionLog('Nhà cái bắn chính mình — đạn thật! Nhà cái -1 HP')
         await nextTick()
 
         if (!checkGameEnd()) {
@@ -335,9 +335,9 @@
 
   onMounted(() => {
     if (playerFirst) {
-      addActionLog('你先手。')
+      addActionLog('Bạn đi trước.')
     } else {
-      addActionLog('庄家先手。')
+      addActionLog('Nhà cái đi trước.')
       void dealerTurn()
     }
   })

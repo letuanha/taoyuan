@@ -4,7 +4,7 @@
     <div class="flex items-center justify-between mb-3">
       <h3 class="text-accent text-sm">
         <Mountain :size="14" class="inline" />
-        {{ miningStore.isInSkullCavern ? '骷髅矿穴' : '云隐矿洞' }}
+        {{ miningStore.isInSkullCavern ? 'Hang xương' : 'Hang Vân Ẩn' }}
       </h3>
       <Button class="py-0 px-1" :icon="Map" @click="showMapModal = true" />
     </div>
@@ -17,13 +17,13 @@
       <div class="flex items-center justify-between mb-1">
         <p class="text-sm text-danger">
           <Skull :size="14" class="inline" />
-          骷髅矿穴
+          Hang xương
         </p>
-        <span v-if="miningStore.skullCavernBestFloor > 0" class="text-xs text-muted">最深 第{{ miningStore.skullCavernBestFloor }}层</span>
-        <span v-else class="text-xs text-muted/40">未探索</span>
+        <span v-if="miningStore.skullCavernBestFloor > 0" class="text-xs text-muted">nhấtsâu lượt{{ miningStore.skullCavernBestFloor }}tầng</span>
+        <span v-else class="text-xs text-muted/40">Chưa khám phá</span>
       </div>
-      <p class="text-xs text-muted">无限层 · 每10层安全点 · 铱矿来源 · 怪物随深度增强</p>
-      <p v-if="miningStore.skullSafePointFloor > 0" class="text-xs text-muted mt-0.5">安全点：第{{ miningStore.skullSafePointFloor }}层</p>
+      <p class="text-xs text-muted">không giới hạntầng · mỗi10tầngAn toànđiểm · iridiquặngđếnnguồn · quáivậttheosâuđộtăngmạnh</p>
+      <p v-if="miningStore.skullSafePointFloor > 0" class="text-xs text-muted mt-0.5">An toànđiểm：lượt{{ miningStore.skullSafePointFloor }}tầng</p>
     </div>
 
     <!-- 装备与状态 -->
@@ -31,24 +31,24 @@
       <div class="flex items-center justify-between mb-2">
         <p class="text-sm text-accent">
           <Swords :size="14" class="inline" />
-          装备与状态
+          Trang bị và trạng thái
         </p>
       </div>
       <div class="flex flex-col space-y-1">
         <div class="flex items-center justify-between border border-accent/10 rounded-xs px-3 py-1.5">
-          <span class="text-xs">武器</span>
+          <span class="text-xs">Vũ khí</span>
           <span class="text-xs text-accent">{{ weaponDisplayName }}</span>
         </div>
         <div class="flex items-center justify-between border border-accent/10 rounded-xs px-3 py-1.5">
-          <span class="text-xs">攻击力</span>
+          <span class="text-xs">Công kích</span>
           <span class="text-xs text-accent">{{ weaponAttack }}</span>
         </div>
         <div class="flex items-center justify-between border border-accent/10 rounded-xs px-3 py-1.5">
-          <span class="text-xs">类型 · 暴击</span>
+          <span class="text-xs">Loại · Bạo kích</span>
           <span class="text-xs text-muted">{{ weaponTypeName }} · {{ critRateDisplay }}</span>
         </div>
         <div v-if="weaponEnchantName" class="flex items-center justify-between border border-accent/10 rounded-xs px-3 py-1.5">
-          <span class="text-xs">附魔</span>
+          <span class="text-xs">Phù phép</span>
           <span class="text-xs text-success">{{ weaponEnchantName }}</span>
         </div>
         <div class="flex items-center justify-between border border-accent/10 rounded-xs px-3 py-1.5">
@@ -67,7 +67,7 @@
           </div>
         </div>
         <div class="flex items-center justify-between border border-accent/10 rounded-xs px-3 py-1.5">
-          <span class="text-xs">体力</span>
+          <span class="text-xs">Thể lực</span>
           <span class="text-xs text-muted">{{ playerStore.stamina }}/{{ playerStore.maxStamina }}</span>
         </div>
       </div>
@@ -81,17 +81,17 @@
       <div class="flex items-center justify-between">
         <div class="flex items-center space-x-1.5">
           <Pickaxe :size="14" class="text-accent" />
-          <span class="text-sm text-accent">探索</span>
+          <span class="text-sm text-accent">Khám phá</span>
         </div>
-        <span class="text-xs text-muted">第{{ miningStore.safePointFloor + 1 }}层</span>
+        <span class="text-xs text-muted">lượt{{ miningStore.safePointFloor + 1 }}tầng</span>
       </div>
       <div class="flex items-center justify-between mt-1">
-        <span class="text-[10px] text-muted">BOSS 层：每 20 层一处（第 20/40/60/80/100/120 层）</span>
+        <span class="text-[10px] text-muted">BOSS: mỗi 20 tầng có một con (tầng 20/40/60/80/100/120)</span>
         <span v-if="nextBossFloor" class="text-[10px] text-danger">
           <Skull :size="10" class="inline" />
-          下一个 BOSS：第{{ nextBossFloor }}层
+          BOSS tiếp theo: tầng {{ nextBossFloor }}
         </span>
-        <span v-else class="text-[10px] text-success">BOSS 已全部击败</span>
+        <span v-else class="text-[10px] text-success">Đã đánh bại toàn bộ BOSS</span>
       </div>
     </div>
 
@@ -99,7 +99,7 @@
     <div v-if="miningStore.defeatedBosses.length > 0" class="border border-accent/20 rounded-xs p-3">
       <p class="text-sm text-accent mb-2">
         <Skull :size="14" class="inline" />
-        已击败BOSS
+        BOSS đã đánh bại
       </p>
       <div class="flex flex-col space-y-1">
         <div
@@ -124,11 +124,11 @@
           <div class="flex items-center justify-between mb-2">
             <p class="text-sm text-accent">
               <Map :size="14" class="inline" />
-              矿洞地图
+              Bản đồ hang mỏ
             </p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="showMapModal = false" />
           </div>
-          <p class="text-xs text-muted mb-2">安全点：{{ miningStore.safePointFloor > 0 ? `第${miningStore.safePointFloor}层` : '入口' }}</p>
+          <p class="text-xs text-muted mb-2">an toàntoàn bộđiểm：{{ miningStore.safePointFloor > 0 ? `lượt${miningStore.safePointFloor}tầng` : 'Lối vào' }}</p>
           <div class="flex flex-col space-y-1.5">
             <div
               v-for="zone in mineZones"
@@ -139,7 +139,7 @@
               <div class="flex justify-between items-center text-xs mb-1">
                 <span :class="zone.isCurrentZone ? 'text-accent' : zone.reached ? 'text-text' : 'text-muted/40'">
                   {{ zone.name }}
-                  <span class="text-muted ml-1">{{ zone.start }}-{{ zone.end }}层</span>
+                  <span class="text-muted ml-1">{{ zone.start }}-{{ zone.end }}tầng</span>
                 </span>
                 <span v-if="zone.bossDefeated" class="text-success flex items-center">
                   <Check :size="12" class="mr-0.5" />
@@ -153,9 +153,9 @@
               <div class="flex justify-between items-center mb-1">
                 <span class="text-[10px]" :class="zone.bossDefeated ? 'text-muted/50' : 'text-danger'">
                   <Skull :size="10" class="inline" />
-                  BOSS 第{{ zone.bossFloor }}层
+                  BOSS thứ{{ zone.bossFloor }}tầng
                 </span>
-                <span class="text-[10px] text-muted/50">{{ zone.bossDefeated ? '已击败（再战为弱化版）' : '需击败才能继续下行' }}</span>
+                <span class="text-[10px] text-muted/50">{{ zone.bossDefeated ? 'Đã đánh bại (đánh lại là bản suy yếu)' : 'Phải đánh bại mới có thể đi xuống tiếp' }}</span>
               </div>
               <div class="bg-bg rounded-xs h-1.5">
                 <div class="h-1.5 rounded-xs transition-all" :class="zone.barColor" :style="{ width: zone.progress + '%' }" />
@@ -180,24 +180,24 @@
 
           <p class="text-sm text-accent mb-1">
             <Pickaxe :size="14" class="inline" />
-            探索
+            Khám phá
           </p>
-          <p class="text-xs text-muted mb-2">安全点：{{ miningStore.safePointFloor > 0 ? `第${miningStore.safePointFloor}层` : '入口' }}</p>
+          <p class="text-xs text-muted mb-2">an toàntoàn bộđiểm：{{ miningStore.safePointFloor > 0 ? `lượt${miningStore.safePointFloor}tầng` : 'Lối vào' }}</p>
 
           <!-- 进入矿洞（前线） -->
           <div
             class="flex items-center justify-between border border-accent/30 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-accent/5 mb-2"
             @click="handleEnterMine(undefined)"
           >
-            <span class="text-xs text-accent">进入矿洞</span>
-            <span class="text-xs text-muted">第{{ miningStore.safePointFloor + 1 }}层</span>
+            <span class="text-xs text-accent">Vào mỏ</span>
+            <span class="text-xs text-muted">lượt{{ miningStore.safePointFloor + 1 }}tầng</span>
           </div>
 
           <!-- 电梯楼层（按区域分组网格，BOSS 层标红） -->
           <div v-if="elevatorZones.length > 0" class="max-h-48 overflow-y-auto mb-2">
             <p class="text-[10px] text-muted/50 mb-1">
               <Skull :size="10" class="inline text-danger" />
-              标红为 BOSS 层
+              nhãnđỏlà BOSS tầng
             </p>
             <div v-for="zone in elevatorZones" :key="zone.name" class="mb-2 last:mb-0">
               <p class="text-[10px] text-muted mb-1">{{ zone.name }}</p>
@@ -223,9 +223,9 @@
             >
               <span class="text-xs text-danger">
                 <Skull :size="12" class="inline" />
-                进入骷髅矿穴
+                tiếnvàoxươngsọquặnghang
               </span>
-              <span class="text-xs text-muted">第{{ miningStore.skullSafePointFloor + 1 }}层</span>
+              <span class="text-xs text-muted">lượt{{ miningStore.skullSafePointFloor + 1 }}tầng</span>
             </div>
             <!-- 骷髅矿穴安全点楼层 -->
             <div v-if="skullElevatorFloors.length > 0" class="max-h-48 overflow-y-auto grid-cols-5 grid m">
@@ -253,13 +253,13 @@
           <!-- 标题栏 -->
           <div class="flex items-center justify-between mb-2">
             <p class="text-sm text-accent">
-              第{{ activeFloorNum }}层
+              thứ{{ activeFloorNum }}tầng
               <span v-if="!miningStore.isInSkullCavern" class="text-muted">{{ zoneName }}</span>
-              <span v-if="currentFloorSpecial === 'mushroom'" class="text-success ml-1">蘑菇洞穴</span>
-              <span v-if="currentFloorSpecial === 'treasure'" class="text-accent ml-1">宝箱层</span>
-              <span v-if="currentFloorSpecial === 'infested'" class="text-danger ml-1">感染层</span>
-              <span v-if="currentFloorSpecial === 'dark'" class="text-muted ml-1">暗河层</span>
-              <span v-if="currentFloorSpecial === 'boss'" class="text-danger ml-1">BOSS层</span>
+              <span v-if="currentFloorSpecial === 'mushroom'" class="text-success ml-1">Hang nấm</span>
+              <span v-if="currentFloorSpecial === 'treasure'" class="text-accent ml-1">báurươngtầng</span>
+              <span v-if="currentFloorSpecial === 'infested'" class="text-danger ml-1">nhiễmnhiễmtầng</span>
+              <span v-if="currentFloorSpecial === 'dark'" class="text-muted ml-1">tốisôngtầng</span>
+              <span v-if="currentFloorSpecial === 'boss'" class="text-danger ml-1">BOSStầng</span>
             </p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="showLeaveConfirm = true" />
           </div>
@@ -280,7 +280,7 @@
               </span>
             </div>
             <div class="flex items-center">
-              <span class="text-[10px] text-muted w-6 flex-shrink-0">体力</span>
+              <span class="text-[10px] text-muted w-6 flex-shrink-0">Thể lực</span>
               <div class="flex-1 h-1.5 bg-bg rounded-xs border border-accent/10 mx-1.5">
                 <div
                   class="h-full rounded-xs transition-all"
@@ -297,21 +297,21 @@
             </p>
             <p class="text-[10px] text-muted">
               <Swords :size="10" class="inline" />
-              {{ weaponDisplayName }}（{{ weaponTypeName }} · 攻击 {{ weaponAttack }} · 暴击 {{ critRateDisplay }}）
+              {{ weaponDisplayName }}（{{ weaponTypeName }} · tấn côngđánh {{ weaponAttack }} · bạođánh {{ critRateDisplay }}）
               <span v-if="weaponEnchantName" class="text-success">· {{ weaponEnchantName }}</span>
             </p>
           </div>
 
           <!-- 感染层提示 -->
           <p v-if="currentFloorSpecial === 'infested' && remainingMonsters > 0" class="text-xs text-danger mb-2">
-            感染层：还需击败 {{ remainingMonsters }} 只怪物
+            nhiễmnhiễmtầng：còncầnđánhbại {{ remainingMonsters }} conquáivật
           </p>
 
           <!-- 炸弹模式指示 -->
           <div v-if="bombModeId" class="text-xs text-accent mb-2 border border-accent/30 rounded-xs px-2 py-1">
             <Zap :size="12" class="inline" />
-            炸弹模式：点击已探索格子作为爆炸中心
-            <button class="text-muted ml-2 underline" @click="bombModeId = null">取消</button>
+            nổđạnmô hìnhkiểu：điểmđánhđãthám hiểmtìmôconlàmlànổnổtrongtâm
+            <button class="text-muted ml-2 underline" @click="bombModeId = null">Hủy</button>
           </div>
 
           <!-- 6×6 格子 -->
@@ -352,7 +352,7 @@
             >
               <span class="text-xs text-danger">
                 <Skull :size="12" class="inline" />
-                怪物诱饵
+                quáivậtdụmồi
               </span>
               <span class="text-xs text-muted">&times;{{ inventoryStore.getItemCount('monster_lure') }}</span>
             </div>
@@ -363,9 +363,9 @@
             >
               <span class="text-xs text-success">
                 <Backpack :size="12" class="inline" />
-                使用道具
+                khiếndùngđạocông cụ
               </span>
-              <span class="text-xs text-muted">{{ availableCombatItems.length }}种</span>
+              <span class="text-xs text-muted">{{ availableCombatItems.length }}loại</span>
             </div>
             <div
               v-if="miningStore.stairsFound"
@@ -375,13 +375,13 @@
             >
               <span class="text-xs text-success">
                 <ChevronDown :size="12" class="inline" />
-                下一层
+                Xuống tầng
                 <span v-if="nextFloorIsBoss" class="text-danger ml-1">
                   <Skull :size="10" class="inline" />
-                  下层是 BOSS 层
+                  Tầng tiếp theo là BOSS tầng
                 </span>
               </span>
-              <span v-if="!miningStore.stairsUsable" class="text-xs text-muted">楼梯不可用</span>
+              <span v-if="!miningStore.stairsUsable" class="text-xs text-muted">Không thể dùng cầu thang</span>
             </div>
             <div
               class="flex items-center justify-between border border-danger/30 rounded-xs px-3 py-1.5 cursor-pointer hover:bg-danger/5"
@@ -389,7 +389,7 @@
             >
               <span class="text-xs text-danger">
                 <LogOut :size="12" class="inline" />
-                {{ miningStore.isInSkullCavern ? '离开骷髅矿穴' : '离开矿洞' }}
+                {{ miningStore.isInSkullCavern ? 'Rời Hang Mỏ Đầu Lâu' : 'Rời mỏ' }}
               </span>
             </div>
           </div>
@@ -411,7 +411,7 @@
           <!-- 标题 -->
           <div class="flex items-center justify-between mb-2">
             <p class="text-sm" :class="miningStore.combatIsBoss ? 'text-danger' : 'text-accent'">
-              {{ miningStore.combatIsBoss ? 'BOSS 战' : '遭遇怪物' }}
+              {{ miningStore.combatIsBoss ? 'Trận BOSS' : 'Gặp quái vật' }}
             </p>
           </div>
 
@@ -419,7 +419,7 @@
           <div class="grid grid-cols-[1fr_auto_1fr] gap-1.5 mb-3 items-center">
             <!-- 玩家 -->
             <div class="border border-accent/10 rounded-xs p-2 relative" :class="playerAnim">
-              <p class="text-xs text-center mb-1.5 truncate">你</p>
+              <p class="text-xs text-center mb-1.5 truncate">Bạn</p>
               <div class="bg-bg rounded-xs h-1.5 mb-1">
                 <div
                   class="h-1.5 rounded-xs transition-all"
@@ -476,9 +476,9 @@
               >
                 <span class="text-xs">
                   <Swords :size="12" class="inline" />
-                  攻击
+                  tấn côngđánh
                 </span>
-                <span class="text-[10px] text-muted">{{ weaponAttack }}攻击力</span>
+                <span class="text-[10px] text-muted">{{ weaponAttack }}Tấn cônglực</span>
               </div>
               <div
                 class="flex flex-col items-center border border-accent/20 rounded-xs py-1.5"
@@ -487,9 +487,9 @@
               >
                 <span class="text-xs">
                   <Shield :size="12" class="inline" />
-                  防御
+                  phòngngự
                 </span>
-                <span class="text-[10px] text-muted">减免伤害</span>
+                <span class="text-[10px] text-muted">Giảm sát thương</span>
               </div>
               <div
                 class="flex flex-col items-center border rounded-xs py-1.5"
@@ -502,9 +502,9 @@
               >
                 <span class="text-xs" :class="miningStore.combatIsBoss ? 'text-muted' : 'text-danger'">
                   <MoveRight :size="12" class="inline" />
-                  {{ miningStore.combatIsBoss ? '无法' : '逃跑' }}
+                  {{ miningStore.combatIsBoss ? 'Không thể' : 'Bỏ chạy' }}
                 </span>
-                <span v-if="miningStore.combatIsBoss" class="text-[10px] text-muted/40">BOSS战</span>
+                <span v-if="miningStore.combatIsBoss" class="text-[10px] text-muted/40">Trận BOSS</span>
               </div>
             </div>
             <!-- 使用道具 -->
@@ -515,9 +515,9 @@
             >
               <span class="text-xs text-success">
                 <Backpack :size="12" class="inline" />
-                使用道具
+                khiếndùngđạocông cụ
               </span>
-              <span class="text-xs text-muted">{{ availableCombatItems.length }}种</span>
+              <span class="text-xs text-muted">{{ availableCombatItems.length }}loại</span>
             </div>
             <!-- 切换装备方案 -->
             <div
@@ -527,7 +527,7 @@
             >
               <span class="text-xs text-accent">
                 <BookMarked :size="12" class="inline" />
-                切换装备方案
+                chuyểnđổitrang bịbịphươngán
               </span>
               <span v-if="inventoryStore.activePresetId" class="text-[10px] text-muted">
                 {{ inventoryStore.equipmentPresets.find(p => p.id === inventoryStore.activePresetId)?.name ?? '' }}
@@ -560,7 +560,7 @@
           <div class="flex items-center justify-between mb-2">
             <p class="text-sm text-accent">
               <Backpack :size="14" class="inline" />
-              使用道具
+              khiếndùngđạocông cụ
             </p>
             <Button class="py-0 px-1" :icon="X" :icon-size="12" @click="showCombatItems = false" />
           </div>
@@ -578,7 +578,7 @@
               <span class="text-xs text-muted">&times;{{ item.count }}</span>
             </div>
           </div>
-          <p v-if="availableCombatItems.length === 0" class="text-xs text-muted text-center py-2">没有可用道具</p>
+          <p v-if="availableCombatItems.length === 0" class="text-xs text-muted text-center py-2">Không có vật phẩm có thể sử dụng</p>
         </div>
       </div>
     </Transition>
@@ -594,25 +594,25 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="pendingItemId = null">
             <X :size="14" />
           </button>
-          <p class="text-sm text-accent mb-2">使用道具</p>
+          <p class="text-sm text-accent mb-2">Sử dụngVật phẩm</p>
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between">
-              <span class="text-xs text-muted">道具</span>
+              <span class="text-xs text-muted">Vật phẩm</span>
               <span class="text-xs">{{ pendingItem.name }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">效果</span>
+              <span class="text-xs text-muted">Hiệu quả</span>
               <span class="text-xs text-success">{{ pendingItem.desc }}</span>
             </div>
             <div class="flex items-center justify-between mt-0.5">
-              <span class="text-xs text-muted">剩余</span>
+              <span class="text-xs text-muted">còn còn</span>
               <span class="text-xs">×{{ pendingItem.count }}</span>
             </div>
           </div>
           <!-- 批量数量选择（仅永久增益类道具） -->
           <div v-if="pendingCanBatch && pendingItem.count > 1" class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex items-center justify-between mb-1.5">
-              <span class="text-xs text-muted">使用数量</span>
+              <span class="text-xs text-muted">Sử dụngSố lượng</span>
               <div class="flex items-center space-x-1">
                 <Button class="h-6 px-1.5 py-0.5 text-xs justify-center" :disabled="pendingUseQty <= 1" @click="addUseQty(-1)">-</Button>
                 <input
@@ -633,20 +633,20 @@
               </div>
             </div>
             <div class="flex space-x-1">
-              <Button class="flex-1 justify-center" :disabled="pendingUseQty <= 1" @click="pendingUseQty = 1">最少</Button>
+              <Button class="flex-1 justify-center" :disabled="pendingUseQty <= 1" @click="pendingUseQty = 1">Ít nhất</Button>
               <Button
                 class="flex-1 justify-center"
                 :disabled="pendingUseQty >= pendingItem.count"
                 @click="pendingUseQty = pendingItem.count"
               >
-                最多
+                nhấtnhiều
               </Button>
             </div>
           </div>
           <div class="flex space-x-1.5">
-            <Button class="flex-1 justify-center" @click="pendingItemId = null">取消</Button>
+            <Button class="flex-1 justify-center" @click="pendingItemId = null">Hủy</Button>
             <Button class="flex-1 justify-center !bg-accent !text-bg" @click="handleConfirmUseItem">
-              确认使用{{ pendingCanBatch && pendingUseQty > 1 ? ` ×${pendingUseQty}` : '' }}
+              xácxác nhậnkhiếndùng{{ pendingCanBatch && pendingUseQty > 1 ? ` ×${pendingUseQty}` : '' }}
             </Button>
           </div>
         </div>
@@ -661,11 +661,11 @@
         @click.self="showLeaveConfirm = false"
       >
         <div class="game-panel max-w-xs w-full">
-          <p class="text-sm text-accent mb-2">确认离开</p>
-          <p class="text-xs text-muted mb-3">确定要离开{{ miningStore.isInSkullCavern ? '骷髅矿穴' : '矿洞' }}吗？{{ leaveHint }}</p>
+          <p class="text-sm text-accent mb-2">Xác nhận rời đi</p>
+          <p class="text-xs text-muted mb-3">Xác nhận muốn rời {{ miningStore.isInSkullCavern ? 'Hang Xương' : 'Hang Mỏ'}}? {{ leaveHint }}</p>
           <div class="flex space-x-1.5">
-            <Button class="flex-1 justify-center" @click="showLeaveConfirm = false">继续探索</Button>
-            <Button class="flex-1 justify-center btn-danger" :icon="LogOut" @click="confirmLeave">确认离开</Button>
+            <Button class="flex-1 justify-center" @click="showLeaveConfirm = false">Tiếp tục thám hiểm</Button>
+            <Button class="flex-1 justify-center btn-danger" :icon="LogOut" @click="confirmLeave">Xác nhận rời đi</Button>
           </div>
         </div>
       </div>
@@ -684,7 +684,7 @@
           </button>
           <p class="text-sm text-accent mb-2">
             <BookMarked :size="14" class="inline" />
-            装备方案
+            trang bịbịphươngán
           </p>
           <div v-if="inventoryStore.equipmentPresets.length > 0" class="flex flex-col space-y-1.5 max-h-60 overflow-y-auto">
             <div
@@ -695,7 +695,7 @@
             >
               <div class="flex items-center justify-between mb-1">
                 <p class="text-xs text-accent truncate">{{ preset.name }}</p>
-                <span v-if="inventoryStore.activePresetId === preset.id" class="text-[10px] text-success shrink-0 ml-1">使用中</span>
+                <span v-if="inventoryStore.activePresetId === preset.id" class="text-[10px] text-success shrink-0 ml-1">Đang sử dụng</span>
               </div>
               <div class="grid grid-cols-2 gap-1">
                 <Button
@@ -703,16 +703,16 @@
                   :disabled="inventoryStore.activePresetId === preset.id"
                   @click="quickApplyPreset(preset.id)"
                 >
-                  使用
+                  khiếndùng
                 </Button>
-                <Button class="py-0 px-1.5 text-[10px]" @click="viewPresetDetail(preset.id)">查看</Button>
+                <Button class="py-0 px-1.5 text-[10px]" @click="viewPresetDetail(preset.id)">xem </Button>
               </div>
             </div>
           </div>
           <div v-else class="flex flex-col items-center justify-center py-6">
             <BookMarked :size="24" class="text-muted/30" />
-            <p class="text-xs text-muted mt-1">暂无方案</p>
-            <p class="text-[10px] text-muted/60 mt-0.5">前往背包装备页创建方案</p>
+            <p class="text-xs text-muted mt-1">Chưa có phương án</p>
+            <p class="text-[10px] text-muted/60 mt-0.5">Đi tới tab Trang bị trong Túi đồ để tạo phương án</p>
           </div>
         </div>
       </div>
@@ -736,9 +736,9 @@
               :class="detailPreset.weaponDefId ? 'cursor-pointer hover:bg-accent/5' : ''"
               @click="detailPreset.weaponDefId && viewEquipProperty('weapon', detailPreset.weaponDefId)"
             >
-              <span class="text-xs text-muted">武器</span>
+              <span class="text-xs text-muted">Vũ khí</span>
               <span class="text-xs" :class="detailPreset.weaponDefId ? 'text-accent' : 'text-muted/40'">
-                {{ detailPreset.weaponDefId ? (getWeaponById(detailPreset.weaponDefId)?.name ?? '未知') : '无' }}
+                {{ detailPreset.weaponDefId ? (getWeaponById(detailPreset.weaponDefId)?.name ?? 'Chưa biết') : 'Không' }}
               </span>
             </div>
             <div
@@ -746,9 +746,9 @@
               :class="detailPreset.ringSlot1DefId ? 'cursor-pointer hover:bg-accent/5' : ''"
               @click="detailPreset.ringSlot1DefId && viewEquipProperty('ring', detailPreset.ringSlot1DefId)"
             >
-              <span class="text-xs text-muted">戒指1</span>
+              <span class="text-xs text-muted">Nhẫn 1</span>
               <span class="text-xs" :class="detailPreset.ringSlot1DefId ? 'text-accent' : 'text-muted/40'">
-                {{ detailPreset.ringSlot1DefId ? (getRingById(detailPreset.ringSlot1DefId)?.name ?? '未知') : '无' }}
+                {{ detailPreset.ringSlot1DefId ? (getRingById(detailPreset.ringSlot1DefId)?.name ?? 'Chưa biết') : 'Không' }}
               </span>
             </div>
             <div
@@ -756,9 +756,9 @@
               :class="detailPreset.ringSlot2DefId ? 'cursor-pointer hover:bg-accent/5' : ''"
               @click="detailPreset.ringSlot2DefId && viewEquipProperty('ring', detailPreset.ringSlot2DefId)"
             >
-              <span class="text-xs text-muted">戒指2</span>
+              <span class="text-xs text-muted">Nhẫn 2</span>
               <span class="text-xs" :class="detailPreset.ringSlot2DefId ? 'text-accent' : 'text-muted/40'">
-                {{ detailPreset.ringSlot2DefId ? (getRingById(detailPreset.ringSlot2DefId)?.name ?? '未知') : '无' }}
+                {{ detailPreset.ringSlot2DefId ? (getRingById(detailPreset.ringSlot2DefId)?.name ?? 'Chưa biết') : 'Không' }}
               </span>
             </div>
             <div
@@ -766,9 +766,9 @@
               :class="detailPreset.hatDefId ? 'cursor-pointer hover:bg-accent/5' : ''"
               @click="detailPreset.hatDefId && viewEquipProperty('hat', detailPreset.hatDefId)"
             >
-              <span class="text-xs text-muted">帽子</span>
+              <span class="text-xs text-muted">Mũ</span>
               <span class="text-xs" :class="detailPreset.hatDefId ? 'text-accent' : 'text-muted/40'">
-                {{ detailPreset.hatDefId ? (getHatById(detailPreset.hatDefId)?.name ?? '未知') : '无' }}
+                {{ detailPreset.hatDefId ? (getHatById(detailPreset.hatDefId)?.name ?? 'Chưa biết') : 'Không' }}
               </span>
             </div>
             <div
@@ -776,9 +776,9 @@
               :class="detailPreset.shoeDefId ? 'cursor-pointer hover:bg-accent/5' : ''"
               @click="detailPreset.shoeDefId && viewEquipProperty('shoe', detailPreset.shoeDefId)"
             >
-              <span class="text-xs text-muted">鞋子</span>
+              <span class="text-xs text-muted">Giày</span>
               <span class="text-xs" :class="detailPreset.shoeDefId ? 'text-accent' : 'text-muted/40'">
-                {{ detailPreset.shoeDefId ? (getShoeById(detailPreset.shoeDefId)?.name ?? '未知') : '无' }}
+                {{ detailPreset.shoeDefId ? (getShoeById(detailPreset.shoeDefId)?.name ?? 'Chưa biết') : 'Không' }}
               </span>
             </div>
           </div>
@@ -876,7 +876,7 @@
   const tutorialHint = computed(() => {
     if (!tutorialStore.enabled || gameStore.year > 1) return null
     if (achievementStore.stats.highestMineFloor === 0)
-      return '矿洞是6x6的网格，点击格子探索。遇到矿石可以开采，遇到怪物需要战斗。找到楼梯可下一层。'
+      return 'Mỏ là lưới 6x6, nhấn vào ô để thám hiểm. Gặp quặng thì có thể khai thác, gặp quái vật phải chiến đấu. Tìm thấy cầu thang để xuống tầng tiếp theo.'
     return null
   })
 
@@ -885,13 +885,13 @@
   const showMapModal = ref(false)
   const showElevatorModal = ref(false)
 
-  /** 炸弹模式 */
+  /** nổđạnmô hìnhkiểu */
   const bombModeId = ref<string | null>(null)
 
-  /** 战斗道具面板 */
+  /** chiếnđấuđạocông cụmặtbảng */
   const showCombatItems = ref(false)
 
-  /** 道具使用确认 */
+  /** đạocông cụkhiếndùngxácxác nhận */
   const BATCH_USABLE_ITEMS = new Set(['guild_badge', 'life_talisman', 'lucky_coin', 'defense_charm'])
   const pendingItemId = ref<string | null>(null)
   const pendingUseQty = ref(1)
@@ -911,10 +911,10 @@
     pendingUseQty.value = Math.max(1, Math.min(max, val))
   }
 
-  /** 离开矿洞确认 */
+  /** rờimởquặnghangxácxác nhận */
   const showLeaveConfirm = ref(false)
 
-  // 战斗动画状态
+  // chiếnđấutáctranhtrạng tháitrạng thái
   const combatAnimLock = ref(false)
   const playerAnim = ref('')
   const monsterAnim = ref('')
@@ -952,18 +952,18 @@
   }
 
   const parseDamage = (msg: string): { dealt: number; taken: number; isCrit: boolean } => {
-    const dealt = msg.match(/造成(\d+)点伤害/)
-    const taken = msg.match(/受到(\d+)点伤害/)
+    const dealt = msg.match(/gây (\d+) điểm sát thương/)
+    const taken = msg.match(/chịuđến(\d+)điểmthươnghại/)
     return {
       dealt: dealt ? parseInt(dealt[1]!) : 0,
       taken: taken ? parseInt(taken[1]!) : 0,
-      isCrit: msg.includes('暴击')
+      isCrit: msg.includes('Chí mạng')
     }
   }
 
   const recentLog = computed(() => exploreLog.value.slice(-settingsStore.mineLogLines))
 
-  /** 体力条颜色：低于 15% 转红，低于 30% 转琥珀 */
+  /** thểlựcmụcmàu sắcmàu：thấptại 15% xoayđỏ，thấptại 30% xoayhổ pháchhổ phách */
   const staminaBarClass = computed(() => {
     const pct = playerStore.staminaPercent
     if (pct <= STAMINA_CRITICAL_RATIO * 100) return 'bg-danger'
@@ -981,8 +981,8 @@
   /** 体力偏低时的行动建议 */
   const staminaHint = computed(() => {
     const pct = playerStore.staminaPercent
-    if (playerStore.stamina <= 0) return '体力已耗尽，再行动就会当场累倒并损失铜钱。'
-    if (pct <= STAMINA_CRITICAL_RATIO * 100) return '体力告急，建议吃点东西或撤出矿洞。'
+    if (playerStore.stamina <= 0) return 'Đã cạn thể lực, hành động tiếp sẽ khiến bạn gục tại chỗ và mất tiền đồng.'
+    if (pct <= STAMINA_CRITICAL_RATIO * 100) return 'Thể lực nguy cấp, nên ăn chút gì hoặc rút khỏi mỏ.'
     return null
   })
 
@@ -998,68 +998,68 @@
     })).filter(b => b.count > 0)
   })
 
-  /** 战斗中可用道具列表 */
+  /** chiếnđấutrong可dùngđạocông cụdanh sáchbảng */
   const availableCombatItems = computed(() => {
     const items: { itemId: string; name: string; desc: string; count: number }[] = []
 
-    // 公会徽章
+    // cônghộihuy hiệuchương
     const badgeCount = inventoryStore.getItemCount('guild_badge')
     if (badgeCount > 0) {
       items.push({
         itemId: 'guild_badge',
-        name: '公会徽章',
-        desc: '攻击力永久+3',
+        name: 'Huy Hiệu Công Hội',
+        desc: 'Sức tấn công vĩnh viễn +3',
         count: badgeCount
       })
     }
 
-    // 生命护符
+    // sinhmệnhbảo vệbùa
     const talismanCount = inventoryStore.getItemCount('life_talisman')
     if (talismanCount > 0) {
       items.push({
         itemId: 'life_talisman',
-        name: '生命护符',
-        desc: '最大生命值永久+15',
+        name: 'Bùa Hộ Mệnh Sinh Mệnh',
+        desc: 'HP tối đa vĩnh viễn +15',
         count: talismanCount
       })
     }
 
-    // 幸运铜钱
+    // may mắnvậnđồngtiền
     const coinCount = inventoryStore.getItemCount('lucky_coin')
     if (coinCount > 0) {
       items.push({
         itemId: 'lucky_coin',
-        name: '幸运铜钱',
-        desc: '掉落率永久+5%',
+        name: 'Đồng Tiền May Mắn',
+        desc: 'Tỷ lệ rơi đồ vĩnh viễn +5%',
         count: coinCount
       })
     }
 
-    // 守护符
+    // giữbảo vệbùa
     const defenseCharmCount = inventoryStore.getItemCount('defense_charm')
     if (defenseCharmCount > 0) {
       items.push({
         itemId: 'defense_charm',
-        name: '守护符',
-        desc: '防御永久+3%',
+        name: 'Bùa Hộ Vệ',
+        desc: 'Phòng thủ vĩnh viễn +3%',
         count: defenseCharmCount
       })
     }
 
-    // 猎魔符
+    // sănmabùa
     if (!miningStore.slayerCharmActive) {
       const charmCount = inventoryStore.getItemCount('slayer_charm')
       if (charmCount > 0) {
         items.push({
           itemId: 'slayer_charm',
-          name: '猎魔符',
-          desc: '掉落率+20%（本次探索）',
+          name: 'Phù Săn Ma',
+          desc: 'Tỷ lệ rơi đồ +20% (lần thám hiểm này)',
           count: charmCount
         })
       }
     }
 
-    // 所有可食用的恢复类道具
+    // điềucó可ăndùng的hồi phụchồiloàiđạocông cụ
     const seen = new Set<string>(['guild_badge', 'slayer_charm', 'monster_lure', 'life_talisman', 'lucky_coin', 'defense_charm'])
     for (const invItem of inventoryStore.items) {
       if (invItem.quantity <= 0 || seen.has(invItem.itemId)) continue
@@ -1069,8 +1069,8 @@
       seen.add(invItem.itemId)
 
       const parts: string[] = []
-      if (def.healthRestore) parts.push(def.healthRestore >= 999 ? 'HP全满' : `HP+${def.healthRestore}`)
-      if (def.staminaRestore) parts.push(`体力+${def.staminaRestore}`)
+      if (def.healthRestore) parts.push(def.healthRestore >= 999 ? 'HP đầy' : `HP+${def.healthRestore}`)
+      if (def.staminaRestore) parts.push(`Thể lực +${def.staminaRestore}`)
 
       items.push({
         itemId: invItem.itemId,
@@ -1083,7 +1083,7 @@
     return items
   })
 
-  /** 是否有怪物诱饵 */
+  /** làkhôngcóquáivậtdụmồi */
   const hasMonsterLure = computed(() => inventoryStore.getItemCount('monster_lure') > 0)
 
   const zoneName = computed(() => {
@@ -1091,23 +1091,23 @@
     return floor ? ZONE_NAMES[floor.zone] : ''
   })
 
-  /** 矿洞地图区域数据 */
+  /** quặnghangđấtbộ sưu tậpkhukhu vựcsốtheo */
   const mineZones = computed(() => {
     const zones = [
-      { id: 'shallow', name: '浅矿·土石洞穴', start: 1, end: 20, bossFloor: 20 },
-      { id: 'frost', name: '冰窟·冰霜暗河', start: 21, end: 40, bossFloor: 40 },
-      { id: 'lava', name: '熔岩层·地火暗涌', start: 41, end: 60, bossFloor: 60 },
-      { id: 'crystal', name: '晶窟·水晶迷宫', start: 61, end: 80, bossFloor: 80 },
+      { id: 'shallow', name: 'Mỏ nông·Hang đất và đá', start: 1, end: 20, bossFloor: 20 },
+      { id: 'frost', name: 'hang băng·Sông Sương', start: 21, end: 40, bossFloor: 40 },
+      { id: 'lava', name: 'lớp dung nham·Dòng chảy ngầm lửa đất', start: 41, end: 60, bossFloor: 60 },
+      { id: 'crystal', name: 'hang pha lê·mê cung pha lê', start: 61, end: 80, bossFloor: 80 },
       {
         id: 'shadow',
-        name: '幽境·暗影裂隙',
+        name: 'vương quốc hẻo lánh·vết nứt bóng',
         start: 81,
         end: 100,
         bossFloor: 100
       },
       {
         id: 'abyss',
-        name: '深渊·无底深渊',
+        name: 'vực thẳm·vực thẳm không đáy',
         start: 101,
         end: 120,
         bossFloor: 120
@@ -1135,7 +1135,7 @@
   /** 主矿洞 BOSS 层：每 20 层一处 */
   const isBossFloor = (floor: number): boolean => floor > 0 && floor % 20 === 0 && floor <= MAX_MINE_FLOOR
 
-  /** 下一个尚未击败 BOSS 的楼层（全部击败则为 null） */
+  /** 下一个尚未击败 BOSS 的楼层（Tất cả击败则为 null） */
   const nextBossFloor = computed((): number | null => {
     for (const zone of mineZones.value) {
       if (!zone.bossDefeated) return zone.bossFloor
@@ -1143,27 +1143,27 @@
     return null
   })
 
-  /** 当前探索层的下一层是否为 BOSS 层 */
+  /** khitrướcthám hiểmtìmtầng的Xuống tầnglàkhônglà BOSS tầng */
   const nextFloorIsBoss = computed(() => {
     if (miningStore.isInSkullCavern) return (miningStore.skullCavernFloor + 1) % 25 === 0
     return isBossFloor(miningStore.currentFloor + 1)
   })
 
-  /** 当前层是否为特殊楼层 */
+  /** khitrướctầnglàkhônglàđặcđặc biệtlầutầng */
   const currentFloorSpecial = computed(() => {
     const floor = miningStore.getActiveFloorData()
     return floor?.specialType ?? null
   })
 
-  /** 感染层剩余怪物 */
+  /** nhiễmnhiễmtầngcòncònquáivật */
   const remainingMonsters = computed(() => {
     return miningStore.totalMonstersOnFloor - miningStore.monstersDefeatedCount
   })
 
-  /** 是否显示电梯（有可返回楼层或骷髅矿穴已解锁） */
+  /** làkhônghiểnhiển thịTVthang（có可trả lạivềlầutầnghoặcxươngsọquặnghangđãgiảikhóa） */
   const hasElevator = computed(() => elevatorZones.value.length > 0 || miningStore.isSkullCavernUnlocked())
 
-  /** 武器信息 */
+  /** vũdụng cụthông tintin */
   const weaponDisplayName = computed(() => {
     const owned = inventoryStore.getEquippedWeapon()
     return getWeaponDisplayName(owned.defId, owned.enchantmentId)
@@ -1171,7 +1171,7 @@
   const weaponTypeName = computed(() => {
     const owned = inventoryStore.getEquippedWeapon()
     const def = getWeaponById(owned.defId)
-    return def ? WEAPON_TYPE_NAMES[def.type] : '未知'
+    return def ? WEAPON_TYPE_NAMES[def.type] : 'Chưa biết'
   })
   const weaponAttack = computed(
     () =>
@@ -1190,16 +1190,16 @@
     return enchant ? `${enchant.name} - ${enchant.description}` : ''
   })
 
-  /** 电梯楼层按区域分组 */
+  /** TVthanglầutầngnhấnkhukhu vựcđiểmnhóm */
   const elevatorZones = computed(() => {
     const allSafePoints = miningStore.getUnlockedSafePoints().filter(sp => sp < miningStore.safePointFloor)
     const zones = [
-      { name: '浅矿', min: 0, max: 20 },
-      { name: '冰窟', min: 21, max: 40 },
-      { name: '熔岩', min: 41, max: 60 },
-      { name: '晶窟', min: 61, max: 80 },
-      { name: '幽境', min: 81, max: 100 },
-      { name: '深渊', min: 101, max: 120 }
+      { name: 'Mỏ nông', min: 0, max: 20 },
+      { name: 'Hang băng', min: 21, max: 40 },
+      { name: 'Dung nham', min: 41, max: 60 },
+      { name: 'Hang tinh thể', min: 61, max: 80 },
+      { name: 'Cõi u tịch', min: 81, max: 100 },
+      { name: 'Vực sâu', min: 101, max: 120 }
     ]
     return zones
       .map(z => ({
@@ -1209,18 +1209,18 @@
       .filter(z => z.floors.length > 0)
   })
 
-  /** 离开矿洞提示文案 */
+  /** rờimởquặnghangnânghiển thịvănán */
   const leaveHint = computed(() => {
     if (miningStore.isInSkullCavern) {
       const floorData = miningStore.getActiveFloorData()
-      if (floorData?.isSafePoint) return `当前为安全点，进度将保存至第${miningStore.skullCavernFloor}层。`
+      if (floorData?.isSafePoint) return `Hiện là điểm an toàn, tiến độ sẽ được lưu đến tầng ${miningStore.skullCavernFloor}.`
       const lastSafe = miningStore.skullSafePointFloor
-      return lastSafe > 0 ? `下次将从第${lastSafe + 1}层开始。` : '当前进度不会保留。'
+      return lastSafe > 0 ? `Lần sau sẽ bắt đầu từ tầng ${lastSafe + 1}.` : 'Tiến trình hiện tại sẽ không được lưu.'
     }
-    return '当前进度不会保留。'
+    return 'Tiến trình hiện tại sẽ không được lưu.'
   })
 
-  /** 骷髅矿穴可选安全点楼层（排除最高安全点，因为主按钮已默认从那里开始） */
+  /** xươngsọquặnghang可chọnan toàntoàn bộđiểmlầutầng（xếpxóanhấtcaoan toàntoàn bộđiểm，vìlàchínhnhấnnútđãim lặngxác nhậntừđótrongmởbắt đầu） */
   const skullElevatorFloors = computed(() => {
     return miningStore.getUnlockedSkullSafePoints().filter(sp => sp < miningStore.skullSafePointFloor)
   })
@@ -1256,7 +1256,7 @@
     }
   }
 
-  /** 格子图标 */
+  /** ôconbộ sưu tậpnhãn */
   const getTileIcon = (tile: MineTile): string => {
     if (tile.state === 'hidden') return '?'
     switch (tile.type) {
@@ -1281,22 +1281,22 @@
     }
   }
 
-  /** 格子是否可点击 */
+  /** ôconlàkhông可điểmđánh */
   const isTileClickable = (tile: MineTile): boolean => {
     if (bombModeId.value) {
       return tile.state !== 'hidden'
     }
-    // 已揭示的怪物/BOSS格可以重新交战
+    // đãmởhiển thị的quáivật/BOSSô可dùnglạimớigiaochiến
     if (tile.state === 'revealed' && (tile.type === 'monster' || tile.type === 'boss') && tile.data?.monster) {
       return true
     }
     return tile.state === 'hidden' && miningStore.canRevealTile(tile.index)
   }
 
-  /** 格子点击处理 */
+  /** ôconđiểmđánhnơiquản lý */
   const handleTileClick = (tile: MineTile) => {
     if (gameStore.isPastBedtime) {
-      addLog('太晚了，没法继续探索了。')
+      addLog('Quá muộn rồi, không thể tiếp tục thám hiểm.')
       handleEndDay()
       return
     }
@@ -1317,7 +1317,7 @@
       return
     }
 
-    // 已揭示的怪物/BOSS格：重新交战
+    // đãmởhiển thị的quáivật/BOSSô：lạimớigiaochiến
     if (tile.state === 'revealed' && (tile.type === 'monster' || tile.type === 'boss') && tile.data?.monster) {
       const result = miningStore.engageRevealedMonster(tile.index)
       if (result.success) {
@@ -1357,12 +1357,12 @@
     }
   }
 
-  /** 切换炸弹模式 */
+  /** chuyểnđổinổđạnmô hìnhkiểu */
   const toggleBombMode = (bombId: string) => {
     bombModeId.value = bombModeId.value === bombId ? null : bombId
   }
 
-  // ==================== 事件处理 ====================
+  // ==================== việcmónnơiquản lý ====================
 
   const handleEnterMine = (startFrom?: number) => {
     showElevatorModal.value = false
@@ -1392,11 +1392,11 @@
     if (action === 'attack') sfxAttack()
     if (action === 'defend') sfxDefend()
     if (action === 'flee') sfxFlee()
-    if (result.message.includes('受到')) sfxHurt()
+    if (result.message.includes('Chịu')) sfxHurt()
 
     if (action === 'attack' && dealt > 0) {
       triggerAnim('monster', isCrit ? 'anim-shake-heavy' : 'anim-shake', isCrit ? 400 : 300)
-      showDamageFloat('monster', isCrit ? `暴击 -${dealt}` : `-${dealt}`)
+      showDamageFloat('monster', isCrit ? `Chí mạng -${dealt}` : `-${dealt}`)
     }
     if (action === 'defend') {
       triggerAnim('player', 'anim-flash-defend', 400)
@@ -1442,7 +1442,7 @@
     showCombatItems.value = false
   }
 
-  /** 使用怪物诱饵 */
+  /** khiếndùngquáivậtdụmồi */
   const handleUseMonsterLure = () => {
     const result = miningStore.useMonsterLure()
     sfxClick()
@@ -1454,7 +1454,7 @@
 
   const handleNextFloor = () => {
     if (gameStore.isPastBedtime) {
-      addLog('太晚了，该回去了。')
+      addLog('Quá muộn rồi, đến lúc về thôi.')
       handleEndDay()
       return
     }
@@ -1486,7 +1486,7 @@
     handleLeave()
   }
 
-  // ==================== 快速切装 ====================
+  // ==================== nhanhtốcchuyểntrang bị ====================
 
   const showPresetListModal = ref(false)
   const showPresetDetailModal = ref(false)
@@ -1503,28 +1503,28 @@
   const equipPropertyInfo = ref<EquipPropertyInfo | null>(null)
 
   const EFFECT_NAMES: Record<EquipmentEffectType, string> = {
-    attack_bonus: '攻击力',
-    crit_rate_bonus: '暴击率',
-    defense_bonus: '防御',
-    vampiric: '吸血',
-    max_hp_bonus: '最大HP',
-    stamina_reduction: '体力消耗',
-    mining_stamina: '采矿体力',
-    farming_stamina: '农作体力',
-    fishing_stamina: '钓鱼体力',
-    crop_quality_bonus: '作物品质',
-    crop_growth_bonus: '作物生长',
-    fish_quality_bonus: '鱼类品质',
-    fishing_calm: '钓鱼稳定',
-    sell_price_bonus: '售价加成',
-    shop_discount: '商店折扣',
-    gift_friendship: '送礼好感',
-    monster_drop_bonus: '掉落率',
-    exp_bonus: '经验加成',
-    treasure_find: '宝箱概率',
-    ore_bonus: '矿石加成',
-    luck: '幸运',
-    travel_speed: '旅行加速'
+    attack_bonus: 'Công kích',
+    crit_rate_bonus: 'Tỷ lệ chí mạng',
+    defense_bonus: 'Phòng thủ',
+    vampiric: 'Hút Máu',
+    max_hp_bonus: 'HP tối đa',
+    stamina_reduction: 'Tiêu hao thể lực',
+    mining_stamina: 'Thể lực khai mỏ',
+    farming_stamina: 'Thể lực nông nghiệp',
+    fishing_stamina: 'Thể lực câu cá',
+    crop_quality_bonus: 'Phẩm chất nông sản',
+    crop_growth_bonus: 'Sinh trưởng cây trồng',
+    fish_quality_bonus: 'Phẩm chất cá',
+    fishing_calm: 'Độ ổn định câu cá',
+    sell_price_bonus: 'Tăng giá bán',
+    shop_discount: 'Giảm giá cửa hàng',
+    gift_friendship: 'Hảo cảm khi tặng quà',
+    monster_drop_bonus: 'Tỷ lệ rơi đồ',
+    exp_bonus: 'Cộng thêm kinh nghiệm',
+    treasure_find: 'Tỷ lệ rương báu',
+    ore_bonus: 'Thưởng quặng',
+    luck: 'May Mắn',
+    travel_speed: 'Tăng tốc hành trình'
   }
 
   const PCTG_EFFECTS: Set<EquipmentEffectType> = new Set([
@@ -1576,20 +1576,20 @@
       const def = getWeaponById(defId)
       if (!def) return
       equipPropertyInfo.value = {
-        category: '武器',
+        category: 'Vũ khí',
         name: def.name,
         description: def.description,
         effects: [
-          { label: '攻击力', value: `${def.attack}` },
-          { label: '类型', value: WEAPON_TYPE_NAMES[def.type] },
-          { label: '暴击率', value: `${Math.round(def.critRate * 100)}%` }
+          { label: 'Công kích', value: `${def.attack}` },
+          { label: 'Loại', value: WEAPON_TYPE_NAMES[def.type] },
+          { label: 'Tỷ lệ chí mạng', value: `${Math.round(def.critRate * 100)}%` }
         ]
       }
     } else if (type === 'ring') {
       const def = getRingById(defId)
       if (!def) return
       equipPropertyInfo.value = {
-        category: '戒指',
+        category: 'Nhẫn',
         name: def.name,
         description: def.description,
         effects: def.effects.map(e => ({
@@ -1601,7 +1601,7 @@
       const def = getHatById(defId)
       if (!def) return
       equipPropertyInfo.value = {
-        category: '帽子',
+        category: 'Mũ',
         name: def.name,
         description: def.description,
         effects: def.effects.map(e => ({
@@ -1613,7 +1613,7 @@
       const def = getShoeById(defId)
       if (!def) return
       equipPropertyInfo.value = {
-        category: '鞋子',
+        category: 'Giày',
         name: def.name,
         description: def.description,
         effects: def.effects.map(e => ({
@@ -1627,7 +1627,7 @@
 </script>
 
 <style scoped>
-  /* === 战斗动画 === */
+  /* === chiếnđấutáctranh === */
 
   @keyframes combat-shake {
     0%,

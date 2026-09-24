@@ -25,7 +25,7 @@
 
         <!-- 继续按钮（无选择或已选择后） -->
         <Button v-if="!currentScene.choices || hasChosen" class="mt-3" @click="nextScene">
-          {{ isLastScene ? '结束' : '继续' }}
+          {{ isLastScene ? 'Kết thúc' : 'Tiếp tục' }}
         </Button>
       </div>
     </div>
@@ -48,7 +48,7 @@
 
   const playerStore = usePlayerStore()
 
-  /** 替换对话中的 {player} / {title} 占位符 */
+  /** thayđổiđúnglờitrong的 {player} / {title} chiếmvị tríbùa */
   const r = (text: string): string => text.replace(/\{player\}/g, playerStore.playerName).replace(/\{title\}/g, playerStore.honorific)
 
   const currentIndex = ref(0)
@@ -77,7 +77,7 @@
   }
 
   const nextScene = () => {
-    // 归档当前场景
+    // trở vềlưukhitrướctrậncảnh
     playedScenes.value.push({
       text: currentScene.value?.text ?? '',
       chosenResponse: choiceResponse.value ?? undefined

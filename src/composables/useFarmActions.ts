@@ -23,10 +23,10 @@ import { handleEndDay } from './useEndDay'
 import { sfxDig, sfxPlant, sfxWater, sfxHarvest, sfxLevelUp, sfxBuy, sfxCoin } from './useAudio'
 
 export const QUALITY_NAMES: Record<Quality, string> = {
-  normal: '普通',
-  fine: '优良',
-  excellent: '精品',
-  supreme: '极品'
+  normal: 'Thường',
+  fine: 'Tốt',
+  excellent: 'Tinh phẩm',
+  supreme: 'Cực phẩm'
 }
 
 /** 仙缘结缘：作物祝福（crop_blessing）概率品质+1 */
@@ -57,14 +57,14 @@ export const handlePlotClick = (plotId: number) => {
   if (!plot) return
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
 
   if (plot.state === 'wasteland') {
     if (!inventoryStore.isToolAvailable('hoe')) {
-      addLog('锄头正在升级中，无法开垦。')
+      addLog('Cuốc đang được nâng cấp, không thể khai hoang.')
       return
     }
     const farmingBuff = cookingStore.activeBuff?.type === 'farming' ? cookingStore.activeBuff.value / 100 : 0
@@ -82,13 +82,13 @@ export const handlePlotClick = (plotId: number) => {
       )
     )
     if (!playerStore.consumeStamina(cost)) {
-      addLog('体力不足，无法开垦。')
+      addLog('Không đủ thể lực, không thể khai hoang.')
       return
     }
     farmStore.tillPlot(plotId)
     sfxDig()
-    showFloat(`-${cost}体力`, 'danger')
-    addLog(`你开垦了一块荒地。(-${cost}体力)`)
+    showFloat(`-${cost} thể lực`, 'danger')
+    addLog(`Bạn khai hoang một ô đất. (-${cost} thể lực)`)
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.till)
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) {
@@ -99,7 +99,7 @@ export const handlePlotClick = (plotId: number) => {
     const cropDef = getCropById(selectedSeed.value.cropId)
     if (!cropDef) return
     if (!inventoryStore.hasItem(cropDef.seedId)) {
-      addLog(`没有${cropDef.name}种子了。`)
+      addLog(`Không còn hạt giống ${cropDef.name}.`)
       return
     }
     const plantQuality = selectedSeed.value.quality
@@ -118,22 +118,22 @@ export const handlePlotClick = (plotId: number) => {
       )
     )
     if (!playerStore.consumeStamina(cost)) {
-      addLog('体力不足，无法播种。')
+      addLog('Không đủ thể lực để gieo hạt.')
       return
     }
     inventoryStore.removeItem(cropDef.seedId, 1, plantQuality)
     farmStore.plantCrop(plotId, cropDef.id)
     sfxPlant()
-    showFloat(`-${cost}体力`, 'danger')
-    addLog(`种下了${cropDef.name}。(-${cost}体力)`)
+    showFloat(`-${cost} thể lực`, 'danger')
+    addLog(`Đã gieo ${cropDef.name}. (-${cost} thể lực)`)
     // 种植预警：作物可能无法在本季成熟
     const daysLeft = 28 - gameStore.day
     if (cropDef.growthDays > daysLeft) {
       const SEASON_ORDER = ['spring', 'summer', 'autumn', 'winter'] as const
       const nextSeason = SEASON_ORDER[(SEASON_ORDER.indexOf(gameStore.season) + 1) % 4]!
       if (!cropDef.season.includes(nextSeason)) {
-        showFloat(`${cropDef.name}需${cropDef.growthDays}天，本季仅剩${daysLeft}天！`, 'danger')
-        addLog(`注意：${cropDef.name}需要${cropDef.growthDays}天成熟，但本季仅剩${daysLeft}天，换季后将枯萎。`)
+        showFloat(`${cropDef.name} cần ${cropDef.growthDays} ngày, nhưng mùa này chỉ còn ${daysLeft} ngày!`, 'danger')
+        addLog(`Lưu ý: ${cropDef.name} cần ${cropDef.growthDays} ngày để trưởng thành, nhưng mùa này chỉ còn ${daysLeft} ngày; sang mùa mới cây sẽ héo.`)
       }
     }
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.plant)
@@ -144,11 +144,11 @@ export const handlePlotClick = (plotId: number) => {
     }
   } else if (plot.state === 'planted' || plot.state === 'growing') {
     if (!inventoryStore.isToolAvailable('wateringCan')) {
-      addLog('水壶正在升级中，无法浇水。')
+      addLog('Bình tưới đang được nâng cấp, không thể tưới nước.')
       return
     }
     if (plot.watered) {
-      addLog('这块地今天已经浇过水了。')
+      addLog('Ô đất này hôm nay đã được tưới.')
       return
     }
     const crop = getCropById(plot.cropId!)
@@ -168,14 +168,14 @@ export const handlePlotClick = (plotId: number) => {
       )
     )
     if (!playerStore.consumeStamina(cost)) {
-      addLog('体力不足，无法浇水。')
+      addLog('Không đủ thể lực, không thể tưới nước.')
       return
     }
     farmStore.waterPlot(plotId)
     skillStore.addExp('farming', 2)
     sfxWater()
-    showFloat(`-${cost}体力`, 'water')
-    addLog(`浇水完成。(-${cost}体力)`)
+    showFloat(`-${cost} thể lực`, 'water')
+    addLog(`Tưới nước xong. (-${cost} thể lực)`)
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.water)
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) {
@@ -184,7 +184,7 @@ export const handlePlotClick = (plotId: number) => {
     }
   } else if (plot.state === 'harvestable') {
     if (!inventoryStore.isToolAvailable('scythe')) {
-      addLog('镰刀正在升级中，无法收获。')
+      addLog('Liềm đang được nâng cấp, không thể thu hoạch.')
       return
     }
     // 镰刀收获不消耗体力
@@ -216,17 +216,17 @@ export const handlePlotClick = (plotId: number) => {
       sfxHarvest()
       const qtyLabel = intensiveDouble || yieldDouble || standardDouble ? '×2' : ''
       showFloat(`+${cropDef?.name ?? cropId}${qtyLabel}${qualityLabel}`, 'success')
-      let msg = `收获了${cropDef?.name ?? cropId}${qtyLabel}${qualityLabel}！`
-      if (intensiveDouble) msg += ' 精耕细作，双倍丰收！'
-      if (yieldDouble) msg += ' 育种产量加成，双倍丰收！'
-      if (standardDouble) msg += ' 桃源沃土，额外丰收！'
+      let msg = `Thu hoạch ${cropDef?.name ?? cropId}${qtyLabel}${qualityLabel}!`
+      if (intensiveDouble) msg += ' Canh tác kỹ lưỡng, thu hoạch gấp đôi!'
+      if (yieldDouble) msg += ' Thưởng sản lượng lai tạo, thu hoạch gấp đôi!'
+      if (standardDouble) msg += ' Đất màu mỡ Đào Nguyên, thu hoạch thêm!'
       // 育种甜度加成：额外铜钱
       if (genetics && genetics.sweetness > 0 && cropDef) {
         const bonusMoney = Math.floor((cropDef.sellPrice * harvestQty * genetics.sweetness) / 200)
         if (bonusMoney > 0) {
           usePlayerStore().earnMoney(bonusMoney)
-          msg += ` 甜度加成+${bonusMoney}文`
-          showFloat(`+${bonusMoney}文`, 'accent')
+          msg += ` Thưởng độ ngọt +${bonusMoney} văn`
+          showFloat(`+${bonusMoney} văn`, 'accent')
         }
       }
       // 杂交种记录
@@ -240,13 +240,13 @@ export const handlePlotClick = (plotId: number) => {
           id: generateGeneticsId()
         }
         if (useBreedingStore().addToBox(returned)) {
-          msg += ' 育种种子已回收。'
+          msg += ' Đã thu hồi hạt giống lai tạo.'
         } else {
-          msg += ' 种子箱已满，育种种子丢失！'
+          msg += ' Hộp hạt giống đã đầy, hạt giống lai tạo bị mất!'
         }
       }
       if (leveledUp) {
-        msg += ` 农耕提升到${newLevel}级！`
+        msg += ` Kỹ năng nông nghiệp tăng lên cấp ${newLevel}!`
         sfxLevelUp()
       }
       addLog(msg)
@@ -270,10 +270,10 @@ export const handleBuySeed = (seedId: string) => {
   const actualPrice = Math.floor(seed.price * (1 - discount))
   if (shopStore.buySeed(seedId)) {
     sfxBuy()
-    showFloat(`-${actualPrice}文`, 'danger')
-    addLog(`购买了${seed.cropName}种子。(-${actualPrice}文)`)
+    showFloat(`-${actualPrice} văn`, 'danger')
+    addLog(`Đã mua hạt giống ${seed.cropName}. (-${actualPrice} văn)`)
   } else {
-    addLog('铜钱不足或背包已满。')
+    addLog('Không đủ tiền hoặc túi đồ đã đầy.')
   }
 }
 
@@ -285,8 +285,8 @@ export const handleSellItem = (itemId: string, quality: Quality) => {
   const earned = shopStore.sellItem(itemId, 1, quality)
   if (earned > 0) {
     sfxCoin()
-    showFloat(`+${earned}文`, 'accent')
-    addLog(`卖出了${itemDef.name}。(+${earned}文)`)
+    showFloat(`+${earned} văn`, 'accent')
+    addLog(`Đã bán ${itemDef.name}. (+${earned} văn)`)
   }
 }
 
@@ -298,8 +298,8 @@ export const handleSellItemAll = (itemId: string, quantity: number, quality: Qua
   const earned = shopStore.sellItem(itemId, quantity, quality)
   if (earned > 0) {
     sfxCoin()
-    showFloat(`+${earned}文`, 'accent')
-    addLog(`卖出了${itemDef.name}×${quantity}。(+${earned}文)`)
+    showFloat(`+${earned} văn`, 'accent')
+    addLog(`Đã bán ${itemDef.name}×${quantity}. (+${earned} văn)`)
   }
 }
 
@@ -330,8 +330,8 @@ export const handleSellAll = (filterCategories?: ItemCategory[]) => {
   }
   if (totalEarned > 0) {
     sfxCoin()
-    showFloat(`+${totalEarned}文`, 'accent')
-    addLog(`一键出售了${totalCount}件物品。(+${totalEarned}文)`)
+    showFloat(`+${totalEarned} văn`, 'accent')
+    addLog(`Đã bán một chạm ${totalCount} vật phẩm. (+${totalEarned} văn)`)
   }
 }
 
@@ -345,19 +345,19 @@ export const handleBatchWater = () => {
   const cookingStore = useCookingStore()
 
   if (!inventoryStore.isToolAvailable('wateringCan')) {
-    addLog('水壶正在升级中，无法浇水。')
+    addLog('Bình tưới đang được nâng cấp, không thể tưới nước.')
     return
   }
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
 
   const targets = farmStore.plots.filter(p => (p.state === 'planted' || p.state === 'growing') && !p.watered)
   if (targets.length === 0) {
-    addLog('没有需要浇水的地块。')
+    addLog('Không có ô đất nào cần tưới.')
     return
   }
 
@@ -387,12 +387,12 @@ export const handleBatchWater = () => {
 
   if (watered > 0) {
     sfxWater()
-    addLog(`一键浇水了${watered}块地。`)
+    addLog(`Đã tưới một chạm ${watered} ô đất.`)
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.batchWater * inventoryStore.getToolStaminaMultiplier('wateringCan'))
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
   } else {
-    addLog('体力不足，无法浇水。')
+    addLog('Không đủ thể lực, không thể tưới nước.')
   }
 }
 
@@ -406,19 +406,19 @@ export const handleBatchTill = () => {
   const cookingStore = useCookingStore()
 
   if (!inventoryStore.isToolAvailable('hoe')) {
-    addLog('锄头正在升级中，无法开垦。')
+    addLog('Cuốc đang được nâng cấp, không thể khai hoang.')
     return
   }
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
 
   const targets = farmStore.plots.filter(p => p.state === 'wasteland')
   if (targets.length === 0) {
-    addLog('没有需要开垦的荒地。')
+    addLog('Không có đất hoang nào cần khai hoang.')
     return
   }
 
@@ -445,12 +445,12 @@ export const handleBatchTill = () => {
 
   if (tilled > 0) {
     sfxDig()
-    addLog(`一键开垦了${tilled}块荒地。`)
+    addLog(`Đã khai hoang một chạm ${tilled} ô đất.`)
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.batchTill * inventoryStore.getToolStaminaMultiplier('hoe'))
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
   } else {
-    addLog('体力不足，无法开垦。')
+    addLog('Không đủ thể lực, không thể khai hoang.')
   }
 }
 
@@ -464,12 +464,12 @@ export const handleBatchHarvest = () => {
   const achievementStore = useAchievementStore()
 
   if (!inventoryStore.isToolAvailable('scythe')) {
-    addLog('镰刀正在升级中，无法收获。')
+    addLog('Liềm đang được nâng cấp, không thể thu hoạch.')
     return
   }
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
@@ -496,7 +496,7 @@ export const handleBatchHarvest = () => {
       useQuestStore().onItemObtained(result.cropId, result.quantity)
       skillStore.addExp('farming', 10)
       harvested++
-      harvestedCrops.push(`巨型${cropDef?.name ?? result.cropId}x${result.quantity}`)
+      harvestedCrops.push(`${cropDef?.name ?? result.cropId} khổng lồ x${result.quantity}`)
     }
   }
 
@@ -549,7 +549,7 @@ export const handleBatchHarvest = () => {
   }
 
   if (seedsReturned > 0) {
-    addLog(`${seedsReturned}颗育种种子已回收到种子箱。`)
+    addLog(`Đã thu hồi ${seedsReturned} hạt giống lai tạo vào hộp hạt giống.`)
   }
 
   if (harvested > 0) {
@@ -561,12 +561,12 @@ export const handleBatchHarvest = () => {
     const cropSummary = Array.from(cropCounts.entries())
       .map(([name, count]) => (count > 1 ? `${name}x${count}` : name))
       .join('、')
-    addLog(`一键收获了${harvested}株作物：${cropSummary}。`)
+    addLog(`Đã thu hoạch một chạm ${harvested} cây: ${cropSummary}.`)
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.batchHarvest * inventoryStore.getToolStaminaMultiplier('scythe'))
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
   } else {
-    addLog('没有可收获的作物。')
+    addLog('Không có cây nào có thể thu hoạch.')
   }
 }
 
@@ -580,12 +580,12 @@ export const handleBatchPlant = (cropId: string) => {
   const cookingStore = useCookingStore()
 
   if (!inventoryStore.isToolAvailable('hoe')) {
-    addLog('锄头正在升级中，无法播种。')
+    addLog('Cuốc đang được nâng cấp, không thể gieo hạt.')
     return
   }
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
@@ -595,7 +595,7 @@ export const handleBatchPlant = (cropId: string) => {
 
   const targets = farmStore.plots.filter(p => p.state === 'tilled')
   if (targets.length === 0) {
-    addLog('没有可种植的空耕地。')
+    addLog('Không có ô đất trống để gieo trồng.')
     return
   }
 
@@ -624,22 +624,22 @@ export const handleBatchPlant = (cropId: string) => {
 
   if (planted > 0) {
     sfxPlant()
-    addLog(`一键种植了${planted}株${cropDef.name}。`)
+    addLog(`Đã trồng một chạm ${planted} cây ${cropDef.name}.`)
     // 种植预警：作物可能无法在本季成熟
     const daysLeft = 28 - gameStore.day
     if (cropDef.growthDays > daysLeft) {
       const SEASON_ORDER = ['spring', 'summer', 'autumn', 'winter'] as const
       const nextSeason = SEASON_ORDER[(SEASON_ORDER.indexOf(gameStore.season) + 1) % 4]!
       if (!cropDef.season.includes(nextSeason)) {
-        showFloat(`${cropDef.name}需${cropDef.growthDays}天，本季仅剩${daysLeft}天！`, 'danger')
-        addLog(`注意：${cropDef.name}需要${cropDef.growthDays}天成熟，但本季仅剩${daysLeft}天，换季后将枯萎。`)
+        showFloat(`${cropDef.name} cần ${cropDef.growthDays} ngày, nhưng mùa này chỉ còn ${daysLeft} ngày!`, 'danger')
+        addLog(`Lưu ý: ${cropDef.name} cần ${cropDef.growthDays} ngày để trưởng thành, nhưng mùa này chỉ còn ${daysLeft} ngày; sang mùa mới cây sẽ héo.`)
       }
     }
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.plant * Math.min(planted, 3))
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
   } else {
-    addLog('体力不足或种子不够，无法种植。')
+    addLog('Không đủ thể lực hoặc hạt giống, không thể gieo trồng.')
   }
 }
 
@@ -650,7 +650,7 @@ export const handleBatchFertilize = (fertilizerType: FertilizerType) => {
   const inventoryStore = useInventoryStore()
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
@@ -660,7 +660,7 @@ export const handleBatchFertilize = (fertilizerType: FertilizerType) => {
 
   const targets = farmStore.plots.filter(p => p.state !== 'wasteland' && !p.fertilizer)
   if (targets.length === 0) {
-    addLog('没有可施肥的地块。')
+    addLog('Không có ô đất nào có thể bón phân.')
     return
   }
 
@@ -677,13 +677,13 @@ export const handleBatchFertilize = (fertilizerType: FertilizerType) => {
   }
 
   if (applied > 0) {
-    showFloat(`施肥 ×${applied}`, 'success')
-    addLog(`一键施了${applied}块地的${fertDef.name}。`)
+    showFloat(`Bón phân ×${applied}`, 'success')
+    addLog(`Đã bón ${fertDef.name} cho ${applied} ô đất một chạm.`)
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.plant * Math.min(applied, 3))
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
   } else {
-    addLog('肥料不足，无法施肥。')
+    addLog('Không đủ phân bón.')
   }
 }
 
@@ -697,7 +697,7 @@ export const handleRemoveCrop = (plotId: number) => {
   const inventoryStore = useInventoryStore()
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
@@ -705,7 +705,7 @@ export const handleRemoveCrop = (plotId: number) => {
   const plot = farmStore.plots[plotId]
   if (!plot) return
   if (plot.state !== 'planted' && plot.state !== 'growing' && plot.state !== 'harvestable') {
-    addLog('该地块没有作物可以铲除。')
+    addLog('Ô đất này không có cây để dọn.')
     return
   }
 
@@ -719,7 +719,7 @@ export const handleRemoveCrop = (plotId: number) => {
     )
   )
   if (!playerStore.consumeStamina(cost)) {
-    addLog('体力不足，无法铲除。')
+    addLog('Không đủ thể lực để dọn.')
     return
   }
 
@@ -727,7 +727,7 @@ export const handleRemoveCrop = (plotId: number) => {
   if (result.cropId) {
     const cropDef = getCropById(result.cropId)
     sfxDig()
-    addLog(`铲除了${cropDef?.name ?? result.cropId}。`)
+    addLog(`Đã dọn ${cropDef?.name ?? result.cropId}.`)
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.till)
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
@@ -744,14 +744,14 @@ export const handleCurePest = (plotId: number) => {
   const inventoryStore = useInventoryStore()
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
 
   const plot = farmStore.plots[plotId]
   if (!plot || !plot.infested) {
-    addLog('该地块没有虫害。')
+    addLog('Ô đất này không có sâu bệnh.')
     return
   }
 
@@ -765,13 +765,13 @@ export const handleCurePest = (plotId: number) => {
     )
   )
   if (!playerStore.consumeStamina(cost)) {
-    addLog('体力不足，无法除虫。')
+    addLog('Không đủ thể lực, không thể bắt sâu.')
     return
   }
 
   if (farmStore.curePest(plotId)) {
     sfxDig()
-    addLog('清除了虫害。')
+    addLog('Đã loại bỏ sâu bệnh.')
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.till)
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
@@ -788,14 +788,14 @@ export const handleBatchCurePest = () => {
   const inventoryStore = useInventoryStore()
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
 
   const targets = farmStore.plots.filter(p => p.infested)
   if (targets.length === 0) {
-    addLog('没有需要除虫的地块。')
+    addLog('Không có ô đất nào cần bắt sâu.')
     return
   }
 
@@ -821,12 +821,12 @@ export const handleBatchCurePest = () => {
 
   if (cured > 0) {
     sfxDig()
-    addLog(`一键除虫了${cured}块地。`)
+    addLog(`Đã bắt sâu một chạm ${cured} ô đất.`)
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.batchTill)
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
   } else {
-    addLog('体力不足，无法除虫。')
+    addLog('Không đủ thể lực, không thể bắt sâu.')
   }
 }
 
@@ -840,14 +840,14 @@ export const handleClearWeed = (plotId: number) => {
   const inventoryStore = useInventoryStore()
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
 
   const plot = farmStore.plots[plotId]
   if (!plot || !plot.weedy) {
-    addLog('该地块没有杂草。')
+    addLog('Ô đất này không có cỏ dại.')
     return
   }
 
@@ -861,13 +861,13 @@ export const handleClearWeed = (plotId: number) => {
     )
   )
   if (!playerStore.consumeStamina(cost)) {
-    addLog('体力不足，无法除草。')
+    addLog('Không đủ thể lực, không thể nhổ cỏ.')
     return
   }
 
   if (farmStore.clearWeed(plotId)) {
     sfxDig()
-    addLog('清除了杂草。')
+    addLog('Đã dọn cỏ dại.')
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.till)
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
@@ -884,14 +884,14 @@ export const handleBatchClearWeed = () => {
   const inventoryStore = useInventoryStore()
 
   if (gameStore.isPastBedtime) {
-    addLog('已经凌晨2点了，你必须休息。')
+    addLog('Đã 2 giờ sáng rồi, bạn phải nghỉ ngơi.')
     handleEndDay()
     return
   }
 
   const targets = farmStore.plots.filter(p => p.weedy)
   if (targets.length === 0) {
-    addLog('没有需要除草的地块。')
+    addLog('Không có ô đất nào cần nhổ cỏ.')
     return
   }
 
@@ -917,12 +917,12 @@ export const handleBatchClearWeed = () => {
 
   if (cleared > 0) {
     sfxDig()
-    addLog(`一键除草了${cleared}块地。`)
+    addLog(`Đã nhổ cỏ một chạm ${cleared} ô đất.`)
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.batchTill)
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
   } else {
-    addLog('体力不足，无法除草。')
+    addLog('Không đủ thể lực, không thể nhổ cỏ.')
   }
 }
 

@@ -82,7 +82,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   // 溪流
   {
     fishId: 'crucian',
-    name: '鲫鱼',
+    name: 'Cá diếc',
     maturityDays: 3,
     baseProductionRate: 0.4,
     productItemId: 'crucian',
@@ -94,7 +94,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   },
   {
     fishId: 'carp',
-    name: '鲤鱼',
+    name: 'Cá chép',
     maturityDays: 4,
     baseProductionRate: 0.35,
     productItemId: 'carp',
@@ -106,7 +106,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   },
   {
     fishId: 'grass_carp',
-    name: '草鱼',
+    name: 'Cá trắm cỏ',
     maturityDays: 5,
     baseProductionRate: 0.3,
     productItemId: 'grass_carp',
@@ -119,7 +119,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   // 池塘
   {
     fishId: 'golden_carp',
-    name: '金鲤',
+    name: 'Chép Vàng',
     maturityDays: 7,
     baseProductionRate: 0.2,
     productItemId: 'golden_carp',
@@ -132,7 +132,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   },
   {
     fishId: 'koi',
-    name: '锦鲤',
+    name: 'Chép Koi',
     maturityDays: 6,
     baseProductionRate: 0.25,
     productItemId: 'koi',
@@ -145,7 +145,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   },
   {
     fishId: 'pond_turtle',
-    name: '乌龟',
+    name: 'Rùa',
     maturityDays: 8,
     baseProductionRate: 0.15,
     productItemId: 'pond_turtle',
@@ -159,7 +159,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   // 江河
   {
     fishId: 'bass',
-    name: '鲈鱼',
+    name: 'Cá vược',
     maturityDays: 5,
     baseProductionRate: 0.3,
     productItemId: 'bass',
@@ -171,7 +171,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   },
   {
     fishId: 'catfish',
-    name: '鲶鱼',
+    name: 'Cá trê',
     maturityDays: 5,
     baseProductionRate: 0.3,
     productItemId: 'catfish',
@@ -183,7 +183,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   },
   {
     fishId: 'yellow_eel',
-    name: '黄鳝',
+    name: 'Lươn Đồng',
     maturityDays: 6,
     baseProductionRate: 0.25,
     productItemId: 'yellow_eel',
@@ -197,7 +197,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   // 瀑布
   {
     fishId: 'rainbow_trout',
-    name: '虹鳟',
+    name: 'Cá Hồi Vân',
     maturityDays: 6,
     baseProductionRate: 0.25,
     productItemId: 'rainbow_trout',
@@ -211,7 +211,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   // 沼泽
   {
     fishId: 'mud_loach',
-    name: '沼泽泥鳅',
+    name: 'Chạch Đầm Lầy',
     maturityDays: 3,
     baseProductionRate: 0.4,
     productItemId: 'mud_loach',
@@ -223,7 +223,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   },
   {
     fishId: 'pond_snail',
-    name: '田螺',
+    name: 'Ốc Bươu',
     maturityDays: 2,
     baseProductionRate: 0.5,
     productItemId: 'pond_snail',
@@ -237,7 +237,7 @@ export const PONDABLE_FISH: PondableFishDef[] = [
   // 矿洞
   {
     fishId: 'cave_blindfish',
-    name: '洞穴盲鱼',
+    name: 'Cá Mù Hang Động',
     maturityDays: 8,
     baseProductionRate: 0.15,
     productItemId: 'cave_blindfish',

@@ -25,49 +25,49 @@ export const TOTEM_BASE_PRICE = 5000
 export const WEATHER_TOTEMS: TotemDef[] = [
   {
     id: 'rain_totem',
-    name: '雨图腾',
+    name: 'Đồ Đằng Mưa',
     weather: 'rainy',
-    description: '祈来一场好雨。次日下雨，田里不必浇水。',
+    description: 'Cầu một trận mưa tốt. Ngày hôm sau trời mưa, ruộng không cần tưới.',
     price: TOTEM_BASE_PRICE,
     sellPrice: 1500
   },
   {
     id: 'sun_totem',
-    name: '晴图腾',
+    name: 'Vật tổ trời quang',
     weather: 'sunny',
-    description: '拨云见日。次日放晴，适合出门远行或办事。',
+    description: 'Xua mây thấy nắng. Ngày hôm sau trời quang, thích hợp đi xa hoặc làm việc.',
     price: TOTEM_BASE_PRICE,
     sellPrice: 1500
   },
   {
     id: 'storm_totem',
-    name: '雷图腾',
+    name: 'Vật tổ sấm',
     weather: 'stormy',
-    description: '召来雷雨。次日雷雨交加，避雷针可收取电池。',
+    description: 'Gọi mưa giông. Ngày hôm sau sấm chớp, cột thu lôi có thể thu pin.',
     price: Math.round(TOTEM_BASE_PRICE * 1.4),
     sellPrice: 2100
   },
   {
     id: 'snow_totem',
-    name: '雪图腾',
+    name: 'Vật tổ tuyết',
     weather: 'snowy',
-    description: '唤起风雪。次日落雪，冬季限定的景致与产出。',
+    description: 'Gọi gió tuyết. Ngày hôm sau có tuyết, xuất hiện cảnh vật và sản phẩm mùa đông.',
     price: Math.round(TOTEM_BASE_PRICE * 1.2),
     sellPrice: 1800
   },
   {
     id: 'wind_totem',
-    name: '风图腾',
+    name: 'Vật tổ gió',
     weather: 'windy',
-    description: '起一阵大风。次日刮风，林间容易吹落好东西。',
+    description: 'Gọi một trận gió lớn. Ngày hôm sau nổi gió, trong rừng dễ thổi rơi đồ tốt.',
     price: Math.round(TOTEM_BASE_PRICE * 0.8),
     sellPrice: 1200
   },
   {
     id: 'green_rain_totem',
-    name: '碧雨图腾',
+    name: 'Vật tổ mưa xanh',
     weather: 'green_rain',
-    description: '引动罕见的绿雨。次日降下碧色之雨，山野异变频生。',
+    description: 'Gọi mưa xanh hiếm gặp. Ngày hôm sau mưa màu ngọc bích, núi rừng thường xuyên biến đổi.',
     price: TOTEM_BASE_PRICE * 4,
     sellPrice: 6000
   }

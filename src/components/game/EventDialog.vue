@@ -13,8 +13,8 @@
         </p>
       </div>
       <div class="flex justify-center">
-        <Button v-if="!allLinesShown" class="w-full" @click="showNextLine">继续</Button>
-        <Button v-else class="w-full" @click="emit('close')">关闭</Button>
+        <Button v-if="!allLinesShown" class="w-full" @click="showNextLine">Tiếp tục</Button>
+        <Button v-else class="w-full" @click="emit('close')">Tắt</Button>
       </div>
     </div>
   </div>
@@ -41,25 +41,25 @@
   const npcStore = useNpcStore()
   const playerStore = usePlayerStore()
 
-  /** 配偶名（未婚则为空） */
+  /** phốingẫu nhiêntên（chưahônthìlàlép） */
   const spouseName = computed(() => {
     const spouse = npcStore.getSpouse()
     return spouse ? (getNpcById(spouse.npcId)?.name ?? '') : ''
   })
 
-  /** 已婚且该节日提供了成家版本时，改用成家版文案 */
+  /** đãhônvànênlễngàynângdângđã成nhàbảnbảnthời，cảidùng成nhàbảnvănán */
   const narrative = computed(() => {
     if (spouseName.value && props.event.narrativeMarried) return props.event.narrativeMarried
     return props.event.narrative
   })
 
-  /** 替换文案占位符 */
+  /** thayđổivănánchiếmvị tríbùa */
   const fill = (line: string): string =>
     line
       .replace(/\{year\}/g, String(gameStore.year))
       .replace(/\{player\}/g, playerStore.playerName)
       .replace(/\{title\}/g, playerStore.honorific)
-      .replace(/\{spouse\}/g, spouseName.value || '家里人')
+      .replace(/\{spouse\}/g, spouseName.value || 'Người nhà')
 
   const lineIndex = ref(1)
 

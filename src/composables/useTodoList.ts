@@ -32,12 +32,12 @@ export interface TodoItem {
 }
 
 export const TODO_CATEGORY_NAMES: Record<TodoCategory, string> = {
-  farm: '农事',
-  animal: '牧场',
-  processing: '加工',
-  social: '人情',
-  quest: '任务',
-  craft: '工坊'
+  farm: 'Nông vụ',
+  animal: 'Mục trường',
+  processing: 'Chế biến',
+  social: 'Nhân tình',
+  quest: 'Nhiệm vụ',
+  craft: 'Xưởng'
 }
 
 /**
@@ -66,8 +66,8 @@ export const useTodoList = () => {
       list.push({
         id: 'farm-water',
         category: 'farm',
-        text: '有作物还没浇水',
-        detail: `${unwatered} 块`,
+        text: 'Có cây chưa được tưới',
+        detail: `${unwatered} ô`,
         urgency: 'urgent',
         panel: 'farm'
       })
@@ -78,8 +78,8 @@ export const useTodoList = () => {
       list.push({
         id: 'farm-harvest',
         category: 'farm',
-        text: '有作物可以收获',
-        detail: `${harvestable} 块`,
+        text: 'Có cây có thể thu hoạch',
+        detail: `${harvestable} ô`,
         urgency: 'normal',
         panel: 'farm'
       })
@@ -90,8 +90,8 @@ export const useTodoList = () => {
       list.push({
         id: 'farm-pest',
         category: 'farm',
-        text: '田里有杂草或虫害',
-        detail: `${troubled} 处`,
+        text: 'Ruộng có cỏ dại hoặc sâu bệnh',
+        detail: `${troubled} chỗ`,
         urgency: 'normal',
         panel: 'farm'
       })
@@ -104,8 +104,8 @@ export const useTodoList = () => {
         list.push({
           id: 'farm-season',
           category: 'farm',
-          text: '明天换季，不合季节的作物会枯萎',
-          detail: `${planted} 株生长中`,
+          text: 'Ngày mai đổi mùa, cây không hợp mùa sẽ héo',
+          detail: `${planted} cây đang sinh trưởng`,
           urgency: 'urgent',
           panel: 'farm'
         })
@@ -118,8 +118,8 @@ export const useTodoList = () => {
       list.push({
         id: 'animal-feed',
         category: 'animal',
-        text: '牲畜还没喂',
-        detail: `${unfed} 只`,
+        text: 'Gia súc chưa được cho ăn',
+        detail: `${unfed} con`,
         urgency: 'urgent',
         panel: 'animal'
       })
@@ -130,8 +130,8 @@ export const useTodoList = () => {
       list.push({
         id: 'animal-pet',
         category: 'animal',
-        text: '还有牲畜没有抚摸（影响心情与产出）',
-        detail: `${unpetted} 只`,
+        text: 'Còn gia súc chưa được vuốt ve (ảnh hưởng tâm trạng và sản lượng)',
+        detail: `${unpetted} con`,
         urgency: 'normal',
         panel: 'animal'
       })
@@ -141,7 +141,7 @@ export const useTodoList = () => {
       list.push({
         id: 'pond-feed',
         category: 'animal',
-        text: '鱼塘还没投饵',
+        text: 'Ao cá chưa được cho ăn',
         urgency: 'normal',
         panel: 'fishpond'
       })
@@ -153,8 +153,8 @@ export const useTodoList = () => {
       list.push({
         id: 'processing-collect',
         category: 'processing',
-        text: '加工坊有成品可以收取',
-        detail: `${readyCount} 份`,
+        text: 'Xưởng chế biến có thành phẩm để thu',
+        detail: `${readyCount} phần`,
         urgency: 'normal',
         panel: 'workshop'
       })
@@ -165,8 +165,8 @@ export const useTodoList = () => {
       list.push({
         id: 'processing-idle',
         category: 'processing',
-        text: '加工站有空闲槽位没在开工',
-        detail: `${idleCount} 个`,
+        text: 'Trạm chế biến có ô trống chưa hoạt động',
+        detail: `${idleCount} ô`,
         urgency: 'info',
         panel: 'workshop'
       })
@@ -179,8 +179,8 @@ export const useTodoList = () => {
       list.push({
         id: 'processing-tomorrow',
         category: 'processing',
-        text: '明天可收：' + names.slice(0, 3).join('、'),
-        detail: `${tomorrowReady.length} 份`,
+        text: 'Ngày mai có thể thu:' + names.slice(0, 3).join('、'),
+        detail: `${tomorrowReady.length} phần`,
         urgency: 'info',
         panel: 'workshop'
       })
@@ -192,8 +192,8 @@ export const useTodoList = () => {
       list.push({
         id: 'breeding-ready',
         category: 'processing',
-        text: '育种台有成果可以取出',
-        detail: `${breedingReady} 个`,
+        text: 'Bàn lai tạo có thành quả để lấy',
+        detail: `${breedingReady} cái`,
         urgency: 'normal',
         panel: 'breeding'
       })
@@ -205,8 +205,8 @@ export const useTodoList = () => {
       list.push({
         id: 'craft-tool',
         category: 'craft',
-        text: remain <= 0 ? '升级好的工具可以取回了' : '工具正在升级中',
-        detail: remain <= 0 ? '已完成' : `还需 ${remain} 天`,
+        text: remain <= 0 ? 'Công cụ đã nâng cấp có thể lấy về' : 'Công cụ đang được nâng cấp',
+        detail: remain <= 0 ? 'Đã hoàn thành' : `Còn ${remain} ngày`,
         urgency: remain <= 0 ? 'normal' : 'info',
         panel: 'upgrade'
       })
@@ -220,8 +220,8 @@ export const useTodoList = () => {
       list.push({
         id: `birthday-${npc.id}`,
         category: 'social',
-        text: `今天是${npc.name}的生日`,
-        detail: state?.birthdayGiftGiven ? '生日礼已送' : '可额外送一份生日礼 ×4',
+        text: `Hôm nay là sinh nhật ${npc.name}`,
+        detail: state?.birthdayGiftGiven ? 'Đã tặng quà sinh nhật' : 'Có thể tặng thêm một quà sinh nhật ×4',
         urgency: state?.birthdayGiftGiven ? 'info' : 'urgent',
         panel: 'village'
       })
@@ -233,8 +233,8 @@ export const useTodoList = () => {
       list.push({
         id: `birthday-soon-${b.npcId}`,
         category: 'social',
-        text: `${b.name}的生日快到了`,
-        detail: `还有 ${b.daysLeft} 天`,
+        text: `Sinh nhật ${b.name} sắp tới`,
+        detail: `Còn ${b.daysLeft} ngày`,
         urgency: 'info',
         panel: 'village'
       })
@@ -246,8 +246,8 @@ export const useTodoList = () => {
       list.push({
         id: 'social-talk',
         category: 'social',
-        text: '还有村民今天没打过招呼',
-        detail: `${notTalked} 人`,
+        text: 'Còn dân làng hôm nay chưa chào hỏi',
+        detail: `${notTalked} người`,
         urgency: 'info',
         panel: 'village'
       })
@@ -256,11 +256,11 @@ export const useTodoList = () => {
     // 配偶与子女
     const spouse = npcStore.getSpouse()
     if (spouse && !spouse.talkedToday) {
-      const name = getNpcById(spouse.npcId)?.name ?? '伴侣'
+      const name = getNpcById(spouse.npcId)?.name ?? 'Bạn đời'
       list.push({
         id: 'social-spouse',
         category: 'social',
-        text: `还没和${name}说上话`,
+        text: `Chưa nói chuyện với ${name}`,
         urgency: 'normal',
         panel: 'cottage'
       })
@@ -270,8 +270,8 @@ export const useTodoList = () => {
       list.push({
         id: 'social-child',
         category: 'social',
-        text: '孩子还等着你陪一会儿',
-        detail: `${childrenToVisit} 个`,
+        text: 'Con vẫn đang chờ bạn chơi cùng một lát',
+        detail: `${childrenToVisit} bé`,
         urgency: 'normal',
         panel: 'cottage'
       })
@@ -283,10 +283,10 @@ export const useTodoList = () => {
       list.push({
         id: `quest-${quest.id}`,
         category: 'quest',
-        text: done ? `可以交付：${quest.npcName}的委托` : `委托进行中：${quest.targetItemName}`,
+        text: done ? `Có thể giao: ủy thác của ${quest.npcName}` : `Ủy thác đang thực hiện: ${quest.targetItemName}`,
         detail: done
-          ? `剩 ${quest.daysRemaining} 天到期`
-          : `${quest.collectedQuantity}/${quest.targetQuantity} · 剩 ${quest.daysRemaining} 天`,
+          ? `Còn ${quest.daysRemaining} ngày đến hạn`
+          : `${quest.collectedQuantity}/${quest.targetQuantity} · còn ${quest.daysRemaining} ngày`,
         urgency: done ? 'normal' : quest.daysRemaining <= 1 ? 'urgent' : 'info',
         panel: 'quest'
       })
@@ -297,7 +297,7 @@ export const useTodoList = () => {
       list.push({
         id: 'quest-main',
         category: 'quest',
-        text: `主线可以交付：${def?.title ?? ''}`,
+        text: `Nhiệm vụ chính có thể giao: ${def?.title ?? ''}`,
         urgency: 'normal',
         panel: 'quest'
       })
@@ -306,7 +306,7 @@ export const useTodoList = () => {
       list.push({
         id: 'quest-main-accept',
         category: 'quest',
-        text: `有新的主线可以接取：${def?.title ?? ''}`,
+        text: `Có nhiệm vụ chính mới có thể nhận: ${def?.title ?? ''}`,
         urgency: 'info',
         panel: 'quest'
       })

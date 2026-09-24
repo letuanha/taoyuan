@@ -64,7 +64,7 @@ const tick = () => {
   // 跨午夜提示（仅一次，与 advanceTime 共享标志）
   if (!gameStore.midnightWarned && prevHour < MIDNIGHT_HOUR && newHour >= MIDNIGHT_HOUR) {
     gameStore.midnightWarned = true
-    addLog('已经过了午夜，你开始感到困倦……')
+    addLog('Đã quá nửa đêm, bạn bắt đầu thấy buồn ngủ…')
   }
 }
 

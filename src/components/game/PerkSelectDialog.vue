@@ -2,8 +2,8 @@
   <!-- z-[80]：必须盖过矿洞探索(z-50)、战斗(z-60)、道具(z-70)弹窗，否则矿洞里升级时点不到 -->
   <div class="fixed inset-0 bg-black/60 flex items-center justify-center z-[80]">
     <div class="game-panel max-w-md w-full">
-      <h3 class="text-accent text-sm mb-2">{{ SKILL_NAMES[skillType] }} 达到{{ level }}级！</h3>
-      <p class="text-xs text-muted mb-4">选择一个专精方向：</p>
+      <h3 class="text-accent text-sm mb-2">{{ SKILL_NAMES[skillType] }} đạt cấp {{ level }}!</h3>
+      <p class="text-xs text-muted mb-4">Chọn một hướng chuyên môn:</p>
 
       <div class="flex flex-col space-y-3">
         <button
@@ -37,11 +37,11 @@
   const skillStore = useSkillStore()
 
   const SKILL_NAMES: Record<SkillType, string> = {
-    farming: '农耕',
-    foraging: '采集',
-    fishing: '钓鱼',
-    mining: '挖矿',
-    combat: '战斗'
+    farming: 'Nông nghiệp',
+    foraging: 'Thu thập',
+    fishing: 'Câu cá',
+    mining: 'Khai khoáng',
+    combat: 'Chiến đấu'
   }
 
   interface PerkOption {
@@ -52,96 +52,96 @@
 
   const PERK5_OPTIONS: Record<SkillType, PerkOption[]> = {
     farming: [
-      { id: 'harvester', name: '丰收者', description: '作物售价+10%' },
-      { id: 'rancher', name: '牧人', description: '动物产品售价+20%' }
+      { id: 'harvester', name: 'Người Thu Hoạch', description: '+10% giá bán nông sản' },
+      { id: 'rancher', name: 'Mục Đồng', description: '+20% giá bán sản phẩm động vật' }
     ],
     foraging: [
       {
         id: 'lumberjack',
-        name: '樵夫',
-        description: '采集时25%概率额外获得木材'
+        name: 'Tiều Phu',
+        description: '25% xác suất nhận thêm gỗ khi thu thập'
       },
-      { id: 'herbalist', name: '药师', description: '采集物品概率+20%' }
+      { id: 'herbalist', name: 'Gái Lá', description: '+20% xác suất nhận vật phẩm khi thu thập' }
     ],
     fishing: [
-      { id: 'fisher', name: '渔夫', description: '鱼售价+25%' },
-      { id: 'trapper', name: '捕手', description: '挣扎时成功率+15%' }
+      { id: 'fisher', name: 'Ngư Dân', description: '+25% giá bán cá' },
+      { id: 'trapper', name: 'Thợ Săn', description: '+15% tỷ lệ thành công khi cá vùng vẫy' }
     ],
     mining: [
-      { id: 'miner', name: '矿工', description: '50%概率矿石+1' },
-      { id: 'geologist', name: '地质学家', description: '稀有矿石概率大幅提升' }
+      { id: 'miner', name: 'Thợ Mỏ', description: '50% xác suất Quặng +1' },
+      { id: 'geologist', name: 'Nhà Địa Chất', description: 'Tăng mạnh xác suất ra quặng hiếm' }
     ],
     combat: [
-      { id: 'fighter', name: '斗士', description: '受伤-15%，+25最大生命值' },
-      { id: 'defender', name: '守护者', description: '防御时恢复5HP' }
+      { id: 'fighter', name: 'Đấu Sĩ', description: '-15% sát thương nhận vào, +25 HP tối đa' },
+      { id: 'defender', name: 'Vệ Binh', description: 'Hồi 5 HP khi phòng thủ' }
     ]
   }
 
-  /** Lv10 专精按 Lv5 分支分组 */
+  /** Lv10 chuyêntinhnhấn Lv5 điểmchiđiểmnhóm */
   const PERK10_BRANCHES: Record<SkillType, Record<string, PerkOption[]>> = {
     farming: {
       harvester: [
-        { id: 'artisan', name: '匠人', description: '加工品售价+25%' },
-        { id: 'intensive', name: '精耕', description: '收获时20%概率双倍' }
+        { id: 'artisan', name: 'Nghệ Nhân', description: '+25% giá bán sản phẩm gia công' },
+        { id: 'intensive', name: 'Canh Tác Sâu', description: '20% xác suất thu hoạch nhân đôi' }
       ],
       rancher: [
-        { id: 'coopmaster', name: '牧场主', description: '动物亲密度获取+50%' },
-        { id: 'shepherd', name: '牧羊人', description: '动物产品品质提升一档' }
+        { id: 'coopmaster', name: 'Chủ Trang Trại', description: '+50% độ thân thiết với động vật' },
+        { id: 'shepherd', name: 'Người Chăn Cừu', description: 'Tăng 1 bậc phẩm chất sản phẩm động vật' }
       ]
     },
     foraging: {
       lumberjack: [
-        { id: 'forester', name: '伐木工', description: '采集时必定获得额外木材' },
-        { id: 'tracker', name: '追踪者', description: '每次采集额外获得1件物品' }
+        { id: 'forester', name: 'Thợ Đốn Gỗ', description: 'Chắc chắn nhận thêm gỗ khi thu thập' },
+        { id: 'tracker', name: 'Kẻ Theo Dấu', description: 'Nhận thêm 1 vật phẩm mỗi lần thu thập' }
       ],
       herbalist: [
-        { id: 'botanist', name: '植物学家', description: '采集物必定精品品质' },
-        { id: 'alchemist', name: '炼金师', description: '食物恢复+50%' }
+        { id: 'botanist', name: 'Nhà Thực Vật', description: 'Đồ thu thập chắc chắn đạt phẩm chất Hiếm' },
+        { id: 'alchemist', name: 'Giả Kim Thuật', description: '+50% hiệu quả hồi phục từ thức ăn' }
       ]
     },
     fishing: {
       fisher: [
-        { id: 'angler', name: '垂钓大师', description: '传说鱼出现率大幅提升' },
-        { id: 'aquaculture', name: '水产商', description: '鱼售价+50%' }
+        { id: 'angler', name: 'Kiện Tướng Câu Cá', description: 'Tăng mạnh tỷ lệ xuất hiện cá Huyền thoại' },
+        { id: 'aquaculture', name: 'Thương Nhân Thủy Sản', description: '+50% giá bán cá' }
       ],
       trapper: [
-        { id: 'mariner', name: '水手', description: '钓上的鱼品质至少为优良' },
-        { id: 'luremaster', name: '诱饵师', description: '鱼饵效果翻倍' }
+        { id: 'mariner', name: 'Thủy Thủ', description: 'Cá câu được ít nhất đạt phẩm chất Tốt' },
+        { id: 'luremaster', name: 'Bậc Thầy Mồi Câu', description: 'Nhân đôi hiệu quả mồi câu' }
       ]
     },
     mining: {
       miner: [
-        { id: 'prospector', name: '探矿者', description: '矿石15%概率双倍' },
-        { id: 'blacksmith', name: '铁匠', description: '金属矿石售价+50%' }
+        { id: 'prospector', name: 'Người Thăm Dò', description: '15% xác suất quặng nhân đôi' },
+        { id: 'blacksmith', name: 'Thợ rèn', description: '+50% giá bán quặng kim loại' }
       ],
       geologist: [
         {
           id: 'excavator',
-          name: '挖掘者',
-          description: '使用炸弹时30%概率不消耗'
+          name: 'Máy Xúc',
+          description: '30% xác suất không tiêu hao khi dùng bom'
         },
         {
           id: 'mineralogist',
-          name: '宝石学家',
-          description: '击败怪物额外掉落矿石'
+          name: 'Nhà Ngọc Học',
+          description: 'Rơi thêm quặng khi đánh bại quái vật'
         }
       ]
     },
     combat: {
       fighter: [
-        { id: 'warrior', name: '武者', description: '+40最大生命值' },
-        { id: 'brute', name: '蛮力者', description: '攻击伤害+25%' }
+        { id: 'warrior', name: 'Võ Giả', description: '+40 HP tối đa' },
+        { id: 'brute', name: 'Kẻ Cục Súc', description: '+25% sát thương tấn công' }
       ],
       defender: [
-        { id: 'acrobat', name: '杂技师', description: '25%概率闪避反击' },
-        { id: 'tank', name: '重甲者', description: '防御时伤害减少70%' }
+        { id: 'acrobat', name: 'Diễn Viên Xiếc', description: '25% xác suất né tránh và phản công' },
+        { id: 'tank', name: 'Kỵ Sĩ Giáp Nặng', description: 'Giảm 70% sát thương khi phòng thủ' }
       ]
     }
   }
 
   const options = computed<PerkOption[]>(() => {
     if (props.level === 5) return PERK5_OPTIONS[props.skillType]
-    // Lv10：根据 Lv5 选择的专精确定分支
+    // Lv10：căntheo Lv5 chọnchọn的chuyêntinhxácđịnhđiểmchi
     const perk5 = skillStore.getSkill(props.skillType).perk5
     if (perk5) {
       const branches = PERK10_BRANCHES[props.skillType]

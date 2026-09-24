@@ -377,9 +377,9 @@ export const useFishPondStore = defineStore('fishPond', () => {
         const parentA = pond.value.fish.find(f => f.id === pond.value.breeding!.parentA)
         const parentB = pond.value.fish.find(f => f.id === pond.value.breeding!.parentB)
         if (!parentA || !parentB) {
-          result.breedingFailed = '亲鱼死亡，繁殖失败'
+          result.breedingFailed = 'Cá bố mẹ chết, sinh sản thất bại'
         } else if (fishCount.value >= capacity.value) {
-          result.breedingFailed = '鱼塘已满，繁殖失败'
+          result.breedingFailed = 'Ao cá đã đầy, sinh sản thất bại'
         } else {
           const childGenetics = _breedGenetics(parentA.genetics, parentB.genetics)
           const def = getPondableFish(pond.value.breeding.fishId)

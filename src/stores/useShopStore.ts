@@ -83,27 +83,27 @@ export const useShopStore = defineStore('shop', () => {
   const blacksmithItems = computed<ShopItemEntry[]>(() => [
     {
       itemId: 'copper_ore',
-      name: '铜矿',
+      name: 'Quặng đồng',
       price: 100,
-      description: '矿洞中常见的铜矿，需用熔炉冶炼成锭'
+      description: 'Quặng đồng thường gặp trong mỏ, cần dùng lò luyện để nấu thành thỏi'
     },
     {
       itemId: 'iron_ore',
-      name: '铁矿',
+      name: 'Quặng sắt',
       price: 200,
-      description: '中层矿洞出产的铁矿，需用熔炉冶炼成锭'
+      description: 'Quặng sắt ở tầng giữa mỏ, cần dùng lò luyện để nấu thành thỏi'
     },
     {
       itemId: 'gold_ore',
-      name: '金矿',
+      name: 'Quặng vàng',
       price: 400,
-      description: '深层矿洞出产的金矿，需用熔炉冶炼成锭'
+      description: 'Quặng vàng ở tầng sâu mỏ, cần dùng lò luyện để nấu thành thỏi'
     },
     {
       itemId: 'charcoal',
-      name: '木炭',
+      name: 'Than Củi',
       price: 100,
-      description: '烧制的木炭，冶炼的燃料'
+      description: 'Than củi, nhiên liệu dùng để luyện kim'
     }
   ])
 
@@ -120,48 +120,48 @@ export const useShopStore = defineStore('shop', () => {
   )
 
   const apothecaryItems = computed<ShopItemEntry[]>(() => [
-    { itemId: 'herb', name: '草药', price: 50, description: '山间野生的草药' },
+    { itemId: 'herb', name: 'Thảo dược', price: 50, description: 'Thảo dược mọc hoang trên núi' },
     {
       itemId: 'ginseng',
-      name: '人参',
+      name: 'Nhân Sâm',
       price: 600,
-      description: '极其珍贵的野生人参'
+      description: 'Nhân sâm hoang dã cực kỳ quý hiếm'
     },
     {
       itemId: 'animal_medicine',
-      name: '兽药',
+      name: 'Thuốc Thú Y',
       price: 150,
-      description: '治疗生病的牲畜'
+      description: 'Chữa bệnh cho gia súc'
     },
     {
       itemId: 'premium_feed',
-      name: '精饲料',
+      name: 'Thức Ăn Tinh Chất',
       price: 200,
-      description: '提升动物心情和好感'
+      description: 'Tăng tâm trạng và hảo cảm của động vật'
     },
     {
       itemId: 'nourishing_feed',
-      name: '滋补饲料',
+      name: 'Thức Ăn Bồi Bổ',
       price: 250,
-      description: '加速动物产出'
+      description: 'Tăng tốc sản lượng động vật'
     },
     {
       itemId: 'vitality_feed',
-      name: '活力饲料',
+      name: 'Thức Ăn Sinh Lực',
       price: 300,
-      description: '喂食必定治愈疾病'
+      description: 'Cho ăn sẽ chắc chắn chữa khỏi bệnh'
     },
     {
       itemId: 'fish_feed',
-      name: '鱼饲料',
+      name: 'Thức Ăn Cho Cá',
       price: 30,
-      description: '鱼塘专用饲料'
+      description: 'Thức ăn chuyên dụng cho ao cá'
     },
     {
       itemId: 'water_purifier',
-      name: '水质改良剂',
+      name: 'Chất Cải Thiện Chất Lượng Nước',
       price: 100,
-      description: '改善鱼塘水质'
+      description: 'Cải thiện chất lượng nước ao cá'
     }
   ])
 
@@ -191,9 +191,9 @@ export const useShopStore = defineStore('shop', () => {
   const fishingShopItems = computed<ShopItemEntry[]>(() => [
     {
       itemId: 'crab_pot',
-      name: '蟹笼',
+      name: 'Lồng Bẫy Cua',
       price: 1500,
-      description: '放置在钓鱼地点，每日自动捕获水产（需鱼饵）'
+      description: 'Đặt tại điểm câu cá, mỗi ngày tự động bắt thủy sản (cần mồi)'
     }
   ])
 
@@ -202,63 +202,63 @@ export const useShopStore = defineStore('shop', () => {
   const textileItems = computed<ShopItemEntry[]>(() => [
     {
       itemId: 'cloth',
-      name: '布匹',
+      name: 'Vải Vóc',
       price: 1200,
-      description: '用羊毛纺织的布匹'
+      description: 'Vải dệt từ len cừu'
     },
     {
       itemId: 'silk_cloth',
-      name: '丝绸',
+      name: 'Tơ Lụa',
       price: 500,
-      description: '华美的丝绸'
+      description: 'Lụa hoa mỹ'
     },
     {
       itemId: 'alpaca_cloth',
-      name: '羊驼绒',
+      name: 'Len Alpaca',
       price: 900,
-      description: '极其柔软的羊驼绒布'
+      description: 'Vải len alpaca cực kỳ mềm mại'
     },
     {
       itemId: 'felt',
-      name: '毛毡',
+      name: 'Vải Dạ',
       price: 600,
-      description: '用兔毛压制的毛毡'
+      description: 'Nỉ ép từ lông thỏ'
     },
     {
       itemId: 'silk_ribbon',
-      name: '丝帕',
+      name: 'Khăn Lụa',
       price: 500,
-      description: '精心绣制的丝帕'
+      description: 'Khăn lụa thêu tinh xảo'
     },
     {
       itemId: 'jade_ring',
-      name: '翡翠戒指',
+      name: 'Nhẫn Phỉ Thúy',
       price: 1500,
-      description: '可以用来求婚'
+      description: 'Có thể dùng để cầu hôn'
     },
     {
       itemId: 'zhiji_jade',
-      name: '知己玉佩',
+      name: 'Ngọc Bội Tri Kỷ',
       price: 1500,
-      description: '赠予同性挚友可结为知己'
+      description: 'Tặng cho bạn thân cùng giới có thể kết thành tri kỷ'
     },
     {
       itemId: 'pine_incense',
-      name: '松香',
+      name: 'Hương Thông',
       price: 250,
-      description: '清新的松香'
+      description: 'Hương thông tươi mát'
     },
     {
       itemId: 'camphor_incense',
-      name: '樟脑香',
+      name: 'Hương Long Não',
       price: 400,
-      description: '提神醒脑'
+      description: 'Giúp tỉnh táo, sảng khoái'
     },
     {
       itemId: 'osmanthus_incense',
-      name: '桂花香',
+      name: 'Hương Hoa Quế',
       price: 800,
-      description: '馥郁的桂花香'
+      description: 'Hương hoa quế nồng nàn'
     }
   ])
 

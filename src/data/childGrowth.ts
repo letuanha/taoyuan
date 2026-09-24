@@ -9,10 +9,10 @@ import type { ChildStage } from '@/types'
 
 /** 各阶段的中文名 */
 export const CHILD_STAGE_NAMES: Record<ChildStage, string> = {
-  baby: '襁褓',
-  toddler: '学步',
-  child: '孩童',
-  teen: '少年'
+  baby: 'Bọc tã',
+  toddler: 'Tập đi',
+  child: 'Trẻ em',
+  teen: 'Thiếu niên'
 }
 
 /** 各阶段起始天数（daysOld 达到即进入该阶段） */
@@ -28,49 +28,49 @@ export const CHILD_STAGE_ORDER: ChildStage[] = ['baby', 'toddler', 'child', 'tee
 
 /** 进入新阶段时的里程碑文案，{name} 为孩子名，{spouse} 为配偶名 */
 export const CHILD_MILESTONES: Record<ChildStage, string[]> = {
-  baby: ['{name}出生了。皱巴巴的一小团，攥着你的手指不肯松开。'],
+  baby: ['{name} chào đời. Một cục nhỏ nhăn nheo nắm chặt ngón tay bạn không chịu buông.'],
   toddler: [
-    '{name}今天扶着门框站了起来，摇摇晃晃走了三步，然后一屁股坐在地上，咧嘴笑了。',
-    '{name}开口叫了第一声。{spouse}在灶台边听见，锅铲都掉了。'
+    'Hôm nay {name} vịn khung cửa đứng dậy, lảo đảo đi ba bước rồi ngồi phịch xuống đất, nhe miệng cười.',
+    '{name} cất tiếng gọi đầu tiên. {spouse} nghe thấy bên bếp, đến cả xẻng nấu ăn cũng rơi xuống.'
   ],
   child: [
-    '{name}能满院子跑了。今早你在鸡舍里找到他，怀里抱着一只受惊的母鸡，一脸得意。',
-    '{name}学会自己穿衣裳了，虽然扣子还是系错了两颗。',
-    '{name}跟着你下了一回田，有模有样地蹲在垄边拔草，拔掉的大半是苗。'
+    '{name} đã có thể chạy khắp sân. Sáng nay bạn thấy bé trong chuồng gà, ôm một con gà mái hoảng hốt với vẻ mặt đầy tự hào.',
+    '{name} đã biết tự mặc quần áo, dù vẫn cài sai hai chiếc cúc.',
+    '{name} theo bạn ra ruộng một lần, ngồi xổm bên luống nhổ cỏ rất ra dáng, nhưng phần lớn thứ nhổ lên lại là cây con.'
   ],
   teen: [
-    '{name}比去年高了一个头。今天主动说：「爹娘，田里的活我也能干了。」',
-    '{name}最近总往村塾跑，回来会背几句诗给你听，念错了还不许人纠正。',
-    '{name}把农具擦得锃亮，摆得整整齐齐。{spouse}说，这孩子随你。'
+    '{name} cao hơn năm ngoái một cái đầu. Hôm nay bé chủ động nói: 「Cha mẹ, việc đồng áng con cũng làm được rồi.」',
+    'Gần đây {name} thường chạy đến trường làng, về nhà lại đọc vài câu thơ cho bạn nghe, đọc sai còn không cho ai sửa.',
+    '{name} lau nông cụ sáng bóng rồi xếp ngay ngắn. {spouse} nói, đứa trẻ này giống bạn.'
   ]
 }
 
 /** 各阶段的日常互动文案 */
 export const CHILD_INTERACTIONS: Record<ChildStage, string[]> = {
   baby: [
-    '{name}睡得正香，小拳头握在脸边。你轻轻替他掖了掖被角。',
-    '你抱起{name}晃了晃，他咿咿呀呀地应了两声，又睡过去了。',
-    '{name}醒着，睁着乌溜溜的眼睛看你，看着看着就笑了。'
+    '{name} đang ngủ say, nắm tay nhỏ đặt bên má. Bạn nhẹ nhàng kéo chăn cho bé.',
+    'Bạn bế {name} lên đung đưa một chút, bé ê a hai tiếng rồi lại ngủ.',
+    '{name} tỉnh giấc, mở đôi mắt đen láy nhìn bạn, nhìn một lúc rồi bật cười.'
   ],
   toddler: [
-    '{name}扑过来抱住你的腿，仰着头要你抱。',
-    '你教{name}数数，数到三就开始乱了，他自己倒是很满意。',
-    '{name}把一块石头郑重地放进你手里，像是送了件了不得的宝贝。',
-    '你陪{name}在院子里追了一圈鸡，他笑得直喘气。'
+    '{name} chạy tới ôm lấy chân bạn, ngẩng đầu đòi bế.',
+    'Bạn dạy {name} đếm số, đến ba thì bé bắt đầu đếm loạn, nhưng tự mình lại rất hài lòng.',
+    '{name} trịnh trọng đặt một viên đá vào tay bạn, như thể đang tặng một báu vật vô giá.',
+    'Bạn cùng {name} đuổi gà một vòng quanh sân, bé cười đến thở hổn hển.'
   ],
   child: [
-    '{name}拉着你去看他在墙角搭的「房子」——三块砖头和一片瓦。',
-    '你给{name}讲了个故事，他听完说：「那明天再讲一个。」',
-    '{name}今天跟石头打了一架，回来还嘴硬说不疼。你给他擦了擦膝盖。',
-    '{name}问你：「爹娘，山那边是什么样子？」你一时答不上来。',
-    '你陪{name}在溪边打了会儿水漂。他最好的成绩是四下。'
+    '{name} kéo bạn xem căn 「nhà」 bé dựng ở góc tường — ba viên gạch và một mảnh ngói.',
+    'Bạn kể cho {name} một câu chuyện, nghe xong bé nói: 「Vậy ngày mai kể thêm một chuyện nhé.」',
+    'Hôm nay {name} đánh nhau với một viên đá, về nhà còn mạnh miệng nói không đau. Bạn lau đầu gối cho bé.',
+    '{name} hỏi bạn: 「Cha mẹ, phía bên kia núi trông thế nào?」 Bạn nhất thời không biết trả lời.',
+    'Bạn cùng {name} chơi ném đá trên suối một lúc. Thành tích tốt nhất của bé là nảy bốn lần.'
   ],
   teen: [
-    '{name}主动帮你把水缸挑满了，抹着汗说：「不算什么。」',
-    '你和{name}坐在门槛上说了会儿话。他现在有自己的主意了。',
-    '{name}说想学一门手艺，问你村里谁的活儿最好。',
-    '{name}把今天在田里看到的虫害记在纸上给你，字写得比你工整。',
-    '你发现{name}偷偷在练你教过的农活，动作已经很像样了。'
+    '{name} chủ động giúp bạn gánh đầy chum nước, lau mồ hôi rồi nói: 「Không có gì đâu.」',
+    'Bạn và {name} ngồi nói chuyện một lúc trên bậc cửa. Bé giờ đã có suy nghĩ riêng.',
+    '{name} nói muốn học một nghề và hỏi trong làng ai làm nghề giỏi nhất.',
+    '{name} ghi lại sâu bệnh thấy ngoài ruộng hôm nay trên giấy đưa cho bạn, chữ còn ngay ngắn hơn chữ của bạn.',
+    'Bạn phát hiện {name} lén luyện những việc đồng áng bạn từng dạy, động tác đã rất ra dáng.'
   ]
 }
 
@@ -115,5 +115,5 @@ export const pickInteraction = (stage: ChildStage): string => {
 
 /** 填充文案里的占位符 */
 export const fillChildText = (text: string, childName: string, spouseName: string): string => {
-  return text.replace(/\{name\}/g, childName).replace(/\{spouse\}/g, spouseName || '你的伴侣')
+  return text.replace(/\{name\}/g, childName).replace(/\{spouse\}/g, spouseName || 'Bạn đời của bạn')
 }

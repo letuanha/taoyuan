@@ -9,7 +9,7 @@
         :icon="Sprout"
         @click="farmTab = 'field'"
       >
-        田庄
+        Nông trại
       </Button>
       <Button
         class="flex-1 justify-center"
@@ -17,7 +17,7 @@
         :icon="TreeDeciduous"
         @click="farmTab = 'tree'"
       >
-        林木
+        Vườn cây
       </Button>
     </div>
 
@@ -26,20 +26,20 @@
       <div class="flex items-center justify-between mb-1">
         <div class="flex items-center space-x-1.5 text-sm text-accent">
           <Sprout :size="14" />
-          <span>田庄 ({{ farmStore.farmSize }}×{{ farmStore.farmSize }})</span>
+          <span>Nông trại ({{ farmStore.farmSize }}×{{ farmStore.farmSize }})</span>
         </div>
         <div class="text-xs text-muted flex space-x-3">
           <span v-if="farmStore.scarecrows > 0" class="inline-flex items-center space-x-0.5">
             <Bird :size="12" />
-            <span>稻草人 {{ farmStore.scarecrows }}</span>
+            <span>Bù nhìn {{ farmStore.scarecrows }}</span>
           </span>
           <span v-else class="text-danger/80 inline-flex items-center space-x-0.5">
             <Bird :size="12" />
-            <span>无稻草人</span>
+            <span>Không có Bù nhìn</span>
           </span>
           <span v-if="farmStore.lightningRods > 0" class="inline-flex items-center space-x-0.5">
             <Zap :size="12" />
-            <span>避雷针 {{ farmStore.lightningRods }}</span>
+            <span>Cột thu lôi {{ farmStore.lightningRods }}</span>
           </span>
         </div>
       </div>
@@ -51,7 +51,7 @@
 
       <!-- 批量操作入口 -->
       <div class="mb-3">
-        <Button class="w-full md:w-auto" :icon-size="12" :icon="Wrench" @click="showBatchActions = true">一键操作</Button>
+        <Button class="w-full md:w-auto" :icon-size="12" :icon="Wrench" @click="showBatchActions = true">Thao tác nhanh</Button>
       </div>
 
       <!-- 田庄特殊功能 -->
@@ -61,10 +61,10 @@
           @click="handleCollectCreekCatch"
         >
           <div>
-            <p class="text-xs text-accent">溪流鱼获</p>
-            <p class="text-[10px] text-muted">溪流中捕获了{{ gameStore.creekCatch.length }}条鱼</p>
+            <p class="text-xs text-accent">Cá suối</p>
+            <p class="text-[10px] text-muted">Bắt được {{ gameStore.creekCatch.length }} con cá ở suối</p>
           </div>
-          <span class="text-xs text-success">收取</span>
+          <span class="text-xs text-success">Thu thập</span>
         </div>
       </div>
 
@@ -74,10 +74,10 @@
           @click="handleMineSurfaceOre"
         >
           <div>
-            <p class="text-xs text-accent">地表矿脉</p>
-            <p class="text-[10px] text-muted">发现{{ surfaceOreName }}&times;{{ gameStore.surfaceOrePatch.quantity }}</p>
+            <p class="text-xs text-accent">Quặng nổi</p>
+            <p class="text-[10px] text-muted">Phát hiện {{ surfaceOreName }}&times;{{ gameStore.surfaceOrePatch.quantity }}</p>
           </div>
-          <span class="text-xs text-success">开采（-5体力）</span>
+          <span class="text-xs text-success">Khai thác (-5 thể lực)</span>
         </div>
       </div>
 
@@ -92,28 +92,28 @@
             <button class="absolute top-2 right-2 text-muted hover:text-text" @click="showBatchActions = false">
               <X :size="14" />
             </button>
-            <p class="text-accent text-sm mb-2">一键操作</p>
+            <p class="text-accent text-sm mb-2">Thao tác nhanh</p>
             <div class="flex flex-col space-y-1.5">
               <button class="btn text-xs w-full justify-between" :disabled="unwateredCount === 0" @click="doBatchAction('water')">
                 <span class="flex items-center space-x-1">
                   <Droplets :size="12" />
-                  <span>一键浇水</span>
+                  <span>Tưới hàng loạt</span>
                 </span>
-                <span class="text-muted">{{ unwateredCount }} 块</span>
+                <span class="text-muted">{{ unwateredCount }} ô</span>
               </button>
               <button class="btn text-xs w-full justify-between" :disabled="wastelandCount === 0" @click="doBatchAction('till')">
                 <span class="flex items-center space-x-1">
                   <Shovel :size="12" />
-                  <span>一键开垦</span>
+                  <span>Khai khẩn hàng loạt</span>
                 </span>
-                <span class="text-muted">{{ wastelandCount }} 块</span>
+                <span class="text-muted">{{ wastelandCount }} ô</span>
               </button>
               <button class="btn text-xs w-full justify-between" :disabled="harvestableCount === 0" @click="doBatchAction('harvest')">
                 <span class="flex items-center space-x-1">
                   <Wheat :size="12" />
-                  <span>一键收获</span>
+                  <span>Thu hoạch hàng loạt</span>
                 </span>
-                <span class="text-muted">{{ harvestableCount }} 块</span>
+                <span class="text-muted">{{ harvestableCount }} ô</span>
               </button>
               <button
                 class="btn text-xs w-full justify-between"
@@ -122,9 +122,9 @@
               >
                 <span class="flex items-center space-x-1">
                   <Sprout :size="12" />
-                  <span>一键种植</span>
+                  <span>Gieo hạt hàng loạt</span>
                 </span>
-                <span class="text-muted">{{ tilledEmptyCount }} 块</span>
+                <span class="text-muted">{{ tilledEmptyCount }} ô</span>
               </button>
               <button
                 class="btn text-xs w-full justify-between"
@@ -133,23 +133,23 @@
               >
                 <span class="flex items-center space-x-1">
                   <CirclePlus :size="12" />
-                  <span>一键施肥</span>
+                  <span>Bón phân hàng loạt</span>
                 </span>
-                <span class="text-muted">{{ fertilizableCount }} 块</span>
+                <span class="text-muted">{{ fertilizableCount }} ô</span>
               </button>
               <button class="btn text-xs w-full justify-between" :disabled="infestedCount === 0" @click="doBatchAction('curePest')">
                 <span class="flex items-center space-x-1">
                   <Bug :size="12" />
-                  <span>一键除虫</span>
+                  <span>Trừ sâu hàng loạt</span>
                 </span>
-                <span class="text-muted">{{ infestedCount }} 块</span>
+                <span class="text-muted">{{ infestedCount }} ô</span>
               </button>
               <button class="btn text-xs w-full justify-between" :disabled="weedyCount === 0" @click="doBatchAction('clearWeed')">
                 <span class="flex items-center space-x-1">
                   <Leaf :size="12" />
-                  <span>一键除草</span>
+                  <span>Nhổ cỏ hàng loạt</span>
                 </span>
-                <span class="text-muted">{{ weedyCount }} 块</span>
+                <span class="text-muted">{{ weedyCount }} ô</span>
               </button>
             </div>
           </div>
@@ -215,17 +215,17 @@
             <button class="absolute top-2 right-2 text-muted hover:text-text" @click="activePlotId = null">
               <X :size="14" />
             </button>
-            <p class="text-accent text-sm mb-2">地块 #{{ activePlot.id + 1 }}</p>
+            <p class="text-accent text-sm mb-2">đấtô #{{ activePlot.id + 1 }}</p>
             <p class="text-xs text-muted mb-2">
               {{ plotStateLabel }}
-              <template v-if="activePlot.giantCropGroup !== null">（巨型）</template>
+              <template v-if="activePlot.giantCropGroup !== null">(Khổng lồ)</template>
               <template v-if="activePlot.cropId">
-                · {{ activePlot.giantCropGroup !== null ? '巨型' : '' }}{{ getCropName(activePlot.cropId) }}
-                <span v-if="plotCropRegrowth" class="text-success">[多茬 {{ activePlot.harvestCount }}/{{ plotCropMaxHarvests }}]</span>
+                · {{ activePlot.giantCropGroup !== null ? 'Khổng lồ' : '' }}{{ getCropName(activePlot.cropId) }}
+                <span v-if="plotCropRegrowth" class="text-success">[Nhiều vụ {{ activePlot.harvestCount }}/{{ plotCropMaxHarvests }}]</span>
               </template>
               <template v-if="activePlot.cropId && activePlot.giantCropGroup === null">
                 ·
-                <span :class="activePlot.watered ? 'text-water' : 'text-danger'">{{ activePlot.watered ? '已浇水' : '未浇水' }}</span>
+                <span :class="activePlot.watered ? 'text-water' : 'text-danger'">{{ activePlot.watered ? 'Đã tưới nước' : 'Chưa tưới' }}</span>
               </template>
               <template v-if="activePlot.fertilizer">
                 ·
@@ -233,20 +233,20 @@
               </template>
               <template v-if="hasSprinkler(activePlot.id)">
                 ·
-                <span class="text-water">洒水器</span>
+                <span class="text-water">Vòi phun nước</span>
               </template>
               <template v-if="activePlot.infested">
                 ·
-                <span class="text-danger">虫害({{ activePlot.infestedDays }}天)</span>
+                <span class="text-danger">Sâu bệnh({{ activePlot.infestedDays }}ngày)</span>
               </template>
               <template v-if="activePlot.weedy">
                 ·
-                <span class="text-success">杂草({{ activePlot.weedyDays }}天)</span>
+                <span class="text-success">Cỏ dại ({{ activePlot.weedyDays }} ngày)</span>
               </template>
             </p>
             <!-- 生长进度条 -->
             <div v-if="activePlot.cropId && activePlot.state !== 'harvestable'" class="flex items-center space-x-2 mb-2">
-              <span class="text-xs text-muted shrink-0">生长</span>
+              <span class="text-xs text-muted shrink-0">Sinh trưởng</span>
               <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
                 <div
                   class="h-full rounded-xs bg-success transition-all"
@@ -256,10 +256,10 @@
                 />
               </div>
               <span class="text-xs text-muted whitespace-nowrap">
-                {{ Number(activePlot.growthDays.toFixed(2)) }}/{{ plotCropGrowthDays }}天
+                {{ Number(activePlot.growthDays.toFixed(2)) }}/{{ plotCropGrowthDays }}ngày
               </span>
             </div>
-            <p v-if="activePlot.giantCropGroup !== null" class="text-xs text-accent mb-2">收获可获得大量作物！</p>
+            <p v-if="activePlot.giantCropGroup !== null" class="text-xs text-accent mb-2">thu hoạchcó thể nhận lớnlượngcây trồng！</p>
 
             <!-- 操作列表 -->
             <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
@@ -270,9 +270,9 @@
                 :icon="Shovel"
                 @click="doTill"
               >
-                开垦
+                Khai khẩn
               </Button>
-              <Button v-if="canWater" class="w-full justify-center shrink-0" :icon-size="12" :icon="Droplets" @click="doWater">浇水</Button>
+              <Button v-if="canWater" class="w-full justify-center shrink-0" :icon-size="12" :icon="Droplets" @click="doWater">Tưới nước</Button>
               <Button
                 v-if="activePlot.infested"
                 class="w-full justify-center shrink-0 !bg-danger !text-text"
@@ -280,7 +280,7 @@
                 :icon="Bug"
                 @click="doCurePest"
               >
-                除虫
+                Trừ sâu
               </Button>
               <Button
                 v-if="activePlot.weedy"
@@ -289,7 +289,7 @@
                 :icon="Leaf"
                 @click="doClearWeed"
               >
-                除草
+                Nhổ cỏ
               </Button>
               <Button
                 v-if="activePlot.state === 'harvestable'"
@@ -298,7 +298,7 @@
                 :icon="Wheat"
                 @click="doHarvest"
               >
-                收获
+                Thu hoạch
               </Button>
               <Button
                 v-if="activePlot.state === 'planted' || activePlot.state === 'growing' || activePlot.state === 'harvestable'"
@@ -307,10 +307,10 @@
                 :icon="Trash2"
                 @click="doRemoveCrop"
               >
-                铲除
+                xẻngxóa
               </Button>
               <template v-if="activePlot.state === 'tilled' && plantableSeeds.length > 0">
-                <Divider label="种植" />
+                <Divider label="Gieo trồng" />
                 <button
                   v-for="seed in plantableSeeds"
                   :key="seed.cropId + ':' + seed.quality"
@@ -330,13 +330,13 @@
                     >
                       [{{ QUALITY_NAMES[seed.quality] }}]
                     </span>
-                    <span v-if="seed.regrowth" class="text-success ml-1">[多茬]</span>
+                    <span v-if="seed.regrowth" class="text-success ml-1">[Nhiều vụ]</span>
                   </span>
                   <span class="text-muted">×{{ seed.count }}</span>
                 </button>
               </template>
               <template v-if="activePlot.state === 'tilled' && plantableBreedingSeeds.length > 0">
-                <Divider label="育种种子" class="!my-2" />
+                <Divider label="Hạt giống lai tạo" class="!my-2" />
                 <button
                   v-for="seed in plantableBreedingSeeds"
                   :key="seed.genetics.id"
@@ -355,14 +355,14 @@
                 class="flex flex-col items-center py-4"
               >
                 <Sprout :size="32" class="text-muted/30" />
-                <p class="text-xs text-muted mt-2">背包中没有当季可种植的种子</p>
-                <Button v-if="isWanwupuOpen" class="mt-2" :icon-size="12" :icon="Store" @click="goToShop">前往商店购买</Button>
+                <p class="text-xs text-muted mt-2">Túi đồtrongkhông cókhimùacó thể trồng của Hạt giống</p>
+                <Button v-if="isWanwupuOpen" class="mt-2" :icon-size="12" :icon="Store" @click="goToShop">Đến cửa hàng mua</Button>
                 <p v-else class="text-[10px] text-muted/60 mt-1">
                   {{ wanwupuClosedReason }}
                 </p>
               </div>
               <template v-if="canFertilize && fertilizerItems.length > 0">
-                <Divider label="施肥" />
+                <Divider label="Bón phân" />
                 <button
                   v-for="f in fertilizerItems"
                   :key="f.itemId"
@@ -374,7 +374,7 @@
                 </button>
               </template>
               <template v-if="!hasSprinkler(activePlot.id) && sprinklerItems.length > 0">
-                <Divider label="洒水器" />
+                <Divider label="Vòi phun nước" />
                 <button
                   v-for="s in sprinklerItems"
                   :key="s.itemId"
@@ -385,7 +385,7 @@
                   <span class="text-muted">×{{ s.count }}</span>
                 </button>
               </template>
-              <Button v-if="hasSprinkler(activePlot.id)" class="mr-1 justify-center shrink-0" @click="doRemoveSprinkler">拆除洒水器</Button>
+              <Button v-if="hasSprinkler(activePlot.id)" class="mr-1 justify-center shrink-0" @click="doRemoveSprinkler">tháoxóatướinướcdụng cụ</Button>
             </div>
           </div>
         </div>
@@ -402,8 +402,8 @@
             <button class="absolute top-2 right-2 text-muted hover:text-text" @click="showBatchPlant = false">
               <X :size="14" />
             </button>
-            <p class="text-accent text-sm mb-2">一键种植</p>
-            <p class="text-xs text-muted mb-2">空耕地 {{ tilledEmptyCount }} 块，选择要种植的种子：</p>
+            <p class="text-accent text-sm mb-2">Gieo hạt hàng loạt</p>
+            <p class="text-xs text-muted mb-2">lépcanh tácđất {{ tilledEmptyCount }} ô，chọn muốn trồng của Hạt giống：</p>
             <div class="flex flex-col space-y-1 max-h-40 overflow-y-auto">
               <button
                 v-for="seed in plantableSeeds"
@@ -413,13 +413,13 @@
               >
                 <span :class="seed.colorClass">
                   {{ seed.name }}
-                  <span v-if="seed.regrowth" class="text-success ml-1">[多茬]</span>
+                  <span v-if="seed.regrowth" class="text-success ml-1">[Nhiều vụ]</span>
                 </span>
                 <span class="text-muted">×{{ seed.count }}</span>
               </button>
             </div>
             <template v-if="batchBreedingSeedGroups.length > 0">
-              <Divider label="育种种子" class="!my-2" />
+              <Divider label="Hạt giống lai tạo" class="!my-2" />
               <div class="flex flex-col space-y-1 max-h-40 overflow-y-auto">
                 <button
                   v-for="group in batchBreedingSeedGroups"
@@ -437,8 +437,8 @@
             </template>
             <div v-if="plantableSeeds.length === 0 && batchBreedingSeedGroups.length === 0" class="flex flex-col items-center py-4">
               <Sprout :size="32" class="text-muted/30" />
-              <p class="text-xs text-muted mt-2">没有当季可种植的种子</p>
-              <Button v-if="isWanwupuOpen" class="mt-2" :icon-size="12" :icon="Store" @click="goToShop">前往商店购买</Button>
+              <p class="text-xs text-muted mt-2">không cókhimùacó thể trồng của Hạt giống</p>
+              <Button v-if="isWanwupuOpen" class="mt-2" :icon-size="12" :icon="Store" @click="goToShop">Đến cửa hàng mua</Button>
               <p v-else class="text-[10px] text-muted/60 mt-1">
                 {{ wanwupuClosedReason }}
               </p>
@@ -458,8 +458,8 @@
             <button class="absolute top-2 right-2 text-muted hover:text-text" @click="showBatchFertilize = false">
               <X :size="14" />
             </button>
-            <p class="text-accent text-sm mb-2">一键施肥</p>
-            <p class="text-xs text-muted mb-2">可施肥地块 {{ fertilizableCount }} 块，选择肥料：</p>
+            <p class="text-accent text-sm mb-2">Bón phân hàng loạt</p>
+            <p class="text-xs text-muted mb-2">có thể bónphânđấtô {{ fertilizableCount }} ô，chọn phânliệu：</p>
             <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
               <button
                 v-for="f in fertilizerItems"
@@ -473,7 +473,7 @@
             </div>
             <div v-if="fertilizerItems.length === 0" class="flex flex-col items-center py-4">
               <CirclePlus :size="32" class="text-muted/30" />
-              <p class="text-xs text-muted mt-2">没有可用的肥料</p>
+              <p class="text-xs text-muted mt-2">Không có phân bón có thể sử dụng</p>
             </div>
           </div>
         </div>
@@ -501,11 +501,11 @@
       >
         <div class="flex items-center space-x-1.5">
           <Package :size="14" class="text-accent" />
-          <span class="text-sm text-accent">出货箱</span>
-          <span v-if="shopStore.shippingBox.length > 0" class="text-xs text-muted">{{ shopStore.shippingBox.length }}种</span>
+          <span class="text-sm text-accent">Thùng xuất hàng</span>
+          <span v-if="shopStore.shippingBox.length > 0" class="text-xs text-muted">{{ shopStore.shippingBox.length }}loại</span>
         </div>
-        <span v-if="shippingBoxTotal > 0" class="text-xs text-accent">≈{{ shippingBoxTotal }}文</span>
-        <span v-else class="text-xs text-muted">空</span>
+        <span v-if="shippingBoxTotal > 0" class="text-xs text-accent">≈{{ shippingBoxTotal }}văn</span>
+        <span v-else class="text-xs text-muted">Trống</span>
       </div>
 
       <!-- 出货箱弹窗 -->
@@ -521,16 +521,16 @@
             </button>
             <div class="flex items-center space-x-1.5 text-sm text-accent mb-1">
               <Package :size="14" />
-              <span>出货箱</span>
+              <span>Thùng xuất hàng</span>
             </div>
-            <p class="text-xs text-muted mb-2">放入的物品将在次日结算。</p>
+            <p class="text-xs text-muted mb-2">đặt vào của Vật phẩmsẽđanglầnngàykếttính。</p>
             <p v-if="inventoryStore.getRingEffectValue('sell_price_bonus') > 0" class="text-success text-xs mb-2">
-              戒指加成中：售价 +{{ Math.round(inventoryStore.getRingEffectValue('sell_price_bonus') * 100) }}%
+              Hiệu ứng nhẫn: giá bán +{{ Math.round(inventoryStore.getRingEffectValue('sell_price_bonus') * 100) }}%
             </p>
 
             <!-- 已放入的物品 -->
             <div v-if="shopStore.shippingBox.length > 0" class="border border-accent/10 rounded-xs p-2 mb-2">
-              <p class="text-xs text-muted mb-1">已放入</p>
+              <p class="text-xs text-muted mb-1">đã đặt vào</p>
               <div class="flex flex-col space-y-1 max-h-36 overflow-y-auto">
                 <div
                   v-for="(entry, idx) in shopStore.shippingBox"
@@ -552,20 +552,20 @@
                     <span class="text-muted text-xs ml-1">×{{ entry.quantity }}</span>
                   </div>
                   <span class="text-xs text-accent whitespace-nowrap ml-2">
-                    ≈{{ shopStore.calculateSellPrice(entry.itemId, entry.quantity, entry.quality) }}文
+                    ≈{{ shopStore.calculateSellPrice(entry.itemId, entry.quantity, entry.quality) }}văn
                   </span>
                 </div>
               </div>
-              <p class="text-xs text-accent mt-1.5">预计收入：{{ shippingBoxTotal }}文</p>
+              <p class="text-xs text-accent mt-1.5">Thu nhập dự kiến：{{ shippingBoxTotal }}văn</p>
             </div>
             <div v-else class="flex flex-col items-center justify-center py-4 text-muted mb-2">
               <Package :size="32" class="text-muted/30" />
-              <p class="text-xs mt-2">出货箱是空的</p>
+              <p class="text-xs mt-2">Thùng xuất hànglàlép của </p>
             </div>
 
             <!-- 可放入的背包物品 -->
             <div v-if="shippableItems.length > 0" class="border border-accent/10 rounded-xs p-2">
-              <p class="text-xs text-muted mb-1">背包物品</p>
+              <p class="text-xs text-muted mb-1">Túi đồVật phẩm</p>
               <div class="flex flex-col space-y-1 overflow-auto max-h-48">
                 <div
                   v-for="item in shippableItems"
@@ -584,18 +584,18 @@
                       {{ item.def?.name }}
                     </span>
                     <span class="text-muted text-xs">×{{ item.quantity }}</span>
-                    <span v-if="shopStore.shippedItems.includes(item.itemId)" class="text-[10px] text-success/60">[已出货]</span>
+                    <span v-if="shopStore.shippedItems.includes(item.itemId)" class="text-[10px] text-success/60">[Đã xuất hàng]</span>
                   </div>
                   <div class="flex space-x-1">
-                    <Button @click="handleAddToBox(item.itemId, 1, item.quality)">放入1</Button>
-                    <Button v-if="item.quantity > 1" @click="handleAddToBox(item.itemId, item.quantity, item.quality)">全部</Button>
+                    <Button @click="handleAddToBox(item.itemId, 1, item.quality)">đặt vào1</Button>
+                    <Button v-if="item.quantity > 1" @click="handleAddToBox(item.itemId, item.quantity, item.quality)">Tất cả</Button>
                   </div>
                 </div>
               </div>
             </div>
             <div v-else class="flex flex-col items-center py-3 text-muted">
               <Wheat :size="32" class="text-muted/30" />
-              <p class="text-xs mt-2">背包中没有可出货的物品</p>
+              <p class="text-xs mt-2">Trong túi không có vật phẩm để xuất hàng</p>
             </div>
           </div>
         </div>
@@ -609,10 +609,10 @@
       >
         <div class="flex items-center space-x-1.5">
           <Warehouse :size="14" class="text-accent" />
-          <span class="text-sm text-accent">温室</span>
-          <span v-if="ghHarvestableCount > 0" class="text-xs text-accent">{{ ghHarvestableCount }}块可收获</span>
+          <span class="text-sm text-accent">Nhà kính</span>
+          <span v-if="ghHarvestableCount > 0" class="text-xs text-accent">{{ ghHarvestableCount }}ôcó thể thu hoạch</span>
         </div>
-        <span class="text-xs text-muted">{{ farmStore.greenhousePlots.length }}块地</span>
+        <span class="text-xs text-muted">{{ farmStore.greenhousePlots.length }}ôđất</span>
       </div>
     </div>
 
@@ -623,7 +623,7 @@
         <div class="flex items-center justify-between mb-2">
           <div class="flex items-center space-x-1.5 text-sm text-accent">
             <TreeDeciduous :size="14" />
-            <span>果树</span>
+            <span>quảcây</span>
           </div>
           <span class="text-xs text-muted">{{ farmStore.fruitTrees.length }}/{{ MAX_FRUIT_TREES }}</span>
         </div>
@@ -632,11 +632,11 @@
             <div class="flex items-center justify-between mb-1">
               <span class="text-xs font-bold" :class="tree.mature ? 'text-accent' : 'text-muted'">{{ getTreeName(tree.type) }}</span>
               <div class="flex items-center space-x-1.5">
-                <span v-if="tree.mature" class="text-[10px] text-muted">{{ tree.yearAge }}年</span>
+                <span v-if="tree.mature" class="text-[10px] text-muted">{{ tree.yearAge }}năm</span>
                 <!-- 自己调整果园的排布顺序 -->
                 <button
                   class="text-muted hover:text-accent disabled:opacity-30"
-                  title="上移"
+                  title="Di chuyển lên"
                   :disabled="treeIdx === 0"
                   @click.stop="farmStore.moveFruitTree(tree.id, -1)"
                 >
@@ -644,7 +644,7 @@
                 </button>
                 <button
                   class="text-muted hover:text-accent disabled:opacity-30"
-                  title="下移"
+                  title="Di chuyển xuống"
                   :disabled="treeIdx === farmStore.fruitTrees.length - 1"
                   @click.stop="farmStore.moveFruitTree(tree.id, 1)"
                 >
@@ -662,29 +662,29 @@
                     }"
                   />
                 </div>
-                <span class="text-[10px] text-muted whitespace-nowrap">{{ tree.growthDays }}/28天</span>
+                <span class="text-[10px] text-muted whitespace-nowrap">{{ tree.growthDays }}/28ngày</span>
               </div>
               <div class="flex justify-end">
-                <Button :icon-size="12" :icon="Axe" @click.stop="chopFruitTreeTarget = { id: tree.id, type: tree.type }">砍伐</Button>
+                <Button :icon-size="12" :icon="Axe" @click.stop="chopFruitTreeTarget = { id: tree.id, type: tree.type }">Đốn cây</Button>
               </div>
             </template>
             <template v-else>
               <div class="flex items-center justify-between">
-                <span v-if="tree.todayFruit" class="text-[10px] text-accent">今日已结果</span>
-                <span v-else class="text-[10px] text-success">{{ getTreeFruitSeason(tree.type) }}产果</span>
-                <Button :icon-size="12" :icon="Axe" @click.stop="chopFruitTreeTarget = { id: tree.id, type: tree.type }">砍伐</Button>
+                <span v-if="tree.todayFruit" class="text-[10px] text-accent">hôm nayngàyđã kếtquả</span>
+                <span v-else class="text-[10px] text-success">{{ getTreeFruitSeason(tree.type) }}sảnquả</span>
+                <Button :icon-size="12" :icon="Axe" @click.stop="chopFruitTreeTarget = { id: tree.id, type: tree.type }">Đốn cây</Button>
               </div>
             </template>
           </div>
         </div>
         <div v-else class="flex flex-col items-center justify-center py-4 text-muted mb-2">
           <TreeDeciduous :size="32" class="text-muted/30" />
-          <p class="text-xs mt-2">暂无果树</p>
-          <p class="text-[10px] text-muted/60 mt-0.5">可在商店购买树苗种植</p>
+          <p class="text-xs mt-2">tạmkhông quảcây</p>
+          <p class="text-[10px] text-muted/60 mt-0.5">có thể đangcửa hàngMuacâycây giốngtrồng</p>
         </div>
         <div v-if="plantableSaplings.length > 0 && farmStore.fruitTrees.length < MAX_FRUIT_TREES" class="flex space-x-1.5 flex-wrap">
           <Button v-for="s in plantableSaplings" :key="s.saplingId" :icon-size="12" :icon="TreePine" @click="handlePlantTree(s.type)">
-            种{{ s.name }} (×{{ s.count }})
+            giống{{ s.name }} (×{{ s.count }})
           </Button>
         </div>
       </div>
@@ -700,15 +700,15 @@
             <button class="absolute top-2 right-2 text-muted hover:text-text" @click="chopFruitTreeTarget = null">
               <X :size="14" />
             </button>
-            <p class="text-accent text-sm mb-2">砍伐果树</p>
+            <p class="text-accent text-sm mb-2">Đốn câyquảcây</p>
             <p class="text-xs text-text mb-3">
-              确定要砍掉
+              xácđịnhmuốnđốnrơi
               <span class="text-accent">{{ getTreeName(chopFruitTreeTarget.type) }}</span>
-              吗？砍伐后不可恢复。
+              Bạn chắc chắn muốn chặt? Sau khi chặt sẽ không thể hoàn tác.
             </p>
             <div class="flex space-x-2">
-              <Button class="flex-1" @click="chopFruitTreeTarget = null">取消</Button>
-              <Button class="flex-1 !bg-danger !text-text" :icon-size="12" :icon="Axe" @click="confirmChopFruitTree">确认砍伐</Button>
+              <Button class="flex-1" @click="chopFruitTreeTarget = null">Hủy</Button>
+              <Button class="flex-1 !bg-danger !text-text" :icon-size="12" :icon="Axe" @click="confirmChopFruitTree">xác nhận Đốn cây</Button>
             </div>
           </div>
         </div>
@@ -725,17 +725,17 @@
             <button class="absolute top-2 right-2 text-muted hover:text-text" @click="chopWildTreeTarget = null">
               <X :size="14" />
             </button>
-            <p class="text-accent text-sm mb-2">伐木</p>
+            <p class="text-accent text-sm mb-2">Đốn gỗ</p>
             <p class="text-xs text-text mb-2">
-              确定要对
+              xácđịnhmuốnđúng
               <span class="text-accent">{{ getWildTreeName(chopWildTreeTarget.type) }}</span>
-              伐木吗？
+              đốngỗsao？
             </p>
             <p class="text-xs text-danger mb-3">
-              已伐木 {{ chopWildTreeTarget.chopCount }}/3 次，再伐 {{ 3 - chopWildTreeTarget.chopCount }} 次后树将消失。
+              đãđốngỗ {{ chopWildTreeTarget.chopCount }}/3 lần，lạiđốn {{ 3 - chopWildTreeTarget.chopCount }} lầnsaucâysẽtiêumất。
             </p>
             <div class="flex space-x-2">
-              <Button class="flex-1" @click="chopWildTreeTarget = null">取消</Button>
+              <Button class="flex-1" @click="chopWildTreeTarget = null">Hủy</Button>
               <Button
                 class="flex-1"
                 :class="chopWildTreeTarget.chopCount >= 2 ? '!bg-danger !text-text' : '!bg-accent !text-bg'"
@@ -743,7 +743,7 @@
                 :icon="Axe"
                 @click="confirmChopWildTree"
               >
-                {{ chopWildTreeTarget.chopCount >= 2 ? '确认' : '确认伐木' }}
+                {{ chopWildTreeTarget.chopCount >= 2 ? 'Xác nhận' : 'Xác nhận chặt cây' }}
               </Button>
             </div>
           </div>
@@ -755,24 +755,24 @@
         <div class="flex items-center justify-between mb-2">
           <div class="flex items-center space-x-1.5 text-sm text-accent">
             <TreePine :size="14" />
-            <span>野树</span>
+            <span>Cây hoang</span>
           </div>
           <span class="text-xs text-muted">{{ farmStore.wildTrees.length }}/{{ MAX_WILD_TREES }}</span>
         </div>
         <div v-if="farmStore.wildTrees.length > 0" class="flex flex-col space-y-1.5 mb-2">
           <div v-for="tree in farmStore.wildTrees" :key="tree.id" class="border border-accent/10 rounded-xs px-3 py-2">
-            <!-- 第一行：树名 + 状态标签 -->
+            <!-- thứ一行：树名 + 状态标签 -->
             <div class="flex items-center justify-between mb-1">
               <div class="flex items-center space-x-1.5">
                 <span class="text-xs font-bold" :class="tree.mature ? 'text-accent' : 'text-muted'">{{ getWildTreeName(tree.type) }}</span>
-                <span v-if="tree.chopCount > 0" class="text-[10px] text-danger">伐{{ tree.chopCount }}/3</span>
+                <span v-if="tree.chopCount > 0" class="text-[10px] text-danger">đốn{{ tree.chopCount }}/3</span>
               </div>
-              <span v-if="!tree.mature" class="text-[10px] text-muted">生长中</span>
-              <span v-else-if="tree.hasTapper && tree.tapReady" class="text-[10px] text-accent">可收取</span>
-              <span v-else-if="tree.hasTapper" class="text-[10px] text-muted">采脂中</span>
-              <span v-else class="text-[10px] text-success">已成熟</span>
+              <span v-if="!tree.mature" class="text-[10px] text-muted">Sinh trưởngtrong</span>
+              <span v-else-if="tree.hasTapper && tree.tapReady" class="text-[10px] text-accent">có thể thu</span>
+              <span v-else-if="tree.hasTapper" class="text-[10px] text-muted">Đang lấy nhựa</span>
+              <span v-else class="text-[10px] text-success">Đã chín</span>
             </div>
-            <!-- 第二行：进度/详情 + 操作按钮 -->
+            <!-- thứ二行：进度/详情 + 操作按钮 -->
             <template v-if="!tree.mature">
               <div class="flex items-center space-x-2 mb-1.5">
                 <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
@@ -784,7 +784,7 @@
                   />
                 </div>
                 <span class="text-[10px] text-muted whitespace-nowrap">
-                  {{ tree.growthDays }}/{{ getWildTreeDef(tree.type)?.growthDays ?? '?' }}天
+                  {{ tree.growthDays }}/{{ getWildTreeDef(tree.type)?.growthDays ?? '?' }}ngày
                 </span>
               </div>
             </template>
@@ -802,7 +802,7 @@
                   />
                 </div>
                 <span class="text-[10px] text-muted whitespace-nowrap">
-                  {{ tree.tapReady ? '已完成' : `${tree.tapDaysElapsed}/${getWildTreeDef(tree.type)?.tapCycleDays ?? '?'}天` }}
+                  {{ tree.tapReady ? 'Đã hoàn thành' : `${tree.tapDaysElapsed}/${getWildTreeDef(tree.type)?.tapCycleDays ?? '?'}ngày` }}
                 </span>
               </div>
             </template>
@@ -814,7 +814,7 @@
                 :icon="Gift"
                 @click.stop="handleCollectTapProduct(tree.id)"
               >
-                收取
+                Thu thập
               </Button>
               <Button
                 v-if="tree.mature && !tree.hasTapper && hasTapper"
@@ -822,21 +822,21 @@
                 :icon="Wrench"
                 @click.stop="handleAttachTapper(tree.id)"
               >
-                装采脂器
+                trang bịthu háinhựadụng cụ
               </Button>
-              <span v-if="tree.mature && !tree.hasTapper && !hasTapper" class="text-[10px] text-muted">需制造采脂器</span>
-              <Button v-if="tree.mature" :icon-size="12" :icon="Axe" @click.stop="handleChopTree(tree.id)">伐木</Button>
+              <span v-if="tree.mature && !tree.hasTapper && !hasTapper" class="text-[10px] text-muted">cần Chế tạothu háinhựadụng cụ</span>
+              <Button v-if="tree.mature" :icon-size="12" :icon="Axe" @click.stop="handleChopTree(tree.id)">Đốn gỗ</Button>
             </div>
           </div>
         </div>
         <div v-else class="flex flex-col items-center justify-center py-4 text-muted mb-2">
           <TreePine :size="32" class="text-muted/30" />
-          <p class="text-xs mt-2">暂无野树</p>
-          <p class="text-[10px] text-muted/60 mt-0.5">可使用野树种子种植</p>
+          <p class="text-xs mt-2">tạmkhông Cây hoang</p>
+          <p class="text-[10px] text-muted/60 mt-0.5">có thể Sử dụngCây hoangHạt giốngtrồng</p>
         </div>
         <div v-if="plantableWildSeeds.length > 0 && farmStore.wildTrees.length < MAX_WILD_TREES" class="flex space-x-1.5 flex-wrap">
           <Button v-for="s in plantableWildSeeds" :key="s.type" :icon-size="12" :icon="TreePine" @click="handlePlantWildTree(s.type)">
-            种{{ s.name }} (×{{ s.count }})
+            giống{{ s.name }} (×{{ s.count }})
           </Button>
         </div>
       </div>
@@ -855,9 +855,9 @@
           </button>
           <div class="flex items-center space-x-1.5 text-sm text-accent mb-1">
             <Warehouse :size="14" />
-            <span>温室</span>
+            <span>Nhà kính</span>
           </div>
-          <p class="text-xs text-muted mb-3">无季节限制 · 自动浇水 · {{ farmStore.greenhousePlots.length }}块地</p>
+          <p class="text-xs text-muted mb-3">không mùalễgiới hạnchế · tự độngtưới nước · {{ farmStore.greenhousePlots.length }}ôđất</p>
 
           <!-- 操作按钮 -->
           <div class="flex space-x-2 mb-3">
@@ -869,7 +869,7 @@
               :icon="Wheat"
               @click="doGhBatchHarvest"
             >
-              一键收获{{ ghHarvestableCount > 0 ? ` (${ghHarvestableCount}块)` : '' }}
+              mộtphímthunhận{{ ghHarvestableCount > 0 ? ` (${ghHarvestableCount} ô)` : '' }}
             </Button>
             <Button
               class="flex-1 justify-center"
@@ -878,10 +878,10 @@
               :icon="Sprout"
               @click="showGhBatchPlant = true"
             >
-              一键种植{{ ghTilledEmptyCount > 0 ? ` (${ghTilledEmptyCount}块)` : '' }}
+              mộtphímgiốngtrồng{{ ghTilledEmptyCount > 0 ? ` (${ghTilledEmptyCount} ô)` : '' }}
             </Button>
             <Button v-if="nextGhUpgrade" class="flex-1 justify-center" :icon-size="12" :icon="ArrowUp" @click="showGhUpgradeModal = true">
-              升级温室
+              tăngcấpấmphòng
             </Button>
           </div>
 
@@ -924,8 +924,8 @@
 
           <div class="border border-accent/10 rounded-xs p-2 mb-3">
             <div class="flex items-center justify-between text-xs mb-1">
-              <span class="text-muted">费用</span>
-              <span :class="playerStore.money >= nextGhUpgrade.cost ? 'text-success' : 'text-danger'">{{ nextGhUpgrade.cost }}文</span>
+              <span class="text-muted">Chi phí</span>
+              <span :class="playerStore.money >= nextGhUpgrade.cost ? 'text-success' : 'text-danger'">{{ nextGhUpgrade.cost }}văn</span>
             </div>
             <div v-for="mat in nextGhUpgrade.materialCost" :key="mat.itemId" class="flex items-center justify-between text-xs">
               <span class="text-muted">{{ getItemName(mat.itemId) }}</span>
@@ -936,8 +936,8 @@
           </div>
 
           <div class="flex space-x-2">
-            <Button class="flex-1" @click="showGhUpgradeModal = false">取消</Button>
-            <Button class="flex-1 !bg-accent !text-bg" :icon-size="12" :icon="ArrowUp" @click="handleGhUpgrade">确认升级</Button>
+            <Button class="flex-1" @click="showGhUpgradeModal = false">Hủy</Button>
+            <Button class="flex-1 !bg-accent !text-bg" :icon-size="12" :icon="ArrowUp" @click="handleGhUpgrade">xác nhận Nâng cấp</Button>
           </div>
         </div>
       </div>
@@ -954,8 +954,8 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="showGhBatchPlant = false">
             <X :size="14" />
           </button>
-          <p class="text-accent text-sm mb-2">温室一键种植</p>
-          <p class="text-xs text-muted mb-2">空耕地 {{ ghTilledEmptyCount }} 块，选择要种植的种子：</p>
+          <p class="text-accent text-sm mb-2">Nhà kínhmộtphímtrồng</p>
+          <p class="text-xs text-muted mb-2">lépcanh tácđất {{ ghTilledEmptyCount }} ô，chọn muốn trồng của Hạt giống：</p>
           <div class="flex flex-col space-y-1 max-h-60 overflow-y-auto">
             <button
               v-for="seed in allSeeds"
@@ -965,14 +965,14 @@
             >
               <span>
                 {{ seed.name }}
-                <span v-if="seed.regrowth" class="text-success ml-1">[多茬]</span>
+                <span v-if="seed.regrowth" class="text-success ml-1">[Nhiều vụ]</span>
               </span>
               <span class="text-muted">×{{ seed.count }}</span>
             </button>
           </div>
           <div v-if="allSeeds.length === 0" class="flex flex-col items-center py-4">
             <Sprout :size="32" class="text-muted/30" />
-            <p class="text-xs text-muted mt-2">没有可种植的种子</p>
+            <p class="text-xs text-muted mt-2">không cócó thể trồng của Hạt giống</p>
           </div>
         </div>
       </div>
@@ -989,25 +989,25 @@
           <button class="absolute top-2 right-2 text-muted hover:text-text" @click="activeGhPlotId = null">
             <X :size="14" />
           </button>
-          <p class="text-accent text-sm mb-2">温室地块 #{{ activeGhPlot.id + 1 }}</p>
+          <p class="text-accent text-sm mb-2">Nhà kínhđấtô #{{ activeGhPlot.id + 1 }}</p>
 
           <div class="border border-accent/10 rounded-xs p-2 mb-2">
             <div class="flex flex-col space-y-1">
               <div class="flex items-center justify-between">
-                <span class="text-xs text-muted">状态</span>
+                <span class="text-xs text-muted">Trạng thái</span>
                 <span class="text-xs">{{ ghPlotStateLabel }}</span>
               </div>
               <div v-if="activeGhPlot.cropId" class="flex items-center justify-between">
-                <span class="text-xs text-muted">作物</span>
+                <span class="text-xs text-muted">Nông sản</span>
                 <span class="text-xs">
                   {{ getCropName(activeGhPlot.cropId) }}
                   <span v-if="ghPlotCropRegrowth" class="text-success ml-1">
-                    [多茬 {{ activeGhPlot.harvestCount }}/{{ ghPlotCropMaxHarvests }}]
+                    [nhiềuvụ {{ activeGhPlot.harvestCount }}/{{ ghPlotCropMaxHarvests }}]
                   </span>
                 </span>
               </div>
               <div v-if="activeGhPlot.cropId && activeGhPlot.state !== 'harvestable'" class="flex items-center space-x-2">
-                <span class="text-xs text-muted shrink-0">生长</span>
+                <span class="text-xs text-muted shrink-0">Sinh trưởng</span>
                 <div class="flex-1 h-1 bg-bg rounded-xs border border-accent/10">
                   <div
                     class="h-full rounded-xs bg-success transition-all"
@@ -1016,19 +1016,19 @@
                     }"
                   />
                 </div>
-                <span class="text-xs text-muted whitespace-nowrap">{{ activeGhPlot.growthDays }}/{{ ghPlotCropGrowthDays }}天</span>
+                <span class="text-xs text-muted whitespace-nowrap">{{ activeGhPlot.growthDays }}/{{ ghPlotCropGrowthDays }}ngày</span>
               </div>
               <div class="flex items-center justify-between">
-                <span class="text-xs text-muted">特性</span>
-                <span class="text-xs text-water">自动浇水 · 无季节限制</span>
+                <span class="text-xs text-muted">đặctính</span>
+                <span class="text-xs text-water">Tưới tự động · Không giới hạn mùa</span>
               </div>
               <div v-if="activeGhPlot.seedGenetics" class="flex items-center justify-between">
-                <span class="text-xs text-muted">育种</span>
+                <span class="text-xs text-muted">Nhân giống</span>
                 <span class="text-xs text-accent">
-                  G{{ activeGhPlot.seedGenetics.generation }} 甜{{ activeGhPlot.seedGenetics.sweetness }} 产{{
+                  G{{ activeGhPlot.seedGenetics.generation }} ngọt{{ activeGhPlot.seedGenetics.sweetness }} sản{{
                     activeGhPlot.seedGenetics.yield
                   }}
-                  抗{{ activeGhPlot.seedGenetics.resistance }}
+                  kháng{{ activeGhPlot.seedGenetics.resistance }}
                 </span>
               </div>
             </div>
@@ -1044,11 +1044,11 @@
               :icon="Wheat"
               @click="doGhHarvest"
             >
-              收获
+              Thu hoạch
             </Button>
             <!-- 已耕 → 种植（温室不限季节，所有种子都能种） -->
             <template v-if="activeGhPlot.state === 'tilled' && allSeeds.length > 0">
-              <Divider label="种植" />
+              <Divider label="Gieo trồng" />
               <button
                 v-for="seed in allSeeds"
                 :key="seed.cropId"
@@ -1057,14 +1057,14 @@
               >
                 <span>
                   {{ seed.name }}
-                  <span v-if="seed.regrowth" class="text-success ml-1">[多茬]</span>
+                  <span v-if="seed.regrowth" class="text-success ml-1">[Nhiều vụ]</span>
                 </span>
                 <span class="text-muted">×{{ seed.count }}</span>
               </button>
             </template>
             <!-- 已耕 → 育种种子种植 -->
             <template v-if="activeGhPlot.state === 'tilled' && ghPlantableBreedingSeeds.length > 0">
-              <Divider label="育种种子" class="!my-2" />
+              <Divider label="Hạt giống lai tạo" class="!my-2" />
               <button
                 v-for="seed in ghPlantableBreedingSeeds"
                 :key="seed.genetics.id"
@@ -1083,8 +1083,8 @@
               class="flex flex-col items-center py-4"
             >
               <Sprout :size="32" class="text-muted/30" />
-              <p class="text-xs text-muted mt-2">背包中没有种子</p>
-              <Button v-if="isWanwupuOpen" class="mt-2" :icon-size="12" :icon="Store" @click="goToShop">前往商店购买</Button>
+              <p class="text-xs text-muted mt-2">Trong túi không có hạt giống</p>
+              <Button v-if="isWanwupuOpen" class="mt-2" :icon-size="12" :icon="Store" @click="goToShop">Đến cửa hàng mua</Button>
               <p v-else class="text-[10px] text-muted/60 mt-1">
                 {{ wanwupuClosedReason }}
               </p>
@@ -1184,25 +1184,25 @@
   const shopStore = useShopStore()
   const breedingStore = useBreedingStore()
 
-  // === 田庄特殊功能 ===
+  // === ruộngtrangđặcđặc biệtcôngnăng ===
 
   const tutorialStore = useTutorialStore()
   const tutorialHint = computed(() => {
     if (!tutorialStore.enabled || gameStore.year > 1) return null
-    if (farmStore.plots.every(p => p.state === 'wasteland')) return '点击下方「一键操作」→「一键开垦」来开垦荒地，或直接点击地块逐一操作。'
+    if (farmStore.plots.every(p => p.state === 'wasteland')) return 'Nhấn 「Thao tác một chạm」→「Khai hoang một chạm」 bên dưới để khai hoang, hoặc bấm từng ô đất để thao tác.'
     const hasPlanted = farmStore.plots.some(p => p.state === 'planted' || p.state === 'growing' || p.state === 'harvestable')
     if (!hasPlanted && farmStore.plots.some(p => p.state === 'tilled'))
-      return '已开垦的地块可以种植作物。使用「一键种植」可批量播种背包中的种子。'
+      return 'Đất đã khai hoang có thể trồng cây. Dùng 「Trồng một chạm」 để gieo hàng loạt hạt giống trong túi.'
     if (farmStore.plots.some(p => (p.state === 'planted' || p.state === 'growing') && !p.watered) && !gameStore.isRainy)
-      return '作物需要每天浇水才会生长。「一键浇水」可一次浇完所有作物。'
-    if (farmStore.plots.some(p => p.state === 'harvestable')) return '金色高亮的地块表示作物已成熟，点击「一键收获」即可批量收获。'
+      return 'Cây trồng cần được tưới mỗi ngày để sinh trưởng. 「Tưới một chạm」 có thể tưới toàn bộ cây cùng lúc.'
+    if (farmStore.plots.some(p => p.state === 'harvestable')) return 'Ô đất được tô vàng nghĩa là cây đã chín, nhấn 「Thu hoạch một chạm」 để thu hoạch hàng loạt.'
     return null
   })
 
   const surfaceOreName = computed(() => {
     const patch = gameStore.surfaceOrePatch
     if (!patch) return ''
-    return getItemById(patch.oreId)?.name ?? '矿石'
+    return getItemById(patch.oreId)?.name ?? 'Quặng'
   })
 
   const handleCollectCreekCatch = () => {
@@ -1221,10 +1221,10 @@
     }
     gameStore.creekCatch = failed
     if (names.length > 0) {
-      addLog(`收取了溪流鱼获：${names.join('、')}。`)
+      addLog(`Đã thu cá từ suối: ${names.join(', ')}.`)
     }
     if (failed.length > 0) {
-      addLog('背包已满，部分鱼获未能收取。')
+      addLog('Túi đã đầy, một phần cá không thể thu.')
     }
   }
 
@@ -1232,26 +1232,26 @@
     const patch = gameStore.surfaceOrePatch
     if (!patch) return
     if (!playerStore.consumeStamina(5)) {
-      addLog('体力不足，无法开采。')
+      addLog('Không đủ thể lực để khai thác.')
       return
     }
     const added = inventoryStore.addItem(patch.oreId, patch.quantity)
     if (!added) {
       playerStore.restoreStamina(5)
-      addLog('背包已满，无法开采。')
+      addLog('Túi đã đầy, không thể khai thác.')
       return
     }
-    const oreName = getItemById(patch.oreId)?.name ?? '矿石'
+    const oreName = getItemById(patch.oreId)?.name ?? 'Quặng'
     const skillStore = useSkillStore()
     skillStore.addExp('mining', 8)
     gameStore.surfaceOrePatch = null
-    addLog(`开采了地表矿脉，获得了${patch.quantity}个${oreName}。(+8挖矿经验)`)
+    addLog(`Khai thác mạch quặng trên mặt đất, nhận ${patch.quantity} ${oreName}. (+8 kinh nghiệm khai mỏ)`)
     const tr = gameStore.advanceTime(1)
     if (tr.message) addLog(tr.message)
     if (tr.passedOut) handleEndDay()
   }
 
-  // === 出货箱 ===
+  // === rahàngrương ===
 
   const showShippingBox = ref(false)
   const showBatchPlant = ref(false)
@@ -1288,7 +1288,7 @@
   })
 
   const wanwupuClosedReason = computed(() => {
-    return '万物铺' + getShopClosedReason(wanwupu, gameStore.day, gameStore.hour, gameStore.weather, gameStore.season)
+    return 'Tiệm Vạn Vật' + getShopClosedReason(wanwupu, gameStore.day, gameStore.hour, gameStore.weather, gameStore.season)
   })
 
   const getItemName = (itemId: string): string => getItemById(itemId)?.name ?? itemId
@@ -1313,18 +1313,18 @@
   const handleAddToBox = (itemId: string, quantity: number, quality: Quality) => {
     if (shopStore.addToShippingBox(itemId, quantity, quality)) {
       const name = getItemName(itemId)
-      addLog(`将${name}×${quantity}放入了出货箱。`)
+      addLog(`Đã đặt ${name}×${quantity} vào thùng hàng.`)
     }
   }
 
   const handleRemoveFromBox = (itemId: string, quantity: number, quality: Quality) => {
     if (shopStore.removeFromShippingBox(itemId, quantity, quality)) {
       const name = getItemName(itemId)
-      addLog(`从出货箱取出了${name}×${quantity}。`)
+      addLog(`Đã lấy ${name}×${quantity} khỏi thùng hàng.`)
     }
   }
 
-  // === 地块弹窗状态 ===
+  // === đấtôđạncửa sổtrạng tháitrạng thái ===
 
   const activePlotId = ref<number | null>(null)
   const activePlot = computed(() => (activePlotId.value !== null ? (farmStore.plots.find(p => p.id === activePlotId.value) ?? null) : null))
@@ -1332,14 +1332,14 @@
   const activeGhPlotId = ref<number | null>(null)
   const activeGhPlot = computed(() => (activeGhPlotId.value !== null ? (farmStore.greenhousePlots[activeGhPlotId.value] ?? null) : null))
 
-  // === 弹窗显示辅助 ===
+  // === đạncửa sổhiểnhiển thịhỗ trợgiúp ===
 
   const STATE_LABELS: Record<string, string> = {
-    wasteland: '荒地',
-    tilled: '已耕',
-    planted: '已种',
-    growing: '生长中',
-    harvestable: '可收获'
+    wasteland: 'Đất hoang',
+    tilled: 'Đã cày',
+    planted: 'Đã gieo',
+    growing: 'Đang sinh trưởng',
+    harvestable: 'Có thể thu hoạch'
   }
 
   const plotStateLabel = computed(() => (activePlot.value ? (STATE_LABELS[activePlot.value.state] ?? '?') : ''))
@@ -1398,7 +1398,7 @@
     return activePlot.value.state !== 'wasteland' && !activePlot.value.fertilizer
   })
 
-  // === 背包物品列表 ===
+  // === lưnggóivậtphẩmdanh sáchbảng ===
 
   const sprinklerItems = computed(() => {
     const types: {
@@ -1410,19 +1410,19 @@
       {
         type: 'bamboo_sprinkler',
         itemId: 'bamboo_sprinkler',
-        name: '竹筒洒水器',
+        name: 'Vòi Phun Nước Ống Tre',
         colorClass: ''
       },
       {
         type: 'copper_sprinkler',
         itemId: 'copper_sprinkler',
-        name: '铜管洒水器',
+        name: 'Vòi Phun Nước Ống Đồng',
         colorClass: 'text-quality-fine'
       },
       {
         type: 'gold_sprinkler',
         itemId: 'gold_sprinkler',
-        name: '金管洒水器',
+        name: 'Vòi Phun Nước Ống Vàng',
         colorClass: 'text-quality-supreme'
       }
     ]
@@ -1472,7 +1472,7 @@
     return result
   })
 
-  /** 当季可种的育种种子 */
+  /** khimùa可giống的nuôigiốnggiốngcon */
   const plantableBreedingSeeds = computed(() => {
     const season = gameStore.season
     return breedingStore.breedingBox.filter(seed => {
@@ -1482,7 +1482,7 @@
     })
   })
 
-  /** 根据作物售价返回品质颜色 */
+  /** căntheolàmvậtbángiátrả lạivềphẩmchấtmàu sắcmàu */
   const cropValueColor = (sellPrice: number): string => {
     if (sellPrice >= 180) return 'text-quality-supreme'
     if (sellPrice >= 100) return 'text-quality-excellent'
@@ -1490,7 +1490,7 @@
     return ''
   }
 
-  /** 根据道具价格返回品质颜色 */
+  /** căntheođạocông cụgiáôtrả lạivềphẩmchấtmàu sắcmàu */
   const itemValueColor = (price: number): string => {
     if (price >= 100) return 'text-quality-supreme'
     if (price >= 75) return 'text-quality-excellent'
@@ -1498,7 +1498,7 @@
     return ''
   }
 
-  // === 地块显示 ===
+  // === đấtôhiểnhiển thị ===
 
   const getCropName = (cropId: string): string => {
     const crop = getCropById(cropId)
@@ -1509,7 +1509,7 @@
     return farmStore.sprinklers.some(s => s.plotId === plotId)
   }
 
-  /** 洒水器覆盖范围（含放置洒水器的地块自身） */
+  /** tướinướcdụng cụphủnắpphạm vivùng（bao gồmđặtđặttướinướcdụng cụ的đấtôtựthân） */
   const sprinklerCoverage = computed(() => farmStore.getAllWateredBySprinklers())
 
   const isSprinklerCovered = (plotId: number): boolean => sprinklerCoverage.value.has(plotId)
@@ -1527,18 +1527,18 @@
   const weedyCount = computed(() => farmStore.plots.filter(p => p.weedy).length)
 
   const PLOT_LEGENDS: { icon: Component; color: string; label: string }[] = [
-    { icon: Shovel, color: 'text-muted', label: '荒地' },
-    { icon: Square, color: 'text-earth', label: '已耕' },
-    { icon: Sprout, color: 'text-success/60', label: '已种' },
-    { icon: Flower2, color: 'text-success', label: '生长中' },
-    { icon: Droplets, color: 'text-water', label: '已浇水' },
-    { icon: Wheat, color: 'text-accent', label: '可收获' },
-    { icon: Star, color: 'text-accent', label: '巨型' },
-    { icon: Droplet, color: 'text-water', label: '洒水器' },
-    { icon: CirclePlus, color: 'text-success', label: '肥料' },
-    { icon: Droplets, color: 'text-danger', label: '需浇水' },
-    { icon: Bug, color: 'text-danger', label: '虫害' },
-    { icon: Leaf, color: 'text-success', label: '杂草' }
+    { icon: Shovel, color: 'text-muted', label: 'Đất hoang' },
+    { icon: Square, color: 'text-earth', label: 'Đã cày' },
+    { icon: Sprout, color: 'text-success/60', label: 'Đã gieo' },
+    { icon: Flower2, color: 'text-success', label: 'Đang sinh trưởng' },
+    { icon: Droplets, color: 'text-water', label: 'Đã tưới nước' },
+    { icon: Wheat, color: 'text-accent', label: 'Có thể thu hoạch' },
+    { icon: Star, color: 'text-accent', label: 'Khổng lồ' },
+    { icon: Droplet, color: 'text-water', label: 'Vòi phun nước' },
+    { icon: CirclePlus, color: 'text-success', label: 'Phân bón' },
+    { icon: Droplets, color: 'text-danger', label: 'Cần tưới nước' },
+    { icon: Bug, color: 'text-danger', label: 'Sâu bệnh' },
+    { icon: Leaf, color: 'text-success', label: 'Cỏ dại' }
   ]
 
   const plotWarnings = computed(() => {
@@ -1546,10 +1546,10 @@
     if (unwateredCount.value > 0)
       list.push({
         color: 'text-danger',
-        text: `还有${unwateredCount.value}块需浇水`
+        text: `Còn ${unwateredCount.value} ô cần tưới`
       })
-    if (infestedCount.value > 0) list.push({ color: 'text-danger', text: `有${infestedCount.value}块虫害` })
-    if (weedyCount.value > 0) list.push({ color: 'text-success', text: `有${weedyCount.value}块杂草` })
+    if (infestedCount.value > 0) list.push({ color: 'text-danger', text: `Có ${infestedCount.value} ô bị sâu bệnh` })
+    if (weedyCount.value > 0) list.push({ color: 'text-success', text: `Có ${weedyCount.value} ô có cỏ dại` })
     return list
   })
 
@@ -1563,7 +1563,7 @@
     else if (action === 'curePest') handleBatchCurePest()
     else if (action === 'clearWeed') handleBatchClearWeed()
   }
-  /** 按cropId分组的当季育种种子（用于一键种植弹窗） */
+  /** nhấncropIdđiểmnhóm的khimùanuôigiốnggiốngcon（dùngtạimộtphímgiốngtrồngđạncửa sổ） */
   const batchBreedingSeedGroups = computed(() => {
     const groups: Record<
       string,
@@ -1603,7 +1603,7 @@
     const cookingStore = useCookingStore()
     const targets = farmStore.plots.filter(p => p.state === 'tilled')
     if (targets.length === 0) {
-      addLog('没有可种植的空耕地。')
+      addLog('Không có ô đất trống để gieo trồng.')
       showBatchPlant.value = false
       return
     }
@@ -1633,11 +1633,11 @@
       }
     }
     if (planted > 0) {
-      addLog(`一键种植了${planted}株育种种子（${getCropName(cropId)}）。(-${planted}体力)`)
+      addLog(`Đã trồng một chạm ${planted} hạt giống lai tạo (${getCropName(cropId)}). (-${planted} thể lực)`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.plant * planted)
       if (tr.message) addLog(tr.message)
     } else {
-      addLog('体力不足，无法种植。')
+      addLog('Không đủ thể lực để trồng.')
     }
     showBatchPlant.value = false
   }
@@ -1665,15 +1665,15 @@
   }
 
   const getPlotDisplay = (plot: (typeof farmStore.plots)[number]): { icon: Component; color: string; bg: string } => {
-    // 巨型作物特殊显示（仅在已成熟时才显示巨型图标）
+    // khổng lồloạilàmvậtđặcđặc biệthiểnhiển thị（chỉđangđã成chínthờimớihiểnhiển thịkhổng lồloạibộ sưu tậpnhãn）
     if (plot.giantCropGroup !== null && plot.state === 'harvestable') {
       return { icon: Star, color: 'text-accent', bg: 'bg-accent/10' }
     }
-    // 虫害显示
+    // sâuhạihiểnhiển thị
     if (plot.infested) {
       return { icon: Bug, color: 'text-danger', bg: 'bg-danger/10' }
     }
-    // 杂草显示
+    // tạpcỏhiểnhiển thị
     if (plot.weedy) {
       return { icon: Leaf, color: 'text-success/70', bg: 'bg-success/10' }
     }
@@ -1709,29 +1709,29 @@
 
   const getPlotTooltip = (plot: (typeof farmStore.plots)[number]): string => {
     let tip = ''
-    if (plot.state === 'wasteland') tip = '荒地（点击开垦）'
-    else if (plot.state === 'tilled') tip = '已耕地（点击播种）'
+    if (plot.state === 'wasteland') tip = 'Đất hoang (nhấn để khai hoang)'
+    else if (plot.state === 'tilled') tip = 'Đất đã cày (nhấn để gieo)'
     else if (plot.state === 'harvestable') {
       const crop = getCropById(plot.cropId!)
-      tip = `${crop?.name ?? ''}已成熟（点击收获）`
+      tip = `${crop?.name ?? ''} đã chín (nhấn để thu hoạch)`
     } else if (plot.state === 'planted' || plot.state === 'growing') {
       const crop = getCropById(plot.cropId!)
       const fertDef = plot.fertilizer ? getFertilizerById(plot.fertilizer) : null
       const speedup = (fertDef?.growthSpeedup ?? 0) + useWalletStore().getCropGrowthBonus()
       const effectiveDays = crop ? (speedup > 0 ? Math.max(1, Math.floor(crop.growthDays * (1 - speedup))) : crop.growthDays) : '?'
-      tip = `${crop?.name ?? ''} ${plot.growthDays}/${effectiveDays}天 ${plot.watered ? '已浇水' : '需浇水'}`
+      tip = `${crop?.name ?? ''} ${plot.growthDays}/${effectiveDays} ngày ${plot.watered ? 'Đã tưới' : 'Cần tưới'}`
     }
-    if (hasSprinkler(plot.id)) tip += ' [洒水器]'
+    if (hasSprinkler(plot.id)) tip += ' [Vòi phun]'
     if (plot.fertilizer) {
       const fertDef = getFertilizerById(plot.fertilizer)
       tip += ` [${fertDef?.name ?? plot.fertilizer}]`
     }
-    if (plot.infested) tip += ` [虫害${plot.infestedDays}天]`
-    if (plot.weedy) tip += ` [杂草${plot.weedyDays}天]`
+    if (plot.infested) tip += ` [Sâu bệnh ${plot.infestedDays} ngày]`
+    if (plot.weedy) tip += ` [Cỏ dại ${plot.weedyDays} ngày]`
     return tip
   }
 
-  // === 弹窗操作：农场 ===
+  // === đạncửa sổthao táclàm：nôngtrận ===
 
   const doTill = () => {
     if (activePlotId.value === null) return
@@ -1754,7 +1754,7 @@
     if (!seed) return
     if (farmStore.plantGeneticSeed(activePlotId.value, seed.genetics)) {
       breedingStore.removeFromBox(seedId)
-      addLog(`种下了育种种子：${getCropName(seed.genetics.cropId)} G${seed.genetics.generation}。`)
+      addLog(`Đã gieo hạt giống lai tạo: ${getCropName(seed.genetics.cropId)} G${seed.genetics.generation}.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.plant)
       if (tr.message) addLog(tr.message)
     }
@@ -1776,8 +1776,8 @@
       if (result) {
         inventoryStore.addItem(result.cropId, result.quantity)
         const cropName = getCropName(result.cropId)
-        addLog(`收获了巨型${cropName}！获得了${result.quantity}个${cropName}！`)
-        showFloat(`巨型${cropName} ×${result.quantity}`, 'accent')
+        addLog(`Thu hoạch ${cropName} khổng lồ! Nhận ${result.quantity} ${cropName}!`)
+        showFloat(`${cropName} khổng lồ ×${result.quantity}`, 'accent')
         sfxHarvest()
       }
       activePlotId.value = null
@@ -1791,15 +1791,15 @@
   const doFertilize = (type: FertilizerType) => {
     if (activePlotId.value === null) return
     if (!inventoryStore.removeItem(type)) {
-      addLog('没有该肥料了。')
+      addLog('Không còn loại phân này.')
       return
     }
     if (farmStore.applyFertilizer(activePlotId.value, type)) {
       const fertDef = getFertilizerById(type)
-      addLog(`施了${fertDef?.name ?? '肥料'}。`)
+      addLog(`Đã bón ${fertDef?.name ?? 'phân bón'}.`)
     } else {
       inventoryStore.addItem(type)
-      addLog('无法在此施肥（需要已开垦且未施肥的地块）。')
+      addLog('Không thể bón phân tại đây (cần ô đất đã khai hoang và chưa bón).')
     }
     activePlotId.value = null
   }
@@ -1807,14 +1807,14 @@
   const doPlaceSprinkler = (type: SprinklerType) => {
     if (activePlotId.value === null) return
     if (!inventoryStore.removeItem(type)) {
-      addLog('没有该洒水器了。')
+      addLog('Không còn vòi phun này.')
       return
     }
     if (farmStore.placeSprinkler(activePlotId.value, type)) {
-      addLog('放置了洒水器，周围地块将自动浇水。')
+      addLog('Đã đặt vòi phun, các ô xung quanh sẽ tự động được tưới.')
     } else {
       inventoryStore.addItem(type)
-      addLog('无法在此放置洒水器。')
+      addLog('Không thể đặt vòi phun tại đây.')
     }
     activePlotId.value = null
   }
@@ -1825,17 +1825,17 @@
     const type = farmStore.removeSprinkler(plotId)
     if (type) {
       if (inventoryStore.addItem(type)) {
-        addLog('拆除了洒水器，已回收到背包。')
+        addLog('Đã tháo vòi phun và thu hồi vào túi.')
       } else {
-        // 背包满，放回原处
+        // lưnggóiđầy，đặtvềnguyênnơi
         farmStore.placeSprinkler(plotId, type)
-        addLog('背包已满，无法回收洒水器。')
+        addLog('Túi đã đầy, không thể thu hồi vòi phun.')
       }
     }
     activePlotId.value = null
   }
 
-  // === 果树 ===
+  // === quảcây ===
 
   const getTreeName = (type: string): string => {
     return FRUIT_TREE_DEFS.find(d => d.type === type)?.name ?? type
@@ -1871,16 +1871,16 @@
     const def = FRUIT_TREE_DEFS.find(d => d.type === treeType)
     if (!def) return
     if (!inventoryStore.removeItem(def.saplingId)) {
-      addLog('背包中没有该树苗。')
+      addLog('Túi không có cây giống này.')
       return
     }
     if (farmStore.plantFruitTree(treeType)) {
-      addLog(`种下了${def.name}苗，需28天成熟。`)
+      addLog(`Đã trồng cây giống ${def.name}, cần 28 ngày để trưởng thành.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.plantTree)
       if (tr.message) addLog(tr.message)
     } else {
       inventoryStore.addItem(def.saplingId)
-      addLog(`果树位已满（最多${MAX_FRUIT_TREES}棵）。`)
+      addLog(`Đã đủ chỗ cây ăn quả (tối đa ${MAX_FRUIT_TREES} cây).`)
     }
   }
 
@@ -1889,11 +1889,11 @@
     if (!target) return
     chopFruitTreeTarget.value = null
     if (gameStore.isPastBedtime) {
-      addLog('太晚了，没法砍伐了。')
+      addLog('Muộn quá, không thể chặt cây.')
       return
     }
     if (!inventoryStore.isToolAvailable('axe')) {
-      addLog('斧头正在升级中，无法砍伐。')
+      addLog('Rìu đang được nâng cấp, không thể chặt cây.')
       return
     }
     const skillStore = useSkillStore()
@@ -1902,20 +1902,20 @@
       Math.floor(5 * inventoryStore.getToolStaminaMultiplier('axe') * (1 - skillStore.getStaminaReduction('foraging')))
     )
     if (!playerStore.consumeStamina(cost)) {
-      addLog('体力不足，无法砍伐。')
+      addLog('Không đủ thể lực để chặt cây.')
       return
     }
     const treeName = getTreeName(target.type)
     const woodQty = farmStore.removeFruitTree(target.id)
     if (woodQty > 0) {
       inventoryStore.addItem('wood', woodQty)
-      addLog(`砍掉了${treeName}，获得${woodQty}个木材。（体力-${cost}）`)
+      addLog(`Đã chặt ${treeName}, nhận ${woodQty} gỗ. (thể lực -${cost})`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.chopTree)
       if (tr.message) addLog(tr.message)
     }
   }
 
-  // === 野树 ===
+  // === hoang dãcây ===
 
   const getWildTreeName = (type: string): string => {
     return getWildTreeDef(type)?.name ?? type
@@ -1925,29 +1925,29 @@
     const def = WILD_TREE_DEFS.find(d => d.type === treeType)
     if (!def) return
     if (!inventoryStore.removeItem(def.seedItemId)) {
-      addLog('背包中没有该种子。')
+      addLog('Túi không có hạt giống này.')
       return
     }
     if (farmStore.plantWildTree(treeType)) {
-      addLog(`种下了${def.name}，需${def.growthDays}天成熟。`)
+      addLog(`Đã trồng ${def.name}, cần ${def.growthDays} ngày để trưởng thành.`)
       const tr = gameStore.advanceTime(ACTION_TIME_COSTS.plantTree)
       if (tr.message) addLog(tr.message)
     } else {
       inventoryStore.addItem(def.seedItemId)
-      addLog(`野树位已满（最多${MAX_WILD_TREES}棵）。`)
+      addLog(`Đã đủ chỗ cây hoang (tối đa ${MAX_WILD_TREES} cây).`)
     }
   }
 
   const handleAttachTapper = (treeId: number) => {
     if (!inventoryStore.removeItem('tapper')) {
-      addLog('背包中没有采脂器。')
+      addLog('Túi không có dụng cụ lấy nhựa.')
       return
     }
     if (farmStore.attachTapper(treeId)) {
-      addLog('安装了采脂器，将定期产出树脂。')
+      addLog('Đã lắp dụng cụ lấy nhựa, cây sẽ định kỳ cho nhựa.')
     } else {
       inventoryStore.addItem('tapper')
-      addLog('无法安装采脂器（需要已成熟且未装采脂器的野树）。')
+      addLog('Không thể lắp dụng cụ lấy nhựa (cần cây hoang đã trưởng thành và chưa lắp).')
     }
   }
 
@@ -1956,7 +1956,7 @@
     if (productId) {
       inventoryStore.addItem(productId)
       const def = WILD_TREE_DEFS.find(d => d.tapProduct === productId)
-      addLog(`收取了${def?.tapProductName ?? productId}！`)
+      addLog(`Đã thu ${def?.tapProductName ?? productId}!`)
     }
   }
 
@@ -1975,11 +1975,11 @@
     if (!target) return
     chopWildTreeTarget.value = null
     if (gameStore.isPastBedtime) {
-      addLog('太晚了，没法伐木了。')
+      addLog('Muộn quá, không thể đốn gỗ.')
       return
     }
     if (!inventoryStore.isToolAvailable('axe')) {
-      addLog('斧头正在升级中，无法伐木。')
+      addLog('Rìu đang được nâng cấp, không thể đốn gỗ.')
       return
     }
     const skillStore = useSkillStore()
@@ -1988,7 +1988,7 @@
       Math.floor(5 * inventoryStore.getToolStaminaMultiplier('axe') * (1 - skillStore.getStaminaReduction('foraging')))
     )
     if (!playerStore.consumeStamina(cost)) {
-      addLog('体力不足，无法伐木。')
+      addLog('Không đủ thể lực để đốn gỗ.')
       return
     }
     const baseQty = 2
@@ -1998,9 +1998,9 @@
     const { removed } = farmStore.chopWildTree(target.id)
     const treeName = getWildTreeName(target.type)
     if (removed) {
-      addLog(`伐木获得了${qty}个木材，${treeName}已被砍倒消失了。（体力-${cost}）`)
+      addLog(`Đốn cây nhận ${qty} gỗ, ${treeName} đã bị chặt hạ. (thể lực -${cost})`)
     } else {
-      addLog(`伐木获得了${qty}个木材。（体力-${cost}）`)
+      addLog(`Đốn cây nhận ${qty} gỗ. (thể lực -${cost})`)
     }
     const tr = gameStore.advanceTime(ACTION_TIME_COSTS.chopTree)
     if (tr.message) addLog(tr.message)
@@ -2031,18 +2031,18 @@
     }))
   })
 
-  // === 弹窗操作：温室 ===
+  // === đạncửa sổthao táclàm：ấmphòng ===
 
   const doGhPlant = (cropId: string) => {
     if (activeGhPlotId.value === null) return
     const crop = getCropById(cropId)
     if (!crop) return
     if (!inventoryStore.removeItem(crop.seedId)) {
-      addLog('背包中没有该种子了。')
+      addLog('Túi không còn hạt giống này.')
       return
     }
     if (farmStore.greenhousePlantCrop(activeGhPlotId.value, cropId)) {
-      addLog(`在温室中播种了${crop.name}。`)
+      addLog(`Đã gieo ${crop.name} trong nhà kính.`)
     } else {
       inventoryStore.addItem(crop.seedId)
     }
@@ -2052,7 +2052,7 @@
   const doGhHarvest = () => {
     if (activeGhPlotId.value === null) return
     if (!playerStore.consumeStamina(1)) {
-      addLog('体力不足，无法收获。')
+      addLog('Không đủ thể lực để thu hoạch.')
       return
     }
     const result = farmStore.greenhouseHarvestPlot(activeGhPlotId.value)
@@ -2063,7 +2063,7 @@
       const skillStore = useSkillStore()
       let quality = skillStore.rollCropQualityWithBonus(0)
       quality = applyCropBlessing(quality)
-      // 育种产量加成
+      // nuôigiốngsảnlượngthêm成
       const yieldDouble = genetics && Math.random() < (genetics.yield / 100) * 0.3
       const harvestQty = yieldDouble ? 2 : 1
       inventoryStore.addItem(cropId, harvestQty, quality)
@@ -2071,27 +2071,27 @@
       const qtyLabel = yieldDouble ? '×2' : ''
       sfxHarvest()
       showFloat(`+${cropDef?.name ?? cropId}${qtyLabel}${qualityLabel}`, 'success')
-      let msg = `在温室收获了${cropDef?.name ?? cropId}${qtyLabel}${qualityLabel}！(-1体力)`
-      if (yieldDouble) msg += ' 育种产量加成！'
+      let msg = `Thu hoạch ${cropDef?.name ?? cropId}${qtyLabel}${qualityLabel} trong nhà kính! (-1 thể lực)`
+      if (yieldDouble) msg += ' Thưởng sản lượng lai tạo!'
       // 育种甜度加成
       if (genetics && genetics.sweetness > 0 && cropDef) {
         const bonusMoney = Math.floor((cropDef.sellPrice * harvestQty * genetics.sweetness) / 200)
         if (bonusMoney > 0) {
           playerStore.earnMoney(bonusMoney)
-          msg += ` 甜度加成+${bonusMoney}文`
+          msg += ` Thưởng độ ngọt +${bonusMoney} văn`
         }
       }
-      // 杂交种记录
+      // tạpgiaogiốngghilục
       if (genetics?.isHybrid && genetics.hybridId) {
         breedingStore.recordHybridGrown(genetics.hybridId)
       }
-      // 育种种子回收
+      // nuôigiốnggiốngconvềthu
       if (genetics && shouldReturnBreedingSeed(quality)) {
         const returned: SeedGenetics = { ...genetics, id: generateGeneticsId() }
         if (breedingStore.addToBox(returned)) {
-          msg += ' 育种种子已回收。'
+          msg += ' Đã thu hồi hạt giống lai tạo.'
         } else {
-          msg += ' 种子箱已满，育种种子丢失！'
+          msg += ' Hộp hạt giống đã đầy, hạt giống lai tạo bị mất!'
         }
       }
       addLog(msg)
@@ -2125,11 +2125,11 @@
           }
         }
       }
-      // 杂交种记录
+      // tạpgiaogiốngghilục
       if (genetics?.isHybrid && genetics.hybridId) {
         breedingStore.recordHybridGrown(genetics.hybridId)
       }
-      // 育种种子回收
+      // nuôigiốnggiốngconvềthu
       if (genetics && shouldReturnBreedingSeed(quality)) {
         const returned: SeedGenetics = { ...genetics, id: generateGeneticsId() }
         if (breedingStore.addToBox(returned)) seedsReturned++
@@ -2137,17 +2137,17 @@
     }
     if (harvested > 0) {
       sfxHarvest()
-      showFloat(`温室收获 ×${harvested}`, 'success')
-      let msg = `在温室一键收获了${harvested}株作物。(-${harvested}体力)`
-      if (totalBonusMoney > 0) msg += ` 甜度加成+${totalBonusMoney}文`
+      showFloat(`Thu hoạch nhà kính ×${harvested}`, 'success')
+      let msg = `Đã thu hoạch một chạm ${harvested} cây trong nhà kính. (-${harvested} thể lực)`
+      if (totalBonusMoney > 0) msg += ` Thưởng độ ngọt +${totalBonusMoney} văn`
       addLog(msg)
     }
     if (seedsReturned > 0) {
-      addLog(`${seedsReturned}颗育种种子已回收到种子箱。`)
+      addLog(`Đã thu hồi ${seedsReturned} hạt giống lai tạo vào hộp hạt giống.`)
     }
   }
 
-  /** 温室可种育种种子（温室无季节限制，所有育种种子都可种） */
+  /** ấmphòng可giốngnuôigiốnggiốngcon（ấmphòngkhôngmùalễgiới hạnchế，điềucónuôigiốnggiốngconđều可giống） */
   const ghPlantableBreedingSeeds = computed(() => {
     return breedingStore.breedingBox.filter(seed => {
       const crop = getCropById(seed.genetics.cropId)
@@ -2161,7 +2161,7 @@
     if (!seed) return
     if (farmStore.greenhousePlantGeneticSeed(activeGhPlotId.value, seed.genetics)) {
       breedingStore.removeFromBox(seedId)
-      addLog(`在温室种下了育种种子：${getCropName(seed.genetics.cropId)} G${seed.genetics.generation}。`)
+      addLog(`Đã gieo hạt giống lai tạo trong nhà kính: ${getCropName(seed.genetics.cropId)} G${seed.genetics.generation}.`)
     }
     activeGhPlotId.value = null
   }
@@ -2181,10 +2181,10 @@
     }
     if (planted > 0) {
       sfxPlant()
-      showFloat(`温室种植 ${crop.name} ×${planted}`, 'success')
-      addLog(`在温室一键种植了${planted}株${crop.name}。(-${planted}体力)`)
+      showFloat(`Trồng trong nhà kính ${crop.name} ×${planted}`, 'success')
+      addLog(`Đã trồng một chạm ${planted} cây ${crop.name} trong nhà kính. (-${planted} thể lực)`)
     } else {
-      addLog('体力不足或种子不够，无法种植。')
+      addLog('Không đủ thể lực hoặc hạt giống, không thể gieo trồng.')
     }
     showGhBatchPlant.value = false
   }
@@ -2194,19 +2194,19 @@
     if (!upgrade) return
     for (const mat of upgrade.materialCost) {
       if (inventoryStore.getItemCount(mat.itemId) < mat.quantity) {
-        addLog('材料不足，无法升级温室。')
+        addLog('Thiếu nguyên liệu, không thể nâng cấp nhà kính.')
         return
       }
     }
     if (!playerStore.spendMoney(upgrade.cost)) {
-      addLog('铜钱不足，无法升级温室。')
+      addLog('Không đủ tiền, không thể nâng cấp nhà kính.')
       return
     }
     for (const mat of upgrade.materialCost) {
       inventoryStore.removeItem(mat.itemId, mat.quantity)
     }
     farmStore.upgradeGreenhouse(upgrade.plotCount)
-    addLog(`温室已升级至${upgrade.name}！（${upgrade.plotCount}个地块）`)
+    addLog(`Nhà kính đã nâng cấp lên ${upgrade.name}! (${upgrade.plotCount} ô đất)`)
     showGhUpgradeModal.value = false
   }
 </script>

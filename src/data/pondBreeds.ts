@@ -7,28 +7,28 @@ import type { PondBreedDef } from '@/types/fishPond'
 
 // [baseFishId, suffix, gen1, gen2, gen3, gen4, gen5]
 const SPECIES_CFG: [string, string, number, number, number, number, number][] = [
-  ['crucian', '鲫', 16, 8, 4, 3, 2],
-  ['carp', '鲤', 16, 8, 4, 3, 2],
-  ['grass_carp', '草鱼', 16, 8, 4, 3, 2],
-  ['golden_carp', '金鲤', 16, 8, 4, 3, 2],
-  ['koi', '锦鲤', 16, 8, 4, 3, 2],
-  ['pond_turtle', '龟', 15, 8, 4, 3, 2],
-  ['bass', '鲈', 15, 8, 4, 3, 2],
-  ['catfish', '鲶', 15, 8, 4, 3, 2],
-  ['yellow_eel', '鳝', 15, 8, 4, 3, 2],
-  ['rainbow_trout', '鳟', 15, 7, 4, 3, 2],
-  ['mud_loach', '泥鳅', 15, 7, 4, 0, 0],
-  ['pond_snail', '螺', 15, 7, 3, 0, 0],
-  ['cave_blindfish', '盲鱼', 15, 7, 3, 0, 0]
+  ['crucian', 'Cá diếc', 16, 8, 4, 3, 2],
+  ['carp', 'Cá chép', 16, 8, 4, 3, 2],
+  ['grass_carp', 'Cá trắm cỏ', 16, 8, 4, 3, 2],
+  ['golden_carp', 'Chép Vàng', 16, 8, 4, 3, 2],
+  ['koi', 'Chép Koi', 16, 8, 4, 3, 2],
+  ['pond_turtle', 'Rùa', 15, 8, 4, 3, 2],
+  ['bass', 'Cá vược', 15, 8, 4, 3, 2],
+  ['catfish', 'Cá trê', 15, 8, 4, 3, 2],
+  ['yellow_eel', 'Lươn', 15, 8, 4, 3, 2],
+  ['rainbow_trout', 'Cá hồi vân', 15, 7, 4, 3, 2],
+  ['mud_loach', 'Cá chạch', 15, 7, 4, 0, 0],
+  ['pond_snail', 'Ốc', 15, 7, 3, 0, 0],
+  ['cave_blindfish', 'Cá mù', 15, 7, 3, 0, 0]
 ]
 
 // === 命名前缀 ===
 
-const G1_PREFIXES = ['银', '金', '赤', '花', '墨', '翡', '月', '霜', '星', '云', '玉', '碧', '雪', '绯', '焰', '岚']
-const G2_PREFIXES = ['灵', '仙', '瑶', '幻', '梦', '神', '圣', '天']
-const G3_PREFIXES = ['琼光', '瑶华', '灵境', '仙域']
-const G4_PREFIXES = ['太古', '鸿蒙', '混沌']
-const G5_PREFIXES = ['化龙', '浴火']
+const G1_PREFIXES = ['Bạc', 'Vàng', 'Đỏ', 'Hoa', 'Mực', 'Phỉ thúy', 'Trăng', 'Sương', 'Sao', 'Mây', 'Ngọc', 'Bích', 'Tuyết', 'Đỏ thẫm', 'Ngọn lửa', 'Lam']
+const G2_PREFIXES = ['Linh', 'Tiên', 'Dao', 'Ảo', 'Mộng', 'Thần', 'Thánh', 'ngày']
+const G3_PREFIXES = ['Quỳnh Quang', 'Dao Hoa', 'Linh Cảnh', 'Tiên Vực']
+const G4_PREFIXES = ['Thái Cổ', 'Hồng Mông', 'Hỗn Độn']
+const G5_PREFIXES = ['Hóa Long', 'Tắm lửa']
 
 // === 配对算法 ===
 // 从 parentCount 个亲本中生成 childCount 个唯一配对
